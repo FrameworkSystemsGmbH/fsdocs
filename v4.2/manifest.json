@@ -14,11 +14,94 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "doc/comp/components.md",
+      "output": {
+        ".html": {
+          "relative_path": "doc/comp/components.html",
+          "hash": "E/MKYEBp+tcWHzOglx4Sww=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "doc/comp/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/comp/toc.html",
+          "hash": "gV+eIkxs1fS4fFekyfzrNw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "doc/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "doc/index.html",
+          "hash": "vjEOiow9pWX7MqjVKlke+w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "doc/mdt/media/mdt-designer.png",
+      "output": {
+        "resource": {
+          "relative_path": "doc/mdt/media/mdt-designer.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "doc/mdt/metadatentypen.md",
+      "output": {
+        ".html": {
+          "relative_path": "doc/mdt/metadatentypen.html",
+          "hash": "VT1KRq+FDCRKSpZSmteXzQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "doc/mdt/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/mdt/toc.html",
+          "hash": "um2MZ1cRL2sMs/OW5TU9DA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "doc/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/toc.html",
+          "hash": "I8e0vyxCw7dUG8hy8VmS9Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
           "relative_path": "index.html",
-          "hash": "a2UhAPZG6Du8dI27eXRFxA=="
+          "hash": "Dy939f7tCEO0Iebc1+gfjQ=="
         }
       },
       "is_incremental": false,
@@ -402,7 +485,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "+O8KPIGU6F44+eiAOtJIqA=="
+          "hash": "Wgn3hQXimVcg0vkidDqP1Q=="
         }
       },
       "is_incremental": false,
@@ -412,30 +495,39 @@
   "incremental_info": [
     {
       "status": {
-        "can_incremental": true,
+        "can_incremental": false,
+        "details": "Cannot build incrementally because last build info is missing.",
         "incrementalPhase": "build",
         "total_file_count": 0,
-        "skipped_file_count": 0
+        "skipped_file_count": 0,
+        "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 4,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 30,
+          "skipped_file_count": 0
+        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
           "total_file_count": 0,
           "skipped_file_count": 0
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 30,
-          "skipped_file_count": 30
-        },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 1,
-          "skipped_file_count": 1
         }
       }
     },

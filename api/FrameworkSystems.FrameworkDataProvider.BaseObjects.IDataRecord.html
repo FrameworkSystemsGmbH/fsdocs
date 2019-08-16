@@ -1,0 +1,699 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IDataRecord
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IDataRecord
+   ">
+    <meta name="generator" content="docfx 2.43.5.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord">
+  
+  
+  <h1 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord" class="text-break">Interface IDataRecord
+  </h1>
+  <div class="markdown level0 summary"><p>Summary description for IRecord.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.IComparable.CompareTo(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.IDisposable.Dispose()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.html">FrameworkSystems.FrameworkDataProvider.BaseObjects</a></h6>
+  <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkDataProvider.dll</h6>
+  <h5 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface IDataRecord : IComparable, IDataComponent, IDisposable</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_Collections_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.Collections*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_Collections" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.Collections">Collections</h4>
+  <div class="markdown level1 summary"><p>Sammlung von DataCollections zu der der DataRecord gehört</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IList Collections { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.IList</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_ID_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.ID*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_ID" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.ID">ID</h4>
+  <div class="markdown level1 summary"><p>ID des DataRecords</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">guid ID { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_IsAdded_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.IsAdded*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_IsAdded" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.IsAdded">IsAdded</h4>
+  <div class="markdown level1 summary"><p>Kennzeichen, ob der DataRecord einer Sammlung (<a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataCollection.html">IDataCollection</a>) hinzugefügt wurde</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsAdded { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_IsDeleted_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.IsDeleted*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_IsDeleted" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.IsDeleted">IsDeleted</h4>
+  <div class="markdown level1 summary"><p>Kennzeichen, ob der DataRecord in einer Sammlung (<a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataCollection.html">IDataCollection</a>) gelöscht wurde
+Der DataRecord ist hierbei der Sammlung als gelöschter Datensatz bekannt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsDeleted { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_IsDetached_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.IsDetached*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_IsDetached" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.IsDetached">IsDetached</h4>
+  <div class="markdown level1 summary"><p>Kennzeichen, ob der DataRecord aus einer Sammlung (<a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataCollection.html">IDataCollection</a>) gelöscht wurde.
+Der DataRecord ist hierbei der Sammlung nicht mehr als gelöschter Datensatz bekannt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsDetached { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_IsModified_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.IsModified*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_IsModified" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.IsModified">IsModified</h4>
+  <div class="markdown level1 summary"><p>Kennzeichen, ob sich der DataRecord seit seiner Instantiierung bzw. seiner letzten Speicherung
+geändert hat</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsModified { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_IsRemoved_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.IsRemoved*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_IsRemoved" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.IsRemoved">IsRemoved</h4>
+  <div class="markdown level1 summary"><p>Gibt an, ob der DataRecord gelöscht wurde. Dies entspricht: this.IsDeleted || this.IsDetached</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsRemoved { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_IsUnchanged_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.IsUnchanged*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_IsUnchanged" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.IsUnchanged">IsUnchanged</h4>
+  <div class="markdown level1 summary"><p>Kennzeichen, ob sich der DataRecord seit seiner Instantiierung bzw. seiner letzten Speicherung
+nicht geändert hat</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsUnchanged { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_IsValid_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.IsValid*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_IsValid" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.IsValid">IsValid</h4>
+  <div class="markdown level1 summary"><p>Gibt an, ob der DataRecord gültig ist. Ein gelöschter DataRecord ist nicht gültig. Ungültig DataRecords
+werden in DataCollections bei den DeletedRecords gehalten, können nicht gespeichert werden und werden
+behandelt, als würden sie nicht  existieren. Ungültige DataRecords sind zum Beispiel Ableitungen
+(InheritanceRecord) deren Basis gelöscht wurde.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">bool IsValid { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_Name_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.Name*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_Name" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.Name">Name</h4>
+  <div class="markdown level1 summary"><p>Names des DataRecords</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string Name { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_InitializeName_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.InitializeName*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_InitializeName_System_String_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.InitializeName(System.String)">InitializeName(String)</h4>
+  <div class="markdown level1 summary"><p>Initialisiert den Namen mit dem unter initializeName angegebenen Namen plus dem unter appendix angegebenen
+String plus einer Nummer.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string InitializeName(string appendix)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">appendix</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_SetUniqueName_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.SetUniqueName*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_SetUniqueName_System_String_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.SetUniqueName(System.String)">SetUniqueName(String)</h4>
+  <div class="markdown level1 summary"><p>Setzt im <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html">DataRecord</a> den angegebenen Namen plus einer Zahl, so daß der Neue Name in der
+dazugehörigen DataCollection eindeutig ist.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string SetUniqueName(string newName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">newName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_SetUniqueName_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.SetUniqueName*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_SetUniqueName_System_String_System_Boolean_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.SetUniqueName(System.String,System.Boolean)">SetUniqueName(String, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Setzt im <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html">DataRecord</a> den angegebenen Namen plus einer Zahl, so daß der Neue Name in den
+dazugehörigen DataCollections eindeutig ist.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string SetUniqueName(string name, bool withoutNumberSuffixIfPossible)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">name</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">withoutNumberSuffixIfPossible</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_ToString_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.ToString*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_ToString" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Repräsentation des DataRecords als Zeichenkette</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_AfterUndo" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.AfterUndo">AfterUndo</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event DataCollectionEventHandler AfterUndo</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollectionEventHandler.html">DataCollectionEventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_Modified" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.Modified">Modified</h4>
+  <div class="markdown level1 summary"><p>Der DataRecord wurde verändert.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event DataCollectionEventHandler Modified</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollectionEventHandler.html">DataCollectionEventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_RecordDeleted" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.RecordDeleted">RecordDeleted</h4>
+  <div class="markdown level1 summary"><p>Wird ausgelöst nachdem der DataRecord gelöscht wurde</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event DataCollectionEventHandler RecordDeleted</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollectionEventHandler.html">DataCollectionEventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_RecordDeleting" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.RecordDeleting">RecordDeleting</h4>
+  <div class="markdown level1 summary"><p>Wird ausgelöst bevor der DataRecord gelöscht wird</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event DataCollectionCancelEventHandler RecordDeleting</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollectionCancelEventHandler.html">DataCollectionCancelEventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataRecord_RecordNameChanged" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.RecordNameChanged">RecordNameChanged</h4>
+  <div class="markdown level1 summary"><p>Wird ausgelöst, wenn sich der Name des DataRecords geändert hat</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">event DataCollectionEventHandler RecordNameChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollectionEventHandler.html">DataCollectionEventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

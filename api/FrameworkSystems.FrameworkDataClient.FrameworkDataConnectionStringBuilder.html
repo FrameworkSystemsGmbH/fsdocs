@@ -1,0 +1,1168 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class FrameworkDataConnectionStringBuilder
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class FrameworkDataConnectionStringBuilder
+   ">
+    <meta name="generator" content="docfx 2.43.5.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder">
+  
+  
+  <h1 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder" class="text-break">Class FrameworkDataConnectionStringBuilder
+  </h1>
+  <div class="markdown level0 summary"><p>Diese Klasse erzeugt einen String zur Instanziierung von FrameworkDataConnections.
+Über die Eigenschaft ProviderConnectionString kann ein Connection String abgefragt werden,
+mit dem die direkte Instanziierung der zu Grunde liegenden Provider Connection (z.B. SQLConnection) instanziiert werden kann.
+Mit der Eigenschaft FSProviderType wird der DBProvider (SQL Server, Oracle, ...) festgelegt.
+Der Connection String Builder schleift grundsätzlich unbekannte Schlüsselwerte durch.
+Im ProviderConnectionString werden aber nur Schlüsselworte erlaubt, die vom Provider gekannt werden (siehe InitProviderKeywords).
+Schlüsselwerte werden Case-Insensitiv ausgewertet.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">System.Data.Common.DbConnectionStringBuilder</span></div>
+    <div class="level2"><span class="xref">FrameworkDataConnectionStringBuilder</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.Collections.IDictionary</span></div>
+    <div><span class="xref">System.Collections.ICollection</span></div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+    <div><span class="xref">System.ComponentModel.ICustomTypeDescriptor</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.Collections.IDictionary.get_Item(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.Collections.IDictionary.set_Item(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.Collections.IDictionary.Add(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.Add(System.String, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.AppendKeyValuePair(System.Text.StringBuilder, System.String, System.String)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.AppendKeyValuePair(System.Text.StringBuilder, System.String, System.String, System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.ClearPropertyDescriptors()</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.Collections.IDictionary.Contains(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.Collections.ICollection.CopyTo(System.Array, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.EquivalentTo(System.Data.Common.DbConnectionStringBuilder)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.Collections.IEnumerable.GetEnumerator()</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.Collections.IDictionary.GetEnumerator()</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.Collections.IDictionary.Remove(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.GetProperties(System.Collections.Hashtable)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.ComponentModel.ICustomTypeDescriptor.GetClassName()</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.ComponentModel.ICustomTypeDescriptor.GetComponentName()</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.ComponentModel.ICustomTypeDescriptor.GetAttributes()</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.ComponentModel.ICustomTypeDescriptor.GetEditor(System.Type)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.ComponentModel.ICustomTypeDescriptor.GetConverter()</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.ComponentModel.ICustomTypeDescriptor.GetDefaultProperty()</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.ComponentModel.ICustomTypeDescriptor.GetProperties()</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.ComponentModel.ICustomTypeDescriptor.GetProperties(System.Attribute[])</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.ComponentModel.ICustomTypeDescriptor.GetDefaultEvent()</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.ComponentModel.ICustomTypeDescriptor.GetEvents()</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.ComponentModel.ICustomTypeDescriptor.GetEvents(System.Attribute[])</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.ComponentModel.ICustomTypeDescriptor.GetPropertyOwner(System.ComponentModel.PropertyDescriptor)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.Collections.IDictionary.Item[System.Object]</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.ConnectionString</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.Count</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.IsReadOnly</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.Collections.ICollection.IsSynchronized</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DbConnectionStringBuilder.System.Collections.ICollection.SyncRoot</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkDataClient.html">FrameworkSystems.FrameworkDataClient</a></h6>
+  <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkDataProvider.dll</h6>
+  <h5 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FrameworkDataConnectionStringBuilder : DbConnectionStringBuilder, IDictionary, ICollection, IEnumerable, ICustomTypeDescriptor</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder__ctor_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder__ctor" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.#ctor">FrameworkDataConnectionStringBuilder()</h4>
+  <div class="markdown level1 summary"><p>Erzeugt einen FrameworkDataConnectionStringBuilder ohne Voreinstellungen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FrameworkDataConnectionStringBuilder()</code></pre>
+  </div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder__ctor_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder__ctor_System_String_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.#ctor(System.String)">FrameworkDataConnectionStringBuilder(String)</h4>
+  <div class="markdown level1 summary"><p>Erzeugt einen FrameworkDataConnectionStringBuilder, der den angegebenen ConnectionString auswertet
+und die darin enthaltenen Daten setzt.
+Parameter &quot;connectionString&quot; darf null sein.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FrameworkDataConnectionStringBuilder(string connectionString)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">connectionString</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder__ctor_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder__ctor_System_String_FrameworkSystems_FrameworkDataClient_ConnectionType_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.#ctor(System.String,FrameworkSystems.FrameworkDataClient.ConnectionType)">FrameworkDataConnectionStringBuilder(String, ConnectionType)</h4>
+  <div class="markdown level1 summary"><p>Erzeugt einen FrameworkDataConnectionStringBuilder, der den angegebenen ConnectionString auswertet
+und die darin enthaltenen Daten setzt.
+Parameter &quot;connectionString&quot; darf null sein.</p>
+<p>Dieser Konstruktor wird zukünftig entfallen, da der fsProviderType im ConnectionString kommuniziert werden soll.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FrameworkDataConnectionStringBuilder(string connectionString, ConnectionType fsProviderType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">connectionString</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.ConnectionType.html">ConnectionType</a></td>
+        <td><span class="parametername">fsProviderType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_CustomConnectionString_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.CustomConnectionString*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_CustomConnectionString" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.CustomConnectionString">CustomConnectionString</h4>
+  <div class="markdown level1 summary"><p>Teil-Connection mit allen Werten, die FS nicht kennt.
+Beim Setzen werden werden alle anderen Custom-Werte entfernt. Alternativ die Methode AppendCustomConnectionString vrwenden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string CustomConnectionString { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_Database_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.Database*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_Database" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.Database">Database</h4>
+  <div class="markdown level1 summary"><p>Name der Datenbank. Diese Eigenschaft findet sich unter Oracle und SqlServer unter unterschiedlichen Schlüsselwerten.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Database { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_FSPoolingDebugOutput_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.FSPoolingDebugOutput*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_FSPoolingDebugOutput" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.FSPoolingDebugOutput">FSPoolingDebugOutput</h4>
+  <div class="markdown level1 summary"><p>Dateiname der Datei, in die Pooling Aktionen geloggt werden sollen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string FSPoolingDebugOutput { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_FSPoolingMax_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.FSPoolingMax*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_FSPoolingMax" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.FSPoolingMax">FSPoolingMax</h4>
+  <div class="markdown level1 summary"><p>Anzahl der Verbindungen, die vom Framework Studio Pooling maximal bereit gehalten werden.
+Werden darüber hinaus weitere Verbindungen benötigt, werden diese für die Verwendung erzeugt und danach verworfen.
+Standardwert: 15
+Wenn ein Wert größer 0 zugewiesen wird, dann wird die Eigenschaft IsFSPooilingActive gesetzt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int FSPoolingMax { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_FSPoolingMin_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.FSPoolingMin*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_FSPoolingMin" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.FSPoolingMin">FSPoolingMin</h4>
+  <div class="markdown level1 summary"><p>Anzahl der Verbindungen, die vom Framework Studio Pooling mindestens bereit gehalten werden.
+Standardwert: 5
+Wenn ein Wert größer 0 zugewiesen wird, dann wird die Eigenschaft IsFSPooilingActive gesetzt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int FSPoolingMin { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_FSPoolingTimeout_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.FSPoolingTimeout*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_FSPoolingTimeout" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.FSPoolingTimeout">FSPoolingTimeout</h4>
+  <div class="markdown level1 summary"><p>Timeout, bis eine ungenutzte Verbindung geschlossen wird.
+Standardwert: 60
+Wenn ein Wert größer 0 zugewiesen wird, dann wird die Eigenschaft IsFSPooilingActive gesetzt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int FSPoolingTimeout { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_FSProviderType_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.FSProviderType*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_FSProviderType" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.FSProviderType">FSProviderType</h4>
+  <div class="markdown level1 summary"><p>Der zu verwendende Provider (z.B. SqlServer, Oracle).
+Standardwert: NotInitialized.
+Diese Eigenschaft muss entweder explizit gesetzt werden oder durch den zugeordneten ConnectionString definiert worden sein.
+Diese Eigenschaft kann jederzeit geändert werden. Dadurch werden nicht alle Einstellungen zurückgesetzt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectionType FSProviderType { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.ConnectionType.html">ConnectionType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_FSUseAnsiString_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.FSUseAnsiString*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_FSUseAnsiString" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.FSUseAnsiString">FSUseAnsiString</h4>
+  <div class="markdown level1 summary"><p>Gibt an, ub die Datenbank im Ansi-Modus angesprochen werden soll.
+Bei False werden Strings als Unicode behandelt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool FSUseAnsiString { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_IntegratedSecurity_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.IntegratedSecurity*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_IntegratedSecurity" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.IntegratedSecurity">IntegratedSecurity</h4>
+  <div class="markdown level1 summary"><p>Soll die Anmeldung an der Datenbank statt mit Benutzername und Passwort
+mit Windows Authentifizierung erfolgen?
+Standardwert ist false.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IntegratedSecurity { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_IsFixedSize_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.IsFixedSize*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_IsFixedSize" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.IsFixedSize">IsFixedSize</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool IsFixedSize { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Data.Common.DbConnectionStringBuilder.IsFixedSize</span></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_IsFSPoolingActive_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.IsFSPoolingActive*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_IsFSPoolingActive" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.IsFSPoolingActive">IsFSPoolingActive</h4>
+  <div class="markdown level1 summary"><p>Diese Eigenschaft zeigt an, ob zumindest ein FSPooling Parameter gesetzt ist.
+Wenn der Wert auf false gesetzt wird, dann werden intern die Default-Werte für FSPooling gesetzt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsFSPoolingActive { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_Item_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.Item*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_Item_System_String_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.Item(System.String)">Item[String]</h4>
+  <div class="markdown level1 summary"><p>Zugriff auf einen Wert, der unter dem Schlüssel &quot;keyword&quot; verwaltet wird.
+Es können auch dem FrameworkDataConnectionStringBuilder fremde Schlüsselworte verwendet werden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override object this[string keyword] { get; set; }</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">keyword</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Data.Common.DbConnectionStringBuilder.Item[System.String]</span></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_Keys_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.Keys*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_Keys" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.Keys">Keys</h4>
+  <div class="markdown level1 summary"><p>Alle Schlüssel, die grundsätzlich zur Verfügung stehen zuzüglich
+der fremden Schlüssel, zu denen Angaben gemacht wurden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ICollection Keys { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.ICollection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Data.Common.DbConnectionStringBuilder.Keys</span></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_Password_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.Password*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_Password" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.Password">Password</h4>
+  <div class="markdown level1 summary"><p>Password des Benutzers, der an der Datenbank angemeldet werden soll.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Password { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_PasswordEncrypted_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.PasswordEncrypted*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_PasswordEncrypted" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.PasswordEncrypted">PasswordEncrypted</h4>
+  <div class="markdown level1 summary"><p>Password des Benutzers, der an der Datenbank angemeldet werden soll.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string PasswordEncrypted { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_ProviderConnectionString_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.ProviderConnectionString*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_ProviderConnectionString" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.ProviderConnectionString">ProviderConnectionString</h4>
+  <div class="markdown level1 summary"><p>ConnectionString, der zum Aufbau einer Provider Connection (z.B. SQLDataConnection) geeignet ist.
+Dieser enthält die Schlüssel-Wert Paare nicht, die nur von der FrameworkDataConnection verstanden werden (z.B. FSPoolingMin).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string ProviderConnectionString { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_Server_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.Server*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_Server" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.Server">Server</h4>
+  <div class="markdown level1 summary"><p>Name des Datenbankservers.
+Bei SQL-Server der DataSource, Bei Oracle wird der Server-Name in den DataSource integriert.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Server { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_UserID_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.UserID*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_UserID" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.UserID">UserID</h4>
+  <div class="markdown level1 summary"><p>Name des Benutzers, der an der Datenbank angemeldet werden soll.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string UserID { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_Values_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.Values*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_Values" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.Values">Values</h4>
+  <div class="markdown level1 summary"><p>Werte zu allen Schlüsseln.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override ICollection Values { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.ICollection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Data.Common.DbConnectionStringBuilder.Values</span></div>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_AppendCustomConnectionString_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.AppendCustomConnectionString*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_AppendCustomConnectionString_System_String_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.AppendCustomConnectionString(System.String)">AppendCustomConnectionString(String)</h4>
+  <div class="markdown level1 summary"><p>Fügt einen individuellen Teil-ConnectionString hinzu.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void AppendCustomConnectionString(string custString)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">custString</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_Clear_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.Clear*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_Clear" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.Clear">Clear()</h4>
+  <div class="markdown level1 summary"><p>Initialisiert den FrameworkDataConnectionStringBuilder neu.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Clear()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Data.Common.DbConnectionStringBuilder.Clear()</span></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_ContainsKey_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.ContainsKey*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_ContainsKey_System_String_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.ContainsKey(System.String)">ContainsKey(String)</h4>
+  <div class="markdown level1 summary"><p>Prüft, ob der angegebene Schlüssel einer der Standardschlüssel ist oder
+zu diesem Schlüssel ein Wert gesetzt wurde.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool ContainsKey(string keyword)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">keyword</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Data.Common.DbConnectionStringBuilder.ContainsKey(System.String)</span></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_GetUnknownKeyValues_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.GetUnknownKeyValues*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_GetUnknownKeyValues" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.GetUnknownKeyValues">GetUnknownKeyValues()</h4>
+  <div class="markdown level1 summary"><p>Enumeriert die unbekannten Key-Value-Pairs.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public IEnumerable&lt;KeyValuePair&lt;string, object&gt;&gt; GetUnknownKeyValues()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.Object</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_Remove_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.Remove*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_Remove_System_String_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.Remove(System.String)">Remove(String)</h4>
+  <div class="markdown level1 summary"><p>Entfernt den Eintrag zum angegebenen Schlüssel.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Remove(string keyword)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">keyword</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Data.Common.DbConnectionStringBuilder.Remove(System.String)</span></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_SetDefaultFSPooling_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.SetDefaultFSPooling*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_SetDefaultFSPooling" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.SetDefaultFSPooling">SetDefaultFSPooling()</h4>
+  <div class="markdown level1 summary"><p>Setzt explizit die Standardwerte für das FSPooling
+(FSPoolingMin, FSPoolingMax und FSPoolingTimeout).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void SetDefaultFSPooling()</code></pre>
+  </div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_ShouldSerialize_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.ShouldSerialize*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_ShouldSerialize_System_String_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.ShouldSerialize(System.String)">ShouldSerialize(String)</h4>
+  <div class="markdown level1 summary"><p>Diese Methode gibt an, ob eine Eigenschaft in den ConnectionString geschrieben werden soll.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool ShouldSerialize(string keyword)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">keyword</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Data.Common.DbConnectionStringBuilder.ShouldSerialize(System.String)</span></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_TryGetValue_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.TryGetValue*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataConnectionStringBuilder_TryGetValue_System_String_System_Object__" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataConnectionStringBuilder.TryGetValue(System.String,System.Object@)">TryGetValue(String, out Object)</h4>
+  <div class="markdown level1 summary"><p>Ermittelt den Wert zum angegebenen Schlüssel.
+Falls kein Wert zu diesem Schlüssel existiert, wird false zurückgegeben.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool TryGetValue(string keyword, out object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">keyword</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Data.Common.DbConnectionStringBuilder.TryGetValue(System.String, System.Object)</span></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.Collections.IDictionary</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.ICollection</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+  <div>
+      <span class="xref">System.ComponentModel.ICustomTypeDescriptor</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

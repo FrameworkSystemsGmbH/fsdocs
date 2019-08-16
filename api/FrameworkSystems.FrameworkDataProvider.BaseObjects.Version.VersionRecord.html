@@ -1,0 +1,2845 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class VersionRecord
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class VersionRecord
+   ">
+    <meta name="generator" content="docfx 2.43.5.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord">
+  
+  
+  <h1 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord" class="text-break">Class VersionRecord
+  </h1>
+  <div class="markdown level0 summary"><p>Versionierbarer DataRecord</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html">DataComponent</a></div>
+    <div class="level2"><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html">DataRecord</a></div>
+    <div class="level3"><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html">DataTreeRecord</a></div>
+    <div class="level4"><span class="xref">VersionRecord</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.ICloneable</span></div>
+    <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.html">IDataRecord</a></div>
+    <div><span class="xref">System.IComparable</span></div>
+    <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.ComponentModel.IDataComponent.html">IDataComponent</a></div>
+    <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.IBindingSuspendable.html">IBindingSuspendable</a></div>
+    <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.INamedRecord.html">INamedRecord</a></div>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.IVersionComponent.html">IVersionComponent</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_PathSeparator">DataTreeRecord.PathSeparator</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_Caption">DataTreeRecord.Caption</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_ParentID">DataTreeRecord.ParentID</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_Parent">DataTreeRecord.Parent</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_SetParentVariableFromRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_">DataTreeRecord.SetParentVariableFromRecord(DataTreeRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_FullName">DataTreeRecord.FullName</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetNode_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_">DataTreeRecord.GetNode(DataTreeNode)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_SetNode_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_">DataTreeRecord.SetNode(DataTreeNode, DataTreeNode)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetRecordNodes_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeView_">DataTreeRecord.GetRecordNodes(DataTreeView)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetNodes_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_">DataTreeRecord.GetNodes(DataTreeNode)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetLeaves_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_">DataTreeRecord.GetLeaves(DataTreeNode)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_IsModifiedRecursive_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_">DataTreeRecord.IsModifiedRecursive(DataTreeNode)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetIDPath_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeView_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_">DataTreeRecord.GetIDPath(DataTreeView, DataTreeRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetPersistentIDPath_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeView_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_">DataTreeRecord.GetPersistentIDPath(DataTreeView, DataTreeRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetRootPersistentIDPath_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeView_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_">DataTreeRecord.GetRootPersistentIDPath(DataTreeView, DataTreeRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetNamePath_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeView_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_">DataTreeRecord.GetNamePath(DataTreeView, DataTreeRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetNamePath_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeView_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_System_Boolean_">DataTreeRecord.GetNamePath(DataTreeView, DataTreeRecord, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetNamePath_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_System_String_">DataTreeRecord.GetNamePath(DataTreeNode, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetNamePathOnPersistentIDPath_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_System_String_">DataTreeRecord.GetNamePathOnPersistentIDPath(DataTreeNode, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_SingularCollection">DataTreeRecord.SingularCollection</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_SaveManagerEnabled">DataTreeRecord.SaveManagerEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetPropertyValue_System_String_">DataTreeRecord.GetPropertyValue(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetPropertyValuesInternal">DataTreeRecord.GetPropertyValuesInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_FirePropertyChangedEventsInternal_System_Collections_Hashtable_">DataTreeRecord.FirePropertyChangedEventsInternal(Hashtable)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_CreateSingularCollection">DataTreeRecord.CreateSingularCollection()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_Dispose_System_Boolean_">DataTreeRecord.Dispose(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetFullName_System_String_">DataTreeRecord.GetFullName(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_ShouldParentIDBeChanged_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_">DataTreeRecord.ShouldParentIDBeChanged(guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_ReturnProperty_System_String_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_">DataTreeRecord.ReturnProperty(String, DataTreeRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetParent_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeView_">DataTreeRecord.GetParent(DataTreeView)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetRecordByIDPath_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_System_String_">DataTreeRecord.GetRecordByIDPath(DataTreeNode, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetRecordByNamePath_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_System_String_">DataTreeRecord.GetRecordByNamePath(DataTreeNode, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_ResetLoadedNodes_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_System_Boolean_">DataTreeRecord.ResetLoadedNodes(DataTreeNode, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_CreateNode_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeView_">DataTreeRecord.CreateNode(DataTreeView)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_CreateNode_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_">DataTreeRecord.CreateNode(DataTreeNode)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_CreateNodes_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_">DataTreeRecord.CreateNodes(DataTreeNode)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_CreateEnumerableNodes_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_">DataTreeRecord.CreateEnumerableNodes(DataTreeNode)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_CreateLeaves_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_">DataTreeRecord.CreateLeaves(DataTreeNode)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_GetActiveCollection_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_">DataTreeRecord.GetActiveCollection(DataTreeNode)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_BeforeUpdateAfterDelete_System_Boolean_">DataTreeRecord.BeforeUpdateAfterDelete(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_Update_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_">DataTreeRecord.Update(DataTreeNode)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_Undo_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_">DataTreeRecord.Undo(DataTreeNode)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_RefreshNodeImages">DataTreeRecord.RefreshNodeImages()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_IsParentOf_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeView_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_">DataTreeRecord.IsParentOf(DataTreeView, DataTreeRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_DataRow_ValueChanged_System_Object_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataValues_ValueChangedEventArgs_">DataTreeRecord.DataRow_ValueChanged(Object, DataValues.ValueChangedEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_ShouldFireParentChangedBeFiredDuringDataRowValueChanged">DataTreeRecord.ShouldFireParentChangedBeFiredDuringDataRowValueChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_PropertyChangedRecursive">DataTreeRecord.PropertyChangedRecursive</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_IsModifiedChangedRecursive">DataTreeRecord.IsModifiedChangedRecursive</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_ParentChanged">DataTreeRecord.ParentChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_OnParentChanged_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataTreeRecord.OnParentChanged(DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_FireIsModifiedChangedRecursive_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataTreeRecord.FireIsModifiedChangedRecursive(DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_SubNodesChanged">DataTreeRecord.SubNodesChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_OnSubNodesChanged_System_EventArgs_">DataTreeRecord.OnSubNodesChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_FireSubNodesChanged">DataTreeRecord.FireSubNodesChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_SubRecordCreated">DataTreeRecord.SubRecordCreated</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_OnSubRecordCreated_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeSubRecordEventArgs_">DataTreeRecord.OnSubRecordCreated(DataTreeSubRecordEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_FireSubRecordCreated_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeSubRecordEventArgs_">DataTreeRecord.FireSubRecordCreated(DataTreeSubRecordEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_SubRecordRemoved">DataTreeRecord.SubRecordRemoved</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_OnSubRecordRemoved_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeSubRecordEventArgs_">DataTreeRecord.OnSubRecordRemoved(DataTreeSubRecordEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_FireSubRecordRemoved_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeSubRecordEventArgs_">DataTreeRecord.FireSubRecordRemoved(DataTreeSubRecordEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Null">DataRecord.Null</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ModifiedNameSuffix">DataRecord.ModifiedNameSuffix</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_RuntimeID">DataRecord.RuntimeID</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_subComponents">DataRecord.subComponents</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_InitializeParametersShouldInitializeName">DataRecord.InitializeParametersShouldInitializeName</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_InitializeParametersInitializeName">DataRecord.InitializeParametersInitializeName</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsInitializingNewRecordOuter">DataRecord.IsInitializingNewRecordOuter</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsInitializingNewRecordInner">DataRecord.IsInitializingNewRecordInner</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_InitializeNewRecord_System_Collections_Hashtable_">DataRecord.InitializeNewRecord(Hashtable)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_InitializeLoadedRecord">DataRecord.InitializeLoadedRecord()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_DisposeDeletedRecord">DataRecord.DisposeDeletedRecord()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_InitializeName">DataRecord.InitializeName()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_initializeName">DataRecord.initializeName</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetInitializeName">DataRecord.GetInitializeName()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_InitializeWithoutNumberSuffixIfPossible">DataRecord.InitializeWithoutNumberSuffixIfPossible</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_objectTypeName">DataRecord.objectTypeName</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ObjectTypeName">DataRecord.ObjectTypeName</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_DescribingName">DataRecord.DescribingName</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetStoreKey">DataRecord.GetStoreKey()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_RenewStoreKey_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataStore_DataStoreKey_">DataRecord.RenewStoreKey(DataStoreKey)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_RenewStoreKey">DataRecord.RenewStoreKey()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_RemoveFromDataStore">DataRecord.RemoveFromDataStore()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Serializer">DataRecord.Serializer</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Commander">DataRecord.Commander</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_DataRow">DataRecord.DataRow</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_DataRowAcceptChanges">DataRecord.DataRowAcceptChanges()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_DataRowValues">DataRecord.DataRowValues</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_DataRowSetRowState_System_Data_DataRowState_">DataRecord.DataRowSetRowState(DataRowState)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_DataRowState">DataRecord.DataRowState</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_KeyFields">DataRecord.KeyFields</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_WasReCreated">DataRecord.WasReCreated</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_VisualizationInfo">DataRecord.VisualizationInfo</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_CreateVisualizationInfo">DataRecord.CreateVisualizationInfo()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_This">DataRecord.This</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Collections">DataRecord.Collections</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IDField">DataRecord.IDField</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_NameField">DataRecord.NameField</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ID">DataRecord.ID</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IDForDataBinding">DataRecord.IDForDataBinding</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IDAsString">DataRecord.IDAsString</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_PersistentID">DataRecord.PersistentID</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_RootPersistentID">DataRecord.RootPersistentID</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Name">DataRecord.Name</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsNameSet">DataRecord.IsNameSet</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsNameEnabled">DataRecord.IsNameEnabled</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OriginalName">DataRecord.OriginalName</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ModifiedName">DataRecord.ModifiedName</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_CategoryName">DataRecord.CategoryName</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_NameForDataBinding">DataRecord.NameForDataBinding</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Key">DataRecord.Key</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsDeleteAllowed">DataRecord.IsDeleteAllowed</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsAdded">DataRecord.IsAdded</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsDeleted">DataRecord.IsDeleted</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsDetached">DataRecord.IsDetached</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsDeleting">DataRecord.IsDeleting</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsUnchanged">DataRecord.IsUnchanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsModified">DataRecord.IsModified</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsModifiedFormer">DataRecord.IsModifiedFormer</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsModifiedInternal">DataRecord.IsModifiedInternal</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsRowUpdatable">DataRecord.IsRowUpdatable</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsDeletable">DataRecord.IsDeletable</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_UndoShouldDeleteRecord">DataRecord.UndoShouldDeleteRecord</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsUndoing">DataRecord.IsUndoing</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsMoving">DataRecord.IsMoving</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Clear">DataRecord.Clear()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ClearRow_FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataValues_">DataRecord.ClearRow(IDataValues)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsIDOf_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_">DataRecord.IsIDOf(guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsInRecreating">DataRecord.IsInRecreating</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ReCreate">DataRecord.ReCreate()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_CheckIsInvalidCount">DataRecord.CheckIsInvalidCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_CheckIsInvalidCountInner">DataRecord.CheckIsInvalidCountInner()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Reload_System_Boolean_System_Boolean_">DataRecord.Reload(Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ShouldLoad_System_Object_">DataRecord.ShouldLoad(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ShouldLoad_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataRecord.ShouldLoad(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ShouldLoadCompare_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_">DataRecord.ShouldLoadCompare(DataRecord, guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ShouldLoad_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_">DataRecord.ShouldLoad(DataCollection)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ReturnProperty__1_System_String___0_">DataRecord.ReturnProperty&lt;ObjectType&gt;(String, ObjectType)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ReturnProperty__1_System_String___0___0_">DataRecord.ReturnProperty&lt;ObjectType&gt;(String, ObjectType, ObjectType)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ReturnProperty_System_String_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataRecord.ReturnProperty(String, DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ReturnProperty_System_String_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataRecord.ReturnProperty(String, DataRecord, DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ReturnProperty_System_String_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_">DataRecord.ReturnProperty(String, guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ReturnProperty_System_String_System_String_">DataRecord.ReturnProperty(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ReturnProperty_System_String_System_Int32_">DataRecord.ReturnProperty(String, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ReturnProperty_System_String_System_Int16_">DataRecord.ReturnProperty(String, Int16)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ReturnProperty_System_String_System_Int64_">DataRecord.ReturnProperty(String, Int64)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ReturnProperty_System_String_System_Boolean_">DataRecord.ReturnProperty(String, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsPropertySet_System_String_System_Object_">DataRecord.IsPropertySet(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_CanSetProperty_System_String_">DataRecord.CanSetProperty(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_CanSetProperty">DataRecord.CanSetProperty()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetRecordForDataBinding_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataRecord.GetRecordForDataBinding(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetRecordForDataBinding_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataRecord.SetRecordForDataBinding(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetString_System_String_">DataRecord.GetString(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetString_System_String_System_String_System_Boolean_">DataRecord.SetString(String, String, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetString_System_String_System_String_">DataRecord.SetString(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetGuid_System_String_">DataRecord.GetGuid(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetGuid_System_String_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_">DataRecord.SetGuid(String, guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsNull_System_String_">DataRecord.IsNull(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsDeserialized_System_String_">DataRecord.IsDeserialized(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetNull_System_String_">DataRecord.SetNull(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetInt_System_String_">DataRecord.GetInt(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetInt_System_String_System_Int32_">DataRecord.SetInt(String, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetIntNullable_System_String_">DataRecord.GetIntNullable(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetIntNullabe_System_String_System_Nullable_System_Int32__">DataRecord.SetIntNullabe(String, Nullable&lt;Int32&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetShort_System_String_">DataRecord.GetShort(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetShort_System_String_System_Int16_">DataRecord.SetShort(String, Int16)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetBool_System_String_">DataRecord.GetBool(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetBool_System_String_System_Boolean_">DataRecord.SetBool(String, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetBoolNullable_System_String_">DataRecord.GetBoolNullable(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetBoolNullable_System_String_System_Nullable_System_Boolean__">DataRecord.SetBoolNullable(String, Nullable&lt;Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetDateTime_System_String_">DataRecord.GetDateTime(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetDateTime_System_String_System_DateTime_">DataRecord.SetDateTime(String, DateTime)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetBlob_System_String_">DataRecord.GetBlob(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetBlob_System_String_System_Byte___System_Boolean_">DataRecord.SetBlob(String, Byte[], Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetBlob_System_String_System_Byte___">DataRecord.SetBlob(String, Byte[])</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_LoadComponentAssembly_System_Object_System_ResolveEventArgs_">DataRecord.LoadComponentAssembly(Object, ResolveEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_BeforeDeserializeObject_System_String_">DataRecord.BeforeDeserializeObject(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_AfterDeserializeObject_System_String_System_Object_">DataRecord.AfterDeserializeObject(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SerializeObject_System_String_System_Object_">DataRecord.SerializeObject(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SerializeObjects">DataRecord.SerializeObjects()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_BeforeSerialization">DataRecord.BeforeSerialization()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_AfterSerialization">DataRecord.AfterSerialization()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetObjectXml__1_System_String_System_Func_FrameworkSystems_FrameworkDataProvider_BaseObjects_FsXmlDeserializer___0__">DataRecord.GetObjectXml&lt;T&gt;(String, Func&lt;FsXmlDeserializer, T&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SerializeObjectXml_System_String_FrameworkSystems_FrameworkDataProvider_BaseObjects_IFsXmlSerializable_">DataRecord.SerializeObjectXml(String, IFsXmlSerializable)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetObjectXml_System_String_FrameworkSystems_FrameworkDataProvider_BaseObjects_IFsXmlSerializable_">DataRecord.SetObjectXml(String, IFsXmlSerializable)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetObject_System_String_">DataRecord.GetObject(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ClearObjectPuffer">DataRecord.ClearObjectPuffer()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetObject_System_String_System_Object_">DataRecord.SetObject(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_CanChangeName_System_String_">DataRecord.CanChangeName(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_CreateCommander">DataRecord.CreateCommander()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_DeleteCommand">DataRecord.DeleteCommand()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_EnableDeleteCommand">DataRecord.EnableDeleteCommand()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsNewCommandEnabled">DataRecord.IsNewCommandEnabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OpenCommand">DataRecord.OpenCommand()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_UndoCommand">DataRecord.UndoCommand()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_DataBindings_ResumeBinding">DataRecord.DataBindings_ResumeBinding()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetDeleteQuestion">DataRecord.GetDeleteQuestion()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetDeleteMenuItemTitle">DataRecord.GetDeleteMenuItemTitle()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetNameSilent_System_String_">DataRecord.SetNameSilent(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetUniqueName_System_String_">DataRecord.SetUniqueName(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetUniqueName_System_String_System_Boolean_">DataRecord.SetUniqueName(String, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetInternalName_System_String_">DataRecord.SetInternalName(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetUniqueName">DataRecord.GetUniqueName()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetUniqueName_System_String_System_Boolean_">DataRecord.GetUniqueName(String, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_CheckIsRowModified_System_Boolean_">DataRecord.CheckIsRowModified(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsUnique_System_String_">DataRecord.IsUnique(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsUniqueEqualsRecordName_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_System_String_">DataRecord.IsUniqueEqualsRecordName(DataRecord, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_LoadSubComponents">DataRecord.LoadSubComponents()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_LoadSubComponentsRecursive">DataRecord.LoadSubComponentsRecursive()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_BeforeUndo">DataRecord.BeforeUndo()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_CallDeleteRecord">DataRecord.CallDeleteRecord()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ShouldCheckIsDeletableOnDelete">DataRecord.ShouldCheckIsDeletableOnDelete()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Undo">DataRecord.Undo()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnBeforeUndo">DataRecord.OnBeforeUndo()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_UndoRowsAfterException">DataRecord.UndoRowsAfterException()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_UndoRow_FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataValues_">DataRecord.UndoRow(IDataValues)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_AfterUpdateBeforeDelete_System_Boolean_">DataRecord.AfterUpdateBeforeDelete(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Update">DataRecord.Update()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_UpdateWithoutBeforeAndAfterMethods">DataRecord.UpdateWithoutBeforeAndAfterMethods()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_AcceptChanges">DataRecord.AcceptChanges()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_RejectChanges">DataRecord.RejectChanges()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ToString">DataRecord.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Exception_System_Exception_">DataRecord.Exception(Exception)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetSubClassDefinition">DataRecord.GetSubClassDefinition()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_CheckIsModified">DataRecord.CheckIsModified()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetPropertyValues">DataRecord.GetPropertyValues()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_FirePropertyChangedEvents_System_Collections_Hashtable_">DataRecord.FirePropertyChangedEvents(Hashtable)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_RefreshSaveManager_System_Boolean_">DataRecord.RefreshSaveManager(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_RefreshSaveManager">DataRecord.RefreshSaveManager()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_AdoptRowValues_FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataValues_">DataRecord.AdoptRowValues(IDataValues)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_AdoptValues_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataRecord.AdoptValues(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_AdoptValues_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_">DataRecord.AdoptValues(DataComponent)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_CreateEmptyCollection">DataRecord.CreateEmptyCollection()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_AddCopyToCollection_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_">DataRecord.AddCopyToCollection(DataCollection)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Copy">DataRecord.Copy()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_AddCloneToClonedCollection_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_System_Boolean_">DataRecord.AddCloneToClonedCollection(DataCollection, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_AddCloneToClonedCollection_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_System_Boolean_System_Collections_Hashtable_">DataRecord.AddCloneToClonedCollection(DataCollection, Boolean, Hashtable)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Clone">DataRecord.Clone()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_CompareTo_System_Object_">DataRecord.CompareTo(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_DataRowAddEventHandlers_FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataValues_">DataRecord.DataRowAddEventHandlers(IDataValues)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_DataRowRemoveEventHandlers_FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataValues_">DataRecord.DataRowRemoveEventHandlers(IDataValues)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_subComponents_Modified_System_Object_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataRecord.subComponents_Modified(Object, DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_RecordCreated">DataRecord.RecordCreated</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnRecordCreated_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataRecord.OnRecordCreated(DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_RecordPropertyChanged">DataRecord.RecordPropertyChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_RecordModifiedNameChanged">DataRecord.RecordModifiedNameChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_RecordNameChanged">DataRecord.RecordNameChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_IsModifiedChanged">DataRecord.IsModifiedChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Modified">DataRecord.Modified</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_RecordDeleting">DataRecord.RecordDeleting</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_RecordDeleted">DataRecord.RecordDeleted</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_AfterUndo">DataRecord.AfterUndo</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_UndoDeletion">DataRecord.UndoDeletion</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnModified_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_System_Boolean_">DataRecord.OnModified(DataCollectionEventArgs, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnRecordDeleting_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionCancelEventArgs_">DataRecord.OnRecordDeleting(DataCollectionCancelEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnRecordDeleted_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataRecord.OnRecordDeleted(DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnAfterUndo_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataRecord.OnAfterUndo(DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ResetBufferedData">DataRecord.ResetBufferedData()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnUndoDeletion_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataRecord.OnUndoDeletion(DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_FireRecordPropertyChanged_System_String_">DataRecord.FireRecordPropertyChanged(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_FireRecordModifiedNameChanged">DataRecord.FireRecordModifiedNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_FireRecordNameChanged_System_String_System_String_">DataRecord.FireRecordNameChanged(String, String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnIsModifiedChanged_System_Boolean_">DataRecord.OnIsModifiedChanged(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_MyEvent">DataRecord.MyEvent</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnMyEvent_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataRecord.OnMyEvent(DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_FireModified_System_Boolean_">DataRecord.FireModified(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_FireModified">DataRecord.FireModified()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Updating">DataRecord.Updating</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnUpdating_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionCancelEventArgs_">DataRecord.OnUpdating(DataCollectionCancelEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Updated">DataRecord.Updated</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnUpdated_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataRecord.OnUpdated(DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_FireRecordDeleting">DataRecord.FireRecordDeleting()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_FireRecordDeleted_System_Boolean_">DataRecord.FireRecordDeleted(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_FireAfterUndo">DataRecord.FireAfterUndo()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_DataBindingsEndEdits">DataRecord.DataBindingsEndEdits</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnDataBindingsEndEdits_System_EventArgs_">DataRecord.OnDataBindingsEndEdits(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_CheckHasBeenCleared">DataRecord.CheckHasBeenCleared</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnCheckHasBeenCleared_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataRecord.OnCheckHasBeenCleared(DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_FireCheckHasBeenCleared_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataRecord.FireCheckHasBeenCleared(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_NameChanged">DataRecord.NameChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnNameChanged_System_EventArgs_">DataRecord.OnNameChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_FireNameChanged">DataRecord.FireNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_DescribingNameChanged">DataRecord.DescribingNameChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnDescribingNameChanged_System_EventArgs_">DataRecord.OnDescribingNameChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_NameForDataBindingChanged">DataRecord.NameForDataBindingChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_CategoryNameChanged">DataRecord.CategoryNameChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnCategoryNameChanged_System_EventArgs_">DataRecord.OnCategoryNameChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_FireCategoryNameChanged">DataRecord.FireCategoryNameChanged()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ToStringChanged">DataRecord.ToStringChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_OnToStringChanged_System_EventArgs_">DataRecord.OnToStringChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ShouldPropertyChangedEventAfterUndoBeFired">DataRecord.ShouldPropertyChangedEventAfterUndoBeFired()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ResetSingularCollection">DataRecord.ResetSingularCollection()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_GetStoreCollection_System_Boolean_">DataComponent.GetStoreCollection(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_StoreCollectionRecordsLock">DataComponent.StoreCollectionRecordsLock</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_IsClone">DataComponent.IsClone</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_IsRemoved">DataComponent.IsRemoved</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_IsValid">DataComponent.IsValid</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_IsValidUseOld">DataComponent.IsValidUseOld</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent__isInvalidCount">DataComponent._isInvalidCount</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_isInvalidCount">DataComponent.isInvalidCount</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_IsValidOld">DataComponent.IsValidOld</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_InitIsValidCount">DataComponent.InitIsValidCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_GetRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataClassDefinition_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_">DataComponent.GetRecord(IDataClassDefinition, guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_SetIsClone_System_Boolean_">DataComponent.SetIsClone(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_Get_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_System_Boolean_">DataComponent.Get(guid, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_Get_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_">DataComponent.Get(guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_UpdateByOrderOfRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataComponent.UpdateByOrderOfRecord(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_Update_FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataValues_">DataComponent.Update(IDataValues)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_System_ICloneable_Clone">DataComponent.ICloneable.Clone()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_Dispose">DataComponent.Dispose()</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.html">FrameworkSystems.FrameworkDataProvider.BaseObjects.Version</a></h6>
+  <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkDataProvider.dll</h6>
+  <h5 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class VersionRecord : DataTreeRecord, ICloneable, IDataRecord, IComparable, IDataComponent, IBindingSuspendable, INamedRecord, IDisposable, IVersionComponent</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord__ctor_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord__ctor" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.#ctor">VersionRecord()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public VersionRecord()</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_isInFormerVersion" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.isInFormerVersion">isInFormerVersion</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool isInFormerVersion</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_pureDelete" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.pureDelete">pureDelete</h4>
+  <div class="markdown level1 summary"><p>Gibt an, ob in ein abgeleiteter Record in Echt gelöscht werden soll. Labeled- und SubLabeled-Records benutzen
+für gewöhnlich kein pureDelete, sondern setzen ein Lösch-Flag in gelöschten Versionen</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool pureDelete</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_ClassDefinition_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.ClassDefinition*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_ClassDefinition" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.ClassDefinition">ClassDefinition</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IVersionClassDefinition ClassDefinition { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.IVersionClassDefinition.html">IVersionClassDefinition</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_IsChangingVersion_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.IsChangingVersion*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_IsChangingVersion" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.IsChangingVersion">IsChangingVersion</h4>
+  <div class="markdown level1 summary"><p>Gibt an, ob dieser Record gerade im Begriff ist, seine Version zu änderen. Dies ist der Fall, wenn er
+gerade die Methoden LatestVersion(), NewVersion() oder FormerVersion() durchläuft.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public bool IsChangingVersion { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_IsStartVersion_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.IsStartVersion*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_IsStartVersion" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.IsStartVersion">IsStartVersion</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public bool IsStartVersion { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_IsTemporary_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.IsTemporary*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_IsTemporary" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.IsTemporary">IsTemporary</h4>
+  <div class="markdown level1 summary"><p>Gibt an, ob es sich bei diesem Record um einen temporären Record handelt, der in LatestVersion()
+oder FormerVersion() geladen wurde und auch im Anschluß auch wieder entfernt wird. Bei solchen Records
+sollten keine Daten geladen werden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public bool IsTemporary { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_IsVersionDeletable_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.IsVersionDeletable*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_IsVersionDeletable" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.IsVersionDeletable">IsVersionDeletable</h4>
+  <div class="markdown level1 summary"><p>Gibt an, ob die Version eines Records bei UndoCheckOut gelöscht werden kann.
+Kann ein Record nicht gelöscht werden, sollt an dieser Stelle auch MessageBox mit der Angabe des Grunds
+ausgegeben werden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public virtual bool IsVersionDeletable { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_PureDelete_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.PureDelete*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_PureDelete" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.PureDelete">PureDelete</h4>
+  <div class="markdown level1 summary"><p>Gibt an, ob in ein abgeleiteter Record in Echt gelöscht werden soll. Labeled- und SubLabeled-Records benutzen
+für gewöhnlich kein pureDelete, sondern setzen ein Lösch-Flag in gelöschten Versionen</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public virtual bool PureDelete { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_StoreCollection_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.StoreCollection*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_StoreCollection" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.StoreCollection">StoreCollection</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected VersionStoreCollection StoreCollection { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionStoreCollection.html">VersionStoreCollection</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_SubClassDefinition_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.SubClassDefinition*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_SubClassDefinition" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.SubClassDefinition">SubClassDefinition</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected IVersionClassDefinition SubClassDefinition { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.IVersionClassDefinition.html">IVersionClassDefinition</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_Version_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.Version*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_Version" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.Version">Version</h4>
+  <div class="markdown level1 summary"><p>Version des DataRecords</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public virtual int Version { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_VersionField_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.VersionField*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_VersionField" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.VersionField">VersionField</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string VersionField { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_VersionText_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.VersionText*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_VersionText" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.VersionText">VersionText</h4>
+  <div class="markdown level1 summary"><p>VersionText</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public string VersionText { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_AdoptValuesInternal_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.AdoptValuesInternal*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_AdoptValuesInternal_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.AdoptValuesInternal(FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord)">AdoptValuesInternal(DataRecord)</h4>
+  <div class="markdown level1 summary"><p>Übernimmt die Werte des angegeben DataRecords. Hierbei werden ausschließlich die Werte der DataRow
+übernommen. Diese Methode nie direkt aufrufen, immer AdoptValues aufrufen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void AdoptValuesInternal(DataRecord record)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html">DataRecord</a></td>
+        <td><span class="parametername">record</span></td>
+        <td><p>DataRecord dessen Werte übernommen werden sollen</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_AdoptValuesInternal_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataRecord.AdoptValuesInternal(DataRecord)</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_BaseDelete_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.BaseDelete*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_BaseDelete" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.BaseDelete">BaseDelete()</h4>
+  <div class="markdown level1 summary"><p>Echtes Löschen des Records: Es wird lediglich base.Delete() aufgerufen</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool BaseDelete()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_CheckVersion_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.CheckVersion*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_CheckVersion_System_Int32_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.CheckVersion(System.Int32)">CheckVersion(Int32)</h4>
+  <div class="markdown level1 summary"><p>Überprüft, ob der Record die richtige (angegebene) Version besitzt, falls nicht wird sie neu gesetzt.
+Diese Methode sollte nur im Fehlerfall von einem LabeledRecord aufgerufen werden</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void CheckVersion(int version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_Delete_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.Delete*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_Delete" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.Delete">Delete()</h4>
+  <div class="markdown level1 summary"><p>Kein echtes Löschen des Records: Es wird die Version als gelöscht gekennzeichnet</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Delete()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>DataRecords wurde gelöscht</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Delete">DataRecord.Delete()</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_DeleteByOrderOfFormerVersion_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.DeleteByOrderOfFormerVersion*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_DeleteByOrderOfFormerVersion_System_Boolean_System_Int32_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.DeleteByOrderOfFormerVersion(System.Boolean,System.Int32)">DeleteByOrderOfFormerVersion(Boolean, Int32)</h4>
+  <div class="markdown level1 summary"><p>Löscht diesen Record, wird aus FormerVersion heraus aufgerufen</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool DeleteByOrderOfFormerVersion(bool deletePure, int version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">deletePure</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_DeleteByOrderOfRecord_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.DeleteByOrderOfRecord*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_DeleteByOrderOfRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.DeleteByOrderOfRecord(FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord)">DeleteByOrderOfRecord(DataRecord)</h4>
+  <div class="markdown level1 summary"><p>Löschen der Komponente. Das Löschen der Komponente wurde durch commandingRecord ausgelöst.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool DeleteByOrderOfRecord(DataRecord commandingRecord)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html">DataRecord</a></td>
+        <td><span class="parametername">commandingRecord</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Komponente wurde gelöscht</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_DeleteByOrderOfRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataComponent.DeleteByOrderOfRecord(DataRecord)</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_DeletePure_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.DeletePure*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_DeletePure" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.DeletePure">DeletePure()</h4>
+  <div class="markdown level1 summary"><p>Führt ein echtes Löschen des VersionRecords durch. Labeled- und SubLabeled-Records benutzen
+für gewöhnlich kein pureDelete, sondern setzen ein Lösch-Flag in gelöschten Versionen</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DeletePure()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_DeletePure_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.DeletePure*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_DeletePure_System_Int32_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.DeletePure(System.Int32)">DeletePure(Int32)</h4>
+  <div class="markdown level1 summary"><p>Führt ein echtes Löschen des VersionRecords durch, falls die Version dieses Records der angegebenen Version
+entspricht. Labeled- und SubLabeled-Records benutzen für gewöhnlich kein pureDelete, sondern setzen ein
+Lösch-Flag in gelöschten Versionen</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool DeletePure(int version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_DeleteSubComponents_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.DeleteSubComponents*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_DeleteSubComponents" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.DeleteSubComponents">DeleteSubComponents()</h4>
+  <div class="markdown level1 summary"><p>Löscht die SubComponents. Wird beim Löschen dieses Records automatisch aufgerufen. Hier kann ein Löschen
+der subComponents z.B. bei Temporary-VersionRecords verhindert werden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void DeleteSubComponents()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_DeleteSubComponents">DataRecord.DeleteSubComponents()</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_EndEdits_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.EndEdits*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_EndEdits" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.EndEdits">EndEdits()</h4>
+  <div class="markdown level1 summary"><p>Weist die DataBindings zum Record an, alle Bearbeitungsvorgänge zu beenden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void EndEdits()</code></pre>
+  </div>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_EndEdits">DataRecord.EndEdits()</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_Equals_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.Equals*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_Equals_System_Object_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object obj)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">obj</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_Equals_System_Object_">DataRecord.Equals(Object)</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_FormerVersion_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.FormerVersion*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_FormerVersion" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.FormerVersion">FormerVersion()</h4>
+  <div class="markdown level1 summary"><p>Löscht diese Version dieses Records und wechselt die Identität auf die vorige Version</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void FormerVersion()</code></pre>
+  </div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_FormerVersion_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.FormerVersion*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_FormerVersion_System_Int32_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.FormerVersion(System.Int32)">FormerVersion(Int32)</h4>
+  <div class="markdown level1 summary"><p>Löscht diese Version dieses Records und wechselt die Identität auf die vorige (unter version angegebene)
+Version</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void FormerVersion(int version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_FormerVersionAfterOvertakenIdentity_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.FormerVersionAfterOvertakenIdentity*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_FormerVersionAfterOvertakenIdentity_System_Int32_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.FormerVersionAfterOvertakenIdentity(System.Int32)">FormerVersionAfterOvertakenIdentity(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void FormerVersionAfterOvertakenIdentity(int formerVersion)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">formerVersion</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_FormerVersionSubComponents_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.FormerVersionSubComponents*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_FormerVersionSubComponents_System_Int32_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.FormerVersionSubComponents(System.Int32)">FormerVersionSubComponents(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void FormerVersionSubComponents(int version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_Get_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.Get*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_Get_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_System_Int32_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.Get(FrameworkSystems.FrameworkDataProvider.BaseObjects.guid,System.Int32)">Get(guid, Int32)</h4>
+  <div class="markdown level1 summary"><p>Ermittel den DataRecord zu angegebenen id und version. Wird diese Methode von abgeleiteten Klassen ü
+berschrieben, ist das gleiche Ergebnis wie ...Record.ClassDef[] zurück zu liefern. Dies ermöglicht
+Basis-Klassen Records aus abgeleitetn Klassen zu laden, ohne den abgeleiten Typ zu kennen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected VersionRecord Get(guid id, int version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.html">VersionRecord</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_Get_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.Get*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_Get_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_System_Int32_System_Boolean_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.Get(FrameworkSystems.FrameworkDataProvider.BaseObjects.guid,System.Int32,System.Boolean)">Get(guid, Int32, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Ermittel den DataRecord zu angegebenen id und version. Wird diese Methode von abgeleiteten Klassen ü
+berschrieben, ist das gleiche Ergebnis wie ...Record.ClassDef[] zurück zu liefern. Dies ermöglicht
+Basis-Klassen Records aus abgeleitetn Klassen zu laden, ohne den abgeleiten Typ zu kennen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual VersionRecord Get(guid id, int version, bool onlyValidRecords)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">onlyValidRecords</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.html">VersionRecord</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_GetHashCode_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.GetHashCode*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_GetHashCode" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_GetHashCode">DataRecord.GetHashCode()</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_GetNextVersion_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.GetNextVersion*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_GetNextVersion_System_Int32_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.GetNextVersion(System.Int32)">GetNextVersion(Int32)</h4>
+  <div class="markdown level1 summary"><p>Ermittelt zu angegebenen Version die nächste darauf folgende Version</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual int GetNextVersion(int version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_InitializeBeforeDataStoreCollectionGetsLockedForAdoptValues_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.InitializeBeforeDataStoreCollectionGetsLockedForAdoptValues*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_InitializeBeforeDataStoreCollectionGetsLockedForAdoptValues_FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.InitializeBeforeDataStoreCollectionGetsLockedForAdoptValues(FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord)">InitializeBeforeDataStoreCollectionGetsLockedForAdoptValues(VersionRecord)</h4>
+  <div class="markdown level1 summary"><p>Wird bei FormerVersion aufgerufen. Hier muß dafür gesorgt werden, daß alle in AdoptValues benötigten
+Records geladen sind, da bei AdoptValues die zugehörige DataStoreCollection gesperrt wird.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void InitializeBeforeDataStoreCollectionGetsLockedForAdoptValues(VersionRecord higherRecord)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.html">VersionRecord</a></td>
+        <td><span class="parametername">higherRecord</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_InitializeName_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.InitializeName*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_InitializeName_System_String_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.InitializeName(System.String)">InitializeName(String)</h4>
+  <div class="markdown level1 summary"><p>Initialisiert den Namen mit dem unter initializeName angegebenen Namen plus dem unter appendix angegebenen
+String.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string InitializeName(string appendix)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">appendix</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_InitializeName_System_String_">DataRecord.InitializeName(String)</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_LatestVersion_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.LatestVersion*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_LatestVersion" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.LatestVersion">LatestVersion()</h4>
+  <div class="markdown level1 summary"><p>Ersetzt diese Version des Records durch die neueste in der Datenbank vorhandene Version, wenn diese Version
+nicht die neueste ist. Im Rückgabewert ist enthalten, ob eine neue Version geladen wurde</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool LatestVersion()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_LatestVersion_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.LatestVersion*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_LatestVersion_System_Int32_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.LatestVersion(System.Int32)">LatestVersion(Int32)</h4>
+  <div class="markdown level1 summary"><p>Ersetzt diese Version des Records durch die neueste (unter version angegebene) in der Datenbank vorhandene
+Version, wenn diese Version nicht die neueste ist. Im Rückgabewert ist enthalten, ob eine neue Version
+geladen wurde</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool LatestVersion(int version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_NewVersion_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.NewVersion*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_NewVersion" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.NewVersion">NewVersion()</h4>
+  <div class="markdown level1 summary"><p>Erstellt eine neue Version dieses Records und wechselt die Identität auf die neue Version</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void NewVersion()</code></pre>
+  </div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_NewVersion_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.NewVersion*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_NewVersion_System_Int32_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.NewVersion(System.Int32)">NewVersion(Int32)</h4>
+  <div class="markdown level1 summary"><p>Erstellt eine neue (unter version angegebene) Version dieses Records und wechselt die Identität auf die neue
+Version.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void NewVersion(int version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_OnFormerVersionChanged_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.OnFormerVersionChanged*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_OnFormerVersionChanged_System_EventArgs_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.OnFormerVersionChanged(System.EventArgs)">OnFormerVersionChanged(EventArgs)</h4>
+  <div class="markdown level1 summary"><p>FormerVersion hat sich geändert</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnFormerVersionChanged(EventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventArgs</span></td>
+        <td><span class="parametername">e</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_OnVersionChanged_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.OnVersionChanged*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_OnVersionChanged_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.OnVersionChanged(FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollectionEventArgs)">OnVersionChanged(DataCollectionEventArgs)</h4>
+  <div class="markdown level1 summary"><p>Die Version des Records hat sich geändert</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnVersionChanged(DataCollectionEventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollectionEventArgs.html">DataCollectionEventArgs</a></td>
+        <td><span class="parametername">e</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_OnVersionTextChanged_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.OnVersionTextChanged*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_OnVersionTextChanged_System_EventArgs_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.OnVersionTextChanged(System.EventArgs)">OnVersionTextChanged(EventArgs)</h4>
+  <div class="markdown level1 summary"><p>Die Version des Records hat sich geändert</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnVersionTextChanged(EventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventArgs</span></td>
+        <td><span class="parametername">e</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_PrepareReloadSelectStatement_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.PrepareReloadSelectStatement*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_PrepareReloadSelectStatement_FrameworkSystems_FrameworkDataClient_FrameworkDataCommand_FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataClassDefinition_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.PrepareReloadSelectStatement(FrameworkSystems.FrameworkDataClient.FrameworkDataCommand,FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataClassDefinition)">PrepareReloadSelectStatement(FrameworkDataCommand, IDataClassDefinition)</h4>
+  <div class="markdown level1 summary"><p>Bereitet das Select-Statement zum Neuladen des Records vor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void PrepareReloadSelectStatement(FrameworkDataCommand command, IDataClassDefinition classDef)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataCommand.html">FrameworkDataCommand</a></td>
+        <td><span class="parametername">command</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataClassDefinition.html">IDataClassDefinition</a></td>
+        <td><span class="parametername">classDef</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_PrepareReloadSelectStatement_FrameworkSystems_FrameworkDataClient_FrameworkDataCommand_FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataClassDefinition_">DataRecord.PrepareReloadSelectStatement(FrameworkDataCommand, IDataClassDefinition)</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_SetIsVersionDeletedInDB_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.SetIsVersionDeletedInDB*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_SetIsVersionDeletedInDB_System_Int32_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.SetIsVersionDeletedInDB(System.Int32)">SetIsVersionDeletedInDB(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void SetIsVersionDeletedInDB(int version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_SetStoreKey_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.SetStoreKey*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_SetStoreKey_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataStore_DataStoreKey_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.SetStoreKey(FrameworkSystems.FrameworkDataProvider.BaseObjects.DataStore.DataStoreKey)">SetStoreKey(DataStoreKey)</h4>
+  <div class="markdown level1 summary"><p>Setzt die ID. Die ID wird im DataStore bei Neuanlage gesetzt und kann danach nicht mehr verändert werden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override DataStoreKey SetStoreKey(DataStoreKey key)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataStore.DataStoreKey.html">DataStoreKey</a></td>
+        <td><span class="parametername">key</span></td>
+        <td><p>Zu setzender DataStore-Schlüssel. Ist hier guid.Null enthalten wird eine neue guid als ID gesetzt</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataStore.DataStoreKey.html">DataStoreKey</a></td>
+        <td><p>Der gesetzte DataStore-Schlüssel</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_SetStoreKey_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataStore_DataStoreKey_">DataRecord.SetStoreKey(DataStoreKey)</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_SetVersion_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.SetVersion*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_SetVersion_System_Int32_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.SetVersion(System.Int32)">SetVersion(Int32)</h4>
+  <div class="markdown level1 summary"><p>Setzt die Versionsnummer des Records.
+WICHTIG: Diese Methode darf nur benutzt werden, wenn die gewöhnlichen LatestVersion(), NewVersion() und
+FormerVersion() Methoden außdrücklich nicht benutzt werden sollen (z.B. bei Wrapper-Ableitungen)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetVersion(int version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_SetVersion_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.SetVersion*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_SetVersion_System_Int32_System_Boolean_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.SetVersion(System.Int32,System.Boolean)">SetVersion(Int32, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetVersion(int version, bool fireVersionChanged)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">fireVersionChanged</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_SetVersion_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.SetVersion*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_SetVersion_System_Int32_System_Boolean_System_Boolean_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.SetVersion(System.Int32,System.Boolean,System.Boolean)">SetVersion(Int32, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void SetVersion(int version, bool renewStoreKey, bool fireVersionChanged)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">renewStoreKey</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">fireVersionChanged</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_ShouldLoad_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.ShouldLoad*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_ShouldLoad" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.ShouldLoad">ShouldLoad()</h4>
+  <div class="markdown level1 summary"><p>Gibt an, ob Variablen gesetzt/zurückgegeben werden sollen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool ShouldLoad()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ShouldLoad">DataRecord.ShouldLoad()</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_ShouldLoad_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.ShouldLoad*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_ShouldLoad_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.ShouldLoad(FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord,FrameworkSystems.FrameworkDataProvider.BaseObjects.guid)">ShouldLoad(DataRecord, guid)</h4>
+  <div class="markdown level1 summary"><p>Gibt an, ob die angegebene recordVariable neu gesetzt/zurückgegeben werden soll.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool ShouldLoad(DataRecord recordVariable, guid recordID)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html">DataRecord</a></td>
+        <td><span class="parametername">recordVariable</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a></td>
+        <td><span class="parametername">recordID</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_ShouldLoad_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_">DataRecord.ShouldLoad(DataRecord, guid)</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_ShouldLoad_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.ShouldLoad*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_ShouldLoad_FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_System_Int32_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.ShouldLoad(FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord,FrameworkSystems.FrameworkDataProvider.BaseObjects.guid,System.Int32)">ShouldLoad(VersionRecord, guid, Int32)</h4>
+  <div class="markdown level1 summary"><p>Gibt an, ob die angegebene recordVariable neu gesetzt/zurückgegeben werden soll.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool ShouldLoad(VersionRecord recordVariable, guid recordID, int recordVersion)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.html">VersionRecord</a></td>
+        <td><span class="parametername">recordVariable</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a></td>
+        <td><span class="parametername">recordID</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">recordVersion</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_UndoInternal_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.UndoInternal*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_UndoInternal" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.UndoInternal">UndoInternal()</h4>
+  <div class="markdown level1 summary"><p>Macht Änderungen seit dem letzten Laden oder Speichern der Komponente rückgängig. Diese Methode nie direkt
+aufrufen, immer Undo aufrufen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool UndoInternal()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_UndoInternal">DataRecord.UndoInternal()</a></div>
+  <h3 id="events">Events
+  </h3>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_FormerVersionChanged" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.FormerVersionChanged">FormerVersionChanged</h4>
+  <div class="markdown level1 summary"><p>FormerVersion hat sich geändert</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler FormerVersionChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_VersionChanged" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.VersionChanged">VersionChanged</h4>
+  <div class="markdown level1 summary"><p>Die Version des Records hat sich geändert</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event DataCollectionEventHandler VersionChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollectionEventHandler.html">DataCollectionEventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_VersionTextChanged" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.VersionTextChanged">VersionTextChanged</h4>
+  <div class="markdown level1 summary"><p>Die Version des Records hat sich geändert</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler VersionTextChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_IVersionComponent_LatestVersion_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.FrameworkSystems#FrameworkDataProvider#BaseObjects#Version#IVersionComponent#LatestVersion*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_VersionRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_Version_IVersionComponent_LatestVersion_System_Int32_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionRecord.FrameworkSystems#FrameworkDataProvider#BaseObjects#Version#IVersionComponent#LatestVersion(System.Int32)">IVersionComponent.LatestVersion(Int32)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">void IVersionComponent.LatestVersion(int version)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">version</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.ICloneable</span>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataRecord.html">IDataRecord</a>
+  </div>
+  <div>
+      <span class="xref">System.IComparable</span>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.ComponentModel.IDataComponent.html">IDataComponent</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.IBindingSuspendable.html">IBindingSuspendable</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.INamedRecord.html">INamedRecord</a>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.IVersionComponent.html">IVersionComponent</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,1490 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DataTreeCollection
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DataTreeCollection
+   ">
+    <meta name="generator" content="docfx 2.43.5.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection">
+  
+  
+  <h1 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection" class="text-break">Class DataTreeCollection
+  </h1>
+  <div class="markdown level0 summary"><p>Summary description for DataTreeCollection.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html">DataComponent</a></div>
+    <div class="level2"><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html">DataCollection</a></div>
+    <div class="level3"><span class="xref">DataTreeCollection</span></div>
+      <div class="level4"><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Version.VersionCollection.html">VersionCollection</a></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><span class="xref">System.ICloneable</span></div>
+    <div><span class="xref">System.ComponentModel.IListSource</span></div>
+    <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataCollection.html">IDataCollection</a></div>
+    <div><span class="xref">System.Collections.ICollection</span></div>
+    <div><span class="xref">System.Collections.IEnumerable</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_ReloadLoadedDataOnEveryFill">DataCollection.ReloadLoadedDataOnEveryFill</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_RuntimeID">DataCollection.RuntimeID</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Records">DataCollection.Records</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_deletedRecords">DataCollection.deletedRecords</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_ShouldDataCollectionInitializeStoreCollection">DataCollection.ShouldDataCollectionInitializeStoreCollection</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_InitializeStoreCollection">DataCollection.InitializeStoreCollection()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_CaseSensitive">DataCollection.CaseSensitive</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_IsNewAllowed">DataCollection.IsNewAllowed</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_SelectionConnector">DataCollection.SelectionConnector</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_SelectionConnectorForDataStore">DataCollection.SelectionConnectorForDataStore</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_List">DataCollection.List</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_SortProperty">DataCollection.SortProperty</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_NullList">DataCollection.NullList</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_RecordType">DataCollection.RecordType</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_SubRecordType">DataCollection.SubRecordType</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_IsModified">DataCollection.IsModified</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_IsModifiedInternal">DataCollection.IsModifiedInternal</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_IsUpdateable">DataCollection.IsUpdateable</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_ShowProperties">DataCollection.ShowProperties</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_DeletedRecordNames">DataCollection.DeletedRecordNames</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_GetSortedList_System_String_">DataCollection.GetSortedList(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_RecordsArray">DataCollection.RecordsArray</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_DeletedRecordsArray">DataCollection.DeletedRecordsArray</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_RecordNames">DataCollection.RecordNames</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_IsSingularCollection">DataCollection.IsSingularCollection</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_IsDeleting">DataCollection.IsDeleting</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Owner">DataCollection.Owner</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_DataBindings">DataCollection.DataBindings</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_DataBindingsCurrent">DataCollection.DataBindingsCurrent</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_GetEnumerationString_System_Collections_ICollection_">DataCollection.GetEnumerationString(ICollection)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_LoadSubComponentsRecursive">DataCollection.LoadSubComponentsRecursive()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_UpdateByOrderOfRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.UpdateByOrderOfRecord(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_InitializeLoadedRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.InitializeLoadedRecord(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_SetSelectionConnectorForDataStore_System_Data_SqlClient_SqlDataAdapter_">DataCollection.SetSelectionConnectorForDataStore(SqlDataAdapter)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Exists_System_String_">DataCollection.Exists(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_ClearDeletedRecords">DataCollection.ClearDeletedRecords()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_MoveRecordFromRecordsToDeletedRecords_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.MoveRecordFromRecordsToDeletedRecords(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_MoveRecordFromDeletedRecordsToRecords_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_System_Boolean_">DataCollection.MoveRecordFromDeletedRecordsToRecords(DataRecord, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_MoveRecordFromDeletedRecordsToRecords_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.MoveRecordFromDeletedRecordsToRecords(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_GetRecord_System_Object_">DataCollection.GetRecord(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_GetRecord_System_Int32_">DataCollection.GetRecord(Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_NewRecord">DataCollection.NewRecord()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_NewRecord_System_Collections_Hashtable_">DataCollection.NewRecord(Hashtable)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_NewRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_">DataCollection.NewRecord(guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_NewRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_System_Collections_Hashtable_">DataCollection.NewRecord(guid, Hashtable)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_NewRecord_System_Boolean_">DataCollection.NewRecord(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_NewRecord_System_Boolean_System_Collections_Hashtable_">DataCollection.NewRecord(Boolean, Hashtable)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_NewRecord_System_Type_">DataCollection.NewRecord(Type)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_NewRecord_System_Type_System_Collections_Hashtable_">DataCollection.NewRecord(Type, Hashtable)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_NewRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_System_Type_System_Collections_Hashtable_">DataCollection.NewRecord(guid, Type, Hashtable)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_NewRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_System_Boolean_System_Collections_Hashtable_">DataCollection.NewRecord(guid, Boolean, Hashtable)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_NewRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_System_Type_System_Boolean_System_Collections_Hashtable_">DataCollection.NewRecord(guid, Type, Boolean, Hashtable)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_AddNewRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_System_Collections_Hashtable_">DataCollection.AddNewRecord(DataRecord, Hashtable)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Fill_System_Boolean_System_Boolean_">DataCollection.Fill(Boolean, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Fill_System_Boolean_">DataCollection.Fill(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Fill">DataCollection.Fill()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Fill_System_Collections_Generic_List_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataStore_DataStoreKey__">DataCollection.Fill(List&lt;DataStoreKey&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_FillDirectly">DataCollection.FillDirectly()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Refill">DataCollection.Refill()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_PreLoadRows_System_Collections_Generic_IList_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataStore_DataStoreKey__">DataCollection.PreLoadRows(IList&lt;DataStoreKey&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_PreLoadRows_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid___">DataCollection.PreLoadRows(guid[])</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Update">DataCollection.Update()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_UpdateDeletedRecordsOnly">DataCollection.UpdateDeletedRecordsOnly()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_IsUndoing">DataCollection.IsUndoing</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Undo">DataCollection.Undo()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_UndoInternal">DataCollection.UndoInternal()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_UndoRowsAfterException">DataCollection.UndoRowsAfterException()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_UndoRemoveAddedRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.UndoRemoveAddedRecord(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_AcceptChanges">DataCollection.AcceptChanges()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_SetOwner_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.SetOwner(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_CreateParameterCollection">DataCollection.CreateParameterCollection()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_CreateParameterCollection_System_String_System_Object_">DataCollection.CreateParameterCollection(String, Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_CreateParameterCollection_System_String_">DataCollection.CreateParameterCollection(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_IsCopyItemByXmlEnabled">DataCollection.IsCopyItemByXmlEnabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_IsPasteItemFromXmlEnabled">DataCollection.IsPasteItemFromXmlEnabled()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Count">DataCollection.Count</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_IsSynchronized">DataCollection.IsSynchronized</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_SyncRoot">DataCollection.SyncRoot</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_CopyTo_System_Array_System_Int32_">DataCollection.CopyTo(Array, Int32)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_GetEnumerator">DataCollection.GetEnumerator()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Item_System_Object_">DataCollection.Item[Object]</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Item_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_">DataCollection.Item[guid]</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Item_System_String_">DataCollection.Item[String]</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_RemoveCompletely_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.RemoveCompletely(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Clear">DataCollection.Clear()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Contains_System_Object_">DataCollection.Contains(Object)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Contains_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_">DataCollection.Contains(guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Contains_System_String_">DataCollection.Contains(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Contains_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.Contains(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Delete_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.Delete(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_DeleteAll">DataCollection.DeleteAll()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_CallDeleteRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.CallDeleteRecord(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Delete">DataCollection.Delete()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_ContainsListCollection">DataCollection.ContainsListCollection</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_GetList">DataCollection.GetList()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_AdoptValues_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_">DataCollection.AdoptValues(DataCollection)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_AdoptValues_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_">DataCollection.AdoptValues(DataComponent)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_CloneWithoutRecords">DataCollection.CloneWithoutRecords()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_CreateEmptyCollection">DataCollection.CreateEmptyCollection()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Clone">DataCollection.Clone()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Dispose_System_Boolean_">DataCollection.Dispose(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_HandleExceptions">DataCollection.HandleExceptions</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Exception_System_Exception_">DataCollection.Exception(Exception)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_AddEventHandlers_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.AddEventHandlers(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_RemoveEventHandlers_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.RemoveEventHandlers(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Filled">DataCollection.Filled</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_OnFilled_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataCollection.OnFilled(DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_RecordUpdated">DataCollection.RecordUpdated</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_OnRecordUpdated_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataCollection.OnRecordUpdated(DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_ColumnChanged">DataCollection.ColumnChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_CollectionChanged">DataCollection.CollectionChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_RecordCreating">DataCollection.RecordCreating</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_RecordCreated">DataCollection.RecordCreated</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_RecordAdding">DataCollection.RecordAdding</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_RecordAdded">DataCollection.RecordAdded</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_RecordPropertyChanged">DataCollection.RecordPropertyChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_RecordNameChanged">DataCollection.RecordNameChanged</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_RecordRemoving">DataCollection.RecordRemoving</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_RecordRemoved">DataCollection.RecordRemoved</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_RecordRemovedCompleted">DataCollection.RecordRemovedCompleted</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_OnRecordRemovedCompleted_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataCollection.OnRecordRemovedCompleted(DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Modified">DataCollection.Modified</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_OnRecordCreating_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionCancelEventArgs_">DataCollection.OnRecordCreating(DataCollectionCancelEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_OnRecordCreated_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataCollection.OnRecordCreated(DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_OnRecordAdding_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataCollection.OnRecordAdding(DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_OnRecordRemoving_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataCollection.OnRecordRemoving(DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_OnModified_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataCollection.OnModified(DataCollectionEventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_FireRecordCreating">DataCollection.FireRecordCreating()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_FireRecordCreated_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.FireRecordCreated(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_FireRecordRemoved_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.FireRecordRemoved(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_FireRecordDeleted_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.FireRecordDeleted(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_OnDataBindingsChanged_System_EventArgs_">DataCollection.OnDataBindingsChanged(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_DataBindingsRefresh">DataCollection.DataBindingsRefresh</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_OnDataBindingsRefresh_System_EventArgs_">DataCollection.OnDataBindingsRefresh(EventArgs)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_ClassDefinition">DataComponent.ClassDefinition</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_GetStoreCollection_System_Boolean_">DataComponent.GetStoreCollection(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_StoreCollection">DataComponent.StoreCollection</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_StoreCollectionRecordsLock">DataComponent.StoreCollectionRecordsLock</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_IsDeleted">DataComponent.IsDeleted</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_IsDetached">DataComponent.IsDetached</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_IsClone">DataComponent.IsClone</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_IsRemoved">DataComponent.IsRemoved</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_IsValid">DataComponent.IsValid</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_IsValidUseOld">DataComponent.IsValidUseOld</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent__isInvalidCount">DataComponent._isInvalidCount</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_isInvalidCount">DataComponent.isInvalidCount</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_IsValidOld">DataComponent.IsValidOld</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_InitIsValidCount">DataComponent.InitIsValidCount()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_GetRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataClassDefinition_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_">DataComponent.GetRecord(IDataClassDefinition, guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_SetIsClone_System_Boolean_">DataComponent.SetIsClone(Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_Get_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_System_Boolean_">DataComponent.Get(guid, Boolean)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_Get_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_">DataComponent.Get(guid)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_DeleteByOrderOfRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataComponent.DeleteByOrderOfRecord(DataRecord)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_Update_FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataValues_">DataComponent.Update(IDataValues)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_Copy">DataComponent.Copy()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_System_ICloneable_Clone">DataComponent.ICloneable.Clone()</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataComponent_Dispose">DataComponent.Dispose()</a>
+    </div>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.html">FrameworkSystems.FrameworkDataProvider.BaseObjects</a></h6>
+  <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkDataProvider.dll</h6>
+  <h5 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DataTreeCollection : DataCollection, IDisposable, ICloneable, IListSource, IDataCollection, ICollection, IEnumerable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection__ctor_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection__ctor" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.#ctor">DataTreeCollection()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTreeCollection()</code></pre>
+  </div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection__ctor_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection__ctor_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.#ctor(FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord)">DataTreeCollection(DataTreeRecord)</h4>
+  <div class="markdown level1 summary"><p>Erstellt eine DataCollection mit genau einem Datensatz, der eigentlich zu einer anderen
+DataCollection gehört. Die so erstellte DataCollection ist lediglich eine Ummantelung des
+DataRecords und ist eng mit dessen Original-DataCollection verknüpft. Add und Remove-Befehle
+sollten nur an der Original-DataCollection durchgeführt werden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTreeCollection(DataTreeRecord singularRecord)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html">DataTreeRecord</a></td>
+        <td><span class="parametername">singularRecord</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection__ctor_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection__ctor_FrameworkSystems_FrameworkDataProvider_BaseObjects_IDataTreeClassDefinition_System_Data_SqlClient_SqlDataAdapter_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.#ctor(FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataTreeClassDefinition,System.Data.SqlClient.SqlDataAdapter)">DataTreeCollection(IDataTreeClassDefinition, SqlDataAdapter)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DataTreeCollection(IDataTreeClassDefinition classDefinition, SqlDataAdapter selectionAdapter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataTreeClassDefinition.html">IDataTreeClassDefinition</a></td>
+        <td><span class="parametername">classDefinition</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Data.SqlClient.SqlDataAdapter</span></td>
+        <td><span class="parametername">selectionAdapter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_IsLeaf_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.IsLeaf*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_IsLeaf" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.IsLeaf">IsLeaf</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsLeaf { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_Parent_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.Parent*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_Parent" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.Parent">Parent</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTreeRecord Parent { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html">DataTreeRecord</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_TreeNodeText_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.TreeNodeText*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_TreeNodeText" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.TreeNodeText">TreeNodeText</h4>
+  <div class="markdown level1 summary"><p>Ist TreeNodeText gesetzt, wird die Collection im TreeView angezeigt</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public virtual string TreeNodeText { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_Add_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.Add*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_Add_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.Add(FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord)">Add(DataRecord)</h4>
+  <div class="markdown level1 summary"><p>Fügt den DataRecord zur DataCollection hinzu</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Add(DataRecord value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html">DataRecord</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Add_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.Add(DataRecord)</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_CallUpdateRecord_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.CallUpdateRecord*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_CallUpdateRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.CallUpdateRecord(FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord)">CallUpdateRecord(DataRecord)</h4>
+  <div class="markdown level1 summary"><p>Ruft beim angegebene DataRecord die Update-Methode auf.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override int CallUpdateRecord(DataRecord record)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html">DataRecord</a></td>
+        <td><span class="parametername">record</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_CallUpdateRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.CallUpdateRecord(DataRecord)</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_CloneAsDataTreeCollection_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.CloneAsDataTreeCollection*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_CloneAsDataTreeCollection" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.CloneAsDataTreeCollection">CloneAsDataTreeCollection()</h4>
+  <div class="markdown level1 summary"><p>Klont die DataCollection. Hierbei wird die DataCollection ohne DataRecords geklont, anschließend werden in
+der DataCollection die DataRecord neu angelegt und die Werte der DataCollection übernommen (siehe AdoptValues()).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTreeCollection CloneAsDataTreeCollection()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.html">DataTreeCollection</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_FireIsModifiedChangedRecursive_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.FireIsModifiedChangedRecursive*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_FireIsModifiedChangedRecursive_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.FireIsModifiedChangedRecursive(FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollectionEventArgs)">FireIsModifiedChangedRecursive(DataCollectionEventArgs)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void FireIsModifiedChangedRecursive(DataCollectionEventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollectionEventArgs.html">DataCollectionEventArgs</a></td>
+        <td><span class="parametername">e</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_GetRecordByIDPath_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.GetRecordByIDPath*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_GetRecordByIDPath_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeView_System_String_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.GetRecordByIDPath(FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeView,System.String)">GetRecordByIDPath(DataTreeView, String)</h4>
+  <div class="markdown level1 summary"><p>Ermittelt den dem ID-Pfad entsprechenden DataTreeRecord. Als Trennzeichen im Pfad wird der PathSeparator benutzt.
+Der ID-Pfad ist besteht aus den ID der Records der Knoten.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTreeRecord GetRecordByIDPath(DataTreeView treeView, string idPath)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeView.html">DataTreeView</a></td>
+        <td><span class="parametername">treeView</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idPath</span></td>
+        <td><p>Pfad des zu ermittelnden Knoten</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html">DataTreeRecord</a></td>
+        <td><p>Ermittelter DataTreeRecord, null wenn nicht gefunden</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_GetRecordByNamePath_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.GetRecordByNamePath*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_GetRecordByNamePath_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeView_System_String_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.GetRecordByNamePath(FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeView,System.String)">GetRecordByNamePath(DataTreeView, String)</h4>
+  <div class="markdown level1 summary"><p>Ermittelt den dem Namen-Pfad entsprechenden DataTreeRecord. Als Trennzeichen im Pfad wird der PathSeparator benutzt.
+Der Namen-Pfad ist besteht aus den Namen der Records der Knoten.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTreeRecord GetRecordByNamePath(DataTreeView treeView, string idPath)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeView.html">DataTreeView</a></td>
+        <td><span class="parametername">treeView</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">idPath</span></td>
+        <td><p>Pfad des zu ermittelnden Knoten</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html">DataTreeRecord</a></td>
+        <td><p>Ermittelter DataTreeRecord, null wenn nicht gefunden</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_GetRecursive_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.GetRecursive*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_GetRecursive_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeView_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.GetRecursive(FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeView,FrameworkSystems.FrameworkDataProvider.BaseObjects.guid)">GetRecursive(DataTreeView, guid)</h4>
+  <div class="markdown level1 summary"><p>Sucht den DataTreeRecord mit der angegebenen id. Hierzu wird der DataTree rekursiv durchlaufen und es werden
+die die Knoten geladen, die durchlaufen werden. Je nach Größe des Baumes und der Position des DataTreeRecords,
+kann diese Methode einige Zeit in Anspruch nehmen. Der erste gefundene Datensatz mir der gesuchten id wird
+zurück gegeben.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTreeRecord GetRecursive(DataTreeView treeView, guid id)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeView.html">DataTreeView</a></td>
+        <td><span class="parametername">treeView</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a></td>
+        <td><span class="parametername">id</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html">DataTreeRecord</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_InitializeNewRecord_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.InitializeNewRecord*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_InitializeNewRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_System_Collections_Hashtable_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.InitializeNewRecord(FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord,System.Collections.Hashtable)">InitializeNewRecord(DataRecord, Hashtable)</h4>
+  <div class="markdown level1 summary"><p>Methode zum Initialisieren von neuen Records aus der DataCollection heraus, wird in der Collection beim
+Erstellen eines neuen Records (Methode NewRecord) aufgerufen. InitializeLoadedRecord wird hierbei im Anschluß
+aufgerufen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void InitializeNewRecord(DataRecord record, Hashtable parameters)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html">DataRecord</a></td>
+        <td><span class="parametername">record</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Hashtable</span></td>
+        <td><span class="parametername">parameters</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_InitializeNewRecord_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_System_Collections_Hashtable_">DataCollection.InitializeNewRecord(DataRecord, Hashtable)</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_IsModifiedRecursive_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.IsModifiedRecursive*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_IsModifiedRecursive_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeView_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.IsModifiedRecursive(FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeView)">IsModifiedRecursive(DataTreeView)</h4>
+  <div class="markdown level1 summary"><p>Prüft ob mindestens einer der in der Sammlung enthaltenen <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html">DataTreeRecord</a>s oder
+mindestens einer der Nodes und Leaves eines DataTreeRecords verändert wurde.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool IsModifiedRecursive(DataTreeView treeView)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeView.html">DataTreeView</a></td>
+        <td><span class="parametername">treeView</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_OnParentChanged_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.OnParentChanged*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_OnParentChanged_System_EventArgs_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.OnParentChanged(System.EventArgs)">OnParentChanged(EventArgs)</h4>
+  <div class="markdown level1 summary"><p>Wird ausgelöst, wenn der Parent eines Records verändert wurde</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void OnParentChanged(EventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventArgs</span></td>
+        <td><span class="parametername">e</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_OnRecordAdded_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.OnRecordAdded*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_OnRecordAdded_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.OnRecordAdded(FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollectionEventArgs)">OnRecordAdded(DataCollectionEventArgs)</h4>
+  <div class="markdown level1 summary"><p>Es wurde der angegebene Record hinzugefügt</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnRecordAdded(DataCollectionEventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollectionEventArgs.html">DataCollectionEventArgs</a></td>
+        <td><span class="parametername">e</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_OnRecordAdded_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataCollection.OnRecordAdded(DataCollectionEventArgs)</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_OnRecordRemoved_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.OnRecordRemoved*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_OnRecordRemoved_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.OnRecordRemoved(FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollectionEventArgs)">OnRecordRemoved(DataCollectionEventArgs)</h4>
+  <div class="markdown level1 summary"><p>Es wurde der angegebene Record entfernt</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void OnRecordRemoved(DataCollectionEventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollectionEventArgs.html">DataCollectionEventArgs</a></td>
+        <td><span class="parametername">e</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_OnRecordRemoved_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollectionEventArgs_">DataCollection.OnRecordRemoved(DataCollectionEventArgs)</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_Remove_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.Remove*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_Remove_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.Remove(FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord)">Remove(DataRecord)</h4>
+  <div class="markdown level1 summary"><p>Entfernt den DataRecord aus der DataCollection, jedoch ohne ihn zu löschen</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override void Remove(DataRecord value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html">DataRecord</a></td>
+        <td><span class="parametername">value</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_Remove_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.Remove(DataRecord)</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_ShouldCreatedRecordBeAdded_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.ShouldCreatedRecordBeAdded*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_ShouldCreatedRecordBeAdded_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.ShouldCreatedRecordBeAdded(FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord)">ShouldCreatedRecordBeAdded(DataRecord)</h4>
+  <div class="markdown level1 summary"><p>Gibt an, ob ein von einer anderen DataCollection erzeugter DataRecord dieser DataCollection hinzugefügt
+werden soll.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override bool ShouldCreatedRecordBeAdded(DataRecord newRecord)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataRecord.html">DataRecord</a></td>
+        <td><span class="parametername">newRecord</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollection.html#FrameworkSystems_FrameworkDataProvider_BaseObjects_DataCollection_ShouldCreatedRecordBeAdded_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataRecord_">DataCollection.ShouldCreatedRecordBeAdded(DataRecord)</a></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_ShouldSetParentInRecords_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.ShouldSetParentInRecords*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_ShouldSetParentInRecords" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.ShouldSetParentInRecords">ShouldSetParentInRecords()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool ShouldSetParentInRecords()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_Update_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.Update*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_Update_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeView_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.Update(FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeView)">Update(DataTreeView)</h4>
+  <div class="markdown level1 summary"><p>Führt ein rekursives Update zum angegebenen Baum durch</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Update(DataTreeView treeView)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeView.html">DataTreeView</a></td>
+        <td><span class="parametername">treeView</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_IsModifiedChangedRecursive" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.IsModifiedChangedRecursive">IsModifiedChangedRecursive</h4>
+  <div class="markdown level1 summary"><p>Wird ausgelöst, wenn sich IsModified eines Records oder eines untergeordneten Records geändert hat</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event DataCollectionEventHandler IsModifiedChangedRecursive</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollectionEventHandler.html">DataCollectionEventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_ParentChanged" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.ParentChanged">ParentChanged</h4>
+  <div class="markdown level1 summary"><p>Parent hat sich geändert</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler ParentChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_RecordPropertyChangedRecursive" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.RecordPropertyChangedRecursive">RecordPropertyChangedRecursive</h4>
+  <div class="markdown level1 summary"><p>Wird ausgelöst, wenn ein Property eines Records dieser Sammlung oder seine untergeordneten Records durch
+die Set-Methoden(z.B. SetString) geändert wurde, also nicht bei direktem Zugriff auf die DataRow</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event DataCollectionEventHandler RecordPropertyChangedRecursive</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataCollectionEventHandler.html">DataCollectionEventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <span class="xref">System.ICloneable</span>
+  </div>
+  <div>
+      <span class="xref">System.ComponentModel.IListSource</span>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.IDataCollection.html">IDataCollection</a>
+  </div>
+  <div>
+      <span class="xref">System.Collections.ICollection</span>
+  </div>
+  <div>
+      <span class="xref">System.Collections.IEnumerable</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

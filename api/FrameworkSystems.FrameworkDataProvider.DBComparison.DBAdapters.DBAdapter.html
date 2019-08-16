@@ -1,0 +1,2052 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DBAdapter
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DBAdapter
+   ">
+    <meta name="generator" content="docfx 2.43.5.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter">
+  
+  
+  <h1 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter" class="text-break">Class DBAdapter
+  </h1>
+  <div class="markdown level0 summary"><p>Adapter zum Auslesen der Datenbankbeschreibung aus einer Datenbank, zur Differenzbildung und zur Updatescript-Generierung.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">DBAdapter</span></div>
+      <div class="level2"><a class="xref" href="FrameworkSystems.FrameworkDataClient.SqlServerDBAdapter.html">SqlServerDBAdapter</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.html">FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters</a></h6>
+  <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkDataProvider.dll</h6>
+  <h5 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract class DBAdapter</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter__ctor_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter__ctor_FrameworkSystems_FrameworkDataClient_FrameworkDataConnection_System_StringComparer_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.#ctor(FrameworkSystems.FrameworkDataClient.FrameworkDataConnection,System.StringComparer)">DBAdapter(FrameworkDataConnection, StringComparer)</h4>
+  <div class="markdown level1 summary"><p>Konstruktor.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DBAdapter(FrameworkDataConnection dbConnection, StringComparer comparer = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataConnection.html">FrameworkDataConnection</a></td>
+        <td><span class="parametername">dbConnection</span></td>
+        <td><p>Eine Verbindung zu einer Datenbank.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.StringComparer</span></td>
+        <td><span class="parametername">comparer</span></td>
+        <td><p>Bestimmt, wie Tabellennamen, Spaltenname, etc. miteinander verglichen werden.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_comparer" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.comparer">comparer</h4>
+  <div class="markdown level1 summary"><p>Siehe comparison.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected readonly StringComparer comparer</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.StringComparer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_dataTypes" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.dataTypes">dataTypes</h4>
+  <div class="markdown level1 summary"><p>Datentypen nach bestimmten Eigenschaften</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static readonly Dictionary&lt;DBAdapter.DataTypeProperty, HashSet&lt;string&gt;&gt; dataTypes</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.Dictionary</span>&lt;<a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.DataTypeProperty.html">DBAdapter.DataTypeProperty</a>, <span class="xref">System.Collections.Generic.HashSet</span>&lt;<span class="xref">System.String</span>&gt;&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_DBConnection" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.DBConnection">DBConnection</h4>
+  <div class="markdown level1 summary"><p>Die Verbindung zur Datenbank.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public readonly FrameworkDataConnection DBConnection</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataConnection.html">FrameworkDataConnection</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_DBRun_DBDescription" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.DBRun_DBDescription">DBRun_DBDescription</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly DBConnectionDescription DBRun_DBDescription</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBConnectionDescription.html">DBConnectionDescription</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_DBRun_Packages" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.DBRun_Packages">DBRun_Packages</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static readonly List&lt;DBPackageDescription&gt; DBRun_Packages</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBPackageDescription.html">DBPackageDescription</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_ignoredColumnNames" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.ignoredColumnNames">ignoredColumnNames</h4>
+  <div class="markdown level1 summary"><p>Zu ignorierende Spalten.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static readonly HashSet&lt;string&gt; ignoredColumnNames</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.HashSet</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_rowIDName" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.rowIDName">rowIDName</h4>
+  <div class="markdown level1 summary"><p>Der Name der RowID Spalte.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string rowIDName = &quot;FSROWID&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_rowVersionName" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.rowVersionName">rowVersionName</h4>
+  <div class="markdown level1 summary"><p>Der Name der RowVersion Spalte.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public const string rowVersionName = &quot;FSROWVERSION&quot;</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_CachedTableNames_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.CachedTableNames*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_CachedTableNames" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.CachedTableNames">CachedTableNames</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected HashSet&lt;string&gt; CachedTableNames { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.HashSet</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_Comparer_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.Comparer*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_Comparer" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.Comparer">Comparer</h4>
+  <div class="markdown level1 summary"><p>Falls von außen dynamisch nachgearbeitet werden muss. Je nach dem welche Datenbank verwendet wird müssen Tabellennamen, Spaltennamen, ... anders behandelt werden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public StringComparer Comparer { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.StringComparer</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_AreViewDefinitionsEqual_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.AreViewDefinitionsEqual*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_AreViewDefinitionsEqual_System_String_System_String_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.AreViewDefinitionsEqual(System.String,System.String)">AreViewDefinitionsEqual(String, String)</h4>
+  <div class="markdown level1 summary"><p>Prüft ob zwei View-Definitionen gleich sind (für etwaige Spezialfälle könnte es von Vorteil sein direkt zu vergleichen, ohne die Normalisierung zu beachten).
+Wird auch von außen im Database-Import verwendet, um zu prüfen, ob zwei Definitionen gleich sind.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool AreViewDefinitionsEqual(string definitionA, string definitionB)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">definitionA</span></td>
+        <td><p>Die erste Definition.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">definitionB</span></td>
+        <td><p>Die zweite Definition.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>true, wenn die Definitionen gleich sind, false sonst.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_CanCreateUniqueIndex_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.CanCreateUniqueIndex*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_CanCreateUniqueIndex_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBTableDescription_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBIndexDescription_System_String__System_String__" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.CanCreateUniqueIndex(FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription,FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBIndexDescription,System.String@,System.String@)">CanCreateUniqueIndex(DBTableDescription, DBIndexDescription, out String, out String)</h4>
+  <div class="markdown level1 summary"><p>Prüft mit einem GroupBy-Select, ob ein Unique-Index erzeugt werden kann.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void CanCreateUniqueIndex(DBTableDescription table, DBIndexDescription index, out string exceptionMessage, out string exceptionDetails)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription.html">DBTableDescription</a></td>
+        <td><span class="parametername">table</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBIndexDescription.html">DBIndexDescription</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">exceptionMessage</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">exceptionDetails</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_CheckUpdateState_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.CheckUpdateState*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_CheckUpdateState_System_Collections_Generic_IList_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBPackageDescription__" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.CheckUpdateState(System.Collections.Generic.IList{FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBPackageDescription})">CheckUpdateState(IList&lt;DBPackageDescription&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DBUpdateState CheckUpdateState(IList&lt;DBPackageDescription&gt; list)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBPackageDescription.html">DBPackageDescription</a>&gt;</td>
+        <td><span class="parametername">list</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBUpdateState.html">DBUpdateState</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_ClearCache_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.ClearCache*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_ClearCache" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.ClearCache">ClearCache()</h4>
+  <div class="markdown level1 summary"><p>Leert den Zwischenspeicher.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void ClearCache()</code></pre>
+  </div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_ConvertSQLStatement_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.ConvertSQLStatement*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_ConvertSQLStatement_System_String_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.ConvertSQLStatement(System.String)">ConvertSQLStatement(String)</h4>
+  <div class="markdown level1 summary"><p>Konvertiert das SQL Statement in natives SQL.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual string ConvertSQLStatement(string statement)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">statement</span></td>
+        <td><p>Das Statement in FS-SQL.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>Das konvertierte SQL Statement oder null, falls ein Fehler aufgetreten ist.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_CorrectPrimaryKeysAndIndices_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.CorrectPrimaryKeysAndIndices*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_CorrectPrimaryKeysAndIndices_System_Collections_Generic_List_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBColumnDescription__System_Collections_Generic_List_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBIndexDescription__" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.CorrectPrimaryKeysAndIndices(System.Collections.Generic.List{FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBColumnDescription},System.Collections.Generic.List{FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBIndexDescription})">CorrectPrimaryKeysAndIndices(List&lt;DBColumnDescription&gt;, List&lt;DBIndexDescription&gt;)</h4>
+  <div class="markdown level1 summary"><p>Korrigiert die DBColumnDescription Objekte je nach dem, ob eine RowID/RowVersion Kombination erkannt wurde oder nicht.
+Außerdem werden indizierte Spalten aus den Indizes entfernt, die nicht aufgelistet wurden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void CorrectPrimaryKeysAndIndices(List&lt;DBColumnDescription&gt; columnList, List&lt;DBIndexDescription&gt; indexList)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBColumnDescription.html">DBColumnDescription</a>&gt;</td>
+        <td><span class="parametername">columnList</span></td>
+        <td><p>Die Liste aller DBColumnDescriptions der Tabelle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBIndexDescription.html">DBIndexDescription</a>&gt;</td>
+        <td><span class="parametername">indexList</span></td>
+        <td><p>Die Liste aller DBIndexDescription der Tabelle.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_Create_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.Create*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_Create_FrameworkSystems_FrameworkDataClient_FrameworkDataConnection_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.Create(FrameworkSystems.FrameworkDataClient.FrameworkDataConnection)">Create(FrameworkDataConnection)</h4>
+  <div class="markdown level1 summary"><p>Erstellt ein neues DBAdapter Objekt je nach Verbindungsart.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static DBAdapter Create(FrameworkDataConnection connection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataConnection.html">FrameworkDataConnection</a></td>
+        <td><span class="parametername">connection</span></td>
+        <td><p>Die Verbindung, mit der ein Adapter erstellt werden soll.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.html">DBAdapter</a></td>
+        <td><p>Ein neuer DBAdapter.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_DBRun_Update_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.DBRun_Update*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_DBRun_Update" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.DBRun_Update">DBRun_Update()</h4>
+  <div class="markdown level1 summary"><p>Aktualisiert die DBRun-Tabellen in der Datenbank bei Bedarf</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DBRun_Update()</code></pre>
+  </div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GenerateTemporaryColumnName_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GenerateTemporaryColumnName*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GenerateTemporaryColumnName_FrameworkSystems_FrameworkDataProvider_DBComparison_DBTableDifferences_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GenerateTemporaryColumnName(FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences)">GenerateTemporaryColumnName(DBTableDifferences)</h4>
+  <div class="markdown level1 summary"><p>Erzeugt einen temporären Spaltennamen. Dabei werden die Columns der DescriptionReal und der
+DescriptionWanted der übergebenen DBTableDifferences geprüft.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected string GenerateTemporaryColumnName(DBTableDifferences differences)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences.html">DBTableDifferences</a></td>
+        <td><span class="parametername">differences</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GenerateUpdateScript_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GenerateUpdateScript*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GenerateUpdateScript_FrameworkSystems_FrameworkDataProvider_DBComparison_ChangeSetRunLevel_FrameworkSystems_FrameworkDataProvider_DBComparison_DBTableDifferences_System_Boolean_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GenerateUpdateScript(FrameworkSystems.FrameworkDataProvider.DBComparison.ChangeSetRunLevel,FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences,System.Boolean)">GenerateUpdateScript(ChangeSetRunLevel, DBTableDifferences, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Generiert ein Updateskript anhand der Unterschiede.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual List&lt;string&gt; GenerateUpdateScript(ChangeSetRunLevel runLevels, DBTableDifferences tableDifferences, bool commented = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.ChangeSetRunLevel.html">ChangeSetRunLevel</a></td>
+        <td><span class="parametername">runLevels</span></td>
+        <td><p>Eine Bitkombination aus Ausführungsebenen, die betrachtet werden sollen.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences.html">DBTableDifferences</a></td>
+        <td><span class="parametername">tableDifferences</span></td>
+        <td><p>Die Unterschiede, die behoben werden müssen.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">commented</span></td>
+        <td><p>Auf true, wenn die Ausgabe kommentiert sein soll.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>Ein mögliches Updateskript (Befehlsweise aufgesplittet).</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetChangeAsSQL_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetChangeAsSQL*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetChangeAsSQL_FrameworkSystems_FrameworkDataProvider_DBComparison_DBChange_FrameworkSystems_FrameworkDataProvider_DBComparison_DBTableDifferences_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetChangeAsSQL(FrameworkSystems.FrameworkDataProvider.DBComparison.DBChange,FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences)">GetChangeAsSQL(DBChange, DBTableDifferences)</h4>
+  <div class="markdown level1 summary"><p>Wandelt ein DBChange Objekt in einen SQL String um.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract List&lt;string&gt; GetChangeAsSQL(DBChange change, DBTableDifferences tableDifferences)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBChange.html">DBChange</a></td>
+        <td><span class="parametername">change</span></td>
+        <td><p>Das DBChange Objekt.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences.html">DBTableDifferences</a></td>
+        <td><span class="parametername">tableDifferences</span></td>
+        <td><p>Die restlichen Unterschiede der entsprechenden Tabelle.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>Ein SQL Skript, welches die Änderung durchführt.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetChangeSetAsSQL_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetChangeSetAsSQL*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetChangeSetAsSQL_FrameworkSystems_FrameworkDataProvider_DBComparison_ChangeSetRunLevel_System_Collections_Generic_List_FrameworkSystems_FrameworkDataProvider_DBComparison_DBChange__FrameworkSystems_FrameworkDataProvider_DBComparison_DBTableDifferences_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetChangeSetAsSQL(FrameworkSystems.FrameworkDataProvider.DBComparison.ChangeSetRunLevel,System.Collections.Generic.List{FrameworkSystems.FrameworkDataProvider.DBComparison.DBChange},FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences)">GetChangeSetAsSQL(ChangeSetRunLevel, List&lt;DBChange&gt;, DBTableDifferences)</h4>
+  <div class="markdown level1 summary"><p>Wandelt ein DBChange Change-Set in einen SQL String um.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual List&lt;string&gt; GetChangeSetAsSQL(ChangeSetRunLevel runLevels, List&lt;DBChange&gt; changeList, DBTableDifferences tableDifferences)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.ChangeSetRunLevel.html">ChangeSetRunLevel</a></td>
+        <td><span class="parametername">runLevels</span></td>
+        <td><p>Die aktuelle Ausführungsebene.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBChange.html">DBChange</a>&gt;</td>
+        <td><span class="parametername">changeList</span></td>
+        <td><p>Die DBChange Objekte des Change-Sets.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences.html">DBTableDifferences</a></td>
+        <td><span class="parametername">tableDifferences</span></td>
+        <td><p>Die restlichen Unterschiede der entsprechenden Tabelle.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>Ein SQL Skript, welches alle Änderungen im Change-Set durchführt.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetColumnDataTypeAsSQL_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetColumnDataTypeAsSQL*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetColumnDataTypeAsSQL_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBDataTypeDesc_System_Int32_System_Int32_System_Int32_System_Boolean_System_Boolean_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetColumnDataTypeAsSQL(FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBDataTypeDesc,System.Int32,System.Int32,System.Int32,System.Boolean,System.Boolean)">GetColumnDataTypeAsSQL(DBDataTypeDesc, Int32, Int32, Int32, Boolean, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Konvertiert den Datentyp in ein Datenbankspezifisches Format.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string GetColumnDataTypeAsSQL(DBDataTypeDesc dataType, int size, int precision, int scale, bool isUnicode, bool onlyTypeName = false)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBDataTypeDesc.html">DBDataTypeDesc</a></td>
+        <td><span class="parametername">dataType</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">size</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">precision</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">scale</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">isUnicode</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">onlyTypeName</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetColumnDataTypeParamsAsSQL_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetColumnDataTypeParamsAsSQL*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetColumnDataTypeParamsAsSQL_System_String_System_Int32_System_Int32_System_Int32_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetColumnDataTypeParamsAsSQL(System.String,System.Int32,System.Int32,System.Int32)">GetColumnDataTypeParamsAsSQL(String, Int32, Int32, Int32)</h4>
+  <div class="markdown level1 summary"><p>Erzeugt die Datentyp-Parameter für die übergebenen Native informationen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract string GetColumnDataTypeParamsAsSQL(string nativeDataType, int size, int precision, int scale)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">nativeDataType</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">size</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">precision</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">scale</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetColumnDifferences_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetColumnDifferences*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetColumnDifferences_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBTableDescription_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBTableDescription_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBColumnDescription_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBColumnDescription_System_Boolean_FrameworkSystems_FrameworkDataProvider_DBComparison_DBAnalyzeOptions_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetColumnDifferences(FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription,FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription,FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBColumnDescription,FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBColumnDescription,System.Boolean,FrameworkSystems.FrameworkDataProvider.DBComparison.DBAnalyzeOptions)">GetColumnDifferences(DBTableDescription, DBTableDescription, DBColumnDescription, DBColumnDescription, Boolean, DBAnalyzeOptions)</h4>
+  <div class="markdown level1 summary"><p>Vergleicht zwei DBColumnDescription Objekte inhaltlich miteinander und gibt den Unterschied zurück.
+Dabei wird der Name außer acht gelassen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract DBDifference GetColumnDifferences(DBTableDescription tableWanted, DBTableDescription tableReal, DBColumnDescription wanted, DBColumnDescription real, bool rowIdLogicEnabled, DBAnalyzeOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription.html">DBTableDescription</a></td>
+        <td><span class="parametername">tableWanted</span></td>
+        <td><p>Der Wunschzustand der Tabelle</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription.html">DBTableDescription</a></td>
+        <td><span class="parametername">tableReal</span></td>
+        <td><p>Der Realzustand der Tabelle</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBColumnDescription.html">DBColumnDescription</a></td>
+        <td><span class="parametername">wanted</span></td>
+        <td><p>Der Wunschzustand der Spalte.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBColumnDescription.html">DBColumnDescription</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p>Der Realzustand der Spalte.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">rowIdLogicEnabled</span></td>
+        <td><p>Wenn die RowID Logik greift müssen PKs außer acht gelassen werden.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAnalyzeOptions.html">DBAnalyzeOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBDifference.html">DBDifference</a></td>
+        <td><p>Ein DBDifference Objekt, wenn die Spalten unterschiedlich sind, sonst null.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBChangesFromDBDifferences_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBChangesFromDBDifferences*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBChangesFromDBDifferences_FrameworkSystems_FrameworkDataProvider_DBComparison_ChangeSetRunLevel_FrameworkSystems_FrameworkDataProvider_DBComparison_DBTableDifferences_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBChangesFromDBDifferences(FrameworkSystems.FrameworkDataProvider.DBComparison.ChangeSetRunLevel,FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences)">GetDBChangesFromDBDifferences(ChangeSetRunLevel, DBTableDifferences)</h4>
+  <div class="markdown level1 summary"><p>Erzeugt die DBChanges aus den DBDifferences. Diese sind genauer (z.B. werden Indizes entfernt, wenn eine betroffene Spalte entfernt wird, etc.).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual Dictionary&lt;ChangeSetRunLevel, List&lt;DBChange&gt;&gt; GetDBChangesFromDBDifferences(ChangeSetRunLevel runLevels, DBTableDifferences tableDifferences)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.ChangeSetRunLevel.html">ChangeSetRunLevel</a></td>
+        <td><span class="parametername">runLevels</span></td>
+        <td><p>Eine Bitkombination aus Ausführungsebenen, die betrachtet werden sollen.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences.html">DBTableDifferences</a></td>
+        <td><span class="parametername">tableDifferences</span></td>
+        <td><p>Die Unterschiede, die behoben werden müssen durch die DBChange-Objekte.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.Dictionary</span>&lt;<a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.ChangeSetRunLevel.html">ChangeSetRunLevel</a>, <span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBChange.html">DBChange</a>&gt;&gt;</td>
+        <td><p>Die Liste der Changes sortiert nach RunLevel</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBConnectionDescriptionFromDB_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBConnectionDescriptionFromDB*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBConnectionDescriptionFromDB_System_Collections_Generic_IEnumerable_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBTableDescription__" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBConnectionDescriptionFromDB(System.Collections.Generic.IEnumerable{FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription})">GetDBConnectionDescriptionFromDB(IEnumerable&lt;DBTableDescription&gt;)</h4>
+  <div class="markdown level1 summary"><p>Liest alle Tabellen von der Datenbank ein und generiert eine DBConnectionDescription (mit Caching).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DBConnectionDescription GetDBConnectionDescriptionFromDB(IEnumerable&lt;DBTableDescription&gt; wantedTables)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription.html">DBTableDescription</a>&gt;</td>
+        <td><span class="parametername">wantedTables</span></td>
+        <td><p>Es werden nur die Tabellen eingelesen, die in der Wanted Description gefodert sind.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBConnectionDescription.html">DBConnectionDescription</a></td>
+        <td><p>Eine DBConnectionDescription, die die Datenbank beschreibt.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBDifferences_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBDifferences*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBDifferences_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBConnectionDescription_FrameworkSystems_FrameworkDataProvider_DBComparison_DBAnalyzeOptions_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBDifferences(FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBConnectionDescription,FrameworkSystems.FrameworkDataProvider.DBComparison.DBAnalyzeOptions)">GetDBDifferences(DBConnectionDescription, DBAnalyzeOptions)</h4>
+  <div class="markdown level1 summary"><p>Vergleicht die übergene DBConnectionDescription mit dem Realzustand der Datenbank und gibt die Unterschiede zurück.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DBConnectionDifferences GetDBDifferences(DBConnectionDescription wanted, DBAnalyzeOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBConnectionDescription.html">DBConnectionDescription</a></td>
+        <td><span class="parametername">wanted</span></td>
+        <td><p>Der Wunschzustand der Datenbank.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAnalyzeOptions.html">DBAnalyzeOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBConnectionDifferences.html">DBConnectionDifferences</a></td>
+        <td><p>Eine Liste von Unterschieden in Form von DBDifference Objekten.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBDifferences_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBDifferences*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBDifferences_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBConnectionDescription_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBConnectionDescription_FrameworkSystems_FrameworkDataProvider_DBComparison_DBAnalyzeOptions_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBDifferences(FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBConnectionDescription,FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBConnectionDescription,FrameworkSystems.FrameworkDataProvider.DBComparison.DBAnalyzeOptions)">GetDBDifferences(DBConnectionDescription, DBConnectionDescription, DBAnalyzeOptions)</h4>
+  <div class="markdown level1 summary"><p>Vergleicht zwei DBConnectionDescription Objekte miteinander und gibt die Unterschiede zurück.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DBConnectionDifferences GetDBDifferences(DBConnectionDescription wanted, DBConnectionDescription real, DBAnalyzeOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBConnectionDescription.html">DBConnectionDescription</a></td>
+        <td><span class="parametername">wanted</span></td>
+        <td><p>Der Wunschzustand der Datenbank.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBConnectionDescription.html">DBConnectionDescription</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p>Der Realzustand der Datenbank.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAnalyzeOptions.html">DBAnalyzeOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBConnectionDifferences.html">DBConnectionDifferences</a></td>
+        <td><p>Eine Liste von Unterschieden in Form von DBDifference Objekten.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBDifferences_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBDifferences*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBDifferences_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBTableDescription_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBTableDescription_FrameworkSystems_FrameworkDataProvider_DBComparison_DBAnalyzeOptions_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBDifferences(FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription,FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription,FrameworkSystems.FrameworkDataProvider.DBComparison.DBAnalyzeOptions)">GetDBDifferences(DBTableDescription, DBTableDescription, DBAnalyzeOptions)</h4>
+  <div class="markdown level1 summary"><p>Vergleicht zwei DBTableDescription Objekte miteinander und gibt die Unterschiede zurück.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DBTableDifferences GetDBDifferences(DBTableDescription wanted, DBTableDescription real, DBAnalyzeOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription.html">DBTableDescription</a></td>
+        <td><span class="parametername">wanted</span></td>
+        <td><p>Der Wunschzustand der Datenbanktabelle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription.html">DBTableDescription</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p>Der Realzustand der Datenbanktabelle.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAnalyzeOptions.html">DBAnalyzeOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences.html">DBTableDifferences</a></td>
+        <td><p>Eine Liste von Unterschieden in Form von DBDifference Objekten, die an einer DBTableDifferences Instanz hängen.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBDifferencesForViewDefinitions_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBDifferencesForViewDefinitions*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBDifferencesForViewDefinitions_System_Collections_Generic_List_FrameworkSystems_FrameworkDataProvider_DBComparison_DBDifference__FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBTableDescription_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBTableDescription_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBDifferencesForViewDefinitions(System.Collections.Generic.List{FrameworkSystems.FrameworkDataProvider.DBComparison.DBDifference},FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription,FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription)">GetDBDifferencesForViewDefinitions(List&lt;DBDifference&gt;, DBTableDescription, DBTableDescription)</h4>
+  <div class="markdown level1 summary"><p>Die Auflistung der View-Definitionsunterschiede für die Methode GetDBDifferences(DBTableDescription wanted, DBTableDescription real).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void GetDBDifferencesForViewDefinitions(List&lt;DBDifference&gt; differences, DBTableDescription wanted, DBTableDescription real)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBDifference.html">DBDifference</a>&gt;</td>
+        <td><span class="parametername">differences</span></td>
+        <td><p>Zielliste</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription.html">DBTableDescription</a></td>
+        <td><span class="parametername">wanted</span></td>
+        <td><p>Gewünschter Tabellenzustand</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription.html">DBTableDescription</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p>Realer Tabellenzustand</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBTableDescription_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBTableDescription*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBTableDescription_System_String_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBTableDescription(System.String)">GetDBTableDescription(String)</h4>
+  <div class="markdown level1 summary"><p>Ruft alle Spalten und alle Indizes, die die Tabelle betreffen ab (ohne Caching).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract DBTableDescription GetDBTableDescription(string table)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">table</span></td>
+        <td><p>Der Tabellenname.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription.html">DBTableDescription</a></td>
+        <td><p>Ein DBTableDescription Objekt.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBTableDescriptionFromDB_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBTableDescriptionFromDB*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBTableDescriptionFromDB_System_String_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBTableDescriptionFromDB(System.String)">GetDBTableDescriptionFromDB(String)</h4>
+  <div class="markdown level1 summary"><p>Ruft alle Spalten und alle Indizes, die die Tabelle betreffen ab (mit Caching).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual DBTableDescription GetDBTableDescriptionFromDB(string tableName)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tableName</span></td>
+        <td><p>Die Tabelle.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription.html">DBTableDescription</a></td>
+        <td><p>Eine DBTableDescription, die die Tabelle beschreibt.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBTables_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBTables*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetDBTables" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetDBTables">GetDBTables()</h4>
+  <div class="markdown level1 summary"><p>Listet alle Tabellen der Datenbank auf, die an die Verbindung gebunden ist (ohne Caching).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract IList&lt;string&gt; GetDBTables()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td><p>Eine Liste von Tabellennamen.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetIndexColumns_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetIndexColumns*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetIndexColumns_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBIndexDescription_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetIndexColumns(FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBIndexDescription)">GetIndexColumns(DBIndexDescription)</h4>
+  <div class="markdown level1 summary"><p>Listet alle Spalten des Index auf und bereitet sie für ein DBMDIndex Objekt auf.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual List&lt;DBMDIndexColumn&gt; GetIndexColumns(DBIndexDescription index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBIndexDescription.html">DBIndexDescription</a></td>
+        <td><span class="parametername">index</span></td>
+        <td><p>Der Index, dessen Spalten aufgelistet werden sollen.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBMDIndexColumn.html">DBMDIndexColumn</a>&gt;</td>
+        <td><p>Eine Liste von Indexspalten.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetIndexDifference_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetIndexDifference*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetIndexDifference_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBTableDescription_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBIndexDescription_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBIndexDescription_FrameworkSystems_FrameworkDataProvider_DBComparison_DBAnalyzeOptions_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetIndexDifference(FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription,FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBIndexDescription,FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBIndexDescription,FrameworkSystems.FrameworkDataProvider.DBComparison.DBAnalyzeOptions)">GetIndexDifference(DBTableDescription, DBIndexDescription, DBIndexDescription, DBAnalyzeOptions)</h4>
+  <div class="markdown level1 summary"><p>Vergleicht zwei DBIndexDescription Objekte inhaltlich miteinander. Indizes, die nicht dem Wunschzustand entsprechen werden neu erstellt.
+Dabei wird der Name außer acht gelassen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual DBDifference GetIndexDifference(DBTableDescription table, DBIndexDescription wanted, DBIndexDescription real, DBAnalyzeOptions options)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBTableDescription.html">DBTableDescription</a></td>
+        <td><span class="parametername">table</span></td>
+        <td><p>Der Tabellenname (nötig zur Erzeugung eines DBModifyingDetails Objekts)</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBIndexDescription.html">DBIndexDescription</a></td>
+        <td><span class="parametername">wanted</span></td>
+        <td><p>Der Wunschzustand des Index.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBIndexDescription.html">DBIndexDescription</a></td>
+        <td><span class="parametername">real</span></td>
+        <td><p>Der Realzustand des Index.</p>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAnalyzeOptions.html">DBAnalyzeOptions</a></td>
+        <td><span class="parametername">options</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBDifference.html">DBDifference</a></td>
+        <td><p>True, wenn die Indizes sich unterscheiden, false andernfalls.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetPackageDescriptionFromDB_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetPackageDescriptionFromDB*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetPackageDescriptionFromDB" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetPackageDescriptionFromDB">GetPackageDescriptionFromDB()</h4>
+  <div class="markdown level1 summary"><p>Gibt die aktuellen Package-Descriptions aus der Datenbank zurück.
+Bei DB-Problemen wird eine leere Liste zurückgegeben.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual List&lt;DBPackageDescription&gt; GetPackageDescriptionFromDB()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBPackageDescription.html">DBPackageDescription</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetPrimaryKeyColumns_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetPrimaryKeyColumns*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetPrimaryKeyColumns_FrameworkSystems_FrameworkDataProvider_DBComparison_DBTableDifferences_System_Boolean_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetPrimaryKeyColumns(FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences,System.Boolean)">GetPrimaryKeyColumns(DBTableDifferences, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Gibt die Primary Key Spalten der Tabelle nach allen aktiven Änderungen zurück. Je nach dem,
+ob das Flag includeNewPKs gesetzt ist, werden auch die DBDifferences beachtet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual List&lt;string&gt; GetPrimaryKeyColumns(DBTableDifferences tableDifferences, bool includeNewPKs = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences.html">DBTableDifferences</a></td>
+        <td><span class="parametername">tableDifferences</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includeNewPKs</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetPrimaryKeyColumnsRowIDLogic_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetPrimaryKeyColumnsRowIDLogic*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetPrimaryKeyColumnsRowIDLogic_FrameworkSystems_FrameworkDataProvider_DBComparison_DBTableDifferences_System_Boolean_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetPrimaryKeyColumnsRowIDLogic(FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences,System.Boolean)">GetPrimaryKeyColumnsRowIDLogic(DBTableDifferences, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Gibt die Primary Key Spalten der Tabelle nach allen aktiven Änderungen zurück. Je nach dem,
+ob das Flag includeNewPKs gesetzt ist, werden auch die DBDifferences beachtet.
+Der Unterschied zur Methode GetPrimaryKeyColumns ist der, dass hier auch die RowIDLogic überprüft wird.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual List&lt;string&gt; GetPrimaryKeyColumnsRowIDLogic(DBTableDifferences tableDifferences, bool includeNewPKs = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences.html">DBTableDifferences</a></td>
+        <td><span class="parametername">tableDifferences</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includeNewPKs</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.List</span>&lt;<span class="xref">System.String</span>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetPrimaryKeyConstraintName_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetPrimaryKeyConstraintName*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetPrimaryKeyConstraintName_System_String_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetPrimaryKeyConstraintName(System.String)">GetPrimaryKeyConstraintName(String)</h4>
+  <div class="markdown level1 summary"><p>Gibt den Primary-Key Constraintnamen der angegebenen Tabelle zurück.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract string GetPrimaryKeyConstraintName(string table)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">table</span></td>
+        <td><p>Der Tabellenname.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>Der Name des Primary-Key Constraints.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetTriggers_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetTriggers*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetTriggers" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetTriggers">GetTriggers()</h4>
+  <div class="markdown level1 summary"><p>Gibt alle Trigger in der Datenbank zurück.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual IEnumerable&lt;DBNativeTriggerDescription&gt; GetTriggers()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IEnumerable</span>&lt;<a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBNativeTriggerDescription.html">DBNativeTriggerDescription</a>&gt;</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetTriggersSelectStatement_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetTriggersSelectStatement*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_GetTriggersSelectStatement" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.GetTriggersSelectStatement">GetTriggersSelectStatement()</h4>
+  <div class="markdown level1 summary"><p>Gibt das Statement zum Selektieren der Trigger zurück.
+Folgende Spalten muss das Statement liefern
+0: Name des Triggers als String
+1: Name der Tabelle als String
+2: Aktiv - &apos;1&apos;, inaktiv - &apos;0&apos;
+4: Definitions-Präfix als String
+3: Trigger-Definition als String</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected abstract string GetTriggersSelectStatement()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_IsUsingRowIdLogic_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.IsUsingRowIdLogic*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_IsUsingRowIdLogic_FrameworkSystems_FrameworkDataProvider_DBComparison_DBTableDifferences_System_Boolean_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.IsUsingRowIdLogic(FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences,System.Boolean)">IsUsingRowIdLogic(DBTableDifferences, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Prüft, ob die Tabelle nach allen aktiven Änderungen noch nach der RowId/RowVersion Logik arbeitet.
+Je nach dem, ob das Flag includeNewPKs gesetzt ist, werden auch die DBDifferences beachtet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual bool IsUsingRowIdLogic(DBTableDifferences tableDifferences, bool includeNew = true)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBTableDifferences.html">DBTableDifferences</a></td>
+        <td><span class="parametername">tableDifferences</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">includeNew</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_ShouldDatabaseImport_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.ShouldDatabaseImport*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_ShouldDatabaseImport_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBIndexDescription_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.ShouldDatabaseImport(FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBIndexDescription)">ShouldDatabaseImport(DBIndexDescription)</h4>
+  <div class="markdown level1 summary"><p>Gibt zurück, ob der Index beim Database-Import berücksichtigt werden soll.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool ShouldDatabaseImport(DBIndexDescription index)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBIndexDescription.html">DBIndexDescription</a></td>
+        <td><span class="parametername">index</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_TriggerEnable_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.TriggerEnable*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_TriggerEnable_FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBNativeTriggerDescription_System_Boolean_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.TriggerEnable(FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBNativeTriggerDescription,System.Boolean)">TriggerEnable(DBNativeTriggerDescription, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Enabled oder disabled einen den übergebenen Trigger.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public abstract void TriggerEnable(DBNativeTriggerDescription trigger, bool enabled)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBNativeTriggerDescription.html">DBNativeTriggerDescription</a></td>
+        <td><span class="parametername">trigger</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">enabled</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_UpdatePackageDescriptionToDB_" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.UpdatePackageDescriptionToDB*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_DBComparison_DBAdapters_DBAdapter_UpdatePackageDescriptionToDB_System_Collections_Generic_IList_FrameworkSystems_FrameworkDataProvider_XMLObjectDescriptions_Database_DBPackageDescription__" data-uid="FrameworkSystems.FrameworkDataProvider.DBComparison.DBAdapters.DBAdapter.UpdatePackageDescriptionToDB(System.Collections.Generic.IList{FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBPackageDescription})">UpdatePackageDescriptionToDB(IList&lt;DBPackageDescription&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual void UpdatePackageDescriptionToDB(IList&lt;DBPackageDescription&gt; list)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Collections.Generic.IList</span>&lt;<a class="xref" href="FrameworkSystems.FrameworkDataProvider.XMLObjectDescriptions.Database.DBPackageDescription.html">DBPackageDescription</a>&gt;</td>
+        <td><span class="parametername">list</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

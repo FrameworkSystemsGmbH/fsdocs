@@ -1,0 +1,1633 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class FrameworkDataAdapter
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class FrameworkDataAdapter
+   ">
+    <meta name="generator" content="docfx 2.43.5.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter">
+  
+  
+  <h1 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter" class="text-break">Class FrameworkDataAdapter
+  </h1>
+  <div class="markdown level0 summary"><p>Stellt eine Menge von SQL-Statements und eine Datenbank-Verbindung zur Verfügung,
+die zum Füllen und Updaten eines DataSets benutzt werden können.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">System.MarshalByRefObject</span></div>
+    <div class="level2"><span class="xref">System.ComponentModel.Component</span></div>
+    <div class="level3"><span class="xref">System.Data.Common.DataAdapter</span></div>
+    <div class="level4"><span class="xref">FrameworkDataAdapter</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.ComponentModel.IComponent</span></div>
+    <div><span class="xref">System.IDisposable</span></div>
+    <div><span class="xref">System.Data.IDbDataAdapter</span></div>
+    <div><span class="xref">System.Data.IDataAdapter</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.ShouldSerializeTableMappings()</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.HasTableMappings()</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.CloneInternals()</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.CreateTableMappings()</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.FillSchema(System.Data.DataSet, System.Data.SchemaType, System.String, System.Data.IDataReader)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.FillSchema(System.Data.DataTable, System.Data.SchemaType, System.Data.IDataReader)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.Fill(System.Data.DataSet, System.String, System.Data.IDataReader, System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.Fill(System.Data.DataTable, System.Data.IDataReader)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.Fill(System.Data.DataTable[], System.Data.IDataReader, System.Int32, System.Int32)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.OnFillError(System.Data.FillErrorEventArgs)</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.AcceptChangesDuringFill</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.AcceptChangesDuringUpdate</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.ContinueUpdateOnError</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.FillLoadOption</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.MissingMappingAction</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.MissingSchemaAction</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.ReturnProviderSpecificTypes</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.System.Data.IDataAdapter.TableMappings</span>
+    </div>
+    <div>
+      <span class="xref">System.Data.Common.DataAdapter.FillError</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Dispose()</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.GetService(System.Type)</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.ToString()</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.CanRaiseEvents</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Events</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Site</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Container</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.DesignMode</span>
+    </div>
+    <div>
+      <span class="xref">System.ComponentModel.Component.Disposed</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.MemberwiseClone(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.GetLifetimeService()</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.InitializeLifetimeService()</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.CreateObjRef(System.Type)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkDataClient.html">FrameworkSystems.FrameworkDataClient</a></h6>
+  <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkDataProvider.dll</h6>
+  <h5 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FrameworkDataAdapter : DataAdapter, IComponent, IDisposable, IDbDataAdapter, IDataAdapter</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter__ctor_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter__ctor_FrameworkSystems_FrameworkDataClient_FrameworkDataConnection_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.#ctor(FrameworkSystems.FrameworkDataClient.FrameworkDataConnection)">FrameworkDataAdapter(FrameworkDataConnection)</h4>
+  <div class="markdown level1 summary"><p>Erzeugt einen FrameworkDataAdapter. Die Zieldatenbank wird über den Parameter
+connectionTypeVal gesteuert.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FrameworkDataAdapter(FrameworkDataConnection connection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataConnection.html">FrameworkDataConnection</a></td>
+        <td><span class="parametername">connection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter__ctor_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter__ctor_FrameworkSystems_FrameworkDataClient_FrameworkDataConnection_System_String_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.#ctor(FrameworkSystems.FrameworkDataClient.FrameworkDataConnection,System.String)">FrameworkDataAdapter(FrameworkDataConnection, String)</h4>
+  <div class="markdown level1 summary"><p>Erzeugt einen FrameworkDataAdapter für die Connection conn. Außerdem wird ein
+SelectCommand mit selectCommandText erzeugt. TableMappings werden keine erzeugt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FrameworkDataAdapter(FrameworkDataConnection conn, string selectCommandText)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataConnection.html">FrameworkDataConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">selectCommandText</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter__ctor_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter__ctor_FrameworkSystems_FrameworkDataClient_FrameworkDataConnection_System_String_System_Data_DataSet_System_String_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.#ctor(FrameworkSystems.FrameworkDataClient.FrameworkDataConnection,System.String,System.Data.DataSet,System.String)">FrameworkDataAdapter(FrameworkDataConnection, String, DataSet, String)</h4>
+  <div class="markdown level1 summary"><p>Erzeugt einen FrameworkDataAdapter für die Connection conn. Außerdem wird ein
+SelectCommand mit selectCommandText erzeugt. Die TableMappings werden für die
+SourceTable &apos;Table&apos; und tableNameInDataSet anhand von dataSetForAdapter erzeugt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FrameworkDataAdapter(FrameworkDataConnection conn, string selectCommandText, DataSet dataSetForAdapter, string tableNameInDataSet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataConnection.html">FrameworkDataConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">selectCommandText</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Data.DataSet</span></td>
+        <td><span class="parametername">dataSetForAdapter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">tableNameInDataSet</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter__ctor_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter__ctor_System_Data_SqlClient_SqlDataAdapter_FrameworkSystems_FrameworkDataClient_FrameworkDataConnection_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.#ctor(System.Data.SqlClient.SqlDataAdapter,FrameworkSystems.FrameworkDataClient.FrameworkDataConnection)">FrameworkDataAdapter(SqlDataAdapter, FrameworkDataConnection)</h4>
+  <div class="markdown level1 summary"><p>Erzeugt nach dem Muster von sqlAdapter einen FrameworkDataAdapter. Als Zieldatenbank wird
+die in dataConnection.ConnectionType angegebene DB verwendet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FrameworkDataAdapter(SqlDataAdapter sqlAdapter, FrameworkDataConnection dataConnection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.SqlClient.SqlDataAdapter</span></td>
+        <td><span class="parametername">sqlAdapter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataConnection.html">FrameworkDataConnection</a></td>
+        <td><span class="parametername">dataConnection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter__ctor_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter__ctor_System_Data_SqlClient_SqlDataAdapter_FrameworkSystems_FrameworkDataClient_FrameworkDataConnection__" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.#ctor(System.Data.SqlClient.SqlDataAdapter,FrameworkSystems.FrameworkDataClient.FrameworkDataConnection@)">FrameworkDataAdapter(SqlDataAdapter, ref FrameworkDataConnection)</h4>
+  <div class="markdown level1 summary"><p>Erzeugt nach dem Muster von sqlAdapter einen FrameworkDataAdapter. Als Zieldatenbank wird
+die in dataConnection.ConnectionType angegebene DB verwendet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FrameworkDataAdapter(SqlDataAdapter sqlAdapter, ref FrameworkDataConnection dataConnection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.SqlClient.SqlDataAdapter</span></td>
+        <td><span class="parametername">sqlAdapter</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataConnection.html">FrameworkDataConnection</a></td>
+        <td><span class="parametername">dataConnection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Connection_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Connection*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Connection" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Connection">Connection</h4>
+  <div class="markdown level1 summary"><p>Setzt / liest das Connection-Objekt für alle mit dem DataAdapter verbundenen
+Commands. FrameworkDataConnection geht davon aus, daß alle Commands das
+gleiche Connection-Objekt benutzen.
+Falls beim Setzen des Connection-Objektes bereits Das Select-, Update-,
+Insert- und/oder Delete-Command gesetzt sind, wird an diesen
+das Connection-Objekt ebenfalls ersetzt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public FrameworkDataConnection Connection { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataConnection.html">FrameworkDataConnection</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_ConnectionType_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.ConnectionType*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_ConnectionType" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.ConnectionType">ConnectionType</h4>
+  <div class="markdown level1 summary"><p>Verbindungstyp der Verbindung des DataAdapters</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectionType ConnectionType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.ConnectionType.html">ConnectionType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_ConvertStatementsOnEveryCommand_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.ConvertStatementsOnEveryCommand*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_ConvertStatementsOnEveryCommand" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.ConvertStatementsOnEveryCommand">ConvertStatementsOnEveryCommand</h4>
+  <div class="markdown level1 summary"><p>Gibt an, ob die SQL-anweisungen bei Ausführung jedes SQL-Befehls neu konvertiert werden sollen</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public bool ConvertStatementsOnEveryCommand { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_DataAdapterProvider_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.DataAdapterProvider*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_DataAdapterProvider" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.DataAdapterProvider">DataAdapterProvider</h4>
+  <div class="markdown level1 summary"><p>Zur internen Verwaltung der Klasse. Wird nur aus FrameworkDataConnection.CreateDataAdapter gesetzt
+bzw. innerhalb der Klasse FrameworkDataAdapter benutzt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public DataAdapter DataAdapterProvider { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.Common.DataAdapter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_DataAdapterTemplate_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.DataAdapterTemplate*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_DataAdapterTemplate" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.DataAdapterTemplate">DataAdapterTemplate</h4>
+  <div class="markdown level1 summary"><p>Übernimmt die im Template angegebenen Properties in den FrameworkDataAdapter.
+Die Übernahme erfolgt in Abhängigkeit des ConnectionTypes des DataAdapters.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public SqlDataAdapter DataAdapterTemplate { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.SqlClient.SqlDataAdapter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_DeleteCommand_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.DeleteCommand*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_DeleteCommand" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.DeleteCommand">DeleteCommand</h4>
+  <div class="markdown level1 summary"><p>Setzt / liest den Delete-Befehl
+Beim Setzen wird das Connection-Objekt der Klasse auf Connection-Objekt des Commands
+gesetzt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public FrameworkDataCommand DeleteCommand { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataCommand.html">FrameworkDataCommand</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_FSProviderType_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.FSProviderType*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_FSProviderType" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.FSProviderType">FSProviderType</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public ConnectionType FSProviderType { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.ConnectionType.html">ConnectionType</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_InsertCommand_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.InsertCommand*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_InsertCommand" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.InsertCommand">InsertCommand</h4>
+  <div class="markdown level1 summary"><p>Setzt / liest den Insert-Befehl
+Beim Setzen wird das Connection-Objekt der Klasse auf Connection-Objekt des Commands
+gesetzt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public FrameworkDataCommand InsertCommand { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataCommand.html">FrameworkDataCommand</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_IsInDesignMode_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.IsInDesignMode*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_IsInDesignMode" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.IsInDesignMode">IsInDesignMode</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsInDesignMode { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_PKColumnName_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.PKColumnName*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_PKColumnName" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.PKColumnName">PKColumnName</h4>
+  <div class="markdown level1 summary"><p>Welche Spalte gibt den Primary-Key an.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string PKColumnName { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_SelectCommand_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.SelectCommand*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_SelectCommand" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.SelectCommand">SelectCommand</h4>
+  <div class="markdown level1 summary"><p>Setzt / liest das Select-Command.
+Beim Setzen wird das Connection-Objekt der Klasse auf Connection-Objekt des Commands
+gesetzt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public FrameworkDataCommand SelectCommand { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataCommand.html">FrameworkDataCommand</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_TableMappings_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.TableMappings*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_TableMappings" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.TableMappings">TableMappings</h4>
+  <div class="markdown level1 summary"><p>Gibt eine DataTableMappingCollection zurück. Implementiert das von
+System.Data.Common.DataAdapter geerbte Property TableMappings neu.
+Zurückgeliefert wird - je nach ConnectionType - die Collection vom
+jeweiligen AdapterProvider (OleDB oder SQLClient).</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public DataTableMappingCollection TableMappings { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.Common.DataTableMappingCollection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_UpdateCommand_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.UpdateCommand*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_UpdateCommand" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.UpdateCommand">UpdateCommand</h4>
+  <div class="markdown level1 summary"><p>Setzt / liest das Update-Command.
+Beim Setzen wird das Connection-Objekt der Klasse auf Connection-Objekt des Commands
+gesetzt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public FrameworkDataCommand UpdateCommand { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataCommand.html">FrameworkDataCommand</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Adapter_RowUpdated_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Adapter_RowUpdated*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Adapter_RowUpdated_System_Object_System_Data_Common_RowUpdatedEventArgs_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Adapter_RowUpdated(System.Object,System.Data.Common.RowUpdatedEventArgs)">Adapter_RowUpdated(Object, RowUpdatedEventArgs)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void Adapter_RowUpdated(object sender, RowUpdatedEventArgs e)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">sender</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Data.Common.RowUpdatedEventArgs</span></td>
+        <td><span class="parametername">e</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Adapter_RowUpdated_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Adapter_RowUpdated*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Adapter_RowUpdated_System_Object_System_Data_DataRow_System_Data_StatementType_System_Data_UpdateStatus_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Adapter_RowUpdated(System.Object,System.Data.DataRow,System.Data.StatementType,System.Data.UpdateStatus)">Adapter_RowUpdated(Object, DataRow, StatementType, UpdateStatus)</h4>
+  <div class="markdown level1 summary"><p>Wenn für ein Sql-Update- bzw. Sql-Insert-Statement ein Refresh-Statement angegeben
+worden ist, wird dieses mit Hilfe dieser Methode ausgeführt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void Adapter_RowUpdated(object sender, DataRow row, StatementType type, UpdateStatus status)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">sender</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Data.DataRow</span></td>
+        <td><span class="parametername">row</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Data.StatementType</span></td>
+        <td><span class="parametername">type</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Data.UpdateStatus</span></td>
+        <td><span class="parametername">status</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Adapter_RowUpdated_System_Object_System_Data_DataRow_System_Data_StatementType_System_Data_UpdateStatus__remarks">Remarks</h5>
+  <div class="markdown level1 remarks"><p>Die Methode wird indirekt (Adapter_SqlRowUpdated, Adapter_OleDbRowUpdated)
+über einen Eventhändler nach jeder  Datenbankänderung über den DataAdapter
+aufgerufen</p>
+</div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_BeforeUpdate_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.BeforeUpdate*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_BeforeUpdate" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.BeforeUpdate">BeforeUpdate()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void BeforeUpdate()</code></pre>
+  </div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_CreateDataAdapterProvider_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.CreateDataAdapterProvider*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_CreateDataAdapterProvider" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.CreateDataAdapterProvider">CreateDataAdapterProvider()</h4>
+  <div class="markdown level1 summary"><p>Erzeugt abhängig von der Membervariablen ConnectionType einen DataAdapter.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void CreateDataAdapterProvider()</code></pre>
+  </div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_CreateFrameworkDataAdapter_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.CreateFrameworkDataAdapter*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_CreateFrameworkDataAdapter_FrameworkSystems_FrameworkDataClient_FrameworkDataConnection_System_Data_SqlClient_SqlDataAdapter_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.CreateFrameworkDataAdapter(FrameworkSystems.FrameworkDataClient.FrameworkDataConnection,System.Data.SqlClient.SqlDataAdapter)">CreateFrameworkDataAdapter(FrameworkDataConnection, SqlDataAdapter)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void CreateFrameworkDataAdapter(FrameworkDataConnection dataConnection, SqlDataAdapter sqlAdapter)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataConnection.html">FrameworkDataConnection</a></td>
+        <td><span class="parametername">dataConnection</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Data.SqlClient.SqlDataAdapter</span></td>
+        <td><span class="parametername">sqlAdapter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_CreateFrameworkDataAdapter_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.CreateFrameworkDataAdapter*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_CreateFrameworkDataAdapter_FrameworkSystems_FrameworkDataClient_FrameworkDataConnection_System_String_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.CreateFrameworkDataAdapter(FrameworkSystems.FrameworkDataClient.FrameworkDataConnection,System.String)">CreateFrameworkDataAdapter(FrameworkDataConnection, String)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected void CreateFrameworkDataAdapter(FrameworkDataConnection conn, string selectCommandText)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataConnection.html">FrameworkDataConnection</a></td>
+        <td><span class="parametername">conn</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">selectCommandText</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_CreateFrameworkDataCommand_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.CreateFrameworkDataCommand*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_CreateFrameworkDataCommand_System_Data_SqlClient_SqlCommand_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.CreateFrameworkDataCommand(System.Data.SqlClient.SqlCommand)">CreateFrameworkDataCommand(SqlCommand)</h4>
+  <div class="markdown level1 summary"><p>Konvertiert ein SqlCommand abhängig vom DataProvider in ein FrameworkDataCommand</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected FrameworkDataCommand CreateFrameworkDataCommand(SqlCommand command)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.SqlClient.SqlCommand</span></td>
+        <td><span class="parametername">command</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataCommand.html">FrameworkDataCommand</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Dispose_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Dispose*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Dispose_System_Boolean_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Dispose(System.Boolean)">Dispose(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Dispose</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected override void Dispose(bool disposing)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">disposing</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Data.Common.DataAdapter.Dispose(System.Boolean)</span></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Fill_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Fill*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Fill_System_Data_DataSet_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Fill(System.Data.DataSet)">Fill(DataSet)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int Fill(DataSet dataSet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.DataSet</span></td>
+        <td><span class="parametername">dataSet</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Data.Common.DataAdapter.Fill(System.Data.DataSet)</span></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Fill_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Fill*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Fill_System_Data_DataSet_System_Boolean_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Fill(System.Data.DataSet,System.Boolean)">Fill(DataSet, Boolean)</h4>
+  <div class="markdown level1 summary"><p>Lädt die Daten mit Hilfe der im SelectCommand (Property) angegeben Select-Anweisung
+ins übergebene Dataset.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int Fill(DataSet dataSet, bool clearDataSetFirst)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.DataSet</span></td>
+        <td><span class="parametername">dataSet</span></td>
+        <td><p>Zu füllendes Dataset</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">clearDataSetFirst</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_FillSchema_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.FillSchema*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_FillSchema_System_Data_DataSet_System_Data_SchemaType_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.FillSchema(System.Data.DataSet,System.Data.SchemaType)">FillSchema(DataSet, SchemaType)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override DataTable[] FillSchema(DataSet dataSet, SchemaType schemaType)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.DataSet</span></td>
+        <td><span class="parametername">dataSet</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><span class="xref">System.Data.SchemaType</span></td>
+        <td><span class="parametername">schemaType</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.DataTable</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Data.Common.DataAdapter.FillSchema(System.Data.DataSet, System.Data.SchemaType)</span></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_GetFillParameters_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.GetFillParameters*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_GetFillParameters" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.GetFillParameters">GetFillParameters()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override IDataParameter[] GetFillParameters()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.IDataParameter</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Data.Common.DataAdapter.GetFillParameters()</span></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_InitializeAdapter_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.InitializeAdapter*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_InitializeAdapter" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.InitializeAdapter">InitializeAdapter()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void InitializeAdapter()</code></pre>
+  </div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_SetTransactionOnCommand_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.SetTransactionOnCommand*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_SetTransactionOnCommand_FrameworkSystems_FrameworkDataClient_FrameworkDataTransaction_FrameworkSystems_FrameworkDataClient_FrameworkDataCommand_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.SetTransactionOnCommand(FrameworkSystems.FrameworkDataClient.FrameworkDataTransaction,FrameworkSystems.FrameworkDataClient.FrameworkDataCommand)">SetTransactionOnCommand(FrameworkDataTransaction, FrameworkDataCommand)</h4>
+  <div class="markdown level1 summary"><p>Setzt Transaktion trans am DataCommand command.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected static void SetTransactionOnCommand(FrameworkDataTransaction trans, FrameworkDataCommand command)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataTransaction.html">FrameworkDataTransaction</a></td>
+        <td><span class="parametername">trans</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.FrameworkDataCommand.html">FrameworkDataCommand</a></td>
+        <td><span class="parametername">command</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Update_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Update*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Update_System_Data_DataRow_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Update(System.Data.DataRow)">Update(DataRow)</h4>
+  <div class="markdown level1 summary"><p>Schreibt die Änderungen an der DataRow in die Datenbank</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int Update(DataRow row)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.DataRow</span></td>
+        <td><span class="parametername">row</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Update_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Update*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Update_System_Data_DataRow___" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Update(System.Data.DataRow[])">Update(DataRow[])</h4>
+  <div class="markdown level1 summary"><p>Schreibt die Änderungen an den übergebenen DataRows in die Datenbank</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int Update(DataRow[] rows)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.DataRow</span>[]</td>
+        <td><span class="parametername">rows</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Update_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Update*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Update_System_Data_DataSet_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Update(System.Data.DataSet)">Update(DataSet)</h4>
+  <div class="markdown level1 summary"><p>Schreibt die Änderungen am Dataset in die Datenbank</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int Update(DataSet dataSet)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.DataSet</span></td>
+        <td><span class="parametername">dataSet</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Data.Common.DataAdapter.Update(System.Data.DataSet)</span></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Update_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Update*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_Update_System_Data_DataView_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.Update(System.Data.DataView)">Update(DataView)</h4>
+  <div class="markdown level1 summary"><p>Schreibt die Änderungen am Dataset in die Datenbank</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual int Update(DataView view)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.DataView</span></td>
+        <td><span class="parametername">view</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="events">Events
+  </h3>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_ConnectionChanged" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.ConnectionChanged">ConnectionChanged</h4>
+  <div class="markdown level1 summary"><p>Die Verbindung (SqlServer, Oracle) hat sich geändert</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event EventHandler ConnectionChanged</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.EventHandler</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_RowUpdated" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.RowUpdated">RowUpdated</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event RowUpdatedEventHandler RowUpdated</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.RowUpdatedEventHandler.html">RowUpdatedEventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_RowUpdating" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.RowUpdating">RowUpdating</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public event RowUpdatingEventHandler RowUpdating</code></pre>
+  </div>
+  <h5 class="eventType">Event Type</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataClient.RowUpdatingEventHandler.html">RowUpdatingEventHandler</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_System_Data_IDbDataAdapter_DeleteCommand_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.System#Data#IDbDataAdapter#DeleteCommand*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_System_Data_IDbDataAdapter_DeleteCommand" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.System#Data#IDbDataAdapter#DeleteCommand">IDbDataAdapter.DeleteCommand</h4>
+  <div class="markdown level1 summary"><p>Setzt / liest den Delete-Befehl
+Beim Setzen wird das Connection-Objekt der Klasse auf Connection-Objekt des Commands
+gesetzt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IDbCommand IDbDataAdapter.DeleteCommand { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.IDbCommand</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_System_Data_IDbDataAdapter_InsertCommand_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.System#Data#IDbDataAdapter#InsertCommand*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_System_Data_IDbDataAdapter_InsertCommand" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.System#Data#IDbDataAdapter#InsertCommand">IDbDataAdapter.InsertCommand</h4>
+  <div class="markdown level1 summary"><p>Setzt / liest den Insert-Befehl
+Beim Setzen wird das Connection-Objekt der Klasse auf Connection-Objekt des Commands
+gesetzt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IDbCommand IDbDataAdapter.InsertCommand { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.IDbCommand</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_System_Data_IDbDataAdapter_SelectCommand_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.System#Data#IDbDataAdapter#SelectCommand*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_System_Data_IDbDataAdapter_SelectCommand" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.System#Data#IDbDataAdapter#SelectCommand">IDbDataAdapter.SelectCommand</h4>
+  <div class="markdown level1 summary"><p>Setzt / liest das Select-Command.
+Beim Setzen wird das Connection-Objekt der Klasse auf Connection-Objekt des Commands
+gesetzt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IDbCommand IDbDataAdapter.SelectCommand { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.IDbCommand</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_System_Data_IDbDataAdapter_UpdateCommand_" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.System#Data#IDbDataAdapter#UpdateCommand*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataClient_FrameworkDataAdapter_System_Data_IDbDataAdapter_UpdateCommand" data-uid="FrameworkSystems.FrameworkDataClient.FrameworkDataAdapter.System#Data#IDbDataAdapter#UpdateCommand">IDbDataAdapter.UpdateCommand</h4>
+  <div class="markdown level1 summary"><p>Setzt / liest das Update-Command.
+Beim Setzen wird das Connection-Objekt der Klasse auf Connection-Objekt des Commands
+gesetzt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">IDbCommand IDbDataAdapter.UpdateCommand { get; set; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Data.IDbCommand</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.ComponentModel.IComponent</span>
+  </div>
+  <div>
+      <span class="xref">System.IDisposable</span>
+  </div>
+  <div>
+      <span class="xref">System.Data.IDbDataAdapter</span>
+  </div>
+  <div>
+      <span class="xref">System.Data.IDataAdapter</span>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

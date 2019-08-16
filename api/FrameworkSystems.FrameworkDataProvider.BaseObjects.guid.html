@@ -1,0 +1,898 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class guid
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class guid
+   ">
+    <meta name="generator" content="docfx 2.43.5.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid">
+  
+  
+  <h1 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid" class="text-break">Class guid
+  </h1>
+  <div class="markdown level0 summary"><p>GUID als ID für ein BaseObject. Entspricht der .NET-Guid-Klasse, mit dem Unterschied, daß die GUID nicht auf
+16 Byte beschränkt ist.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">guid</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.IComparable</span></div>
+    <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Iguid.html">Iguid</a></div>
+    <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.IIndexEntryID.html">IIndexEntryID</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.html">FrameworkSystems.FrameworkDataProvider.BaseObjects</a></h6>
+  <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkDataProvider.dll</h6>
+  <h5 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+[TypeConverter(typeof(guidConverter))]
+public sealed class guid : IComparable, Iguid, IIndexEntryID</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid__ctor_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid__ctor_System_Byte___" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.#ctor(System.Byte[])">guid(Byte[])</h4>
+  <div class="markdown level1 summary"><p>Instantiiert eine GUID mit angegebenen Wert. value muß im UTF8-Format vorliegen</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public guid(byte[] value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Wert der GUID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid__ctor_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid__ctor_System_Int32_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.#ctor(System.Int32)">guid(Int32)</h4>
+  <div class="markdown level1 summary"><p>Instantiiert eine GUID mit angegebenen Wert. Diese Konstruktor ist sinnvoll bei Datensätzen, deren ID vom
+Benutzer in der DB direkt festgelegt wurde, z.B. bei enum-Typen.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public guid(int value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Wert der GUID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid__ctor_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid__ctor_System_Object_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.#ctor(System.Object)">guid(Object)</h4>
+  <div class="markdown level1 summary"><p>Instantiiert eine GUID der ToString-Zeichenkette zum angegebenen Wert.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public guid(object value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Wert der GUID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid__ctor_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid__ctor_System_String_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.#ctor(System.String)">guid(String)</h4>
+  <div class="markdown level1 summary"><p>Instantiiert eine GUID mit angegebenen Wert</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public guid(string value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Wert der GUID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="fields">Fields
+  </h3>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_MaxLength" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.MaxLength">MaxLength</h4>
+  <div class="markdown level1 summary"><p>Die Maximlae Länge einer guid in Zeichen</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NonSerialized]
+public static readonly int MaxLength</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_Null" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.Null">Null</h4>
+  <div class="markdown level1 summary"><p>Null-Wert (&quot;&quot;)</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[NonSerialized]
+public static readonly guid Null</code></pre>
+  </div>
+  <h5 class="fieldValue">Field Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_IntValue_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.IntValue*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_IntValue" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.IntValue">IntValue</h4>
+  <div class="markdown level1 summary"><p>GUID als int-Wert.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int IntValue { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_Value_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.Value*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_Value" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.Value">Value</h4>
+  <div class="markdown level1 summary"><p>GUID-Wert als Zeichenkette</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string Value { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_CompareTo_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.CompareTo*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_CompareTo_System_Object_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.CompareTo(System.Object)">CompareTo(Object)</h4>
+  <div class="markdown level1 summary"><p>Vergleicht das angegebene Objekt mit der GUID</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public int CompareTo(object val)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">val</span></td>
+        <td><p>Zu vergleichendes Objekt</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>Int-Wert, ob die GUID größer(+), kleiner(-) oder gleich (0) dem zu vergleichenden Objekt ist</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_Equals_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.Equals*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_Equals_System_Object_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.Equals(System.Object)">Equals(Object)</h4>
+  <div class="markdown level1 summary"><p>Ermittelt, ob das angegeben Objekt der GUID gleich ist</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override bool Equals(object o)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Object</span></td>
+        <td><span class="parametername">o</span></td>
+        <td><p>Zu vergleichendes Objekt</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Kennzeichen, ob das angegeben Objekt der GUID gleich ist</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.Equals(System.Object)</span></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_GetHashCode_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.GetHashCode*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_GetHashCode" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.GetHashCode">GetHashCode()</h4>
+  <div class="markdown level1 summary"><p>Gibt den Hash-Code der GUID zurück</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override int GetHashCode()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Int32</span></td>
+        <td><p>Hash-Code der GUID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.GetHashCode()</span></div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_IsNullOrEmpty_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.IsNullOrEmpty*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_IsNullOrEmpty_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.IsNullOrEmpty(FrameworkSystems.FrameworkDataProvider.BaseObjects.guid)">IsNullOrEmpty(guid)</h4>
+  <div class="markdown level1 summary"><p>Checks, if the given guid is null or empty.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool IsNullOrEmpty(guid value)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a></td>
+        <td><span class="parametername">value</span></td>
+        <td><p>Value to check</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>true if null or empty</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_NewGuid_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.NewGuid*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_NewGuid" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.NewGuid">NewGuid()</h4>
+  <div class="markdown level1 summary"><p>Erzeugt eine neue GUID. Hierzu wird die Methode NewGuid() aus <span class="xref">System.Guid</span> aufgerufen</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static guid NewGuid()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a></td>
+        <td><p>Erzeugte GUID</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_NewGuidShort_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.NewGuidShort*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_NewGuidShort" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.NewGuidShort">NewGuidShort()</h4>
+  <div class="markdown level1 summary"><p>Liefert eine kleine ID, die im aktuellen Prozess eindeutig ist. Für die eindeutigkeit wird ein statischer Zähler verwendet.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static guid NewGuidShort()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_ToByteArray_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.ToByteArray*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_ToByteArray" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.ToByteArray">ToByteArray()</h4>
+  <div class="markdown level1 summary"><p>Gibt den GUID-Wert als byte[] im UTF8-Format zurück</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] ToByteArray()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_ToByteArray_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.ToByteArray*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_ToByteArray_System_Boolean_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.ToByteArray(System.Boolean)">ToByteArray(Boolean)</h4>
+  <div class="markdown level1 summary"><p>Gibt den GUID-Wert als byte[] im UTF8-Format zurück. Ist fullLength gesetzt ist erzeugte ByteArray
+guid.MaxLength Zeichen lang</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public byte[] ToByteArray(bool fullLength)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><span class="parametername">fullLength</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Byte</span>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_ToString_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.ToString*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_ToString" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>Gibt den GUID-Wert als Zeichenkette zurück</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td><p>GUID-Wert als Zeichenkett</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Object.ToString()</span></div>
+  <h3 id="operators">Operators
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_op_Equality_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.op_Equality*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_op_Equality_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.op_Equality(FrameworkSystems.FrameworkDataProvider.BaseObjects.guid,FrameworkSystems.FrameworkDataProvider.BaseObjects.guid)">Equality(guid, guid)</h4>
+  <div class="markdown level1 summary"><p>Vergleicht zwei GUIDs</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator ==(guid a, guid b)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a></td>
+        <td><span class="parametername">a</span></td>
+        <td><ol>
+<li>GUID</li>
+</ol>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a></td>
+        <td><span class="parametername">b</span></td>
+        <td><ol>
+<li>GUID</li>
+</ol>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Kennzeiche, ob die GUIDs gleich sind</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_op_Implicit_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.op_Implicit*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_op_Implicit_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid__System_String" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.op_Implicit(FrameworkSystems.FrameworkDataProvider.BaseObjects.guid)~System.String">Implicit(guid to String)</h4>
+  <div class="markdown level1 summary"><p>Konvertiert die guid implizit in einen string</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static implicit operator string (guid a)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a></td>
+        <td><span class="parametername">a</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_op_Inequality_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.op_Inequality*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_op_Inequality_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.op_Inequality(FrameworkSystems.FrameworkDataProvider.BaseObjects.guid,FrameworkSystems.FrameworkDataProvider.BaseObjects.guid)">Inequality(guid, guid)</h4>
+  <div class="markdown level1 summary"><p>Vergleicht zwei GUIDs</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static bool operator !=(guid a, guid b)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a></td>
+        <td><span class="parametername">a</span></td>
+        <td><ol>
+<li>GUID</li>
+</ol>
+</td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a></td>
+        <td><span class="parametername">b</span></td>
+        <td><ol>
+<li>GUID</li>
+</ol>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td><p>Kennzeiche, ob die GUIDs verschieden sind</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="eii">Explicit Interface Implementations
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_FrameworkSystems_FrameworkDataProvider_BaseObjects_IIndexEntryID_ID_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.FrameworkSystems#FrameworkDataProvider#BaseObjects#IIndexEntryID#ID*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_FrameworkSystems_FrameworkDataProvider_BaseObjects_IIndexEntryID_ID" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.FrameworkSystems#FrameworkDataProvider#BaseObjects#IIndexEntryID#ID">IIndexEntryID.ID</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">guid IIndexEntryID.ID { get; }</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.IComparable</span>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Iguid.html">Iguid</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.IIndexEntryID.html">IIndexEntryID</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

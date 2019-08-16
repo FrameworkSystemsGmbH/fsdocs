@@ -1,0 +1,933 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Class DataTreeNode
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Class DataTreeNode
+   ">
+    <meta name="generator" content="docfx 2.43.5.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode">
+  
+  
+  <h1 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode" class="text-break">Class DataTreeNode
+  </h1>
+  <div class="markdown level0 summary"><p>Summary description for DataTreeNode.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">System.MarshalByRefObject</span></div>
+    <div class="level2"><span class="xref">System.Windows.Forms.TreeNode</span></div>
+    <div class="level3"><span class="xref">DataTreeNode</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><span class="xref">System.ICloneable</span></div>
+    <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
+    <div><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.IBindingSuspendable.html">IBindingSuspendable</a></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.FromHandle(System.Windows.Forms.TreeView, System.IntPtr)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Clone()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Collapse(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Collapse()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Deserialize(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.EndEdit(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.EnsureVisible()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Expand()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.ExpandAll()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.GetNodeCount(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Remove()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Serialize(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Toggle()</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.System.Runtime.Serialization.ISerializable.GetObjectData(System.Runtime.Serialization.SerializationInfo, System.Runtime.Serialization.StreamingContext)</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.BackColor</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Bounds</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Checked</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.ContextMenu</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.ContextMenuStrip</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.FirstNode</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.ForeColor</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.FullPath</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Handle</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.ImageIndex</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.ImageKey</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Index</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.IsEditing</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.IsExpanded</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.IsSelected</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.IsVisible</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.LastNode</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Level</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.NextNode</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.NextVisibleNode</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.NodeFont</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Nodes</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.PrevNode</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.PrevVisibleNode</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.SelectedImageIndex</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.SelectedImageKey</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.StateImageKey</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.StateImageIndex</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Tag</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Text</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.ToolTipText</span>
+    </div>
+    <div>
+      <span class="xref">System.Windows.Forms.TreeNode.Name</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.MemberwiseClone(System.Boolean)</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.GetLifetimeService()</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.InitializeLifetimeService()</span>
+    </div>
+    <div>
+      <span class="xref">System.MarshalByRefObject.CreateObjRef(System.Type)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetHashCode()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.GetType()</span>
+    </div>
+    <div>
+      <span class="xref">System.Object.MemberwiseClone()</span>
+    </div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.html">FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms</a></h6>
+  <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkDataProvider.dll</h6>
+  <h5 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class DataTreeNode : TreeNode, ICloneable, ISerializable, IBindingSuspendable</code></pre>
+  </div>
+  <h3 id="constructors">Constructors
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode__ctor_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode__ctor_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeCollection_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.#ctor(FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode,FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection)">DataTreeNode(DataTreeNode, DataTreeCollection)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DataTreeNode(DataTreeNode parentNode, DataTreeCollection nodeCollection)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.html">DataTreeNode</a></td>
+        <td><span class="parametername">parentNode</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.html">DataTreeCollection</a></td>
+        <td><span class="parametername">nodeCollection</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode__ctor_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode__ctor_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.#ctor(FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode,FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord)">DataTreeNode(DataTreeNode, DataTreeRecord)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DataTreeNode(DataTreeNode parentNode, DataTreeRecord nodeRecord)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.html">DataTreeNode</a></td>
+        <td><span class="parametername">parentNode</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html">DataTreeRecord</a></td>
+        <td><span class="parametername">nodeRecord</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode__ctor_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode__ctor_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNodeCategory_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.#ctor(FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode,FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNodeCategory)">DataTreeNode(DataTreeNode, DataTreeNodeCategory)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DataTreeNode(DataTreeNode parentNode, DataTreeNodeCategory category)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.html">DataTreeNode</a></td>
+        <td><span class="parametername">parentNode</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNodeCategory.html">DataTreeNodeCategory</a></td>
+        <td><span class="parametername">category</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode__ctor_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.#ctor*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode__ctor_FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeView_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.#ctor(FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeView,FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord)">DataTreeNode(DataTreeView, DataTreeRecord)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected DataTreeNode(DataTreeView treeView, DataTreeRecord nodeRecord)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeView.html">DataTreeView</a></td>
+        <td><span class="parametername">treeView</span></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html">DataTreeRecord</a></td>
+        <td><span class="parametername">nodeRecord</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_AllNodes_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.AllNodes*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_AllNodes" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.AllNodes">AllNodes</h4>
+  <div class="markdown level1 summary"><p>Gibt alle Unterknoten dieses Knotens an, inkl. der gelöschten</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTreeNode[] AllNodes { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.html">DataTreeNode</a>[]</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_Collection_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.Collection*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_Collection" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.Collection">Collection</h4>
+  <div class="markdown level1 summary"><p>Die vom Node angezeigte Collection</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTreeCollection Collection { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeCollection.html">DataTreeCollection</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_Component_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.Component*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_Component" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.Component">Component</h4>
+  <div class="markdown level1 summary"><p>Die vom Node angezeigte Component</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataComponent Component { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataComponent.html">DataComponent</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_IconIdentifier_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.IconIdentifier*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_IconIdentifier" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.IconIdentifier">IconIdentifier</h4>
+  <div class="markdown level1 summary"><p>Gibt den IconIdentifier zurück, der das Icon des Nodes bestimmt.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string IconIdentifier { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_IDPath_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.IDPath*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_IDPath" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.IDPath">IDPath</h4>
+  <div class="markdown level1 summary"><p>Gibt den ID-Pfad des Knotens an</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string IDPath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_IsEditable_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.IsEditable*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_IsEditable" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.IsEditable">IsEditable</h4>
+  <div class="markdown level1 summary"><p>Gibt an, ob der Name des Knotens verändert werden kann</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public virtual bool IsEditable { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_IsLeaf_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.IsLeaf*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_IsLeaf" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.IsLeaf">IsLeaf</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected bool IsLeaf { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_IsNodeRecordNull_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.IsNodeRecordNull*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_IsNodeRecordNull" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.IsNodeRecordNull">IsNodeRecordNull</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Browsable(false)]
+public bool IsNodeRecordNull { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Boolean</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_NamePath_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.NamePath*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_NamePath" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.NamePath">NamePath</h4>
+  <div class="markdown level1 summary"><p>Gibt den Name-Pfad des Knotens an</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string NamePath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_OverrideIconIdentifier_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.OverrideIconIdentifier*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_OverrideIconIdentifier" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.OverrideIconIdentifier">OverrideIconIdentifier</h4>
+  <div class="markdown level1 summary"><p>Hier kann ein abweichender Icon-Identifier gesetzt werden.
+Dieser hat KEINEN einfluss auf das Property IconIdentifier und muss bei Bedarf außerhalb ausgewertet werden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string OverrideIconIdentifier { get; set; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_Parent_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.Parent*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_Parent" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.Parent">Parent</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTreeNode Parent { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.html">DataTreeNode</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_PersistentIDPath_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.PersistentIDPath*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_PersistentIDPath" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.PersistentIDPath">PersistentIDPath</h4>
+  <div class="markdown level1 summary"><p>Gibt den PersistentID-Pfad des Knotens an</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string PersistentIDPath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_Record_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.Record*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_Record" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.Record">Record</h4>
+  <div class="markdown level1 summary"><p>Der vom Node angezeigte Record</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTreeRecord Record { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html">DataTreeRecord</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_RootPersistentIDPath_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.RootPersistentIDPath*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_RootPersistentIDPath" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.RootPersistentIDPath">RootPersistentIDPath</h4>
+  <div class="markdown level1 summary"><p>Gibt den RootPersistentID-Pfad des Knotens an</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public string RootPersistentIDPath { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_TreeView_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.TreeView*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_TreeView" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.TreeView">TreeView</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public DataTreeView TreeView { get; }</code></pre>
+  </div>
+  <h5 class="propertyValue">Property Value</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeView.html">DataTreeView</a></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="methods">Methods
+  </h3>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_BeginEdit_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.BeginEdit*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_BeginEdit" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.BeginEdit">BeginEdit()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void BeginEdit()</code></pre>
+  </div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_DataBindings_ResumeBinding_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.DataBindings_ResumeBinding*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_DataBindings_ResumeBinding" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.DataBindings_ResumeBinding">DataBindings_ResumeBinding()</h4>
+  <div class="markdown level1 summary"><p>Die DataBindings werden wieder aktiviert, Es müssen nach DataBindings.SuspendBinding() ausgesetzte
+Aktionen durchgeführt werden.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void DataBindings_ResumeBinding()</code></pre>
+  </div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_Dispose_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.Dispose*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_Dispose" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.Dispose">Dispose()</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">protected virtual void Dispose()</code></pre>
+  </div>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_LoadNodes_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.LoadNodes*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_LoadNodes_System_Func_FrameworkSystems_FrameworkDataProvider_BaseObjects_DataTreeRecord_System_Boolean__" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.LoadNodes(System.Func{FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord,System.Boolean})">LoadNodes(Func&lt;DataTreeRecord, Boolean&gt;)</h4>
+  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public void LoadNodes(Func&lt;DataTreeRecord, bool&gt; viewFilter = null)</code></pre>
+  </div>
+  <h5 class="parameters">Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.Func</span>&lt;<a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.DataTreeRecord.html">DataTreeRecord</a>, <span class="xref">System.Boolean</span>&gt;</td>
+        <td><span class="parametername">viewFilter</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  
+  
+  <a id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_ToString_" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.ToString*"></a>
+  <h4 id="FrameworkSystems_FrameworkDataProvider_BaseObjects_Forms_DataTreeNode_ToString" data-uid="FrameworkSystems.FrameworkDataProvider.BaseObjects.Forms.DataTreeNode.ToString">ToString()</h4>
+  <div class="markdown level1 summary"><p>ToString</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+  <h5 class="decalaration">Declaration</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public override string ToString()</code></pre>
+  </div>
+  <h5 class="returns">Returns</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.String</span></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+  <h5 class="overrides">Overrides</h5>
+  <div><span class="xref">System.Windows.Forms.TreeNode.ToString()</span></div>
+  <h3 id="implements">Implements</h3>
+  <div>
+      <span class="xref">System.ICloneable</span>
+  </div>
+  <div>
+      <span class="xref">System.Runtime.Serialization.ISerializable</span>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.IBindingSuspendable.html">IBindingSuspendable</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

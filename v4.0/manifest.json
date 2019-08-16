@@ -14,6 +14,89 @@
     },
     {
       "type": "Conceptual",
+      "source_relative_path": "doc/comp/components.md",
+      "output": {
+        ".html": {
+          "relative_path": "doc/comp/components.html",
+          "hash": "jnBQuF3yydW1ZihLshKy/Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "doc/comp/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/comp/toc.html",
+          "hash": "gV+eIkxs1fS4fFekyfzrNw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "doc/index.md",
+      "output": {
+        ".html": {
+          "relative_path": "doc/index.html",
+          "hash": "k9YVtAPL4OGuplscDiEKiQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "doc/mdt/media/mdt-designer.png",
+      "output": {
+        "resource": {
+          "relative_path": "doc/mdt/media/mdt-designer.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
+      "source_relative_path": "doc/mdt/metadatentypen.md",
+      "output": {
+        ".html": {
+          "relative_path": "doc/mdt/metadatentypen.html",
+          "hash": "TC3XLewzyJu26Mw1g6Yifg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "doc/mdt/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/mdt/toc.html",
+          "hash": "um2MZ1cRL2sMs/OW5TU9DA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Toc",
+      "source_relative_path": "doc/toc.yml",
+      "output": {
+        ".html": {
+          "relative_path": "doc/toc.html",
+          "hash": "I8e0vyxCw7dUG8hy8VmS9Q=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Conceptual",
       "source_relative_path": "index.md",
       "output": {
         ".html": {
@@ -402,7 +485,7 @@
       "output": {
         ".html": {
           "relative_path": "toc.html",
-          "hash": "+O8KPIGU6F44+eiAOtJIqA=="
+          "hash": "Wgn3hQXimVcg0vkidDqP1Q=="
         }
       },
       "is_incremental": false,
@@ -420,16 +503,11 @@
         "full_build_reason_code": "NoAvailableBuildCache"
       },
       "processors": {
-        "ManagedReferenceDocumentProcessor": {
+        "ResourceDocumentProcessor": {
           "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
-          "total_file_count": 30,
-          "skipped_file_count": 0
-        },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": false,
-          "incrementalPhase": "build",
-          "total_file_count": 1,
+          "total_file_count": 0,
           "skipped_file_count": 0
         },
         "TocDocumentProcessor": {
@@ -437,6 +515,18 @@
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
           "total_file_count": 0,
+          "skipped_file_count": 0
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 4,
+          "skipped_file_count": 0
+        },
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": false,
+          "incrementalPhase": "build",
+          "total_file_count": 30,
           "skipped_file_count": 0
         }
       }

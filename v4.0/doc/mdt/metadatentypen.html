@@ -80,6 +80,7 @@
 <h1 id="metadatentypen">Metadatentypen</h1>
 
 <p>Die Idee der Metadatentypen kommt daher, dass bestimmte Felder innerhalb einer Anwendung immer wieder auftauchen (z.B. Artikelnummer, Kundennummer, ...). Deshalb können solche Felder an einer zentralen Stelle definiert werden, was Fehler in der Felddefinition verhindert und Redundanzen minimiert. Dabei werden Informationen wie das Label, das Datenformat, das zugehörige Control, die mehrsprachige Bezeichnung usw. hinterlegt, so dass sich der Arbeitsaufwand bei der späteren Arbeit mit dem Metadatentypen minimiert.</p>
+<p>Sie erkennen Metadatentypen an einem  <img src="../media/icon-mdt.png" alt="Icon"> - Icon vor der Bezeichnung.</p>
 <h2 id="metadatentypen-bearbeiten">Metadatentypen bearbeiten</h2>
 <p>Um einen Metadatatypen zu bearbeiten, doppelklicken Sie den entsprechenden Eintrag auf der Registerkarte <strong>Namespaces</strong>. Der Metadatentyp wird im Hauptfenster des <strong>Framework Designers</strong> angezeigt.</p>
 <p><img src="media/mdt-designer.png" alt="MDT-Designer"></p>
@@ -100,7 +101,7 @@ Benennen Sie den Datentyp der Spalte in der Datenbank.</p>
 Gibt den FS-Datentyp des Metadatentyps an. Dieser Datentyp wird später in den <strong>Components</strong> und <strong>Forms</strong> gezogen.</p>
 </li>
 </ul>
-<p>Die folgende Tabelle zeigt, welche Database-Datatypes mit welchem Application-Datatype kombiniert werden können:</p>
+<p>Die folgende Tabelle zeigt, welche Database-Datentypen mit welchem Application-Datatype kombiniert werden können:</p>
 <table>
 <thead>
 <tr>
@@ -381,7 +382,7 @@ Gibt den FS-Datentyp des Metadatentyps an. Dieser Datentyp wird später in den <
 Definiert die Feldlänge bei Zeichenfeldern.</p>
 </li>
 <li><p><strong>Precision</strong>:
-Anzahl der Stellen inkl. eventueller Nachkommastellen bei numerischen Feldern. </p>
+Anzahl der Stellen inkl. eventueller Nachkommastellen bei numerischen Feldern.</p>
 </li>
 <li><p><strong>Scale</strong>:
 Anzahl der Nachkommastellen bei <strong>Dezimal</strong>-Feldern.</p>
@@ -391,8 +392,41 @@ Gibt das Anzeige-Format des Felds an. Das Format wirkt sich in der Darstellung d
 </li>
 <li><p><strong>Format Pattern</strong>:
 Wird im Feld Format <strong>User Defined</strong> gewählt, ist es möglich hier selbst ein Format anzugeben. Es können Formate für Zahlen, Daten und Zeichenketten entsprechend der Standard-Definition für reguläre Ausdrücke eingegeben werden.</p>
+<p>  Siehe auch <a href="format-pattern.html">Format-Pattern</a></p>
 </li>
 </ul>
+<h2 id="registerkarte-description">Registerkarte Description</h2>
+<p>Hier kann eine Beschreibung des Metadatentyps eingegeben werden.</p>
+<h2 id="registerkarte-values">Registerkarte Values</h2>
+<p><img src="media/register-values.png" alt="Register Values"></p>
+<p>Für einen Metadatentypen kann definiert werden, welche Werte er annehmen darf. Wird hier nichts angegeben, sind alle Werte möglich, die der entsprechend hinterlegte Datentyp zulässt.</p>
+<p>Es können mehrere Werte oder Wertebereiche angegeben werden.</p>
+<ul>
+<li><p><strong>From</strong>: Gibt die untere Grenze eines Wertebereichs an.</p>
+<div class="WARNING"><h5>Warning</h5><p>Ist nur dieses Feld gefüllt (und <strong>To</strong> nicht), wird dies als Wert und nicht als Wertebereich angesehen.</p>
+</div>
+</li>
+<li><p><strong>To</strong>: Gibt die obere Grenze eines Wertebereichs an.</p>
+</li>
+<li><p>Button <strong>Add New Range</strong>: Mit dem Button Add New Range kann ein neuer Bereich hinzugefügt werden.</p>
+</li>
+<li><p>Button <strong>Remove Range</strong>: Mit dem Button Remove Range kann ein Bereich gelöscht werden.</p>
+</li>
+</ul>
+<h2 id="registerkarte-default-label">Registerkarte Default Label</h2>
+<p><img src="media/register-default-label.png" alt="Default Label"></p>
+<p>Einem Metadatentypen kann ein Label zugewiesen werden. Dieses Label wird im Form links neben dem Control des Metadatentyps angezeigt. Das Label kann mehrsprachig hinterlegt werden.</p>
+<div class="TIP"><h5>Tip</h5><p>Es ist möglich, dieses Label in den Components und im Form zu überschreiben.</p>
+</div>
+<h2 id="registerkarte-control-types">Registerkarte Control Types</h2>
+<p><img src="media/register-control-types.png" alt="Register ControlTypes"></p>
+<p>Die Registerkarte <strong>ControlTypes</strong> zeigt an, welche Controls später im Form zur Verfügung stehen sollen. Es ist möglich, einem Metadatentypen mehrere Controls zuzuordnen. Es kann aber maximal ein Control als Default gekennzeichnet sein. Das als Default gekennzeichnete Control wird zunächst angezeigt, wenn ein Property (welches diesen Metadatentypen verwendet) in ein Form gezogen wird. Das Default-Control kann dann auf weitere, hier hinterlegte Controls geändert werden.</p>
+<p>Diese Liste von Controls kann auch im DBTable oder in der einer Component ergänzt werden. Ist kein Control als Standard-Control hinterlegt, wird ein Editfeld angenommen.</p>
+<p>Mit dem Button <strong>Add</strong> wird ein neuer Control-Type hinzugefügt. Es öffnet sich das Fenster Assign Controls.</p>
+<p><img src="media/assign-controls.png" alt="Assign Controls"></p>
+<p>In diesem Fenster sind alle Controls aufgelistet, einschließlich der Controls, die Sie in den <strong>Control Default Styles</strong> definieren können (siehe Kapitel Control Default Styles). Wählen Sie hier ein Control aus und setzen Sie ggf. die Checkbox <strong>is Default</strong>. Mit dem Button OK wird das Control der Liste hinzugefügt.</p>
+<p>Mit dem Button <strong>Change</strong> können Sie das Control ändern. Es öffnet sich wieder wie bei <strong>Add</strong> das Fenster <strong>Assign Controls</strong>. Sie können hier ein anderes Control auswählen und dann mit <strong>OK</strong> bestätigen.</p>
+<p>Mit dem Button <strong>Delete</strong> wird das markierte Control gelöscht.</p>
 </article>
           </div>
           

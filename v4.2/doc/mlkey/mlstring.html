@@ -5,21 +5,19 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace FrameworkSystems.FrameworkExceptions.Util
-   </title>
+    <title>MLString </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace FrameworkSystems.FrameworkExceptions.Util
-   ">
+    <meta name="title" content="MLString ">
     <meta name="generator" content="docfx 2.43.5.0">
     
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
     
-    <meta property="docfx:rel" content="../">
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -36,8 +34,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -78,21 +76,33 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkExceptions.Util">
-  
-  <h1 id="FrameworkSystems_FrameworkExceptions_Util" data-uid="FrameworkSystems.FrameworkExceptions.Util" class="text-break">Namespace FrameworkSystems.FrameworkExceptions.Util
-  </h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
-  </h3>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.Util.DpiProcessUtils.html">DpiProcessUtils</a></h4>
-      <section></section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.Util.DpiUtils.html">DpiUtils</a></h4>
-      <section></section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.Util.GacUtils.html">GacUtils</a></h4>
-      <section></section>
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="mlstring">MLString</h1>
+
+<p><img src="media/mlstring-in-designer.png" alt="MLString Designer"> <img src="media/mlstring-in-property-grid.png" alt="MLString Property Grid"></p>
+<p><strong>TODO</strong></p>
+<ul>
+<li>Option Sprachen</li>
+<li>Auswahl-Dialog mit der Option neue MLKeys zu erfassen.</li>
+<li>dasselbe wie Wörterbuch + Auswählen</li>
+</ul>
+<h2 id="vererbung">Vererbung</h2>
+<p>Mit den verschiedenen Records in Framework Studio werden auch die entsprechenden MLStrings vererbt. Dadurch werden im Idealfall die am Metadatentyp definierten Texte über die komplette Kette bis hin zu den Form-Controls durchgereicht.</p>
+<p>Ein vererbter Text kann an jeder beliebigen Stelle in der Kette überschrieben werden. Es gibt 2 Möglichkeiten:</p>
+<ol>
+<li><p>Einen anderen MLKey zuweisen</p>
+<p> Damit werden alle anderen Texte aus der Basis inkl. MLKeys und den überschriebenen Texten ausgeblendet. Auch wenn der neue MLKey z.B. keinen Text für <code>fr</code> definiert hat, wird ein in der Basis definierter <code>fr</code> Text ausgeblendet.</p>
+</li>
+<li><p>Einen einzelnen Text überschreiben:</p>
+<div class="WARNING"><h5>Warning</h5><p>Darauf sollte möglichst verzichtet werden. Wenn lediglich die Übersetzung gepflegt wird, dann erfolgt dies besser im Wörterbuch. Wenn eine abweichende Bedeutung gewünscht ist, dann sollte ein anderer MLKey angegeben werden.</p>
+</div>
+<p> Das überschreibt nur den Text der entsprechenden Sprache. Die anderen nicht überschriebenen Sprachen werden weiter aus der Basis gezogen.</p>
+<div class="CAUTION"><h5>Caution</h5><p>In der <strong>eNVenta/WS</strong> Standard-Entwicklung ist das verboten.</p>
+</div>
+</li>
+</ol>
+<p>Das folgende Bild zeigt eine Vererbungs-Hierarchie. Die Pfeile stellen den Weg dar, über den der Text für das Control ermittelt wird. Dabei wird hier die Sprache <code>fr</code> mit den Fallback-Sprachen <code>en</code> und <code>de</code> verwendet. Der erste Text der auf diesem Weg gefunden wird, wird ausgegeben.</p>
+<p><img src="media/mlstring-vererbung.png" alt="MLString Vererbung"></p>
 </article>
           </div>
           
@@ -100,6 +110,9 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/v4.2/doc/mlkey/mlstring.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
@@ -124,8 +137,8 @@
       </footer>
     </div>
     
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
   </body>
 </html>

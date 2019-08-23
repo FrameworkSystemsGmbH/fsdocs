@@ -106,7 +106,7 @@
 <p>Beispiele:</p>
 <ul>
 <li><code>LBL_Nine_Digit</code> für den Text „9“,</li>
-<li>LBL_EightOClock_Digits` für den Text „08:00“</li>
+<li><code>LBL_EightOClock_Digits</code> für den Text „08:00“</li>
 </ul>
 <h3 id="prozentzeichen">Prozentzeichen</h3>
 <p><strong><code>LBL_{englischer Prefix}Percent</code></strong> (kein Unterstrich)</p>
@@ -129,22 +129,28 @@
 </ul>
 <h3 id="beschriftung-von-mini-buttons">Beschriftung von Mini-Buttons</h3>
 <p><strong><code>LBL_{englische Bezeichnung}_Mini</code></strong></p>
-<p>Wird ein MiniButton (Constrol Style = MiniEmpty) auf einer Maske mit einer Caption von 1 bis 2 Buchstaben versehen (die typischerweise eine Abkürzung darstellen), so wird der MLKey dazu mit der eigentlichen Bezeichnung, ergänzt um <code>_Mini</code> beschriftet. Dabei ist darauf zu achten, dass die Beschriftungen pro Sprache eindeutig sind.</p>
+<p>Wird ein MiniButton (Constrol Style = MiniEmpty) auf einer Maske mit einer Caption von 1 bis 2 Buchstaben versehen (die typischerweise eine Abkürzung darstellen), so wird der MLKey dazu mit der eigentlichen Bezeichnung, ergänzt um <strong><code>_Mini</code></strong> beschriftet. Dabei ist darauf zu achten, dass die Beschriftungen pro Sprache eindeutig sind.</p>
 <p>Beispiele:</p>
 <ul>
-<li><strong><code>LBL_Custoner_Mini</code></strong> (de = „K“, en = „Cu“)</li>
-<li><strong><code>LBL_CrossOver_Mini</code></strong> (de = „C“, en = „Cr“)</li>
+<li><code>LBL_Custoner_Mini</code> (de = „K“, en = „Cu“)</li>
+<li><code>LBL_CrossOver_Mini</code> (de = „C“, en = „Cr“)</li>
 </ul>
 <h3 id="zwei-unterschiedliche-deutsche-begriffe-die-im-englischen-gleich-heißen">Zwei unterschiedliche deutsche Begriffe, die im Englischen gleich heißen</h3>
-<p>Wenn zwei unterschiedliche Begriffe im englischen durch den gleichen Text beschrieben werden, so werden die Bezeichnungen der MLKeys durch Anhängen eines Zählers beginnend mit 2 im Format <strong><code>_{Zähler}</code></strong> unterschieden.</p>
+<p>Wenn zwei unterschiedliche Begriffe im englischen durch den gleichen Text beschrieben werden, so werden die Bezeichnungen der MLKeys durch Anhängen eines Zählers beginnend mit 1 im Format <strong><code>_{Zähler}</code></strong> unterschieden.</p>
 <p>Beispiel:</p>
 <ul>
 <li>de = „Herkunft“, en = „Source“ =&gt; MLKey = <code>LBL_Source</code></li>
-<li>de = „Quelle“, en = „Source“ =&gt; MLKey = <code>LBL_Source_2</code></li>
+<li>de = „Quelle“, en = „Source“ =&gt; MLKey = <code>LBL_Source_1</code></li>
 </ul>
 <h3 id="tooltips">Tooltips</h3>
-<p><strong><code>TTT_{englische Bezeichnung}</code></strong>  oder <strong><code>TTT_{GUID}</code></strong></p>
-<p><strong>TODO</strong></p>
+<p>Wenn ein Tooltip eindeutig einem einfachen Begriff zugeordnet werden kann, so wird der MLKey mit <strong><code>TTT_{englische Bezeichnung}</code></strong> benannt. Andernfalls wird das Format <strong><code>TTT_{GUID}</code></strong> verwendet.</p>
+<p>Beispiele:</p>
+<ul>
+<li><code>TTT_Fatal</code> (de = „Fatale Einträge anzeigen“)</li>
+<li>`TTT_584b58008ed04cd2b40b78b70e52402c&#39; (de = „Wert für die Kreditorenvorerfassung-Pufferzeit definieren.“)</li>
+</ul>
+<div class="NOTE"><h5>Note</h5><p>Wenn man einen Tooltip verwenden möchte, zu dem es bereits einen exakt passenden <code>LBL_</code> Eintrag gibt, so soll dazu kein <code>TTT_</code> Eintrag angelegt werden! Diese Einträge wären sonst ja logisch äquivalent.</p>
+</div>
 <h3 id="kleingeschriebene-begriffe">Kleingeschriebene Begriffe</h3>
 <p>Sollte man ein Text (z.B. wegen einer Verwendung in einer Textcollection) berechtigterweise klein geschrieben sein und es soll trotzdem ein sprechender Key generiert werden, so ist dieser ebenfalls klein zu schreiben.</p>
 <p>Beispiel: de = „eins“, en = „one“ =&gt; MLKey = <code>LBL_one</code></p>
@@ -154,13 +160,13 @@
 Ausnahmen:</p>
 <ul>
 <li>Abgekürzte Einheiten (z.B. mm)</li>
-<li>Einträge in Textcollections, soweit eine Umstellung aller Einträge nicht sicher durchgeführt werden kann.</li>
+<li>Einträge in Textcollections, soweit diese zwingend alle klein geschrieben werden müssen.</li>
 </ul>
 </li>
 <li><p>Vor Satzzeichen werden keine Leerzeichen verwendet.</p>
 </li>
 <li>Ganze Sätze werden mit einem Satzzeichen beendet.</li>
-<li>Im Englischen werden bei Texten mit bis ca. 4 Worte (Beschriftungen von Eingabefeldern, Menüs, Buttons usw.) alle Worte bis auf Füllwörter wie <em>of, to, in, ...</em> groß geschrieben.</li>
+<li>Im Englischen werden bei Texten mit bis ca. 4 Worte (Beschriftungen von Eingabefeldern, Menüs, Buttons usw.) alle Worte bis auf Füllwörter wie <em>of</em>, <em>to</em>, <em>in</em>, ... groß geschrieben.</li>
 </ul>
 </article>
           </div>

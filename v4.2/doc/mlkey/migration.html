@@ -92,7 +92,7 @@
 <p>Im Customizing kann man grundsätzlich 2 verschiedene Arten von überschriebenen Texten unterscheiden:</p>
 <ol>
 <li><p>Texte, die eine ganz neue Bedeutung haben.</p>
-<p> Wenn z.B. ein relativ allgmeiner Metadatentyp in einem Component-Property verwendet wird, wird dort am Default-Label ein neuer Text formuliert.</p>
+<p> Wenn z.B. ein relativ allgemeiner Metadatentyp in einem Component-Property verwendet wird, wird dort am Default-Label ein neuer Text formuliert.</p>
 <p> In diesen Fällen sollte auf jeden Fall ein entsprechender ggf. neuer MLKey zugeordnet werden.</p>
 </li>
 <li><p>Ändern eines bestehenden Textes.</p>
@@ -104,18 +104,15 @@
 <p>Ist das Wörterbuch komplett vorbereitet, ist es an der Zeit, die MLKeys in die Records zu übertragen.</p>
 <p>In diesem Schritt werden alle Aktionen ausgeführt, die einen Checkout der Records zur Folge haben. So wird die ggf. erhebliche Menge an Checkouts auf das nötigste reduziert.</p>
 <h3 id="1-als-fcuser-anmelden">(1) Als FCUser anmelden</h3>
-<p>Weil nach der Konvertierung sehr viel compiliert werden muss, ist es empfehlenswert als <strong>FCUser</strong> zu arbeiten. So kann direkt nach dem Compile der Complete Framework Compiler aufgerufen werden und es ist kein zusätzlicher Framework Compiler nötig.</p>
-<h3 id="11-translation-fix-nur-enventa-package">(1.1) Translation fix (nur eNVenta-Package)</h3>
+<p>Weil nach der Konvertierung sehr viel kompiliert werden muss, ist es empfehlenswert als <strong>FCUser</strong> zu arbeiten. So kann direkt nach dem Kompilieren der <strong>Complete Framework Compiler</strong> aufgerufen werden und es ist kein zusätzlicher FrameworkCompiler nötig.</p>
 <ul>
-<li>Version aus Branch 4.2/feature/ml_migration_fix</li>
-<li>LoadData mit Include Tooltip.</li>
-<li>Button <strong>Fix Translation</strong></li>
-<li>Save Changes drücken</li>
-<li>Jetzt zur offiziellen FS-Version wechseln und mit FC-User weitermachen.</li>
+<li>Mit dem Benutzer FrameworkCompiler anmelden - mit Refresh Workspace. Get DLLs ist nicht notwendig.</li>
+<li>Framework Studio direkt wieder beenden.</li>
+<li>Jetzt als FC-User anmelden - mit Refresh Workspace. Das übernimmt den Workspace vom Benutzer FrameworkCompiler.</li>
 </ul>
 <h3 id="2-apply-mlkeys">(2) Apply MLKeys</h3>
-<p>Im Fenster <strong>Multilangage Text Migration</strong>  mit dem Button <strong>Load Data</strong> (inkl. den Tooltips) alle Daten einlesen. Es sollte jetzt keine offenen Zuordnungen mehr geben - wenn man die Checkbox <strong>Show only missing keys</strong> setzt, dürfen keine Einträge angezeigt werden.</p>
-<p>Mit dem Button <strong>Apply MLKeys</strong> wird die Routine gestartet. Es werden alle zuordneten MLKeys an die entsprechenden Properties der Records übertragen. Dabei werden ALLE in den jeweiligen Sprachen gesetzten Texte aus den Records entfernt. Somit ziehen ab diesem Zeitpunkt die Texte nur noch aus dem Wörterbuch.</p>
+<p>Im Fenster <strong>Multilanguage Text Migration</strong>  mit dem Button <strong>Load Data</strong> (inkl. den Tooltips) alle Daten einlesen. Es sollte jetzt keine offenen Zuordnungen mehr geben - wenn man die Checkbox <strong>Show only missing keys</strong> setzt, dürfen keine Einträge angezeigt werden.</p>
+<p>Mit dem Button <strong>Apply MLKeys</strong> wird die Routine gestartet. Es werden alle zugeordneten MLKeys an die entsprechenden Properties der Records übertragen. Dabei werden ALLE in den jeweiligen Sprachen gesetzten Texte aus den Records entfernt. Somit ziehen ab diesem Zeitpunkt die Texte nur noch aus dem Wörterbuch.</p>
 <h3 id="3-convert-messages">(3) Convert Messages</h3>
 <p>Mit dem Button <strong>Convert Messages</strong> im Fenster <strong>Multilangage Text Migration</strong> wird die Routine gestartet. Für diese Routine müssen keine Daten eingelesen werden - das gilt auch, wenn sie zu einem späteren Zeitpunkt erneut gestartet wird.</p>
 <p>Es werden alle Methoden-Codes analysiert und nach Exceptions- und MessageBox-Aufrufen gesucht. Diese werden in das neue Message-Format umgewandelt und die Verweise auf die Text-Collections werden durch den entsprechenden MLKey ersetzt.</p>
@@ -123,20 +120,20 @@
 </div>
 <p>Alter Exception-Code vor der Konvertierung:</p>
 <pre><code class="lang-csharp">#region Required for Exception Editor support. Do not modify manually.
-//Component Type is required
+//Component type is required.
 //Severity: 0 ; Buttons: OK; Icon:Error
 throw new FrameworkApplicationException (String.Format(FSGeneral.ctMessagesFactory.Get(this.Global,3550).Value[Global.SelectedLanguage],new object []{}),0 );
 //&lt;ExceptionEditor TextColl=&quot;Messages&quot; ID =&quot;832e0e50c2b748068ba38a2c4422aaab&quot; Severity=&quot;0&quot; EHID=&quot;&quot;  &gt;&lt;/ExceptionEditor&gt;
 #endregion End of generated section
 </code></pre><p>Neuer Exception-Code nach der Konvertierung:</p>
-<pre><code class="lang-csharp">// FSCodeMessage: Component Type must be required.
+<pre><code class="lang-csharp">// FSCodeMessage: Component type is required.
 throw new FrameworkApplicationException(this.Global.GetMLKeyText(MLKeys.MSG_445559f2ca44452e8d49ca9515b3a83e), 0);
-</code></pre><div class="IMPORTANT"><h5>Important</h5><p>Damit sind die Message-Text-Collections jetzt obsolete.
+</code></pre><p>Es ist relativ wahrscheinlich, dass Warnings oder sogar Errors ausgegeben werden. Diese können erst einmal ignoriert werden. Es handelt sich dabei um inhaltliche Probleme und nicht um Compile-Errors. Die <strong>Convert Code Messages</strong> Routine kann zu einem späteren Zeitpunkt erneut ausgeführt und diese Probleme dann behoben werden.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Damit sind die Message-Text-Collections jetzt obsolete.
 Sie dürfen aber nicht gelöscht oder geleert werden, weil sie ggf. noch von Customizing-Packages referenziert werden.</p>
 </div>
-<p>Es ist relativ wahrscheinlich, dass Warnings oder sogar Errors ausgegeben werden. Diese können erst einmal ignoriert werden. Es handelt sich dabei um inhaltliche Probleme und nicht um Compile-Errors. Die <strong>Convert Code Messages</strong> Routine kann zu einem späteren Zeitpunkt erneut ausgeführt und diese Probleme dann behoben werden.</p>
 <h3 id="4-mlstrings-cleanup">(4) MLStrings Cleanup</h3>
-<p>Nachdem alle MLKeys übertragen können jetzt noch einige Bereinigungen durchgeführt werden.</p>
+<p>Nachdem alle MLKeys übertragen wurden, können jetzt noch einige Bereinigungen durchgeführt werden.</p>
 <p>Über das Menü <strong>Tools / Checks / MLStrings Cleanup</strong> kann das Cleanup-Fenster geöffnet werden.</p>
 <p>Dort stehen mehrere Routinen zur Auswahl. Diese sollten einer nach der anderen ausgeführt werden. Dabei ist es ratsam zuerst den Button <strong>Analyze</strong> zu benutzen. Erst nach der Sichtung der Infos und Warnings wird die Routine mit dem Button <strong>Cleanup</strong> ausgeführt.</p>
 <ol>
@@ -144,19 +141,19 @@ Sie dürfen aber nicht gelöscht oder geleert werden, weil sie ggf. noch von Cus
 <p> Wird in einem Record (z.B. DBColumn, Form-Control) der MLKey mit demselben Wert überschrieben, wie er in der Basis (z.B. Metadatentyp, Basis-Package) definiert ist, dann wird diese Überschreibung entfernt.</p>
 </li>
 <li><p><strong>Transfer translations</strong></p>
-<p> Wurden trotz vererbten Text Übersetzungen nur an Records gepflegt, dann wurden diese mit der Migration ggf. nicht in das Wörterbuch übertragen. Das wird mit dieser Routine nachgeholt.</p>
+<p> Wurden trotz vererbtem MLKey Übersetzungen nur an Records gepflegt, dann wurden diese mit der Migration ggf. nicht in das Wörterbuch übertragen. Das wird mit dieser Routine nachgeholt.</p>
 <p> Wird an einem Record, der einen MLKey besitzt, eine Übersetzung gefunden und das Wörterbuch kennt diese noch nicht, wird diese in das Wörterbuch übertragen und der Text vom Record entfernt.</p>
-<p> Dabei gewinnt pro MLKey der erste Record. Wird ein weiterer Record mit gleichem MLKey aber einer anderen Übersetzung gefunden, dann wird dieser als Warning ausgegeben. Beim Cleanup verbleibt dieser Text am Records. Bei einem weiteren Lauf würde dieser Record mit der Routine Clean individual texts gefunden werden.</p>
+<p> Dabei gewinnt pro MLKey der erste Record. Wird ein weiterer Record mit gleichem MLKey aber einer anderen Übersetzung gefunden, dann wird dieser als Warning ausgegeben. Beim Cleanup verbleibt dieser Text am Record. Bei einem weiteren Lauf würde dieser Record mit der Routine Clean individual texts gefunden werden.</p>
 </li>
 <li><p><strong>Clean individual texts</strong></p>
 <p> Die MLKey-Migration berücksichtigt nur Texte, die mindestens in Deutsch und Englisch gepflegt sind. Sind an einem Record nur andere Sprachen definiert, dann wird dieser Text nicht migriert. Oftmals erben diese Records schon einen Text aus der Basis und es sind nur einige Übersetzungen gepflegt. Diese sollen hier bereinigt werden.</p>
 <p> Es werden Texte, die identisch mit dem Wörterbuch sind, entfernt. Vom Wörterbuch abweichende Texte werden als Warning ausgegeben und NICHT entfernt. Diese müssen in einem weiteren Schritt bearbeitet werden.</p>
 </li>
 <li><p><strong>Warnings bearbeiten</strong></p>
-<p> Jetzt müssen die aufgetretenen Warnings begutachtet und ggf. manuell bearbeitet werden. Ein interessanter Fall ist, dass z.B.</p>
+<p> Jetzt müssen die aufgetretenen Warnings begutachtet und ggf. manuell bearbeitet werden.</p>
 </li>
 <li><p><strong>Clean individual texts</strong> mit <strong>Remove different</strong></p>
-<p> Wenn im vorherigen Schritt die Warnings begutachtet wurden</p>
+<p> Wurden im vorherigen Schritt die Warnings begutachtet, können mit dieser Aktion alle abweichenden Texte entfernt werden.</p>
 </li>
 </ol>
 <h3 id="5-compile-und-checkin">(5) Compile und CheckIn</h3>

@@ -110,7 +110,7 @@
 <li><p>Im <strong>Intellisense</strong> werden alle MLKeys angeboten und im jeweiligen Tooltip wird zur besseren Orientierung der deutsche Text angezeigt.</p>
 <p> <img src="media/mlkey-intellisense.png" alt="Intellisense"></p>
 </li>
-<li><p>Fährt man mit der Maus über einen MLKey dann wird ein <strong>Info-Tooltip</strong> mit dem deutschen Text angezeigt.</p>
+<li><p>Fährt man mit der Maus über einen MLKey, dann wird ein <strong>Info-Tooltip</strong> mit dem deutschen Text angezeigt.</p>
 <p> <img src="media/mlkey-code-tooltip.png" alt="Tooltip"></p>
 </li>
 <li><p>Wird auf einem MLKey der Befehl <strong>Goto Definition</strong> (F12) ausgeführt, dann öffnet sich der <a href="woerterbuch.html"><strong>Multilanguage Text Editor</strong></a> und es wird der entsprechende Eintrag selektiert.</p>
@@ -128,7 +128,7 @@
 FSString sAmountEn = this.Global.GetMLText( MLKeys.LBL_Amount, &quot;en&quot; );
 </code></pre><h3 id="formatmltext">FormatMLText</h3>
 <pre><code class="lang-csharp">public string FormatMLText(MLKey mlkey, params object[] args)
-</code></pre><p>Dieser Methode ermittelt für den übergebenen <code>MLKey</code> den Text. Es wird zudem ein <code>String.Format()</code> mit den übergebenen <code>args</code> ausgeführt.</p>
+</code></pre><p>Diese Methode ermittelt für den übergebenen <code>MLKey</code> den Text. Es wird zudem ein <code>String.Format()</code> mit den übergebenen <code>args</code> ausgeführt.</p>
 <p>Beispiel:</p>
 <pre><code class="lang-csharp">FSstring sFormattedText = this.Global.FormatMLText( MLKeys.LBL_MitFormat, &quot;Text1&quot;, lngAmount );
 </code></pre><h3 id="getmlkeytext">GetMLKeyText</h3>
@@ -139,14 +139,14 @@ FSString sAmountEn = this.Global.GetMLText( MLKeys.LBL_Amount, &quot;en&quot; );
 throw new FrameworkApplicationException(this.Global.GetMLKeyText(MLKeys.MSG_1b6b9bea43304e2082d1162d75d9e317), 0);
 </code></pre><h3 id="formatmlkeytext">FormatMLKeyText</h3>
 <pre><code class="lang-csharp">public MLKeyText FormatMLKeyText(MLKey mlkey, params object[] args)
-</code></pre><p>Gibt ein MLKeyText-Objekt mit dem formatierten Text und dem MLKey zurück. Diese Methode wird in den Code-Messages benutzt.</p>
+</code></pre><p>Gibt ein <code>MLKeyText</code>-Objekt mit dem formatierten Text und dem MLKey zurück. Diese Methode wird in den Code-Messages benutzt.</p>
 <p>Beispiel:</p>
 <pre><code class="lang-csharp">// FSCodeMessage: Please specify {0}
 throw new FrameworkApplicationException(this.Global.FormatMLKeyText(MLKeys.MSG_24979a3d247546318dc673c5501d3b15, this.sName), 0);
 </code></pre><h2 id="cglobal-entrypoint">cGlobal EntryPoint</h2>
 <p>In der Klasse <code>cGlobal</code> gibt es einen zentralen Entry-Point <code>GlobalGetMLText</code>. Dieser wird JEDES MAL aufgerufen, wenn aus einem MLKey ein Text erzeugt wird.</p>
 <pre><code class="lang-csharp">public virtual string GlobalGetMLText(MLKey mlkey, string iso)
-</code></pre><p>Die Sprach-Hierarchie der Session, welche am GlobalObject hinterlegt ist, wird außerhalb dieser Methode aufgelöst. Besteht die Hierarchie aus mehreren Fallbacks (z.B. <code>fr, en, de</code>), wird diese Methode auch ggf. mehrfach nacheinander mit den unterschiedlichen Iso-Codes aufgerufen. Liefert die Methode einen Wert ungleich <code>null</code> oder <code>String.Empty</code> zurück, wird dieser als Text verwendet und es erfolgt kein weiter Aufruf.</p>
+</code></pre><p>Die Sprach-Hierarchie der Session, welche am GlobalObject hinterlegt ist, wird außerhalb dieser Methode aufgelöst. Besteht die Hierarchie aus mehreren Fallbacks (z.B. <code>fr, en, de</code>), wird diese Methode auch ggf. mehrfach nacheinander mit den unterschiedlichen Iso-Codes aufgerufen. Liefert die Methode einen Wert ungleich <code>null</code> oder <code>String.Empty</code> zurück, wird dieser als Text verwendet und es erfolgt kein weiterer Aufruf.</p>
 <p>Es ist möglich, diese Methode am cGlobal zu überschreiben und die Ermittlung der Texte zu beeinflussen oder zu überwachen.</p>
 <div class="WARNING"><h5>Warning</h5><ol>
 <li><p>Diese Methode muss sehr performant gestaltet werden. Komplexe Logik kann die <strong>Performance</strong> der kompletten Anwendung sehr negativ beeinflussen.</p>

@@ -81,10 +81,16 @@
 
 <p>Alle mehrsprachigen Texte der Anwendung werden in einem zentralen Wörterbuch abgelegt.</p>
 <p>Organisiert werden die Einträge mit einem eindeutigen alphanumerischen Schüssel - dem <strong>MLKey</strong>.</p>
+<p>Die MLKeys und deren Texte können folgendermaßen genutzt werden:</p>
+<ol>
+<li>In den <a href="mlstring.html">MLString</a>-Properties überall in Framework Studio</li>
+<li>Im selbst geschriebenen Methoden-Code (siehe <a href="programmierung.html">Programmierung</a>)</li>
+<li>In den Code-Messages (Exceptions, Message-Boxen)</li>
+</ol>
 <h2 id="multilanguage-text-editor">Multilanguage Text Editor</h2>
 <p>Die Bearbeitung des Wörterbuchs erfolgt über den <strong>Multilanguage Text Editor</strong>. Dieser wird über das Menü <strong>Tools / Multilanguage Text Editor</strong> geöffnet.</p>
 <p><img src="media/ml-editor.png" alt="ML-Editor"></p>
-<p>Die im Grid angezeigten Sprachen können in den <strong>Options</strong> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden.</p>
+<p>Die im Grid angezeigten Sprachen und deren Reihenfolge können in den <strong>Options</strong> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden.</p>
 <p>Die Bearbeitung des Wörterbuchs funktioniert ohne Checkout-Mechanismus. Wenn mehrere Benutzer zur gleichen Zeit an denselben MLKeys arbeiten sollten, dann gewinnt derjenige, der zuletzt den Button <strong>Save</strong> drückt.</p>
 <p>Der Editor sammelt alle vorgenommenen Änderungen (Add, Edit, Delete) im Hintergrund. Mit dem Button <strong>Save</strong> werden diese in das Repository gespeichert. Dabei wird in einer Transaktion zuerst der aktuelle Stand frisch aus dem Repository gelesen, dann die Änderungen erneut auf diesen (evtl. durch einen anderen Benutzer veränderten) Stand angewendet und zuletzt der neue Stand wieder zurück in das Repository gespeichert.</p>
 <p>Das hat die Folge, dass nach einem Save Änderungen sichtbar sind, die zuvor von einem anderen Benutzer vorgenommen wurden. Eine Ausnahme sind die Basis-Packages. Diese werden aus einem Stand gezogen, den der FrameworkCompiler zum Zeitpunkt des Compile-Laufs in den Workspace gespeichert hat.</p>
@@ -97,7 +103,7 @@
 <li>Generell wird nach Wortteilen gesucht. Wenn man das Wort oder den Text in Anführungszeichen setzt, wird nach einem exakten Treffer und ganzen Worten gesucht. Das funktioniert auch mit mehreren Worten und in Kombination mit der normalen Suche. z.B. <code>LBL_ &quot;Kunde&quot;</code></li>
 </ul>
 <p>Ziel des Wörterbuches ist es, Texte wiederzuverwenden und die Anzahl der Einträge auf das Nötigste zu reduzieren. Aus diesem Grund sollte man immer zuerst nach einem MLKey suchen, bevor man einen neuen erfasst. Zu einem logischen Begriff sollen keine zwei MLKeys existieren.</p>
-<div class="TIP"><h5>Tip</h5><p>Die Suche sollte durchaus kreativ gestaltet werden - besonders bei Texten die eigentlich schon vorhanden sein müssten. Ein Beispiel dafür ist das Wort <code>Einfügen</code>. Möchte man dieses mit der englischen Bezeichnung <code>Add</code> nutzen, stellt man fest, dass es <code>Einfügen</code> schon mit mehreren Übersetzungen gibt, jedoch nicht mit der englischen Bezeichnung <code>Add</code>. Sucht man dann aber nach <code>Add</code>, so wird man den zu verwendenden deutschen Text &#39;Hinzufügen&#39; finden.</p>
+<div class="TIP"><h5>Tip</h5><p>Die Suche sollte durchaus kreativ gestaltet werden - besonders bei Texten die eigentlich schon vorhanden sein müssten. Ein Beispiel dafür ist das Wort <code>Einfügen</code>. Möchte man dieses mit der englischen Bezeichnung <code>Add</code> nutzen, stellt man fest, dass es <code>Einfügen</code> schon mit mehreren Übersetzungen gibt, jedoch nicht mit der englischen Bezeichnung <code>Add</code>. Sucht man dann aber nach <code>Add</code>, so wird man den zu verwendenden deutschen Text <code>Hinzufügen</code> finden.</p>
 </div>
 <h2 id="erfassen-neuer-mlkeys">Erfassen neuer MLKeys</h2>
 <p>Mit dem Button <strong>Add</strong> öffnet sich ein Dialog, in dem der neue MLKey erfasst werden kann.</p>
@@ -150,7 +156,7 @@
 <h2 id="bearbeiten-von-mlkeys">Bearbeiten von MLKeys</h2>
 <p>Mit dem Button Edit wird für den selektierten MLKey der Bearbeitungs-Dialog geöffnet.</p>
 <p>Durch einen Doppelklick in das Grid kann der Bearbeitungs-Dialog ebenfalls geöffnet werden. Dabei wird der Fokus automatisch in das Feld gesetzt, dass der angeklickten Grid-Zelle entspricht. Das ist praktisch, wenn man z.B. gezielt eine Fremdsprache bearbeiten möchte.</p>
-<p>Außerdem können alle Texte direkt im Grid bearbeitet werden.</p>
+<p>Außerdem können einzeilige Texte direkt im Grid bearbeitet werden.</p>
 <div class="NOTE"><h5>Note</h5><p>Die logische Bedeutung des MLKeys darf zu einem späteren Zeitpunkt nicht mehr geändert werden.</p>
 </div>
 <p><img src="media/edit-mlkey.png" alt="Edit MLKey"></p>
@@ -160,10 +166,7 @@
 <p>Die Texte können bearbeitet werden.</p>
 <h2 id="copy-entry--paste-entry">Copy Entry / Paste Entry</h2>
 <p>Wenn man ein oder mehrere Einträge selektiert hat, kann man mit dem Button <strong>Copy Entry</strong> diese in die Zwischenablage kopieren. Mit dem Button <strong>Paste Entry</strong> können diese Einträge z.B. in einer anderen Version des Packages eingefügt werden.</p>
-<p>Intern benutzt diese Funktion den <a href="import-export.html">Import- / Export-Mechanismus</a>. Dieser verwendet ein XML im TMX-Format. Dadurch ist es möglich, das XML vor dem <strong>Paste Entry</strong> bei Bedarf in einem Text-Editor zu manipulieren.</p>
-<ul>
-<li>Ändern des MLKey - um z.B. den PackageCode anzupassen.</li>
-</ul>
+<p>Intern benutzt diese Funktion den <a href="import-export.html">Import- / Export-Mechanismus</a>. Dieser verwendet ein XML im TMX-Format. Dadurch ist es möglich, das XML vor dem <strong>Paste Entry</strong> bei Bedarf in einem Text-Editor zu manipulieren, z.B. um den PackageCode des MLKey anzupassen.</p>
 <p>Mit <strong>Paste Entry</strong> werden neue MLKeys hinzugefügt. Enthält die Zwischenablage existierende Keys, dann wird vor dem Einfügen ein Auswahl-Dialog angezeigt.</p>
 <p><img src="media/paste-entry-replace-options.png" alt="Paste Replace Options"></p>
 <ul>
@@ -175,7 +178,7 @@
 <h2 id="customizing">Customizing</h2>
 <p>Jedes Customizing-Package verwaltet sein eigenes Wörterbuch.</p>
 <ul>
-<li><p>Es können neue MLKeys angelegt werden. Diese erhalten den Package-Code, damit es in Zukunft keine Kollisionen mit Basis-Packages gibt.</p>
+<li><p>Es können neue MLKeys angelegt werden. Diese müssen den Package-Code enthalten, damit es in Zukunft keine Kollisionen mit Basis-Packages gibt.</p>
 <p>  Bevor ein neuer MLKey angelegt wird, sollte immer geprüft werden, ob es nicht doch einen passenden MLKey gibt.</p>
 </li>
 <li><p>Texte aus Basis-Packages können überschrieben bzw. ergänzt werden. So können z.B. Übersetzungen für Fremdsprachen gepflegt werden.</p>

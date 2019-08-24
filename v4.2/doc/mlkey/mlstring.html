@@ -79,13 +79,18 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="mlstring">MLString</h1>
 
-<p><img src="media/mlstring-in-designer.png" alt="MLString Designer"> <img src="media/mlstring-in-property-grid.png" alt="MLString Property Grid"></p>
-<p><strong>TODO</strong></p>
-<ul>
-<li>Option Sprachen</li>
-<li>Auswahl-Dialog mit der Option neue MLKeys zu erfassen.</li>
-<li>dasselbe wie Wörterbuch + Auswählen</li>
-</ul>
+<p>Framework Studio bietet eine durchgängige Unterstützung für die Mehrsprachigkeit. An allen Stellen, an denen für den Anwender sichtbare Beschriftungen, Tooltips oder Meldungstexte gepflegt werden bietet Framework Studio einen Editor zur Bearbeitung von mehrsprachigen Texten (Multi Language String / <strong>MLString</strong>) an.</p>
+<p>Der Editor wird in Form einer Tabelle angezeigt, in der die Verschiedenen Sprachen des Textes angezeigt und bei Bedarf auch bearbeitet werden.</p>
+<p>Die <strong>fett gedruckten</strong> Angaben sind an dieser Stelle überschrieben. Die normal gedruckten Angaben sind aus dem Basis-Package oder dem Basis-Record geerbt. Siehe auch Abschnitt <a href="#vererbung">Vererbung</a>.</p>
+<p><img src="media/mlstring-in-designer.png" alt="MLString Designer"></p>
+<p>An erster Stelle steht immer der <strong>MLKey</strong>. Dieser stellt einen Verweis auf das <a href="woerterbuch.html">Wörterbuch</a> dar. Es kann direkt ein MLKey eingeben werden oder mit dem Auswahl-Button ein Such-Dialog geöffnet werden. Dabei handelt es sich um den voll funktionsfähigen <a href="woerterbuch.html#multilanguage-text-editor">Multilanguage Text Editor</a> erweitert um eine Auswahl-Funktion. In diesem Dialog können, wenn kein passender MLKey gefunden wurde, auch ein neuer Key erfasst werden.</p>
+<p>Die Texte in den einzelnen Sprachen werden im Designer und auch zur Laufzeit der Anwendung aus dem Wörterbuch ermittelt. Die angezeigten Sprachen und deren Reihenfolge können in den <strong>Options</strong> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Ist ein <strong>MLKey</strong> angegeben, dann ist es davon abzuraten, einzelne Texte zu überschreiben.</p>
+</div>
+<p>Im <strong>Property-Grid</strong> wird der MLString in einer Zeile dargestellt, die zur Anzeige der einzelnen Sprachen erweitert werden kann.</p>
+<p><img src="media/mlstring-in-property-grid.png" alt="MLString Property Grid"></p>
+<p>Die einzeilige Anzeige stellt einen kombinierten Text in Format <code>@{MLKey} - {deutscher Text}</code> dar. In diesem Text man auch direkt mit vorangestellten <code>@</code>-Zeichen einen anderen <strong>MLKey</strong> eintragen - z.B. <code>@LBL_ArticleID</code>.
+Ein <strong>MLKey</strong> kann auch (wie oben beschrieben) am entsprechenden MLKey-Eintrag eingetragen oder ausgewählt werden.</p>
 <h2 id="vererbung">Vererbung</h2>
 <p>Mit den verschiedenen Records in Framework Studio werden auch die entsprechenden MLStrings vererbt. Dadurch werden im Idealfall die am Metadatentyp definierten Texte über die komplette Kette bis hin zu den Form-Controls durchgereicht.</p>
 <p>Ein vererbter Text kann an jeder beliebigen Stelle in der Kette überschrieben werden. Es gibt 2 Möglichkeiten:</p>

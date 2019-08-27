@@ -5,21 +5,19 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Property Key
-   </title>
+    <title>Hinweise zu Lizenzen </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Property Key
-   ">
+    <meta name="title" content="Hinweise zu Lizenzen ">
     <meta name="generator" content="docfx 2.43.5.0">
     
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <meta property="docfx:navrel" content="../toc.html">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
-    <meta property="docfx:rel" content="../">
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -36,8 +34,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -78,38 +76,23 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.Key*">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="hinweise-zu-lizenzen">Hinweise zu Lizenzen</h1>
 
-<h1 id="FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKeyText_Key_" data-uid="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.Key*">Property Key
-</h1>
-<div class="markdown level0 summary"></div>
-<div class="markdown level0 conceptual"></div>
-
-
-
-<a id="FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKeyText_Key_" data-uid="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.Key*"></a>
-<h4 id="FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKeyText_Key" data-uid="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.Key">Key</h4>
-<div class="markdown level1 summary"></div>
-<div class="markdown level1 conceptual"></div>
-<h5 class="decalaration">Declaration</h5>
-<div class="codewrapper">
-  <pre><code class="lang-csharp hljs">public MLKey Key { get; }</code></pre>
-</div>
-<h5 class="propertyValue">Property Value</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKey.html">MLKey</a></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
+<h2 id="timeout">Timeout</h2>
+<p>Aus technischen Gründen kann der HTML-Client weder im Browser, noch in der App auf einem mobilen Gerät dem Broker mitteilen, dass er beendet wurde. Z.B. kann auf einem Android-Gerät nicht unterschieden werden, ob eine App nur in den Ruhezustand gewechselt hat oder komplett geschlossen wurde.</p>
+<p>Dies hat zur Folge, dass Broker-Sessions, die von einem HTML-Client aus gestartet wurden, offen bleiben, bis der Broker sie von sich aus verwirft. Diese Zeitspanne beträgt <strong>12 Stunden</strong>.</p>
+<h2 id="clientid">ClientID</h2>
+<p>Um dem Verbrauch von Lizenzen entgegen zu wirken, wird im HTML-Client eine ClientID generiert, die den Browser bzw. das mobile Gerät identifiziert und mit zum Broker geschickt wird.</p>
+<p>Im Browser ist die ClientID eine UUIDv4, die im Code generiert wird, auf mobilen Geräten wird die Cordova-Geräte-ID herangezogen.</p>
+<p>Über die ClientID kann der Broker den Browser bzw. das mobile Gerät identifizieren und bei einem erneuten Start einer Anwendung diesem die bisherige Lizenz zuordnen.</p>
+<h3 id="zusatz-für-mobile-geräte">Zusatz für mobile Geräte</h3>
+<p>Die ClientID auf mobilen Geräten ist immer gleich. Ein mobiles Gerät verbraucht am Broker eine Lizenz unabhängig vom Benutzer.</p>
+<h3 id="zusatz-für-browser">Zusatz für Browser</h3>
+<p>Ein Browser hat keinen Zugriff auf das Betriebssystem und den Computer. Die generierte ClientID wird deshalb im sogenannten „Local Storage“ des Browsers gespeichert. Dieser Speicher ist je nach Konfiguration benutzerabhängig.</p>
+<p><em>Beispiel:</em>
+Ist auf einem Computer, den drei Benutzer verwenden, Firefox als Browser installiert, so hat jeder Benutzer seinen eigenen Local Storage. Dies bedeutet, dass jeder Benutzer seine eigene ClientID bekommt und somit auch drei Lizenzen am Broker verbraucht werden.</p>
+<p>Dies gilt auch, wenn ein Benutzer dieselbe Applikation einmal im Firefox und einmal im Chrome öffnet. Die beiden Browser haben separate Local Storages und verbrauchen somit auch wieder zwei Lizenzen am Broker.</p>
 </article>
           </div>
           
@@ -117,6 +100,9 @@
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/v4.0/doc/html-client/lizenzen.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
@@ -141,8 +127,8 @@
       </footer>
     </div>
     
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
   </body>
 </html>

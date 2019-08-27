@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Numerische Funktionen </title>
+    <title>HTML-Client (Beta) </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Numerische Funktionen ">
+    <meta name="title" content="HTML-Client (Beta) ">
     <meta name="generator" content="docfx 2.43.5.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
     
     <meta property="docfx:rel" content="../../">
     
@@ -77,54 +77,37 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="numerische-funktionen">Numerische Funktionen</h1>
+<h1 id="html-client-beta">HTML-Client (Beta)</h1>
 
-<h2 id="abs--numeric-expression-"><code>ABS ( &lt;Numeric Expression&gt; )</code></h2>
-<p>Liefert den absoluten Betrag einer Zahl</p>
-<h2 id="trunc--numeric-expression-decimals-"><code>TRUNC ( &lt;Numeric Expression&gt;, &lt;Decimals&gt; )</code></h2>
-<p>Schneidet eine Dezimal-Zahl auf die angegebene Anzahl Stellen ab.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Umsetzung des Statements auf den verschiedenen Datenbanken</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SQL-Server</td>
-<td><code>ROUND ( &lt;Numeric Expression&gt;, &lt;Decimals&gt;, 1 )</code></td>
-</tr>
-<tr>
-<td>Oracle</td>
-<td><code>TRUNC ( &lt;Numeric Expression&gt;, &lt;Decimals&gt; )</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="round--numeric-expression-decimals-"><code>ROUND ( &lt;Numeric Expression&gt;, &lt;Decimals&gt; )</code></h2>
-<p>Rundet eine Dezimal-Zahl auf die angegebene Anzahl Stellen.</p>
-<h2 id="power--numeric-expression-y-"><code>POWER ( &lt;Numeric Expression&gt;, &lt;y&gt; )</code></h2>
-<p>Potenziert eine Zahl mit y</p>
-<h2 id="square--numeric-expression-"><code>SQUARE ( &lt;Numeric Expression&gt; )</code></h2>
-<p>Quadrat eine Zahl.</p>
-<h2 id="sqrt--numeric-expression-"><code>SQRT ( &lt;Numeric Expression&gt; )</code></h2>
-<p>Quadratwurzel einer Zahl</p>
-<h2 id="ceiling--numeric-expression-"><code>CEILING ( &lt;Numeric Expression&gt; )</code></h2>
-<p>Rundet eine Zahl auf.</p>
-<h2 id="floor--numeric-expression-"><code>FLOOR ( &lt;Numeric Expression&gt; )</code></h2>
-<p>Rundet eine Zahl ab.</p>
-<h2 id="log-float-expression-"><code>LOG (&lt;Float Expression&gt; )</code></h2>
-<p>Natürlicher Logarithmus einer Fließkommazahl.</p>
-<h2 id="log10--float-expression-"><code>LOG10 ( &lt;Float Expression&gt; )</code></h2>
-<p>Logarithmus mit der Basis 10.</p>
-<h2 id="exp--float-expression-"><code>EXP ( &lt;float Expression&gt; )</code></h2>
-<p>Gibt den exponentiellen Wert des angegebenen float-Ausdrucks zurück. (e<sup>x</sup>)</p>
-<h2 id="sin--float-expression-"><code>SIN ( &lt;float Expression&gt; )</code></h2>
-<p>Sinus einer Fließkommazahl.</p>
-<h2 id="tan-float-expression-"><code>TAN (&lt;Float Expression&gt; )</code></h2>
-<p>Tangens einer Fließkommazahl.</p>
-<h2 id="sign--number-"><code>SIGN ( &lt;Number&gt; )</code></h2>
-<p>Gibt das Vorzeichen der Zahl zurück. Negativ -&gt; -1, 0 -&gt; 0, positiv -&gt; +1.</p>
+<p>Neben dem Java Client bietet Framework Studio auch einen HTML-Client für Desktop- sowie mobile Geräte an. Dieser befindet sich aktuell in der Beta-Phase und unterstützt noch deutlich weniger Funktionen und Controls als der Java Client. Was derzeit schon mit dem HTML-Client möglich ist, erfahren Sie in diesem Kapitel.</p>
+<h2 id="aktivieren-des-html-clients">Aktivieren des HTML-Clients</h2>
+<p>Damit der HTML-Client über den Run Wizard und die Broker-Startseite gestartet werden kann, muss in der <a href="../application/application.html">Application</a> die Checkbox Supports Html Client gesetzt werden.</p>
+<p><img src="media/application-supports-html-client.png" alt="Application"></p>
+<p>Dies soll vermeiden, dass bisher existierende Applikationen ohne Weiteres im HTML-Client gestartet werden können, da diese sehr wahrscheinlich auf Controls und Funktionalitäten aufbauen, die derzeit vom HTML-Client noch nicht oder nicht vollständig unterstützt werden.</p>
+<h2 id="browser-unterstützung">Browser-Unterstützung</h2>
+<h3 id="desktop">Desktop</h3>
+<p>Der HTML-Client basiert auf modernster Webtechnologie und benötigt deshalb auch einen aktuellen Browser für die Ausführung.</p>
+<p><strong>Für Desktopsysteme empfehlen wir folgende Browser</strong>:</p>
+<ul>
+<li>Chrome</li>
+<li>Firefox</li>
+<li>Edge</li>
+<li>Safari (OSX)</li>
+</ul>
+<p>Auch alle weiteren Browser, basierend auf der Chromium-Engine (Opera, Vivaldi), sollten problemlos funktionieren.</p>
+<div class="NOTE"><h5>Note</h5><p>Der immer noch weit verbreitete Internet Explorer 11 kann den HTML-Client zwar ausführen, auf Grund seiner mangelhaften Performance können wir ihn aber absolut nicht mehr empfehlen.</p>
+</div>
+<h3 id="mobile-endgeräte">Mobile Endgeräte</h3>
+<p>Eine auf den HTML-Client ausgelegte Applikation kann über die Broker-Startseite natürlich auch von einem beliebigen mobilen Gerät aus gestartet werden, welches über einen aktuellen Browser verfügt. Die Unterstützung der Browser im mobilen Umfeld ist sehr schwer zu beurteilen, da es gerade auf Android eine extrem große Auswahl gibt.</p>
+<p><strong>Wir empfehlen deshalb folgende mobilen Browser</strong>:</p>
+<ul>
+<li>Chrome</li>
+<li>Firefox</li>
+<li>Edge</li>
+<li>Dolphin</li>
+<li>Android Browser (ab Android 5.1)</li>
+<li>Safari (ab iOS 10)</li>
+</ul>
 </article>
           </div>
           
@@ -133,7 +116,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/v4.2/doc/sql/num-funktionen.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/v4.2/doc/html-client/index.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

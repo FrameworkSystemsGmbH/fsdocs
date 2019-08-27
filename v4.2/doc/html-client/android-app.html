@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Numerische Funktionen </title>
+    <title>Android App </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Numerische Funktionen ">
+    <meta name="title" content="Android App ">
     <meta name="generator" content="docfx 2.43.5.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -15,7 +15,7 @@
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
     <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
     
     <meta property="docfx:rel" content="../../">
     
@@ -77,54 +77,20 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="numerische-funktionen">Numerische Funktionen</h1>
+<h1 id="android-app">Android App</h1>
 
-<h2 id="abs--numeric-expression-"><code>ABS ( &lt;Numeric Expression&gt; )</code></h2>
-<p>Liefert den absoluten Betrag einer Zahl</p>
-<h2 id="trunc--numeric-expression-decimals-"><code>TRUNC ( &lt;Numeric Expression&gt;, &lt;Decimals&gt; )</code></h2>
-<p>Schneidet eine Dezimal-Zahl auf die angegebene Anzahl Stellen ab.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Umsetzung des Statements auf den verschiedenen Datenbanken</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>SQL-Server</td>
-<td><code>ROUND ( &lt;Numeric Expression&gt;, &lt;Decimals&gt;, 1 )</code></td>
-</tr>
-<tr>
-<td>Oracle</td>
-<td><code>TRUNC ( &lt;Numeric Expression&gt;, &lt;Decimals&gt; )</code></td>
-</tr>
-</tbody>
-</table>
-<h2 id="round--numeric-expression-decimals-"><code>ROUND ( &lt;Numeric Expression&gt;, &lt;Decimals&gt; )</code></h2>
-<p>Rundet eine Dezimal-Zahl auf die angegebene Anzahl Stellen.</p>
-<h2 id="power--numeric-expression-y-"><code>POWER ( &lt;Numeric Expression&gt;, &lt;y&gt; )</code></h2>
-<p>Potenziert eine Zahl mit y</p>
-<h2 id="square--numeric-expression-"><code>SQUARE ( &lt;Numeric Expression&gt; )</code></h2>
-<p>Quadrat eine Zahl.</p>
-<h2 id="sqrt--numeric-expression-"><code>SQRT ( &lt;Numeric Expression&gt; )</code></h2>
-<p>Quadratwurzel einer Zahl</p>
-<h2 id="ceiling--numeric-expression-"><code>CEILING ( &lt;Numeric Expression&gt; )</code></h2>
-<p>Rundet eine Zahl auf.</p>
-<h2 id="floor--numeric-expression-"><code>FLOOR ( &lt;Numeric Expression&gt; )</code></h2>
-<p>Rundet eine Zahl ab.</p>
-<h2 id="log-float-expression-"><code>LOG (&lt;Float Expression&gt; )</code></h2>
-<p>Natürlicher Logarithmus einer Fließkommazahl.</p>
-<h2 id="log10--float-expression-"><code>LOG10 ( &lt;Float Expression&gt; )</code></h2>
-<p>Logarithmus mit der Basis 10.</p>
-<h2 id="exp--float-expression-"><code>EXP ( &lt;float Expression&gt; )</code></h2>
-<p>Gibt den exponentiellen Wert des angegebenen float-Ausdrucks zurück. (e<sup>x</sup>)</p>
-<h2 id="sin--float-expression-"><code>SIN ( &lt;float Expression&gt; )</code></h2>
-<p>Sinus einer Fließkommazahl.</p>
-<h2 id="tan-float-expression-"><code>TAN (&lt;Float Expression&gt; )</code></h2>
-<p>Tangens einer Fließkommazahl.</p>
-<h2 id="sign--number-"><code>SIGN ( &lt;Number&gt; )</code></h2>
-<p>Gibt das Vorzeichen der Zahl zurück. Negativ -&gt; -1, 0 -&gt; 0, positiv -&gt; +1.</p>
+<p>Für die volle Integration des HTML-Clients in die mobile Welt, stellen wir im Google Play Store den Client als Android App zur Verfügung. Diese ist vom Funktionsumfang equivalent zur Browser-Version.</p>
+<p><strong>Name der App</strong>:</p>
+<p>Framework Studio Mobile Client</p>
+<p><strong>Store Link</strong>:</p>
+<p><a href="https://play.google.com/store/apps/details?id=com.fs.htmlclient">https://play.google.com/store/apps/details?id=com.fs.htmlclient</a></p>
+<div class="NOTE"><h5>Note</h5><p>Wir können derzeit noch keine Aussagen zu einer Veröffentlichung der App für iOS treffen.</p>
+</div>
+<h2 id="einrichten-eines-brokers">Einrichten eines Brokers</h2>
+<p>Es muss natürlich definiert werden, mit welchem Broker sich der Mobile Client verbinden soll. Nach dem Start der App wird der Login angezeigt. Über den Button „+ New“ können beliebig viele Broker zur Liste hinzugefügt werden.</p>
+<p><img src="media/app-broker-1.png" alt="App-Broker1"> <img src="media/app-broker-2.png" alt="App-Broker2"> <img src="media/app-broker-3.png" alt="App-Broker3"></p>
+<p>Es ist auch möglich, Urls von Development Brokern hinzuzufügen. Dabei ist zu beachten, dass der Mobile Client nur auf den Development Broker zugreifen kann, wenn dieser über das Netzwerk erreichbar ist. Dazu muss Framework Studio mit Administrator-Rechten ausgeführt werden. Ob der Development Broker vom Netzwerk aus zugreifbar ist, kann über das Tray-Icon geprüft werden:</p>
+<p><img src="media/broker-public-access.png" alt="public Access"></p>
 </article>
           </div>
           
@@ -133,7 +99,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/v4.2/doc/sql/num-funktionen.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/v4.2/doc/html-client/android-app.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

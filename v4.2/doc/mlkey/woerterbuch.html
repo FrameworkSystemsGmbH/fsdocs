@@ -90,7 +90,7 @@
 <h2 id="multilanguage-text-editor">Multilanguage Text Editor</h2>
 <p>Die Bearbeitung des Wörterbuchs erfolgt über den <strong>Multilanguage Text Editor</strong>. Dieser wird über das Menü <strong>Tools / Multilanguage Text Editor</strong> geöffnet.</p>
 <p><img src="media/ml-editor.png" alt="ML-Editor"></p>
-<p>Die im Grid angezeigten Sprachen und deren Reihenfolge können in den <strong>Options</strong> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden.</p>
+<p>Die im Grid angezeigten Sprachen und deren Reihenfolge können in den <a href="../allgemein/options.html">Options</a> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden.</p>
 <p>Die Bearbeitung des Wörterbuchs funktioniert ohne Checkout-Mechanismus. Wenn mehrere Benutzer zur gleichen Zeit an denselben MLKeys arbeiten sollten, dann gewinnt derjenige, der zuletzt den Button <strong>Save</strong> drückt.</p>
 <p>Der Editor sammelt alle vorgenommenen Änderungen (Add, Edit, Delete) im Hintergrund. Mit dem Button <strong>Save</strong> werden diese in das Repository gespeichert. Dabei wird in einer Transaktion zuerst der aktuelle Stand frisch aus dem Repository gelesen, dann die Änderungen erneut auf diesen (evtl. durch einen anderen Benutzer veränderten) Stand angewendet und zuletzt der neue Stand wieder zurück in das Repository gespeichert.</p>
 <p>Das hat die Folge, dass nach einem Save Änderungen sichtbar sind, die zuvor von einem anderen Benutzer vorgenommen wurden. Eine Ausnahme sind die Basis-Packages. Diese werden aus einem Stand gezogen, den der FrameworkCompiler zum Zeitpunkt des Compile-Laufs in den Workspace gespeichert hat.</p>
@@ -103,7 +103,7 @@
 <li>Generell wird nach Wortteilen gesucht. Wenn man das Wort oder den Text in Anführungszeichen setzt, wird nach einem exakten Treffer und ganzen Worten gesucht. Das funktioniert auch mit mehreren Worten und in Kombination mit der normalen Suche. z.B. <code>LBL_ &quot;Kunde&quot;</code></li>
 </ul>
 <p>Ziel des Wörterbuches ist es, Texte wiederzuverwenden und die Anzahl der Einträge auf das Nötigste zu reduzieren. Aus diesem Grund sollte man immer zuerst nach einem MLKey suchen, bevor man einen neuen erfasst. Zu einem logischen Begriff sollen keine zwei MLKeys existieren.</p>
-<div class="TIP"><h5>Tip</h5><p>Die Suche sollte durchaus kreativ gestaltet werden - besonders bei Texten die eigentlich schon vorhanden sein müssten. Ein Beispiel dafür ist das Wort <code>Einfügen</code>. Möchte man dieses mit der englischen Bezeichnung <code>Add</code> nutzen, stellt man fest, dass es <code>Einfügen</code> schon mit mehreren Übersetzungen gibt, jedoch nicht mit der englischen Bezeichnung <code>Add</code>. Sucht man dann aber nach <code>Add</code>, so wird man den zu verwendenden deutschen Text <code>Hinzufügen</code> finden.</p>
+<div class="TIP"><h5>Tip</h5><p>Die Suche sollte durchaus kreativ gestaltet werden - besonders bei Texten die eigentlich schon vorhanden sein müssten. Ein Beispiel dafür ist das Wort <code>Einfügen</code>. Möchte man dieses mit der englischen Bezeichnung <code>Add</code> nutzen, stellt man fest, dass es <code>Einfügen</code> schon mit mehreren Übersetzungen gibt, jedoch keine mit der englischen Bezeichnung <code>Add</code>. Sucht man dann aber direkt nach <code>Add</code>, so findet man den statt <code>Einfügen</code> zu verwendenden deutschen Text <code>Hinzufügen</code>.</p>
 </div>
 <h2 id="erfassen-neuer-mlkeys">Erfassen neuer MLKeys</h2>
 <p>Mit dem Button <strong>Add</strong> öffnet sich ein Dialog, in dem der neue MLKey erfasst werden kann.</p>
@@ -147,15 +147,16 @@
 <li><p><strong>German</strong>: Die Eingabe eines deutschen Textes ist Pflicht, weil Deutsch immer der letzte Fallback ist, wenn eine Fremdsprache nicht gepflegt ist.</p>
 </li>
 <li><p><strong>Fremdsprachen</strong>: Über die Radio-Buttons kann festgelegt werden, welche Sprache im 2. Textfeld angezeigt oder bearbeitet werden soll. Diese Texte sind optional.</p>
+<p>Die angebotenen Fremdsprachen und deren Reihenfolge kann in den <a href="../allgemein/options.html">Options</a> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden. <strong>German</strong> lässt sich in diesem Dialog aber nicht steuern - diese Sprache wird immer im separaten Feld angezeigt.</p>
 <p>In der <strong>eNVenta/WS</strong> Standard-Entwicklung muss der englische Text gepflegt werden.</p>
 </li>
 <li><p>Button <strong>Untranslatable</strong>: Es gibt Texte, die nicht übersetzt werden können wie z.B. Eigennamen oder Einheiten. Dieser Button löscht alle Fremdsprachen-Texte und Schreibt den Text <code>untranslatable</code> in das <strong>Comment</strong> Feld.</p>
-<p>Mitt der Routine <a href="mlkey-cleanup.html">MLKeys Cleanup</a> kann diese Aktion systematisch für das komplette Wörterbuch ausgeführt werden.</p>
+<p>Mit der Routine <a href="mlkey-cleanup.html">MLKeys Cleanup</a> kann diese Aktion systematisch für das komplette Wörterbuch ausgeführt werden.</p>
 </li>
 </ul>
 <h2 id="bearbeiten-von-mlkeys">Bearbeiten von MLKeys</h2>
 <p>Mit dem Button Edit wird für den selektierten MLKey der Bearbeitungs-Dialog geöffnet.</p>
-<p>Durch einen Doppelklick in das Grid kann der Bearbeitungs-Dialog ebenfalls geöffnet werden. Dabei wird der Fokus automatisch in das Feld gesetzt, dass der angeklickten Grid-Zelle entspricht. Das ist praktisch, wenn man z.B. gezielt eine Fremdsprache bearbeiten möchte.</p>
+<p>Durch einen Doppelklick in das Grid kann der Bearbeitungs-Dialog ebenfalls geöffnet werden. Dabei wird der Fokus automatisch in das Feld gesetzt, das der angeklickten Grid-Zelle entspricht. Das ist praktisch, wenn man z.B. gezielt eine Fremdsprache bearbeiten möchte.</p>
 <p>Außerdem können einzeilige Texte direkt im Grid bearbeitet werden.</p>
 <div class="NOTE"><h5>Note</h5><p>Die logische Bedeutung des MLKeys darf zu einem späteren Zeitpunkt nicht mehr geändert werden.</p>
 </div>

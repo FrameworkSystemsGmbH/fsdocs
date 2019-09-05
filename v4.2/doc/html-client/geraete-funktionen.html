@@ -1,0 +1,255 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Ger&#228;tespezifische Funktionen </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Ger&#228;tespezifische Funktionen ">
+    <meta name="generator" content="docfx 2.43.5.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="gerätespezifische-funktionen">Gerätespezifische Funktionen</h1>
+
+<p>Nachfolgend werden diejenigen Funktionen erläutert, die nur auf spezifischen Geräten verfügbar sind. Es ist nicht oder nur eingeschränkt möglich, vom Browser aus auf native Funktionen wie z.B. das Dateisystem zuzugreifen. Dadurch hat der HTML Client auf mobilen Geräten mehr Möglichkeiten als im Browser.</p>
+<h2 id="barcode-scanner-nur-mobile-geräte">Barcode Scanner (nur mobile Geräte)</h2>
+<p>Über die in einem mobilen Gerät integrierte Kamera können im HTML Client Barcodes unterschiedlicher Formate eingescannt werden.</p>
+<h3 id="unterstützte-formate">Unterstützte Formate</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align:center">Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AZTEC</td>
+<td style="text-align:center"><img src="media/barcodes/aztec.png" alt="Aztec"></td>
+</tr>
+<tr>
+<td>CODABAR</td>
+<td style="text-align:center"><img src="media/barcodes/codabar.png" alt="Codabar"></td>
+</tr>
+<tr>
+<td>CODE_39</td>
+<td style="text-align:center"><img src="media/barcodes/code_39.png" alt="Aztec"></td>
+</tr>
+<tr>
+<td>CODE_93</td>
+<td style="text-align:center"><img src="media/barcodes/code_93.png" alt="Aztec"></td>
+</tr>
+<tr>
+<td>CODE_128</td>
+<td style="text-align:center"><img src="media/barcodes/code_128.png" alt="Aztec"></td>
+</tr>
+<tr>
+<td>DATA_MATRIX</td>
+<td style="text-align:center"><img src="media/barcodes/data_matrix.png" alt="Aztec"></td>
+</tr>
+<tr>
+<td>EAN_8</td>
+<td style="text-align:center"><img src="media/barcodes/ean_8.png" alt="Aztec"></td>
+</tr>
+<tr>
+<td>EAN_13</td>
+<td style="text-align:center"><img src="media/barcodes/ean_13.png" alt="Aztec"></td>
+</tr>
+<tr>
+<td>ITF</td>
+<td style="text-align:center"><img src="media/barcodes/itf.png" alt="Aztec"></td>
+</tr>
+<tr>
+<td>PDF_417</td>
+<td style="text-align:center"><img src="media/barcodes/pdf_417.png" alt="Aztec"></td>
+</tr>
+<tr>
+<td>QR_CODE</td>
+<td style="text-align:center"><img src="media/barcodes/qr_code.png" alt="Aztec"></td>
+</tr>
+<tr>
+<td>UPC_A</td>
+<td style="text-align:center"><img src="media/barcodes/upc_a.png" alt="Aztec"></td>
+</tr>
+<tr>
+<td>UPC_E</td>
+<td style="text-align:center"><img src="media/barcodes/upc_e.png" alt="Aztec"></td>
+</tr>
+</tbody>
+</table>
+<h3 id="action-scanbarcode">Action ScanBarcode()</h3>
+<p>In Framework Studio wird ein Scan über folgende Action am Form gestartet:</p>
+<pre><code class="lang-C#">ScanBarcode(Action&lt;IFrameworkBarcodeScanInfo&gt; callback, BarcodeFormat allowedFormat)
+
+ScanBarcode(Action&lt;IFrameworkBarcodeScanInfo&gt; callback, BarcodeFormat allowedFormat, string identifier)
+</code></pre><p><strong>Beispiel:</strong></p>
+<p><img src="media/scan.png" alt="Scan"></p>
+<h4 id="parameter-actioniframeworkbarcodescaninfo-callback">Parameter <em>Action<iframeworkbarcodescaninfo> callback</iframeworkbarcodescaninfo></em></h4>
+<p>Wenn der Scanvorgang am Client abgeschlossen ist, wird der übergebene Callback aufgerufen. Der Callback ist vom Typ</p>
+<pre><code class="lang-C#">Action&lt;IFrameworkBarcodeScanInfo&gt;
+</code></pre><p><strong>IFrameworkBarcodeScanInfo Properties</strong></p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Typ</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cancelled</td>
+<td>bool</td>
+<td><code>true</code> wenn der Scanvorgang am Client abgebrochen wurde</td>
+</tr>
+<tr>
+<td>ErrorMessage</td>
+<td>string</td>
+<td>Fehlermeldung bei einem gescheiterten Scanvorgang</td>
+</tr>
+<tr>
+<td>Format</td>
+<td>BarcodeFormat</td>
+<td>Das Format des gescannten Barcodes</td>
+</tr>
+<tr>
+<td>HasError</td>
+<td>bool</td>
+<td><code>true</code> wenn beim Scanvorgang ein Fehler aufgetreten ist</td>
+</tr>
+<tr>
+<td>Identifier</td>
+<td>string</td>
+<td>Der in <code>ScanBarcode()</code> übergebene Wert, sonst <code>null</code></td>
+</tr>
+<tr>
+<td>Value</td>
+<td>string</td>
+<td>Der Wert des gescannten Barcodes</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiel:</strong></p>
+<p><img src="media/callback.png" alt="Callback"></p>
+<h4 id="parameter-barcodeformat-allowedformat">Parameter <em>BarcodeFormat allowedFormat</em></h4>
+<p>Definiert, welches Barcode-Format am Client bei einem Scanvorgang unterstützt wird.</p>
+<div class="NOTE"><h5>Note</h5><p>Es wird dringend empfohlen, nur diejenigen Barcode-Formate zu übergeben, die auch tatsächlich beim Scanvorgang unterstützt werden sollen, um Fehler beim Scannen zu vermeiden. Je geringer die Anzahl der unterstützten Formate ist, desto unwahrscheinlicher ist es, dass der Scan fehlschlägt.</p>
+</div>
+<p><strong>Beispiel:</strong></p>
+<p>Wenn am Client z.B. CODE_128 und ITF unterstützt werden soll, so können diese per bitweiser Oder-Verknüpfung übergeben werden.</p>
+<p><img src="media/scan.png" alt="Scan"></p>
+<h4 id="parameter-string-identifier">Parameter <em>string identifier</em></h4>
+<p>Es kann vorkommen, dass auf einem Form mehrere Buttons einen Scan initiieren können. Beispielsweise könnte erst ein Auftrag und nachfolgend eine Menge eingescannt werden. Es ist aber oft nicht praktikabel, für jeden Scanvorgang einen separaten Callback zu implementieren.</p>
+<p>Anstatt dessen kann der <code>ScanBarcode()</code>-Action einfach ein beliebiger <code>string</code> mitgegeben werden, über den der Scanvorgang im Callback identifiziert werden kann.</p>
+<p><strong>Beispiel:</strong></p>
+<p><img src="media/identifier.png" alt="Identifier"></p>
+<h3 id="berechtigung-für-kamera">Berechtigung für Kamera</h3>
+<p>Der Barcode Scanner benötigt auf dem mobilen Gerät Zugriff auf die Kamera. Diese muss z.B. auf einem Android-Gerät einmalig erteilt werden:</p>
+<p><img src="media/permission.png" alt="Permission"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/html-client/geraete-funktionen.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

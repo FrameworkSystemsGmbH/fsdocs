@@ -83,88 +83,17 @@
   
   <h1 id="FrameworkSystems_FrameworkExceptions_RowVersionInvalidException" data-uid="FrameworkSystems.FrameworkExceptions.RowVersionInvalidException" class="text-break">Class RowVersionInvalidException
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Die Component prüft beim Save automatisch, ob der Datensatz auf der Datenbank zwischenzeitlich 
+von einer anderen Instanz geändert wurde – sprich, ob sich der Wert in der Spalte <strong>FSROWVERSION</strong>
+geändert hat. Wenn das der Fall ist, dann wird eine diese Exception geworfen.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">System.Exception</span></div>
-    <div class="level2"><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkException.html">FrameworkException</a></div>
+    <div class="level2"><span class="xref">FrameworkSystems.FrameworkExceptions.FrameworkException</span></div>
     <div class="level3"><span class="xref">RowVersionInvalidException</span></div>
-  </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.Runtime.Serialization.ISerializable</span></div>
-    <div><span class="xref">System.Runtime.InteropServices._Exception</span></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkException.ErrorCode.html#FrameworkSystems_FrameworkExceptions_FrameworkException_ErrorCode">FrameworkException.ErrorCode</a>
-    </div>
-    <div>
-      <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkException.YouHaveToSortBeforeSave.html">FrameworkException.YouHaveToSortBeforeSave</a>
-    </div>
-    <div>
-      <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkException.NoSortBecauseOfDroppedEntriesInColl.html">FrameworkException.NoSortBecauseOfDroppedEntriesInColl</a>
-    </div>
-    <div>
-      <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkException.YouHaveToSaveBeforeApplyAFilter.html">FrameworkException.YouHaveToSaveBeforeApplyAFilter</a>
-    </div>
-    <div>
-      <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkException.GetObjectData.html#FrameworkSystems_FrameworkExceptions_FrameworkException_GetObjectData_System_Runtime_Serialization_SerializationInfo_System_Runtime_Serialization_StreamingContext_">FrameworkException.GetObjectData(SerializationInfo, StreamingContext)</a>
-    </div>
-    <div>
-      <span class="xref">System.Exception.GetBaseException()</span>
-    </div>
-    <div>
-      <span class="xref">System.Exception.ToString()</span>
-    </div>
-    <div>
-      <span class="xref">System.Exception.GetType()</span>
-    </div>
-    <div>
-      <span class="xref">System.Exception.Message</span>
-    </div>
-    <div>
-      <span class="xref">System.Exception.Data</span>
-    </div>
-    <div>
-      <span class="xref">System.Exception.InnerException</span>
-    </div>
-    <div>
-      <span class="xref">System.Exception.TargetSite</span>
-    </div>
-    <div>
-      <span class="xref">System.Exception.StackTrace</span>
-    </div>
-    <div>
-      <span class="xref">System.Exception.HelpLink</span>
-    </div>
-    <div>
-      <span class="xref">System.Exception.Source</span>
-    </div>
-    <div>
-      <span class="xref">System.Exception.HResult</span>
-    </div>
-    <div>
-      <span class="xref">System.Exception.SerializeObjectState</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.Equals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.ReferenceEquals(System.Object, System.Object)</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.GetHashCode()</span>
-    </div>
-    <div>
-      <span class="xref">System.Object.MemberwiseClone()</span>
-    </div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkExceptions.html">FrameworkSystems.FrameworkExceptions</a></h6>
   <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkExceptions.dll</h6>
@@ -175,28 +104,12 @@ public class RowVersionInvalidException : FrameworkException, ISerializable, _Ex
   </div>
   <h3 id="constructors">Constructors
   </h3>
-  <table class="table table-bordered table-striped table-condensed">
-    <thead>
-      <tr>
-        <th>Name</th>
-        <th>Description</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td id="FrameworkSystems_FrameworkExceptions_RowVersionInvalidException__ctor_System_String_" data-uid="FrameworkSystems.FrameworkExceptions.RowVersionInvalidException.#ctor(System.String)">
-          <a class="xref" href="FrameworkSystems.FrameworkExceptions.RowVersionInvalidException.-ctor.html#FrameworkSystems_FrameworkExceptions_RowVersionInvalidException__ctor_System_String_">RowVersionInvalidException(String)</a>
-        </td>
-        <td class="markdown level1 summary"></td>
-      </tr>
-      <tr>
-        <td id="FrameworkSystems_FrameworkExceptions_RowVersionInvalidException__ctor_System_String_System_Exception_" data-uid="FrameworkSystems.FrameworkExceptions.RowVersionInvalidException.#ctor(System.String,System.Exception)">
-          <a class="xref" href="FrameworkSystems.FrameworkExceptions.RowVersionInvalidException.-ctor.html#FrameworkSystems_FrameworkExceptions_RowVersionInvalidException__ctor_System_String_System_Exception_">RowVersionInvalidException(String, Exception)</a>
-        </td>
-        <td class="markdown level1 summary"></td>
-      </tr>
-    </tbody>
-  </table>
+  
+    <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.RowVersionInvalidException.-ctor.html#FrameworkSystems_FrameworkExceptions_RowVersionInvalidException__ctor_System_String_">RowVersionInvalidException(String)</a></h4>
+    <section><p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.RowVersionInvalidException.-ctor.html#FrameworkSystems_FrameworkExceptions_RowVersionInvalidException__ctor_System_String_System_Exception_">RowVersionInvalidException(String, Exception)</a></h4>
+    <section><p></section>
+  
 </article>
           </div>
           

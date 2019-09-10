@@ -92,49 +92,15 @@
 Fehler darstellen sollten von dieser Klasse sein. Der Broker gibt
 diese dann als Fehler ohne StackTrace an den Client weiter.</p>
 </section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseApplicationException.html">FrameworkCloseApplicationException</a></h4>
-      <section><p>Diese Exception beendet die Session für das aktuelle Token.</p>
-</section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseRequestApplicationException.html">FrameworkCloseRequestApplicationException</a></h4>
-      <section></section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkDbException.html">FrameworkDbException</a></h4>
-      <section></section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkException.html">FrameworkException</a></h4>
-      <section><p>Summary description for FrameworkException.</p>
-</section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkStudioException.html">FrameworkStudioException</a></h4>
-      <section></section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FSAssemblyVersionListEntryAttribute.html">FSAssemblyVersionListEntryAttribute</a></h4>
-      <section><p>Wird in der AssemblyInfo.cs bzw. in der GlobalAssemblyInfo.cs verwendet, um Versionsnummern und Kompatibilitäten zu pflegen.</p>
-</section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FSLogger.html">FSLogger</a></h4>
-      <section></section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FSLoggerDelegateListener.html">FSLoggerDelegateListener</a></h4>
-      <section></section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FSLoggerEventArgs.html">FSLoggerEventArgs</a></h4>
-      <section></section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FSLoggerFileListener.html">FSLoggerFileListener</a></h4>
-      <section></section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FSLoggerListenerBase.html">FSLoggerListenerBase</a></h4>
-      <section></section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.NoRowsAffectedException.html">NoRowsAffectedException</a></h4>
-      <section></section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.PKKeyException.html">PKKeyException</a></h4>
-      <section></section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.PropertyNotFoundException.html">PropertyNotFoundException</a></h4>
-      <section><p>Summary description for PropertyNotFoundException.</p>
-</section>
       <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.RowVersionInvalidException.html">RowVersionInvalidException</a></h4>
-      <section></section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.VersionUtilities.html">VersionUtilities</a></h4>
-      <section><p>Hilfsmethoden zur Ermittlung bestimmter Versionsinformationen.</p>
+      <section><p>Die Component prüft beim Save automatisch, ob der Datensatz auf der Datenbank zwischenzeitlich 
+von einer anderen Instanz geändert wurde – sprich, ob sich der Wert in der Spalte <strong>FSROWVERSION</strong>
+geändert hat. Wenn das der Fall ist, dann wird eine diese Exception geworfen.</p>
 </section>
     <h3 id="enums">Enums
   </h3>
       <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html">FrameworkCloseMode</a></h4>
-      <section></section>
-      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.VersionEntryPurpose.html">VersionEntryPurpose</a></h4>
-      <section><p>Der Verwendungszweck eines VersionListEntries</p>
+      <section><p>Definiert den Modus mit dem die Application beendet werden soll.</p>
 </section>
 </article>
           </div>

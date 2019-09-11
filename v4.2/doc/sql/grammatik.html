@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
@@ -81,65 +82,53 @@
 
 <p>Im Folgenden ist die Grammatik beschrieben, die vom Framework Studio SQL-Parser verstanden wird. Alle an die Datenbank geschickten Befehle müssen dieser Grammatik genügen, ansonsten kommt es zu SqlParser-Exceptions.</p>
 <h2 id="grammatik-für-sql-kommandos">Grammatik für SQL-Kommandos</h2>
-<ul>
-<li><p><code>&lt;select&gt;</code></p>
+<h4 id="select"><code>&lt;select&gt;</code></h4>
 <pre><code class="lang-sql">SELECT [DISTINCT] { * | &lt;resultColumn&gt;[,…n] }
 FROM { &lt;singleSource&gt; | &lt;joinSource&gt; }
 [ WHERE &lt;condition&gt; ]
 [ GROUP BY &lt;value&gt;[,…n] [HAVING &lt;condition&gt;]]
 [ {UNION [ALL] | INTERSECT | EXCEPT} &lt;select(ohne orderby)&gt; ]
 [ ORDER BY &lt;orderColumn&gt;[,…n] ]
-</code></pre></li>
-<li><p><code>&lt;insert&gt;</code></p>
+</code></pre><h4 id="insert"><code>&lt;insert&gt;</code></h4>
 <pre><code class="lang-sql">INSERT INTO &lt;identifierChain&gt; ( &lt;identifier&gt;[,…n] )
 {
     VALUES ( &lt;value&gt;[,…n] )
 | &lt;select&gt;
 }
-</code></pre></li>
-<li><p><code>&lt;update&gt;</code></p>
+</code></pre><h4 id="update"><code>&lt;update&gt;</code></h4>
 <pre><code class="lang-sql">UPDATE &lt;identifierChain&gt;
 SET {&lt;identifierChain&gt; = &lt;value&gt; } [,…n]
 [ WHERE &lt;condition&gt; ]
-</code></pre></li>
-<li><p><code>&lt;delete&gt;</code></p>
+</code></pre><h4 id="delete"><code>&lt;delete&gt;</code></h4>
 <pre><code class="lang-sql">DELETE [FROM] &lt;identifierChain&gt;
 [ WHERE &lt;condition&gt; ]
-</code></pre></li>
-</ul>
-<h2 id="grammatik-für-die-bestandteile-der-kommandos">Grammatik für die Bestandteile der Kommandos</h2>
-<ul>
-<li><p><code>&lt;resultColumn&gt;</code></p>
+</code></pre><h2 id="grammatik-für-die-bestandteile-der-kommandos">Grammatik für die Bestandteile der Kommandos</h2>
+<h4 id="resultcolumn"><code>&lt;resultColumn&gt;</code></h4>
 <pre><code class="lang-sql">&lt;identifierChain&gt;.*
     | &lt;value&gt; [AS &lt;identifier&gt;]
-</code></pre></li>
-<li><p><code>&lt;singleSource&gt;</code></p>
+</code></pre><h4 id="singlesource"><code>&lt;singleSource&gt;</code></h4>
 <pre><code class="lang-sql">( &lt;singleSource&gt; )
 | &lt;identifierChain&gt; [ [AS] &lt;identifier&gt; ]
-</code></pre></li>
-<li><p><code>&lt;joinSource&gt;</code></p>
+</code></pre><h4 id="joinsource"><code>&lt;joinSource&gt;</code></h4>
 <pre><code class="lang-sql">( &lt;joinSource&gt; )
 
 | { &lt;singleSource&gt; | &lt;joinSource&gt; }
 { INNER | {LEFT | RIGHT | FULL} [OUTER] } JOIN
 { &lt;singleSource&gt; | &lt;joinSource&gt; } ON &lt;condition&gt;
-</code></pre></li>
-<li><p><code>&lt;condition&gt;</code></p>
+</code></pre><h4 id="condition"><code>&lt;condition&gt;</code></h4>
 <pre><code class="lang-sql">( &lt;condition&gt; )
 | NOT &lt;condition&gt;
 | &lt;condition&gt; {{ AND | OR } &lt;condition&gt;}[,…n]
 | &lt;value&gt; &lt;predicate2&gt;
 | EXISTS ( &lt;select&gt; )
-</code></pre></li>
-<li><p><code>&lt;predicate2&gt;</code></p>
+</code></pre><h4 id="predicate2"><code>&lt;predicate2&gt;</code></h4>
 <pre><code class="lang-sql">{ = | != | &lt; | &lt;= | &gt; | &gt;= } &lt;value&gt;
 | IS [NOT] NULL
 | BETWEEN &lt;value&gt; AND &lt;value&gt;
 | IN ( &lt;select&gt; | &lt;value&gt; [,…n] )
 | LIKE &lt;value&gt;
 | LIKEESCAPE &lt;value&gt;
-</code></pre></li>
-<li><p><code>&lt;value&gt;</code></p>
+</code></pre><h4 id="value"><code>&lt;value&gt;</code></h4>
 <pre><code class="lang-sql">NULL
 | ( &lt;value&gt; )
 | { - | + } &lt;value&gt;
@@ -152,27 +141,21 @@ SET {&lt;identifierChain&gt; = &lt;value&gt; } [,…n]
 | &lt;stringLiteral&gt;
 | &lt;integerValue&gt;
 | &lt;decimalValue&gt;
-</code></pre></li>
-<li><p><code>&lt;searchedCaseWhen&gt;</code></p>
+</code></pre><h4 id="searchedcasewhen"><code>&lt;searchedCaseWhen&gt;</code></h4>
 <pre><code class="lang-sql">CASE {WHEN &lt;condition&gt; THEN &lt;value&gt;}[,…n]
 [ ELSE &lt;value&gt; ] END
 &lt;simpleCaseWhen&gt;
 CASE &lt;value&gt;
 {WHEN {&lt;predicate2&gt; | &lt;value&gt;} THEN &lt;value&gt;}[,…n]
 [ ELSE &lt;value&gt; ] END
-</code></pre></li>
-<li><p><code>&lt;orderColumn&gt;</code></p>
+</code></pre><h4 id="ordercolumn"><code>&lt;orderColumn&gt;</code></h4>
 <pre><code class="lang-sql">&lt;value&gt; [ASC | DESC]
-</code></pre></li>
-<li><p><code>&lt;identifierChain&gt;</code></p>
+</code></pre><h4 id="identifierchain"><code>&lt;identifierChain&gt;</code></h4>
 <pre><code class="lang-sql">&lt;identifier&gt;[.&lt;identifier&gt;][,…n]
-</code></pre></li>
-<li><p><code>&lt;identifier&gt;</code></p>
+</code></pre><h4 id="identifier"><code>&lt;identifier&gt;</code></h4>
 <pre><code class="lang-sql">&quot;[&quot; &lt;beliebige Zeichenfolge&gt; &quot;]&quot;
 | &lt;Wort, mit einem Buchstaben beginnend&gt;
-</code></pre></li>
-</ul>
-</article>
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

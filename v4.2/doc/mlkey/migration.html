@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
@@ -82,11 +83,15 @@
 <p>Ziel ist es, dass alle Texte aus den Records entfernt und in das Wörterbuch übertragen werden. Die Records erhalten dafür die MLKeys.</p>
 <h2 id="abwärts-kompatibilität">Abwärts-Kompatibilität</h2>
 <p>Texte, die bisher an den Records definiert sind, funktionieren auch weiterhin, weil jeder MLString neben dem MLKey explizit gesetzte Texte versteht. So kann man nach dem Update auf die Version 4.2 die Migration in aller Ruhe angehen.</p>
-<p>In Kunden-Umgebungen ist die Umstellung der eigenen Texte auf MLKeys nicht zwingend notwendig. Das hat aber langfristig einige Nachteile zur Folge - insbesondere in Hinblick auf die Mehrsprachigkeit der Anwendung:</p>
+<div class="NOTE"><h5>Note</h5><p>In Kunden-Umgebungen ist die Umstellung der eigenen Texte auf MLKeys empfohlen. Sie ist aber nicht zwingend notwendig.</p>
+</div>
+<p>Das hat aber langfristig einige Nachteile zur Folge - insbesondere in Hinblick auf die Mehrsprachigkeit der Anwendung:</p>
 <ul>
 <li>Der Language Export / Import funktioniert nur für das Wörterbuch. Individuelle Texte an Records werden nicht (mehr) berücksichtigt.</li>
 <li>Das Pflegen von Fremdsprachen an den Records ist sehr aufwändig. Die MLKeys aus dem Wörterbuch bringen hingegen die Übersetzungen automatisch in alle Bereiche der Anwendung.</li>
 </ul>
+<div class="IMPORTANT"><h5>Important</h5><p>Funktionale Packages, die als Produkt an mehrere Kunden vertrieben werden, sollten in jedem Fall migriert werden.</p>
+</div>
 <h2 id="mlkeys-zuordnen">MLKeys zuordnen</h2>
 <p>Im Customizing kann man grundsätzlich 2 verschiedene Arten von überschriebenen Texten unterscheiden:</p>
 <ol>

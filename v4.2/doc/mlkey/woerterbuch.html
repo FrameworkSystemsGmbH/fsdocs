@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
     <link rel="stylesheet" href="../../styles/docfx.css">
     <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
     <meta property="docfx:navrel" content="../../toc.html">
     <meta property="docfx:tocrel" content="../toc.html">
     
@@ -90,7 +91,7 @@
 <h2 id="multilanguage-text-editor">Multilanguage Text Editor</h2>
 <p>Die Bearbeitung des Wörterbuchs erfolgt über den <strong>Multilanguage Text Editor</strong>. Dieser wird über das Menü <strong>Tools / Multilanguage Text Editor</strong> geöffnet.</p>
 <p><img src="media/ml-editor.png" alt="ML-Editor"></p>
-<p>Die im Grid angezeigten Sprachen und deren Reihenfolge können in den <a href="../allgemein/options.html">Options</a> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden.</p>
+<p>Die im Grid angezeigten Sprachen und deren Reihenfolge können in den <a href="../allgemein/options.html#languages-in-designer">Options</a> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden.</p>
 <p>Die Bearbeitung des Wörterbuchs funktioniert ohne Checkout-Mechanismus. Wenn mehrere Benutzer zur gleichen Zeit an denselben MLKeys arbeiten sollten, dann gewinnt derjenige, der zuletzt den Button <strong>Save</strong> drückt.</p>
 <p>Der Editor sammelt alle vorgenommenen Änderungen (Add, Edit, Delete) im Hintergrund. Mit dem Button <strong>Save</strong> werden diese in das Repository gespeichert. Dabei wird in einer Transaktion zuerst der aktuelle Stand frisch aus dem Repository gelesen, dann die Änderungen erneut auf diesen (evtl. durch einen anderen Benutzer veränderten) Stand angewendet und zuletzt der neue Stand wieder zurück in das Repository gespeichert.</p>
 <p>Das hat die Folge, dass nach einem Save Änderungen sichtbar sind, die zuvor von einem anderen Benutzer vorgenommen wurden. Eine Ausnahme sind die Basis-Packages. Diese werden aus einem Stand gezogen, den der FrameworkCompiler zum Zeitpunkt des Compile-Laufs in den Workspace gespeichert hat.</p>
@@ -147,7 +148,7 @@
 <li><p><strong>German</strong>: Die Eingabe eines deutschen Textes ist Pflicht, weil Deutsch immer der letzte Fallback ist, wenn eine Fremdsprache nicht gepflegt ist.</p>
 </li>
 <li><p><strong>Fremdsprachen</strong>: Über die Radio-Buttons kann festgelegt werden, welche Sprache im 2. Textfeld angezeigt oder bearbeitet werden soll. Diese Texte sind optional.</p>
-<p>Die angebotenen Fremdsprachen und deren Reihenfolge kann in den <a href="../allgemein/options.html">Options</a> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden. <strong>German</strong> lässt sich in diesem Dialog aber nicht steuern - diese Sprache wird immer im separaten Feld angezeigt.</p>
+<p>Die angebotenen Fremdsprachen und deren Reihenfolge kann in den <a href="../allgemein/options.html#languages-in-designer">Options</a> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden. <strong>German</strong> lässt sich in diesem Dialog aber nicht steuern - diese Sprache wird immer im separaten Feld angezeigt.</p>
 <p>In der <strong>eNVenta/WS</strong> Standard-Entwicklung muss der englische Text gepflegt werden.</p>
 </li>
 <li><p>Button <strong>Untranslatable</strong>: Es gibt Texte, die nicht übersetzt werden können wie z.B. Eigennamen oder Einheiten. Dieser Button löscht alle Fremdsprachen-Texte und Schreibt den Text <code>untranslatable</code> in das <strong>Comment</strong> Feld.</p>

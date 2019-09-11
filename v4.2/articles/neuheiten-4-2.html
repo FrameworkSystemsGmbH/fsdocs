@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
     <link rel="stylesheet" href="../styles/docfx.css">
     <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/fs-docfx.css">
     <meta property="docfx:navrel" content="../toc.html">
     <meta property="docfx:tocrel" content="toc.html">
     
@@ -110,11 +111,68 @@
 </li>
 </ul>
 <p>Für die Endanwender-Rechner bzw. Terminal-Server gelten weiter die bisherigen Anforderungen.</p>
+<h4 id="sql-server">SQL-Server</h4>
+<p>Es wird der SQL-Server <strong>2012</strong> oder höher unterstützt. Ältere Version (z.B. SQL-Server 2008) werden nicht mehr supported</p>
 <h4 id="oracle-server">Oracle Server</h4>
 <p>Es wird der Oracle Server <strong>12.2</strong> oder höher (18c, 19c, ...) unterstützt. Ältere Versionen werden nicht mehr supported.</p>
 <h4 id="oracle-client">Oracle Client</h4>
 <p>Es wird nur noch der <strong>Oracle Managed</strong> Provider unterstützt.</p>
 <p>Der Oracle ODP Provider ist veraltet (deprecated) und wird nicht mehr supported.</p>
+<h2 id="c-7">C# 7</h2>
+<p>Mit dem Update auf das .net Framework 4.8 unterstützt Framework Studio auch die C# Sprach-Features bis zur Version 7.3. Eine Übersicht der Features bietet die folgende Web-Seite:</p>
+<ul>
+<li><a href="https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7">https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7</a></li>
+</ul>
+<p>In der folgenden Liste werden einige Features genannt, die seit C# 6 hinzugekommen sind.
+Der Einsatz des folgenden Features ist in Framework-Studio empfehlenswert:</p>
+<ul>
+<li><a href="https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7#out-variables">out variables</a> - inline-Deklaration (C# 7.0)</li>
+</ul>
+<p>Die folgenden Features können ggf. sinnvoll sein:</p>
+<ul>
+<li><a href="https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7#tuples">Tuples</a> (C# 7.0)</li>
+<li><a href="https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7-1#inferred-tuple-element-names">Inferred tuple element names</a> (C# 7.1)</li>
+<li><a href="https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7-3#tuples-support--and-">Tuples support == and !=</a> (C# 7.3)</li>
+<li><a href="https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7#pattern-matching">Pattern matching</a> (C# 7.0)</li>
+<li><a href="https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7#local-functions">Local functions</a> - aber nur sehr gut überlegt!! (C# 7.0)</li>
+</ul>
+<h2 id="mlkey-wörterbuch">MLKey Wörterbuch</h2>
+<p>Eine zentrale Neuerung in der Version 4.2 betrifft das Handling der fremdsprachigen Texte. Diese werden jetzt in einem <a href="../doc/mlkey/woerterbuch.html">zentralen Wörterbuch</a> verwaltet.</p>
+<p>Bisher wurden alle Texte am jeweiligen Elementen und Eigenschaften gepflegt. Jetzt werden an allen diesen Stellen Schlüssel (MLKeys) angegeben, die auf das zentrale Wörterbuch verweisen. Dadurch hat man erst einmal etwas mehr organisatorischen Aufwand, aber auf längerer Sicht betrachtet bringt diese Vorgensweise viele Vorteile:</p>
+<ul>
+<li>Redundanzen werden vermieden, weil existierende Texte wiederverwendet werden können und sollen. Dadurch erhält man zudem in der kompletten Anwendung durchgängige und einheitliche Bezeichnungen.</li>
+<li>Die fremdsprachigen Übersetzungen können sehr einfach und zentral gepflegt werden.</li>
+<li>Besonders im Customizing-Package ist das von großem Vorteil, weil jetzt nicht mehr die einzelnen Elemente ausgecheckt werden müssen.</li>
+<li>Das Wörterbuch kann auch im Service-Release bearbeitet werden.</li>
+<li>Der <a href="../doc/mlkey/import-export.html">Export und Import</a> von Texten ist sehr einfach. Es wird das standardisierte TMX-Format verwendet. Texte können so zwischen verschiedenen Packages und Versionen ausgetauscht werden. Auch eine Übersetzung durch Werkzeuge oder externe Dienstleister ist dadurch deutlich einfacher als bisher.</li>
+</ul>
+<p>Eine detailliert Beschreibung der Funktionalität finden sie im Kapitel <a href="../doc/mlkey/woerterbuch.html">MLKey</a>.</p>
+<p>Es ist sinnvoll, die Texte des eigenen Packages in das Wörterbuch zu überführen. Bitte beachten sie dazu die <a href="../doc/mlkey/migration.html">Hinweise und Anleitungen für die Migration</a>.</p>
+<h2 id="code-messages-überarbeitet">Code-Messages überarbeitet</h2>
+<p>Die vom Exception- und MessageBox-Wizard generierten <a href="../doc/code-editor/code-messages.html">Code-Messages</a> wurden überarbeitet.</p>
+<p><img src="../doc/code-editor/media/code-messages-example.png" alt="Code-Messages"></p>
+<p>Das bisherige Konstrukt mit <code>#region</code> wurde durch eine Variante mit einem einfachen eingefärbten Kommentar <code>// FSCodeMessage:</code> ersetzt. Das macht den Quellcode kompakter und leserlicher – ohne extra aufklappen zu müssen.</p>
+<p>Der XML-Teil, welcher bisher die Informationen für die Wizard-Dialoge beinhaltet hat, entfällt. In der Vergangenheit konnte es sein, dass die XML-Informationen vom Code abwichen. Der Wizard hat dann den Code ignoriert und einfach ersetzt. Dadurch konnten wichtige Infos – wie z.B. ein MessageBox EventHandler – verloren gehen. Die Informationen werden jetzt aus dem Code geparsed. Kann (z.B. aufgrund von manuellen Anpassungen) der Code nicht geparsed werden, kann er nicht mehr durch den Wizard bearbeitet werden.</p>
+<p>Die Code-Messages können einen <a href="../doc/mlkey/woerterbuch.html">MLKey aus dem Wörterbuch</a> verwenden. Die bisherige Variante mit TextCollection-Einträgen soll nach und nach durch die MLKeys ersetzt werden und so die ctMessage-TextCollections auslaufen.</p>
+<p>Bei MsgBox.Show() sind die Enum-Werte für Button und Icon leserlich ausgeschrieben. Bisher wurden dort nur die int-Werte verwendet.</p>
+<p>Die Konvertierung des bestehenden Codes in das neue Format erfolgt auf folgende Weise:</p>
+<ol>
+<li>Durch die <a href="../doc/mlkey/migration.html#3-convert-messages">MLKey-Konvertierungs-Routine</a> – diese setzt alle Code-Messages automatisch auf einen MLKey und/oder das neue Format um.</li>
+<li>Durch manuellen Aufruf des Exception- oder MsgBox-Wizards. Beim Speichern wird der Code durch die neue Variante ersetzt.</li>
+</ol>
+<p>Bei beiden Konvertierungen wird nur der Code betrachtet - der alte XML-Teil wird ignoriert.
+Neue Messages werden immer im neuen Format generiert. Dabei ist es egal, ob ein Textcollection-Eintrag oder ein MLKey verwendet wird.</p>
+<h2 id="actions-setenabled-und-setvisible-nullable">Actions SetEnabled und SetVisible nullable</h2>
+<p>Die Control-Actions <code>SetEnabled</code> und <code>SetVisible</code> haben neue Überladungen bekommen, welche das Zurücksetzen auf den im Property-Grid des Form-Designers eingestellten Wert ermöglichen.</p>
+<p>Dazu wurden folgende Überladungen ergänzt, bei denen der <code>null</code>-Wert zum Zurücksetzten verwendet werden kann:</p>
+<ul>
+<li><code>SetEnabled(bool? value)</code></li>
+<li><code>SetEnabled(FSbool value)</code></li>
+<li><code>SetVisible(FSVisibility? value)</code></li>
+</ul>
+<div class="CAUTION"><h5>Caution</h5><p>Achtung, falls Reflection verwendet wurde!</p>
+</div>
+<p>Sollte eine der ursprünglichen Methoden aus irgend einem Grund per Reflection angesprochen worden sein, so kann es nun zu dem Problem kommen, dass nicht mehr eine eindeutige, sondern mehrere Überladungen der Methode gefunden werden. Die Überladungen <code>SetEnabled(bool value)</code> und <code>SetVisible(FSVisibility value)</code> wurden entfernt, da Aufrufe vom Compiler direkt auf die entsprechenden Nullable-Überladungen umgelenkt werden.</p>
 </article>
           </div>
           

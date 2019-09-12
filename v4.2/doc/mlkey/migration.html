@@ -80,10 +80,15 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="mlkey-migration">MLKey Migration</h1>
 
-<p>Ziel ist es, dass alle Texte aus den Records entfernt und in das Wörterbuch übertragen werden. Die Records erhalten dafür die MLKeys.</p>
+<p>Ziel ist es, dass alle Texte aus den Records entfernt und in das Wörterbuch übertragen werden. Die Records erhalten dafür Verweise auf Einträge im Wörterbuch, die <strong>MLKeys</strong>.</p>
+<p>Generell teilt sich die Migration in zwei große Phasen auf:</p>
+<ol>
+<li><a href="#mlkeys-erzeugen-und-zuordnen">MLKeys erzeugen und zuordnen</a>: Diese Phase kann parallel zur Weiterentwicklung durchgeführt werden. Es werden zum Einen neue Einträge im Wörterbuch angelegt und zum Anderen vorgemerkt, wo diese später verwendet werden sollen.</li>
+<li><a href="#mlkeys-übertragen">MLKeys übertragen</a>: In dieser Phase werden primär die vorbereiteten Zuordnungen an die Elemente übertragen: angegebene Texte werden entfernt und statt dessen die gewünschten MLKeys eingetragen. Dazu müssen alle betroffenen Elemente ausgecheckt werden. Zusätzlich werden weitere Umstellungen (z.B. bestehende Messages und Exceptions) durchgeführt.</li>
+</ol>
 <h2 id="abwärts-kompatibilität">Abwärts-Kompatibilität</h2>
 <p>Texte, die bisher an den Records definiert sind, funktionieren auch weiterhin, weil jeder MLString neben dem MLKey explizit gesetzte Texte versteht. So kann man nach dem Update auf die Version 4.2 die Migration in aller Ruhe angehen.</p>
-<div class="NOTE"><h5>Note</h5><p>In Kunden-Umgebungen ist die Umstellung der eigenen Texte auf MLKeys empfohlen. Sie ist aber nicht zwingend notwendig.</p>
+<div class="NOTE"><h5>Note</h5><p>In Kunden-Packages ist die Umstellung der eigenen Texte auf MLKeys empfohlen. Sie ist aber nicht zwingend notwendig.</p>
 </div>
 <p>Das hat aber langfristig einige Nachteile zur Folge - insbesondere in Hinblick auf die Mehrsprachigkeit der Anwendung:</p>
 <ul>
@@ -92,12 +97,59 @@
 </ul>
 <div class="IMPORTANT"><h5>Important</h5><p>Funktionale Packages, die als Produkt an mehrere Kunden vertrieben werden, sollten in jedem Fall migriert werden.</p>
 </div>
-<h2 id="mlkeys-zuordnen">MLKeys zuordnen</h2>
+<h2 id="mlkeys-erzeugen-und-zuordnen">MLKeys erzeugen und zuordnen</h2>
+<p>Diese erste Phase der MLKey Migration dient zum Einen der Erzeugung der benötigten Einträge im Wörterbuch (MLKeys) und zum Anderen der Zuordnung, wo diese später verwendet werden sollen.</p>
+<p>Zentrales Werkzeug für diese Phase ist der Dialog <strong>Multilanguage Text Migration</strong>, welcher über das Menü <strong>Tools / Multilanguage Text Migration</strong> geöffnet werden kann.</p>
+<p><img src="media/ml-migration.png" alt="ML-Migration"></p>
+<div class="NOTE"><h5>Note</h5><p>Die im Grid angezeigten Sprachen und deren Reihenfolge können in den <a href="../allgemein/options.html#languages-in-designer">Options</a> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden.</p>
+</div>
+<p>Alle durch den Benutzer definierten Zuordnungen werden in der Ressource <strong>Migration.xml</strong> im Verzeichnis <strong>FSGeneral/Resources/lang</strong> gespeichert, welche automatisch bei der ersten Benutzung angelegt wird.</p>
+<p>Ist diese Datei bei der Bearbeitung mit dem Multilanguage Text Migration Dialog nicht ausgecheckt, so wird beim Speichern mit dem Button <strong>Save</strong> automatisch die neueste Version ausgecheckt, die Änderungen ergänzt und anschließend sofort wieder eingecheckt. Dieses Verhalten ist dann hilfreich, wenn mehrere Benutzer gleichzeitig mit dem Multilanguage Text Migration Dialog arbeiten. Andernfalls empfiehlt es sich, die Datei vor Beginn der Arbeit auszuchecken und erst nach Beendigung der Arbeit wieder einzuchecken. So werden unnötige Checkin- und Checkout-Vorgänge vermieden.</p>
+<p>Beim Speichern werden außerdem ggf. ungespeicherte Änderungen am <a href="woerterbuch.html">Wörterbuch</a> gespeichert.</p>
+<h3 id="generelles-vorgehen">Generelles Vorgehen</h3>
+<h4 id="1-load-data">(1) Load Data</h4>
+<div class="IMPORTANT"><h5>Important</h5><p>Zunächst sollten Tooltips außen vor gelassen werden. Dazu darf die Checkbox <strong>Include Tooltips</strong> <strong>NICHT gesetzt</strong> sein, wenn mit dem Button <strong>Load Data</strong> alle im Package angegebenen Texte eingelesen werden.
+Erst wenn allen Texten ein MLKey zugeordnet wurde, werden die im Folgenden beschriebenen Schritte nach dem erneuten Laden der Daten <strong>inklusive Tooltips</strong> ein zweites Mal durchgeführt.</p>
+</div>
+<p>Die mit dem Button <strong>Load Data</strong> eingelesenen Texte werden in einer Tabelle angezeigt. Die einzelnen Spalten haben folgende Bedeutung:</p>
+<ul>
+<li><strong>Record</strong>: Name des Elements, an dem der Text angegeben ist, z.B. <em>frmArticle</em>.</li>
+<li><strong>Element</strong>: Name des Unterelements, an dem der Text angegeben ist, z.B. <em>edtsName</em>.</li>
+<li><strong>Type</strong>: Typ des Unterelements, z.B. <em>FormControl</em>.</li>
+<li><strong>Property</strong>: Eigenschaft, an der der Text angegeben ist, z.B. <em>Caption</em>.</li>
+<li><strong>MLKey</strong>: Der MLKey, welcher zugeordnet werden soll, z.B. <em>LBL_Name</em>.</li>
+<li><strong>{Sprachen...}</strong>, z.B. <strong>German</strong>, <strong>English</strong> usw.: Der Text, welcher in der jeweiligen Sprache angegeben ist, z.B. <em>Name</em>.</li>
+</ul>
+<p>Ein Doppelklick in die Spalten <strong>Record</strong> oder <strong>Element</strong> öffnet das Designerfenster für das Element und springt soweit möglich zum Unterelement. In allen anderen Spalten wird beim Doppelklick der Text der Zelle als Filterkriterium in das Feld <strong>Search:</strong> gesetzt.</p>
+<p>Für die Filterfunktion mit dem Feld <strong>Search:</strong> gelten folgende Regeln:</p>
+<ul>
+<li>Groß-Kleinschreibung wird ignoriert</li>
+<li>Es wird in allen Spalten gesucht</li>
+<li>Es werden nur die Zeilen angezeigt, die ALLE der durch ein Leerzeichen getrennten Buchstabenfolgen enthalten</li>
+<li>In Anführungsstriche <strong>&quot;</strong> gekapselte Buchstabenfolgen müssen genau so in der Zeile enthalten sein, damit diese angezeigt wird</li>
+</ul>
+<p>Beispiel:
+Die Suche nach <code>LBL_Quantity &quot; geliefert&quot;</code> zeigt nur die Zeilen an, welche <em>geliefert</em> mit einem führenden Leerzeichen und <em>LBL_Quantity</em> in irgendeiner Spalte enthalten.</p>
+<h4 id="2-auto-create-mlkeys">(2) Auto Create MLKeys</h4>
+<p>Nach dem Einlesen der Daten (zunächst ohne Tooltips, siehe <a href="#1-load-data">Load Data</a>) sollten einmalig mit dem Button <strong>Auto Create MLKeys</strong> alle automatisch erzeugbaren MLKeys in das Wörterbuch eingefügt werden. Automatisch erzeugt werden MLKeys dann, wenn es zu gleichen Texten in einer Sprachen keine abweichenden Texte in anderen Sprachen gibt.</p>
+<div class="NOTE"><h5>Note</h5><p>Framework Studio weist danach automatisch den Zeilen einen MLKey zu, die nur Texte enthalten, welche zu einem MLKey aus dem Wörterbuch keinen Wiederspruch aufweisen.</p>
+</div>
+<h4 id="3-manuelle-zuweisungen">(3) Manuelle Zuweisungen</h4>
+<p>Ist die Checkbox <strong>Show only missing keys</strong> gesetzt, so wird die Anzeige aller Texte in der Tabelle auf die Einträge reduziert, welchen bisher noch kein MLKey zugewiesen wurde - die noch zu bearbeitenden Einträge.</p>
+<p>Im unteren Bereich des Multilanguage Migration Dialogs werden im Bereich <strong>Details</strong> zum aktuell in der Tabelle selektierten Eintrag alle Eigenschaften angezeigt. Ist bereits ein MLKey zugewiesen, werden die Texte des MLKeys in der Tabellenspalte <strong>In MLKey</strong> angezeigt.</p>
+<p>In der oberen Tabelle können auch mehrere Zeilen gleichzeitig ausgewählt werden. So kann mehreren Zeilen gleichzeitig ein MLKey zugewiesen werden. Für die Zuweisung stehen mehrere Optionen zur Verfügung:</p>
+<ul>
+<li>Mit dem Button <img src="media/btn-search-mlkey.png" alt="Lupe"> im Bereich <strong>Details</strong> kann ein bereits existierender MLKey ausgewählt werden, siehe <a href="woerterbuch.html#multilanguage-text-editor">Multilanguage Text Editor</a>, insbesondere <a href="woerterbuch.html#suchen-von-mlkeys">Suchen von MLKeys</a>.</li>
+<li>Wurde bereits ein MLKey zugewiesen, so wird ein weiterer Button <strong>Set ...</strong> angeboten, mit dem der zuletzt zugewiesene MLKey den aktuell selektierten Zeilen zugewiesen werden kann.</li>
+<li>Mit dem Button <img src="media/btn-add-mlkey.png" alt="Add"> im Bereich <strong>Details</strong> kann ein neuer MLKey erzeugt werden. Dazu werden die Texte aus allen selektierten Zeilen berücksichtigt.</li>
+</ul>
+<p>Mit dem Button <strong>Rename MLKey</strong> ist es im Rahmen der Migration möglich, einen bestehenden MLKey umzubenennen. Alle manuellen Zuordnungen dieses MLKeys werden automatisch angepasst.</p>
+<h2 id="mlkeys-in-custom-packages">MLKeys in Custom-Packages</h2>
 <p>Im Customizing kann man grundsätzlich 2 verschiedene Arten von überschriebenen Texten unterscheiden:</p>
 <ol>
 <li><p>Texte, die eine ganz neue Bedeutung haben.</p>
 <p> Wenn z.B. ein relativ allgemeiner Metadatentyp in einem Component-Property verwendet wird, wird dort am Default-Label ein neuer Text formuliert.</p>
-<p> In diesen Fällen sollte auf jeden Fall ein entsprechender ggf. neuer MLKey zugeordnet werden.</p>
+<p> In diesen Fällen sollte auf jeden Fall ein entsprechender (ggf. neuer) MLKey zugeordnet werden.</p>
 </li>
 <li><p>Ändern eines bestehenden Textes.</p>
 <p> Es wird z.B. ein Metadatentyp customized und das Default-Label geändert - aus dem Begriff &quot;Angebot&quot; wird z.B. &quot;Offerte&quot;. Die Bedeutung bleibt aber dieselbe.</p>

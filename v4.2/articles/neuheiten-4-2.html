@@ -80,8 +80,9 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="neuheiten-framework-studio-42">Neuheiten Framework Studio 4.2</h1>
 
+<p>Informationen zu aktuellen Versionen und korrigierten Fehlern finden Sie in den <a href="release-4-2.html">Release-Informationen</a>.</p>
 <h2 id="neue-systemvorraussetzungen">Neue Systemvorraussetzungen</h2>
-<p>In dieser Version gibt es einige Anpassungen bei den <a class="xref" href="requirements.html">Systemvoraussetzungen</a>. Im folgenden sind die wichtigsten Änderungen aufgeführt. Die vollständige Liste finden Sie <a class="xref" href="requirements.html">hier</a>.</p>
+<p>In dieser Version gibt es einige Anpassungen bei den <a href="requirements.html">Systemvoraussetzungen</a>. Im folgenden sind die wichtigsten <strong>Änderungen</strong> aufgeführt.</p>
 <h4 id="64-bit">64 Bit</h4>
 <p>Die folgenden Programme können nur noch auf 64-Bit Systemen installiert werden. Eine 32-Bit Installations-Routine wird nicht mehr angeboten:</p>
 <ul>
@@ -90,11 +91,14 @@
 <li>Anwendungs-Broker</li>
 <li>Framework Studio Services</li>
 </ul>
-<p>32-Bit wird weiterhin für die folgenden Programme unterstützt:</p>
+<p>32-Bit wird weiterhin unterstützt für:</p>
 <ul>
 <li>Client-Rechner</li>
 <li>Print-Server</li>
 </ul>
+<h4 id="net-framework-48">.NET Framework 4.8</h4>
+<p>Framework Studio setzt auf das .NET Framework 4.8 auf. Dieses wird beim Ausführen der Installations-Routine (nach Rückfrage) automatisch installiert. Es ist nicht mehr im Requirements-Packet enthalten.</p>
+<p>Für eine manuelle Installation finden Sie das .NET Framework 4.8 direkt bei Microsoft unter <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48">https://dotnet.microsoft.com/download/dotnet-framework/net48</a>.</p>
 <h4 id="betriebssysteme">Betriebssysteme</h4>
 <p>Mit dem Umstieg auf das .NET Framework 4.8 können einige ältere Windows Betriebssysteme nicht mehr unterstütz werden. Es werden aktuell folgende Betriebssysteme unterstützt:</p>
 <ul>
@@ -119,16 +123,16 @@
 <p>Es wird nur noch der <strong>Oracle Managed</strong> Provider unterstützt.</p>
 <p>Der Oracle ODP Provider ist veraltet (deprecated) und wird nicht mehr supported.</p>
 <h2 id="c-7">C# 7</h2>
-<p>Mit dem Update auf das .net Framework 4.8 unterstützt Framework Studio auch die C# Sprach-Features bis zur Version 7.3. Eine Übersicht der Features bietet die folgende Web-Seite:</p>
+<p>Mit dem Update auf das .net Framework 4.8 unterstützt Framework Studio auch die C# Sprach-Features bis zur Version 7.3. Eine Übersicht der Features bietet die Web-Seite:</p>
 <ul>
 <li><a href="https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7">https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7</a></li>
 </ul>
 <p>In der folgenden Liste werden einige Features genannt, die seit C# 6 hinzugekommen sind.
-Der Einsatz des folgenden Features ist in Framework-Studio empfehlenswert:</p>
+Der Einsatz dieses Features ist in Framework-Studio empfehlenswert:</p>
 <ul>
 <li><a href="https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7#out-variables">out variables</a> - inline-Deklaration (C# 7.0)</li>
 </ul>
-<p>Die folgenden Features können ggf. sinnvoll sein:</p>
+<p>Folgende Features können ggf. sinnvoll sein:</p>
 <ul>
 <li><a href="https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7#tuples">Tuples</a> (C# 7.0)</li>
 <li><a href="https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7-1#inferred-tuple-element-names">Inferred tuple element names</a> (C# 7.1)</li>
@@ -138,7 +142,7 @@ Der Einsatz des folgenden Features ist in Framework-Studio empfehlenswert:</p>
 </ul>
 <h2 id="mlkey-wörterbuch">MLKey Wörterbuch</h2>
 <p>Eine zentrale Neuerung in der Version 4.2 betrifft das Handling der fremdsprachigen Texte. Diese werden jetzt in einem <a href="../doc/mlkey/woerterbuch.html">zentralen Wörterbuch</a> verwaltet.</p>
-<p>Bisher wurden alle Texte am jeweiligen Elementen und Eigenschaften gepflegt. Jetzt werden an allen diesen Stellen Schlüssel (MLKeys) angegeben, die auf das zentrale Wörterbuch verweisen. Dadurch hat man erst einmal etwas mehr organisatorischen Aufwand, aber auf längerer Sicht betrachtet bringt diese Vorgensweise viele Vorteile:</p>
+<p>Bisher wurden alle Texte am jeweiligen Element (z.B. Metadatentyp, ComponentProperty, FormControl) gepflegt. Jetzt werden an allen diesen Stellen Schlüssel (MLKeys) angegeben, die auf das zentrale Wörterbuch verweisen. Dadurch hat man erst einmal etwas mehr organisatorischen Aufwand, aber auf längerer Sicht betrachtet bringt diese Vorgensweise viele Vorteile:</p>
 <ul>
 <li>Redundanzen werden vermieden, weil existierende Texte wiederverwendet werden können und sollen. Dadurch erhält man zudem in der kompletten Anwendung durchgängige und einheitliche Bezeichnungen.</li>
 <li>Die fremdsprachigen Übersetzungen können sehr einfach und zentral gepflegt werden.</li>

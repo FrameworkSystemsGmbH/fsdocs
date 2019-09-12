@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Artikel </title>
+    <title>Release-Information Framework Studio 4.2 </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Artikel ">
+    <meta name="title" content="Release-Information Framework Studio 4.2 ">
     <meta name="generator" content="docfx 2.43.5.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -78,9 +78,53 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="artikel">Artikel</h1>
+<h1 id="release-information-framework-studio-42">Release-Information Framework Studio 4.2</h1>
 
-<p>In diesem Bereich werden Neuheiten, Release-Listen und sonstige Artikel veröffentlicht.</p>
+<h2 id="42-beta-1-13092019">4.2 Beta 1 (13.09.2019)</h2>
+<p>Die Auslieferung umfasst das Paket</p>
+<ul>
+<li>FS_4.2.0_Beta_1_Setup_x64</li>
+</ul>
+<p>Alle anderen Pakete wie Print-Service, Client-Launcher und Requirements können weiter aus Framework Studio 4.0 verwendet werden.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<p>Die Neuerungen finden Sie unter <a href="neuheiten-4-2.html">Neuheiten 4.2</a></p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<p>Neben den Fehlern, die bereits bis einschließlich Framework Studio 4.0.14 korrigiert wurden, wurden in Framework Studio 4.2 die folgenden Fehler korrigiert:</p>
+<ul>
+<li><p>2019089003 - <strong>Doku-System</strong>: Ausgeblendete Controls (hidden/Collapsed) werden im Doku-Screenshot
+  nicht gerendert.</p>
+</li>
+<li><p>2019099502 - <strong>Repository</strong>: Alle Sublabeled Tabellen sollen aus Performance-Gründen mit einem Index
+  auf die PackageID-Spalte versehen werden.</p>
+</li>
+</ul>
+<p>Die folgenden Fehler wurden bereits für die Version 4.0.15 korrigiert und sind in der 4.2 Beta 1 ebenfalls korrigiert:</p>
+<ul>
+<li><p>2019099320 - <strong>Java-Client</strong>: Im Metal Look &amp; Feel wird an der aktiven Tab-Page eine falsche Border
+  gezeichnet.</p>
+</li>
+<li><p>2019068382 - <strong>Java-Client</strong>: Unter Linux und MacOS werden die Menüs falsch dargestellt.</p>
+<p>  <em>Auf nicht-Windows-Systemen wird empfohlen, das Look &amp; Feel &quot;Metal&quot; zu verwenden.
+  Im Look &amp; Feel &quot;Default&quot; können weiterhin Probleme auftreten.</em></p>
+</li>
+<li><p>2019099428 - <strong>Java-Client</strong>: Wird eine Datei sehr schnell per Drag&amp;Drop auf die Anwendung gezogen,
+  kann es nach Auswahl einer D&amp;D-Aktion zu einer &quot;Java-Exception: null&quot; kommen.</p>
+</li>
+<li><p>2019047700 - <strong>IDE</strong>: Suche: Combobox zur Einschränkung auf den Elementtyp wird nicht angezeigt.</p>
+</li>
+<li><p>2017099728 - <strong>IDE</strong>: Im Service-Release ist der Get- und Set-Method-Code von Properties
+  manchmal fälschlicherweise editierbar.</p>
+</li>
+<li><p>2019099379 - <strong>IDE</strong>: Wird im Run-Wizard bei einer Connection-Group das Runtime-Repository angegeben,
+  und die dazugehörigen Connection steht nicht auf &quot;Imported&quot;, dann prüft der der Update-Assistent
+  von eNVenta diese Datenbank auf Änderungen. Dabei werden auch die Trigger des Repositories erkannt
+  und zum Deaktivieren angeboten. Das hat erhebliche Fehlfunktionen im Repository zur Folge.</p>
+<p>  <em>Repository-Trigger werden jetzt erkannt und vom Update-Assistenten ignoriert.</em></p>
+</li>
+<li><p>2019088935 - <strong>Package-Merge</strong>: Die Eigenschaft &quot;Include Base Reports&quot; an ReportDocumentTypes
+  soll generell nicht übertragen werden. Der Wert im Ziel-Package muss unverändert erhalten bleiben.</p>
+</li>
+</ul>
 </article>
           </div>
           
@@ -89,7 +133,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/articles/index.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/articles/release-4-2.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

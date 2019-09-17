@@ -1,0 +1,162 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Chapter Tree </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Chapter Tree ">
+    <meta name="generator" content="docfx 2.43.5.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="chapter-tree">Chapter Tree</h1>
+
+<h2 id="allgemein">Allgemein</h2>
+<p>Der Chapter Tree ist die zentrale Instanz, welche alle Form- und Documentation-Elemente in Kapitel organisiert. Zu erreichen ist der Chapter Tree über das Menü <strong>Tools</strong> -&gt; <strong>Documentation</strong> -&gt; <strong>Chapter Tree</strong>. Ein Form- oder Documentation-Element spiegelt in einer exportierten Dokumentation genau ein Kapitel mit eigener Kapitelnummer wider.</p>
+<p>Chapter Tree für die Organisation der Kapitel:</p>
+<p><img src="media/chapter-tree-organisation.png" alt="chapter-tree-organisation"></p>
+<p>Es gibt zwei Abschnitte im Chapter Tree. Der <strong><em>Documentation (Preparation)</em></strong>-Knoten beinhaltet alle Formulare und Documentation-Elemente, die in einer Anwendung neu hinzugekommen oder noch nicht in die Dokumentation eingebunden wurden. Sie werden alphabetisch aufsteigend aufgelistet. Der <strong><em>Documentation (Release)</em></strong>-Knoten spiegelt den Kapitelbaum der Dokumentation wieder, die mit dem <a href="./export-wizards.md">Export Wizard</a> gerendert werden kann. Als Text wird die im Dokumentations-Editor angegebene Caption des Formulars oder Documentation-Elements angezeigt. Ist diese nicht definiert wird in Klammern hinter dem Namen des Formulars oder Documentation-Elements der Zusatz <strong>“caption not set”</strong> angezeigt.</p>
+<p>Die Form- oder Documentation-Elemente können aus dem Chapter Tree mit einem Doppelklick auf den Knoten oder mit der Entertaste direkt geöffnet werden.</p>
+<p>Die Textbox am unteren Rand zeigt den vollen Namespace des aktuell ausgewählten Knoten an.</p>
+<h2 id="kapitelstruktur">Kapitelstruktur</h2>
+<p>Wird die Dokumentation wie in der Abbildung mit dem <a href="./export-wizards.md">Export Wizard</a> in eine Word-Datei exportiert, folgt die Kapitelnummerierung der Ebene des <strong><em>Documentation (Release)</em></strong>-Knotens. Wie im Beispiel zu sehen hätten die folgenden Kapitel die angegebenen Kapitelnummern:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><em>Einführung in das Programm eNVenta</em></td>
+<td>= 1.</td>
+</tr>
+<tr>
+<td><em>eNVenta ERP</em></td>
+<td>= 2.</td>
+</tr>
+<tr>
+<td><em>Initialisierung</em></td>
+<td>= 5.</td>
+</tr>
+<tr>
+<td><em>eNVenta Init</em></td>
+<td>= 5.1</td>
+</tr>
+</tbody>
+</table>
+<p>Da Word bis zu 9 Ebenen unterstützt, können auch im Chapter Tree die Formulare und Documentation-Elemente in bis zu 9 Ebenen (x.x.x.x.x.x.x.x.x) verschachtelt werden.</p>
+<p>Um ein Kapitel an eine andere Stelle einzufügen bzw. ein Kapitel aus dem Preparation- in den Release-Knoten zu verschieben, muss nur der entsprechende Knoten per Drag&amp;Drop an die richtige Position gezogen werden. Sind nicht alle beteiligten Elemente im Framework Studio ausgecheckt, wird eine entsprechende Meldung angezeigt.</p>
+<p>Auschecken von beteiligten Elementen:</p>
+<p><img src="media/chapter-tree-auschecken-beteiligten-elementen.png" alt="chapter-tree-auschecken-beteiligten-elementen"></p>
+<p>Im Beispiel wurde der Knoten <strong>CSV Format Konversion</strong> aus dem Preparation-Knoten in den Release-Bereich unter das Kapitel <strong>eNVenta ERP</strong> -&gt; <strong>Wv-Übersicht</strong> gezogen. Keines der Elemente war zu diesem Zeitpunkt ausgecheckt.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/documentation/chapter-tree.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

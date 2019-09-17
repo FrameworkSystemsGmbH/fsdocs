@@ -91,24 +91,34 @@
 
 <a id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication">CloseApplication()</h4>
-<div class="markdown level1 summary"><p>Schließt die Anwendung. Der Benutzer wird gefragt, ob er die Anwendung beenden möchte. 
+<section>
+  <div class="markdown level1 summary"><p>Schließt die Anwendung. Der Benutzer wird gefragt, ob er die Anwendung beenden möchte. 
 An den geöffneten Forms wird die Methode <code>IsApplicationQuitAllowed</code> aufgerufen und eine 
 entsprechende Message-Box ausgegeben bzw. das Schließen der Anwendung verhindert.</p>
 </div>
-<div class="markdown level1 conceptual"></div>
-<h5 class="decalaration">Declaration</h5>
-<div class="codewrapper">
-  <pre><code class="lang-csharp hljs">void CloseApplication()</code></pre>
-</div>
-<h5 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_remarks">Remarks</h5>
-<div class="markdown level1 remarks"><p>Diese Methode wirft intern eine Exception, die dafür sorgt, dass die gesamte Anwendung 
+  <div class="markdown level1 conceptual"></div>
+
+  <h5 class="decalaration">Declaration</h5>
+  <section>
+    <div class="codewrapper">
+      <pre><code class="lang-csharp hljs">void CloseApplication()</code></pre>
+    </div>
+  </section>
+
+
+    <h5 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Diese Methode wirft intern eine Exception, die dafür sorgt, dass die gesamte Anwendung 
 beendet wird. Dies wird auch dem Client mitgeteilt, sodass dieser ebenfalls geschlossen wird.</p>
 </div>
+    </section>
+</section>
 
 
 <a id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication(FrameworkSystems.FrameworkExceptions.FrameworkCloseMode)">CloseApplication(FrameworkCloseMode)</h4>
-<div class="markdown level1 summary"><p>Wird als closeMode das Flag <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html#FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_Restart">Restart</a> angegeben, so wird ein Neustart des
+<section>
+  <div class="markdown level1 summary"><p>Wird als closeMode das Flag <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html#FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_Restart">Restart</a> angegeben, so wird ein Neustart des
 Clients veranlasst. Allerdings darf ein Neustart nur unter der Bedingung ausgeführt werden, 
 dass jedes aktuell laufende Ereignis eines der folgenden ist:</p>
 <ul>
@@ -123,69 +133,66 @@ modalen Dialog geöffnet haben.Solange der Dialog offen ist, zählt das Ereignis
 mit diesem Flag kombiniert (bitweise Oder-Verknüpfung), so wird beim Neustart der User Token 
 in die neue Sitzung übernommen und es ist kein erneuter Login erforderlich.</p>
 </div>
-<div class="markdown level1 conceptual"></div>
-<h5 class="decalaration">Declaration</h5>
-<div class="codewrapper">
-  <pre><code class="lang-csharp hljs">void CloseApplication(FrameworkCloseMode closeMode)</code></pre>
-</div>
-<h5 class="parameters">Parameters</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html">FrameworkCloseMode</a></td>
-      <td><span class="parametername">closeMode</span></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-<h5 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_FrameworkSystems_FrameworkExceptions_FrameworkCloseMode__remarks">Remarks</h5>
-<div class="markdown level1 remarks"><p>Diese Methode wirft intern eine Exception, die dafür sorgt, dass die gesamte Anwendung 
+  <div class="markdown level1 conceptual"></div>
+
+  <h5 class="decalaration">Declaration</h5>
+  <section>
+    <div class="codewrapper">
+      <pre><code class="lang-csharp hljs">void CloseApplication(FrameworkCloseMode closeMode)</code></pre>
+    </div>
+  </section>
+  <h5 class="parameters">Parameters</h5>
+  <section>
+    <div class="propertyInfo">
+      <span class="parametername"><code>closeMode</code></span> <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html">FrameworkCloseMode</a>
+      <div class="markdown level1 summary"></div>
+    </div>
+  </section>
+
+
+    <h5 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_FrameworkSystems_FrameworkExceptions_FrameworkCloseMode__remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Diese Methode wirft intern eine Exception, die dafür sorgt, dass die gesamte Anwendung 
 beendet wird. Dies wird auch dem Client mitgeteilt, sodass dieser ebenfalls geschlossen wird.</p>
 </div>
+    </section>
+</section>
 
 
 <a id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_System_String_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication(System.String)">CloseApplication(String)</h4>
-<div class="markdown level1 summary"><p>Schließt die Anwendung unmittelbar. Es wird keine weitere Prüfung durchgeführt und der 
+<section>
+  <div class="markdown level1 summary"><p>Schließt die Anwendung unmittelbar. Es wird keine weitere Prüfung durchgeführt und der 
 Benutzer hat keine Möglichkeit die Aktion abzubrechen. Am Client wird dabei die übergebene 
 Message ausgegeben. </p>
 </div>
-<div class="markdown level1 conceptual"></div>
-<h5 class="decalaration">Declaration</h5>
-<div class="codewrapper">
-  <pre><code class="lang-csharp hljs">void CloseApplication(string message)</code></pre>
-</div>
-<h5 class="parameters">Parameters</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><span class="xref">System.String</span></td>
-      <td><span class="parametername">message</span></td>
-      <td><p>Die Meldung die am Client angezeigt werden soll.</p>
+  <div class="markdown level1 conceptual"></div>
+
+  <h5 class="decalaration">Declaration</h5>
+  <section>
+    <div class="codewrapper">
+      <pre><code class="lang-csharp hljs">void CloseApplication(string message)</code></pre>
+    </div>
+  </section>
+  <h5 class="parameters">Parameters</h5>
+  <section>
+    <div class="propertyInfo">
+      <span class="parametername"><code>message</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
+      <div class="markdown level1 summary"><p>Die Meldung die am Client angezeigt werden soll.</p>
 <p>Wird <code>String.Empty</code> übergeben, wird die Anwendung ohne Meldung beendet.</p>
 <p>Wird <code>null</code> übergeben, verhält sich die Methode wie die parameterlose <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication">CloseApplication()</a>.</p>
-</td>
-    </tr>
-  </tbody>
-</table>
-<h5 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_System_String__remarks">Remarks</h5>
-<div class="markdown level1 remarks"><p>Diese Methode wirft intern eine Exception, die dafür sorgt, dass die gesamte Anwendung 
+</div>
+    </div>
+  </section>
+
+
+    <h5 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_System_String__remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Diese Methode wirft intern eine Exception, die dafür sorgt, dass die gesamte Anwendung 
 beendet wird. Dies wird auch dem Client mitgeteilt, sodass dieser ebenfalls geschlossen wird.</p>
 </div>
+    </section>
+</section>
 </article>
           </div>
           

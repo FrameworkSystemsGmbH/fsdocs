@@ -91,56 +91,45 @@
 
 <a id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_Granted_" data-uid="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.Granted*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_Granted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit_FrameworkSystems_FrameworkBase_AUPermissionType_" data-uid="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.Granted(FrameworkSystems.FrameworkBase.AccessControl.AccessUnit,FrameworkSystems.FrameworkBase.AUPermissionType)">Granted(AccessUnit, AUPermissionType)</h4>
-<div class="markdown level1 summary"><p>Gibt aus, ob ein bestimmtes Recht an einer AccessUnit besteht.</p>
+<section>
+  <div class="markdown level1 summary"><p>Gibt aus, ob ein bestimmtes Recht an einer AccessUnit besteht.</p>
 </div>
-<div class="markdown level1 conceptual"></div>
-<h5 class="decalaration">Declaration</h5>
-<div class="codewrapper">
-  <pre><code class="lang-csharp hljs">public bool Granted(AccessUnit accessUnit, AUPermissionType type)</code></pre>
-</div>
-<h5 class="parameters">Parameters</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AccessUnit.html">AccessUnit</a></td>
-      <td><span class="parametername">accessUnit</span></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><a class="xref" href="FrameworkSystems.FrameworkBase.AUPermissionType.html">AUPermissionType</a></td>
-      <td><span class="parametername">type</span></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-<h5 class="returns">Returns</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><span class="xref">System.Boolean</span></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-<h5 id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_Granted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit_FrameworkSystems_FrameworkBase_AUPermissionType__remarks">Remarks</h5>
-<div class="markdown level1 remarks"><p>Es wird dann Zugriff auf eine AccessUnit gewährt, wenn sowohl die Lizenz als auch die dem 
+  <div class="markdown level1 conceptual"></div>
+
+  <h5 class="decalaration">Declaration</h5>
+  <section>
+    <div class="codewrapper">
+      <pre><code class="lang-csharp hljs">public bool Granted(AccessUnit accessUnit, AUPermissionType type)</code></pre>
+    </div>
+  </section>
+  <h5 class="parameters">Parameters</h5>
+  <section>
+    <div class="propertyInfo">
+      <span class="parametername"><code>accessUnit</code></span> <a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AccessUnit.html">AccessUnit</a>
+      <div class="markdown level1 summary"></div>
+    </div>
+    <div class="propertyInfo">
+      <span class="parametername"><code>type</code></span> <a class="xref" href="FrameworkSystems.FrameworkBase.AUPermissionType.html">AUPermissionType</a>
+      <div class="markdown level1 summary"></div>
+    </div>
+  </section>
+
+    <h5 class="returns">Returns</h5>
+    <section>
+      <div class="propertyInfo">
+        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>
+        <div class="markdown level1 summary"></div>
+      </div>
+    </section>
+
+    <h5 id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_Granted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit_FrameworkSystems_FrameworkBase_AUPermissionType__remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Es wird dann Zugriff auf eine AccessUnit gewährt, wenn sowohl die Lizenz als auch die dem 
 Benutzer zugeteilten Rollen diese freischalten.</p>
 </div>
-<h5 id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_Granted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit_FrameworkSystems_FrameworkBase_AUPermissionType__examples">Examples</h5>
-<pre><code>if ( this.Global.AUHelper.Granted( AUList.aufrmForm1, AUPermissionType.Delete ) )
+    </section>
+  <h5 id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_Granted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit_FrameworkSystems_FrameworkBase_AUPermissionType__examples">Examples</h5>
+  <pre><code>if ( this.Global.AUHelper.Granted( AUList.aufrmForm1, AUPermissionType.Delete ) )
 {
     //Delete granted
 }
@@ -149,60 +138,52 @@ if ( this.Global.Granted(AUList.aufrmForm1, AUPermissionType.Insert) )
     //Insert granted
 }</code></pre>
 
+</section>
 
 
 <a id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_Granted_" data-uid="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.Granted*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_Granted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit_" data-uid="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.Granted(FrameworkSystems.FrameworkBase.AccessControl.AccessUnit)">Granted(AccessUnit)</h4>
-<div class="markdown level1 summary"><p>Gibt aus, ob auf die übergebene AccessUnit das Recht <a class="xref" href="FrameworkSystems.FrameworkBase.AUPermissionType.html#FrameworkSystems_FrameworkBase_AUPermissionType_Access">Access</a> besteht.</p>
+<section>
+  <div class="markdown level1 summary"><p>Gibt aus, ob auf die übergebene AccessUnit das Recht <a class="xref" href="FrameworkSystems.FrameworkBase.AUPermissionType.html#FrameworkSystems_FrameworkBase_AUPermissionType_Access">Access</a> besteht.</p>
 </div>
-<div class="markdown level1 conceptual"></div>
-<h5 class="decalaration">Declaration</h5>
-<div class="codewrapper">
-  <pre><code class="lang-csharp hljs">public bool Granted(AccessUnit accessUnit)</code></pre>
+  <div class="markdown level1 conceptual"></div>
+
+  <h5 class="decalaration">Declaration</h5>
+  <section>
+    <div class="codewrapper">
+      <pre><code class="lang-csharp hljs">public bool Granted(AccessUnit accessUnit)</code></pre>
+    </div>
+  </section>
+  <h5 class="parameters">Parameters</h5>
+  <section>
+    <div class="propertyInfo">
+      <span class="parametername"><code>accessUnit</code></span> <a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AccessUnit.html">AccessUnit</a>
+      <div class="markdown level1 summary"><p>Eine AccessUnit aus der <code>AUList</code>.</p>
 </div>
-<h5 class="parameters">Parameters</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AccessUnit.html">AccessUnit</a></td>
-      <td><span class="parametername">accessUnit</span></td>
-      <td><p>Eine AccessUnit aus der <code>AUList</code>.</p>
-</td>
-    </tr>
-  </tbody>
-</table>
-<h5 class="returns">Returns</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><span class="xref">System.Boolean</span></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-<h5 id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_Granted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit__remarks">Remarks</h5>
-<div class="markdown level1 remarks"><p>Es wird dann Zugriff auf eine AccessUnit gewährt, wenn sowohl die Lizenz als auch die dem 
+    </div>
+  </section>
+
+    <h5 class="returns">Returns</h5>
+    <section>
+      <div class="propertyInfo">
+        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>
+        <div class="markdown level1 summary"></div>
+      </div>
+    </section>
+
+    <h5 id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_Granted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit__remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Es wird dann Zugriff auf eine AccessUnit gewährt, wenn sowohl die Lizenz als auch die dem 
 Benutzer zugeteilten Rollen diese freischalten.</p>
 </div>
-<h5 id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_Granted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit__examples">Examples</h5>
-<pre><code>if ( this.Global.AUHelper.Granted( AUList.aufrmForm1 ) )
+    </section>
+  <h5 id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_Granted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit__examples">Examples</h5>
+  <pre><code>if ( this.Global.AUHelper.Granted( AUList.aufrmForm1 ) )
 {
     //Access granted
 }</code></pre>
 
+</section>
 </article>
           </div>
           

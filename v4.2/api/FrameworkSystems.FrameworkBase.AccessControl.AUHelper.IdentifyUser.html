@@ -91,69 +91,54 @@
 
 <a id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_IdentifyUser_" data-uid="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.IdentifyUser*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_IdentifyUser_FrameworkSystems_FrameworkBase_AccessControl_AUHelper_Message__System_String_System_String_System_String__System_Boolean_" data-uid="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.IdentifyUser(FrameworkSystems.FrameworkBase.AccessControl.AUHelper.Message@,System.String,System.String,System.String@,System.Boolean)">IdentifyUser(out AUHelper.Message, String, String, ref String, Boolean)</h4>
-<div class="markdown level1 summary"><p>Authentifiziert den übergebenen Benutzer. Dazu wird der Authentication Service kontaktiert. </p>
+<section>
+  <div class="markdown level1 summary"><p>Authentifiziert den übergebenen Benutzer. Dazu wird der Authentication Service kontaktiert. </p>
 </div>
-<div class="markdown level1 conceptual"></div>
-<h5 class="decalaration">Declaration</h5>
-<div class="codewrapper">
-  <pre><code class="lang-csharp hljs">public bool IdentifyUser(out AUHelper.Message msg, string username, string password, ref string loginInfo, bool includeRolesInToken)</code></pre>
+  <div class="markdown level1 conceptual"></div>
+
+  <h5 class="decalaration">Declaration</h5>
+  <section>
+    <div class="codewrapper">
+      <pre><code class="lang-csharp hljs">public bool IdentifyUser(out AUHelper.Message msg, string username, string password, ref string loginInfo, bool includeRolesInToken)</code></pre>
+    </div>
+  </section>
+  <h5 class="parameters">Parameters</h5>
+  <section>
+    <div class="propertyInfo">
+      <span class="parametername"><code>msg</code></span> <span class="xref">FrameworkSystems.FrameworkBase.AccessControl.AUHelper.Message</span>
+      <div class="markdown level1 summary"><p>Im übergebenen Message Objekt wird der Erfolg bzw. der Grund bei Misserfolg angegeben.</p>
 </div>
-<h5 class="parameters">Parameters</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><span class="xref">FrameworkSystems.FrameworkBase.AccessControl.AUHelper.Message</span></td>
-      <td><span class="parametername">msg</span></td>
-      <td><p>Im übergebenen Message Objekt wird der Erfolg bzw. der Grund bei Misserfolg angegeben.</p>
-</td>
-    </tr>
-    <tr>
-      <td><span class="xref">System.String</span></td>
-      <td><span class="parametername">username</span></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><span class="xref">System.String</span></td>
-      <td><span class="parametername">password</span></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><span class="xref">System.String</span></td>
-      <td><span class="parametername">loginInfo</span></td>
-      <td><p>Der Parameter LoginIngo wird ausgelesen und vom Authentication Service geloggt. Zurückgegeben wird die zuletzt geloggte Information.</p>
-</td>
-    </tr>
-    <tr>
-      <td><span class="xref">System.Boolean</span></td>
-      <td><span class="parametername">includeRolesInToken</span></td>
-      <td><p>Der letzte Parameter gibt an, ob die Rollen im Token kommuniziert werden sollen - Standardwert <code>true</code></p>
-</td>
-    </tr>
-  </tbody>
-</table>
-<h5 class="returns">Returns</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><span class="xref">System.Boolean</span></td>
-      <td><p>Gibt bei Erfolg <code>true</code> und bei einem Fehler <code>false</code> zurück.</p>
-</td>
-    </tr>
-  </tbody>
-</table>
+    </div>
+    <div class="propertyInfo">
+      <span class="parametername"><code>username</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
+      <div class="markdown level1 summary"></div>
+    </div>
+    <div class="propertyInfo">
+      <span class="parametername"><code>password</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
+      <div class="markdown level1 summary"></div>
+    </div>
+    <div class="propertyInfo">
+      <span class="parametername"><code>loginInfo</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
+      <div class="markdown level1 summary"><p>Der Parameter LoginIngo wird ausgelesen und vom Authentication Service geloggt. Zurückgegeben wird die zuletzt geloggte Information.</p>
+</div>
+    </div>
+    <div class="propertyInfo">
+      <span class="parametername"><code>includeRolesInToken</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>
+      <div class="markdown level1 summary"><p>Der letzte Parameter gibt an, ob die Rollen im Token kommuniziert werden sollen - Standardwert <code>true</code></p>
+</div>
+    </div>
+  </section>
+
+    <h5 class="returns">Returns</h5>
+    <section>
+      <div class="propertyInfo">
+        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>
+        <div class="markdown level1 summary"><p>Gibt bei Erfolg <code>true</code> und bei einem Fehler <code>false</code> zurück.</p>
+</div>
+      </div>
+    </section>
+
+</section>
 </article>
           </div>
           

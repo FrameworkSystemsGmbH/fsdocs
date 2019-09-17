@@ -91,52 +91,40 @@
 
 <a id="FrameworkSystems_FrameworkBase_BrowserCommand_CreateArgument_" data-uid="FrameworkSystems.FrameworkBase.BrowserCommand.CreateArgument*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_BrowserCommand_CreateArgument_System_String_System_Object_" data-uid="FrameworkSystems.FrameworkBase.BrowserCommand.CreateArgument(System.String,System.Object)">CreateArgument(String, Object)</h4>
-<div class="markdown level1 summary"><p>Mit der Methode CreateArgument() können Event-Argumente für CreateCommand() einzeln erstellt werden.</p>
+<section>
+  <div class="markdown level1 summary"><p>Mit der Methode CreateArgument() können Event-Argumente für CreateCommand() einzeln erstellt werden.</p>
 </div>
-<div class="markdown level1 conceptual"></div>
-<h5 class="decalaration">Declaration</h5>
-<div class="codewrapper">
-  <pre><code class="lang-csharp hljs">public static KeyValuePair&lt;string, string&gt; CreateArgument(string key, object value)</code></pre>
-</div>
-<h5 class="parameters">Parameters</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><span class="xref">System.String</span></td>
-      <td><span class="parametername">key</span></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><span class="xref">System.Object</span></td>
-      <td><span class="parametername">value</span></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-<h5 class="returns">Returns</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-<h5 id="FrameworkSystems_FrameworkBase_BrowserCommand_CreateArgument_System_String_System_Object__remarks">Remarks</h5>
-<div class="markdown level1 remarks"><p>So können z.B. die FS-Datentypen wie in dem nachfolgenden Beispiel als Wert übergeben werden:</p>
+  <div class="markdown level1 conceptual"></div>
+
+  <h5 class="decalaration">Declaration</h5>
+  <section>
+    <div class="codewrapper">
+      <pre><code class="lang-csharp hljs">public static KeyValuePair&lt;string, string&gt; CreateArgument(string key, object value)</code></pre>
+    </div>
+  </section>
+  <h5 class="parameters">Parameters</h5>
+  <section>
+    <div class="propertyInfo">
+      <span class="parametername"><code>key</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
+      <div class="markdown level1 summary"></div>
+    </div>
+    <div class="propertyInfo">
+      <span class="parametername"><code>value</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>
+      <div class="markdown level1 summary"></div>
+    </div>
+  </section>
+
+    <h5 class="returns">Returns</h5>
+    <section>
+      <div class="propertyInfo">
+        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;
+        <div class="markdown level1 summary"></div>
+      </div>
+    </section>
+
+    <h5 id="FrameworkSystems_FrameworkBase_BrowserCommand_CreateArgument_System_String_System_Object__remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>So können z.B. die FS-Datentypen wie in dem nachfolgenden Beispiel als Wert übergeben werden:</p>
 <example>
 <pre><code>string linkCommand = BrowserCommand.CreateCommand(&quot;TestCommand&quot;, 
         BrowserCommand.CreateArgument(&quot;Belegnummer&quot;, new FSlong(1005342)), 
@@ -157,6 +145,8 @@ um mit dem richtigen Schlüssel einen Wert im entsprechenden FSTyp wieder auszul
 }</code></pre>
 </example>
 </div>
+    </section>
+</section>
 </article>
           </div>
           

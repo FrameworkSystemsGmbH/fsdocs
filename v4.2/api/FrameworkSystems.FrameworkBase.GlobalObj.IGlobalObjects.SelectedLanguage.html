@@ -91,30 +91,29 @@
 
 <a id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SelectedLanguage_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SelectedLanguage*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SelectedLanguage" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SelectedLanguage">SelectedLanguage</h4>
-<div class="markdown level1 summary"><p>Gibt den 2-Zeichen IsoCode der ersten Sprache in der <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.LanguageHierarchy.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_LanguageHierarchy">LanguageHierarchy</a> zurück oder legt diesen fest.</p>
+<section>
+  <div class="markdown level1 summary"><p>Gibt den 2-Zeichen IsoCode der ersten Sprache in der <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.LanguageHierarchy.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_LanguageHierarchy">LanguageHierarchy</a> zurück oder legt diesen fest.</p>
 </div>
-<div class="markdown level1 conceptual"></div>
-<h5 class="decalaration">Declaration</h5>
-<div class="codewrapper">
-  <pre><code class="lang-csharp hljs">string SelectedLanguage { get; set; }</code></pre>
-</div>
-<h5 class="propertyValue">Property Value</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><span class="xref">System.String</span></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-<h5 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SelectedLanguage_remarks">Remarks</h5>
-<div class="markdown level1 remarks"><p>Beim Setzen der SelectedLanguage gibt es 2 Möglichkeiten:</p>
+  <div class="markdown level1 conceptual"></div>
+
+  <h5 class="decalaration">Declaration</h5>
+  <section>
+    <div class="codewrapper">
+      <pre><code class="lang-csharp hljs">string SelectedLanguage { get; set; }</code></pre>
+    </div>
+  </section>
+
+
+  <h5 class="propertyValue">Property Value</h5>
+  <section>
+      <div class="propertyInfo">
+        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
+        <div class="markdown level1 summary"></div>
+      </div>  
+  </section>
+    <h5 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SelectedLanguage_remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Beim Setzen der SelectedLanguage gibt es 2 Möglichkeiten:</p>
 <p>1.) Es wird nur ein ISO-Code übergeben.Dieser wird an die erste Stelle der LanguageHierarchy gesetzt.
 Wenn dieser Code schon in der Hierarchie enthalten ist, dann wird dieser an die erste Stelle verschoben.
 2.) Es wird eine Komma-separierte Liste von ISO-Codes übergeben.In diesem Fall wird aus dieser Liste 
@@ -124,6 +123,8 @@ auf die Default-Sprache der Anwendung, wenn die vom Client angefragte Sprache ni
 <div class="WARNING"><h5>Warning</h5><p>Dieser Wert sollte in einem normalen Broker nicht geändert werden.</p>
 </div>
 </div>
+    </section>
+</section>
 </article>
           </div>
           

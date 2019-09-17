@@ -91,21 +91,30 @@
 
 <a id="FrameworkSystems_FrameworkBase_DragAndDrop_FlavorData_FillOnDrop_" data-uid="FrameworkSystems.FrameworkBase.DragAndDrop.FlavorData.FillOnDrop*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_DragAndDrop_FlavorData_FillOnDrop" data-uid="FrameworkSystems.FrameworkBase.DragAndDrop.FlavorData.FillOnDrop">FillOnDrop()</h4>
-<div class="markdown level1 summary"><p>Durch das Aufrufen der Methode im <code>OnCanDrop</code> Eventhandler wird das System darüber informiert, 
+<section>
+  <div class="markdown level1 summary"><p>Durch das Aufrufen der Methode im <code>OnCanDrop</code> Eventhandler wird das System darüber informiert, 
 dass im <code>OnDrop</code> alle zu diesem Flavor zur Verfügung stehenden Daten gefüllt werden sollen.</p>
 </div>
-<div class="markdown level1 conceptual"></div>
-<h5 class="decalaration">Declaration</h5>
-<div class="codewrapper">
-  <pre><code class="lang-csharp hljs">public virtual void FillOnDrop()</code></pre>
-</div>
-<h5 id="FrameworkSystems_FrameworkBase_DragAndDrop_FlavorData_FillOnDrop_remarks">Remarks</h5>
-<div class="markdown level1 remarks"><p><strong>Hintergrund:</strong> </p>
+  <div class="markdown level1 conceptual"></div>
+
+  <h5 class="decalaration">Declaration</h5>
+  <section>
+    <div class="codewrapper">
+      <pre><code class="lang-csharp hljs">public virtual void FillOnDrop()</code></pre>
+    </div>
+  </section>
+
+
+    <h5 id="FrameworkSystems_FrameworkBase_DragAndDrop_FlavorData_FillOnDrop_remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p><strong>Hintergrund:</strong> </p>
 <p>Einige Datenformate bringen unter Umständen sehr große Datenmengen mit sich. Beispielsweise können Dateien sehr groß sein. 
 Daher werden beim ersten Request des Clients (<code>OnCanDrop</code>) nur Informationen wie der Speicherort, Name, Größe usw. übertragen 
 und nur dann, wenn der Inhalt tatsächlich im <code>OnDrop</code> benötigt wird (und deshalb <code>FillOnDrop()</code> aufgerufen wurde), 
 werden die ggf. großen Daten ausgelesen und übertragen.</p>
 </div>
+    </section>
+</section>
 </article>
           </div>
           

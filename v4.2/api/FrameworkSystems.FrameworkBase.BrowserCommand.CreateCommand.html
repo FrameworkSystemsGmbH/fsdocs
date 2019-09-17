@@ -91,54 +91,42 @@
 
 <a id="FrameworkSystems_FrameworkBase_BrowserCommand_CreateCommand_" data-uid="FrameworkSystems.FrameworkBase.BrowserCommand.CreateCommand*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_BrowserCommand_CreateCommand_System_String_System_Collections_Generic_IDictionary_System_String_System_String__" data-uid="FrameworkSystems.FrameworkBase.BrowserCommand.CreateCommand(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">CreateCommand(String, IDictionary&lt;String, String&gt;)</h4>
-<div class="markdown level1 summary"><p>Mit der Methode CreateCommand können Link-Kommandos mit der Notation 
+<section>
+  <div class="markdown level1 summary"><p>Mit der Methode CreateCommand können Link-Kommandos mit der Notation 
 <code> fscommand:[Kommando]?[Key]=[Value]&amp;[Key1]=[Value1]&amp;…[KeyN]=[ValueN] </code> 
 erstellt werden. </p>
 </div>
-<div class="markdown level1 conceptual"></div>
-<h5 class="decalaration">Declaration</h5>
-<div class="codewrapper">
-  <pre><code class="lang-csharp hljs">public static string CreateCommand(string commandName, IDictionary&lt;string, string&gt; args = null)</code></pre>
-</div>
-<h5 class="parameters">Parameters</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><span class="xref">System.String</span></td>
-      <td><span class="parametername">commandName</span></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><span class="xref">System.Collections.Generic.IDictionary</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;</td>
-      <td><span class="parametername">args</span></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-<h5 class="returns">Returns</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><span class="xref">System.String</span></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-<h5 id="FrameworkSystems_FrameworkBase_BrowserCommand_CreateCommand_System_String_System_Collections_Generic_IDictionary_System_String_System_String___remarks">Remarks</h5>
-<div class="markdown level1 remarks"><p>Link-Kommandos beginnen mit dem Schlüsselwort <code>fscommand</code> und verfügen über ein Kommando (<strong>commandName</strong>) und über 
+  <div class="markdown level1 conceptual"></div>
+
+  <h5 class="decalaration">Declaration</h5>
+  <section>
+    <div class="codewrapper">
+      <pre><code class="lang-csharp hljs">public static string CreateCommand(string commandName, IDictionary&lt;string, string&gt; args = null)</code></pre>
+    </div>
+  </section>
+  <h5 class="parameters">Parameters</h5>
+  <section>
+    <div class="propertyInfo">
+      <span class="parametername"><code>commandName</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
+      <div class="markdown level1 summary"></div>
+    </div>
+    <div class="propertyInfo">
+      <span class="parametername"><code>args</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.idictionary-2">IDictionary</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;
+      <div class="markdown level1 summary"></div>
+    </div>
+  </section>
+
+    <h5 class="returns">Returns</h5>
+    <section>
+      <div class="propertyInfo">
+        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
+        <div class="markdown level1 summary"></div>
+      </div>
+    </section>
+
+    <h5 id="FrameworkSystems_FrameworkBase_BrowserCommand_CreateCommand_System_String_System_Collections_Generic_IDictionary_System_String_System_String___remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Link-Kommandos beginnen mit dem Schlüsselwort <code>fscommand</code> und verfügen über ein Kommando (<strong>commandName</strong>) und über 
 eine beliebige Anzahl von Argumenten (<strong>args</strong>). Die Argumente bestehen immer aus einem Schlüssel (<strong>Key</strong>) und einem 
 Wert (<strong>Value</strong>) und können entweder als generische Auflistung vom Typ IDictionary oder einzeln als KeyValuePairs 
 an die Funktion übergeben werden. Das Schlüsselwort, Kommando und die Argumente werden in Url Schreibweise 
@@ -158,58 +146,48 @@ string linkCommand = BrowserCommand.CreateCommand(&quot;TestCommand&quot;, linkC
 this.contentDatasource = &quot;&lt;a href=\&quot;&quot; + linkCommand + &quot;>Link&lt;/a>&quot;;</code></pre>
 <p></example></p>
 </div>
+    </section>
+</section>
 
 
 <a id="FrameworkSystems_FrameworkBase_BrowserCommand_CreateCommand_" data-uid="FrameworkSystems.FrameworkBase.BrowserCommand.CreateCommand*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_BrowserCommand_CreateCommand_System_String_System_Collections_Generic_KeyValuePair_System_String_System_String____" data-uid="FrameworkSystems.FrameworkBase.BrowserCommand.CreateCommand(System.String,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">CreateCommand(String, KeyValuePair&lt;String, String&gt;[])</h4>
-<div class="markdown level1 summary"><p>Mit der Methode CreateCommand können Link-Kommandos mit der Notation 
+<section>
+  <div class="markdown level1 summary"><p>Mit der Methode CreateCommand können Link-Kommandos mit der Notation 
 <code> fscommand:[Kommando]?[Key]=[Value]&amp;[Key1]=[Value1]&amp;…[KeyN]=[ValueN] </code> 
 erstellt werden. </p>
 </div>
-<div class="markdown level1 conceptual"></div>
-<h5 class="decalaration">Declaration</h5>
-<div class="codewrapper">
-  <pre><code class="lang-csharp hljs">public static string CreateCommand(string commandName, params KeyValuePair&lt;string, string&gt;[] args)</code></pre>
-</div>
-<h5 class="parameters">Parameters</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Name</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><span class="xref">System.String</span></td>
-      <td><span class="parametername">commandName</span></td>
-      <td></td>
-    </tr>
-    <tr>
-      <td><span class="xref">System.Collections.Generic.KeyValuePair</span>&lt;<span class="xref">System.String</span>, <span class="xref">System.String</span>&gt;[]</td>
-      <td><span class="parametername">args</span></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-<h5 class="returns">Returns</h5>
-<table class="table table-bordered table-striped table-condensed">
-  <thead>
-    <tr>
-      <th>Type</th>
-      <th>Description</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><span class="xref">System.String</span></td>
-      <td></td>
-    </tr>
-  </tbody>
-</table>
-<h5 id="FrameworkSystems_FrameworkBase_BrowserCommand_CreateCommand_System_String_System_Collections_Generic_KeyValuePair_System_String_System_String_____remarks">Remarks</h5>
-<div class="markdown level1 remarks"><p>Link-Kommandos beginnen mit dem Schlüsselwort <code>fscommand</code> und verfügen über ein Kommando (<strong>commandName</strong>) und über 
+  <div class="markdown level1 conceptual"></div>
+
+  <h5 class="decalaration">Declaration</h5>
+  <section>
+    <div class="codewrapper">
+      <pre><code class="lang-csharp hljs">public static string CreateCommand(string commandName, params KeyValuePair&lt;string, string&gt;[] args)</code></pre>
+    </div>
+  </section>
+  <h5 class="parameters">Parameters</h5>
+  <section>
+    <div class="propertyInfo">
+      <span class="parametername"><code>commandName</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
+      <div class="markdown level1 summary"></div>
+    </div>
+    <div class="propertyInfo">
+      <span class="parametername"><code>args</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.keyvaluepair-2">KeyValuePair</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;[]
+      <div class="markdown level1 summary"></div>
+    </div>
+  </section>
+
+    <h5 class="returns">Returns</h5>
+    <section>
+      <div class="propertyInfo">
+        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
+        <div class="markdown level1 summary"></div>
+      </div>
+    </section>
+
+    <h5 id="FrameworkSystems_FrameworkBase_BrowserCommand_CreateCommand_System_String_System_Collections_Generic_KeyValuePair_System_String_System_String_____remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Link-Kommandos beginnen mit dem Schlüsselwort <code>fscommand</code> und verfügen über ein Kommando (<strong>commandName</strong>) und über 
 eine beliebige Anzahl von Argumenten (<strong>args</strong>). Die Argumente bestehen immer aus einem Schlüssel (<strong>Key</strong>) und einem 
 Wert (<strong>Value</strong>) und können entweder als generische Auflistung vom Typ IDictionary oder einzeln als KeyValuePairs 
 an die Funktion übergeben werden. Das Schlüsselwort, Kommando und die Argumente werden in Url Schreibweise 
@@ -229,6 +207,8 @@ string linkCommand = BrowserCommand.CreateCommand(&quot;TestCommand&quot;,
 this.contentDatasource = &quot;&lt;a href=\&quot;&quot; + linkCommand + &quot;>Link&lt;/a>&quot;;</code></pre>
 <p></example></p>
 </div>
+    </section>
+</section>
 </article>
           </div>
           

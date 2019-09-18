@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Chapter Tree </title>
+    <title>Einf&#252;hrung </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Chapter Tree ">
+    <meta name="title" content="Einf&#252;hrung ">
     <meta name="generator" content="docfx 2.43.5.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -79,48 +79,22 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="chapter-tree">Chapter Tree</h1>
+<h1 id="einführung">Einführung</h1>
 
-<h2 id="allgemein">Allgemein</h2>
-<p>Der Chapter Tree ist die zentrale Instanz, welche alle Form- und Documentation-Elemente in Kapitel organisiert. Zu erreichen ist der Chapter Tree über das Menü <strong>Tools</strong> -&gt; <strong>Documentation</strong> -&gt; <strong>Chapter Tree</strong>. Ein Form- oder Documentation-Element spiegelt in einer exportierten Dokumentation genau ein Kapitel mit eigener Kapitelnummer wider.</p>
-<p>Chapter Tree für die Organisation der Kapitel:</p>
-<p><img src="media/chapter-tree-organisation.png" alt="chapter-tree-organisation"></p>
-<p>Es gibt zwei Abschnitte im Chapter Tree. Der <strong><em>Documentation (Preparation)</em></strong>-Knoten beinhaltet alle Formulare und Documentation-Elemente, die in einer Anwendung neu hinzugekommen oder noch nicht in die Dokumentation eingebunden wurden. Sie werden alphabetisch aufsteigend aufgelistet. Der <strong><em>Documentation (Release)</em></strong>-Knoten spiegelt den Kapitelbaum der Dokumentation wieder, die mit dem <a href="export-wizards.html">Export Wizard</a> gerendert werden kann. Als Text wird die im Dokumentations-Editor angegebene Caption des Formulars oder Documentation-Elements angezeigt. Ist diese nicht definiert wird in Klammern hinter dem Namen des Formulars oder Documentation-Elements der Zusatz <strong>“caption not set”</strong> angezeigt.</p>
-<p>Die Form- oder Documentation-Elemente können aus dem Chapter Tree mit einem Doppelklick auf den Knoten oder mit der Entertaste direkt geöffnet werden.</p>
-<p>Die Textbox am unteren Rand zeigt den vollen Namespace des aktuell ausgewählten Knoten an.</p>
-<h2 id="kapitelstruktur">Kapitelstruktur</h2>
-<p>Wird die Dokumentation wie in der Abbildung mit dem <a href="export-wizards.html">Export Wizard</a> in eine Word-Datei exportiert, folgt die Kapitelnummerierung der Ebene des <strong><em>Documentation (Release)</em></strong>-Knotens. Wie im Beispiel zu sehen hätten die folgenden Kapitel die angegebenen Kapitelnummern:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><em>Einführung in das Programm eNVenta</em></td>
-<td>= 1.</td>
-</tr>
-<tr>
-<td><em>eNVenta ERP</em></td>
-<td>= 2.</td>
-</tr>
-<tr>
-<td><em>Initialisierung</em></td>
-<td>= 5.</td>
-</tr>
-<tr>
-<td><em>eNVenta Init</em></td>
-<td>= 5.1</td>
-</tr>
-</tbody>
-</table>
-<p>Da Word bis zu 9 Ebenen unterstützt, können auch im Chapter Tree die Formulare und Documentation-Elemente in bis zu 9 Ebenen (x.x.x.x.x.x.x.x.x) verschachtelt werden.</p>
-<p>Um ein Kapitel an eine andere Stelle einzufügen bzw. ein Kapitel aus dem Preparation- in den Release-Knoten zu verschieben, muss nur der entsprechende Knoten per Drag&amp;Drop an die richtige Position gezogen werden. Sind nicht alle beteiligten Elemente im Framework Studio ausgecheckt, wird eine entsprechende Meldung angezeigt.</p>
-<p>Auschecken von beteiligten Elementen:</p>
-<p><img src="media/chapter-tree-auschecken-beteiligten-elementen.png" alt="chapter-tree-auschecken-beteiligten-elementen"></p>
-<p>Im Beispiel wurde der Knoten <strong>CSV Format Konversion</strong> aus dem Preparation-Knoten in den Release-Bereich unter das Kapitel <strong>eNVenta ERP</strong> -&gt; <strong>Wv-Übersicht</strong> gezogen. Keines der Elemente war zu diesem Zeitpunkt ausgecheckt.</p>
+<p>Durch Themes wird die Möglichkeit gegeben, einer FS-Anwendung ein anderes Aussehen zu geben, ohne dabei auf die Geschäftslogik und damit den Sourcecode Einfluss zu nehmen.</p>
+<h5 id="beispiel"><strong>Beispiel</strong></h5>
+<p>FS-Demo mit Standard-Theme:</p>
+<p><img src="media/themes-standard-beispiel.png" alt="FS-Demo mit Standard-Theme"></p>
+<p>Das Bild zeigt die FS-Demo-Anwendung, wie sie standardmäßig von Framework Studio erstellt wird. Im folgenden Bild wurde das Aussehen der Anwendung durch Hinzufügen eines Themes grundlegend verändert:</p>
+<p><img src="media/themes-customized-beispiel.png" alt="FS-Demo mit angepasstem Theme"></p>
+<p>In diesem neuen Theme wurden folgende Änderungen durchgeführt:</p>
+<ul>
+<li>Hintergrundbild geändert.</li>
+<li>Transparenz des Grids deaktiviert.</li>
+<li>Button-Images durch blaue Bilder ersetzt.</li>
+<li>Schriftfarbe der Labels auf blau gesetzt.</li>
+<li>FocusHighlightColor auf hellgelb gesetzt.</li>
+</ul>
 </article>
           </div>
           
@@ -129,7 +103,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/documentation/chapter-tree.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/themes/einfuehrung.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Chapter Tree </title>
+    <title>Verwalten </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Chapter Tree ">
+    <meta name="title" content="Verwalten ">
     <meta name="generator" content="docfx 2.43.5.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -79,48 +79,22 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="chapter-tree">Chapter Tree</h1>
+<h1 id="verwalten">Verwalten</h1>
 
-<h2 id="allgemein">Allgemein</h2>
-<p>Der Chapter Tree ist die zentrale Instanz, welche alle Form- und Documentation-Elemente in Kapitel organisiert. Zu erreichen ist der Chapter Tree über das Menü <strong>Tools</strong> -&gt; <strong>Documentation</strong> -&gt; <strong>Chapter Tree</strong>. Ein Form- oder Documentation-Element spiegelt in einer exportierten Dokumentation genau ein Kapitel mit eigener Kapitelnummer wider.</p>
-<p>Chapter Tree für die Organisation der Kapitel:</p>
-<p><img src="media/chapter-tree-organisation.png" alt="chapter-tree-organisation"></p>
-<p>Es gibt zwei Abschnitte im Chapter Tree. Der <strong><em>Documentation (Preparation)</em></strong>-Knoten beinhaltet alle Formulare und Documentation-Elemente, die in einer Anwendung neu hinzugekommen oder noch nicht in die Dokumentation eingebunden wurden. Sie werden alphabetisch aufsteigend aufgelistet. Der <strong><em>Documentation (Release)</em></strong>-Knoten spiegelt den Kapitelbaum der Dokumentation wieder, die mit dem <a href="export-wizards.html">Export Wizard</a> gerendert werden kann. Als Text wird die im Dokumentations-Editor angegebene Caption des Formulars oder Documentation-Elements angezeigt. Ist diese nicht definiert wird in Klammern hinter dem Namen des Formulars oder Documentation-Elements der Zusatz <strong>“caption not set”</strong> angezeigt.</p>
-<p>Die Form- oder Documentation-Elemente können aus dem Chapter Tree mit einem Doppelklick auf den Knoten oder mit der Entertaste direkt geöffnet werden.</p>
-<p>Die Textbox am unteren Rand zeigt den vollen Namespace des aktuell ausgewählten Knoten an.</p>
-<h2 id="kapitelstruktur">Kapitelstruktur</h2>
-<p>Wird die Dokumentation wie in der Abbildung mit dem <a href="export-wizards.html">Export Wizard</a> in eine Word-Datei exportiert, folgt die Kapitelnummerierung der Ebene des <strong><em>Documentation (Release)</em></strong>-Knotens. Wie im Beispiel zu sehen hätten die folgenden Kapitel die angegebenen Kapitelnummern:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><em>Einführung in das Programm eNVenta</em></td>
-<td>= 1.</td>
-</tr>
-<tr>
-<td><em>eNVenta ERP</em></td>
-<td>= 2.</td>
-</tr>
-<tr>
-<td><em>Initialisierung</em></td>
-<td>= 5.</td>
-</tr>
-<tr>
-<td><em>eNVenta Init</em></td>
-<td>= 5.1</td>
-</tr>
-</tbody>
-</table>
-<p>Da Word bis zu 9 Ebenen unterstützt, können auch im Chapter Tree die Formulare und Documentation-Elemente in bis zu 9 Ebenen (x.x.x.x.x.x.x.x.x) verschachtelt werden.</p>
-<p>Um ein Kapitel an eine andere Stelle einzufügen bzw. ein Kapitel aus dem Preparation- in den Release-Knoten zu verschieben, muss nur der entsprechende Knoten per Drag&amp;Drop an die richtige Position gezogen werden. Sind nicht alle beteiligten Elemente im Framework Studio ausgecheckt, wird eine entsprechende Meldung angezeigt.</p>
-<p>Auschecken von beteiligten Elementen:</p>
-<p><img src="media/chapter-tree-auschecken-beteiligten-elementen.png" alt="chapter-tree-auschecken-beteiligten-elementen"></p>
-<p>Im Beispiel wurde der Knoten <strong>CSV Format Konversion</strong> aus dem Preparation-Knoten in den Release-Bereich unter das Kapitel <strong>eNVenta ERP</strong> -&gt; <strong>Wv-Übersicht</strong> gezogen. Keines der Elemente war zu diesem Zeitpunkt ausgecheckt.</p>
+<p>Die Themes werden über den <strong>Theme Manager</strong> verwaltet. Dieser kann über das Menü <strong>Tools</strong> &gt; <strong>Manage Themes</strong> aufgerufen werden.</p>
+<p><img src="media/themes-verwalten.png" alt="Theme-Manager"></p>
+<p>In der Liste werden alle verfügbaren Themes angezeigt. Sind Themes in einem oder mehreren Basis-Packages des aktuellen Packages definiert, werden diese mit dem jeweiligen Packagenamen in Klammern angezeigt, können aber nicht geändert werden.</p>
+<p>Menü:</p>
+<p>Über den Button <img src="../media/icon-new.png" alt="new"> wird ein neues Theme angelegt werden. Neue Themes erhalten ein <strong>(+)</strong>-Zeichen. Nur neu angelegte Themes können ohne die <a href="aufraeum-routine.html">Aufräum-Routine</a> gelöscht werden.</p>
+<p>Mit <img src="../media/icon-save.png" alt="save"> werden alle Änderungen gespeichert. Neue Themes mit <strong>(+)</strong> werden dann persistent gespeichert und können dann nur noch über die <a href="aufraeum-routine.html">Aufräum-Routine</a> gelöscht werden.</p>
+<p>Mit <img src="../media/icon-delete.png" alt="delete"> können noch nicht persistent gespeicherte Themes (mit <strong>(+)</strong>) wieder gelöscht werden.</p>
+<p>Mit <img src="../media/icon-clean.png" alt="clean"> kann die <a href="aufraeum-routine.html">Aufräum-Routine</a> angestoßen werden.</p>
+<p>Properties:</p>
+<p><strong>ID:</strong> Die ID wird beim Anlegen eines Themes generiert und ist eindeutig.</p>
+<p><strong>Name:</strong> Name des Themes. Kann auch im Nachhinein noch geändert werden, da die Themes über die ID identifiziert werden. Der Name darf maximal 20 Zeichen lang sein.</p>
+<p><strong>Deprecated:</strong> Wird ein Theme auf „Deprecated“ gesetzt, steht es in der Theme-Auswahl nicht mehr zur Verfügung. Es wird zudem auch bei Publish-Vorgängen nicht mehr beachtet. Deprecated gilt somit als Vorstufe zum Löschen des Themes mittels der Aufräum-Routine (siehe <a href="aufraeum-routine.html">Aufräum-Routine</a>).</p>
+<div class="CAUTION"><h5>Caution</h5><p>Sind in einem Package Themes auf <strong>Deprecated</strong> gesetzt, werden diese von der <a href="aufraeum-routine.html"><strong>Aufräum-Routine</strong></a> endgültig aus dem Package gelöscht. Für Packages, die auf dem Package aufsetzen, in dem das Theme definiert war, ist das Theme dann auch nicht mehr verfügbar.</p>
+</div>
 </article>
           </div>
           
@@ -129,7 +103,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/documentation/chapter-tree.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/themes/verwalten.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

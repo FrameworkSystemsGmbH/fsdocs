@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Chapter Tree </title>
+    <title>Themeable Properties </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Chapter Tree ">
+    <meta name="title" content="Themeable Properties ">
     <meta name="generator" content="docfx 2.43.5.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -79,48 +79,67 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="chapter-tree">Chapter Tree</h1>
+<h1 id="themeable-properties">Themeable Properties</h1>
 
-<h2 id="allgemein">Allgemein</h2>
-<p>Der Chapter Tree ist die zentrale Instanz, welche alle Form- und Documentation-Elemente in Kapitel organisiert. Zu erreichen ist der Chapter Tree über das Menü <strong>Tools</strong> -&gt; <strong>Documentation</strong> -&gt; <strong>Chapter Tree</strong>. Ein Form- oder Documentation-Element spiegelt in einer exportierten Dokumentation genau ein Kapitel mit eigener Kapitelnummer wider.</p>
-<p>Chapter Tree für die Organisation der Kapitel:</p>
-<p><img src="media/chapter-tree-organisation.png" alt="chapter-tree-organisation"></p>
-<p>Es gibt zwei Abschnitte im Chapter Tree. Der <strong><em>Documentation (Preparation)</em></strong>-Knoten beinhaltet alle Formulare und Documentation-Elemente, die in einer Anwendung neu hinzugekommen oder noch nicht in die Dokumentation eingebunden wurden. Sie werden alphabetisch aufsteigend aufgelistet. Der <strong><em>Documentation (Release)</em></strong>-Knoten spiegelt den Kapitelbaum der Dokumentation wieder, die mit dem <a href="export-wizards.html">Export Wizard</a> gerendert werden kann. Als Text wird die im Dokumentations-Editor angegebene Caption des Formulars oder Documentation-Elements angezeigt. Ist diese nicht definiert wird in Klammern hinter dem Namen des Formulars oder Documentation-Elements der Zusatz <strong>“caption not set”</strong> angezeigt.</p>
-<p>Die Form- oder Documentation-Elemente können aus dem Chapter Tree mit einem Doppelklick auf den Knoten oder mit der Entertaste direkt geöffnet werden.</p>
-<p>Die Textbox am unteren Rand zeigt den vollen Namespace des aktuell ausgewählten Knoten an.</p>
-<h2 id="kapitelstruktur">Kapitelstruktur</h2>
-<p>Wird die Dokumentation wie in der Abbildung mit dem <a href="export-wizards.html">Export Wizard</a> in eine Word-Datei exportiert, folgt die Kapitelnummerierung der Ebene des <strong><em>Documentation (Release)</em></strong>-Knotens. Wie im Beispiel zu sehen hätten die folgenden Kapitel die angegebenen Kapitelnummern:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><em>Einführung in das Programm eNVenta</em></td>
-<td>= 1.</td>
-</tr>
-<tr>
-<td><em>eNVenta ERP</em></td>
-<td>= 2.</td>
-</tr>
-<tr>
-<td><em>Initialisierung</em></td>
-<td>= 5.</td>
-</tr>
-<tr>
-<td><em>eNVenta Init</em></td>
-<td>= 5.1</td>
-</tr>
-</tbody>
-</table>
-<p>Da Word bis zu 9 Ebenen unterstützt, können auch im Chapter Tree die Formulare und Documentation-Elemente in bis zu 9 Ebenen (x.x.x.x.x.x.x.x.x) verschachtelt werden.</p>
-<p>Um ein Kapitel an eine andere Stelle einzufügen bzw. ein Kapitel aus dem Preparation- in den Release-Knoten zu verschieben, muss nur der entsprechende Knoten per Drag&amp;Drop an die richtige Position gezogen werden. Sind nicht alle beteiligten Elemente im Framework Studio ausgecheckt, wird eine entsprechende Meldung angezeigt.</p>
-<p>Auschecken von beteiligten Elementen:</p>
-<p><img src="media/chapter-tree-auschecken-beteiligten-elementen.png" alt="chapter-tree-auschecken-beteiligten-elementen"></p>
-<p>Im Beispiel wurde der Knoten <strong>CSV Format Konversion</strong> aus dem Preparation-Knoten in den Release-Bereich unter das Kapitel <strong>eNVenta ERP</strong> -&gt; <strong>Wv-Übersicht</strong> gezogen. Keines der Elemente war zu diesem Zeitpunkt ausgecheckt.</p>
+<p>Um der Anwendung ein anderes Aussehen zu geben, können folgende Elemente auf Theme-Ebene angepasst werden:</p>
+<ul>
+<li>Applications</li>
+<li>Default Control Styles</li>
+<li>Resources (nur Bilder)</li>
+</ul>
+<p>Im Folgenden werden die verschiedenen Properties dieser Elemente aufgelistet, die im Rahmen eines Themes verändert werden können:</p>
+<h2 id="themeable-application-properties">Themeable Application Properties</h2>
+<ul>
+<li>BackImage</li>
+<li>FocusHighlightColor</li>
+<li>Icon</li>
+<li>IsTransparent</li>
+<li>MenuBackColor</li>
+<li>MenuBackColorAlpha</li>
+<li>MenuItemBackColor</li>
+<li>MenuItemBackColorAlpha</li>
+<li>SplitterBackColor</li>
+<li>SplitterBackColorAlpha</li>
+<li>StartImage</li>
+</ul>
+<h2 id="themeable-default-control-styles">Themeable Default Control Styles</h2>
+<h5 id="für-jeden-default-control-style"><strong>Für jeden Default Control Style</strong></h5>
+<ul>
+<li>BackColor</li>
+<li>ForeColor</li>
+<li>Font</li>
+<li>IsEditable</li>
+<li>IsVisible</li>
+<li>IsTransparent</li>
+</ul>
+<h5 id="editfield"><strong>EditField</strong></h5>
+<ul>
+<li>DisableBackColor</li>
+<li>TextAlign</li>
+</ul>
+<h5 id="imagebutton"><strong>ImageButton</strong></h5>
+<ul>
+<li>CaptionAlign</li>
+<li>ScaleMode</li>
+</ul>
+<h5 id="picture"><strong>Picture</strong></h5>
+<ul>
+<li>ContentAlignment</li>
+<li>PictureScaleMode</li>
+</ul>
+<h5 id="tabbedwindow"><strong>TabbedWindow</strong></h5>
+<ul>
+<li>TabAlignment</li>
+<li>TabLayout</li>
+</ul>
+<h5 id="treeview"><strong>TreeView</strong></h5>
+<ul>
+<li>IsBorderVisible</li>
+<li>IsFirstExpandIconVisible</li>
+<li>IsHeaderVisible</li>
+</ul>
+<h2 id="themeable-resource-property">Themeable Resource Property</h2>
+<p>Da Bilder die einzigen Ressourcen sind, die durch Themes angepasst werden können, ist auch das einzige Property, welches anpassbar ist, das Bild, welches die Resource definiert.</p>
 </article>
           </div>
           
@@ -129,7 +148,7 @@
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/documentation/chapter-tree.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/themes/themeable-properties.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

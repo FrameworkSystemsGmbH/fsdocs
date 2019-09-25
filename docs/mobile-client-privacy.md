@@ -3,7 +3,7 @@ title: Privacy - Framework Studio Mobile Client
 notitle: true
 ---
 
-# Framework Studio Mobile Client<br>Privacy Prolicy
+# Framework Studio Mobile Client<br>Privacy Policy
 
 The **Framework Studio Mobile Client** is used to operate business applications, which have been created with the program **Framework Studio**.
 

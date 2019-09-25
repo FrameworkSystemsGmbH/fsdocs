@@ -1,5 +1,5 @@
 ---
-title: Datenschutz | Framework Studio Mobile Client
+title: Datenschutz - Framework Studio Mobile Client
 notitle: true
 ---
 

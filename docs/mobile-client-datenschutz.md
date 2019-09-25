@@ -1,3 +1,8 @@
+---
+title: Datenschutz | Framework Studio Mobile Client
+notitle: true
+---
+
 # Framework Studio Mobile Client<br>Datenschutz
 
 Der **Framework Studio Mobile Client** dient zur Bedienung von Geschäfts-Anwendungen, die mit dem Programm **Framework Studio** erstellt wurden.

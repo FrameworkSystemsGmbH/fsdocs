@@ -1,3 +1,8 @@
+---
+title: Privacy | Framework Studio Mobile Client
+notitle: true
+---
+
 # Framework Studio Mobile Client<br>Privacy Prolicy
 
 **Framework Studio Mobile Client** serves the operation of business applications, which have been created with the program **Framework Studio**.

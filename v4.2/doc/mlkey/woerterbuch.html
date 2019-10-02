@@ -111,8 +111,8 @@
 <h2 id="erfassen-neuer-mlkeys">Erfassen neuer MLKeys</h2>
 <p>Mit dem Button <strong>Add</strong> öffnet sich ein Dialog, in dem der neue MLKey erfasst werden kann.</p>
 <p><img src="media/add-new-mlkey.png" alt="Add new MLKey"></p>
-<ul>
-<li><p><strong>MLKey</strong>: Hier wird der MLKey angegeben. Im Customizing-Package wird der Package-Code automatisch vorbelegt.</p>
+<h4 id="textfeld-mlkey">Textfeld <strong>MLKey</strong></h4>
+<p>Hier wird der MLKey angegeben. Im Customizing-Package wird der Package-Code automatisch vorbelegt.</p>
 <div class="NOTE"><h5>Note</h5><p>Der MLKey kann zu einem späteren Zeitpunkt nicht mehr geändert werden.</p>
 </div>
 <p>Der MLKey kann frei vergeben werden, es gibt jedoch ein paar Regeln und Empfehlungen:</p>
@@ -142,21 +142,19 @@
 <li><code>TTT_</code> / <code>TTT_&lt;PackageCode&gt;_</code>: Der Suchdialog wurde aus dem Tooltip-Property aufgerufen.</li>
 <li><code>MSG_</code> / <code>MSG_&lt;PackageCode&gt;_</code>: Der Suchdialog wurde aus dem MessageBox- bzw. Exception-Wizard aufgerufen.</li>
 </ul>
-</li>
-<li><p><strong>Comment</strong>: Der Kommentar beschreibt bei Bedarf den MLKey genauer. Das ist sinnvoll, wenn der Text oder auch der MLKey erklärungsbedürftige Abkürzungen beinhaltet oder wenn es ähnliche Texte mit verschiedenen Verwendungszwecken gibt.</p>
-</li>
-<li><p><strong>Obsolete</strong>: Ein MLKey kann durch die Eingabe einer Obsolete-Message als veraltet markiert werden. Der Compiler wird bei Verwendung dieses MLKeys diese Message als Warning ausgeben. Weil das Löschen von MLKeys vor allem im Hinblick auf Customizing-Packages Compile-Errors erzeugt, sollte davon abgesehen und stattdessen diese Obsolete-Message verwendet werden. Ein Hinweis auf einen alternativ zu verwendenden MLKey ist empfehlenswert.</p>
-</li>
-<li><p><strong>German</strong>: Die Eingabe eines deutschen Textes ist Pflicht, weil Deutsch immer der letzte Fallback ist, wenn eine Fremdsprache nicht gepflegt ist.</p>
-</li>
-<li><p><strong>Fremdsprachen</strong>: Über die Radio-Buttons kann festgelegt werden, welche Sprache im 2. Textfeld angezeigt oder bearbeitet werden soll. Diese Texte sind optional.</p>
+<h4 id="feld-comment">Feld <strong>Comment</strong></h4>
+<p>Der Kommentar beschreibt bei Bedarf den MLKey genauer. Das ist sinnvoll, wenn der Text oder auch der MLKey erklärungsbedürftige Abkürzungen beinhaltet oder wenn es ähnliche Texte mit verschiedenen Verwendungszwecken gibt.</p>
+<h4 id="textfeld-obsolete">Textfeld <strong>Obsolete</strong></h4>
+<p>Ein MLKey kann durch die Eingabe einer Obsolete-Message als veraltet markiert werden. Der Compiler wird bei Verwendung dieses MLKeys diese Message als Warning ausgeben. Weil das Löschen von MLKeys vor allem im Hinblick auf Customizing-Packages Compile-Errors erzeugt, sollte davon abgesehen und stattdessen diese Obsolete-Message verwendet werden. Ein Hinweis auf einen alternativ zu verwendenden MLKey ist empfehlenswert.</p>
+<h4 id="textfeld-german">Textfeld <strong>German</strong></h4>
+<p>Die Eingabe eines deutschen Textes ist Pflicht, weil Deutsch immer der letzte Fallback ist, wenn eine Fremdsprache nicht gepflegt ist.</p>
+<h4 id="fremdsprachen">Fremdsprachen</h4>
+<p>Über die Radio-Buttons kann festgelegt werden, welche Sprache im 2. Textfeld angezeigt oder bearbeitet werden soll. Diese Texte sind optional.</p>
 <p>Die angebotenen Fremdsprachen und deren Reihenfolge kann in den <a href="../allgemein/options.html#languages-in-designer">Options</a> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden. <strong>German</strong> lässt sich in diesem Dialog aber nicht steuern - diese Sprache wird immer im separaten Feld angezeigt.</p>
 <p>In der <strong>eNVenta/WS</strong> Standard-Entwicklung muss der englische Text gepflegt werden.</p>
-</li>
-<li><p>Button <strong>Untranslatable</strong>: Es gibt Texte, die nicht übersetzt werden können wie z.B. Eigennamen oder Einheiten. Dieser Button löscht alle Fremdsprachen-Texte und Schreibt den Text <code>untranslatable</code> in das <strong>Comment</strong> Feld.</p>
-<p>Mit der Routine <a href="mlkey-cleanup.html">MLKeys Cleanup</a> kann diese Aktion systematisch für das komplette Wörterbuch ausgeführt werden.</p>
-</li>
-</ul>
+<h4 id="button-untranslatable">Button <strong>Untranslatable</strong></h4>
+<p>Es gibt Texte, die nicht übersetzt werden können wie z.B. Eigennamen oder Einheiten. Dieser Button löscht alle Fremdsprachen-Texte und Schreibt den Text <code>untranslatable</code> in das <strong>Comment</strong> Feld.</p>
+<p>Mit der Routine <a href="mlkey-cleanup.html">MLKeys Cleanup</a> ist es möglich, systematisch nach Texten zu suchen, die dafür geeignet sind.</p>
 <h2 id="bearbeiten-von-mlkeys">Bearbeiten von MLKeys</h2>
 <p>Mit dem Button Edit wird für den selektierten MLKey der Bearbeitungs-Dialog geöffnet.</p>
 <p>Durch einen Doppelklick in das Grid kann der Bearbeitungs-Dialog ebenfalls geöffnet werden. Dabei wird der Fokus automatisch in das Feld gesetzt, das der angeklickten Grid-Zelle entspricht. Das ist praktisch, wenn man z.B. gezielt eine Fremdsprache bearbeiten möchte.</p>

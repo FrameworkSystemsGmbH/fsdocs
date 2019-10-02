@@ -1,0 +1,468 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Bearbeiten von Elementen </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Bearbeiten von Elementen ">
+    <meta name="generator" content="docfx 2.43.5.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="bearbeiten-von-elementen">Bearbeiten von Elementen</h1>
+
+<p>Die Elemente, die in Framework Studio bearbeitet werden können, werden alle auf der Registerkarte Namespaces verwaltet.</p>
+<p>Es folgt eine Übersicht der Elemente im Framework Studio:</p>
+<p><img src="../media/icon-namespace.png" alt="icon-namespace.png"> <strong>Namespace</strong></p>
+<p>Namespaces bilden eine Ordnerstruktur, in der alle anderen Elemente geordnet abgelegt werden. Ein Namespace kann auch wiederum andere Namespaces beinhalten.</p>
+<p><img src="../media/icon-resource.png" alt="icon-resource.png"> <strong>Resource</strong></p>
+<p>Eine Ressource stellt eine beliebige Datei dar, die beim Kompilieren in das Brokerverzeichnis kopiert wird. Dadurch kann die Anwendung diese Datei (z.B. ein Bild oder eine externe DLL) verwenden.
+(<a href="../resources/resources.html">Resources</a>)</p>
+<p><img src="../media/icon-access-unit.png" alt="icon-access-unit.png"> <strong>Access Unit</strong></p>
+<p>Über Access Units wird die Anwendung in einzelne Bereiche eingeteilt. Diese Bereiche können dann durch Laufzeitlizenzen und abhängig von den Rollen eines Benutzers gesperrt werden.
+(Access Units(<strong>!TODO LINK</strong>), Laufzeitlizenzen(<strong>!TODO LINK</strong>))</p>
+<p><img src="../media/icon-mdt.png" alt="icon-mdt.png"> <strong>Metadatentype</strong></p>
+<p>Ein Metadatentyp ist ein erweiterter Datentyp, der mehr Informationen enthält als ein normaler Datentyp unter .NET. Weitere Informationen sind z.B. Labels, Format und Controls.
+(<a href="../mdt/metadatentypen.html">Metadatentypen</a>)</p>
+<p> <img src="../media/icon-datasource.png" alt="icon-datasource.png"> <strong>Datasource</strong></p>
+<p>Ein Datasource definiert eine Datenbankverbindung, die von der Anwendung zum Lesen und Schreiben der Anwendungsdaten benutzt werden kann.
+(<a href="../database/datasource.html">Datasource</a>)</p>
+<p><img src="../media/icon-dbt.png" alt="icon-dbt.png"> <strong>DBTable</strong></p>
+<p>Ein DBTable ermöglicht Komponenten den Zugriff auf eine Datenbanktabelle, die über einen Datasource angesprochen werden kann.
+(<a href="../database/dbtable.html">DBTable</a>)</p>
+<p><img src="../media/icon-component.png" alt="icon-component.png"> <strong>Component / Collection / Textcollection</strong></p>
+<p>Eine Component ist eine funktionale Klasse, die bereits Grundfunktionalitäten wie das Lesen und Schreiben von Daten in eine Datenbank beherrscht.</p>
+<p>Eine Textcollection ist eine Sammlung von mehrsprachigen Texten.
+(Component / Collections(<strong>!TODO LINK</strong>), Textcollections(<strong>!TODO LINK</strong>))</p>
+<p><img src="../media/icon-report.png" alt="icon-report.png"> <strong>Report Document Type</strong></p>
+<p>Hier werden ausdruckbare Reports und deren Schnittstelle definiert.
+(Report Document Type(<strong>!TODO LINK</strong>))</p>
+<p><img src="../media/icon-custom-control.png" alt="icon-custom-control.png"> <strong>Custom Control</strong></p>
+<p>Durch Custom Controls ermöglicht Framework Studio das Hinzufügen von eigenen, spezialisierten Controls, die nicht zu den Standard-Controls gehören.
+(Custom Controls(<strong>!TODO LINK</strong>))</p>
+<p><img src="../media/icon-frm.png" alt="icon-frm.png"> <strong>Form</strong></p>
+<p>Forms dienen der Visualisierung der Daten am Bildschirm. Sie enthalten Controls, welche die Daten anzeigen und bearbeiten können.
+(Form(<strong>!TODO LINK</strong>))</p>
+<p><img src="../media/icon-event.png" alt="icon-event.png"> <strong>Global Event</strong></p>
+<p>Global Events dienen dazu, anwendungsweit Nachrichten zu senden.
+(Global Events(<strong>!TODO LINK</strong>))</p>
+<p><img src="../media/icon-workflow.png" alt="icon-workflow.png"> <strong>Workflow</strong></p>
+<p>In Workflows wird die Kommunikation zwischen den Forms und dem Arbeitsablauf des Anwenders definiert. Workflows können Forms, Global Events, Links, Branches, Switches und andere Workflows enthalten.
+(Workflow Designer(<strong>!TODO LINK</strong>))</p>
+<p><img src="../media/icon-data-contract.png" alt="icon-data-contract.png"> <strong>Data Contract</strong></p>
+<p>Data Contracts definieren komplexe Datenstrukturen für Service-Schnittstellen.
+(Fehler! Verweisquelle konnte nicht gefunden werden.((<strong>!TODO LINK</strong>)))</p>
+<p><img src="../media/icon-service-contract.png" alt="icon-service-contract.png"> <strong>Service Contract</strong></p>
+<p>Service Contracts legen fest, welche Operationen ein Service beinhaltet.
+(Fehler! Verweisquelle konnte nicht gefunden werden.(<strong>!TODO LINK</strong>))</p>
+<p><img src="../media/icon-service.png" alt="icon-service.png"> <strong>Service</strong></p>
+<p>Implementiert die im Service Contract definierten Operationen.
+(Service(<strong>!TODO LINK</strong>))</p>
+<p><img src="../media/icon-service-host.png" alt="icon-service-host.png"> <strong>Service Host</strong></p>
+<p>Legt Endpunkte und Übertragungsparameter für den Service fest.
+(Fehler! Verweisquelle konnte nicht gefunden werden.(<strong>!TODO LINK</strong>))</p>
+<p><img src="../media/icon-service-proxy.png" alt="icon-service-proxy.png"> <strong>Service Proxy</strong></p>
+<p>Kapselt einen Service Host nach außen.
+(Fehler! Verweisquelle konnte nicht gefunden werden.(<strong>!TODO LINK</strong>))</p>
+<p><img src="../media/icon-transformation.png" alt="icon-transformation.png"> <strong>Transformation</strong></p>
+<p>Transformationen werden genutzt, um einen Eingangsdatentyp in einen Ausgangsdatentyp umzuwandeln. Häufig wird dies in Bezug auf Data Contracts verwendet.
+(Transformationen(<strong>!TODO LINK</strong>))</p>
+<h2 id="elemente-erstellen">Elemente erstellen</h2>
+<p>Ein neues Element lässt sich erstellen, indem Sie auf der Registerkarte Namespaces den Namespace auswählen, in dem das Element abgelegt werden soll.</p>
+<p>Mit dem Button <img src="../media/button-new.png" alt="button-new.png"> <strong>(New)</strong> der <a href="registerkarten.html#registerkarte-namespaces"><strong>Registerkarte Namespaces</strong></a> oder dem entsprechenden Eintrag aus dem Menü wird im markierten Namespace ein neues Element angelegt. Es wird auch gleich im Hauptfenster geöffnet. Direkt nach dem Anlegen des Elements steht der Cursor in dem sich öffnenden Designer-Fenster auf dem Feld <strong>Name</strong>. Geben Sie hier den Namen des neuen Elements ein.</p>
+<p>Der Name lässt sich auch nachträglich noch ändern. Dazu öffnen Sie das Element und ändern die Bezeichnung im Feld <strong>Name</strong> oder wählen Sie aus dem Kontext-Menü des Elements auf der <a href="registerkarten.html#registerkarte-namespaces"><strong>Registerkarte Namespaces</strong></a> den Eintrag aus.</p>
+<div class="WARNING"><h5>Warning</h5><p>Wird das Element bereits verwendet, kann es zu Problemen kommen, da nicht an allen Stellen der Name automatisch nachgezogen werden kann.</p>
+</div>
+<p>Es empfiehlt sich, die Namen folgendermaßen zu vergeben:</p>
+<p>Namespace: <i style="color: gray">XxxXxx</i></p>
+<p>Metadatentyp: <strong><em>mdt</em></strong><i style="color: gray">XxxXxx</i> oder <i style="color: gray">XxxXxx</i></p>
+<p>Component, die eine Datenbank-Tabelle anbietet: <strong><em>cd</em></strong><i style="color: gray">XxxXxx</i></p>
+<p>Andere Components: <strong><em>c</em></strong><i style="color: gray">XxxXxx</i></p>
+<p>Collections: <strong><em>cd</em></strong><i style="color: gray">XxxXxx</i><strong><em>Coll</em></strong> bzw. <strong><em>c</em></strong><i style="color: gray">XxxXxx</i><strong><em>Coll</em></strong></p>
+<p>Textcollections: <strong><em>ct</em></strong><i style="color: gray">XxxXxx</i></p>
+<p>ReportDocumentTypes: <strong><em>rpt</em></strong><i style="color: gray">XxxXxx</i></p>
+<p>Form: <strong><em>frm</em></strong><i style="color: gray">XxxXxx</i></p>
+<p>Global Event: <strong><em>gev</em></strong><i style="color: gray">XxxXxx</i></p>
+<p>Workflow: <strong><em>wfl</em></strong><i style="color: gray">XxxXxx</i></p>
+<h2 id="elemente-bearbeiten">Elemente bearbeiten</h2>
+<p>Um ein Element zu bearbeiten, öffnen Sie es mit einem Doppelklick auf der <a href="registerkarten.html#registerkarte-namespaces"><strong>Registerkarte Namespaces</strong></a>.</p>
+<p>Im Hauptteil von <strong>Framework Studio</strong> öffnet sich dann ein Desginer-Fenster für das ausgewählte Element. Dort können die gewünschten Änderungen vorgenommen werden.</p>
+<p>Mit dem Button <img src="../media/button-save.png" alt="button-save.png"> Save werden die Änderungen gespeichert.</p>
+<div class="WARNING"><h5>Warning</h5><p>Namespaces können nicht geöffnet werden. Mit einem Doppelklick wird der Namespace auf- oder zugeklappt.</p>
+</div>
+<h2 id="elemente-löschen">Elemente löschen</h2>
+<p>Löschen können Sie ein Element mit dem Menüeintrag <strong>File / Delete …</strong>. Dazu wird das gewünschte Element im Objekt-Baum markiert. Diese Funktion können Sie auch über das Kontext-Menü eines Elements im Objekt-Baum nutzen.</p>
+<p>Der Löschvorgang wird erst wirksam, wenn Sie den Button <img src="../media/button-save-all.png" alt="button-save-all.png"> <strong>(Save All)</strong>  drücken.</p>
+<div class="WARNING"><h5>Warning</h5><ul>
+<li><p>Durch das Speichern eines gelöschten Elements wird im Hintergrund automatisch ein CheckIn durchgeführt.</p>
+</li>
+<li><p>Es werden auch alle Änderungen an anderen, geöffneten Elementen gespeichert.</p>
+</li>
+</ul>
+</div>
+<h2 id="elemente-kopieren--einfügen">Elemente kopieren / einfügen</h2>
+<p>Es ist möglich, verschiedene Elemente zu kopieren oder auch zusammenzuführen (mergen). Das funktioniert auch, wenn es sich bei Quelle und Ziel um unterschiedliche Repositories handelt.</p>
+<p>Folgende Elemente können kopiert und gegebenfalls zusammengeführt werden:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>MDT</td>
+<td>ServiceHost <sup><strong>1</strong></sup></td>
+<td>Workflow</td>
+<td>Resource</td>
+</tr>
+<tr>
+<td>DBTable</td>
+<td>Service Proxy <sup><strong>2</strong></sup></td>
+<td>DataContract</td>
+<td>Namespace <sup><strong>1</strong></sup></td>
+</tr>
+<tr>
+<td>Collection</td>
+<td>Report</td>
+<td>ServiceContract</td>
+<td>Component</td>
+</tr>
+<tr>
+<td>TextCollection</td>
+<td>GlobalEvent <sup><strong>1</strong></sup></td>
+<td>Service <sup><strong>2</strong></sup></td>
+<td>Form</td>
+</tr>
+</tbody>
+</table>
+<div class="WARNING"><h5>Warning</h5><p><sup><strong>1</strong></sup> Element kann nicht gemerged werden.</p>
+<p><sup><strong>2</strong></sup> Ableitung des Elements kann weder kopiert noch gemerged werden.</p>
+</div>
+<h3 id="allgemein">Allgemein</h3>
+<h5 id="copy">Copy</h5>
+<p>Über das Kontextmenü eines Elements, über den Menüpunkt <strong>Copy</strong> im <strong>Edit</strong>-Menü oder über die Copy &amp; Paste Buttons kann ein Element kopiert werden.</p>
+<p><strong>Copy &amp; Paste Buttons:</strong></p>
+<p><img src="media/copy-paste-buttons.png" alt="copy-paste-buttons.png"></p>
+<h5 id="paste">Paste</h5>
+<p>Wird ein Element ohne Basis und ohne ID kopiert, kann es überall eingefügt werden. Wird ein Element mit ID kopiert, kann dies nur eingefügt werden, wenn ein Element mit derselben ID noch nicht existiert. Eine Customization kann nur erstellt werden, wenn im Package noch keine Customization vorhanden ist und die passende Basis existiert.</p>
+<p>Grundsätzlich wird zwischen zwei verschiedenen Arten unterschieden, um ein Element einzufügen:</p>
+<ol>
+<li><p><strong>Element am Namespace eingefügt</strong>
+ Über das KontextMenü am Namespace kann das kopierte Element in den Namespace eingefügt werden. Dabei wird ein neues Element erstellt.
+ Falls ein Element mit derselben ID bereits existiert wird über ein Dialog vorgeschlagen das kopierte Element in das bestehende Element einzufügen.</p>
+</li>
+<li><p><strong>Element in ein bestehendes Element des gleichen Typs einfügen</strong>
+ Über das Kontextmenü eines Elements oder über den Menüpunkt Paste im Edit-Menü kann das kopierte Element in ein bestehendes Element desselben Typs eingefügt werden. Dieser Vorgang stand in älteren Versionen schon unter Merge bei Components zur Verfügung.</p>
+</li>
+</ol>
+<p><strong>Dialog zum zusammenfügen von Elementen mit gleicher ID:</strong></p>
+<p><img src="media/dialog-zusammenf%C3%BCgen-elementen-gleicher-id.png" alt="dialog-zusammenfügen-elementen-gleicher-id.png"></p>
+<h5 id="kompatibilität">Kompatibilität</h5>
+<p>Elemente bei denen Copy &amp; Paste bereits vorhanden war (Components, Forms) können zwischen der alten und neuen Version kopiert werden. Das Kopieren mit ID wird jedoch erst ab FS3.11 unterstützt.</p>
+<h3 id="paste-dialog">Paste Dialog</h3>
+<h5 id="allgemein-1">Allgemein</h5>
+<p>Über den <strong>Paste</strong> Dialog kann beim Kopieren in ein bestehendes Element ausgewählt werden, welche Unterelemente wie kopiert werden.
+Zu beachten ist, dass der <strong>Paste</strong> Dialog sehr viele Freiheiten bietet. Dies ermöglicht natürlich auch fehlerhafte Stände zu erstellen. Dieser Mechanismus ist für versierte Benutzer konzipiert. Grundsätzlich sollte der Benutzer wissen, was er tut und VOR der Aktion sicherstellen, dass alle benötigten Elemente am Ziel vorhanden sind.
+Die zu kopierenden Unterelemente sind in Gruppen auf verschiedene Registerkarten aufgeteilt. Jeder <strong>Paste</strong> Dialog enthält eine <strong><em>Summary</em></strong> und die <strong><em>NeededTypes</em></strong>.
+Im obersten Bereich des Paste-Dialogs werden der Type und der Pfad des kopierten Elements angezeigt. Der Pfad des kopierten Elements ist nur für Elemente sichtbar, die aus einer Version ≥ FS 3.11 kopiert wurden.</p>
+<p><strong>Paste Dialog: Angaben zum kopierten Element:</strong></p>
+<p><img src="media/paste-dialog-angaben-kopierten-element.png" alt="paste-dialog-angaben-kopierten-element.png"></p>
+<h5 id="summary">Summary</h5>
+<p>Die erste Registerkarte beinhaltet immer die Summary. Diese zeigt, ob beim Paste oder Merge Konflikte auftreten.</p>
+<p>Framework Studio versucht grundsätzlich bei der Aktion die benötigten Elemente im Ziel-Package auf folgenden Wegen zu finden:</p>
+<ol>
+<li><p>Über die interne ID: Das funktioniert meist dann, wenn Quell- und Ziel-Package identisch sind oder wenn Elemente aus einem gemeinsamen Basis-Package verwendet werden.</p>
+</li>
+<li><p>Über den Namen: Wenn über die ID nichts gefunden wird, wird nach einem gleichnamigen Element (z.B. Metadatentyp, Component, Property) gesucht. Das ist vor allem dann sehr nützlich, wenn nach und nach mehrere Elemente in ein anderes Package kopiert werden.</p>
+</li>
+<li><p>Wenn diese Wege nicht zum Ziel führen, wird dies als Konflikt betrachtet und der Benutzer muss nach einer Lösung suchen. Teilweise kann das auf den restlichen Registerkarten erfolgen. Manchmal ist es aber auch nötig, die Aktion abzubrechen, erst die Voraussetzungen zu schaffen (z.B. eine DBTable anlegen) und die Aktion anschließend noch einmal auszuführen.</p>
+</li>
+</ol>
+<p>Für einige Elemente gelten Sonderregeln für das Kopieren und Zusammenfinden von Elementen. Diese sind dem Kapitel (<a href="#kopieren-von-ids">Kopieren vo¬n ID´s</a>) zu entnehmen.</p>
+<p>Über verschiedene Buttons kann ausgewählt werden, welche Unterelemente der Registerkarte selektiert und beim Einfügen berücksichtigt werden.</p>
+<p><strong>Select all:</strong> Alle Unterelemente werden selektiert.</p>
+<p><strong>Select none:</strong> Alle Unterelemente werden deselektiert.</p>
+<p><strong>Select new:</strong> Es werden nur neu hinzugefügte Unterelemente selektiert</p>
+<p><strong>Paste Dialog: Summary:</strong>
+<img src="media/paste-dialog-summary.png" alt="paste-dialog-summary.png"></p>
+<p>Beim Einfügen eines Elements am Namespace kann außerdem ausgewählt werden, ob die ID des Elements kopiert werden soll.</p>
+<p><img src="media/paste-dialog-copy-id.png" alt="paste-dialog-copy-id.png"></p>
+<h5 id="neededtypes">NeededTypes</h5>
+<p>Bei den <em>Needed Types</em> werden alle Typen aufgelistet, die nicht zum Standard gehören. Diese können beliebig ausgetauscht werden. Das kann z.B. dann sinnvoll sein, wenn ein benötigtes Element vorher auch schon kopiert wurde und jetzt ggf. unter einem anderen Namen in einem anderen Namespace zu finden ist.</p>
+<h5 id="zusammenführen-von-elementen">Zusammenführen von Elementen</h5>
+<p>Mit einem Merge kann erreicht werden, dass Änderungen in einer Kopie nachgezogen werden. Was nicht möglich ist, sind gelöschte Elemente durch den Merge zu entfernen. Es werden nur neu hinzugekommene oder geänderte beachtet.
+Beim Kopieren in ein bestehendes Element werden zusätzlich alle zu kopierenden Unterelemente gruppiert und in verschiedenen Registerkarten dargestellt.</p>
+<p>Die Unterelemente sind wiederum nach MergeAction und Name sortiert.
+Für jedes Unterelement kann separat entschieden werden, ob und wie es im Ziel eingefügt wird.</p>
+<p><img src="media/paste-dialog-merge.png" alt="paste-dialog-merge"></p>
+<p><strong>Unterelemente:</strong></p>
+<ul>
+<li>Unterelemente können einzelne Werte oder komplexere Elemente wie Methoden oder Properties darstellen.</li>
+<li>Alle Elemente werden gruppiert und in verschiedenen Registerkarten dargestellt.</li>
+<li>Die einzelnen Elemente können aus einer Liste ausgewählt werden.</li>
+<li>Für jedes Element kann separat entschieden werden, ob und wie es gemerged wird.</li>
+<li>Elemente, die im Ziel noch nicht vorhanden sind (Insert) werden in der Liste Grün dargestellt.</li>
+</ul>
+<p><strong>Merge Action:</strong>
+Es stehen verschiedene Merge-Operationen zur Verfügung:</p>
+<ul>
+<li><p><strong>Insert</strong></p>
+<ul>
+<li>Das Element wird im Ziel neu eingefügt</li>
+<li>Der Eintrag wird in der Liste Grün dargestellt</li>
+</ul>
+</li>
+<li><p><strong>Replace</strong></p>
+<ul>
+<li>Unter <strong>Target</strong> kann das Element, das im Ziel ersetzt werden soll, ausgewählt werden</li>
+</ul>
+</li>
+<li><p><strong>Replace with</strong></p>
+<ul>
+<li>Das ausgewählte <strong>Source</strong>-Element ersetzt das „Target“-Element</li>
+</ul>
+</li>
+</ul>
+<p><strong>Target:</strong></p>
+<ul>
+<li>Dieses Element wird beim Mergen ersetzt</li>
+</ul>
+<p><strong>Source:</strong></p>
+<ul>
+<li>Das <strong>Source</strong>-Element ersetzt das „Target“-Element beim Merge</li>
+</ul>
+<p><strong>Merge Info:</strong></p>
+<ul>
+<li>Bietet Informationen über das Merge Element z.B. die Art der Übereinstimmung im Ziel</li>
+</ul>
+<h3 id="kopieren-von-ids">Kopieren von ID´s</h3>
+<p>Um Parallelentwicklungen zu realisieren, ohne dass die internen IDs von Elementen in verschiedenen Versionen auseinanderlaufen, besteht nun die Möglichkeit die ID von Elementen zu kopieren.</p>
+<p>In der obersten Leiste des <strong>Paste</strong> Dialogs ist farblich gekennzeichnet, ob die IDs kopiert oder neu angelegt werden.</p>
+<p><strong>Kopieren von IDs Aktiv:</strong>
+<img src="media/kopieren-von-ids-aktiv.png" alt="kopieren-von-ids-aktiv.png"></p>
+<p><strong>Kopieren von IDs Inaktiv:</strong>
+<img src="media/kopieren-von-ids-inaktiv.png" alt="kopieren-von-ids-inaktiv.png"></p>
+<p><strong>Für das Kopieren von IDs gelten folgende Regeln:</strong></p>
+<ul>
+<li><p>Wenn das zu kopierende Element am Namespace eingefügt wird und aus demselben Package aber unterschiedlicher Version stammt, ist das Kopieren der ID´s optional.</p>
+</li>
+<li><p>Beim Zusammenführen von Elementen im selben Package aber unterschiedlicher Version wird die ID automatisch kopiert, wenn die IDs der beiden Elemente übereinstimmen, ansonsten nicht.</p>
+</li>
+<li><p>Wenn das zu kopierende Element aus einem anderen Package stammt, ist das Kopieren der ID´s nicht möglich.</p>
+</li>
+</ul>
+<p><strong>Kopieren von IDs:</strong>
+<img src="media/kopieren-von-ids.png" alt="kopieren-von-ids.png"></p>
+<h3 id="kopieren-von-unterelementen">Kopieren von Unterelementen</h3>
+<ul>
+<li><p>Es ist möglich Methoden, Controls, Form- und Component-Properties zu kopieren.</p>
+</li>
+<li><p>Methoden können unabhängig von dem Parent-Element eingefügt werden.</p>
+</li>
+<li><p>Die ID wird bei Unterelementen nur dann übernommen, wenn in demselben Package aber unterschiedlichen Versionen kopiert wird und die ID der Parent-Elemente übereinstimmt. Elemente aus einer älteren Version werden nicht mit ID kopiert.</p>
+</li>
+<li><p>Beim Einfügen von Unterelementen in ein anderes Parent-Element wird der PasteDialog angezeigt. Beim Einfügen von Unterelementen aus einer älteren Version wird der Dialog nicht angezeigt.</p>
+</li>
+</ul>
+<h3 id="sonderfälle">Sonderfälle</h3>
+<p>Es gibt Ausnahmen oder Sonderfälle beim Kopieren oder Mergen, die nachfolgend aufgelistet sind:</p>
+<h5 id="metadatentype">Metadatentype</h5>
+<ul>
+<li>Merge von Indices<ul>
+<li>Falls die ID oder der Name identisch sind, wird ein Replace angeboten.</li>
+<li>Fall ID und Name nicht übereinstimmen, aber dieselbe Konstellation von Spalten im Ziel enthalten ist und ASC/DSC identisch sind, wird ebenfalls ein Replace angeboten.</li>
+<li>In allen anderen Fällen wird ein Insert angeboten.</li>
+</ul>
+</li>
+</ul>
+<h5 id="textcollection">TextCollection</h5>
+<ul>
+<li>Merge von TextEntries<ul>
+<li>Wenn der PK identisch ist, wird ein Replace vorgeschlagen.</li>
+<li>Wenn die ID´s oder die Namen identisch sind, aber der PK abweicht, wird ein Replace mit entsprechender Warning angezeigt.</li>
+<li>Beim Mergen werden ID und Namen als Felder zum Bearbeiten angeboten.</li>
+<li>Texte, die nicht bekannt sind (ISO nicht bekannt), werden nicht gemerged.</li>
+</ul>
+</li>
+</ul>
+<h5 id="service-elemente">Service Elemente</h5>
+<ul>
+<li>Allgemein<ul>
+<li>Ableitungen von Service Elementen können weder kopiert noch gemerged werden.</li>
+</ul>
+</li>
+</ul>
+<h5 id="report">Report</h5>
+<ul>
+<li>Data Source<ul>
+<li>Die angehakten Checkboxen von DataSources werden beim Kopieren von Ableitungen oder Customizations nicht mit kopiert.</li>
+<li>Die angehakten Checkboxen vom DataSources werden beim Merge nicht berücksichtigt.</li>
+</ul>
+</li>
+</ul>
+<h5 id="globalevent">GlobalEvent</h5>
+<ul>
+<li>Allgemein<ul>
+<li>Das GlobalEvent kann nicht gemerged werden.</li>
+</ul>
+</li>
+</ul>
+<h5 id="workflow">Workflow</h5>
+<ul>
+<li>Merge Allgemein<ul>
+<li>Die Position oder Größe eines Elements wird beim Mergen nicht berücksichtigt.</li>
+<li>Wenn der Name oder die ID eines Elements identisch ist, wird, falls sich eine Eigenschaft geändert hat, ein Replace angeboten.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Ein Merge-Konflikt wird angezeigt, wenn:</strong></p>
+<ul>
+<li>Switch<ul>
+<li>das Event (Name oder ID) nicht identisch sind</li>
+</ul>
+</li>
+<li>Branch<ul>
+<li>die Condition abweicht</li>
+</ul>
+</li>
+<li>Link<ul>
+<li>eine Eigenschaft des Links geändert wurde</li>
+</ul>
+</li>
+<li>Form<ul>
+<li><strong><em>ISModal</em></strong>, <strong><em>ISEntranceInstance</em></strong> oder <strong><em>IsStartInstance</em></strong> geändert wurde</li>
+</ul>
+</li>
+<li>Workflow<ul>
+<li><strong><em>IsEntranceInstance</em></strong> geändert wurde</li>
+</ul>
+</li>
+</ul>
+<h5 id="resource">Resource</h5>
+<ul>
+<li>Allgemein<ul>
+<li>Ressources können nicht gemerged werden</li>
+</ul>
+</li>
+</ul>
+<h5 id="namespaces">Namespaces</h5>
+<ul>
+<li>Allgemein<ul>
+<li>Namespaces können nicht gemerged werden</li>
+<li>Namespace Referencen werden nicht kopiert</li>
+</ul>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/ide/bearbeiten-von-elementen.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

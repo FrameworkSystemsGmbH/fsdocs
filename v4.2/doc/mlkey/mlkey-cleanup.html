@@ -81,8 +81,25 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="mlkeys-cleanup">MLKeys Cleanup</h1>
 
-<p>MLKeys-Cleanup ist eine Wartungs-Routine, die bereinigungen im <a href="woerterbuch.html">Wörterbuch</a> durchführt.</p>
-<p>Sie kann über das Menu <strong>Tools / Checks / MLKeys Cleanup</strong> aufgerufen werden.</p>
+<p>MLKeys-Cleanup ist eine Wartungs-Routine, die Bereinigungen im <a href="woerterbuch.html">Wörterbuch</a> durchführt.</p>
+<p>Sie kann in der IDE über das Menu <strong>Tools / Checks / MLKeys Cleanup</strong> aufgerufen werden.</p>
+<p><img src="media/mlkey-cleanup.png" alt="MLKey Cleanup"></p>
+<h4 id="checkbox-reset-identical-overrides">Checkbox <strong>Reset identical overrides</strong></h4>
+<p>Es werden Texte gesucht, die im aktuellen Package denselben Inhalt haben wie im Basis-Package.</p>
+<p>Die Bereinigung entfernt diese Überschreibungen.</p>
+<h4 id="checkbox-find-untranslatable">Checkbox <strong>Find untranslatable</strong></h4>
+<p>(1) Es werden MLKeys gesucht, an denen die Texte in allen gepflegten Sprachen identisch sind. Es wird vorgeschlagen diese auf <strong>untranslatable</strong> zu setzen. Dazu kann der Button <a href="woerterbuch.html#button-untranslatable"><strong>Untranslatable</strong></a> verwendet werden. Die Treffer werden als <em>Information</em> ausgegeben.</p>
+<p>(2) Es werden MLKeys gesucht, die als <strong>untranslatable</strong> gekennzeichnet sind, aber in Fremdsprachen einen Text besitzen. Die Treffer werden als <em>Warnung</em> ausgegeben.</p>
+<div class="NOTE"><h5>Note</h5><p>Es findet keine Bereinigung der Treffer statt. Dies muss bei Bedarf manuell erfolgen.</p>
+</div>
+<h4 id="checkbox-find-unused-mlkeys">Checkbox <strong>Find unused MLKeys</strong></h4>
+<p>Es werden MLKeys angezeigt, die nicht verwendet werden. Es wird dazu der komplette generierte Code nach Verwendungen von MLKeys durchsucht. Dieser Vorgang kann einige Zeit dauern, er kann aber bei Bedarf abgebrochen werden.</p>
+<div class="NOTE"><h5>Note</h5><p>Es findet keine Bereinigung der Treffer statt. Dies muss bei Bedarf manuell erfolgen.</p>
+</div>
+<h4 id="button-analyze">Button <strong>Analyze</strong></h4>
+<p>Dieser Button führt für die ausgewählten Operationen lediglich eine Analyse durch. Die gefundenen Treffer werden im Error-Fenster ausgegeben.</p>
+<h4 id="button-cleanup">Button <strong>Cleanup</strong></h4>
+<p>Nach einer Sichtung der mit dem Button <strong>Analyze</strong> gefundenen Treffer, kann mit diesem Button die Bereinigung ausgeführt werden.</p>
 </article>
           </div>
           

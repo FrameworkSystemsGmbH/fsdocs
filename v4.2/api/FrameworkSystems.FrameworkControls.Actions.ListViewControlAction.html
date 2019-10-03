@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class EditableControlAction
+    <title>Class ListViewControlAction
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class EditableControlAction
+    <meta name="title" content="Class ListViewControlAction
    ">
     <meta name="generator" content="docfx 2.43.5.0">
     
@@ -80,12 +80,12 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkControls.Actions.EditableControlAction">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkControls.Actions.ListViewControlAction">
   
   
-  <h1 id="FrameworkSystems_FrameworkControls_Actions_EditableControlAction" data-uid="FrameworkSystems.FrameworkControls.Actions.EditableControlAction" class="text-break">Class EditableControlAction
+  <h1 id="FrameworkSystems_FrameworkControls_Actions_ListViewControlAction" data-uid="FrameworkSystems.FrameworkControls.Actions.ListViewControlAction" class="text-break">Class ListViewControlAction
   </h1>
-  <div class="markdown level0 summary"><p>Summary description for EditableControlAction.</p>
+  <div class="markdown level0 summary"><p>Über diese Klasse werden zur Laufzeit die Actions für das Control <a href="../doc/form/control/listview.html">ListView</a> angeboten.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -93,17 +93,8 @@
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.FrameworkControlActionBase.html">FrameworkControlActionBase</a></div>
     <div class="level2"><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.FrameworkControlAction.html">FrameworkControlAction</a></div>
-    <div class="level3"><span class="xref">EditableControlAction</span></div>
-      <div class="level4"><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.ButtonControlAction.html">ButtonControlAction</a></div>
-      <div class="level4"><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.CheckboxControlAction.html">CheckboxControlAction</a></div>
-      <div class="level4"><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.ComboBoxControlAction.html">ComboBoxControlAction</a></div>
-      <div class="level4"><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.EditboxControlAction.html">EditboxControlAction</a></div>
-      <div class="level4"><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.GridColumnControlAction.html">GridColumnControlAction</a></div>
-      <div class="level4"><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.GridControlAction.html">GridControlAction</a></div>
-      <div class="level4"><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.ListBoxControlAction.html">ListBoxControlAction</a></div>
-      <div class="level4"><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.ListViewControlAction.html">ListViewControlAction</a></div>
-      <div class="level4"><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.MainMenuControlAction.html">MainMenuControlAction</a></div>
-      <div class="level4"><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.PictureControlAction.html">PictureControlAction</a></div>
+    <div class="level3"><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.EditableControlAction.html">EditableControlAction</a></div>
+    <div class="level4"><span class="xref">ListViewControlAction</span></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
@@ -111,6 +102,12 @@
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkControls.Actions.EditableControlAction.SetEnabled.html#FrameworkSystems_FrameworkControls_Actions_EditableControlAction_SetEnabled_System_Nullable_System_Boolean__">EditableControlAction.SetEnabled(Nullable&lt;Boolean&gt;)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkControls.Actions.EditableControlAction.SetFocus.html#FrameworkSystems_FrameworkControls_Actions_EditableControlAction_SetFocus">EditableControlAction.SetFocus()</a>
+    </div>
     <div>
       <a class="xref" href="FrameworkSystems.FrameworkControls.Actions.FrameworkControlAction.SetForeColor.html#FrameworkSystems_FrameworkControls_Actions_FrameworkControlAction_SetForeColor_System_Nullable_System_Drawing_Color__">FrameworkControlAction.SetForeColor(Nullable&lt;Color&gt;)</a>
     </div>
@@ -192,22 +189,15 @@
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkControls.Actions.html">FrameworkSystems.FrameworkControls.Actions</a></h6>
   <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkControls.dll</h6>
-  <h5 id="FrameworkSystems_FrameworkControls_Actions_EditableControlAction_syntax">Syntax</h5>
+  <h5 id="FrameworkSystems_FrameworkControls_Actions_ListViewControlAction_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Serializable]
-public class EditableControlAction : FrameworkControlAction, IFrameworkControlActionBase, ISerializable</code></pre>
+public class ListViewControlAction : EditableControlAction, IFrameworkControlActionBase, ISerializable</code></pre>
   </div>
-  <h3 id="methods">Methods
-  </h3>
-  
-    <h4><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.EditableControlAction.SetEnabled.html#FrameworkSystems_FrameworkControls_Actions_EditableControlAction_SetEnabled_System_Nullable_System_Boolean__">SetEnabled(Nullable&lt;Boolean&gt;)</a></h4>
-    <section><p><p>Bestimmt, ob der Button reagiert, also gedrückt werden kann, oder nicht.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.EditableControlAction.SetFocus.html#FrameworkSystems_FrameworkControls_Actions_EditableControlAction_SetFocus">SetFocus()</a></h4>
-    <section><p><p>Setzt den Fokus auf das entsprechende Control, an dem diese Action ausgeführt wird. 
-Werden in einem Request an den Broker mehrere SetFocus-Actions ausgeführt, gewinnt die letzte.</p>
-</p></section>
-  
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ListViewDesignViewModel.html">ListViewDesignViewModel</a></div>
+  </div>
 </article>
           </div>
           

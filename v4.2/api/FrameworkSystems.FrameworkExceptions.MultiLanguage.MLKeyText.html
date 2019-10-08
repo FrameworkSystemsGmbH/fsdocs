@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class FrameworkApplicationException
+    <title>Class MLKeyText
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class FrameworkApplicationException
+    <meta name="title" content="Class MLKeyText
    ">
     <meta name="generator" content="docfx 2.43.5.0">
     
@@ -80,59 +80,48 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkExceptions.FrameworkApplicationException">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText">
   
   
-  <h1 id="FrameworkSystems_FrameworkExceptions_FrameworkApplicationException" data-uid="FrameworkSystems.FrameworkExceptions.FrameworkApplicationException" class="text-break">Class FrameworkApplicationException
+  <h1 id="FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKeyText" data-uid="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText" class="text-break">Class MLKeyText
   </h1>
-  <div class="markdown level0 summary"><p>Exceptions die vom Framework geworfen werden und einen erwarteten
-Fehler darstellen sollten von dieser Klasse sein. Der Broker gibt
-diese dann als Fehler ohne StackTrace an den Client weiter.</p>
+  <div class="markdown level0 summary"><p>Diese Klasse verpackt einen MLKey und den lokalisierten Text. So ist es möglich 
+mit dem Text auch den MLKey zu transportieren. 
+In der <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkApplicationException.html">FrameworkApplicationException</a> kann so der MLKey als 
+&quot;Fehlercode&quot; verwendet werden.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
-    <div class="level1"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.exception">Exception</a></div>
-    <div class="level2"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.applicationexception">ApplicationException</a></div>
-    <div class="level3"><span class="xref">FrameworkApplicationException</span></div>
+    <div class="level1"><span class="xref">MLKeyText</span></div>
   </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkExceptions.html">FrameworkSystems.FrameworkExceptions</a></h6>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.html">FrameworkSystems.FrameworkExceptions.MultiLanguage</a></h6>
   <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkExceptions.dll</h6>
-  <h5 id="FrameworkSystems_FrameworkExceptions_FrameworkApplicationException_syntax">Syntax</h5>
+  <h5 id="FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKeyText_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[Serializable]
-public class FrameworkApplicationException : ApplicationException, ISerializable, _Exception</code></pre>
+    <pre><code class="lang-csharp hljs">public class MLKeyText</code></pre>
   </div>
+  <h5 id="FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKeyText_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Das GlobalObject bietet Methoden, um Texte in Form dieser Klasse zu erhalten:</p>
+<ul>
+<li><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLKeyText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_">GetMLKeyText(MLKey)</a></li>
+<li><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLKeyText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(MLKey, Object[])</a></li>
+</ul>
+</div>
   <h3 id="constructors">Constructors
   </h3>
   
-    <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkApplicationException.-ctor.html#FrameworkSystems_FrameworkExceptions_FrameworkApplicationException__ctor_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKeyText_">FrameworkApplicationException(MLKeyText)</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkApplicationException.-ctor.html#FrameworkSystems_FrameworkExceptions_FrameworkApplicationException__ctor_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKeyText_System_Exception_">FrameworkApplicationException(MLKeyText, Exception)</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkApplicationException.-ctor.html#FrameworkSystems_FrameworkExceptions_FrameworkApplicationException__ctor_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKeyText_System_Int32_">FrameworkApplicationException(MLKeyText, Int32)</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkApplicationException.-ctor.html#FrameworkSystems_FrameworkExceptions_FrameworkApplicationException__ctor_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKeyText_System_Int32_System_Exception_">FrameworkApplicationException(MLKeyText, Int32, Exception)</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkApplicationException.-ctor.html#FrameworkSystems_FrameworkExceptions_FrameworkApplicationException__ctor_System_String_">FrameworkApplicationException(String)</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkApplicationException.-ctor.html#FrameworkSystems_FrameworkExceptions_FrameworkApplicationException__ctor_System_String_System_Exception_">FrameworkApplicationException(String, Exception)</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkApplicationException.-ctor.html#FrameworkSystems_FrameworkExceptions_FrameworkApplicationException__ctor_System_String_System_Int32_">FrameworkApplicationException(String, Int32)</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkApplicationException.-ctor.html#FrameworkSystems_FrameworkExceptions_FrameworkApplicationException__ctor_System_String_System_Int32_System_Exception_">FrameworkApplicationException(String, Int32, Exception)</a></h4>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.-ctor.html#FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKeyText__ctor_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_String_">MLKeyText(MLKey, String)</a></h4>
     <section><p></section>
   
   <h3 id="properties">Properties
   </h3>
   
-    <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkApplicationException.MLKey.html#FrameworkSystems_FrameworkExceptions_FrameworkApplicationException_MLKey">MLKey</a></h4>
-    <section><p><p>Der mit dem <a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.html">MLKeyText</a> übergebene MLKey.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkApplicationException.Severity.html#FrameworkSystems_FrameworkExceptions_FrameworkApplicationException_Severity">Severity</a></h4>
-    <section><p><p>Definiert den Schweregrad der Exception.</p>
-</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.Key.html#FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKeyText_Key">Key</a></h4>
+    <section><p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.Text.html#FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKeyText_Text">Text</a></h4>
+    <section><p></section>
   
 </article>
           </div>

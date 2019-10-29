@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Compile Wizard </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Compile Wizard ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="compile-wizard">Compile Wizard</h1>
+
+<p>Der Compile Wizard ermöglicht das automatische Kompilieren eines Labels mit den davon abhängigen Labels. Alle Einstellungen für einen solchen Vorgang können gespeichert und wieder geladen werden. Außerdem lässt sich der Compile Wizard per Kommandozeilenparameter mit einer zuvor gespeicherten Konfiguration automatisch starten.</p>
+<div class="WARNING"><h5>Warning</h5><p>Es wird immer ohne <strong>Use saved code</strong> kompiliert.</p>
+</div>
+<h2 id="starten-des-wizards">Starten des Wizards</h2>
+<p>Der Compile Wizard wird über den Eintrag Compile Wizard im Kontextmenü eines Labels gestartet.</p>
+<p><img src="media/compile-wizard-start.png" alt="compile-wizard-start.png"></p>
+<p>Im Compile Wizard werden auf der linken Seite in einem Treeview das ausgewählte Label und alle davon abhängigen Labels angezeigt. Wurzelknoten ist das ausgewählte Label. Alle davon abhängigen Labels werden auf der ersten Ebene dargestellt. Sind von diesen Labels wiederrum weitere Labels abhängig, werden diese auf einer weiteren Ebene dargestellt.</p>
+<p>Im folgenden Screenshot ist zum Beispiel das Label <em>CustomizingTestLevel2 1.0</em> abhängig vom Label <em>CustomizingTest 1.0</em>. Deshalb wird es (auch) als Unterknoten von <em>CustomizingTest 1.0</em> angezeigt.</p>
+<p><img src="media/compile-wizard.png" alt="compile-wizard.png"></p>
+<p>Im Treeview kann für jedes Label über die dazugehörige Checkbox festgelegt werden, ob dieses Label kompiliert werden soll.</p>
+<p>Auf der rechten Seite werden daraus resultierend alle Labels in der Reihenfolge angezeigt, in der sie kompiliert werden.</p>
+<div class="TIP"><h5>Tip</h5><p>Wenn man mehrere Labels (Versionen) desselben Packages hintereinander kompilieren möchte, kann man den Compile Wizard über das Kontextmenü des Labels SystemVersion vom SystemPackage öffnen. Es werden dann alle Labels angezeigt, da alle Labels von diesem Label abhängig sind.</p>
+</div>
+<h4 id="checkbox-refresh-workspace-of-frameworkcompiler-before-each-compile">Checkbox <strong>Refresh workspace of FrameworkCompiler before each compile</strong></h4>
+<p>Wenn diese Checkbox gesetzt ist, wird der Workspace des FrameworkCompilers vor dem Kompilieren eines Labels für dieses Label aktualisiert.</p>
+<h4 id="button-start-compile">Button <strong>Start Compile</strong></h4>
+<p>Mit diesem Button wird der gesamte Kompiliervorgang gestartet. Tritt beim Kompilieren ein Fehler auf, wird der gesamte Kompiliervorgang unterbrochen. Es wird Framework Studio geöffnet und der aufgetretene Fehler angezeigt.</p>
+<h4 id="button-stop-after-this-label">Button <strong>Stop after this Label</strong></h4>
+<p>Mit diesem Button kann der Kompiliervorgang zwischen den einzelnen Labels abgebrochen werden.</p>
+<h2 id="einstellungen-exportieren">Einstellungen exportieren</h2>
+<p>Im Compile Wizard kann über den Menüpunkt <strong>File / Export Settings</strong> die aktuelle Konfiguration in eine XML-Datei exportiert werden. In dieser Datei sind die folgenden Informationen enthalten:</p>
+<ul>
+<li><p>ConnectionString für den Zugriff auf das Repository (verschlüsselt)</p>
+</li>
+<li><p>Zu kompilierende Labels</p>
+</li>
+<li><p>Soll der Workspace vor dem Kompilieren aktualisiert werden?</p>
+</li>
+</ul>
+<p>Mit dieser XML-Datei ist es möglich, ein Kompiliervorgang für mehrere Packages / Labels per Kommandozeile anzustoßen</p>
+<h2 id="einstellungen-importieren">Einstellungen importieren</h2>
+<p>Im Compile Wizard können Sie eine gespeicherte Konfiguration über den Menüpunkt <strong>File / Import Settings</strong> importieren.</p>
+<h2 id="start-per-kommandozeilenparameter">Start per Kommandozeilenparameter</h2>
+<p>Der folgende Aufruf startet den Package-Manager, öffnet den Compile Wizard mit den Einstellungen, die in der Datei <em>Settings1.XML</em> abgelegt sind und startet den Kompiliervorgang.</p>
+<pre><code class="lang-console">FrameworkStudioPackageManager.exe \compileXML &quot;C:\Settings1.XML&quot;
+</code></pre><p>So ist es z.B. möglich den Package-Manager über einen geplanten Task zu starten und so das regelmäßige Kompilieren mit dem FrameworkCompiler automatisch durchzuführen. Idealerweise sollte dieser Vorgang am Abend gestartet werden, nachdem die Entwickler ihre Elemente in einem kompilierfähigen Zustand eingecheckt haben.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/package-manager/compile-wizard.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

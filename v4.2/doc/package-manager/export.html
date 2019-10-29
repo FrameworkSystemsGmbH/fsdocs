@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Export einer Package-Version </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Export einer Package-Version ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="export-einer-package-version">Export einer Package-Version</h1>
+
+<p>Über den Button <img src="../media/icon-export-package.png" alt="icon-export-package.png"> kann die im Baum ausgewählte Package-Version in eine Datei exportiert werden. Diese Datei kann anschließend in einem anderen Repository wieder importiert werden.
+Es wird folgender Dialog angezeigt:</p>
+<p><img src="media/export-package-version-dialog.png" alt="export-package-version-dialog.png"></p>
+<h4 id="package-file">Package File</h4>
+<p>hier wird die Datei angegeben, in welche die Package-Version exportiert werden soll. Der Datei-Name wird automatisch mit dem Format <strong>&lt;Datum_Package_Version&gt;</strong> vorbelegt. Dieser sollte nach Möglichkeit nicht geändert werden.</p>
+<h4 id="export-code-methods-and-debug-information">Export Code, Methods and Debug-Information</h4>
+<p>mit dieser Checkbox wird angegeben, ob die Export-Datei den Code und die Debug-Informationen enthalten sollen. Der Code beinhaltet dabei sämtlichen Methoden-Code und auch den vom FrameworkCompiler generierten Code. Bei den Debug-Informationen handelt es sich um die im Debug-Modus kompilierten Assemblies mit ihren PDB-Dateien und den CS-Dateien.</p>
+<h4 id="include-base-packages">Include Base Packages</h4>
+<p>Wenn diese Checkbox gesetzt wird, dann wird ein Bereich eingeblendet, in dem angegeben werden kann, welche Basis-Packages mit in die Export-Datei gepackt werden sollen. Dies funktioniert auch bei importierten Basis-Packages.
+Im Vergleich zum Export der einzelnen Package-Versionen hat dieses Vorgehen den Vorteil, dass auf jeden Fall der passende Compile-Stand des Basis-Packages verwendet wird – auch wenn das Basis-Package später neu kompiliert wurde und dafür ein aktuellerer FrameworkCompiler-Stand zur Verfügung steht.</p>
+<p>Wenn die Checkbox gesetzt wird, dann werden automatisch folgende Packages ausgewählt:</p>
+<h4 id="export-unsealed-base-packages">Export unsealed Base Packages</h4>
+<p>Damit werden alle Package-Versionen ausgewählt, die nicht versiegelt wurden. Diese Option ist z.B. beim Einsatz von noch offenen Vorab-Versionen sinnvoll.</p>
+<h4 id="export-service-releases">Export Service Releases</h4>
+<p>Damit werden alle Service-Releases ausgewählt. Dies bedingt aber, dass im Ziel-Repository bereits ein aktueller Stand des Basis-Packages importiert wurde.</p>
+<p>Bei Bedarf können auch gezielt weitere Packages ausgewählt werden. Bei Package-Versionen, die sich im Service-Release-Modus befinden kann mit der Checkbox <strong>Export Full Package</strong> statt dem Service-Release-Paket die komplette Package-Version eingebunden werden.</p>
+<p>Beim <strong>Package-Import</strong> werden automatisch alle in der Export-Datei beinhalteten Packages importiert – die Auswahl kann nur beim Export getroffen werden. Bei Service-Releases erfolgt ein Import nur dann, wenn nicht bereits ein aktuellerer Service-Release-Stand vorhanden ist.</p>
+<div class="NOTE"><h5>Note</h5><p>Ein neues Repository kann mit so einer Export-Datei nicht angelegt werden. Dies ist nur mit dem Export des Default-Packages möglich.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/package-manager/export.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -8,7 +8,7 @@
     <title>Programmierung mit MLKeys </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Programmierung mit MLKeys ">
-    <meta name="generator" content="docfx 2.43.5.0">
+    <meta name="generator" content="docfx 2.46.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -120,43 +120,20 @@
 </ol>
 <h2 id="methoden-am-global-object">Methoden am Global-Object</h2>
 <p>Das GlobalObject bietet mehrere Methoden an, mit denen ein MLKey in ein Text überführt werden kann.</p>
-<h3 id="getmltext">GetMLText</h3>
-<pre><code class="lang-csharp">public string GetMLText(MLKey mlkey)
-</code></pre><p>Diese Methode ermittelt für den übergebenen <code>MLKey</code> den Text. Es wird die aktuell in der Session gesetzte Sprach-Hierarchie verwendet.</p>
-<pre><code class="lang-csharp">public string GetMLText(MLKey mlkey, string iso)
-</code></pre><p>Bei dieser Variante wird der Iso-Code der gewünschten Sprache übergeben.</p>
-<p>Beispiel:</p>
-<pre><code class="lang-csharp">FSstring sArticleLabel = this.Global.GetMLText( MLKeys.LBL_Article );
-FSString sAmountEn = this.Global.GetMLText( MLKeys.LBL_Amount, &quot;en&quot; );
-</code></pre><h3 id="formatmltext">FormatMLText</h3>
-<pre><code class="lang-csharp">public string FormatMLText(MLKey mlkey, params object[] args)
-</code></pre><p>Diese Methode ermittelt für den übergebenen <code>MLKey</code> den Text. Es wird zudem ein <code>String.Format()</code> mit den übergebenen <code>args</code> ausgeführt.</p>
-<p>Beispiel:</p>
-<pre><code class="lang-csharp">FSstring sFormattedText = this.Global.FormatMLText( MLKeys.LBL_MitFormat, &quot;Text1&quot;, lngAmount );
-</code></pre><h3 id="getmlkeytext">GetMLKeyText</h3>
-<pre><code class="lang-csharp">public MLKeyText GetMLKeyText(MLKey mlkey)
-</code></pre><p>Diese Variante gibt ein <code>MLKeyText</code> Objekt zurück, welches neben dem Text auch den übergebenen <code>MLKey</code> beinhaltet. Das kann hilfreich sein, wenn der MLKey interessant ist, um ihn z.B. als Fehler-Code zu verwenden.</p>
-<p>Diese Methode wird z.B. für die Code-Messages benutzt:</p>
-<pre><code class="lang-csharp">// FSCodeMessage: Please select only one article.
-throw new FrameworkApplicationException(this.Global.GetMLKeyText(MLKeys.MSG_1b6b9bea43304e2082d1162d75d9e317), 0);
-</code></pre><h3 id="formatmlkeytext">FormatMLKeyText</h3>
-<pre><code class="lang-csharp">public MLKeyText FormatMLKeyText(MLKey mlkey, params object[] args)
-</code></pre><p>Gibt ein <code>MLKeyText</code>-Objekt mit dem formatierten Text und dem MLKey zurück. Diese Methode wird in den Code-Messages benutzt.</p>
-<p>Beispiel:</p>
-<pre><code class="lang-csharp">// FSCodeMessage: Please specify {0}
-throw new FrameworkApplicationException(this.Global.FormatMLKeyText(MLKeys.MSG_24979a3d247546318dc673c5501d3b15, this.sName), 0);
-</code></pre><h2 id="cglobal-entrypoint">cGlobal EntryPoint</h2>
-<p>In der Klasse <code>cGlobal</code> gibt es einen zentralen Entry-Point <code>GlobalGetMLText</code>. Dieser wird JEDES MAL aufgerufen, wenn aus einem MLKey ein Text erzeugt wird.</p>
-<pre><code class="lang-csharp">public virtual string GlobalGetMLText(MLKey mlkey, string iso)
-</code></pre><p>Die Sprach-Hierarchie der Session, welche am GlobalObject hinterlegt ist, wird außerhalb dieser Methode aufgelöst. Besteht die Hierarchie aus mehreren Fallbacks (z.B. <code>fr, en, de</code>), wird diese Methode auch ggf. mehrfach nacheinander mit den unterschiedlichen Iso-Codes aufgerufen. Liefert die Methode einen Wert ungleich <code>null</code> oder <code>String.Empty</code> zurück, wird dieser als Text verwendet und es erfolgt kein weiterer Aufruf.</p>
-<p>Es ist möglich, diese Methode am cGlobal zu überschreiben und die Ermittlung der Texte zu beeinflussen oder zu überwachen.</p>
-<div class="WARNING"><h5>Warning</h5><ol>
-<li><p>Diese Methode muss sehr performant gestaltet werden. Komplexe Logik kann die <strong>Performance</strong> der kompletten Anwendung sehr negativ beeinflussen.</p>
-</li>
-<li><p>Der <strong>Basis-Aufruf</strong> muss sichergestellt werden. Ansonsten wird das komplette Wörterbuch ausgehebelt und es werden gar keine Texte mehr ermittelt.</p>
-</li>
-</ol>
-</div>
+<ul>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_">GetMLText(mlkey)</a></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_String_">GetMLText(mlkey, iso)</a></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLKeyText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_">GetMLKeyText(mlkey)</a></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLText(mlkey, args)</a></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLKeyText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(mlkey, args)</a></li>
+</ul>
+<p>Für die Format-Funktionen wird die Client-Culture verwendet. Für die Verwendung einer spezifischen Culture gibt es entsprechende Überladungen:</p>
+<ul>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLText_System_IFormatProvider_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLText(culture, mlkey, args)</a></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLKeyText_System_IFormatProvider_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(culture, mlkey, args)</a></li>
+</ul>
+<h2 id="cglobal-entrypoint">cGlobal EntryPoint</h2>
+<p>In der Klasse <code>cGlobal</code> gibt es einen zentralen Entry-Point <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.GlobalGetMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IcGlobalBase_GlobalGetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_String_">GlobalGetMLText</a>. Dieser wird JEDES MAL aufgerufen, wenn aus einem MLKey ein Text erzeugt wird.</p>
 </article>
           </div>
           

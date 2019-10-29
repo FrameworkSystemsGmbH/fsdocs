@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Method GetMLText
    ">
-    <meta name="generator" content="docfx 2.43.5.0">
+    <meta name="generator" content="docfx 2.46.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -92,7 +92,8 @@
 <a id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLText*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLText(FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKey)">GetMLText(MLKey)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Ermittelt für den übergebenen <code>MLKey</code> den Text. Es wird die aktuell in der Session gesetzte Sprach-Hierarchie verwendet.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -117,13 +118,18 @@
       </div>
     </section>
 
+  <h5 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey__examples">Examples</h5>
+  <pre><code>FSstring sArticleLabel = this.Global.GetMLText( MLKeys.LBL_Article );</code></pre>
+
 </section>
 
 
 <a id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLText*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_String_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLText(FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKey,System.String)">GetMLText(MLKey, String)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Diese Methode ermittelt für den übergebenen <code>MLKey</code> den Text für die übergebene Sprache.
+Es erfolgt kein Fallback auf eine andere Sprache.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -140,7 +146,8 @@
     </div>
     <div class="propertyInfo">
       <span class="parametername"><code>iso</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>Iso-Code der Sprache.</p>
+</div>
     </div>
   </section>
 
@@ -151,6 +158,9 @@
         <div class="markdown level1 summary"></div>
       </div>
     </section>
+
+  <h5 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_String__examples">Examples</h5>
+  <pre><code>FSString sAmountEn = this.Global.GetMLText( MLKeys.LBL_Amount, &quot;en&quot; );</code></pre>
 
 </section>
 </article>

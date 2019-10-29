@@ -8,7 +8,7 @@
     <title>ML-Column </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="ML-Column ">
-    <meta name="generator" content="docfx 2.43.5.0">
+    <meta name="generator" content="docfx 2.46.0.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -106,7 +106,14 @@
 <li><p><strong>Delete</strong>: Wird der Datensatz aus der Datenbank gelöscht, dann werden auch alle zu dieser FSROWID gespeicherten Texte aus der Übersetzungs-Tabelle gelöscht.</p>
 </li>
 </ul>
-<div class="IMPORTANT"><h5>Important</h5><p>Die Sprache ist mit dem Start der Anwendung am GlobalObject festgelegt. Es gibt keine Möglichkeit, zur Laufzeit auf die Sprache Einfluss zu nehmen oder die Texte in einer spezifischen Sprache zu behandeln.</p>
+<h3 id="sprache-zur-laufzeit-ändern">Sprache zur Laufzeit ändern</h3>
+<p>Die Sprache ist mit dem Start der Anwendung an Global.<a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SelectedLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SelectedLanguage">SelectedLanguage</a> festgelegt.</p>
+<p>Wird für einen bestimmten Code eine abweichende Sprache benötigt, dann kann dies über Global.<a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.UseMLColumnLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_UseMLColumnLanguage_System_String_System_Action_">UseMLColumnLanguage</a> geschehen. Während der übergebenen Action kann so ein abweichender Iso-Code gesetzt werden. Über das Property Global.<a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.MLColumnLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_MLColumnLanguage">MLColumnLanguage</a> kann die aktuell gültige Sprache ermittelt werden.</p>
+<pre><code class="lang-csharp">this.Global.UseMLColumnLanguage(&quot;fr&quot;, () =&gt;
+{
+    // Erzeugen des Reports in französischer Sprache.
+});
+</code></pre><div class="IMPORTANT"><h5>Important</h5><p>Diese Funktion beeinflusst nicht die in der Oberfläche angezeigten Daten. Es gibt keine Möglichkeit dauerhaft auf die Sprache Einfluss zu nehmen.</p>
 </div>
 <h2 id="tips-für-entwickler">Tips für Entwickler</h2>
 <h3 id="finden-von-mlcolumns">Finden von MLColumns</h3>

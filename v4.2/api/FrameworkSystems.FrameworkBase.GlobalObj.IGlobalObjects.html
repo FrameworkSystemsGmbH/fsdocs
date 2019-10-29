@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Interface IGlobalObjects
    ">
-    <meta name="generator" content="docfx 2.43.5.0">
+    <meta name="generator" content="docfx 2.46.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -85,7 +85,7 @@
   
   <h1 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects" class="text-break">Interface IGlobalObjects
   </h1>
-  <div class="markdown level0 summary"><p>Das GlobalObject ist von überall auf mit <code>this.Global</code> zu erreichen. 
+  <div class="markdown level0 summary"><p>Das GlobalObject ist von überall auf mit <code>this.Global</code> zu erreichen.
 Am GlobalObject werden alle Session-Daten verwaltet und Session-Funktionen angeboten.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
@@ -100,14 +100,24 @@ public interface IGlobalObjects : IFrameworkDBPerformanceCounter</code></pre>
   </h3>
   
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.AUHelper.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_AUHelper">AUHelper</a></h4>
-    <section><p><p>Gibt ein Objekt vom Typ <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.AUHelper.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_AUHelper">AUHelper</a> zurück. Dieses Objekt bietet Methoden 
+    <section><p><p>Gibt ein Objekt vom Typ <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.AUHelper.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_AUHelper">AUHelper</a> zurück. Dieses Objekt bietet Methoden
 für den Bereich Benutzer- und Rechte-Verwaltung an.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.ClientInfos.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_ClientInfos">ClientInfos</a></h4>
+    <section><p><p>In diesem Dictionary sind Informationen abgelegt, die der Client beim Start der Anwendung an den Broker übertragen hat.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.LanguageHierarchy.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_LanguageHierarchy">LanguageHierarchy</a></h4>
     <section><p><p>Gibt einen Enumeratur zurück, der die Sprach-Hierarchie beinhaltet, oder legt diesen fest.</p>
 </p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.MLColumnLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_MLColumnLanguage">MLColumnLanguage</a></h4>
+    <section><p><p>Gibt den Iso-Code der Sprache zurück, die aktuell für die MLColumn-Properties verwendet wird.
+Normalerweise handelt es sich dabei um die <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SelectedLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SelectedLanguage">SelectedLanguage</a>. 
+Mit der Methode <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.UseMLColumnLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_UseMLColumnLanguage_System_String_System_Action_">UseMLColumnLanguage(String, Action)</a> kann die Sprache vorrübergebend geändert werden.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.ocGlobal.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_ocGlobal">ocGlobal</a></h4>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SafeInitializing.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SafeInitializing">SafeInitializing</a></h4>
-    <section><p><p>Gibt zurück, ob der Safe-Initialize-Modus aktiv ist. 
+    <section><p><p>Gibt zurück, ob der Safe-Initialize-Modus aktiv ist.
 Dieser Modus wird mithilfe einer Einstellung im Start-Workflow aktiviert.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SelectedLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SelectedLanguage">SelectedLanguage</a></h4>
@@ -117,14 +127,16 @@ Dieser Modus wird mithilfe einer Einstellung im Start-Workflow aktiviert.</p>
   <h3 id="methods">Methods
   </h3>
   
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.ClearDynamicDragSources.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_ClearDynamicDragSources">ClearDynamicDragSources()</a></h4>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication">CloseApplication()</a></h4>
-    <section><p><p>Schließt die Anwendung. Der Benutzer wird gefragt, ob er die Anwendung beenden möchte. 
-An den geöffneten Forms wird die Methode <code>IsApplicationQuitAllowed</code> aufgerufen und eine 
+    <section><p><p>Schließt die Anwendung. Der Benutzer wird gefragt, ob er die Anwendung beenden möchte.
+An den geöffneten Forms wird die Methode <code>IsApplicationQuitAllowed</code> aufgerufen und eine
 entsprechende Message-Box ausgegeben bzw. das Schließen der Anwendung verhindert.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_">CloseApplication(FrameworkCloseMode)</a></h4>
     <section><p><p>Wird als closeMode das Flag <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html#FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_Restart">Restart</a> angegeben, so wird ein Neustart des
-Clients veranlasst. Allerdings darf ein Neustart nur unter der Bedingung ausgeführt werden, 
+Clients veranlasst. Allerdings darf ein Neustart nur unter der Bedingung ausgeführt werden,
 dass jedes aktuell laufende Ereignis eines der folgenden ist:</p>
 <ul>
 <li>MenuItem.OnClick</li>
@@ -132,16 +144,16 @@ dass jedes aktuell laufende Ereignis eines der folgenden ist:</p>
 <li>ImageButton.OnClick</li>
 <li>MessageBox-Event(Als Folge eine der oben genannten Events)</li>
 </ul>
-<p>Mit aktuell laufenden Ereignissen sind auch solche Ereignisse gemeint, die als Folge einen 
-modalen Dialog geöffnet haben.Solange der Dialog offen ist, zählt das Ereignis zu den laufenden. </p>
+<p>Mit aktuell laufenden Ereignissen sind auch solche Ereignisse gemeint, die als Folge einen
+modalen Dialog geöffnet haben.Solange der Dialog offen ist, zählt das Ereignis zu den laufenden.</p>
 <p>Zusätzlich gibt es das Flag <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html#FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_KeepUserLogin">KeepUserLogin</a>. Wird <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html#FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_Restart">Restart</a>
-mit diesem Flag kombiniert (bitweise Oder-Verknüpfung), so wird beim Neustart der User Token 
+mit diesem Flag kombiniert (bitweise Oder-Verknüpfung), so wird beim Neustart der User Token
 in die neue Sitzung übernommen und es ist kein erneuter Login erforderlich.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_System_String_">CloseApplication(String)</a></h4>
-    <section><p><p>Schließt die Anwendung unmittelbar. Es wird keine weitere Prüfung durchgeführt und der 
-Benutzer hat keine Möglichkeit die Aktion abzubrechen. Am Client wird dabei die übergebene 
-Message ausgegeben. </p>
+    <section><p><p>Schließt die Anwendung unmittelbar. Es wird keine weitere Prüfung durchgeführt und der
+Benutzer hat keine Möglichkeit die Aktion abzubrechen. Am Client wird dabei die übergebene
+Message ausgegeben.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CreateComponent.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CreateComponent_System_String_">CreateComponent(String)</a></h4>
     <section><p><p>Erzeugt eine neue Component mit dem übergebenen Namen. </p>
@@ -150,18 +162,48 @@ Message ausgegeben. </p>
     <section><p><p>Deaktiviert den <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SafeInitializing.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SafeInitializing">SafeInitializing</a> Modus.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLKeyText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(MLKey, Object[])</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt ein <a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.html">MLKeyText</a>-Objekt mit dem formatierten Text und dem MLKey zurück.
+Dabei wird ein <code>String.<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string.format#System_String_Format_System_String_System_Object___">Format(String, Object[])</a></code> 
+mit den übergebenen Argumenten ausgeführt. 
+Für die Fomatierung der übergebenen Argumente wird die Client-Culture verwendet.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLKeyText_System_IFormatProvider_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(IFormatProvider, MLKey, Object[])</a></h4>
+    <section><p><p>Gibt ein <a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.html">MLKeyText</a>-Objekt mit dem formatierten Text und dem MLKey zurück.
+Dabei wird ein <code>String.<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string.format#System_String_Format_System_String_System_Object___">Format(String, Object[])</a></code> 
+mit den übergebenen Argumenten ausgeführt. 
+Für die Fomatierung der übergebenen Argumente wird die übergebene Culture verwendet.</p>
+</p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLText(MLKey, Object[])</a></h4>
-    <section><p></section>
+    <section><p><p>Übersetz einen MLKey in einen Text. Dabei wird ein <code>String.<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string.format#System_String_Format_System_String_System_Object___">Format(String, Object[])</a></code>
+mit den übergebenen Argumenten ausgeführt. 
+Für die Fomatierung der übergebenen Argumente wird die Client-Culture verwendet.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLText_System_IFormatProvider_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLText(IFormatProvider, MLKey, Object[])</a></h4>
+    <section><p><p>Übersetz einen MLKey in einen Text. Dabei wird ein <code>String.<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string.format#System_String_Format_System_String_System_Object___">Format(String, Object[])</a></code>
+mit den übergebenen Arumenten ausgeführt. 
+Für die Fomatierung der übergebenen Argumente wird die übergebene Culture verwendet.</p>
+</p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetCodeDirectory.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetCodeDirectory">GetCodeDirectory()</a></h4>
     <section><p><p>Liefert den Pfad des Verzeichnisses, in dem die Anwendung läuft.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLKeyText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_">GetMLKeyText(MLKey)</a></h4>
-    <section><p></section>
+    <section><p><p>Diese Methode gibt ein <a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.html">MLKeyText</a>-Objekt zurück, welches neben dem Text auch den übergebenen <code>MLKey</code>
+beinhaltet. Das kann hilfreich sein, wenn der MLKey interessant ist, um ihn z.B. als Fehler-Code zu verwenden.</p>
+</p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_">GetMLText(MLKey)</a></h4>
-    <section><p></section>
+    <section><p><p>Ermittelt für den übergebenen <code>MLKey</code> den Text. Es wird die aktuell in der Session gesetzte Sprach-Hierarchie verwendet.</p>
+</p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_String_">GetMLText(MLKey, String)</a></h4>
+    <section><p><p>Diese Methode ermittelt für den übergebenen <code>MLKey</code> den Text für die übergebene Sprache.
+Es erfolgt kein Fallback auf eine andere Sprache.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.RemoveDynamicDragSource.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_RemoveDynamicDragSource_FrameworkSystems_FrameworkBase_Metadatatype_MLContainer_">RemoveDynamicDragSource(MLContainer)</a></h4>
     <section><p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SetDynamicDragSource.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SetDynamicDragSource_FrameworkSystems_FrameworkBase_Metadatatype_MLContainer_System_Func_FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_System_Object__">SetDynamicDragSource(MLContainer, Func&lt;IDevFrameworkBaseObject, Object&gt;)</a></h4>
+    <section><p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.UseMLColumnLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_UseMLColumnLanguage_System_String_System_Action_">UseMLColumnLanguage(String, Action)</a></h4>
+    <section><p><p>Verwendet für MLColumn-Properties während der übergenenen Action die angegebene Sprache.</p>
+</p></section>
   
 </article>
           </div>

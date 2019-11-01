@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Property Text
+    <title>Method GetText
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Property Text
+    <meta name="title" content="Method GetText
    ">
     <meta name="generator" content="docfx 2.46.0.0">
     
@@ -80,37 +80,50 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.IDevFrameworkObjectMLString.Text*">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.IDevFrameworkObjectMLString.GetText*">
 
-<h1 id="FrameworkSystems_FrameworkBase_IDevFrameworkObjectMLString_Text_" data-uid="FrameworkSystems.FrameworkBase.IDevFrameworkObjectMLString.Text*">Property Text
+<h1 id="FrameworkSystems_FrameworkBase_IDevFrameworkObjectMLString_GetText_" data-uid="FrameworkSystems.FrameworkBase.IDevFrameworkObjectMLString.GetText*">Method GetText
 </h1>
 <div class="markdown level0 summary"></div>
 <div class="markdown level0 conceptual"></div>
 
 
 
-<a id="FrameworkSystems_FrameworkBase_IDevFrameworkObjectMLString_Text_" data-uid="FrameworkSystems.FrameworkBase.IDevFrameworkObjectMLString.Text*"></a>
-<h4 id="FrameworkSystems_FrameworkBase_IDevFrameworkObjectMLString_Text" data-uid="FrameworkSystems.FrameworkBase.IDevFrameworkObjectMLString.Text">Text</h4>
+<a id="FrameworkSystems_FrameworkBase_IDevFrameworkObjectMLString_GetText_" data-uid="FrameworkSystems.FrameworkBase.IDevFrameworkObjectMLString.GetText*"></a>
+<h4 id="FrameworkSystems_FrameworkBase_IDevFrameworkObjectMLString_GetText_System_String_" data-uid="FrameworkSystems.FrameworkBase.IDevFrameworkObjectMLString.GetText(System.String)">GetText(String)</h4>
 <section>
-  <div class="markdown level1 summary"><p>Text in der aktuellen Sprache bzw. Sprach-Hierarchie.</p>
+  <div class="markdown level1 summary"><p>Liefert den Text in der übergebenen Sprache. Es erfolgt keine Fallback auf eine andere Sprache.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">string Text { get; }</code></pre>
+      <pre><code class="lang-csharp hljs">string GetText(string iso)</code></pre>
+    </div>
+  </section>
+  <h5 class="parameters">Parameters</h5>
+  <section>
+    <div class="propertyInfo">
+      <span class="parametername"><code>iso</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
+      <div class="markdown level1 summary"><p>2-Zeichen iso-Code</p>
+</div>
     </div>
   </section>
 
-
-  <h5 class="propertyValue">Property Value</h5>
-  <section>
+    <h5 class="returns">Returns</h5>
+    <section>
       <div class="propertyInfo">
         <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
         <div class="markdown level1 summary"></div>
-      </div>  
-  </section>
+      </div>
+    </section>
+
+    <h5 id="FrameworkSystems_FrameworkBase_IDevFrameworkObjectMLString_GetText_System_String__remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Wird der Text in der Sprache bzw. der Sprach-Hierarchie der aktuellen Sitzung benötigt, sollte das Property <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObjectMLString.Text.html#FrameworkSystems_FrameworkBase_IDevFrameworkObjectMLString_Text">Text</a> verwendet werden.</p>
+</div>
+    </section>
 </section>
 </article>
           </div>

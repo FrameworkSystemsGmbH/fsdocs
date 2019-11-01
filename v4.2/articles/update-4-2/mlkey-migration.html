@@ -102,11 +102,11 @@
 <p>Diese erste Phase der MLKey Migration dient zum Einen der Erzeugung der benötigten Einträge im Wörterbuch (MLKeys) und zum Anderen der Zuordnung, wo diese später verwendet werden sollen.</p>
 <p>Zentrales Werkzeug für diese Phase ist der Dialog <strong>Multilanguage Text Migration</strong>, welcher über das Menü <strong>Tools / Multilanguage Text Migration</strong> geöffnet werden kann.</p>
 <p><img src="media/ml-migration.png" alt="ML-Migration"></p>
-<div class="NOTE"><h5>Note</h5><p>Die im Grid angezeigten Sprachen und deren Reihenfolge können in den <a href="../allgemein/options.html#languages-in-designer">Options</a> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden.</p>
+<div class="NOTE"><h5>Note</h5><p>Die im Grid angezeigten Sprachen und deren Reihenfolge können in den <a href="../../doc/allgemein/options.html#languages-in-designer">Options</a> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden.</p>
 </div>
 <p>Alle durch den Benutzer definierten Zuordnungen werden in der Ressource <strong>Migration.xml</strong> im Verzeichnis <strong>FSGeneral/Resources/lang</strong> gespeichert, welche automatisch bei der ersten Benutzung angelegt wird.</p>
 <p>Ist diese Datei bei der Bearbeitung mit dem Multilanguage Text Migration Dialog nicht ausgecheckt, so wird beim Speichern mit dem Button <strong>Save</strong> automatisch die neueste Version ausgecheckt, die Änderungen ergänzt und anschließend sofort wieder eingecheckt. Dieses Verhalten ist dann hilfreich, wenn mehrere Benutzer gleichzeitig mit dem Multilanguage Text Migration Dialog arbeiten. Andernfalls empfiehlt es sich, die Datei vor Beginn der Arbeit auszuchecken und erst nach Beendigung der Arbeit wieder einzuchecken. So werden unnötige Checkin- und Checkout-Vorgänge vermieden.</p>
-<p>Beim Speichern werden außerdem ggf. ungespeicherte Änderungen am <a href="woerterbuch.html">Wörterbuch</a> gespeichert.</p>
+<p>Beim Speichern werden außerdem ggf. ungespeicherte Änderungen am <a href="../../doc/mlkey/woerterbuch.html">Wörterbuch</a> gespeichert.</p>
 <h3 id="generelles-vorgehen">Generelles Vorgehen</h3>
 <p>Die zu leistende Arbeit besteht in erster Linie darin, logisch identische Begriffe zusammenzuführen und logisch unterschiedliche Begriffe, die ggf. in einzelnen Sprachen Überlappungen mit anderen Begriffen haben, zu trennen.</p>
 <p>Beispiel:</p>
@@ -146,14 +146,14 @@ Die Suche nach <code>LBL_Quantity &quot; geliefert&quot;</code> zeigt nur die Ze
 <p>Im unteren Bereich des Multilanguage Migration Dialogs werden im Bereich <strong>Details</strong> zum aktuell in der Tabelle selektierten Eintrag alle Eigenschaften angezeigt. Ist bereits ein MLKey zugewiesen, werden die Texte des MLKeys in der Tabellenspalte <strong>In MLKey</strong> angezeigt.</p>
 <p>In der oberen Tabelle können auch mehrere Zeilen gleichzeitig ausgewählt werden. So kann mehreren Zeilen gleichzeitig ein MLKey zugewiesen werden. Für die Zuweisung stehen mehrere Optionen zur Verfügung:</p>
 <ul>
-<li>Mit dem Button <img src="media/btn-search-mlkey.png" alt="Lupe"> im Bereich <strong>Details</strong> kann ein bereits existierender MLKey ausgewählt werden, siehe <a href="woerterbuch.html#multilanguage-text-editor">Multilanguage Text Editor</a>, insbesondere <a href="woerterbuch.html#suchen-von-mlkeys">Suchen von MLKeys</a>.</li>
+<li>Mit dem Button <img src="media/btn-search-mlkey.png" alt="Lupe"> im Bereich <strong>Details</strong> kann ein bereits existierender MLKey ausgewählt werden, siehe <a href="../../doc/mlkey/woerterbuch.html#multilanguage-text-editor">Multilanguage Text Editor</a>, insbesondere <a href="../../doc/mlkey/woerterbuch.html#suchen-von-mlkeys">Suchen von MLKeys</a>.</li>
 <li>Wurde bereits ein MLKey zugewiesen, so wird ein weiterer Button <strong>Set ...</strong> angeboten, mit dem der zuletzt zugewiesene MLKey den aktuell selektierten Zeilen zugewiesen werden kann.</li>
 <li>Mit dem Button <img src="media/btn-add-mlkey.png" alt="Add"> im Bereich <strong>Details</strong> kann ein neuer MLKey  (basierend auf den selektierten Zeilen) erzeugt werden.</li>
 </ul>
 <p>Wenn beim Erzeugen eines neuen MLKeys mehrere Zeilen ausgewählt wurden und diese in einzelnen Sprachen abweichende Texte enthalten, so wird pro Sprache bei Bedarf der folgende Dialog geöffnet:</p>
 <p><img src="media/select-text.png" alt="ML-Migration"></p>
-<p>In diesem werden alle Varianten, sortiert nach Häufigkeit absteigend, aufgeführt. Durch Selektion und Bestätigung mit dem Button <strong>OK</strong> oder durch Doppelklick wird die Auswahl als Vorbelegung für den neuen MLKey verwendet (siehe <a href="woerterbuch.html#erfassen-neuer-mlkeys">Erfassen neuer MLKeys</a>).</p>
-<div class="IMPORTANT"><h5>Important</h5><p>Bei der Zuweisung und Erzeugung von MLKeys sind die <a href="enventa-regeln.html">eNVenta Regeln für MLKeys</a> zu beachten.</p>
+<p>In diesem werden alle Varianten, sortiert nach Häufigkeit absteigend, aufgeführt. Durch Selektion und Bestätigung mit dem Button <strong>OK</strong> oder durch Doppelklick wird die Auswahl als Vorbelegung für den neuen MLKey verwendet (siehe <a href="../../doc/mlkey/woerterbuch.html#erfassen-neuer-mlkeys">Erfassen neuer MLKeys</a>).</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Bei der Zuweisung und Erzeugung von MLKeys sind die <a href="../../doc/mlkey/enventa-regeln.html">eNVenta Regeln für MLKeys</a> zu beachten.</p>
 </div>
 <p>Mit dem Button <strong>Rename MLKey</strong> ist es im Rahmen der Migration möglich, einen bestehenden MLKey umzubenennen. Alle manuellen Zuordnungen dieses MLKeys werden automatisch angepasst.</p>
 <h4 id="4-bereinigungen">(4) Bereinigungen</h4>
@@ -247,7 +247,7 @@ Sie dürfen aber nicht gelöscht oder geleert werden, weil sie ggf. noch von Cus
               <div class="contribution">
                 <ul class="nav">
                   <li>
-                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/mlkey/migration.md/#L1" class="contribution-link">Improve this Doc</a>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/articles/update-4-2/mlkey-migration.md/#L1" class="contribution-link">Improve this Doc</a>
                   </li>
                 </ul>
               </div>

@@ -139,7 +139,7 @@ Der Einsatz dieses Features ist in Framework-Studio empfehlenswert:</p>
 <li><a href="https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7-1#inferred-tuple-element-names">Inferred tuple element names</a> (C# 7.1)</li>
 <li><a href="https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7-3#tuples-support--and-">Tuples support == and !=</a> (C# 7.3)</li>
 <li><a href="https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7#pattern-matching">Pattern matching</a> (C# 7.0)</li>
-<li><a href="https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7#local-functions">Local functions</a> (C# 7.0) - aber nur sehr gut überlegt!! </li>
+<li><a href="https://docs.microsoft.com/de-de/dotnet/csharp/whats-new/csharp-7#local-functions">Local functions</a> (C# 7.0) - aber nur sehr gut überlegt!!</li>
 </ul>
 <h2 id="mlkey-wörterbuch">MLKey Wörterbuch</h2>
 <p>Eine zentrale Neuerung in der Version 4.2 betrifft das Handling der fremdsprachigen Texte. Diese werden jetzt in einem <a href="../doc/mlkey/woerterbuch.html">zentralen Wörterbuch</a> verwaltet.</p>
@@ -152,7 +152,7 @@ Der Einsatz dieses Features ist in Framework-Studio empfehlenswert:</p>
 <li>Der <a href="../doc/mlkey/import-export.html">Export und Import</a> von Texten ist sehr einfach. Es wird das standardisierte TMX-Format verwendet. Texte können so zwischen verschiedenen Packages und Versionen ausgetauscht werden. Auch eine Übersetzung durch Werkzeuge oder externe Dienstleister ist dadurch deutlich einfacher als bisher.</li>
 </ul>
 <p>Eine detailliert Beschreibung der Funktionalität finden sie im Kapitel <a href="../doc/mlkey/woerterbuch.html">MLKey</a>.</p>
-<p>Es ist sinnvoll, die Texte des eigenen Packages in das Wörterbuch zu überführen. Bitte beachten sie dazu die <a href="../doc/mlkey/migration.html">Hinweise und Anleitungen für die Migration</a>.</p>
+<p>Es ist sinnvoll, die Texte des eigenen Packages in das Wörterbuch zu überführen. Bitte beachten sie dazu die <a href="update-4-2/mlkey-migration.html">Hinweise und Anleitungen für die Migration</a>.</p>
 <h2 id="code-messages-überarbeitet">Code-Messages überarbeitet</h2>
 <p>Die vom Exception- und MessageBox-Wizard generierten <a href="../doc/code-editor/code-messages.html">Code-Messages</a> wurden überarbeitet.</p>
 <p><img src="../doc/code-editor/media/code-messages-example.png" alt="Code-Messages"></p>
@@ -162,11 +162,15 @@ Der Einsatz dieses Features ist in Framework-Studio empfehlenswert:</p>
 <p>Bei MsgBox.Show() sind die Enum-Werte für Button und Icon leserlich ausgeschrieben. Bisher wurden dort nur die int-Werte verwendet.</p>
 <p>Die Konvertierung des bestehenden Codes in das neue Format erfolgt auf folgende Weise:</p>
 <ol>
-<li>Durch die <a href="../doc/mlkey/migration.html#3-convert-messages">MLKey-Konvertierungs-Routine</a> – diese setzt alle Code-Messages automatisch auf einen MLKey und/oder das neue Format um.</li>
+<li>Durch die <a href="update-4-2/mlkey-migration.html#3-convert-messages">MLKey-Konvertierungs-Routine</a> – diese setzt alle Code-Messages automatisch auf einen MLKey und/oder das neue Format um.</li>
 <li>Durch manuellen Aufruf des Exception- oder MsgBox-Wizards. Beim Speichern wird der Code durch die neue Variante ersetzt.</li>
 </ol>
 <p>Bei beiden Konvertierungen wird nur der Code betrachtet - der alte XML-Teil wird ignoriert.
 Neue Messages werden immer im neuen Format generiert. Dabei ist es egal, ob ein Textcollection-Eintrag oder ein MLKey verwendet wird.</p>
+<h2 id="neue-text-funktionen">Neue Text-Funktionen</h2>
+<p>In Framework Studio 4.2 wurden im Zuge der Umstellung auf die <a href="../doc/mlkey/woerterbuch.html">MLKeys</a> auch die <a href="update-4-2/neue-text-funktionen.html">Text-Zugriffe auf Text-Collections und DevMLStrings</a> überarbeitet.</p>
+<div class="NOTE"><h5>Note</h5><p>Es muss eine Migration durchgeführt werden.</p>
+</div>
 <h2 id="actions-setenabled-und-setvisible-nullable">Actions SetEnabled und SetVisible nullable</h2>
 <p>Die Control-Actions <code>SetEnabled</code> und <code>SetVisible</code> haben neue Überladungen bekommen, welche das Zurücksetzen auf den im Property-Grid des Form-Designers eingestellten Wert ermöglichen.</p>
 <p>Dazu wurden folgende Überladungen ergänzt, bei denen der <code>null</code>-Wert zum Zurücksetzten verwendet werden kann:</p>
@@ -176,8 +180,8 @@ Neue Messages werden immer im neuen Format generiert. Dabei ist es egal, ob ein 
 <li><code>SetVisible(FSVisibility? value)</code></li>
 </ul>
 <div class="CAUTION"><h5>Caution</h5><p>Achtung, falls Reflection verwendet wurde!</p>
-</div>
 <p>Sollte eine der ursprünglichen Methoden aus irgend einem Grund per Reflection angesprochen worden sein, so kann es nun zu dem Problem kommen, dass nicht mehr eine eindeutige, sondern mehrere Überladungen der Methode gefunden werden. Die Überladungen <code>SetEnabled(bool value)</code> und <code>SetVisible(FSVisibility value)</code> wurden entfernt, da Aufrufe vom Compiler direkt auf die entsprechenden Nullable-Überladungen umgelenkt werden.</p>
+</div>
 </article>
           </div>
           

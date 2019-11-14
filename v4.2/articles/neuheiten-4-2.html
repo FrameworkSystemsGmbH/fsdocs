@@ -182,6 +182,10 @@ Neue Messages werden immer im neuen Format generiert. Dabei ist es egal, ob ein 
 <div class="CAUTION"><h5>Caution</h5><p>Achtung, falls Reflection verwendet wurde!</p>
 <p>Sollte eine der ursprünglichen Methoden aus irgend einem Grund per Reflection angesprochen worden sein, so kann es nun zu dem Problem kommen, dass nicht mehr eine eindeutige, sondern mehrere Überladungen der Methode gefunden werden. Die Überladungen <code>SetEnabled(bool value)</code> und <code>SetVisible(FSVisibility value)</code> wurden entfernt, da Aufrufe vom Compiler direkt auf die entsprechenden Nullable-Überladungen umgelenkt werden.</p>
 </div>
+<h2 id="forms-und-workflows-obsolete-setzen">Forms und Workflows Obsolete setzen</h2>
+<p>Soll ein Form oder ein Workflow nicht mehr verwendet werden, so können die für diese Elemente generierten Klassen mit dem <code>Obsolete</code> Attribut versehen werden. Dazu muss der Name des Elements mit <strong>_Obsolete</strong> enden.</p>
+<p>Beispiel: <code>wlfArticleDetail_Obsolete</code></p>
+<p>Der Compiler erzeugt dann bei Verwendung der Elemente Warnings in der Form <em>&#39;wflArticleDetail_Obsolete&#39; is obsolete: &#39;Workflow &#39;wflArticleDetail_Obsolete&#39; will be deleted in future version.&#39;</em>.</p>
 </article>
           </div>
           

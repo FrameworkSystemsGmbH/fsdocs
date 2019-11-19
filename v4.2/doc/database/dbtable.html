@@ -85,7 +85,6 @@
 <p>Alle DBTables werden im Objekt-Baum (<a href="../ide/registerkarten.html#registerkarte-namespaces"><strong>Registerkarte Namespaces</strong></a>) im Namespace <strong>FSGeneral / DBTables</strong> unterhalb des Datasources angezeigt, den der DBTable zur Verbindung mit der Datenbank verwendet.</p>
 <p>Das Erstellen und Löschen von <strong>DBTables</strong> funktioniert wie bei allen anderen Elementen (<a href="../ide/bearbeiten-von-elementen.html#elemente-erstellen"><strong>Elemente erstellen</strong></a>, <a href="../ide/bearbeiten-von-elementen.html#elemente-löschen"><strong>Elemente löschen</strong></a>). Zuvor muss allerdings im Objekt-Baum der zu verwendende Datasource markiert werden!</p>
 <p>Durch einen Doppelklick auf ein DBTable wird das Designer-Fenster geöffnet.</p>
-<p><img src="media/dbtable.png" alt="dbtable.png"></p>
 <p>Erläuterungen zu den Standardfunktionen, die im Designer-Fenster für <strong>DBTables</strong> angeboten werden, finden Sie unter <a href="../ide/allgemeine-funktionatitaeten.html"><strong>Allgemeine Funktionalitäten</strong></a>.</p>
 <p>Über den Menüpunkt <strong>Database / Import</strong> kann die auf der Datenbank existierende Datenstruktur ausgelesen werden und der DBTable automatisch konfiguriert werden (<a href="#automatisiertes-importieren-von-datenbankstrukturen"><strong>Automatisiertes Importieren von Datenbankstrukturen</strong></a>).</p>
 <p>Über den Menüpunkt <strong>Component / Create Component...</strong> kann aus dem DBTable eine Komponente generiert werden (<a href="#erzeugen-einer-komponente"><strong>Erzeugen einer Komponente</strong></a>).</p>
@@ -98,29 +97,52 @@
 <p>Auf der Registerkarte <strong>Columns</strong> werden die einzelnen Spalten der Tabelle angezeigt. Die Eigenschaften der Spalten sind editierbar und müssen mit der Definition des Datenmodells auf der Datenbank vereinbar sein. Außerdem kann ein Metadatentyp zugeordnet werden.</p>
 <h4 id="link-preview-dbtable">Link <strong>Preview DBTable</strong></h4>
 <p>Öffnet die <a href="#sql-statement-preview"><strong>Sql Statement Preview</strong></a></p>
-<h4 id="spalte-name">Spalte <strong>Name</strong></h4>
-<p>Feldname in der Datenbank.</p>
-<h4 id="spalte-metadatatype">Spalte <strong>Metadatatype</strong></h4>
-<p>Art des Feld-Typs. Hier stehen alle Metadatentypen und Datenbank-Datentypen zur Verfügung. Wird ein Metadatentyp ausgewählt, können Size, Precision und Scale nicht mehr geändert werden.</p>
-<h4 id="spalte-dbtype--fstype">Spalte <strong>DBType / FSType</strong></h4>
-<p>Gibt an, Welchen Datenbank-Typ die Spalte hat und welchen FS-Datentyp ein dieser Spalte zugeordnetes Component-Property erhält. Diese Informationen ergeben sich aus dem zugeordneten Metadatentyp und sie können nicht direkt geändert werden.</p>
-<h4 id="spalte-size">Spalte <strong>Size</strong></h4>
-<p>Größe des Felds.</p>
-<h4 id="spalte-precision">Spalte <strong>Precision</strong></h4>
-<p>Anzahl der Stellen, die das Feld haben soll (inkl. Nachkommastellen).</p>
-<h4 id="spalte-scale">Spalte <strong>Scale</strong></h4>
-<p>Anzahl der Nachkommastellen.</p>
-<h4 id="spalte-pk">Spalte <strong>PK</strong></h4>
-<p>Primary Key. Ist die Checkbox aktiviert, handelt es sich um ein Schlüsselfeld.</p>
-<h4 id="spalten-isrowid--isrowversion">Spalten <strong>IsROWID / IsRowVersion</strong></h4>
+<h4 id="tabelle">Tabelle</h4>
+<p>In der Tabelle werden Informationen zu allen Spalten angezeigt. Die Tabelle ist readonly - die Details der ausgewählten Tabellen-Spalte können im Bereich unter der Tabelle angezeigt werden.</p>
+<ul>
+<li><p>Spalte <strong>Name</strong>: Der Name der Spalte</p>
+</li>
+<li><p>Spalte <strong>Default Label</strong>: Zeigt den Text des Default-Labels an. Dieser kann auf der Registerkarte Texts bearbeitet werden.</p>
+</li>
+<li><p>Spalte <strong>Metadatatype</strong>: Der Name des Metadatentyp</p>
+</li>
+<li><p>Spalten <strong>Size</strong>, <strong>Precision</strong>, <strong>Scale</strong>: Die Größe des Feldes.</p>
+</li>
+<li><p>Spalte <strong>Column Kind</strong>: Die Art der Spalte. RowID, RowVersion oder PK (Primary Key).</p>
+</li>
+<li><p>Spalte <strong>MLColumn</strong>: Zeigt an, ob es sich um eine <a href="ml-column.html">MLColumn</a> handelt.</p>
+</li>
+<li><p>Spalte <strong>Not Null</strong>: Zeigt an, ob die Spalte als Not Null gekennzeichnet ist.</p>
+</li>
+</ul>
+<h4 id="feld-name">Feld <strong>Name</strong></h4>
+<p>Feldname in der Datenbank. Dabei muss es sich um einen gültigen &quot;Identifier&quot; handeln.</p>
+<h4 id="feld-metadatatype">Feld <strong>Metadatatype</strong></h4>
+<p>Art des Feld-Typs. Hier stehen alle Metadatentypen und Datenbank-Datentypen zur Verfügung.</p>
+<p>Der Link <strong>Open</strong> Öffnet den <a href="../mdt/metadatentypen.html"><strong>Metadatentyp</strong></a> der momentan ausgewählten Spalte.</p>
+<h4 id="checkbox-primary-key">Checkbox <strong>Primary Key</strong></h4>
+<p>Gibt an, ob es sich bei der Spalte um einen Primär-Schlüssel handeln soll. Auf ein so gekennzeichnete Tabellen-Spalte kann kein Update erfolgen.</p>
+<h4 id="checkbox-rowid-rowversion">Checkbox <strong>RowID</strong>, <strong>RowVersion</strong></h4>
 <p>Auf jeder Tabelle können die beiden Spalten FSROWID und FSROWVERSION definiert werden. Diese beiden Spalten werden dann jeweils mit der entsprechenden Checkbox gekennzeichnet.</p>
 <p>Diese Spalten sind fürs Update der Daten notwendig, damit konkurrierende Transaktionen erkannt und verhindert werden können. (Siehe auch <strong>FSROWID / FSROWVERSION</strong>(TODO LINK!))</p>
-<h4 id="spalte-ismlcolumn">Spalte <strong>IsMLColumn</strong></h4>
+<h4 id="checkbox-mlcolumn">Checkbox <strong>MLColumn</strong></h4>
 <p>Ist die Checkbox aktiviert, kann in der Anwendung der Dateninhalt der Spalte mehrsprachig gepflegt werden (siehe <a href="ml-column.html"><strong>MLColumn</strong></a>).</p>
-<h4 id="spalte-notnull">Spalte <strong>NotNull</strong></h4>
+<h4 id="checkbox-not-null">Checkbox <strong>Not Null</strong></h4>
 <p>Wenn gesetzt, dann darf diese Spalte keine Null-Werte beinhalten. Diese Information wird bei automatischen Datenbank-Update abgeglichen.</p>
-<h4 id="link-open-metadatatype">Link <strong>Open Metadatatype</strong></h4>
-<p>Öffnet den <a href="../mdt/metadatentypen.html"><strong>Metadatentyp</strong></a> der momentan ausgewählten Spalte.</p>
+<h4 id="feld-size">Feld <strong>Size</strong></h4>
+<p>Größe des Felds bei alphanumerischen Datentyp. Wird eine Größe von <code>0</code> angegeben, handelt es sich um ein Langtext-Feld ohne Größen-Beschränkung.</p>
+<h4 id="feld-precision">Feld <strong>Precision</strong></h4>
+<p>Anzahl der Stellen eines numerischen Feldes (inkl. Nachkommastellen).</p>
+<h4 id="feld-scale">Feld <strong>Scale</strong></h4>
+<p>Anzahl der Nachkommastellen.</p>
+<h4 id="checkbox-override">Checkbox <strong>Override</strong></h4>
+<p>Wird diese Checkbox gesetzt, dann können die aus dem Metadatentyp geerbten Größen-Angaben <strong>Size</strong>, <strong>Precision</strong> und <strong>Scale</strong>, überschrieben werden.</p>
+<div class="WARNING"><h5>Warning</h5><p>Davon sollte nur in Ausnahmefällen gebrauch gemacht werden. Zuerst sollte versucht werden, einen passenden Metadatypen zu verwenden. Ist keiner vorhanden, dann muss ggf. ein passender Metadatentyp erzeugt werden - insbesondere dann, wenn das mehrere Tabellen-Spalten betrifft.</p>
+<p>Auch im Customizing-Package sollte man zuerst darüber nachdenken, den zugeordneten Metadatentyp anzupassen. Das beugt Probleme beim Übertragen von Werten in andere Spalten mit demselben Metadatentyp vor.</p>
+</div>
+<h4 id="felder-display-length--lines">Felder <strong>Display Length / Lines</strong></h4>
+<p>In den Feldern <strong>Display MinLength</strong>, <strong>Display MaxLength</strong>, <strong>Display MinLines</strong> und <strong>Display MaxLines</strong> können die Größen-Angaben für die Form-Controls gesteuert bzw. überschrieben werden.</p>
+<p>Siehe auch <a href="../form/layout-konzept.html#größe-von-controls">Größe von Controls</a>.</p>
 <h3 id="registerkarte-texts">Registerkarte Texts</h3>
 <p>Hier können Sie das zu verwendende <strong>Default-Label</strong>, die <strong>Column-Caption</strong>, der <strong>Tooltip</strong> und die <strong>Description</strong> für eine Datenbankspalte festlegen bzw. überschreiben. Wenn der Spalte ein Metadatentyp zugeordnet wurde, wird das Default-Label vom Metadatentyp verwendet, solange es nicht an dieser Stelle überschrieben wird.</p>
 <h3 id="registerkarte-controltypes">Registerkarte ControlTypes</h3>

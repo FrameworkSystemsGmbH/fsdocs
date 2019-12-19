@@ -5,9 +5,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Release-Information Framework Studio 4.2 </title>
+    <title>Enum ListViewTemplateVariableDataSourceOrigin
+   </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Release-Information Framework Studio 4.2 ">
+    <meta name="title" content="Enum ListViewTemplateVariableDataSourceOrigin
+   ">
     <meta name="generator" content="docfx 2.46.0.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -78,56 +80,39 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-<h1 id="release-information-framework-studio-42">Release-Information Framework Studio 4.2</h1>
-
-<h2 id="42-20122019">4.2 (20.12.2019)</h2>
-<p>Die Auslieferung umfasst die folgenden Pakete:</p>
-<ul>
-<li>FS_4.2_Setup_x64</li>
-<li>FS_4.2.0_Requirements_x64 (<a href="requirements-package.html">Requirements-Paket</a>)</li>
-<li>FS_4.2.0_RuntimeAdministration</li>
-</ul>
-<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen">Neuerungen</h4>
-<p>Die Neuerungen finden Sie unter <a href="neuheiten-4-2.html">Neuheiten 4.2</a></p>
-<h4 id="beta-version-hinweise">Beta-Version Hinweise</h4>
-<p>Die Installation-Routine der Release-Version führt für eine bereits installierte Beta-Version ein Update auf die Release-Version aus.</p>
-<div class="IMPORTANT"><h5>Important</h5><p>Bitte beachten Sie <strong>alle</strong> Anweisungen und Hinweise in diesem Abschnitt, wenn sie bereits eine Beta-Version von Framework Studio 4.2 verwendet haben.</p>
-</div>
-<p>Die <strong>Package-Exporte</strong> und Service-Release-Exporte der aktuellen Framework Studio 4.2 Version sind <strong>inkompatibel</strong> mit den vorangegangenen Framework Studio 4.2 Beta Versionen. Dies gilt in beide Richtungen.</p>
-<ol>
-<li>Führen Sie in jedem Fall einen Update auf die Release-Version durch, bevor sie neue Packages im Repository importieren.</li>
-<li>Verwenden sie keine Beta-Packages mehr.</li>
-</ol>
-<p>Im Laufe der Beta-Versionen gab es <strong>Änderungen am Repository</strong>. Bitte führen Sie auf allen mit der Beta-Version neu erstellten und upgedateten Repositories den Update erneut aus:</p>
-<ol>
-<li>Im Programm-Verzeichnis die <em>FrameworkStudioUpgradeDatabase.exe</em> starten und am Repository anmelden.</li>
-<li>Falls noch offene Scripte angeboten werden, diese bitte ausführen.</li>
-</ol>
-<h4 id="zeilenversionierung-im-sql-server">Zeilenversionierung im SQL-Server</h4>
-<p>Beim Anlegen neuer <strong>Runtime Repositories</strong> im SQL-Server hat Framework Studio versäumt, die Zeilenversionierung zu aktivieren. Dadurch kann es insbesondere bei längeren Transaktionen zu unnötigen Blockierungen von Select-Statements kommen. Dieser Fehler ist nun durch die Korrektur von Bug 2019110775 behoben.</p>
-<div class="WARNING"><h5>Warning</h5><p>Bestehende SQL-Server Runtime Repositories müssen manuell korrigiert werden!
-Details dazu finden Sie hier: <a href="knowledge/snapshot-isolation.html">Zeilenversionierung im SQL-Server</a>.</p>
-</div>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
-<p>In der Version 4.2 sind alle Fehler-Korrekturen bis einschließlich Framework Studio 4.0.18 enthalten.
-Zusätzlich wurden die folgenden Bugs behoben.</p>
-<ul>
-<li><p>2019027233 - <strong>Code-Generierung</strong>: Im generierten Code von ReportDocumentTypes
-  wird der Package-Name verwendet statt dem Assembly-Prefix.</p>
-</li>
-<li><p>2019089003 - <strong>Doku-System</strong>: Ausgeblendete Controls (hidden/Collapsed) werden
-  im Doku-Screenshot nicht gerendert.</p>
-</li>
-<li><p>2019100072 - <strong>Framework</strong>: Die MLColumn-Einträge werden nicht mit dem Record
-  gelöscht, wenn nicht zuvor auf die fremdsprachigen Texte zugegriffen wurde.</p>
-</li>
-<li><p>2019099502 - <strong>Repository</strong>: Alle Sublabeled Tabellen sollen aus
-  Performance-Gründen mit einem Index auf die PackageID-Spalte versehen
-  werden.</p>
-</li>
-</ul>
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.ListViewTemplateVariableDataSourceOrigin">
+  
+  
+  <h1 id="FrameworkSystems_FrameworkBase_ListViewTemplateVariableDataSourceOrigin" data-uid="FrameworkSystems.FrameworkBase.ListViewTemplateVariableDataSourceOrigin" class="text-break">Enum ListViewTemplateVariableDataSourceOrigin
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkBase.html">FrameworkSystems.FrameworkBase</a></h6>
+  <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkBase.dll</h6>
+  <h5 id="FrameworkSystems_FrameworkBase_ListViewTemplateVariableDataSourceOrigin_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public enum ListViewTemplateVariableDataSourceOrigin</code></pre>
+  </div>
+  <h3 id="fields">Fields
+  </h3>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    <thead>
+    <tbody>
+      <tr>
+        <td id="FrameworkSystems_FrameworkBase_ListViewTemplateVariableDataSourceOrigin_Form">Form</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td id="FrameworkSystems_FrameworkBase_ListViewTemplateVariableDataSourceOrigin_ListItem">ListItem</td>
+        <td></td>
+      </tr>
+    </tbody>
+  </thead></thead></table>
 </article>
           </div>
           
@@ -135,9 +120,6 @@ Zusätzlich wurden die folgenden Bugs behoben.</p>
             <div class="sideaffix">
               <div class="contribution">
                 <ul class="nav">
-                  <li>
-                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/articles/release-4-2.md/#L1" class="contribution-link">Improve this Doc</a>
-                  </li>
                 </ul>
               </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">

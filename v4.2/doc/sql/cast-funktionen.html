@@ -203,6 +203,50 @@
 <h4 id="chartodecimal">CHAR_TO_DECIMAL</h4>
 <p><code>CHAR_TO_DECIMAL ( &lt;Expression&gt; )</code></p>
 <p>Wandelt eine Zeichenkette in eine Dezimal-Zahl um.</p>
+<h4 id="lobcomparable">LOB_COMPARABLE</h4>
+<p><code>LOB_COMPARABLE ( &lt;Expression&gt; )</code></p>
+<p>Wandelt eine Langtext-Spalte so um, dass sie in einer Where-Condition bzw. in einem Order By verwendet werden kann. Das ist notwendig unter Oracle bei Spalten mit dem Typ <code>CLOB</code> und unter SQL-Server bei Spalten mit dem Typ <code>text</code>.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-sql"> SELECT memo FROM Tabelle WHERE LOB_COMPARABLE(memo) != &#39;text&#39; ORDER BY LOB_COMPARABLE(memo)
+</code></pre><table>
+<thead>
+<tr>
+<th></th>
+<th>Umsetzung des Statements auf den verschiedenen Datenbanken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQL-Server</td>
+<td><code>CONVERT ( VARCHAR(max), &lt;Expression&gt; )</code></td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td><code>CAST ( &lt;Expression&gt; AS VARCHAR2(4000) )</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="nlobcomparable">NLOB_COMPARABLE</h4>
+<p><code>NLOB_COMPARABLE ( &lt;Expression&gt; )</code></p>
+<p>Wandelt eine Unicode Langtext-Spalte so um, dass sie in einer Where-Condition bzw. in einem Order By verwendet werden kann. Das ist notwendig unter Oracle bei Spalten mit dem Typ <code>NCLOB</code> und unter SQL-Server bei Spalten mit dem Typ <code>ntext</code>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Umsetzung des Statements auf den verschiedenen Datenbanken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQL-Server</td>
+<td><code>CONVERT ( NVARCHAR(max), &lt;Expression&gt; )</code></td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td><code>CAST ( &lt;Expression&gt; AS NVARCHAR2(2000) )</code></td>
+</tr>
+</tbody>
+</table>
 </article>
           </div>
           

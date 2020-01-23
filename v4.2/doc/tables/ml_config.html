@@ -81,6 +81,10 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="mlconfig-business-datenbank">ML_Config (Business-Datenbank)</h1>
 
+<div class="CAUTION"><h5>Caution</h5><p>Diese Tabelle ist veraltet. Die Default-Sprache kann seit Framework Studio 4.2.1 in der Datenbank-Tabelle <a href="dbrun_config.html">dbRun_Config</a> mit dem <a href="dbrun_config.html#configkey-mldefaultlanguage">ConfigKey <code>ML_DEFAULT_LANGUAGE</code></a> definiert werden.
+Existiert der neue ConfigKey nicht, dann erfolgt weiterhin ein Fallback auf diese Tabelle.</p>
+<p>Es wird empfohlen die Konfiguration in die neue Tabelle zu übertragen und diese Tabelle zu löschen.</p>
+</div>
 <p>Die <a href="../database/ml-column.html">ML-Columns</a> arbeiten standardmäßig mit der Default-Sprache <code>de</code> Deutsch.
 Ist die &quot;führende&quot; Sprache nicht <code>de</code>, dann kann über diese Tabelle die korrekte Default-Sprache eingestellt werden.</p>
 <p>Das geschieht in der Business-Datenbank, wo auch die Übersetzungs-Tabelle <a href="dbrun_mlstrings.html">dbRun_MLStrings</a> abgelegt ist, welche die anderssprachigen Werte speichert. Die Einstellung muss in dieser Datenbank stehen, damit sichergestellt ist, dass die Übersetzungs-Tabelle immer mit derselben Konfiguration angesprochen wird - unabhängig davon, wie die Anwendung FS-seitig konfiguriert ist.</p>

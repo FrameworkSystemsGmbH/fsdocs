@@ -90,7 +90,7 @@
 <h2 id="customizing-package">Customizing-Package</h2>
 <p>Die Eigenschaft <strong>MLColumn</strong> kann im Customizing-Package gesetzt werden. Somit kann man in Kunden-Umgebungen den Mechanismus gezielt für die gewünschten Tabellen-Spalten aktivieren.</p>
 <h2 id="anwendung-in-default-sprache">Anwendung in Default-Sprache</h2>
-<p>Die Default-Sprache ist <code>de</code> - außer man definiert über die Tabelle <a href="../tables/ml_config.html">ML_Config</a> eine andere Default-Sprache.</p>
+<p>Die Default-Sprache ist <code>de</code> - außer man definiert der Datenbank-Tabelle <a href="../tables/dbrun_config.html">dbRun_Config</a> mit dem <a href="../tables/dbrun_config.html#configkey-mldefaultlanguage">ConfigKey <code>ML_DEFAULT_LANGUAGE</code></a> eine andere Default-Sprache.</p>
 <p>Wird die Anwendung in der Default-Sprache gestartet, dann arbeitet Framework Studio mit der ganz normalen Spalte der Tabelle - ohne jegliche Sonder-Logik.</p>
 <p>Die fremdsprachigen Texte können nicht beeinflusst werden. Ändert man einen Text, dann bleiben die ggf. existierenden Übersetzungen unverändert erhalten. Bei Bedarf müsste man die Anwendung anschließend in den Fremdsprachen starten und den gewünschten Text dort ebenfalls anpassen.</p>
 <h2 id="anwendung-in-fremdsprache">Anwendung in Fremdsprache</h2>
@@ -106,6 +106,21 @@
 <li><p><strong>Delete</strong>: Wird der Datensatz aus der Datenbank gelöscht, dann werden auch alle zu dieser FSROWID gespeicherten Texte aus der Übersetzungs-Tabelle gelöscht.</p>
 </li>
 </ul>
+<h3 id="such-funktion">Such-Funktion</h3>
+<div class="NOTE"><h5>Note</h5><p>Dieses Feature muss in der Datenbank-Tabelle <a href="../tables/dbrun_config.html">dbRun_Config</a> mit dem <a href="../tables/dbrun_config.html#configkey-mlsearchenabled">ConfigKey <code>ML_SEARCH_ENABLED</code></a> aktiviert werden.</p>
+</div>
+<p>Bei automatischen Suchfeldern werden die Fremdsprachen-Texte zusätzlich berücksichtigt.</p>
+<p>Wird die Anwendung in einer Fremdsprache ausgeführt, dann enthält die erzeugte SQL-Bedingung beinhaltet sowohl die normale Bedingung, welche den Treffer in der Default-Sprache sucht als auch einen Lookup auf die Texte in der entsprechenden Fremdsprache.</p>
+<pre><code class="lang-Sql">-- Beipiel:
+Select [....] FROM Tabelle
+WHERE (Spalte LIKE &#39;abc%&#39;
+    OR EXISTS (SELECT 1 FROM dbRun_MLStrings
+        WHERE ML_TableName = &#39;TABELLE&#39; AND ML_ColumnName = &#39;SPALTE&#39;
+        AND ML_Iso = &#39;en&#39; AND ML_FSROWID = FSROWID
+        AND ML_SearchText LIKE &#39;abc%&#39;))
+</code></pre><div class="NOTE"><h5>Note</h5><p>Der Lookup berücksichtigt die <strong>ersten 200 Zeichen</strong> des Textes.</p>
+<p>Die Fremdsprachen-Texte können auch Langtexte speichern. Diese lassen sich nicht indizieren. Aus Performance-Gründen erfolgt der Lookup über eine separate indiziere Spalte <code>ML_SearchText</code>. Diese wird (wenn das Feature aktiviert ist) von der Anwendung zusammen mit dem Langtext gespeichert.</p>
+</div>
 <h3 id="sprache-zur-laufzeit-ändern">Sprache zur Laufzeit ändern</h3>
 <p>Die Sprache ist mit dem Start der Anwendung an Global.<a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SelectedLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SelectedLanguage">SelectedLanguage</a> festgelegt.</p>
 <p>Wird für einen bestimmten Code eine abweichende Sprache benötigt, dann kann dies über Global.<a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.UseMLColumnLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_UseMLColumnLanguage_System_String_System_Action_">UseMLColumnLanguage</a> geschehen. Während der übergebenen Action kann so ein abweichender Iso-Code gesetzt werden. Über das Property Global.<a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.MLColumnLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_MLColumnLanguage">MLColumnLanguage</a> kann die aktuell gültige Sprache ermittelt werden.</p>

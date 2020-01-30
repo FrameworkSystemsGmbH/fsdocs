@@ -84,16 +84,74 @@
 <h2 id="421-31012020">4.2.1 (31.01.2020)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>...</li>
+<li>FS_4.2.1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h3 id="connection-pooling-überarbeitet">Connection-Pooling überarbeitet</h3>
+<p>Aufgrund verschiedener Probleme wurde das Connection-Pooling der <code>FrameworkDataConnection</code> komplett überarbeitet. Dabei gab es auch Verhaltens-Änderungen.</p>
+<p>Bisher hat der Pool immer alle existierenden Connections gezählt - sowohl den Vorrat an verfügbaren als auch die momentan verwendeten Connections.
+Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat (im Vergleich zu früher) den Vorteil, dass das Pooling auch dann noch wirksam ist, wenn dauerhaft eine größere Anzahl an Connections in Verwendung ist.</p>
+<p>Der Connection-Pool stellt im Broker eine Menge von wiederverwendbaren Datenbank-Verbindungen zur Verfügung. Dabei kann über die <code>FSPooling</code>-Parameter das Verhalten des Pools gesteuert werden. Die Parameter haben die folgende Bedeutung:</p>
+<ul>
+<li><code>FSPoolingMin</code>: Wird eine Connection nicht mehr benötigt, wird sie (z.B. am Ende eines Broker-Requests) wieder zurück in den Vorrat / Pool gepackt. Der Pool darf dauerhaft diese Anzahl an Connections beinhalten.</li>
+<li><code>FSPoolingMax</code>: Das ist die maximale Anzahl der Connections, die sich im Pool befinden dürfen. Ist der Pool voll, dann wird die Connection nicht in den Pool zurückgepackt sondern sie wird direkt geschlossen.</li>
+<li><code>FSPoolingTimeout</code>: (in Sekunden) Die Connections zwischen Min und Max verbleiben maximal diese Zeit im Pool. Werden sie nicht vorher wieder verwendet, werden sie nach dem Timeout aus dem Pool entfernt und geschlossen.</li>
+</ul>
 <h3 id="neuerungen">Neuerungen</h3>
 <ul>
 <li><a href="../doc/database/ml-column.html#such-funktion">Such-Funktionalität für die ML-Columns</a></li>
 </ul>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
-<li>2020011258 - <strong>IDE</strong>: FS stürzt mit einer GDI+ Exception ab, wenn animierte Gifs für die Dokumentation ausgewählt werden.</li>
+<li><p>2020011151 - <strong>Oracle</strong>: Wird in einer DB-Column eine Spalte mit dem Typ
+  Boolean angelegt, dann bringt der Datenbank-Update-Assistent einen Fehler,
+  wenn die entsprechende Spalte auf der Datenbank bereits korrekt angelegt
+  ist.</p>
+</li>
+<li><p>2020011286 - <strong>Package-Manager</strong>: An der Package-Version werden im Register
+  Language nicht alle Sprachen aus den Basis-Packages angezeigt, wenn man an
+  der Using-Hierarchie Änderungen vornimmt.</p>
+</li>
+<li><p>2020011298 - <strong>Package-Manager</strong>: Bei Package-Hierarchien mit
+  Context-Versionen werden die Sprachen aus dem Basis-Package nicht korrekt
+  übernommen.</p>
+</li>
+<li><p>2020011377 - <strong>Package-Manager</strong>: Beim Import einer Package-Version kann es zu
+  folgendem Fehler kommen:<br>
+  <em>&quot;There is an open DataReader associated with this Connection which must be
+  closed first.&quot;</em></p>
+</li>
+<li><p>2019120999 - <strong>IDE</strong>: Wird an einer Tabellen-Spalte, die in einer customizten
+  DBTable hinzugefügt wurde, aus Versehen die CheckBox &quot;Not Null&quot; gesetzt,
+  dann lässt sich diese nicht mehr entfernen.</p>
+</li>
+<li><p>2019121032 - <strong>IDE</strong>: Wenn Framework Studio abstürzt, dann läuft der
+  Development-Broker im Hintergrund weiter. Dieser blockiert Dateien im
+  Compile-Verzeichnis und muss manuell beendet werden.</p>
+</li>
+<li><p>2020011086 - <strong>IDE</strong>: Wird bei einer Sql-Server Repository-Connection ein
+  Server-Name mit einem Port angegeben (z.B. 127.0.0.1,1433), dann wird beim
+  Beenden der IDE eine Exception angezeigt.</p>
+</li>
+<li><p>2020011136 - <strong>IDE</strong>: Wird in der ListView-Ansicht des Workflows nach einem
+  Namen gefiltert und anschließend in der angezeigten Liste mit Doppelklick
+  ein Workflow selektiert, dann wird eine InvalidCastException angezeigt.</p>
+</li>
+<li><p>2020011258 - <strong>IDE</strong>: FS stürzt mit einer GDI+ Exception ab, wenn animierte
+  Gifs für die Dokumentation ausgewählt werden.</p>
+</li>
+<li><p>2020011334 - <strong>IDE</strong>: Nach dem Import eines Service-Releases wird ein darin
+  neu angelegter MLKey im Multilanguage Text Editor zwar angezeigt, jedoch
+  kommt es beim Kompilieren zu einer Exception, weil der MLKey nicht generiert
+  wird.</p>
+</li>
+<li><p>2019121005 - <strong>Framework</strong>: Am Typ FSSystemGuid fehlt die statische Methode
+  FromString(string).</p>
+</li>
+<li><p>2020011254 - <strong>FS-Broker</strong>: Wird bei einem Metadatentypen ein Format-Pattern
+  mit einem &quot;&amp;&quot; Zeichen angegeben, dann verursacht das XML-Exceptions wenn man
+  ein Form öffnet, das ein Control mit diesem Metadatentypen enthält.</p>
+</li>
 </ul>
 <h2 id="42-20122019">4.2 (20.12.2019)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>

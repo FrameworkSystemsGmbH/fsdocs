@@ -87,7 +87,7 @@
 <li>FS_4.2.1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h3 id="connection-pooling-überarbeitet">Connection-Pooling überarbeitet</h3>
+<h4 id="connection-pooling-überarbeitet">Connection-Pooling überarbeitet</h4>
 <p>Aufgrund verschiedener Probleme wurde das Connection-Pooling der <code>FrameworkDataConnection</code> komplett überarbeitet. Dabei gab es auch Verhaltens-Änderungen.</p>
 <p>Bisher hat der Pool immer alle existierenden Connections gezählt - sowohl den Vorrat an verfügbaren als auch die momentan verwendeten Connections.
 Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat (im Vergleich zu früher) den Vorteil, dass das Pooling auch dann noch wirksam ist, wenn dauerhaft eine größere Anzahl an Connections in Verwendung ist.</p>
@@ -97,7 +97,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <li><code>FSPoolingMax</code>: Das ist die maximale Anzahl der Connections, die sich im Pool befinden dürfen. Ist der Pool voll, dann wird die Connection nicht in den Pool zurückgepackt sondern sie wird direkt geschlossen.</li>
 <li><code>FSPoolingTimeout</code>: (in Sekunden) Die Connections zwischen Min und Max verbleiben maximal diese Zeit im Pool. Werden sie nicht vorher wieder verwendet, werden sie nach dem Timeout aus dem Pool entfernt und geschlossen.</li>
 </ul>
-<h3 id="neuerungen">Neuerungen</h3>
+<h4 id="neuerungen">Neuerungen</h4>
 <ul>
 <li><a href="../doc/database/ml-column.html#such-funktion">Such-Funktionalität für die ML-Columns</a></li>
 </ul>

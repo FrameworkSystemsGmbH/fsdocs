@@ -81,6 +81,51 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-42">Release-Information Framework Studio 4.2</h1>
 
+<h2 id="422-28022020">4.2.2 (28.02.2020)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.2_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2020021533 - <strong>Broker</strong>: Wird ein im Treeview dargestelltes Element aus seiner
+  Collection am Parent entfernt und anschließend eine Eigenschaft geändert,
+  die zuvor zu einer geänderten Darstellung im Treeview geführt hätte (z.B.
+  sDisplayName), so kann es zu einer Fehlermeldung kommen.<br>
+  <em>System.ArgumentOutOfRangeException: index must reference an
+  CollectionEntry.</em></p>
+</li>
+<li><p>2020011293 - <strong>IDE</strong>: Wird im Customizing-Package in einem Workflow ein
+  Fired-Event verknüpft, welches aus dem Basis-Package kommt, dann wird bei
+  der Verwendung dieses Events in einem anderen Workflow das dahinter
+  liegenede Form nicht erkannt. Das verursacht Warnings beim Compile und bei
+  Methoden-Aufrufe im Workflow-Link können keine Werte aus dem Quell-Form als
+  Parameter übergeben werden.</p>
+</li>
+<li><p>2020021461 - <strong>IDE</strong>: Ein Verweis auf eine ältere Newtonsoft.Json.dll führt zu
+  einer Exception beim Testen der Runtime Supervisor Url.</p>
+</li>
+<li><p>2020021519 - <strong>IDE</strong>: Öffnet man aus einem Customizing-Package heraus die
+  Component aus dem Basis-Package, dann kann es vorkommen, dass in der
+  Combobox DB-Connection ein falscher Wert angezeigt wird.<br>
+  Diese falsche Anzeige hat aber keine Auswirkung auf die tatsächlich
+  verwendete Connection.</p>
+</li>
+<li><p>2020021539 - <strong>IDE</strong>: Beim Customizen von Methoden über das Contextmenü im
+  Codeeditor wird eine falsche Deklaration angelegt.</p>
+</li>
+<li><p>2020021606 - <strong>HTML-Client</strong>: Ein SetFocus() and einem Control im Form.load()
+  Event wird am Client nicht korrekt verarbeitet. Der Fokus wird nicht in das
+  Control gesetzt.</p>
+</li>
+<li><p>2020021513 - <strong>Package-Merge</strong>: Unter Oracle kann es beim Package-Merge zu
+  folgender Exception kommen:<br>
+  <em>FrameworkSystems.FrameworkExceptions.FrameworkDbException (0x80004005):
+  ORA-01461: Ein LONG-Wert kann nur zur Einfügung in eine LONG-Spalte gebunden
+  werden ---&gt; Oracle.ManagedDataAccess.Client.OracleException (0x80004005)</em></p>
+</li>
+</ul>
 <h2 id="421-31012020">4.2.1 (31.01.2020)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -101,7 +146,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <ul>
 <li><a href="../doc/database/ml-column.html#such-funktion">Such-Funktionalität für die ML-Columns</a></li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020011151 - <strong>Oracle</strong>: Wird in einer DB-Column eine Spalte mit dem Typ
   Boolean angelegt, dann bringt der Datenbank-Update-Assistent einen Fehler,
@@ -182,7 +227,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <div class="WARNING"><h5>Warning</h5><p>Bestehende SQL-Server Runtime Repositories müssen manuell korrigiert werden!
 Details dazu finden Sie hier: <a href="knowledge/snapshot-isolation.html">Zeilenversionierung im SQL-Server</a>.</p>
 </div>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <p>In der Version 4.2 sind alle Fehler-Korrekturen bis einschließlich Framework Studio 4.0.18 enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

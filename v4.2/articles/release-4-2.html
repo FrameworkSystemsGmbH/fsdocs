@@ -81,13 +81,46 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-42">Release-Information Framework Studio 4.2</h1>
 
+<h2 id="423-27032020">4.2.3 (27.03.2020)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.3_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="html-client">HTML Client</h4>
+<p>Der ImageButton unterstützt nun das BadgeImage.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2020021640 - <strong>IDE</strong>: Öffnet man einen bestehenden Exception Editor / Message
+  Box Wizard und öffnet die MLKey-Auswahl, dann ist der erste MLKey ist
+  ausgewählt. Es sollte der aktuelle MLKey selektiert sein.</p>
+</li>
+<li><p>2020021722 - <strong>IDE</strong>: Der &quot;Multilanguage Text Migration&quot; Wizard weist in
+  Custom Packages mit nur deutschen Texten bestehende passende MLKeys mit
+  Fremdsprachentexten aus Basispackages nicht zu.</p>
+</li>
+<li><p>2020031861 - <strong>IDE</strong>: Wird im Message-Editor ein MLKey ausgewählt, der keinen
+  englischen Text besitzt, dann wird im generierten Code kein Text angezeigt.
+  Es sollte in diesem Fall ein Fallback auf den deutschen Text erfolgen.</p>
+</li>
+<li><p>2020031842 - <strong>HTML Client</strong>: ListView und Template Controls &quot;verschucken&quot; den
+  Focus, wenn sie mittels Tastatur fokussiert werden.</p>
+</li>
+<li><p>2020031866 - <strong>HTML Client</strong>: In seltenen Fällen wird im OnLeave-Event in den
+  FrameworkOnLeaveEventArgs der Activator nicht oder falsch befüllt.</p>
+</li>
+<li><p>2020031889 - <strong>HTML Client</strong>: Die Selektoren für ListViewItems sind nicht
+  sichtbar, wenn die SelectorPosition am ListView auf &quot;MiddleLeft&quot; oder
+  &quot;MiddleRight&quot; gesetzt ist.</p>
+</li>
+</ul>
 <h2 id="422-28022020">4.2.2 (28.02.2020)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.2.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021533 - <strong>Broker</strong>: Wird ein im Treeview dargestelltes Element aus seiner
   Collection am Parent entfernt und anschließend eine Eigenschaft geändert,
@@ -146,7 +179,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <ul>
 <li><a href="../doc/database/ml-column.html#such-funktion">Such-Funktionalität für die ML-Columns</a></li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020011151 - <strong>Oracle</strong>: Wird in einer DB-Column eine Spalte mit dem Typ
   Boolean angelegt, dann bringt der Datenbank-Update-Assistent einen Fehler,
@@ -227,7 +260,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <div class="WARNING"><h5>Warning</h5><p>Bestehende SQL-Server Runtime Repositories müssen manuell korrigiert werden!
 Details dazu finden Sie hier: <a href="knowledge/snapshot-isolation.html">Zeilenversionierung im SQL-Server</a>.</p>
 </div>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <p>In der Version 4.2 sind alle Fehler-Korrekturen bis einschließlich Framework Studio 4.0.18 enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

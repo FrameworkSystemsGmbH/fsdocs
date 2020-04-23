@@ -81,6 +81,36 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-42">Release-Information Framework Studio 4.2</h1>
 
+<h2 id="424-24042020">4.2.4 (24.04.2020)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.4_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2020021741 - <strong>Java-Client</strong>: Werden in ein Html-Texteingabefeld mindestens 35
+  Zeilenumbrüche (p-Tags) eingefügt und erst danach Text, so kommt es beim
+  nächsten Brokerrequest zu einer StackOverflowException. Die Anwendung ist
+  dann unter Umständen nicht mehr bedienbar.</p>
+</li>
+<li><p>2020031863 - <strong>IDE</strong>: Beim Kopieren eines Browser-Controls kann es zu einer
+  NullReferenceException kommen.</p>
+</li>
+<li><p>2020032095 - <strong>IDE</strong>: In einem abgeleiteten Workflow wird an Events einer
+  Form-Instanz die Base-Eigenschaft angezeigt. Sie ist sogar änderbar.</p>
+</li>
+<li><p>2020042138 - <strong>IDE</strong>: Beim Kopieren und Einfügen eines ListView oder Template
+  Controls in einem Package mit Package Prefix, wird den Template DataSources
+  das Prefix im Namen mehrfach vorangestellt und weicht somit vom Namen im
+  HTML Template ab.</p>
+</li>
+<li><p>2020032100 - <strong>Code-Generierung</strong>: Bei der Prüfung auf doppelte Controls
+  werden bei Forms im neuen Layout weiterhin Controls aus dem Deprecated
+  Layout berücksichtigt und führen unter Umständen zu einer nicht behebbaren
+  Warning.</p>
+</li>
+</ul>
 <h2 id="423-27032020">4.2.3 (27.03.2020)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -89,7 +119,7 @@
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="html-client">HTML Client</h4>
 <p>Der ImageButton unterstützt nun das BadgeImage.</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021640 - <strong>IDE</strong>: Öffnet man einen bestehenden Exception Editor / Message
   Box Wizard und öffnet die MLKey-Auswahl, dann ist der erste MLKey ist
@@ -120,7 +150,7 @@
 <li>FS_4.2.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021533 - <strong>Broker</strong>: Wird ein im Treeview dargestelltes Element aus seiner
   Collection am Parent entfernt und anschließend eine Eigenschaft geändert,
@@ -179,7 +209,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <ul>
 <li><a href="../doc/database/ml-column.html#such-funktion">Such-Funktionalität für die ML-Columns</a></li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020011151 - <strong>Oracle</strong>: Wird in einer DB-Column eine Spalte mit dem Typ
   Boolean angelegt, dann bringt der Datenbank-Update-Assistent einen Fehler,
@@ -260,7 +290,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <div class="WARNING"><h5>Warning</h5><p>Bestehende SQL-Server Runtime Repositories müssen manuell korrigiert werden!
 Details dazu finden Sie hier: <a href="knowledge/snapshot-isolation.html">Zeilenversionierung im SQL-Server</a>.</p>
 </div>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <p>In der Version 4.2 sind alle Fehler-Korrekturen bis einschließlich Framework Studio 4.0.18 enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

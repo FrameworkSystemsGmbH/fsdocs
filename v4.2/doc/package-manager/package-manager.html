@@ -116,10 +116,15 @@
 <p>Speichern aller Änderungen.</p>
 <h4 id="label"><strong>Label</strong></h4>
 <p>Sie erkennen <strong>Label</strong> an einem <img src="../media/icon-label.png" alt="icon-label.png">-Icon.</p>
-<p>Fixierung oder Versiegelung der aktuellen Version (<a href="package-version.html"><strong>Package-Versionen</strong></a>) und Erstellung einer neuen Version zur Weiterentwicklung. Alle ausgecheckten Elemente werden in die neue Version verschoben. Die aktuelle Version wird in den Status Sealed versetzt – dieser kann bei Bedarf auf Service Release oder wieder zurück auf Open gesetzt werden.</p>
+<p>Erzeugt eine neue <a href="package-version.html"><strong>Package-Version</strong></a> auf gleicher Ebene und versiegelt dabei die Ursprungsversion (Status=<em>sealed</em>). Ausgecheckte Elemente werden dabei in die neue Version übertragen.</p>
+<p><strong>Beispiel</strong>: Label 3.0 =&gt; 3.1</p>
+<p><img src="media/example-label-package-version.png" alt="Beispiel Labeln"></p>
+<p>Der Status der Ursprungsversion kann anschließend bei Bedarf auf <em>Service-Release</em> oder wieder zurück auf <em>Open</em> gesetzt werden.</p>
 <h4 id="branch"><strong>Branch</strong></h4>
 <p>Sie erkennen <strong>Branch</strong> an einem <img src="../media/icon-branch.png" alt="icon-branch.png">-Icon.</p>
-<p>Erstellung eines neuen Entwicklungspfades. Mit dieser Funktion kann an einer bereits fixierten Version ein zusätzlicher Entwicklungszweig eröffnet werden.</p>
+<p>Erzeugt eine neue <a href="package-version.html"><strong>Package-Version</strong></a> eine Ebene tiefer und verändert den Zustand der Ursprungsversion dabei nicht. Ausgecheckte Elemente verbleiben in der Ursprungsversion.</p>
+<p><strong>Beispiel</strong> Branch 3.0 =&gt; 3.0.2</p>
+<p><img src="media/example-branch-package-version.png" alt="Beispiel Branchen"></p>
 <h4 id="import-package"><strong>Import Package</strong></h4>
 <p>Sie erkennen <strong>Import Package</strong> an einem <img src="../media/icon-import-package.png" alt="icon-import-package.png">-Icon.</p>
 <p>Importieren einer Package-Version. Nach dem Import ist es in der Regel notwendig, abhängige Package-Versionen zu compilieren bzw. passende Stände von abhängigen Package-Versionen zu importieren.</p>

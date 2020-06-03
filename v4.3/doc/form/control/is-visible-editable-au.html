@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>IsVisibleAU / IsEditableAU </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="IsVisibleAU / IsEditableAU ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="stylesheet" href="../../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="isvisibleau--iseditableau">IsVisibleAU / IsEditableAU</h1>
+
+<p>Die Control-Eigenschaften <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.IsVisibleAU.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_IsVisibleAU"><strong>IsVisibleAU</strong></a> und <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.IsEditableAU.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_IsEditableAU"><strong>IsEditableAU</strong></a> stellen jeweils eine Liste von AccessUnit Objekten verknüpft mit je einem AUPermissionType dar. Für jeden dieser Listeneinträge wird bei der Initialisierung der Form-Controls mit Hilfe der Methode IGlobalObjects.AUHelper.Granted(AccessUnit, AUPermissionType) geprüft, ob der Zugriff gewährt wird. Falls dies bei keinem der Einträge zutrifft und die Liste nicht leer ist, so wird das entsprechende Control unsichtbar (bei <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.IsVisibleAU.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_IsVisibleAU"><strong>IsVisibleAU</strong></a>) bzw. nicht bearbeitbar (bei <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.IsEditableAU.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_IsEditableAU"><strong>IsEditableAU</strong></a>). Wenn das Property IsVisible bzw. IsEditable bereits auf false gesetzt wurde, haben die Properties keine Auswirkungen.</p>
+<p>Eine spezielle Access Unit ist die FormAccessUnit. Sie ist, worauf der Name bereits hinweist, dem Form zugeordnet. Im Fall von <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.IsVisibleAU.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_IsVisibleAU"><strong>IsVisibleAU</strong></a> und <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.IsEditableAU.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_IsEditableAU"><strong>IsEditableAU</strong></a> ist die äußerste Spezialisierung in der Vererbungskette relevant.</p>
+<p>Wird eine Eigenschaft in einem vererbten From oder im Customizing überschrieben, so wirken die Listeneinträge als wären sie mit denen aus der Basis vereinigt.</p>
+<div class="WARNING"><h5>Warning</h5><p>Bei kritischen Aktionen sollte weiterhin eine Prüfung der Access Units auf funktionaler Ebene erfolgen. Controls könnten durch Überschreibungen von <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.IsVisibleAU.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_IsVisibleAU"><strong>IsVisibleAU</strong></a>/ <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.IsEditableAU.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_IsEditableAU"><strong>IsEditableAU</strong></a> oder den Actions <code>SetVisible(bool)</code>/<code>SetEnabled(bool)</code> sichtbar bzw. zugänglich gemacht werden.</p>
+</div>
+<p>Der Dialog zum Festlegen der Properties <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.IsVisibleAU.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_IsVisibleAU"><strong>IsVisibleAU</strong></a> und <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.IsEditableAU.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_IsEditableAU"><strong>IsEditableAU</strong></a>, der beim Klick auf den <img src="../../media/button-smore.png" alt="button-smore.png"> Button im Property Grid erscheint, zeigt links den kompletten Access Unit Baum und die FormAccessUnit zur Auswahl an. Rechts sind die in der Liste enthaltenen Access Units. Die in der Mitte befindlichen Buttons fügen entweder eine im linken Bereich ausgewählte AccessUnit in der rechten Liste ein (Alle Buttons mit diesem Pfeil: <img src="../../media/arrow_right.png" alt="arrow_right.png"> ) oder entfernen sie aus der rechten Liste (<img src="../../media/button-sdelete.png" alt="button-sdelete.png">).</p>
+<p><strong>Dialog zur Bearbeitung von IsVisibleAU/IsEditableAU:</strong></p>
+<p><img src="../media/is-visible-editable-au-dialog.png" alt="is-visible-editable-au-dialog.png"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.3/master/doc/form/control/is-visible-editable-au.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,226 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Package-Versionen </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Package-Versionen ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="package-versionen">Package-Versionen</h1>
+
+<p>In der Baumstruktur des Package Managers werden unterhalb eines Packages alle definierten Entwicklungsstände (Versionen) mit dem Symbol <img src="../media/icon-package-version.png" alt="icon-package-version.png"> für <strong>Version</strong> dargestellt.</p>
+<p>Durch Doppelklick auf eine Version wird ein Fenster geöffnet, in dem alle Einstellungen zu der Version vorgenommen werden können.</p>
+<p><img src="media/package-version.png" alt="package-version.png"></p>
+<h4 id="package">Package</h4>
+<p>Name des Package Herstellers (<strong>nicht editierbar</strong>).</p>
+<h4 id="version-name">Version Name</h4>
+<p>Bezeichnung der Version. Es wird empfohlen, ausschließlich gültige Versionsnummern in dem Format &quot;Major.Minor.Build.Revision&quot; (z.B. 3.11 oder 3.11.1.5) zu verwenden. Es funktionieren auch andere Versions-Bezeichnungen, allerdings können diese dann nicht korrekt sortiert werden.</p>
+<h4 id="version-id">Version ID</h4>
+<p>Die interne ID der Package-Version (<strong>nicht editierbar</strong>).</p>
+<h4 id="product-name">Product Name</h4>
+<p>Der Name des Produkts. Dieser kann z.B. bei Versions-Informationen innerhalb der End-Anwendung ausgegeben werden.</p>
+<h4 id="assembly-prefix">Assembly Prefix</h4>
+<p>Kürzel, welches vor die Assemblies und den internen Elementnamen (Komponenten, Forms, Tabellen, …) gehängt werden soll. Der Assembly Prefix kann nur bearbeitet werden, wenn noch kein Compiler ausgeführt wurde bzw. es noch keinen Workspace für diese Package-Version gibt.</p>
+<p>Ist das Feld gesperrt, kann diese Sperre mit dem Button <strong>Edit</strong> aufgehoben werden. Dies hat zur Folge, dass alle Workspaces für diese Package-Version und ALLE davon abhängigen Package-Versionen gelöscht werden. Anschließend müssen alle diese Package-Versionen neu kompiliert werden.</p>
+<p>Version State:</p>
+<ul>
+<li><p><strong>Open:</strong> Die Package-Version ist offen und befindet sich in der Entwicklung. Es gibt keinerlei Einschränkungen bei der Arbeit. Bei jedem Compile mit dem FrameworkCompiler / Compile-Wizard wird ein neuer Compile-Stempel erzeugt – das bedeutet, dass alle anhängigen Package-Version ebenfalls neu kompiliert werden müssen.</p>
+</li>
+<li><p><strong>Sealed:</strong> Die Package-Version ist versiegelt. Es können keine Änderungen vorgenommen werden. Es kann sich kein Entwickler mehr an dieser Package-Version anmelden. Damit eine Package-Version in den Status <strong>Sealed</strong> versetzt werden kann, darf nichts mehr ausgecheckt sein und alle Änderungen müssen mit dem FrameworkCompiler / Compile-Wizard kompiliert sein.</p>
+</li>
+<li><p><strong>Service Release:</strong> An der Package-Version können nur Änderungen an Methoden-Inhalten vorgenommen werden – es darf keine Schnittstellen-Änderungen mehr geben. Bei einem FrameworkCompiler / Compile-Wizard bleibt der Compile-Stempel erhalten. Dadurch brauchen abhängige Package-Versionen nicht neu kompiliert werden und es ist ein sehr schneller Update möglich.</p>
+</li>
+</ul>
+<p>Der Version State kann jederzeit geändert werden. Dabei werden entsprechende Plausibilitäten geprüft, um eine Fehl-Bedienung zu unterbinden.</p>
+<h4 id="button-lock">Button <strong>Lock</strong></h4>
+<p>Damit kann eine Package-Version gesperrt werden, damit sich niemand mehr daran anmelden kann. Mit dem Klick erscheint ein Dialog, in dem eine Begründung eingegeben werden kann. Diese Begründung wird im Login-Dialog angezeigt.</p>
+<p><img src="media/locking-label.png" alt="locking-label.png"></p>
+<p>Falls noch Benutzer angemeldet sind, wird dieser Dialog angezeigt. Hier gibt es die folgenden Möglichkeiten:</p>
+<ul>
+<li><p><strong>Cancel:</strong> den Vorgang abbrechen.</p>
+</li>
+<li><p><strong>Retry:</strong> es erneut versuchen, nachdem z.B. dem Benutzer Bescheid gegeben wurde.</p>
+</li>
+<li><p><strong>Kill User Sessions:</strong> die Sitzungen der Benutzer zu beenden. Bei dieser Aktion wird 130 Sekunden gewartet. Das ist die Zeit, die im Extremfall benötigt wird, bis ein Benutzer zum Beenden seiner Sitzung gezwungen wurde. (60 Sekunden bis zur Hinweismeldung + 60 Sekunden bis zum endgültigen Abbruch + 10 Sekunden Reserve)</p>
+</li>
+</ul>
+<p>Während dieser Dialog angezeigt wird, können sich keine neuen Benutzer mehr anmelden.</p>
+<p>Dieser Mechanismus wird automatisch verwendet, um eine Package-Version während eines Upgrades vor einer Benutzung abzusichern.</p>
+<h4 id="button-status">Button <strong>Status…</strong></h4>
+<p>Öffnet einen Dialog zum Festlegen einer Statusmeldung, die jedem Nutzer dieser Package Version beim Einloggen und in der Entwicklungsumgebung selbst angezeigt wird.</p>
+<p><img src="media/package-version-state.png" alt="package-version-state.png"></p>
+<p>Wird kein Informationstext angegeben, so wird der Status nicht angezeigt. Ansonsten ist er an den unten aufgeführten Positionen in der Entwicklungsumgebung sichtbar. Wird in der Combobox <strong>Name</strong> ein Status ausgewählt, dann gelten die Einstellungen, die in dem entprechenden Dialog gepflegt sind und es wird, sofern vorhanden, an allen Stellen zusätzlich der als nächstes greifende Status angezeigt.</p>
+<ul>
+<li>Login Dialog in der Detailbeschreibung zu einer Package Version:</li>
+</ul>
+<p><img src="media/package-version-login-dialog.png" alt="package-version-login-dialog.png"></p>
+<ul>
+<li>Status Bar im FrameworkDesigner:</li>
+</ul>
+<p><img src="media/package-version-status-bar.png" alt="package-version-status-bar.png"></p>
+<ul>
+<li>Im Check Out Dialog:</li>
+</ul>
+<p><img src="media/package-version-checkout.png" alt="package-version-checkout.png"></p>
+<ul>
+<li>Check In Dialog:</li>
+</ul>
+<p><img src="media/package-version-checkin.png" alt="package-version-checkin.png"></p>
+<p>Bei Status <b style="background-color: #cd5c5c; padding: 2px 5px 2px 5px">Rot</b> muss im Check-In Dialog zusätzlich eine Begründung eingegeben werden, bevor der Check-In möglich ist. Diese Begründung wird mit dem Zusatz <strong>#warning State Red</strong> in den Check-In-Kommentar eingefügt.</p>
+<p>Über den Menüpunkt <strong>Tools / Package Versions States</strong> im Package Manager wird dieser Dialog geöffnet. Hier können mehrere Package Version Status gepflegt werden. Wenn mehrere Status den selben Namen haben, werden sie dem Datum entsprechend nacheinander aktiv, sofern der Name an einem Package hinterlegt ist.</p>
+<p><img src="media/package-version-states.png" alt="package-version-states.png"></p>
+<h4 id="fs-version">FS Version</h4>
+<p>Framework Studio Version, mit der die Package Version bearbeitet werden kann. (<strong>nicht editierbar</strong>)</p>
+<h4 id="button-upgrade">Button <strong>Upgrade</strong></h4>
+<div class="NOTE"><h5>Note</h5><p>nur aktiv, wenn die <strong>FS Version</strong> der Package-Version kleiner ist als die Version, in der der Package Manager gestartet wurde</p>
+</div>
+<p>Für die Package-Version wird ein Upgrade auf die aktuelle Framework Studio Version durchgeführt.</p>
+<div class="WARNING"><h5>Warning</h5><p>Der Upgrade-Vorgang lässt sich nicht rückgängig machen. Das heißt, dass dieses Label mit älteren Framework Studio Versionen nicht mehr verwendet werden kann.</p>
+</div>
+<h4 id="compile-run">Compile Run</h4>
+<p>In diesem Feld kann ein Name eingegeben werden, mit dem über die FSConsole.exe gesteuert werden kann, welche Package-Versionen kompiliert werden sollen.</p>
+<h4 id="button-source-ctrl-history-">Button <strong>Source Ctrl. History …</strong></h4>
+<p>Öffnet die Source Control History für die aktuelle Package Version. Standardmäßig werden hierbei alle Elemente angezeigt. Sowohl eingecheckte als auch ausgecheckte Elemente.</p>
+<h4 id="button-compile-wizard">Button <strong>Compile Wizard</strong></h4>
+<p>Ruft für die Package-Version den <a href="compile-wizard.html"><strong>Compile Wizard</strong></a> auf.</p>
+<p>Auf der Registerkarte <strong>Using Hierarchy</strong> werden die Package Versionen angezeigt, die von dieser Version verwendet werden. Die Versionen werden in der Verwendungsreihenfolge angezeigt.</p>
+<p>Die Using Hierarchy kann von den Requirements wie folgt abweichen:</p>
+<ol>
+<li><p>In der Using Hierarchy können zusätzlich Labels von weiteren Packages aufgeführt werden.</p>
+</li>
+<li><p>Von einem Label in den Requirements kann ein anderes Label des gleichen Packages in der Using Hierarchy aufgeführt werden.</p>
+</li>
+</ol>
+<p>Auf der Registerkarte <strong>Requirements</strong> werden tabellarisch die Abhängigkeiten der Version von anderen Packages bzw. Package Versionen dargestellt, also auf welchen Packages in welcher Version das aktuelle Package aufbaut. Diese Information wird beim Import im Repository abgelegt und ist nicht veränderbar.</p>
+<p>Die Registerkarte Info stellt interne Informationen zum Kompilierstatus dar.</p>
+<p>Auf allen Registerkarten befindet sich ein Button <strong>Refresh</strong> zum Aktualisieren der dargestellten Informationen.</p>
+<h2 id="register-languages">Register <strong>Languages</strong></h2>
+<p>Auf dieser Registerkarte können die Sprachen für die Package-Version definiert werden.</p>
+<p><img src="media/package-version-languages.png" alt="Languages"></p>
+<p>Eine Sprache besteht aus den folgenden Informationen:</p>
+<ul>
+<li><strong>Iso-Code</strong>: Der ISO 639-1 Code der Sprache. Dieser besteht aus 2 kleinen Buchstaben - z.B. <code>de</code>, <code>en</code>.</li>
+<li><strong>Name</strong>: Der Name der Sprache. Dieser wird in der IDE angezeigt.</li>
+</ul>
+<p>An einer Package-Version können beliebig viele Sprachen definiert werden. Diese werden automatisch in die abhängigen Package-Versionen vererbt.</p>
+<div class="WARNING"><h5>Warning</h5><p>Auf der Application Startseite werden nur Sprachen angeboten, für die im <a href="../mlkey/woerterbuch.html">Wörterbuch</a> mindestens ein MLKey übersetzt ist.</p>
+</div>
+<h4 id="languages-from-base">Languages from Base</h4>
+<p>Diese Liste zeigt die Sprachen aus den Basis-Packages an.</p>
+<h4 id="languages-from-current-package">Languages from current Package</h4>
+<p>In dieser Liste können die Sprachen für die Package-Version gepflegt werden. Es können zusätzliche Sprachen definiert werden</p>
+<p>Wird eine Sprache mit einem identischen Iso-Code wie im Basis-Package angelegt, dann überschreibt der Eintrag das Basis-Package. In der IDE wird dann die überschriebene Bezeichnung der Sprache angezeigt.</p>
+<div class="NOTE"><h5>Note</h5><p>Wird eine Sprache gelöscht, dann bleiben die Übersetzungen an den Records und im  <a href="../mlkey/woerterbuch.html">Wörterbuch</a> trotzdem erhalten.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.3/master/doc/package-manager/package-version.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

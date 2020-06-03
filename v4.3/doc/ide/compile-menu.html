@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Compile Men&#252; </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Compile Men&#252; ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="compile-menü">Compile Menü</h1>
+
+<p>In den folgenden Abschnitten werden die Menüpunkte im Menü <strong>Tools</strong> beschrieben.</p>
+<p><img src="media/compile-menu.png" alt="compile-menu.png"></p>
+<h2 id="compile-manager">Compile Manager</h2>
+<p>Wenn viele Namespaces kompiliert werden sollen und der Kompiliervorgang durch einen Fehler unterbrochen wird, kann mit dem Compile Manager der Kompiliervorgang fortgesetzt werden. In Verbindung mit dem FC-User ist das vor allem bei Update-Szenarien sehr vorteilhaft.</p>
+<p><img src="media/compile-manager.png" alt="compile-manager.png"></p>
+<p>Mit den Buttons in der Gruppe <strong>Add Namespaces to List</strong> werden die zu kompilierenden Elemente typweise in die Liste übernommen. In der Liste auf der rechten Seite werden alle Namespaces gesammelt. Beim Erstellen der Liste wird nicht geprüft, ob ein Namespace auch tatsächlich Elemente eines bestimmten Typs (z.B. Forms) beinhaltet. Es landen immer alle existierenden Namespaces in der Liste.</p>
+<p>Diese Liste versteht sich als eine Aufgabenliste, die durch kompilieren abzuarbeiten ist. Das Abarbeiten kann auf 2 Arten erfolgen:</p>
+<ol>
+<li><p>Der Button <strong>Compile</strong> in diesem Fenster. Es öffnet sich ein ganz normales Compile-Fenster, das wie z.B. beim Compile-CheckedOut die entsprechenden Namespaces kompiliert.</p>
+</li>
+<li><p>Durch einen herkömmlichen Kompiliervorgang (über das Namespace-Registerkarte, aus einem Element heraus und auch Compile Checked Out).</p>
+</li>
+</ol>
+<p>Ganz gleich, von wo aus der Compile gestartet wird, immer wenn ein Namespace erfolgreich kompiliert wurde, wird dieser aus der Liste entfernt.</p>
+<p>Mit dem Button <strong>Save</strong> kann die aktuelle Liste in eine Datei gespeichert werden. Die Datei wird in das Compile-Directory geschrieben. Mit dem Button <strong>Load</strong> kann diese Liste wieder aus einer Datei eingelesen werden. Das ist nützlich, wenn Framework Studio zwischendurch verlassen werden muss. So kann nach dem Neustart dort weitergemacht werden, wo zuletzt aufgehört wurde.</p>
+<p>Mit dem Button <strong>Complete FrameworkCompiler</strong> wird der FrameworkCompiler-Vorgang abgeschlossen. Dieser Button wird nur angezeigt, wenn ein FC-User oder der FrameworkCompiler angemeldet ist. Folgende Aktionen werden ausgeführt:</p>
+<ol>
+<li><p>Prüfen, ob etwas ausgecheckt ist. Für diese Aktion muss alles eingecheckt sein.</p>
+</li>
+<li><p>Refresh des FrameworkCompiler-Workspaces (nur wenn man als FC-User angemeldet ist). Beim Arbeiten mit dem FC-User können Elemente aus- und eingecheckt werden. Die SavedCodes und Assemblies wurden generiert und jetzt muss noch der Workspace vom FrameworkCompiler aktualisiert werden, damit dieser wieder zu den generierten Informationen passt. Das ist notwendig, wenn das Package exportiert werden soll oder anschließend andere User beim Refresh des eigenen Workspaces den vom FrameworkCompiler verwenden (<strong>FrameworkCompiler Version and checked out</strong> im Login-Dialog).</p>
+</li>
+<li><p>Aktualisieren des Compile-Stamps. Das beinhaltet die Information, dass der FrameworkCompiler erfolgreich gelaufen ist und sorgt dafür, dass die rote Kennzeichnung im Package-Manager verschwindet.</p>
+</li>
+</ol>
+<p>Beim normalen Kompilieren in FrameworkStudio wird das nicht durchgeführt, weil dieser Stempel sicherstellen soll, dass <strong>ALLES</strong> kompiliert wurde.</p>
+<div class="WARNING"><h5>Warning</h5><p>Diese Aktion sollte nur dann ausgeführt werden, wenn sichergestellt ist, dass auch wirklich alles kompiliert wurde.</p>
+</div>
+<h2 id="compile-checked-out">Compile Checked Out</h2>
+<p>Mit dem Menüeintrag <strong>Compile Checked Out</strong> werden alle vom Benutzer ausgecheckten Elemente kompiliert. Falls nötig, werden weitere Elemente kompiliert. Das betrifft insbesondere die folgenden Fälle:</p>
+<ul>
+<li><p>Wenn mindestens eine <strong>Component</strong> ausgecheckt ist, werden auch <strong>Interfaces</strong> und <strong>GlobalObjects</strong> kompiliert.</p>
+</li>
+<li><p>Wenn mindestens ein <strong>Form</strong> ausgecheckt ist, werden auch <strong>Access Units</strong> mit kompiliert.</p>
+</li>
+</ul>
+<p>Diese Funktion verwendet im Hintergrund den <a href="#compile-manager"><strong>Compile Manager</strong></a>. Wenn beim Kompilieren ein Fehler auftritt, dann kann der Kompiliervorgang im Compile-Manager fortgesetzt werden.</p>
+<h2 id="compile-changes">Compile Changes</h2>
+<p>!TODO: muss noch genauer beschrieben.</p>
+<h2 id="run--run">Run / Run…</h2>
+<p>Mit dem Menüeintrag <strong>Run</strong> werden die Testumgebung (<a href="#start--stop-current-development-fsdomain"><strong>Start / Stop current development FSDomain</strong></a>) und ein Client für die Applikation gestartet. Es werden dazu die zuletzt im [<strong>Run-Wizard</strong>](!TODO LINK) vorgenommenen Einstellungen verwendet.</p>
+<p>Mit dem Menüeintrag <strong>Run…</strong> wird zunächst der [<strong>Run-Wizard</strong>](!TODO LINK) gestartet und anschließend die Testumgebung mit Client für die Applikation gestartet.</p>
+<h2 id="run-without-compile">Run Without Compile</h2>
+<p>!TODO: muss noch genauer beschrieben.</p>
+<h2 id="run-wizards">Run Wizards…</h2>
+<p>!TODO: muss noch genauer beschrieben.</p>
+<h2 id="start--stop-current-development-fsdomain">Start / Stop current development FSDomain</h2>
+<p>Mit dem Menüeintrag <strong>Start current development FSDomain</strong> starten Sie alle im [<strong>Run-Wizard</strong>](!TODO LINK) konfigurierten Dienste (Service Hosts) und den Development Broker (<a href="anwendung-starten.html#development-broker"><strong>Development-Broker</strong></a>).</p>
+<p>Mit dem Menüeintrag <strong>Stop development FSDomain</strong> wird der Development Broker beendet.</p>
+<h2 id="open-client-start-page">Open Client Start Page</h2>
+<p>!TODO: muss noch genauer beschrieben.</p>
+<h2 id="development-service-host-options">Development Service Host Options</h2>
+<p>Mit dem Menüpunkt Development Service Host Options können die folgenden beiden Schalter gesetzt werden:</p>
+<ul>
+<li><p><strong>Compile forces stop of Development Broker Service Host:</strong> Ist diese Option mit einem Häkchen versehen, wird der <a href="anwendung-starten.html#development-broker"><strong>Development-Broker</strong></a> automatisch beendet, wenn in Framework Studio ein Kompiliervorgang gestartet wird. Andernfalls werden Sie beim Start eines Kompiliervorgangs gefragt, ob der laufende Development-Broker beendet werden soll. Die Beendung des Development-Brokers ist nötig, um kompilieren zu können. Der Schalter ist im Standard gesetzt.</p>
+</li>
+<li><p><strong>Autostop of Development Broker Service Host after run of application:</strong> Ist diese Option mit einem Häkchen versehen, wird der Development-Broker automatisch beendet, wenn die Testapplikation geschlossen wird.</p>
+</li>
+</ul>
+<h2 id="logging">Logging</h2>
+<p>Mit dem Menüpunkt <strong>Logging</strong> wird ein Dialog geöffnet, in dem alle Einstellungen zur Protokollierung der Xml Kommunikation zwischen Client und Broker vorgenommen werden.</p>
+<p>Siehe <a href="anwendung-starten.html#protokollieren-der-xml-kommunikation"><strong>Protokollieren der XML-Kommunikation</strong></a></p>
+<h2 id="autocompile-report">AutoCompile Report</h2>
+<p>!TODO: muss noch genauer beschrieben.</p>
+<h2 id="open-compile-directory-in-explorer">Open Compile Directory In Explorer</h2>
+<p>Mit dem Menüpunkt <strong>Open Compile Directory In Explorer</strong> wird das Kompilierverzeichnis (<a href="anwendung-starten.html#compile-verzeichnis"><strong>Compile-Verzeichnis</strong></a>) im Windows Explorer geöffnet.</p>
+<h2 id="open-development-broker-directory-in-explorer">Open Development Broker Directory In Explorer</h2>
+<p>Mit dem Menüpunkt <strong>Open Development Broker Directory In Explorer</strong> wird das im IIS freigegebene Verzeichnis des Development-Brokers (<a href="anwendung-starten.html#development-broker"><strong>Development-Broker</strong></a>) im Windows Explorer geöffnet.</p>
+<h2 id="open-user-directory-in-explorer">Open User Directory In Explorer</h2>
+<p>Mit dem Menüpunkt <strong>Open User Directory In Explorer</strong> wird das Verzeichnis im Windows Explorer geöffnet, in dem <strong>Framework Studio</strong> benutzerbezogene Daten ablegt. Dazu gehören verschiedene Konfigurationsdateien sowie ggf. Trace- und Log-Dateien.</p>
+<h2 id="application">Application…</h2>
+<p>!TODO: muss noch genauer beschrieben.</p>
+<h2 id="get-dlls">Get Dll‘s</h2>
+<p>Mit diesem Menüpunkt können die Dll‘s vom FrameworkCompiler, die Debug-Dll’s vom aktiven Package oder die Debug-Dll’s von allen Basis-Packages in das eigene Compile-Verzeichnis geschrieben werden.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.3/master/doc/ide/compile-menu.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

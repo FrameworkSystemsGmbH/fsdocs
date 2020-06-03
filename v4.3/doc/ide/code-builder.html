@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Code Builder </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Code Builder ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="code-builder">Code Builder</h1>
+
+<p><strong>Compile Options:</strong></p>
+<p><img src="media/compile-options-1.png" alt="compile-options-1.png"></p>
+<p><img src="media/compile-options-2.png" alt="compile-options-2.png"></p>
+<p>Das Menü, mit dem Sie zum einen die Optionen zur Codegenerierung und zum Kompilieren festlegen, und zum anderen einen Kompiliervorgang starten können, wird über den Button <img src="../media/button-compile.png" alt="button-compile.png"> <strong>Compile Options</strong> geöffnet.</p>
+<p>In diesem Fenster sehen Sie in der Zeile, beginnend mit <strong>Active Application</strong>, welche Applikation ausgewählt ist. Für diese Applikation werden dann durch das Starten des Kompiliervorgangs die Dynamic Link Librarys (DLLs) erzeugt.</p>
+<p>Mit den unten aufgeführten Checkboxen (<img src="../media/icon-checkbox.png" alt="icon-checkbox.png">) legen Sie fest, für welche Elementtypen der generierte Code neu kompiliert werden soll. Es ist nicht immer notwendig und wird aus Zeitgründen auch nicht empfohlen, alle Elemente in einem Namespace zu kompilieren. Stattdessen sollten Sie nur die Elemente kompilieren, an denen Sie auch tatsächlich Änderungen vorgenommen haben.</p>
+<h4 id="checkbox-resources">Checkbox <strong>Resources</strong></h4>
+<p>Wählen Sie <strong>Resources</strong>, um alle Ressourcen neu ins Brokerverzeichnis zu kopieren.</p>
+<h4 id="checkbox-access-units">Checkbox <strong>Access Units</strong></h4>
+<p>Wählen Sie <strong>Access Units</strong>, wenn Sie neue Access Units (z.B. durch Hinzufügen eines neuen Forms) hinzugefügt haben und diese im Code ansprechen wollen.</p>
+<div class="WARNING"><h5>Warning</h5><p>Wenn Sie für die Anwendung keine Developer-Lizenz verwenden und neue Access Units hinzugekommen sind oder die Hierarchie geändert wurde, müssen Access Units mit dem Benutzer FrameworkCompiler <strong>recursive from root</strong> kompiliert werden.</p>
+</div>
+<h4 id="checkbox-metadatatypes">Checkbox <strong>Metadatatypes</strong></h4>
+<p>Wählen Sie <strong>Metadatatypes</strong>, um die Metadatentypen in einem Namespace zu kompilieren.</p>
+<h4 id="checkbox-dbtables">Checkbox <strong>DBTables</strong></h4>
+<p>Wählen Sie <strong>DBTables</strong>, wenn Sie Änderungen an den DB-Tables vorgenommen haben.</p>
+<h4 id="checkbox-interfaces">Checkbox <strong>Interfaces</strong></h4>
+<p>Wählen Sie <strong>Interfaces</strong>, wenn Sie Änderungen an Komponenten vorgenommen haben, welche die Methodendefinitionen, Methodenparameter oder Properties betreffen.</p>
+<div class="WARNING"><h5>Warning</h5><p>Der Sinn von Interfaces liegt darin, zirkulare Referenzen zu vermeiden. Die Interfaces werden daher grundsätzlich über alle Namespaces hinweg kompiliert.</p>
+</div>
+<h4 id="checkbox-components">Checkbox <strong>Components</strong></h4>
+<p>Wählen Sie <strong>Components</strong>, wenn Sie Änderungen an den Komponenten vorgenommen haben, welche Methodendefinitionen, Methodenparameter, Properties oder Codes innerhalb von Methoden betreffen.</p>
+<h4 id="checkbox-global-objects">Checkbox <strong>Global Objects</strong></h4>
+<p>Wählen Sie <strong>Global Objects</strong>, wenn Sie Änderungen an diesen vorgenommen haben und wenn Sie neue Komponenten angelegt haben.</p>
+<h4 id="checkbox-report-document-types">Checkbox <strong>Report Document Types</strong></h4>
+<p>Wählen Sie <strong>Report Document Types</strong>, wenn Sie Änderungen an diesen vorgenommen haben.</p>
+<h4 id="checkbox-custom-controls">Checkbox <strong>Custom Controls</strong></h4>
+<p>Wählen Sie <strong>Custom Controls</strong>, wenn Sie Änderungen an diesen vorgenommen haben.</p>
+<h4 id="checkbox-forms">Checkbox <strong>Forms</strong></h4>
+<p>Wählen Sie <strong>Forms</strong>, wenn Sie Änderungen an den Forms vorgenommen haben.</p>
+<h4 id="checkbox-workflows">Checkbox <strong>Workflows</strong></h4>
+<p>Wählen Sie <strong>Workflows</strong>, wenn Sie diese geändert haben.</p>
+<p>Mit dem Button <img src="../media/button-select-all.png" alt="button-select-all.png"> wählen Sie alle genannten Elemente aus, mit <img src="../media/button-unselect-all.png" alt="button-unselect-all.png"> keines.</p>
+<p>Mit den darunter angeordneten Checkboxen legen Sie weitere Optionen zur Codeerzeugung und zum Kompilieren fest.</p>
+<h4 id="checkbox-use-saved-code">Checkbox <strong>Use Saved Code</strong></h4>
+<p>Um die Codegenerierung zu beschleunigen, besteht die Möglichkeit, <strong>Framework Studio</strong> anzuweisen, auf bereits generierten und im Repository hinterlegten Code (sogenannten Saved Code) zurückzugreifen. Das hat den Vorteil, dass nicht der gesamte Code vor dem Kompilieren neu generiert werden muss, sondern lediglich die Teile, welche sich geändert haben.</p>
+<p>Falls es dabei allerdings zu Problemen kommt, können Sie <strong>Framework Studio</strong> anweisen, den Code komplett neu zu generieren.</p>
+<h4 id="checkbox-rebuild-on-error">Checkbox <strong>Rebuild On Error</strong></h4>
+<p>Diese Option ist irrelevant, wenn <strong>Use Saved Code</strong> nicht aktiviert wurde. Andernfalls bewirkt das Aktivieren von <strong>Rebuild On Error</strong>, dass bei einem Kompilierfehler in einem eingecheckten Element ein zweiter Kompilierversuch ohne <strong>Saved Code</strong> gestartet wird.</p>
+<p>Der Kompilierversuch ohne <strong>Saved Code</strong> ist dann nötig, wenn Sie beispielsweise eine Komponente umbenannt haben, die von einer anderen, eingecheckten Komponente benutzt wird. Sie sollten die Option nur bei Problemen dieser Art aktivieren, da sich die Kompilierzeit mit <strong>Rebuild On Error</strong> beim Auftreten eines Fehlers deutlich erhöht.</p>
+<h4 id="checkbox-debugable">Checkbox <strong>Debugable</strong></h4>
+<p>Um den erzeugten Code zur Laufzeit mit Microsoft Visual Studio bereinigen zu können, aktivieren Sie die Option <strong>Debugable</strong>. Das führt dazu, dass im Applikations-Verzeichnis, zusätzlich zu den Dynamic Link Librarys (DLL) auch noch Programmdatenbankendateien und Quellcodedateien (.cs) von den einzelnen Namespaces erzeugt werden. Diese können mit <strong>Visual Studio</strong> geöffnet werden.</p>
+<h4 id="checkbox-xmldoc">Checkbox <strong>XMLDoc</strong></h4>
+<p>Aktivieren Sie diese Option, damit eine XML-Beschreibungsdatei erzeugt wird. Für weitergehende Informationen lesen Sie das Kapitel <strong>Verwendung von NDoc</strong>.</p>
+<p>Um einen Kompiliervorgang zu starten, stehen Ihnen mehrere Möglichkeiten zur Auswahl:</p>
+<h4 id="option-compile-namespace">Option <strong>Compile Namespace</strong></h4>
+<p>Der Code für den im Objekt-Baum dargestellten Namespace wird generiert. Danach werden die Dlls erzeugt und in das Compile-Verzeichnis (<a href="anwendung-starten.html#compile-verzeichnis">Compile-Verzeichnis</a>) geschrieben. Die darunter liegenden Namespaces werden nicht berücksichtigt.</p>
+<h4 id="option-compile-namespace-recursively">Option <strong>Compile Namespace Recursively</strong></h4>
+<p>Auch die untergeordneten Namespaces werden in den Kompiliervorgang mit eingebunden.</p>
+<h4 id="option-compile-from-root">Option <strong>Compile From Root</strong></h4>
+<p>Unter diesem Menüpunkt werden die folgenden Kompilierarten angeboten, die sich grundsätzlich auf alle Namespaces beziehen:</p>
+<h4 id="option-recursively">Option <strong>Recursively</strong></h4>
+<p>Alle Elemente werden kompiliert.</p>
+<h4 id="option-recursively-with-restarts">Option <strong>Recursively With Restarts</strong></h4>
+<p>Alle Elemente werden kompiliert. Dabei wird <strong>Framework Studio</strong> nach der erfolgreichen Abarbeitung eines jeden Elementtyps neu gestartet. Dadurch wird der gesamte verwendete Speicher freigegeben. Diese Funktion ist dann sinnvoll, wenn ohne den Neustart nicht ausreichend Arbeitsspeicher für den Kompiliervorgang zur Verfügung stehen würde.</p>
+<p>Über die Tastenkombination <strong>[Strg]+[Shift]+[B]</strong> können Sie aus <strong>Framework Studio</strong> direkt einen Kompiliervorgang für den Elementtyp des aktuell geöffneten Elements anstoßen, ohne vorher das Menü <strong>Compile Options</strong> öffnen zu müssen.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.3/master/doc/ide/code-builder.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

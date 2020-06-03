@@ -1,0 +1,151 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>MLString </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="MLString ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="mlstring">MLString</h1>
+
+<p>Framework Studio bietet eine durchgängige Unterstützung für die Mehrsprachigkeit. An allen Stellen, an denen für den Anwender sichtbare Beschriftungen, Tooltips oder Meldungstexte gepflegt werden bietet Framework Studio einen Editor zur Bearbeitung von mehrsprachigen Texten (Multi Language String / <strong>MLString</strong>) an.</p>
+<p>Der Editor wird in Form einer Tabelle angezeigt, in der die Verschiedenen Sprachen des Textes angezeigt und bei Bedarf auch bearbeitet werden.</p>
+<p>Die <strong>fett gedruckten</strong> Angaben sind an dieser Stelle überschrieben. Die normal gedruckten Angaben sind aus dem Basis-Package oder dem Basis-Record geerbt. Siehe auch Abschnitt <a href="#vererbung">Vererbung</a>.</p>
+<p><img src="media/mlstring-in-designer.png" alt="MLString Designer"></p>
+<p>An erster Stelle steht immer der <strong>MLKey</strong>. Dieser stellt einen Verweis auf das <a href="woerterbuch.html">Wörterbuch</a> dar. Es kann direkt ein MLKey eingeben werden oder mit dem Auswahl-Button ein Such-Dialog geöffnet werden. Dabei handelt es sich um den voll funktionsfähigen <a href="woerterbuch.html#multilanguage-text-editor">Multilanguage Text Editor</a> erweitert um eine Auswahl-Funktion. In diesem Dialog können, wenn kein passender MLKey gefunden wurde, auch ein neuer Key erfasst werden.</p>
+<p>Die Texte in den einzelnen Sprachen werden im Designer und auch zur Laufzeit der Anwendung aus dem Wörterbuch ermittelt. Die angezeigten Sprachen und deren Reihenfolge können in den <strong>Options</strong> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Ist ein <strong>MLKey</strong> angegeben, dann ist es davon abzuraten, einzelne Texte zu überschreiben.</p>
+</div>
+<p>Im <strong>Property-Grid</strong> wird der MLString in einer Zeile dargestellt, die zur Anzeige der einzelnen Sprachen erweitert werden kann.</p>
+<p><img src="media/mlstring-in-property-grid.png" alt="MLString Property Grid"></p>
+<p>Die einzeilige Anzeige stellt einen kombinierten Text in Format <code>@{MLKey} - {deutscher Text}</code> dar. In diesem Text man auch direkt mit vorangestellten <code>@</code>-Zeichen einen anderen <strong>MLKey</strong> eintragen - z.B. <code>@LBL_ArticleID</code>.
+Ein <strong>MLKey</strong> kann auch (wie oben beschrieben) am entsprechenden MLKey-Eintrag eingetragen oder ausgewählt werden.</p>
+<h2 id="vererbung">Vererbung</h2>
+<p>Mit den verschiedenen Records in Framework Studio werden auch die entsprechenden MLStrings vererbt. Dadurch werden im Idealfall die am Metadatentyp definierten Texte über die komplette Kette bis hin zu den Form-Controls durchgereicht.</p>
+<p>Ein vererbter Text kann an jeder beliebigen Stelle in der Kette überschrieben werden. Es gibt 2 Möglichkeiten:</p>
+<ol>
+<li><p>Einen anderen MLKey zuweisen</p>
+<p> Damit werden alle anderen Texte aus der Basis inkl. MLKeys und den überschriebenen Texten ausgeblendet. Auch wenn der neue MLKey z.B. keinen Text für <code>fr</code> definiert hat, wird ein in der Basis definierter <code>fr</code> Text ausgeblendet.</p>
+</li>
+<li><p>Einen einzelnen Text überschreiben:</p>
+<div class="WARNING"><h5>Warning</h5><p>Darauf sollte möglichst verzichtet werden. Wenn lediglich die Übersetzung gepflegt wird, dann erfolgt dies besser im Wörterbuch. Wenn eine abweichende Bedeutung gewünscht ist, dann sollte ein anderer MLKey angegeben werden.</p>
+</div>
+<p> Das überschreibt nur den Text der entsprechenden Sprache. Die anderen nicht überschriebenen Sprachen werden weiter aus der Basis gezogen.</p>
+<div class="CAUTION"><h5>Caution</h5><p>In der <strong>eNVenta/WS</strong> Standard-Entwicklung ist das verboten.</p>
+</div>
+</li>
+</ol>
+<p>Das folgende Bild zeigt eine Vererbungs-Hierarchie. Die Pfeile stellen den Weg dar, über den der Text für das Control ermittelt wird. Dabei wird hier die Sprache <code>fr</code> mit den Fallback-Sprachen <code>en</code> und <code>de</code> verwendet. Der erste Text der auf diesem Weg gefunden wird, wird ausgegeben.</p>
+<p><img src="media/mlstring-vererbung.png" alt="MLString Vererbung"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.3/master/doc/mlkey/mlstring.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

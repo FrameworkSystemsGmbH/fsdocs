@@ -1,0 +1,409 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Release-Information Framework Studio 4.2 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Release-Information Framework Studio 4.2 ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="release-information-framework-studio-42">Release-Information Framework Studio 4.2</h1>
+
+<h2 id="425-29052020">4.2.5 (29.05.2020)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.5_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="framework-studio-performance-verbessert">Framework Studio Performance verbessert</h4>
+<p>Die Performance der Framework Studio IDE wurde erheblich verbessert. Besonders zu spüren ist das beim Öffnen großer Elemente in Customizing Packages. Auch die Laufzeit des Compile-Wizard hat sich signifikat verringert.</p>
+<p>Erreicht wurde diese Verbesserung dadurch, dass die IDE beim Start einmal alle relevanten Informationen aus der Repository-Datenbank einliest. Direkt nach dem Start der IDE ist ein höherer Verbrauch an Arbeitsspeicher zu beobachten. Bei längerer Arbeit relativiert sich dieser Effekt, da die IDE bisher auch schon sehr viele Informationen in den Arbeitsspeicher gelesen hat.</p>
+<h4 id="mdt--und-dbcolumn-änderungen-im-service-release">MDT- und DBColumn-Änderungen im Service Release</h4>
+<p>Im Service-Release-Modus können jetzt am Metadatentyp und an der DB-Column die folgenden Eingenschaften geändert werden:</p>
+<ul>
+<li>Caption, Tooltip, Description</li>
+<li>DisplayMinLength, DisplayMaxLength</li>
+<li>DisplayMinLines, DisplayMaxLines</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2020042334 - <strong>Java-Client</strong>: Die Windows-Skalierung hat keinen Einfluss auf
+  die Skalierung des Browser Controls.</p>
+</li>
+<li><p>2020042358 - <strong>Java-Client</strong>: In einer Grid-Combobox kann der Leer-Eintrag
+  nicht ausgewählt werden, wenn an dem zugrundeliegenden Metadatentypen Values
+  oder Value-Ranges definiert sind.</p>
+</li>
+<li><p>2019027232 - <strong>IDE</strong>: Es kommt vor, dass nach der Suche der Ergebnis-TreeView
+  ganz nach rechts gescrollt wird.</p>
+</li>
+<li><p>2020031851 - <strong>IDE</strong>: Im &quot;Generated Code&quot;-Fenster und in der Method-History
+  führt ein Klick mit der rechten Maustaste zu einer Exception.</p>
+</li>
+<li><p>2020042348 - <strong>IDE</strong>: Eine Exception wird geworfen, wenn der Datenbankname
+  beim Anmelden an einem Repository ein Leerzeichen am Ende beinhaltet.</p>
+</li>
+<li><p>2020052462 - <strong>IDE</strong>: Der Form-Designer zeigt keine Control-Images an, wenn
+  man ein Theme ungleich &quot;Default&quot; auswählt. Lediglich im Theme veränderte
+  Bilder werden angezeigt.</p>
+</li>
+<li><p>2020052447 - <strong>Package Manager</strong>: Wird für eine Package-Version, die sich im
+  Service-Release-Modus befindet, der Compile-Wizard ausgeführt, dann werden
+  die Metadatentypen und DBTables nicht compiliert. Dadurch werden z.B.
+  Änderungen an der Caption nicht gezogen.</p>
+</li>
+</ul>
+<h2 id="424-24042020">4.2.4 (24.04.2020)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.4_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<ul>
+<li><p>2020021741 - <strong>Java-Client</strong>: Werden in ein Html-Texteingabefeld mindestens 35
+  Zeilenumbrüche (p-Tags) eingefügt und erst danach Text, so kommt es beim
+  nächsten Brokerrequest zu einer StackOverflowException. Die Anwendung ist
+  dann unter Umständen nicht mehr bedienbar.</p>
+</li>
+<li><p>2020031863 - <strong>IDE</strong>: Beim Kopieren eines Browser-Controls kann es zu einer
+  NullReferenceException kommen.</p>
+</li>
+<li><p>2020032095 - <strong>IDE</strong>: In einem abgeleiteten Workflow wird an Events einer
+  Form-Instanz die Base-Eigenschaft angezeigt. Sie ist sogar änderbar.</p>
+</li>
+<li><p>2020042138 - <strong>IDE</strong>: Beim Kopieren und Einfügen eines ListView oder Template
+  Controls in einem Package mit Package Prefix, wird den Template DataSources
+  das Prefix im Namen mehrfach vorangestellt und weicht somit vom Namen im
+  HTML Template ab.</p>
+</li>
+<li><p>2020032100 - <strong>Code-Generierung</strong>: Bei der Prüfung auf doppelte Controls
+  werden bei Forms im neuen Layout weiterhin Controls aus dem Deprecated
+  Layout berücksichtigt und führen unter Umständen zu einer nicht behebbaren
+  Warning.</p>
+</li>
+</ul>
+<h2 id="423-27032020">4.2.3 (27.03.2020)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.3_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="labeln-und-branchen-im-package-manager">Labeln und Branchen im Package Manager</h4>
+<p>Im Package Manager gibt es generell zwei Möglichkeiten, eine neue <a href="package-version.md"><strong>Package-Version</strong></a> zu eröffnen:</p>
+<ol>
+<li><p><strong>Label</strong> (<img src="../doc/media/icon-label.png" alt="Labeln">): Erzeugt eine neue Version auf gleicher Ebene und versiegelt dabei die Ursprungsversion. Ausgecheckte Elemente werden dabei in die neue Version übertragen.</p>
+<p> <img src="../doc/package-manager/media/example-label-package-version.png" alt="Beispiel Labeln"></p>
+</li>
+<li><p><strong>Branch</strong> (<img src="../doc/media/icon-branch.png" alt="Branchen">): Erzeugt eine neue Unterversion (eine Ebene tiefer) und verändert den Zustand der Ursprungsversion dabei nicht. Ausgecheckte Elemente verbleiben in der Ursprungsversion.</p>
+<p> <img src="../doc/package-manager/media/example-branch-package-version.png" alt="Beispiel Branchen"></p>
+</li>
+</ol>
+<p>Folgendes hat sich geändert:</p>
+<ol>
+<li>Beide Funktionen stehen nun <strong>immer</strong> zur Verfügung, wenn man Besitzer (<em>Owner</em>) des Packages ist.</li>
+<li>Auch beim Branchen wird nun geprüft, ob alle in der Ursprungsversion eingecheckten Elemente vom <em>FrameworkCompiler</em> kompiliert wurden.</li>
+<li>Ausgecheckte Elemente werden <strong>beim Branchen generell nicht</strong> in die neue Version übernommen.</li>
+</ol>
+<h4 id="html-client">HTML Client</h4>
+<p>Der ImageButton unterstützt nun das BadgeImage.</p>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<ul>
+<li><p>2020021640 - <strong>IDE</strong>: Öffnet man einen bestehenden Exception Editor / Message
+  Box Wizard und öffnet die MLKey-Auswahl, dann ist der erste MLKey ist
+  ausgewählt. Es sollte der aktuelle MLKey selektiert sein.</p>
+</li>
+<li><p>2020021722 - <strong>IDE</strong>: Der &quot;Multilanguage Text Migration&quot; Wizard weist in
+  Custom Packages mit nur deutschen Texten bestehende passende MLKeys mit
+  Fremdsprachentexten aus Basispackages nicht zu.</p>
+</li>
+<li><p>2020031861 - <strong>IDE</strong>: Wird im Message-Editor ein MLKey ausgewählt, der keinen
+  englischen Text besitzt, dann wird im generierten Code kein Text angezeigt.
+  Es sollte in diesem Fall ein Fallback auf den deutschen Text erfolgen.</p>
+</li>
+<li><p>2020031842 - <strong>HTML Client</strong>: ListView und Template Controls &quot;verschucken&quot; den
+  Focus, wenn sie mittels Tastatur fokussiert werden.</p>
+</li>
+<li><p>2020031866 - <strong>HTML Client</strong>: In seltenen Fällen wird im OnLeave-Event in den
+  FrameworkOnLeaveEventArgs der Activator nicht oder falsch befüllt.</p>
+</li>
+<li><p>2020031889 - <strong>HTML Client</strong>: Die Selektoren für ListViewItems sind nicht
+  sichtbar, wenn die SelectorPosition am ListView auf &quot;MiddleLeft&quot; oder
+  &quot;MiddleRight&quot; gesetzt ist.</p>
+</li>
+</ul>
+<h2 id="422-28022020">4.2.2 (28.02.2020)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.2_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<ul>
+<li><p>2020021533 - <strong>Broker</strong>: Wird ein im Treeview dargestelltes Element aus seiner
+  Collection am Parent entfernt und anschließend eine Eigenschaft geändert,
+  die zuvor zu einer geänderten Darstellung im Treeview geführt hätte (z.B.
+  sDisplayName), so kann es zu einer Fehlermeldung kommen.<br>
+  <em>System.ArgumentOutOfRangeException: index must reference an
+  CollectionEntry.</em></p>
+</li>
+<li><p>2020011293 - <strong>IDE</strong>: Wird im Customizing-Package in einem Workflow ein
+  Fired-Event verknüpft, welches aus dem Basis-Package kommt, dann wird bei
+  der Verwendung dieses Events in einem anderen Workflow das dahinter
+  liegenede Form nicht erkannt. Das verursacht Warnings beim Compile und bei
+  Methoden-Aufrufe im Workflow-Link können keine Werte aus dem Quell-Form als
+  Parameter übergeben werden.</p>
+</li>
+<li><p>2020021461 - <strong>IDE</strong>: Ein Verweis auf eine ältere Newtonsoft.Json.dll führt zu
+  einer Exception beim Testen der Runtime Supervisor Url.</p>
+</li>
+<li><p>2020021519 - <strong>IDE</strong>: Öffnet man aus einem Customizing-Package heraus die
+  Component aus dem Basis-Package, dann kann es vorkommen, dass in der
+  Combobox DB-Connection ein falscher Wert angezeigt wird.<br>
+  Diese falsche Anzeige hat aber keine Auswirkung auf die tatsächlich
+  verwendete Connection.</p>
+</li>
+<li><p>2020021539 - <strong>IDE</strong>: Beim Customizen von Methoden über das Contextmenü im
+  Codeeditor wird eine falsche Deklaration angelegt.</p>
+</li>
+<li><p>2020021606 - <strong>HTML-Client</strong>: Ein SetFocus() and einem Control im Form.load()
+  Event wird am Client nicht korrekt verarbeitet. Der Fokus wird nicht in das
+  Control gesetzt.</p>
+</li>
+<li><p>2020021513 - <strong>Package-Merge</strong>: Unter Oracle kann es beim Package-Merge zu
+  folgender Exception kommen:<br>
+  <em>FrameworkSystems.FrameworkExceptions.FrameworkDbException (0x80004005):
+  ORA-01461: Ein LONG-Wert kann nur zur Einfügung in eine LONG-Spalte gebunden
+  werden ---&gt; Oracle.ManagedDataAccess.Client.OracleException (0x80004005)</em></p>
+</li>
+</ul>
+<h2 id="421-31012020">4.2.1 (31.01.2020)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.1_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="connection-pooling-überarbeitet">Connection-Pooling überarbeitet</h4>
+<p>Aufgrund verschiedener Probleme wurde das Connection-Pooling der <code>FrameworkDataConnection</code> komplett überarbeitet. Dabei gab es auch Verhaltens-Änderungen.</p>
+<p>Bisher hat der Pool immer alle existierenden Connections gezählt - sowohl den Vorrat an verfügbaren als auch die momentan verwendeten Connections.
+Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat (im Vergleich zu früher) den Vorteil, dass das Pooling auch dann noch wirksam ist, wenn dauerhaft eine größere Anzahl an Connections in Verwendung ist.</p>
+<p>Der Connection-Pool stellt im Broker eine Menge von wiederverwendbaren Datenbank-Verbindungen zur Verfügung. Dabei kann über die <code>FSPooling</code>-Parameter das Verhalten des Pools gesteuert werden. Die Parameter haben die folgende Bedeutung:</p>
+<ul>
+<li><code>FSPoolingMin</code>: Wird eine Connection nicht mehr benötigt, wird sie (z.B. am Ende eines Broker-Requests) wieder zurück in den Vorrat / Pool gepackt. Der Pool darf dauerhaft diese Anzahl an Connections beinhalten.</li>
+<li><code>FSPoolingMax</code>: Das ist die maximale Anzahl der Connections, die sich im Pool befinden dürfen. Ist der Pool voll, dann wird die Connection nicht in den Pool zurückgepackt sondern sie wird direkt geschlossen.</li>
+<li><code>FSPoolingTimeout</code>: (in Sekunden) Die Connections zwischen Min und Max verbleiben maximal diese Zeit im Pool. Werden sie nicht vorher wieder verwendet, werden sie nach dem Timeout aus dem Pool entfernt und geschlossen.</li>
+</ul>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li><a href="../doc/database/ml-column.html#such-funktion">Such-Funktionalität für die ML-Columns</a></li>
+</ul>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<ul>
+<li><p>2020011151 - <strong>Oracle</strong>: Wird in einer DB-Column eine Spalte mit dem Typ
+  Boolean angelegt, dann bringt der Datenbank-Update-Assistent einen Fehler,
+  wenn die entsprechende Spalte auf der Datenbank bereits korrekt angelegt
+  ist.</p>
+</li>
+<li><p>2020011286 - <strong>Package-Manager</strong>: An der Package-Version werden im Register
+  Language nicht alle Sprachen aus den Basis-Packages angezeigt, wenn man an
+  der Using-Hierarchie Änderungen vornimmt.</p>
+</li>
+<li><p>2020011298 - <strong>Package-Manager</strong>: Bei Package-Hierarchien mit
+  Context-Versionen werden die Sprachen aus dem Basis-Package nicht korrekt
+  übernommen.</p>
+</li>
+<li><p>2020011377 - <strong>Package-Manager</strong>: Beim Import einer Package-Version kann es zu
+  folgendem Fehler kommen:<br>
+  <em>&quot;There is an open DataReader associated with this Connection which must be
+  closed first.&quot;</em></p>
+</li>
+<li><p>2019120999 - <strong>IDE</strong>: Wird an einer Tabellen-Spalte, die in einer customizten
+  DBTable hinzugefügt wurde, aus Versehen die CheckBox &quot;Not Null&quot; gesetzt,
+  dann lässt sich diese nicht mehr entfernen.</p>
+</li>
+<li><p>2019121032 - <strong>IDE</strong>: Wenn Framework Studio abstürzt, dann läuft der
+  Development-Broker im Hintergrund weiter. Dieser blockiert Dateien im
+  Compile-Verzeichnis und muss manuell beendet werden.</p>
+</li>
+<li><p>2020011086 - <strong>IDE</strong>: Wird bei einer Sql-Server Repository-Connection ein
+  Server-Name mit einem Port angegeben (z.B. 127.0.0.1,1433), dann wird beim
+  Beenden der IDE eine Exception angezeigt.</p>
+</li>
+<li><p>2020011136 - <strong>IDE</strong>: Wird in der ListView-Ansicht des Workflows nach einem
+  Namen gefiltert und anschließend in der angezeigten Liste mit Doppelklick
+  ein Workflow selektiert, dann wird eine InvalidCastException angezeigt.</p>
+</li>
+<li><p>2020011258 - <strong>IDE</strong>: FS stürzt mit einer GDI+ Exception ab, wenn animierte
+  Gifs für die Dokumentation ausgewählt werden.</p>
+</li>
+<li><p>2020011334 - <strong>IDE</strong>: Nach dem Import eines Service-Releases wird ein darin
+  neu angelegter MLKey im Multilanguage Text Editor zwar angezeigt, jedoch
+  kommt es beim Kompilieren zu einer Exception, weil der MLKey nicht generiert
+  wird.</p>
+</li>
+<li><p>2019121005 - <strong>Framework</strong>: Am Typ FSSystemGuid fehlt die statische Methode
+  FromString(string).</p>
+</li>
+<li><p>2020011254 - <strong>FS-Broker</strong>: Wird bei einem Metadatentypen ein Format-Pattern
+  mit einem &quot;&amp;&quot; Zeichen angegeben, dann verursacht das XML-Exceptions wenn man
+  ein Form öffnet, das ein Control mit diesem Metadatentypen enthält.</p>
+</li>
+</ul>
+<h2 id="42-20122019">4.2 (20.12.2019)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.0_Setup_x64</li>
+<li>FS_4.2.0_Requirements_x64 (<a href="requirements-package.html">Requirements-Paket</a>)</li>
+<li>FS_4.2.0_RuntimeAdministration</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen-1">Neuerungen</h4>
+<p>Die Neuerungen finden Sie unter <a href="neuheiten-4-2.html">Neuheiten 4.2</a></p>
+<h4 id="beta-version-hinweise">Beta-Version Hinweise</h4>
+<p>Die Installation-Routine der Release-Version führt für eine bereits installierte Beta-Version ein Update auf die Release-Version aus.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Bitte beachten Sie <strong>alle</strong> Anweisungen und Hinweise in diesem Abschnitt, wenn sie bereits eine Beta-Version von Framework Studio 4.2 verwendet haben.</p>
+</div>
+<p>Die <strong>Package-Exporte</strong> und Service-Release-Exporte der aktuellen Framework Studio 4.2 Version sind <strong>inkompatibel</strong> mit den vorangegangenen Framework Studio 4.2 Beta Versionen. Dies gilt in beide Richtungen.</p>
+<ol>
+<li>Führen Sie in jedem Fall einen Update auf die Release-Version durch, bevor sie neue Packages im Repository importieren.</li>
+<li>Verwenden sie keine Beta-Packages mehr.</li>
+</ol>
+<p>Im Laufe der Beta-Versionen gab es <strong>Änderungen am Repository</strong>. Bitte führen Sie auf allen mit der Beta-Version neu erstellten und upgedateten Repositories den Update erneut aus:</p>
+<ol>
+<li>Im Programm-Verzeichnis die <em>FrameworkStudioUpgradeDatabase.exe</em> starten und am Repository anmelden.</li>
+<li>Falls noch offene Scripte angeboten werden, diese bitte ausführen.</li>
+</ol>
+<h4 id="zeilenversionierung-im-sql-server">Zeilenversionierung im SQL-Server</h4>
+<p>Beim Anlegen neuer <strong>Runtime Repositories</strong> im SQL-Server hat Framework Studio versäumt, die Zeilenversionierung zu aktivieren. Dadurch kann es insbesondere bei längeren Transaktionen zu unnötigen Blockierungen von Select-Statements kommen. Dieser Fehler ist nun durch die Korrektur von Bug 2019110775 behoben.</p>
+<div class="WARNING"><h5>Warning</h5><p>Bestehende SQL-Server Runtime Repositories müssen manuell korrigiert werden!
+Details dazu finden Sie hier: <a href="knowledge/snapshot-isolation.html">Zeilenversionierung im SQL-Server</a>.</p>
+</div>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<p>In der Version 4.2 sind alle Fehler-Korrekturen bis einschließlich Framework Studio 4.0.18 enthalten.
+Zusätzlich wurden die folgenden Bugs behoben.</p>
+<ul>
+<li><p>2019027233 - <strong>Code-Generierung</strong>: Im generierten Code von ReportDocumentTypes
+  wird der Package-Name verwendet statt dem Assembly-Prefix.</p>
+</li>
+<li><p>2019089003 - <strong>Doku-System</strong>: Ausgeblendete Controls (hidden/Collapsed) werden
+  im Doku-Screenshot nicht gerendert.</p>
+</li>
+<li><p>2019100072 - <strong>Framework</strong>: Die MLColumn-Einträge werden nicht mit dem Record
+  gelöscht, wenn nicht zuvor auf die fremdsprachigen Texte zugegriffen wurde.</p>
+</li>
+<li><p>2019099502 - <strong>Repository</strong>: Alle Sublabeled Tabellen sollen aus
+  Performance-Gründen mit einem Index auf die PackageID-Spalte versehen
+  werden.</p>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.3/master/articles/release-4-2.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

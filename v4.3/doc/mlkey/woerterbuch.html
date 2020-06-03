@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>W&#246;rterbuch </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="W&#246;rterbuch ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="wörterbuch">Wörterbuch</h1>
+
+<p>Alle mehrsprachigen Texte der Anwendung werden in einem zentralen Wörterbuch abgelegt.</p>
+<p>Organisiert werden die Einträge mit einem eindeutigen alphanumerischen Schüssel - dem <strong>MLKey</strong>.</p>
+<p>Die MLKeys und deren Texte können folgendermaßen genutzt werden:</p>
+<ol>
+<li>In den <a href="mlstring.html">MLString</a>-Properties überall in Framework Studio</li>
+<li>Im selbst geschriebenen Methoden-Code (siehe <a href="programmierung.html">Programmierung</a>)</li>
+<li>In den Code-Messages (Exceptions, Message-Boxen)</li>
+</ol>
+<h2 id="multilanguage-text-editor">Multilanguage Text Editor</h2>
+<p>Die Bearbeitung des Wörterbuchs erfolgt über den <strong>Multilanguage Text Editor</strong>. Dieser wird über das Menü <strong>Tools / Multilanguage Text Editor</strong> geöffnet.</p>
+<p><img src="media/ml-editor.png" alt="ML-Editor"></p>
+<div class="NOTE"><h5>Note</h5><p>Die im Grid angezeigten Sprachen und deren Reihenfolge können in den <a href="../allgemein/options.html#languages-in-designer">Options</a> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden.</p>
+</div>
+<p>Die Bearbeitung des Wörterbuchs funktioniert ohne Checkout-Mechanismus. Wenn mehrere Benutzer zur gleichen Zeit an denselben MLKeys arbeiten sollten, dann gewinnt derjenige, der zuletzt den Button <strong>Save</strong> drückt.</p>
+<p>Der Editor sammelt alle vorgenommenen Änderungen (Add, Edit, Delete) im Hintergrund. Mit dem Button <strong>Save</strong> werden diese in das Repository gespeichert. Dabei wird in einer Transaktion zuerst der aktuelle Stand frisch aus dem Repository gelesen, dann die Änderungen erneut auf diesen (evtl. durch einen anderen Benutzer veränderten) Stand angewendet und zuletzt der neue Stand wieder zurück in das Repository gespeichert.</p>
+<p>Das hat die Folge, dass nach einem Save Änderungen sichtbar sind, die zuvor von einem anderen Benutzer vorgenommen wurden. Eine Ausnahme sind die Basis-Packages. Diese werden aus einem Stand gezogen, den der FrameworkCompiler zum Zeitpunkt des Compile-Laufs in den Workspace gespeichert hat.</p>
+<h2 id="suchen-von-mlkeys">Suchen von MLKeys</h2>
+<p>Essentiell für die tägliche Arbeit ist das Auffinden von existierenden MLKeys. Dazu wird das <strong>Search</strong> Feld angeboten.</p>
+<ul>
+<li>Die Suche scannt alle Felder des MLKeys: MLKey, Comment, Obsolete, Texte.</li>
+<li>Die Groß-Klein-Schreibung wird nicht berücksichtigt.</li>
+<li>Es können mehrere Worte eingegeben werden. Dann müssen alle Worte oder Wortteile in irgend einem Feld auftauchen. z.B. <code>MSG_ Artikel Save</code> sucht nach Messages die mit <code>Artikel</code> und <code>Save</code> zu tun haben.</li>
+<li>Generell wird nach Wortteilen gesucht. Wenn man das Wort oder den Text in Anführungszeichen setzt, wird nach einem exakten Treffer und ganzen Worten gesucht. Das funktioniert auch mit mehreren Worten und in Kombination mit der normalen Suche. z.B. <code>LBL_ &quot;Kunde&quot;</code></li>
+</ul>
+<p>Ziel des Wörterbuches ist es, Texte wiederzuverwenden und die Anzahl der Einträge auf das Nötigste zu reduzieren. Aus diesem Grund sollte man immer zuerst nach einem MLKey suchen, bevor man einen neuen erfasst. Zu einem logischen Begriff sollen keine zwei MLKeys existieren.</p>
+<div class="TIP"><h5>Tip</h5><p>Die Suche sollte durchaus kreativ gestaltet werden - besonders bei Texten die eigentlich schon vorhanden sein müssten. Ein Beispiel dafür ist das Wort <code>Einfügen</code>. Möchte man dieses mit der englischen Bezeichnung <code>Add</code> nutzen, stellt man fest, dass es <code>Einfügen</code> schon mit mehreren Übersetzungen gibt, jedoch keine mit der englischen Bezeichnung <code>Add</code>. Sucht man dann aber direkt nach <code>Add</code>, so findet man den statt <code>Einfügen</code> zu verwendenden deutschen Text <code>Hinzufügen</code>.</p>
+</div>
+<h2 id="erfassen-neuer-mlkeys">Erfassen neuer MLKeys</h2>
+<p>Mit dem Button <strong>Add</strong> öffnet sich ein Dialog, in dem der neue MLKey erfasst werden kann.</p>
+<p><img src="media/add-new-mlkey.png" alt="Add new MLKey"></p>
+<h4 id="textfeld-mlkey">Textfeld <strong>MLKey</strong></h4>
+<p>Hier wird der MLKey angegeben. Im Customizing-Package wird der Package-Code automatisch vorbelegt.</p>
+<div class="NOTE"><h5>Note</h5><p>Der MLKey kann zu einem späteren Zeitpunkt nicht mehr geändert werden.</p>
+</div>
+<p>Der MLKey kann frei vergeben werden, es gibt jedoch ein paar Regeln und Empfehlungen:</p>
+<ul>
+<li>Es handelt sich um einen C#-Identifier, der auch im Quellcode verwendet wird.<ul>
+<li>Buchstaben, Zahlen, Unterstrich</li>
+<li>Groß-Klein-Schreibung ist relevant</li>
+</ul>
+</li>
+<li>Der sprechende Name sollte sich nach Möglichkeit an den englischen Text anlehnen.<ul>
+<li>z.B. <code>LBL_Article</code></li>
+</ul>
+</li>
+<li>Wenn der Text zu komplex ist - z.B. bei Messages oder Tooltips, dann kann der Name eine Guid enthalten. Diese kann mit dem Button <strong>Generate Guid</strong> angefügt werden.<ul>
+<li>z.B. <code>MSG_1c9f3024dfc340dfba0651cb92d90ad6</code></li>
+</ul>
+</li>
+<li>In Customizing-Packages erhält der MLKey einen Package-Code. Dieser wird automatisch vorbelegt.<ul>
+<li>z.B. <code>LBL_K87_SpecialArticle</code></li>
+</ul>
+</li>
+<li>In der <strong>eNVenta/WS</strong> Standard-Entwicklung sind entsprechende <a href="enventa-regeln.html">Namensregeln</a> einzuhalten.</li>
+</ul>
+<p>Wird dieser Dialog aus der MLKey-Suche heraus geöffnet, dann wird abhängig vom jeweiligen Context auch ein passender Präfix vorbelegt:</p>
+<ul>
+<li><code>LBL_</code> / <code>LBL_&lt;PackageCode&gt;_</code>: Der Suchdialog wurde z.B. aus einem Caption- oder Default-Label-Property aufgerufen.</li>
+<li><code>TTT_</code> / <code>TTT_&lt;PackageCode&gt;_</code>: Der Suchdialog wurde aus dem Tooltip-Property aufgerufen.</li>
+<li><code>MSG_</code> / <code>MSG_&lt;PackageCode&gt;_</code>: Der Suchdialog wurde aus dem MessageBox- bzw. Exception-Wizard aufgerufen.</li>
+</ul>
+<h4 id="feld-comment">Feld <strong>Comment</strong></h4>
+<p>Der Kommentar beschreibt bei Bedarf den MLKey genauer. Das ist sinnvoll, wenn der Text oder auch der MLKey erklärungsbedürftige Abkürzungen beinhaltet oder wenn es ähnliche Texte mit verschiedenen Verwendungszwecken gibt.</p>
+<h4 id="textfeld-obsolete">Textfeld <strong>Obsolete</strong></h4>
+<p>Ein MLKey kann durch die Eingabe einer Obsolete-Message als veraltet markiert werden. Der Compiler wird bei Verwendung dieses MLKeys diese Message als Warning ausgeben. Weil das Löschen von MLKeys vor allem im Hinblick auf Customizing-Packages Compile-Errors erzeugt, sollte davon abgesehen und stattdessen diese Obsolete-Message verwendet werden. Ein Hinweis auf einen alternativ zu verwendenden MLKey ist empfehlenswert.</p>
+<h4 id="textfeld-german">Textfeld <strong>German</strong></h4>
+<p>Die Eingabe eines deutschen Textes ist Pflicht, weil Deutsch immer der letzte Fallback ist, wenn eine Fremdsprache nicht gepflegt ist.</p>
+<h4 id="fremdsprachen">Fremdsprachen</h4>
+<p>Über die Radio-Buttons kann festgelegt werden, welche Sprache im 2. Textfeld angezeigt oder bearbeitet werden soll. Diese Texte sind optional.</p>
+<p>Die angebotenen Fremdsprachen und deren Reihenfolge kann in den <a href="../allgemein/options.html#languages-in-designer">Options</a> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden. <strong>German</strong> lässt sich in diesem Dialog aber nicht steuern - diese Sprache wird immer im separaten Feld angezeigt.</p>
+<p>In der <strong>eNVenta/WS</strong> Standard-Entwicklung muss der englische Text gepflegt werden.</p>
+<h4 id="button-untranslatable">Button <strong>Untranslatable</strong></h4>
+<p>Es gibt Texte, die nicht übersetzt werden können wie z.B. Eigennamen oder Einheiten. Dieser Button löscht alle Fremdsprachen-Texte und Schreibt den Text <code>untranslatable</code> in das <strong>Comment</strong> Feld.</p>
+<p>Mit der Routine <a href="mlkey-cleanup.html">MLKeys Cleanup</a> ist es möglich, systematisch nach Texten zu suchen, die dafür geeignet sind.</p>
+<h2 id="bearbeiten-von-mlkeys">Bearbeiten von MLKeys</h2>
+<p>Mit dem Button Edit wird für den selektierten MLKey der Bearbeitungs-Dialog geöffnet.</p>
+<p>Durch einen Doppelklick in das Grid kann der Bearbeitungs-Dialog ebenfalls geöffnet werden. Dabei wird der Fokus automatisch in das Feld gesetzt, das der angeklickten Grid-Zelle entspricht. Das ist praktisch, wenn man z.B. gezielt eine Fremdsprache bearbeiten möchte.</p>
+<p>Außerdem können einzeilige Texte direkt im Grid bearbeitet werden.</p>
+<div class="NOTE"><h5>Note</h5><p>Die logische Bedeutung des MLKeys darf zu einem späteren Zeitpunkt nicht mehr geändert werden.</p>
+</div>
+<p><img src="media/edit-mlkey.png" alt="Edit MLKey"></p>
+<p>Der Dialog ist gleich aufgebaut wie der Add-Dialog. Es werden zusätzlich das <strong>Create Date</strong> des MLKeys und die <strong>Edit</strong>-Informationen der Fremdsprachen-Texte (Datum und Benutzer der letzten Bearbeitung) angezeigt.</p>
+<div class="NOTE"><h5>Note</h5><p>Der Benutzer wird bei alten Texten ggf. nicht angezeigt, weil dieses Feature erst zu einem späteren Zeitpunkt implementiert wurde.</p>
+</div>
+<p>Der <strong>MLKey</strong> kann nicht bearbeitet werden.</p>
+<p>Wird im Customizing-Package ein MLKey aus dem Basis-Package geöffnet, dann sind einige weitere Felder für die Bearbeitung gesperrt: <strong>Comment</strong> / Button <strong>Untranslatable</strong>, <strong>Obsolete</strong></p>
+<p>Die Texte können bearbeitet werden.</p>
+<p>Mit dem Button <strong>View History</strong> wird ein weiteres Fenster geöffnet, in dem die Version des Eintrages vor der letzten Bearbeitung angezeigt wird. Siehe <a href="#history">Abschnitt History</a>.</p>
+<h2 id="copy-entry--paste-entry">Copy Entry / Paste Entry</h2>
+<p>Wenn man ein oder mehrere Einträge selektiert hat, kann man mit dem Button <strong>Copy Entry</strong> diese in die Zwischenablage kopieren. Mit dem Button <strong>Paste Entry</strong> können diese Einträge z.B. in einer anderen Version des Packages eingefügt werden.</p>
+<p>Intern benutzt diese Funktion den <a href="import-export.html">Import- / Export-Mechanismus</a>. Dieser verwendet ein XML im TMX-Format. Dadurch ist es möglich, das XML vor dem <strong>Paste Entry</strong> bei Bedarf in einem Text-Editor zu manipulieren, z.B. um den PackageCode des MLKey anzupassen.</p>
+<p>Mit <strong>Paste Entry</strong> werden neue MLKeys hinzugefügt. Enthält die Zwischenablage existierende Keys, dann wird vor dem Einfügen ein Auswahl-Dialog angezeigt.</p>
+<p><img src="media/paste-entry-replace-options.png" alt="Paste Replace Options"></p>
+<ul>
+<li><strong>Ignore</strong>: Es werden keinerlei Einträge ersetzt. Lediglich unbekannte, neue MLKeys werden hinzugefügt.</li>
+<li><strong>Replace</strong>: Es wird der komplette existierende Eintrag ersetzt. Wenn in der Zwischenablage ein Wert nicht gesetzt ist, dann wird dieser entfernt.</li>
+<li><strong>Merge</strong>: Die beiden Einträge werden zusammengeführt. Dabei gewinnt jeweils der Text mit dem neueren Edit-Date.</li>
+</ul>
+<p>Mit dem Button <strong>Cancel</strong> wird die komplette Aktion abgebrochen. Dann werden auch keine MLKeys hinzugefügt.</p>
+<h2 id="customizing">Customizing</h2>
+<p>Jedes Customizing-Package verwaltet sein eigenes Wörterbuch.</p>
+<ul>
+<li><p>Es können neue MLKeys angelegt werden. Diese müssen den Package-Code enthalten, damit es in Zukunft keine Kollisionen mit Basis-Packages gibt.</p>
+<p>  Bevor ein neuer MLKey angelegt wird, sollte immer geprüft werden, ob es nicht doch einen passenden MLKey gibt.</p>
+</li>
+<li><p>Texte aus Basis-Packages können überschrieben bzw. ergänzt werden. So können z.B. Übersetzungen für Fremdsprachen gepflegt werden.</p>
+<p>  Es muss darauf geachtet werden, dass die Bedeutung des MLKeys nicht geändert wird, weil dieser ggf. an mehreren Stellen in der Anwendung verwendet wird. Wird an einer bestimmten Stelle in der Anwendung ein anderer Text benötigt (in eNVenta kann das z.B. der Text &quot;Code1&quot; sein, der ersetzt werden soll) dann muss an dieser Stelle (jedoch möglichst weit unten in der DBColumn oder Metadatentyp) ein anderer MLKey zugeordnet werden. (siehe auch <a href="mlstring.html#vererbung">MLString-Vererbung</a>)</p>
+</li>
+</ul>
+<p>Im Customizing-Package übersetzte Texte können <a href="import-export.html">exportiert</a> und in das Basis-Package importiert werden. Zu einem späteren Zeitpunkt können die dann redundanten Übersetzung mit der <a href="mlkey-cleanup.html">MLKeys Cleanup</a> Routine bereinigt werden.</p>
+<h2 id="history">History</h2>
+<p>Bei jeder Bearbeitung im Wörterbuch wird die Vorgänger-Version des MLKeys in einen separaten History-Bereich geschrieben.</p>
+<p>Aus dem <a href="#bearbeiten-von-mlkeys">Edit-Dialog</a> heraus kann diese Information mit dem Button <strong>View History</strong> geöffnet werden. Gibt es keine Informationen, ist der Button deaktiviert.</p>
+<p>Die History arbeitet pro Sprache. Wird z.B. der englische Text bearbeitet, wird auch nur der alte englische Text mit seinem alten Änderungs-Datum in den History-Bereich übertragen. Die History-Informationen der anderen Sprachen bleiben unverändert.</p>
+<p>Eine leere Eigenschaft wird nicht historisiert - das gilt insbes. für <strong>Comment</strong> und <strong>Obsolete Message</strong>. Wird eine dieser Eigenschaften geleert, dann verbleibt der alte Text auch dann in der History, wenn später wieder ein neuer Text gesetzt wird.</p>
+<p>Wird ein <strong>MLKey gelöscht</strong>, wird der komplette Eintrag mit allen Sprachen in die History übertragen. Dieser kann jedoch zu einem späteren Zeitpunkt nicht mehr ohne weiteres gegriffen werden.</p>
+<div class="TIP"><h5>Tip</h5><p>Wurde ein MLKey versehentlich gelöscht und es gibt einen Compile-Error mit dem entsprechenden MLKey, dann kann man diesen Eintrag wieder neu im Wörterbuch anlegen. Beim anschließenden Bearbeiten des MLKeys können dann die noch existierenden History-Informationen eingesehen werden.</p>
+</div>
+<p>Gefüllt wird die History mit dem <strong>Save</strong>-Button. Framework Studio sammelt alle im Wörterbuch vorgenommenen Änderungen und speichert diese mit dem <strong>Save</strong>-Button in einem Rutsch. Dadurch kann ein Text auch mehrfach hintereinander geändert werden. Erst nach dem Save steht der alte Text in der History.</p>
+<div class="NOTE"><h5>Note</h5><ul>
+<li><p>Beim Labeln der Package-Version wird die History-Information nicht in die neue Package-Version übernommen.</p>
+</li>
+<li><p>Die History-Informationen berücksichtigen nur das aktuelle Package. Weil für Basis-Packages das Wörterbuch aus dem letzten Framework-Compiler-Stand gelesen wird, enthält es keine History-Informationen.</p>
+</li>
+</ul>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.3/master/doc/mlkey/woerterbuch.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

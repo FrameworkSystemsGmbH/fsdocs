@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Neue Text-Funktionen </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Neue Text-Funktionen ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="neue-text-funktionen">Neue Text-Funktionen</h1>
+
+<p>In Framework Studio 4.2 wurden im Zuge der Umstellung auf die <a href="../../doc/mlkey/woerterbuch.html">MLKeys</a> auch die Text-Zugriffe auf Text-Collections und DevMLStrings überarbeitet.</p>
+<div class="NOTE"><h5>Note</h5><p>Auch wenn keine <a href="mlkey-migration.html">MLKey-Migration</a> ausgeführt wird, muss die <strong>Convert Messages</strong> Routine trotzdem ausgeführt werden, damit die Verarbeitung der Fremdsprachen-Texte korrekt funktioniert.</p>
+<p>Siehe Abschnitt <a href="#migration-auf-version-42">Migration auf Version 4.2</a></p>
+</div>
+<p>Bei der Verwendung von <code>this.Global.SelectedLanguage</code> erfolgt kein Fallback auf andere Sprachen. Aus diesem Grund sollte dies nicht mehr verwendet werden. Für das ermitteln des Textes wurden deshalb einfachere Varianten geschaffen, die ohne explizite Angabe der Sprache arbeiten. Andere Stellen erhalten jetzt stattdessen das komplette <code>this.Global</code> um daraus die Sprach-Hierarchie inkl. Fallbacks zu ermitteln.</p>
+<p>Die Text-Ermittlungen benötigen auch immer einen Zugriff auf das GlobalObject, damit die <a href="../../doc/mlkey/programmierung.html#cglobal-entrypoint">zentralen Einsprungpunkte</a> immer angelaufen werden.</p>
+<h2 id="text-collection">Text-Collection</h2>
+<p>Soll für einen bestimmten Text-Collection-Eintrag der Text ermittelt werden, dann erfolgt dies idealerweise über die <strong>Factory</strong>-Klasse. Dort wird eine Methode <code>GetText(global, id)</code> angeboten. Diese Methode Liefert den Text in der aktuellen Sprache / Sprach-Hierarchie, welche über das GlobalObject festgelegt ist.</p>
+<pre><code class="lang-csharp">string sText = ctTextCollFactory.GetText(this.Global,7);
+</code></pre><p>Wird der Text in einer bestimmten Sprache benötigt, dann muss über die Methode <code>Get(global, id)</code> der Text-Collection-Eintrag ermittelt und an diesem mit der Methode <code>GetText(iso)</code> der gewünschte Text ermittelt werden.</p>
+<pre><code class="lang-csharp">string sText = ctTextCollFactory.Get(this.Global,7).GetText(sIsoCode);
+</code></pre><h2 id="text-collection-eintrag">Text-Collection-Eintrag</h2>
+<p>Manchmal wird auch mit bestimmten Einträgen der Text-Collection gearbeitet. Dieser bietet die folgenden Möglichkeiten, den Text zu ermitteln.</p>
+<p>Das Property <code>Text</code> liefert den Text in der aktuellen Sprache / Sprach-Hierarchie, welche über das GlobalObject festgelegt ist.</p>
+<pre><code class="lang-csharp">string sText = oTextCollEntry.Text;
+</code></pre><p>Die Methode <code>GetText(iso)</code> liefert den Text in einer gewünschten Sprache. Dabei erfolgt kein Fallback auf eine andere Sprache. Ist in der angegebenen Sprache kein Text formuliert, wird <code>String.Empty</code> zurückgegeben.</p>
+<pre><code class="lang-csharp">string sText = oTextCollEntry.GetText(sIsoCode);
+</code></pre><p>Über das Property <code>Value</code> wird ein Objekt mit dem Typ <code>DevMLString</code> zurückgegeben. Dieses hat aber selber keinen Bezug zum GlobalObject, weshalb ihm zur Ermittlung der Texte ein GlobalObject übergeben werden muss. Es sollten wenn möglich die o.g. Wege zur Ermittlung der Texte benutzt werden. Das Property <code>Value</code> ist nur in Ausnahme-Fällen zu verwenden.</p>
+<h2 id="devmlstring">DevMLString</h2>
+<p>Zur Ermittlung eines Textes muss ein GlobalObject übergeben werden. Es gibt dazu die folgenden Möglichkeiten:</p>
+<pre><code class="lang-csharp">// Text in aktueller Sprache / Sprach-Hierarchie
+string sText1 = oDevMLString.GetString(this.Global);
+string sText2 = oDevMLString[this.Global];
+
+// Text in bestimmter Sprache
+string sText3 = oDevMLString.GetString(this.Global, sIsoCode);
+</code></pre><h2 id="obsolete-schnittstellen">Obsolete Schnittstellen</h2>
+<p>Am DevMLString wurden einige Properties/Methoden auf Obsolete gesetzt, weil sie kein GlobalObject verwenden. Beim Compile werden betroffene Stellen als Warning ausgegeben.</p>
+<pre><code class="lang-csharp">// Diese Aufrufe sind Obsolete!!!
+string sText1 = oDevMLString.GetString(sIsoCode);
+string sText2 = oDevMLString[sIsoCode];
+string sText2 = oDevMLString.German;
+</code></pre><h2 id="migration-auf-version-42">Migration auf Version 4.2</h2>
+<p>Um eine saubere Funktion der Fremdsprachen-Texte zu gewährleisten, müssen diese Aufrufe mit dem Update auf die Version 4.2 umgestellt werden. Ein sehr großer Teil der Aufrufe wird mit der <a href="mlkey-migration.html#3-convert-messages"><strong>Convert-Messages</strong> Routine in der MLKey-Migration</a> automatisch umgesetzt. Es bleiben aber einige wenige Stellen übrig, die manuell nachgearbeitet werden müssen. Sie werden beim Compile durch die Obsolete-Warning erkannt.</p>
+<p>Im folgenden werden ein paar Code-Beispiele aufgeführt, die verdeutlichen, wie die Umstellung zu erfolgen hat.</p>
+<table>
+<thead>
+<tr>
+<th>Alter Code</th>
+<th>neuer Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ctAbcFactory.Get(this.Global,7).Value[this.Global.SelectedLanguage]</code></td>
+<td><code>ctAbcFactory.GetText(this.Global,7)</code></td>
+</tr>
+<tr>
+<td><code>ctAbcFactory.Get(this.Global,7).Value[sIsoCode]</code></td>
+<td><code>ctAbcFactory.Get(this.Global,7).GetText(sIsoCode)</code></td>
+</tr>
+<tr>
+<td><code>oTextCollEntry.Value[Global.SelectedLanguage]</code></td>
+<td><code>oTextCollEntry.Text</code></td>
+</tr>
+<tr>
+<td><code>oTextCollEntry.Value.GetString(sIsoCode)</code> <br> <code>oTextCollEntry.Value[sIsoCode]</code></td>
+<td><code>oTextCollEntry.GetText(sIsoCode)</code></td>
+</tr>
+<tr>
+<td><code>oTextCollEntry.Value.German</code></td>
+<td><code>oTextCollEntry.GetText(&quot;de&quot;)</code></td>
+</tr>
+<tr>
+<td><code>oDevMLString.GetString(sIsoCode)</code> <br> <code>oDevMLString[sIsoCode]</code></td>
+<td><code>oDevMLString.GetString(this.Global, sIsoCode)</code></td>
+</tr>
+<tr>
+<td><code>oDevMLString.German</code></td>
+<td><code>oDevMLString.GetString(this.Global, &quot;de&quot;)</code></td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.3/master/articles/update-4-2/neue-text-funktionen.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

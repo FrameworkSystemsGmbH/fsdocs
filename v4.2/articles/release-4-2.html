@@ -90,6 +90,9 @@
 <h4 id="framework-studio-performance-verbessert">Framework Studio Performance verbessert</h4>
 <p>Die Performance der Framework Studio IDE wurde erheblich verbessert. Besonders zu spüren ist das beim Öffnen großer Elemente in Customizing Packages. Auch die Laufzeit des Compile-Wizard hat sich signifikat verringert.</p>
 <p>Erreicht wurde diese Verbesserung dadurch, dass die IDE beim Start einmal alle relevanten Informationen aus der Repository-Datenbank einliest. Direkt nach dem Start der IDE ist ein höherer Verbrauch an Arbeitsspeicher zu beobachten. Bei längerer Arbeit relativiert sich dieser Effekt, da die IDE bisher auch schon sehr viele Informationen in den Arbeitsspeicher gelesen hat.</p>
+<p>Um eine bessere Performance zu erzielen, werden die Daten parallel über mehrere Datenbank-Verbindungen eingelesen. Das bedeutet, Framework Studio öffnet in kurzer Zeit eine ganze Reihe von Verbindungen zur Repository-Datenbank. Dabei definieren wir keinerlei Einschränkung, bzgl. dem Grad der Parallelität - das bedeutet es werden gewöhnlich so viele Verbindungen geöffnet, wie der Rechner (auf dem Framework Studio läuft) Prozessor-Kerne besitzt.</p>
+<div class="WARNING"><h5>Warning</h5><p>Wenn es von Seiten der Datenbank Restriktionen bzgl. der Anzahl gleichzeitiger Verbindungen gibt, dann kann das zu Fehlermeldungen führen - z.B. einem Verbindungs-Timeout unter Oracle.</p>
+</div>
 <h4 id="mdt--und-dbcolumn-änderungen-im-service-release">MDT- und DBColumn-Änderungen im Service Release</h4>
 <p>Im Service-Release-Modus können jetzt am Metadatentyp und an der DB-Column die folgenden Eingenschaften geändert werden:</p>
 <ul>

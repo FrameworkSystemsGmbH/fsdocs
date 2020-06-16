@@ -81,6 +81,42 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-42">Release-Information Framework Studio 4.2</h1>
 
+<h2 id="426-16062020">4.2.6 (16.06.2020)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.6_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2020052640 - <strong>IDE</strong>: Leitet man von einer Basis-Formklasse aus einem
+  Basis-Package ab (Derive), zu der es eine Customization im aktuellen Package
+  gibt, so kommt es zu einer Fehlermeldung und der Ableitung fehlen
+  anschließend Controls.</p>
+</li>
+<li><p>2020062773 - <strong>IDE</strong>: Beim Copy&amp;Paste wird der Control-Style nicht übertragen.
+  Wird im Form-Designer ein neues Control mit einem vererbten Control-Style
+  angelegt, dann wird der &quot;Control-Type&quot; auf eine alte Art verschlüsselt.</p>
+</li>
+<li><p>2020062779 - <strong>IDE</strong>: Wurde ein Control-Type gelöscht, dann führt das beim
+  Öffnen eines Forms in der IDE und beim Compile zu einer Exception. Das
+  passiert auch, wenn die betroffenen Controls bereits auf &quot;gelöscht&quot; stehen.</p>
+</li>
+<li><p>2020062828 - <strong>IDE</strong>: Das parallele Einlesen der Objekt-Daten beim Start der
+  IDE mit mehreren Datenbank-Verbindungen bereitet unter Oracle
+  Verbindungs-Probleme.</p>
+<div class="NOTE"><h5>Note</h5><p>Neues Verhalten nach der Korrektur.<br>
+Unter Oracle wird die maximale Anzahl der zusätzlichen
+Repository-Verbindungen auf 4 begrenzt. Unter SQL-Server werden jetzt
+maximal 8 zusätzliche Verbindungen geöffnet. Nach 15 Sekunden werden die
+zusätzlichen Verbindungen wieder geschlossen.</p>
+</div>
+</li>
+<li><p>2020062840 - <strong>IDE</strong>: Unter Oracle kommt es beim Checkout einer Textcollection
+  zu einer Datenbank-Exception: <em>ORA-00932: Inkonsistente Datentypen: CHAR
+  erwartet, NUMBER erhalten.</em></p>
+</li>
+</ul>
 <h2 id="425-29052020">4.2.5 (29.05.2020)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -88,11 +124,9 @@
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="framework-studio-performance-verbessert">Framework Studio Performance verbessert</h4>
-<p>Die Performance der Framework Studio IDE wurde erheblich verbessert. Besonders zu spüren ist das beim Öffnen großer Elemente in Customizing Packages. Auch die Laufzeit des Compile-Wizard hat sich signifikat verringert.</p>
+<p>Die Performance der Framework Studio IDE wurde erheblich verbessert. Besonders zu spüren ist das beim Öffnen großer Elemente in Customizing Packages. Auch die Laufzeit des Compile-Wizard hat sich signifikant verringert.</p>
 <p>Erreicht wurde diese Verbesserung dadurch, dass die IDE beim Start einmal alle relevanten Informationen aus der Repository-Datenbank einliest. Direkt nach dem Start der IDE ist ein höherer Verbrauch an Arbeitsspeicher zu beobachten. Bei längerer Arbeit relativiert sich dieser Effekt, da die IDE bisher auch schon sehr viele Informationen in den Arbeitsspeicher gelesen hat.</p>
-<p>Um eine bessere Performance zu erzielen, werden die Daten parallel über mehrere Datenbank-Verbindungen eingelesen. Das bedeutet, Framework Studio öffnet in kurzer Zeit eine ganze Reihe von Verbindungen zur Repository-Datenbank. Dabei definieren wir keinerlei Einschränkung, bzgl. dem Grad der Parallelität - das bedeutet es werden gewöhnlich so viele Verbindungen geöffnet, wie der Rechner (auf dem Framework Studio läuft) Prozessor-Kerne besitzt.</p>
-<div class="WARNING"><h5>Warning</h5><p>Wenn es von Seiten der Datenbank Restriktionen bzgl. der Anzahl gleichzeitiger Verbindungen gibt, dann kann das zu Fehlermeldungen führen - z.B. einem Verbindungs-Timeout unter Oracle.</p>
-</div>
+<p>Um eine bessere Performance zu erzielen, werden die Daten parallel über mehrere Datenbank-Verbindungen eingelesen. Das bedeutet, Framework Studio öffnet in kurzer Zeit zusätzliche Verbindungen zur Repository-Datenbank. Unter Oracle ist deren Anzahl auf maximal 4 begrenzt unter SQL-Server auf maximal 8. Die zusätzlichen Verbindungen werden nach spätestens 15 Sekunden wieder geschlossen.</p>
 <h4 id="mdt--und-dbcolumn-änderungen-im-service-release">MDT- und DBColumn-Änderungen im Service Release</h4>
 <p>Im Service-Release-Modus können jetzt am Metadatentyp und an der DB-Column die folgenden Eingenschaften geändert werden:</p>
 <ul>
@@ -100,7 +134,7 @@
 <li>DisplayMinLength, DisplayMaxLength</li>
 <li>DisplayMinLines, DisplayMaxLines</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020042334 - <strong>Java-Client</strong>: Die Windows-Skalierung hat keinen Einfluss auf
   die Skalierung des Browser Controls.</p>
@@ -134,7 +168,7 @@
 <li>FS_4.2.4_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021741 - <strong>Java-Client</strong>: Werden in ein Html-Texteingabefeld mindestens 35
   Zeilenumbrüche (p-Tags) eingefügt und erst danach Text, so kommt es beim
@@ -182,7 +216,7 @@
 </ol>
 <h4 id="html-client">HTML Client</h4>
 <p>Der ImageButton unterstützt nun das BadgeImage.</p>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021640 - <strong>IDE</strong>: Öffnet man einen bestehenden Exception Editor / Message
   Box Wizard und öffnet die MLKey-Auswahl, dann ist der erste MLKey ist
@@ -213,7 +247,7 @@
 <li>FS_4.2.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021533 - <strong>Broker</strong>: Wird ein im Treeview dargestelltes Element aus seiner
   Collection am Parent entfernt und anschließend eine Eigenschaft geändert,
@@ -272,7 +306,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <ul>
 <li><a href="../doc/database/ml-column.html#such-funktion">Such-Funktionalität für die ML-Columns</a></li>
 </ul>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020011151 - <strong>Oracle</strong>: Wird in einer DB-Column eine Spalte mit dem Typ
   Boolean angelegt, dann bringt der Datenbank-Update-Assistent einen Fehler,
@@ -353,7 +387,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <div class="WARNING"><h5>Warning</h5><p>Bestehende SQL-Server Runtime Repositories müssen manuell korrigiert werden!
 Details dazu finden Sie hier: <a href="knowledge/snapshot-isolation.html">Zeilenversionierung im SQL-Server</a>.</p>
 </div>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <p>In der Version 4.2 sind alle Fehler-Korrekturen bis einschließlich Framework Studio 4.0.18 enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

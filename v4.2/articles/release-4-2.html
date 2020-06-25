@@ -81,13 +81,35 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-42">Release-Information Framework Studio 4.2</h1>
 
+<h2 id="427-26062020">4.2.7 (26.06.2020)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.7_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2020031817 - <strong>Java-Client</strong>: Die Shortcuts Ctrl-H, Ctrl-T, Ctrl-Shift-T und
+  Ctrl-Shift-O funktionieren nicht, wenn sich der Fokus in einem
+  (Html)-Eingabefeld befindet.</p>
+</li>
+<li><p>2020062855 - <strong>Publish2Go</strong>: Wird eine Application per Publish2Go gepublished,
+  kann es passieren, dass bei einer Application die Einstellung für den
+  HTML-Client falsch ausgewertet wird. Auf der Broker-Startseite wird dann die
+  Option &quot;HTML&quot; nicht angeboten. Oder bei mehren Applications wird die Option
+  &quot;HTML&quot; fälschlicherweise bei einer normalen Application angeboten.</p>
+<div class="NOTE"><h5>Note</h5><p>Publish2Go-Pakete müssen mit der neuen Version komplett neu erzeugt werden,
+damit die Korrektur wirksam wird.</p>
+</div>
+</li>
+</ul>
 <h2 id="426-16062020">4.2.6 (16.06.2020)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.2.6_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020052640 - <strong>IDE</strong>: Leitet man von einer Basis-Formklasse aus einem
   Basis-Package ab (Derive), zu der es eine Customization im aktuellen Package
@@ -134,7 +156,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>DisplayMinLength, DisplayMaxLength</li>
 <li>DisplayMinLines, DisplayMaxLines</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020042334 - <strong>Java-Client</strong>: Die Windows-Skalierung hat keinen Einfluss auf
   die Skalierung des Browser Controls.</p>
@@ -168,7 +190,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>FS_4.2.4_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021741 - <strong>Java-Client</strong>: Werden in ein Html-Texteingabefeld mindestens 35
   Zeilenumbrüche (p-Tags) eingefügt und erst danach Text, so kommt es beim
@@ -216,7 +238,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 </ol>
 <h4 id="html-client">HTML Client</h4>
 <p>Der ImageButton unterstützt nun das BadgeImage.</p>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021640 - <strong>IDE</strong>: Öffnet man einen bestehenden Exception Editor / Message
   Box Wizard und öffnet die MLKey-Auswahl, dann ist der erste MLKey ist
@@ -247,7 +269,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>FS_4.2.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021533 - <strong>Broker</strong>: Wird ein im Treeview dargestelltes Element aus seiner
   Collection am Parent entfernt und anschließend eine Eigenschaft geändert,
@@ -306,7 +328,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <ul>
 <li><a href="../doc/database/ml-column.html#such-funktion">Such-Funktionalität für die ML-Columns</a></li>
 </ul>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020011151 - <strong>Oracle</strong>: Wird in einer DB-Column eine Spalte mit dem Typ
   Boolean angelegt, dann bringt der Datenbank-Update-Assistent einen Fehler,
@@ -387,7 +409,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <div class="WARNING"><h5>Warning</h5><p>Bestehende SQL-Server Runtime Repositories müssen manuell korrigiert werden!
 Details dazu finden Sie hier: <a href="knowledge/snapshot-isolation.html">Zeilenversionierung im SQL-Server</a>.</p>
 </div>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
 <p>In der Version 4.2 sind alle Fehler-Korrekturen bis einschließlich Framework Studio 4.0.18 enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

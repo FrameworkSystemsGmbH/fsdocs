@@ -148,10 +148,10 @@
     flex-direction: row;
     align-items: center;
     background-color: azure;
-    border-radius: 3px;
-    border: 1px solid gray;
-    padding: 3px;
-    padding-right: 28px;
+    border-radius: 0.3rem;
+    border: 0.1rem solid gray;
+    padding: 0.3rem;
+    padding-right: 2.8rem;
 }
 .lvItem[lvDisabled] {
     background-color: #cccccc;
@@ -160,6 +160,31 @@ img {
     display: inline;
 }
 </code></pre><p>Wie im Kapitel HTML beschrieben, wird ein ListItem mit einem <code>&lt;div&gt;</code>-Tag der CSS-Klasse <code>lvItem</code> umgeben. Im CSS-Code kann somit über den CSS-Selector <code>.lvItem</code> auf das Element zugegriffen werden.</p>
+<h3 id="rem-anstatt-pixel">REM anstatt Pixel</h3>
+<p>Im CSS sollten Größenangaben ausschließlich mit <code>rem</code> angegeben werden. Der HTML Client skaliert die gesamte Anzeige anhand der vom Browser vorgegebenen Schriftgröße. Im HTML Client wird global für das HTML- und das BODY-Tag folgendes definiert:</p>
+<pre><code class="lang-CSS">html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.4rem;
+}
+</code></pre><p>In Desktop-Browsern wie z.B. Chrome, Firefox oder Edge ist der Standardwert der Schriftgröße <code>16px</code>. <code>1rem</code> ist per Definition genauso groß wie die Schriftgröße des HTML-Tags, also im Standardfall erst einmal <code>16px</code>. Setzt man nun die <code>font-size</code> des HTML-Tags auf <code>62.5%</code>, ergibt sich eine Schriftgröße von <code>10px</code>, womit <code>1rem</code> nun ebenfalls <code>10px</code> groß ist.</p>
+<p>Da meist in Desktop-Browsern entwickelt und getestet wird, ergibt diese Anpassung Sinn, da es viel einfacher zu verstehen ist, mit Faktor 10, als mit Faktor 16 zu arbeiten. <code>0.5rem</code> sind <code>5px</code>, <code>5rem</code> sind <code>50px</code> usw.</p>
+<p>Deshalb wird im BODY-Tag auch die Schriftgröße auf <code>1.4rem</code> gesetzt, was letztenendes <code>14px</code> sind. Dies spiegelt die Standardschriftgröße des HTML Clients wieder.</p>
+<p>Probleme können nun enstehen, wenn REM- und Pixelwerte gemischt werden!</p>
+<p>Ein Beispiel:</p>
+<pre><code class="lang-CSS">.tpl .remClass {
+    width: 10rem;
+}
+
+.tpl .pxClass {
+    width: 100px;
+}
+</code></pre><p>Nehmen wir an, es gibt zwei HTML-Elemente im Template mit den Klassen <code>remClass</code> und <code>pxClass</code>. Liefert der Browser eine Standardgröße von <code>16px</code>, besteht kein Problem, die beiden Elemente sind exakt gleich groß, da <code>65.5% von 16px = 10px</code>. Damit sind <code>10rem</code> exakt <code>100px</code>.</p>
+<p>Anders sieht es aber aus, wenn z.B. ein mobiler Browser eine Standardschriftgröße von <code>14px</code> liefert. <code>62.5% von 14px = 8.75px</code>, damit sind <code>10rem</code> exakt <code>87.5px</code> und die beiden HTML-Elemente sind plötzlich unterschiedlich groß. Dies kann je nach Gerät und verwendetem Browser zu unvorhersehbaren Skalierungsfehlern führen.</p>
+<div class="TIP"><h5>Tip</h5><p>Es wird ausdrücklich empfohlen, im HTML/CSS des ListItems <code>rem</code> als Größeneinheit zu verwenden.</p>
+</div>
 <h3 id="iseditable">IsEditable</h3>
 <p>Im CSS kann auch ein Style für deaktivierte ListItems in einem nicht editierbaren ListView hinterlegt werden. Wird ein ListView im Designer oder per Action auf isEditable = false gesetzt, so wird am <code>&lt;div&gt;</code>-Tag lvItem das HTML-Attribut <code>lvDisabled</code> hinzugefügt:</p>
 <pre><code class="lang-html">&lt;hc-listitem-content _nghost-wvt-c19 class=&quot;ng-star-inserted&quot;&gt;

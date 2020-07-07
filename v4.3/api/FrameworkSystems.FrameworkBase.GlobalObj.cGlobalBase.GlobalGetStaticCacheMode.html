@@ -92,7 +92,7 @@
   <a href="https://github.com/FrameworkSystemsGmbH/fs/new/4.3/dev/apiSpec/new?filename=FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_GlobalGetStaticCacheMode_FrameworkSystems_FrameworkBase_IDevFrameworkDataObject_.md&amp;value=---%0Auid%3A%20FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalGetStaticCacheMode(FrameworkSystems.FrameworkBase.IDevFrameworkDataObject)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
 </span>
 <span class="small pull-right mobile-hide">
-  <a href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.3/dev/FS/FrameworkBase/GlobalObj/cGlobalBase.cs/#L242">View Source</a>
+  <a href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.3/dev/FS/FrameworkBase/GlobalObj/cGlobalBase.cs/#L244">View Source</a>
 </span>
 <a id="FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_GlobalGetStaticCacheMode_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalGetStaticCacheMode*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_GlobalGetStaticCacheMode_FrameworkSystems_FrameworkBase_IDevFrameworkDataObject_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalGetStaticCacheMode(FrameworkSystems.FrameworkBase.IDevFrameworkDataObject)">GlobalGetStaticCacheMode(IDevFrameworkDataObject)</h4>
@@ -132,7 +132,9 @@ Standardwert ist <a class="xref" href="FrameworkSystems.FrameworkBase.StaticCach
       <div class="markdown level1 remarks"><p>Hilfreich ist dies z.B., wenn für bestimmte Typen (z.B. weil Tabellen-Filter definiert sind) das durchlaufen
 der Einsprungspunkte <span class="xref">FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalOnBeforeLoad(FrameworkSystems.FrameworkBase.DevFrameworkObject,System.String@,System.String@,System.String@)</span>
 und <span class="xref">FrameworkSystems.FrameworkBase.FrameworkDataObject`2.OnBeforeLoad(System.String@,System.String@,System.String@,System.Boolean)</span> dringend nötig ist
-und daher der Arbeitsmodus <a class="xref" href="FrameworkSystems.FrameworkBase.StaticCacheMode.html#FrameworkSystems_FrameworkBase_StaticCacheMode_Session">Session</a> gewünscht ist.</p>
+und daher der Arbeitsmodus <a class="xref" href="FrameworkSystems.FrameworkBase.StaticCacheMode.html#FrameworkSystems_FrameworkBase_StaticCacheMode_Session">Session</a> gewünscht ist.
+Der Arbeitsmodus <a class="xref" href="FrameworkSystems.FrameworkBase.StaticCacheMode.html#FrameworkSystems_FrameworkBase_StaticCacheMode_Session">Session</a> ist außerdem dann relevant, wenn Einschränkungen auf Eigenschaften erfolgen sollen,
+die zwar als Datenbankspalte existieren, jedoch an der Component nicht als Property hinzugefügt wurden (z.B. bei <a class="xref" href="../doc/comp/static-cache.html#distinct-und-groupby">distinct und groupBy</a> Components).</p>
 </div>
     </section>
 </section>
@@ -147,7 +149,7 @@ und daher der Arbeitsmodus <a class="xref" href="FrameworkSystems.FrameworkBase.
                     <a href="https://github.com/FrameworkSystemsGmbH/fs/new/4.3/dev/apiSpec/new?filename=FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_GlobalGetStaticCacheMode_.md&amp;value=---%0Auid%3A%20FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalGetStaticCacheMode*%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.3/dev/FS/FrameworkBase/GlobalObj/cGlobalBase.cs/#L242" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.3/dev/FS/FrameworkBase/GlobalObj/cGlobalBase.cs/#L244" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

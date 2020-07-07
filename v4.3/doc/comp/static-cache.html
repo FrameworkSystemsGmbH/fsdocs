@@ -78,7 +78,7 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+            <article class="content wrap" id="_content" data-uid="static-cache">
 <h1 id="statisches-caching">Statisches Caching</h1>
 
 <p>Framework Studio stellt einen statischen Caching-Mechanismus bereit. Wird dieser für eine geeignete <a href="components.html">Component</a> aktiviert, so können Daten statt von der Datenbank aus diesem Cache geladen werden. Dadurch sind erhebliche Performance-Vorteile möglich, da die Anzahl der Datenbankzugriffe reduziert wird.</p>
@@ -145,11 +145,49 @@ foreach (IcdCurrency oCurrency in oCurrencyColl)
 Dadurch kann der Cache nicht den globalen Einsprungpunkt <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.GlobalOnBeforeLoad.html#FrameworkSystems_FrameworkBase_GlobalObj_IcGlobalBase_GlobalOnBeforeLoad_FrameworkSystems_FrameworkBase_DevFrameworkObject_System_String__System_String__System_String__">public virtual void GlobalOnBeforeLoad(DevFrameworkObject obj, ref string loadCondition, ref string replacingHavingClause, ref string replacingOrderClause)</a> durchlaufen, da hier pro Session anhand eines beliebigen Where-Strings unterschiedlich gefiltert werden kann.</p>
 <p>Eine einfache Filterung ist für den Cache jedoch in dem Moment möglich, in dem Objekte (zu einem konkreten Global) aus dem Cache angefragt werden.
 Dazu wurde der globale Einsprungpunkt <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalWhereStaticCache.html#FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_GlobalWhereStaticCache_FrameworkSystems_FrameworkBase_IStaticCacheObject_">protected internal virtual bool GlobalWhereStaticCache(IStaticCacheObject oStaticCacheObject)</a> geschaffen, welcher eine Filterung der Ergebnismenge durch den Cache ermöglicht.</p>
-<p>Der zuletzt genannte Einsprungpunkt ist jedoch nicht in der Lage, beliebiges SQL im Nachhinein auszuwerten. Sollte jedoch eine Filterung nötig sein, die direkt beim Laden komplexes SQL ermöglicht, kann der statische Cache die Daten nicht sessionübergreifend einlesen.</p>
+<p>Der zuletzt genannte Einsprungpunkt ist jedoch nicht in der Lage, beliebiges SQL im Nachhinein auszuwerten. Sollte jedoch eine Filterung nötig sein, die direkt beim Laden komplexes SQL ermöglicht, kann der statische Cache die Daten nicht sessionübergreifend einlesen. Ebenso ist es in diesem Einsprungpunkt nicht möglich, Einschränkungen auf Werte vorzunehmen, welche zwar als Tabellenspalte existieren, jedoch nicht als Property an der Component angelegt sind.</p>
 <p>Deshalb wurde ein weiterer globaler Einsprungpunkt <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalGetStaticCacheMode.html#FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_GlobalGetStaticCacheMode_FrameworkSystems_FrameworkBase_IDevFrameworkDataObject_">protected internal virtual StaticCacheMode GlobalGetStaticCacheMode(IDevFrameworkDataObject oDevFrameworkDataObject)</a> geschaffen, welcher pro Component einmalig durchlaufen wird um festzulegen, in welchem Modus der Cache arbeiten soll.</p>
 <p>Die beiden Modi <em>Broker (default)</em> und <em>Session</em> sowie ihre Konsequenzen sind im Detail am <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.StaticCacheMode.html">StaticCacheMode</a> beschrieben.</p>
 <p>Im Modus <em>Session</em> läd der statische Cache die &quot;Rohdaten&quot; nicht global sondern pro Session. Dadurch erhöht sich der Arbeitspeicherverbrauch. Gleichzeitig kann so der erstgenannte Einsprungpunkt <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.GlobalOnBeforeLoad.html#FrameworkSystems_FrameworkBase_GlobalObj_IcGlobalBase_GlobalOnBeforeLoad_FrameworkSystems_FrameworkBase_DevFrameworkObject_System_String__System_String__System_String__">public virtual void GlobalOnBeforeLoad(DevFrameworkObject obj, ref string loadCondition, ref string replacingHavingClause, ref string replacingOrderClause)</a> wie gewohnt durchlaufen werden.</p>
-</article>
+<h2 id="besonderheiten">Besonderheiten</h2>
+<h3 id="distinct-und-groupby">Distinct und GroupBy</h3>
+<div class="IMPORTANT"><h5>Important</h5><p>Ist eine Component als <em>Distinct</em> oder <em>GroupBy</em> definiert, darf der statische Cache zu dieser Component nicht im <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.StaticCacheMode.html">Modus <em>Broker</em></a> betrieben werden.</p>
+</div>
+<p>Wenn eine Component nicht als <em>Distinct</em> oder <em>GroupBy</em> definiert ist, in einem speziellen Fall jedoch <em>Distinct</em> oder <em>GroupBy</em> gewünscht ist, kann an den Methoden des statischen Caches, die die Angabe eines <em>orderBy</em> ermöglichen, als <em>orderBy</em> die entsprechende Funktion angegeben werden.</p>
+<p>Beispiel Distinct:</p>
+<pre><code class="lang-csharp">public virtual int LoadDistinctByName()
+{
+    return cdArticleCache.Get(this.Global).FillCollection(This, l =&gt; l.DistinctBy(o =&gt; o.sName));
+}
+</code></pre><p>Beispiel GroupBy:</p>
+<pre><code class="lang-csharp">public virtual int LoadGroupByName()
+{
+    // Gruppiert werden soll nach sName
+    Func&lt;IcdArticle, FSstring&gt; fnKeySelector = oArticle =&gt; oArticle.sName;
+
+    // Ergebnisobjekt vom Typ IcdArticle zu jedem Schlüsselwert und den dazugehörigen Artikeln erzeugen
+    Func&lt;FSstring, IEnumerable&lt;IcdArticle&gt;, IcdArticle&gt; fnResultSelector = (sName, oArticles) =&gt;
+    {
+        IcdArticle oResult = cdArticleFactory.Create(this.Global);
+
+        var oFirstArticle = oArticles.First();
+        oResult.sID = oFirstArticle.sID;
+        oResult.sName = oFirstArticle.sName;
+        oResult.sColor = oFirstArticle.sColor;
+
+        // Hinweis: Auch wenn mehrere Aggregatfunktionen (Sum, Count, Max, ...) aufgerufen werden, sollte nur einmal über alle Elemente iteriert werden
+        oResult.decPrice = oArticles.Select(oArticle =&gt; oArticle.decPrice.Value).Sum();
+
+        // Status des Ergebnisobjekts soll unchanged sein
+        oResult.State = FrameworkComponentState.Unchanged;
+
+        return oResult;
+    };
+
+    // GroupBy-Funktionalität als spezielles orderBy übergeben
+    return cdArticleCache.Get(this.Global).FillCollection(This, l =&gt; l.GroupBy(fnKeySelector, fnResultSelector));
+}
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

@@ -98,8 +98,9 @@
 <h4 id="dropdown-für-sprachauswahl">Dropdown für Sprachauswahl</h4>
 <p>Das HTML und CSS eines Template Controls kann, wenn gewünscht, für jede Sprache einzeln definiert werden. Ist für eine Sprache kein Template definiert, wird auf Deutsch zurückgegriffen.</p>
 <h4 id="button-validate">Button <strong>Validate</strong></h4>
-<p>Über diesen Button können die im HTML eingebetteten Template Variablen überprüft werden. Es werden folgende Fälle geprüft:</p>
+<p>Über diesen Button können die im HTML eingebetteten Template Variablen und Template MLKeys überprüft werden. Es werden folgende Fälle geprüft:</p>
 <ul>
+<li>Ist der Template MLKey parsebar und ist der MLKey-Name gültig?</li>
 <li>Ist die Template Variable parsebar?</li>
 <li>Passt das angegebene Format zum Datentyp?</li>
 <li>Zeigt die Template Variable auf eine existierende Template DataSource?</li>
@@ -118,6 +119,8 @@
 <p>Mit dem Button Use Base kann das HTML Template z.B. nach einem Customizing wieder auf die Basis zurückgesetzt werden.</p>
 <h4 id="button-template-variable">Button <strong>Template Variable</strong></h4>
 <p>Mit dem Button Template Variable kann eine neue <a href="#template-variablen">Template Variable</a> erstellt, oder eine bestehende geändert werden.</p>
+<h4 id="button-mlkey">Button <strong>MLKey</strong></h4>
+<p>Mit dem Button MLKey wird das <a href="../../mlkey/woerterbuch.html">MLKey-Wörterbuch</a> geöffnet. Dort kann ein neuer <a href="#template-mlkey">Template MLKey</a> erstellt, oder ein bestehender geändert werden.</p>
 <h4 id="html-aufbau">HTML Aufbau</h4>
 <p>Der benutzerdefinierte HTML Code wird im HTML Client in ein <code>&lt;div&gt;</code>-Tag mit der CSS-Klasse <strong><code>tpl</code></strong> verpackt. Es ist also nicht unbedingt nötig, um den eigenen HTML Code ein <code>&lt;div&gt;</code>-Tag als Container zu implementieren.</p>
 <p>Der generierte Code aus dem Beispiel sieht im HTML Client z.B. so aus:</p>
@@ -146,10 +149,15 @@
 <p>Auf der linken Seite werden alle zur Verfügung stehenden Template DataSources aufgelistet. Auf der rechten Seite kann für die Template Variable ein passendes Format und/oder FormatPattern definiert werden.</p>
 <p>Durch die Aufteilung in Template DataSources und Template Variablen werden die Daten und deren Formatierung im HTML strikt voneinander getrennt. Beispielsweise könnte der Wert einer Template DataSource im englischen HTML anders formatiert werden als im deutschen HTML.</p>
 <p>Template Variablen werden im HTML-Code wie folgt angezeigt:</p>
-<p><code>{{ ds:[Name]|f:[Format]|fp:[FormatPattern] }}</code></p>
+<p><code>{{ ds:[Name]|f:[Format]|fp:[FormatPattern]|pv:[PreviewValue] }}</code></p>
 <p>Dabei verweist <code>[Name]</code> auf den Namen der zugehörigen Template DataSource, <code>[Format]</code> und <code>[FormatPattern]</code> definieren das im Template Variable Editor ausgewählte Format und FormatPattern.</p>
-<div class="NOTE"><h5>Note</h5><p>Es wird empfohlen, Template Variablen immer über den Template Variable Editor zu ändern, um Syntaxfehler zu vermeiden.</p>
+<p><code>PreviewValue</code> ist derjenige Wert, der für die Template Variable angezeigt wird, wenn das Template auf der Registerkarte <code>Preview</code> zur Vorschau gerendert wird. Der Wert wird zur Laufzeit ignoriert.</p>
+<div class="NOTE"><h5>Note</h5><p>Es wird empfohlen, Template Variablen und Template MLKeys immer über den jeweiligen  Editor zu ändern, um Syntaxfehler zu vermeiden.</p>
 </div>
+<h3 id="template-mlkey">Template MLKey</h3>
+<p>Template MLKeys werden im HTML-Code wie folgt angezeigt:</p>
+<p><code>{{ mlkey:[MLKey-Name] }}</code></p>
+<p>Dabei verweist <code>[MLKey-Name]</code> auf den Namen des zugehörigen MLKeys. Zum Beispiel &quot;SYS_OK&quot;.</p>
 <h3 id="css">CSS</h3>
 <p>Das benutzerdefinierte HTML kann mittels CSS im CSS-Codeeditor auf der Registerkarte <strong>CSS</strong> beliebig angepasst werden.</p>
 <p>Beispiel:</p>
@@ -246,6 +254,14 @@ body {
 <pre><code class="lang-html">&lt;img class=&quot;img&quot; src=&quot;data:;base64,{{ ds:Image }}&quot; /&gt;
 </code></pre><p>Das Semicolon vor <code>base64</code> ist ohne die Angabe des Mime-Types zwingend notwendig.</p>
 </div>
+<h3 id="preview">Preview</h3>
+<p><img src="../media/template-preview.png" alt="Template Editor"></p>
+<p>Wenn der HTML-Code gültig ist, wird auf der Registerkarte &quot;Preview&quot; eine gerenderte Vorschau des Templates angezeigt.</p>
+<p>Für die Vorschau werden die PreviewValues für die einzelnen Template Variablen verwendet. Sollte ein PreviewValue nicht gesetzt sein, wird stattdessen der DataSource Name angezeigt. Template MLKeys zeigen den im Wörterbuch hinterlegten Text an.</p>
+<h4 id="preview-size">Preview Size</h4>
+<p>Mit der Preview Size kann im Editor die Größe der Vorschau geändert werden. Damit kann sehr einfach überprüft werden, wie sich das Template in unterschiedlichen Größen verhält. Diese Einstellung hat keinen Einfluss auf die Laufzeit.</p>
+<h4 id="fallback-auf-die-standardsprache">Fallback auf die Standardsprache</h4>
+<p>Sollte für die im Template Editor ausgewählte Sprache (z.B. Englisch) kein HTML oder CSS vorhanden sein, so wird das HTML oder CSS der Standardsprache (Deutsch) verwendet. So kann z.B. für &quot;Englisch&quot; nur das HTML überschrieben werden. im Preview und zur Laufzeit wird dann das englische HTML mit dem deutschen CSS kombiniert.</p>
 </article>
           </div>
           

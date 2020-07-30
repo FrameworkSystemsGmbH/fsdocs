@@ -81,13 +81,99 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-42">Release-Information Framework Studio 4.2</h1>
 
+<h2 id="428-31072020">4.2.8 (31.07.2020)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.8_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="mlkeys-und-preview-im-templatecontrol-und-listview">MLKeys und Preview im TemplateControl und ListView</h4>
+<p>Im HTML-Editor des TemplateControls und ListViews können jetzt MLKeys verwendet werden. Außerdem gibt es dort nun eine Preview-Funktion. Weitere Informationen: <a href="../doc/form/control/template.html">TemplateControl</a> und <a href="../doc/form/control/listview.html">ListView</a>.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2020073096 - <strong>JavaClient</strong>: Wird die Anwendung über den FSClient-Launcher
+  gestartet, dann erfolgt bei mehreren Anwendungen keine Gruppierung in der
+  Windows Taskleiste.</p>
+<div class="NOTE"><h5>Note</h5><p>Jetzt erfolgt die Gruppierung in der Taskleiste nach der Adresse des
+Brokers.</p>
+</div>
+</li>
+<li><p>2020073176 - <strong>Java-Client</strong>: Beim Entfernen und wieder Einfügen von
+  dynamischen Grid-Spalten wird die Einfügereihenfolge nicht beachtet.</p>
+</li>
+<li><p>2020073067 - <strong>Oracle</strong>: Die Update-Logik in der Anwendung erzeugt Exceptions,
+  wenn in der Business-DB Trigger ohne Tabellen-Bezug existieren.</p>
+</li>
+<li><p>2020073177 - <strong>Oracle</strong>: Bei paralleler Verarbeitung kann es passieren, dass
+  der Connect zur Oracle-Datenbank eine Exception &#39;Timeout bei
+  Verbindungsanforderung&#39; erzeugt. Das betrifft z.B. das parallele Einlesen der
+  Daten beim Start der IDE und das parallele Erzeugen von GlobalObjects in
+  Services und im E-Gate.</p>
+<div class="NOTE"><h5>Note</h5><p>Beim Start der IDE wird jetzt die Anzahl der zusätzlichen
+Repository-Connections auf 8 erhöht. Mit dem Bug 2020062828 wurde für Oracle
+die Anzahl auf 4 begrenzt.</p>
+</div>
+</li>
+<li><p>2020073201 - <strong>Package-Manager</strong>: Beim Branch einer Package-Version gehen alle
+  MLKeys verloren.</p>
+</li>
+<li><p>2020072990 - <strong>IDE</strong>: In Methoden an Services und ServiceProxies generiert der
+  Exception Editor Wizard durch die Verwendung von &quot;this.Global&quot; nicht
+  kompilierbaren Code.</p>
+</li>
+<li><p>2020073068 - <strong>IDE</strong>: Der Documentation Chapter Tree wird falsch sortiert.
+  Wenn man die Reihenfolge ändert, wird beim nächsten Öffnen des Chapter Tree
+  wieder die falsche Reihenfolge angezeigt.</p>
+</li>
+<li><p>2020073205 - <strong>IDE</strong>: Beim Kopieren von Controls kann es zu einer
+  NullReferenceException kommen.</p>
+</li>
+<li><p>2020073292 - <strong>IDE</strong>: Wenn man nach dem Laden eines Settings im Run- oder
+  PublishWizard Framework Studio neu startet, gehen die Setting-Einstellungen
+  verloren.</p>
+</li>
+<li><p>2020073317 - <strong>IDE</strong>: Wird ein neues Global-Object angelegt, dann wird dieses
+  nach dem Wechsel auf einen anderen Namespace nicht mehr im Namespace-Baum
+  angezeigt.</p>
+</li>
+<li><p>2020073335 - <strong>IDE</strong>: Bei der Bearbeitung des Source-Events im Workflow-Link
+  kann es zu einem Absturz der IDE kommen.</p>
+</li>
+<li><p>2020073350 - <strong>IDE</strong>: Bei der Arbeit mit Text-Collections kann es passieren,
+  dass in den Code der Text-Collection fälschlicherweise 2 Properties &quot;ID&quot; und
+  &quot;Text&quot; generiert werden. In der Folge kann das zu Compile-Fehlern führen,
+  wenn dadurch der Component-Code evtl. nicht zum Interface-Code passt.</p>
+</li>
+<li><p>2020073078 - <strong>Framework</strong>: Beim Neustart der Endanwendung unter Beibehalt des
+  angemeldeten Benutzers wird der AuthenticationService nicht kontaktiert, um
+  die Benutzerrollen neu auszuwerten.</p>
+</li>
+<li><p>2020072975 - <strong>HTML Client</strong>: Das OnValidated-Event wird gefeuert, obwohl sich
+  im Textfeld nichts geändert hat.</p>
+</li>
+<li><p>2020073049 - <strong>HTML Client</strong>: Buttons und ImageButtons berechnen ihre Höhe
+  unabhängig vom ShowCaption-Property.</p>
+</li>
+<li><p>2020073066 - <strong>HTML Client</strong>: In einem FieldPanel mit &quot;SynchronizedColumns  =
+  true&quot; wird für ausgeblendete Control Labels ggf. Platz reserviert, wodurch
+  das Layout durcheinander gebracht wird.</p>
+</li>
+<li><p>2020073075 - <strong>HTML Client</strong>: FieldRows mit dem LabelMode &quot;None_Fill&quot;
+  verursachen zur Laufzeit eine Exception, wenn das zugehörige FieldPanel
+  &quot;SynchronizedColumns = true&quot; gesetzt hat.</p>
+</li>
+<li><p>2020073097 - <strong>HTML Client</strong>: Ausgeblendete Controls werden in manchen
+  Situationen in der Fokusreihenfolge beachtet. Dies hat zur Folge, dass der
+  Fokus ggf. in einem Control vor einem ausgeblendeten Control festhängt.</p>
+</li>
+</ul>
 <h2 id="427-26062020">4.2.7 (26.06.2020)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.2.7_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020031817 - <strong>Java-Client</strong>: Die Shortcuts Ctrl-H, Ctrl-T, Ctrl-Shift-T und
   Ctrl-Shift-O funktionieren nicht, wenn sich der Fokus in einem
@@ -109,7 +195,7 @@ damit die Korrektur wirksam wird.</p>
 <li>FS_4.2.6_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020052640 - <strong>IDE</strong>: Leitet man von einer Basis-Formklasse aus einem
   Basis-Package ab (Derive), zu der es eine Customization im aktuellen Package
@@ -148,7 +234,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <h4 id="framework-studio-performance-verbessert">Framework Studio Performance verbessert</h4>
 <p>Die Performance der Framework Studio IDE wurde erheblich verbessert. Besonders zu spüren ist das beim Öffnen großer Elemente in Customizing Packages. Auch die Laufzeit des Compile-Wizard hat sich signifikant verringert.</p>
 <p>Erreicht wurde diese Verbesserung dadurch, dass die IDE beim Start einmal alle relevanten Informationen aus der Repository-Datenbank einliest. Direkt nach dem Start der IDE ist ein höherer Verbrauch an Arbeitsspeicher zu beobachten. Bei längerer Arbeit relativiert sich dieser Effekt, da die IDE bisher auch schon sehr viele Informationen in den Arbeitsspeicher gelesen hat.</p>
-<p>Um eine bessere Performance zu erzielen, werden die Daten parallel über mehrere Datenbank-Verbindungen eingelesen. Das bedeutet, Framework Studio öffnet in kurzer Zeit zusätzliche Verbindungen zur Repository-Datenbank. Unter Oracle ist deren Anzahl auf maximal 4 begrenzt unter SQL-Server auf maximal 8. Die zusätzlichen Verbindungen werden nach spätestens 15 Sekunden wieder geschlossen.</p>
+<p>Um eine bessere Performance zu erzielen, werden die Daten parallel über mehrere Datenbank-Verbindungen eingelesen. Das bedeutet, Framework Studio öffnet in kurzer Zeit bis zu 8 zusätzliche Verbindungen zur Repository-Datenbank. Die zusätzlichen Verbindungen werden nach spätestens 15 Sekunden wieder geschlossen.</p>
 <h4 id="mdt--und-dbcolumn-änderungen-im-service-release">MDT- und DBColumn-Änderungen im Service Release</h4>
 <p>Im Service-Release-Modus können jetzt am Metadatentyp und an der DB-Column die folgenden Eingenschaften geändert werden:</p>
 <ul>
@@ -156,7 +242,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>DisplayMinLength, DisplayMaxLength</li>
 <li>DisplayMinLines, DisplayMaxLines</li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020042334 - <strong>Java-Client</strong>: Die Windows-Skalierung hat keinen Einfluss auf
   die Skalierung des Browser Controls.</p>
@@ -190,7 +276,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>FS_4.2.4_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021741 - <strong>Java-Client</strong>: Werden in ein Html-Texteingabefeld mindestens 35
   Zeilenumbrüche (p-Tags) eingefügt und erst danach Text, so kommt es beim
@@ -238,7 +324,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 </ol>
 <h4 id="html-client">HTML Client</h4>
 <p>Der ImageButton unterstützt nun das BadgeImage.</p>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021640 - <strong>IDE</strong>: Öffnet man einen bestehenden Exception Editor / Message
   Box Wizard und öffnet die MLKey-Auswahl, dann ist der erste MLKey ist
@@ -269,7 +355,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>FS_4.2.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021533 - <strong>Broker</strong>: Wird ein im Treeview dargestelltes Element aus seiner
   Collection am Parent entfernt und anschließend eine Eigenschaft geändert,
@@ -328,7 +414,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <ul>
 <li><a href="../doc/database/ml-column.html#such-funktion">Such-Funktionalität für die ML-Columns</a></li>
 </ul>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020011151 - <strong>Oracle</strong>: Wird in einer DB-Column eine Spalte mit dem Typ
   Boolean angelegt, dann bringt der Datenbank-Update-Assistent einen Fehler,
@@ -409,7 +495,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <div class="WARNING"><h5>Warning</h5><p>Bestehende SQL-Server Runtime Repositories müssen manuell korrigiert werden!
 Details dazu finden Sie hier: <a href="knowledge/snapshot-isolation.html">Zeilenversionierung im SQL-Server</a>.</p>
 </div>
-<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
 <p>In der Version 4.2 sind alle Fehler-Korrekturen bis einschließlich Framework Studio 4.0.18 enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

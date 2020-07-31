@@ -87,8 +87,24 @@
 <li>FS_4.2.8_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="mlkeys-und-preview-im-templatecontrol-und-listview">MLKeys und Preview im TemplateControl und ListView</h4>
+<h4 id="html-client-neuerungen">HTML Client Neuerungen</h4>
+<h5 id="mlkeys-und-preview-im-templatecontrol-und-listview">MLKeys und Preview im TemplateControl und ListView</h5>
 <p>Im HTML-Editor des TemplateControls und ListViews können jetzt MLKeys verwendet werden. Außerdem gibt es dort nun eine Preview-Funktion. Weitere Informationen: <a href="../doc/form/control/template.html">TemplateControl</a> und <a href="../doc/form/control/listview.html">ListView</a>.</p>
+<h5 id="unterstützung-für-das-tabbedwindow-control">Unterstützung für das TabbedWindow Control</h5>
+<p>Das TabbedWindow Control wird nun in vollem Umfang vom HTML Client unterstützt:</p>
+<ul>
+<li>Volle Unterstützung der TabTemplates</li>
+<li>Horizontale und vertikale ausrichtung</li>
+<li>Verwendung des <code>DataSource</code>-Properties, um TabPages aus dem Code heraus zu selektieren</li>
+<li>Overflow-Verhalten bei zu vielen Tabs: Sind die Tabs zu breit oder zu hoch für das Display, kann ganz einfach mit dem Mausrad oder per Touch auf mobilen Geräten durch die Liste gescrollt werden</li>
+<li>OnSelectedTabPageChange und OnSelectedTabPageChanged Events</li>
+</ul>
+<h5 id="modale-dialoge-ohne-header">Modale Dialoge ohne Header</h5>
+<p>Über ein neues Property <code>HideModalHeader</code> am Form kann der Header (mit Titel und Close-Button) ausgeblendet werden, wenn es als modaler Dialog aufgerufen wird. So steht etwas mehr Platz zur Verfügung. Da mit dem Header auch der Close-Button verschwindet, muss der Aufruf von <code>this.Close()</code> am Form anderweitig erfolgen, z.B. durch einen eigens implementieren Button oder ein Event.</p>
+<h5 id="fullscreen">Fullscreen</h5>
+<p>Der HTML Client wird auf mobilen Geräten ab sofort im Fullscreen-Modus ausgeführt. So steht noch etwas mehr platz für Controls zur Verfügung, da die Statusleiste und Softbuttons des Geräts die App nun überlappen.</p>
+<h5 id="form-badgeimages">Form BadgeImages</h5>
+<p>Zusätzlich zu den ImageButtons werden BadgeImages nun auch am Form über das Property <code>BadgeImage DataSource</code> unterstützt.</p>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020073096 - <strong>JavaClient</strong>: Wird die Anwendung über den FSClient-Launcher

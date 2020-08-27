@@ -81,6 +81,69 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-42">Release-Information Framework Studio 4.2</h1>
 
+<h2 id="429-28082020">4.2.9 (28.08.2020)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.9_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2020083454 - <strong>JavaClient</strong>: Wird eine Anwendung als &quot;Frameless&quot; gestartet
+  (z.B. der Pick-Monitor in eNVenta ERP), dann kann es passieren, dass eine
+  Fehlermeldung angezeigt wird: <em>Java-Exception: The frame is displayable.</em></p>
+</li>
+<li><p>2020083525 - <strong>Oracle</strong>: Beim automatischen Datenbank-Update kann es
+  vorkommen, dass das Einlesen der Struktur-Informationen sehr lange dauert.</p>
+</li>
+<li><p>2019016813 - <strong>IDE</strong>: Wird eine Text-Collection per Paste in eine bestehende
+  Text-Collection gemerged, werden die ausgewählten Texte in der
+  Summary-Registerkarte nicht angezeigt.</p>
+</li>
+<li><p>2020011256 - <strong>IDE</strong>: Im Documentation-Editor wird beim Rückgängig machen der
+  letzten Aktion (STRG+Z) der gesamte Text gelöscht, wenn lediglich eine neue
+  Section hinzugefügt wurde oder seit dem CheckOut nichts verändert wurde.</p>
+</li>
+<li><p>2020062830 - <strong>IDE</strong>: Ändert man an einem Property im Getter oder Setter die
+  Checkbox &quot;Write Individual&quot;, dann wird der Methoden-Code nicht aktualisiert.</p>
+</li>
+<li><p>2020073327 - <strong>IDE</strong>: Beim Copy&amp;Paste einer TextCollection werden die MLKeys
+  nicht übertragen.</p>
+</li>
+<li><p>2020073331 - <strong>IDE</strong>: Nach Einfügen einer Text-Collection wird den Save-Button
+  nicht aktiviert.</p>
+</li>
+<li><p>2020073346 - <strong>IDE</strong>: Im ClassView werden die Member nicht korrekt nach Name
+  sortiert.</p>
+</li>
+<li><p>2020073361 - <strong>IDE</strong>: Wird im Basis-Form eine Form-Methode gelösch, die in
+  einem Control-Event zugeordnet ist, dann wird in der Event-Zuordnung im
+  agbeleiteten Form diese Methode weiterhin angezeigt.</p>
+</li>
+<li><p>2020073369 - <strong>IDE</strong>: Führt man im Workflow-Editor einen Doppel-Klick auf ein
+  Global-Event aus um dieses zu öffnen, dann wird eine Exception angezeigt.
+  Ein weiterer Doppel-Klick öffnet das Global-Event.</p>
+</li>
+<li><p>2020073372 - <strong>IDE</strong>: Wird ein neues Global-Event angelegt, dann wird eine
+  SQL-Exception ausgelöst. Ein Speichern ist nicht mehr möglich.</p>
+</li>
+<li><p>2020083515 - <strong>IDE</strong>: Wird ein als Imported gekennzeichneter View customized,
+  dann ist im Customizing die Checkbox &quot;Imported&quot; nicht aktiv. In der Folge
+  wird beim Compile der DBTables ein Error ausgegeben: <em>#error: &#39;FSErr[1064]
+  No view definition has been specified.</em></p>
+</li>
+<li><p>2020083531 - <strong>IDE</strong>: Wird ein DataContract, dessen Contract Type auf &quot;IList&quot;
+  oder &quot;Array&quot; steht, customized, dann wird in der Customization der Typ
+  &quot;Single Item&quot; angezeigt.</p>
+<div class="NOTE"><h5>Note</h5><p>Wenn so ein Fall entstanden ist, dann muss der DataContract im
+Customizing-Package gelöscht und neu customized werden.</p>
+</div>
+</li>
+<li><p>2020083513 - <strong>HTML Client</strong>: Ist an einem modalen Form &quot;HideModalHeader =
+  true&quot; gesetzt, so wird mit dem Back-Button auf Android-Geräten nicht das
+  Form geschlossen, sondern versucht, die Session zu beenden.</p>
+</li>
+</ul>
 <h2 id="428-31072020">4.2.8 (31.07.2020)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -105,7 +168,7 @@
 <p>Der HTML Client wird auf mobilen Geräten ab sofort im Fullscreen-Modus ausgeführt. So steht noch etwas mehr platz für Controls zur Verfügung, da die Statusleiste und Softbuttons des Geräts die App nun überlappen.</p>
 <h5 id="form-badgeimages">Form BadgeImages</h5>
 <p>Zusätzlich zu den ImageButtons werden BadgeImages nun auch am Form über das Property <code>BadgeImage DataSource</code> unterstützt.</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020073096 - <strong>JavaClient</strong>: Wird die Anwendung über den FSClient-Launcher
   gestartet, dann erfolgt bei mehreren Anwendungen keine Gruppierung in der
@@ -189,7 +252,7 @@ die Anzahl auf 4 begrenzt.</p>
 <li>FS_4.2.7_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020031817 - <strong>Java-Client</strong>: Die Shortcuts Ctrl-H, Ctrl-T, Ctrl-Shift-T und
   Ctrl-Shift-O funktionieren nicht, wenn sich der Fokus in einem
@@ -211,7 +274,7 @@ damit die Korrektur wirksam wird.</p>
 <li>FS_4.2.6_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020052640 - <strong>IDE</strong>: Leitet man von einer Basis-Formklasse aus einem
   Basis-Package ab (Derive), zu der es eine Customization im aktuellen Package
@@ -258,7 +321,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>DisplayMinLength, DisplayMaxLength</li>
 <li>DisplayMinLines, DisplayMaxLines</li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020042334 - <strong>Java-Client</strong>: Die Windows-Skalierung hat keinen Einfluss auf
   die Skalierung des Browser Controls.</p>
@@ -292,7 +355,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>FS_4.2.4_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021741 - <strong>Java-Client</strong>: Werden in ein Html-Texteingabefeld mindestens 35
   Zeilenumbrüche (p-Tags) eingefügt und erst danach Text, so kommt es beim
@@ -340,7 +403,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 </ol>
 <h4 id="html-client">HTML Client</h4>
 <p>Der ImageButton unterstützt nun das BadgeImage.</p>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021640 - <strong>IDE</strong>: Öffnet man einen bestehenden Exception Editor / Message
   Box Wizard und öffnet die MLKey-Auswahl, dann ist der erste MLKey ist
@@ -371,7 +434,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>FS_4.2.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021533 - <strong>Broker</strong>: Wird ein im Treeview dargestelltes Element aus seiner
   Collection am Parent entfernt und anschließend eine Eigenschaft geändert,
@@ -430,7 +493,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <ul>
 <li><a href="../doc/database/ml-column.html#such-funktion">Such-Funktionalität für die ML-Columns</a></li>
 </ul>
-<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020011151 - <strong>Oracle</strong>: Wird in einer DB-Column eine Spalte mit dem Typ
   Boolean angelegt, dann bringt der Datenbank-Update-Assistent einen Fehler,
@@ -511,7 +574,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <div class="WARNING"><h5>Warning</h5><p>Bestehende SQL-Server Runtime Repositories müssen manuell korrigiert werden!
 Details dazu finden Sie hier: <a href="knowledge/snapshot-isolation.html">Zeilenversionierung im SQL-Server</a>.</p>
 </div>
-<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
 <p>In der Version 4.2 sind alle Fehler-Korrekturen bis einschließlich Framework Studio 4.0.18 enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

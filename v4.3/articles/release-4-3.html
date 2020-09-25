@@ -81,19 +81,36 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-43">Release-Information Framework Studio 4.3</h1>
 
-<h2 id="43-xxxx2020">4.3 (XX.XX.2020)</h2>
+<h2 id="43-beta-1-25092020">4.3 Beta 1 (25.09.2020)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.3.0_Setup_x64</li>
+<li>FS_4.3.0_Beta_1_Setup_x64</li>
 <li>FS_4.3.0_Requirements_x64 (<a href="requirements-package.html">Requirements-Paket</a>)</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="neuerungen">Neuerungen</h4>
 <p>Die Neuerungen finden Sie unter <a href="neuheiten-4-3.html">Neuheiten 4.3</a></p>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
-<p>In der Version 4.3 sind alle Fehler-Korrekturen bis einschließlich Framework Studio 4.2.X enthalten.
+<p>In der Version 4.3 sind alle Fehler-Korrekturen bis einschließlich Framework Studio 4.2.10 enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
-<p>...</p>
+<ul>
+<li><p>2020052729 - <strong>Java-Client</strong>: Im Dialog für die Eingabe der Spalten-Filter
+  sollte der Fokus direkt in das Eingabe-Feld gesetzt werden. Nach Eingabe
+  eines Wertes soll der Filter direkt angewendet werden.</p>
+</li>
+<li><p>2017089506 - <strong>IDE</strong>: Wenn man in einem Codeeditor die Suche eingeschränkt auf
+  den selektierten Bereich ausführt, wird immer Case-sensitiv gesucht, auch
+  wenn die Checkbox nicht gesetzt ist. Find and Replace ist ebenfalls
+  betroffen.</p>
+</li>
+<li><p>2020042323 - <strong>IDE</strong>: Beim Erstellen einer individual Datenbank-Connection
+  wird ein neuer (leerer) Eintrag erstellt. Es sollte der vorhandene Eintrag
+  kopiert und als Individual (editable) angelegt werden.</p>
+</li>
+<li><p>2020073102 - <strong>IDE</strong>: Wird in einer DBTable die letzte Column gelöscht, dann
+  wird eine NullReferenceException angezeigt.</p>
+</li>
+</ul>
 </article>
           </div>
           

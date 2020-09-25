@@ -1,0 +1,207 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>StackOverflow Analysieren </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="StackOverflow Analysieren ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="stackoverflow-analysieren">StackOverflow Analysieren</h1>
+
+<p>Wenn in einem .NET-Programm eine StackOverflowException ausgelöst wird, dann crashed der komplette Prozess. Für den Programmierer gibt es leider absolut keine Möglichkeit, dies abzufangen.</p>
+<p>Es gibt die Möglichkeit, sich mit dem Visual Studio Debugger vorher an den Prozess zu hängen. Wenn die Exception aufschlägt, zeigt der Debugger den Call-Stack an.
+Man benötigt dafür aber Visual Studio und es kann hin und wieder passieren, dass dies auch mal nicht funktioniert.</p>
+<p>Im folgenden wird eine alternative Vorgehensweise beschrieben, die deutlich zuverlässiger zum Ergebnis führt.
+Es wird mithilfe des Werkzeug <strong>ProcDump</strong> beim Auftreten dieser Exception ein Dump-File erstellt. Dieses wird anschließend mit <strong>windbg</strong> analysiert und der Call-Stack ermittelt.</p>
+<h2 id="ist-es-ein-stackoverflow">Ist es ein StackOverflow?</h2>
+<p>zuerst stellt sich die Frage ob der Absturz eines Brokers tatsächlich durch einen StackOverflow ausgelöst wird. Das kann an den folgenden Symptomen festgestellt werden:</p>
+<p>1.) Alle Benutzer die auf dem Broker arbeiten erhalten die Meldung:</p>
+<p>  <em>Session has been terminated! SessionID is unknown.</em></p>
+<p>2.) Im Event-Log des Broker-Servers ist folgender Eintrag zu finden:</p>
+<ul>
+<li>Quelle: <em>Application Error</em></li>
+<li>Ereignis-ID: <em>1000</em></li>
+<li>Detail-Text:<ul>
+<li>Name der fehlerhaften Anwendung: <em>w3wp.exe</em></li>
+<li>Ausnahmecode: <em>0xc00000fd</em></li>
+</ul>
+</li>
+</ul>
+<h2 id="fehler-reproduzieren">Fehler reproduzieren</h2>
+<p>Wenn nicht bekannt ist, wie genau der Fehler entsteht, dann ist es empfehlenswert dies herauszufinden. Denn so kann man gezielt einen Broker starten, den Fehler auslösen und ein Dump-File erzeugen.</p>
+<p>Um das einzugrenzen kann das SessionTrace verwendet werden.</p>
+<p>Dazu gibt man in der web.config die folgenden Informationen an:</p>
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;configuration&gt;
+  &lt;appSettings&gt;
+    &lt;add key=&quot;SessionTraceFolder&quot; value=&quot;C:\temp\sessiontrace&quot; /&gt;
+    &lt;add key=&quot;SessionTraceCaching&quot; value=&quot;false&quot;/&gt;
+    ...
+</code></pre><div class="WARNING"><h5>Warning</h5><p>Das Ändern der Datei startet den Broker neu</p>
+</div>
+<p>Den SessionTraceFolder kann man auch im Publish-Wizard angeben.
+Das SessionTraceCaching muss aber manuell auf &quot;false&quot; gesetzt werden, damit Anfang und Ende eines Requests getrennt protokolliert werden. Das ist entscheidend für die Analyse des Fehlers.</p>
+<p>Wurden die Dateien erzeugt und es ist mind. ein Absturz aufgetreten, dann kann man den SessionTrace-Ordner in das Werkzeug FSSessionTraceAnalyzer.exe einlesen (dieses befindet sich im Framework Studio Programmverzeichnis).
+Auf der Registerkarte &quot;Session Map&quot; gibt es unten einen Link &quot;Show open Requests&quot;. Dieser zeigt eine Liste aller Requests an, zu denen keine Ende protokolliert wurde. Das können potentielle Kandidaten sein, aber ggf. auch Requests die unverschuldet mit abgebrochen wurden. Gut ist es daher, wenn mehrere Abstürze aufgetreten sind, so lässt sich der entscheidende Kandidat besser finden.</p>
+<p>Gibt die gewonnene Info noch keine Aufschluss über die Ursache, dann ist der nächste Schritt das Erstellen eines Dump-Files.</p>
+<h2 id="dump-file-erstellen">Dump-File erstellen</h2>
+<h4 id="vorbereitungen">Vorbereitungen</h4>
+<p>Das freie Werkzeug <strong>ProcDump</strong> herunterladen</p>
+<p><a href="https://docs.microsoft.com/en-us/sysinternals/downloads/procdump">https://docs.microsoft.com/en-us/sysinternals/downloads/procdump</a></p>
+<p>Die Zip-Datei entpacken z.B. in den Ordner <code>C:\ProcDump</code></p>
+<h4 id="dump-erzeugen">Dump erzeugen</h4>
+<p>Der betroffene Prozess muss bereits laufen. ProcDump beobachtet den laufenden Prozess und erzeugt im Falle eines StackOverflow den gewünschten Dump.</p>
+<p>Eingabeaufforderung starten.
+Ggf. als Administrator erforderlich um sich an einen Windows Dienst hängen zu können.</p>
+<p>In den Ordner des ProcDump-Programms navigieren</p>
+<pre><code class="lang-dos">C:\&gt; cd C:\ProcDump
+</code></pre><p>Das Programm starten</p>
+<pre><code class="lang-dos">C:\ProcDump&gt; procdump64.exe -accepteula -e 1 -f C00000FD.STACK_OVERFLOW -g -ma &lt;PID&gt; %temp%
+</code></pre><p><code>&lt;PID&gt;</code> ist die ID des Processes. Diese kann über den Task-Manager in Erfahrung gebracht werden.
+Es kann auch der Name des Prozesses - z.B. w3wp.exe oder NV.ERP.Base.JobServer.Host.JobServerHost.WindowsService.exe angegeben werden. Dies funktioniert aber nicht, wenn der Prozess mehrfach mit dem selben Namen ausgeführt wird (bsp. w3wp.exe mehrfach gestartet wird).</p>
+<p>Die Eingabeaufforderung offen und am Server den Windows-Benutzer angemeldet lassen.
+Wenn jetzt eine StackOverflowException auftritt, erzeugt dieses Programm einen Dump, bevor das Programm im Anschluss endgültig crashed.</p>
+<p>Die Dump-Datei wird in den Temp-Ordner gepackt.
+Sie heißt <code>NameDesProcesses_Datum_Uhrzeit.dmp</code>.
+Diese Datei kann im nächsten Schritt mit <strong>windbg</strong> analysiert werden.</p>
+<p>Die Datei kann ggf. mehrere GB groß sein, denn sie enthält ein komplettes Hauptspeicher-Abbild des Prozesses.
+Erfolgt eine Analyse bei N&amp;V, dann sollte die Datei als 7-Zip gepackt und per ftp bereitgestellt werden.</p>
+<h2 id="analyse-mit-windbgexe">Analyse mit windbg.exe</h2>
+<h4 id="vorbereitungen-1">Vorbereitungen</h4>
+<div class="NOTE"><h5>Note</h5><p>Ist auf dem Rechner Visual Studio installiert, dann ist windbg evtl. bereits verfügbar. Die Installation ist in diesem Fall nicht nötig.</p>
+</div>
+<p>Das Windows 10 SDK herunterladen</p>
+<p><a href="https://developer.microsoft.com/de-de/windows/downloads/windows-10-sdk">https://developer.microsoft.com/de-de/windows/downloads/windows-10-sdk</a></p>
+<p>Button &quot;INSTALLER HERUNTERLADEN&quot;</p>
+<p>Die Installations-Routine <code>winsdksetup.exe</code> starten.<br>
+Alles Haken außer &quot;Debugging Tools for Windows&quot; entfernen.<br>
+Installieren.</p>
+<h4 id="analyse">Analyse</h4>
+<p>Die windbg.exe (x64-Variante) starten.<br>
+Einfach im Startmenü &quot;windbg&quot; eintippen.</p>
+<p>Die Dump-Datei einlesen<br>
+Menü File -&gt; Open Crash Dump</p>
+<p>Unten in die Text-Zeile die folgenden Befehle eingeben:</p>
+<pre><code class="lang-dos">0:000&gt; .loadby sos clr
+0:000&gt; !analyze
+</code></pre><p>Jetzt den Callstack anzeigen mit folgendem Befehl:</p>
+<pre><code class="lang-dos">0:000&gt; !clrstack
+</code></pre><p>Dies kann eine ganze Weile gehen - einfach abwarten :-)</p>
+<h2 id="links">Links</h2>
+<ul>
+<li><a href="https://msdn.microsoft.com/de-de/library/system.stackoverflowexception(v=vs.110).aspx">https://msdn.microsoft.com/de-de/library/system.stackoverflowexception(v=vs.110).aspx</a></li>
+<li><a href="https://www.thebestcsharpprogrammerintheworld.com/2017/12/12/capture-a-stackoverflowexception-and-make-a-dump-0xc00000fd/">https://www.thebestcsharpprogrammerintheworld.com/2017/12/12/capture-a-stackoverflowexception-and-make-a-dump-0xc00000fd/</a></li>
+<li><a href="https://stackify.com/using-windbg-to-analyze-net-crash-dumps-async-crash/">https://stackify.com/using-windbg-to-analyze-net-crash-dumps-async-crash/</a></li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.3/master/articles/knowledge/stackoverflow-analysieren.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

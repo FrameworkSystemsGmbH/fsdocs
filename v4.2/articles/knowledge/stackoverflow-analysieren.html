@@ -81,7 +81,7 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="stackoverflow-analysieren">StackOverflow Analysieren</h1>
 
-<p>Wenn in einem .NET-Programm eine StackOverflowException ausgelöst wird, dann crashed der komplette Prozess. Für den Programmierer gibt leider es absolut keine Möglichkeit, dies abzufangen.</p>
+<p>Wenn in einem .NET-Programm eine StackOverflowException ausgelöst wird, dann crashed der komplette Prozess. Für den Programmierer gibt es leider absolut keine Möglichkeit, dies abzufangen.</p>
 <p>Es gibt die Möglichkeit, sich mit dem Visual Studio Debugger vorher an den Prozess zu hängen. Wenn die Exception aufschlägt, zeigt der Debugger den Call-Stack an.
 Man benötigt dafür aber Visual Studio und es kann hin und wieder passieren, dass dies auch mal nicht funktioniert.</p>
 <p>Im folgenden wird eine alternative Vorgehensweise beschrieben, die deutlich zuverlässiger zum Ergebnis führt.
@@ -103,15 +103,16 @@ Es wird mithilfe des Werkzeug <strong>ProcDump</strong> beim Auftreten dieser Ex
 <h2 id="fehler-reproduzieren">Fehler reproduzieren</h2>
 <p>Wenn nicht bekannt ist, wie genau der Fehler entsteht, dann ist es empfehlenswert dies herauszufinden. Denn so kann man gezielt einen Broker starten, den Fehler auslösen und ein Dump-File erzeugen.</p>
 <p>Um das einzugrenzen kann das SessionTrace verwendet werden.</p>
-<p>Dazu gibt man in der web.config die folgenden Informationen an:
-(ACHTUNG! Das Ändern der Datei startet den Broker neu)</p>
+<p>Dazu gibt man in der web.config die folgenden Informationen an:</p>
 <pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
 &lt;configuration&gt;
   &lt;appSettings&gt;
     &lt;add key=&quot;SessionTraceFolder&quot; value=&quot;C:\temp\sessiontrace&quot; /&gt;
     &lt;add key=&quot;SessionTraceCaching&quot; value=&quot;false&quot;/&gt;
     ...
-</code></pre><p>Den SessionTraceFolder kann man auch im Publish-Wizard angeben.
+</code></pre><div class="WARNING"><h5>Warning</h5><p>Das Ändern der Datei startet den Broker neu</p>
+</div>
+<p>Den SessionTraceFolder kann man auch im Publish-Wizard angeben.
 Das SessionTraceCaching muss aber manuell auf &quot;false&quot; gesetzt werden, damit Anfang und Ende eines Requests getrennt protokolliert werden. Das ist entscheidend für die Analyse des Fehlers.</p>
 <p>Wurden die Dateien erzeugt und es ist mind. ein Absturz aufgetreten, dann kann man den SessionTrace-Ordner in das Werkzeug FSSessionTraceAnalyzer.exe einlesen (dieses befindet sich im Framework Studio Programmverzeichnis).
 Auf der Registerkarte &quot;Session Map&quot; gibt es unten einen Link &quot;Show open Requests&quot;. Dieser zeigt eine Liste aller Requests an, zu denen keine Ende protokolliert wurde. Das können potentielle Kandidaten sein, aber ggf. auch Requests die unverschuldet mit abgebrochen wurden. Gut ist es daher, wenn mehrere Abstürze aufgetreten sind, so lässt sich der entscheidende Kandidat besser finden.</p>
@@ -134,17 +135,19 @@ Es kann auch der Name des Prozesses - z.B. w3wp.exe oder NV.ERP.Base.JobServer.H
 <p>Die Eingabeaufforderung offen und am Server den Windows-Benutzer angemeldet lassen.
 Wenn jetzt eine StackOverflowException auftritt, erzeugt dieses Programm einen Dump, bevor das Programm im Anschluss endgültig crashed.</p>
 <p>Die Dump-Datei wird in den Temp-Ordner gepackt.
-Sie heißt NameDesProcesses_Datum_Uhrzeit.dmp
-Diese Datei kann im 2. Schritt mit <strong>windbg</strong> analysiert werden.</p>
+Sie heißt <code>NameDesProcesses_Datum_Uhrzeit.dmp</code>.
+Diese Datei kann im nächsten Schritt mit <strong>windbg</strong> analysiert werden.</p>
 <p>Die Datei kann ggf. mehrere GB groß sein, denn sie enthält ein komplettes Hauptspeicher-Abbild des Prozesses.
 Erfolgt eine Analyse bei N&amp;V, dann sollte die Datei als 7-Zip gepackt und per ftp bereitgestellt werden.</p>
 <h2 id="analyse-mit-windbgexe">Analyse mit windbg.exe</h2>
 <h4 id="vorbereitungen-1">Vorbereitungen</h4>
+<div class="NOTE"><h5>Note</h5><p>Ist auf dem Rechner Visual Studio installiert, dann ist windbg evtl. bereits verfügbar. Die Installation ist in diesem Fall nicht nötig.</p>
+</div>
 <p>Das Windows 10 SDK herunterladen</p>
 <p><a href="https://developer.microsoft.com/de-de/windows/downloads/windows-10-sdk">https://developer.microsoft.com/de-de/windows/downloads/windows-10-sdk</a></p>
 <p>Button &quot;INSTALLER HERUNTERLADEN&quot;</p>
-<p>Die Installations-Routine <code>winsdksetup.exe</code> starten.
-Alles Haken außer &quot;Debugging Tools for Windows&quot; entfernen.
+<p>Die Installations-Routine <code>winsdksetup.exe</code> starten.<br>
+Alles Haken außer &quot;Debugging Tools for Windows&quot; entfernen.<br>
 Installieren.</p>
 <h4 id="analyse">Analyse</h4>
 <p>Die windbg.exe (x64-Variante) starten.<br>
@@ -156,12 +159,12 @@ Menü File -&gt; Open Crash Dump</p>
 0:000&gt; !analyze
 </code></pre><p>Jetzt den Callstack anzeigen mit folgendem Befehl:</p>
 <pre><code class="lang-dos">0:000&gt; !clrstack
-</code></pre><p>Dies kann eine ganze weile gehen - einfach abwarten :-)</p>
+</code></pre><p>Dies kann eine ganze Weile gehen - einfach abwarten :-)</p>
 <h2 id="links">Links</h2>
 <ul>
+<li><a href="https://msdn.microsoft.com/de-de/library/system.stackoverflowexception(v=vs.110).aspx">https://msdn.microsoft.com/de-de/library/system.stackoverflowexception(v=vs.110).aspx</a></li>
 <li><a href="https://www.thebestcsharpprogrammerintheworld.com/2017/12/12/capture-a-stackoverflowexception-and-make-a-dump-0xc00000fd/">https://www.thebestcsharpprogrammerintheworld.com/2017/12/12/capture-a-stackoverflowexception-and-make-a-dump-0xc00000fd/</a></li>
 <li><a href="https://stackify.com/using-windbg-to-analyze-net-crash-dumps-async-crash/">https://stackify.com/using-windbg-to-analyze-net-crash-dumps-async-crash/</a></li>
-<li><a href="https://msdn.microsoft.com/de-de/library/system.stackoverflowexception(v=vs.110).aspx">https://msdn.microsoft.com/de-de/library/system.stackoverflowexception(v=vs.110).aspx</a></li>
 </ul>
 </article>
           </div>

@@ -81,6 +81,33 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-42">Release-Information Framework Studio 4.2</h1>
 
+<h2 id="4211-30102020">4.2.11 (30.10.2020)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.11_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="html-client-neuerungen">HTML Client Neuerungen</h4>
+<h5 id="neues-framework-als-basis">Neues Framework als Basis</h5>
+<p>Der HTML Client wurde bisher mit <strong>Apache Cordova</strong> und <strong>Adobe PhoneGap Build</strong> in die mobile Welt gebracht. Adobe hat jedoch angekündigt, PhoneGap nicht mehr weiter zu entwickeln. Auf Grund von erweiterter Hardware-Unterstützung und der einfacheren Integration in den Entwicklungsprozess haben wir jedoch schon vor dieser Ankündigung den HTML Client auf das <strong>Ionic Capacitor Framework</strong> umgezogen. Auch die Browser-Version des HTML Clients profitiert maßgeblich vom neuen Framework.</p>
+<p>Folgende Verbesserungen sind ab sofort Verfügbar:</p>
+<ul>
+<li>Die TakePhoto Action funktioniert nun auch im Browser</li>
+<li>Die GetGeolocation Action funktioniert nun auch im Browser</li>
+<li>Eine noch aktive Session wird sofort beim Starten der App geladen</li>
+<li>Wird das letzte Form geschlossen, gibt es eine Rückfrage, ob die Session geschlossen werden soll</li>
+<li>Die UI wird bei länger laufenden Requests nun vollständig gesperrt, um parallele Eingaben zu verhindern</li>
+</ul>
+<h5 id="installieren-sie-google-chrome-auf-android">Installieren Sie Google Chrome auf Android</h5>
+<p>Adobe Cordova hat bisher zur Anzeige des HTML und zur Ausführung von Javascript in der App die im Android System integrierte WebView verwendet. Seit Android 5 ist die WebView als System-App ausgelagert worden, damit sie unabhängig vom Betriebssystem über den Play Store upgedated werden kann. Vor allem auf alten Geräten (Android 7.0 oder älter) und zusätzlich abhängig vom Hersteller ist dies jedoch oft nicht der Fall und HTML-Applikationen werden auf Grund der betagten Engine fehlerhaft dargestellt.</p>
+<p>Das Ionic Capacitor Framework löst dieses Problem und nutzt ggf. die Engine eines installierten Google Chrome.</p>
+<p>Es gelten folgende Regeln:</p>
+<ul>
+<li>Wenn Google Chrome installiert ist, wird dessen Engine für die Ausführung der App verwendet</li>
+<li>Ist Chrome nicht installiert, wird die Android WebView verwendet</li>
+</ul>
+<p>Wir empfehlen deshalb unbedingt, auf allen Geräten, auf denen der Framework Studio Mobile Client genutzt wird, auch Google Chrome zu installieren und auf die aktuellste Version upzudaten, um die breiteste Unterstützung von Features und die fehlerfreie Darstellung der App zu garantieren.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <h2 id="4210-25092020">4.2.10 (25.09.2020)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -90,7 +117,7 @@
 <h4 id="fehler-im-package-merge">Fehler im Package-Merge</h4>
 <div class="WARNING"><h5>Warning</h5><p>Seit 29.05.2020 gibt es mehrere Probleme mit dem Package-Merge. Einige wurden korrigiert, jedoch sind noch offene Punkte bekannt. Daher empfehlen wir, bis zum nächsten Patchday auf den Package-Merge zu verzichten.</p>
 </div>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020093914 - <strong>JavaClient</strong>: Der Client startet im Hintergrund eine cmd.exe.
   Das führt ggf. zu Problemen, wenn per Gruppenrichtline der Zugriff auf die
@@ -139,7 +166,7 @@
 <li>FS_4.2.9_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020083454 - <strong>JavaClient</strong>: Wird eine Anwendung als &quot;Frameless&quot; gestartet
   (z.B. der Pick-Monitor in eNVenta ERP), dann kann es passieren, dass eine
@@ -202,7 +229,7 @@ Customizing-Package gelöscht und neu customized werden.</p>
 <li>FS_4.2.8_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="html-client-neuerungen">HTML Client Neuerungen</h4>
+<h4 id="html-client-neuerungen-1">HTML Client Neuerungen</h4>
 <h5 id="mlkeys-und-preview-im-templatecontrol-und-listview">MLKeys und Preview im TemplateControl und ListView</h5>
 <p>Im HTML-Editor des TemplateControls und ListViews können jetzt MLKeys verwendet werden. Außerdem gibt es dort nun eine Preview-Funktion. Weitere Informationen: <a href="../doc/form/control/template.html">TemplateControl</a> und <a href="../doc/form/control/listview.html">ListView</a>.</p>
 <h5 id="unterstützung-für-das-tabbedwindow-control">Unterstützung für das TabbedWindow Control</h5>
@@ -220,7 +247,7 @@ Customizing-Package gelöscht und neu customized werden.</p>
 <p>Der HTML Client wird auf mobilen Geräten ab sofort im Fullscreen-Modus ausgeführt. So steht noch etwas mehr platz für Controls zur Verfügung, da die Statusleiste und Softbuttons des Geräts die App nun überlappen.</p>
 <h5 id="form-badgeimages">Form BadgeImages</h5>
 <p>Zusätzlich zu den ImageButtons werden BadgeImages nun auch am Form über das Property <code>BadgeImage DataSource</code> unterstützt.</p>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020073096 - <strong>JavaClient</strong>: Wird die Anwendung über den FSClient-Launcher
   gestartet, dann erfolgt bei mehreren Anwendungen keine Gruppierung in der
@@ -304,7 +331,7 @@ die Anzahl auf 4 begrenzt.</p>
 <li>FS_4.2.7_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020031817 - <strong>Java-Client</strong>: Die Shortcuts Ctrl-H, Ctrl-T, Ctrl-Shift-T und
   Ctrl-Shift-O funktionieren nicht, wenn sich der Fokus in einem
@@ -326,7 +353,7 @@ damit die Korrektur wirksam wird.</p>
 <li>FS_4.2.6_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020052640 - <strong>IDE</strong>: Leitet man von einer Basis-Formklasse aus einem
   Basis-Package ab (Derive), zu der es eine Customization im aktuellen Package
@@ -373,7 +400,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>DisplayMinLength, DisplayMaxLength</li>
 <li>DisplayMinLines, DisplayMaxLines</li>
 </ul>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020042334 - <strong>Java-Client</strong>: Die Windows-Skalierung hat keinen Einfluss auf
   die Skalierung des Browser Controls.</p>
@@ -407,7 +434,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>FS_4.2.4_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021741 - <strong>Java-Client</strong>: Werden in ein Html-Texteingabefeld mindestens 35
   Zeilenumbrüche (p-Tags) eingefügt und erst danach Text, so kommt es beim
@@ -455,7 +482,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 </ol>
 <h4 id="html-client">HTML Client</h4>
 <p>Der ImageButton unterstützt nun das BadgeImage.</p>
-<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021640 - <strong>IDE</strong>: Öffnet man einen bestehenden Exception Editor / Message
   Box Wizard und öffnet die MLKey-Auswahl, dann ist der erste MLKey ist
@@ -486,7 +513,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>FS_4.2.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021533 - <strong>Broker</strong>: Wird ein im Treeview dargestelltes Element aus seiner
   Collection am Parent entfernt und anschließend eine Eigenschaft geändert,
@@ -545,7 +572,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <ul>
 <li><a href="../doc/database/ml-column.html#such-funktion">Such-Funktionalität für die ML-Columns</a></li>
 </ul>
-<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020011151 - <strong>Oracle</strong>: Wird in einer DB-Column eine Spalte mit dem Typ
   Boolean angelegt, dann bringt der Datenbank-Update-Assistent einen Fehler,
@@ -626,7 +653,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <div class="WARNING"><h5>Warning</h5><p>Bestehende SQL-Server Runtime Repositories müssen manuell korrigiert werden!
 Details dazu finden Sie hier: <a href="knowledge/snapshot-isolation.html">Zeilenversionierung im SQL-Server</a>.</p>
 </div>
-<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
 <p>In der Version 4.2 sind alle Fehler-Korrekturen bis einschließlich Framework Studio 4.0.18 enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

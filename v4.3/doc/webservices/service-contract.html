@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Service Contract </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Service Contract ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="service-contract">Service Contract</h1>
+
+<p>Der Service Contract stellt eine funktionelle Beschreibung des zu implementierenden Webservices in Form eines Interfaces dar. Der Contract enthält die Deklarationen der Methoden, die der Webservice implementieren soll.</p>
+<p><img src="media/service-contract-properties.png" alt="Service Contract Properties"></p>
+<h2 id="name">Name</h2>
+<p>Name des Service Contracts, standardmäßig beginnend mit einem großen <strong>I</strong> (<strong>Interface</strong>). Auch im IntelliSense ist der Service Contract unter diesem Namen zu finden.</p>
+<h2 id="type">Type</h2>
+<p>Es gibt zwei Arten von Service Contracts:</p>
+<h2 id="userdefined-contract">Userdefined Contract</h2>
+<p>Ein vom Programmierer erstellter Service Contract. Dieser Service Contract enthält ausschließlich diejenigen Methoden, die auf der Registerkarte <strong>Operations</strong> angelegt wurden.</p>
+<h2 id="external-contract">External Contract</h2>
+<p>Wenn ein Service Contract aus einer externen Assembly implementiert wird, der an den Framework Studio Service Contract gebunden wird, ist dieser als <strong>External Contract</strong> gekennzeichnet.</p>
+<h3 id="registerkarte-general">Registerkarte General</h3>
+<h4 id="service-contract-attributes">Service Contract Attributes</h4>
+<p>In dieser Textbox können zusätzliche Attribute für den WCF Service Contract definiert werden. Das Attribut <strong>[Service Contract]</strong> wird automatisch hinzugefügt und muss nicht manuell angegeben werden.</p>
+<h3 id="binden-eines-externen-service-contracts">Binden eines externen Service Contracts</h3>
+<p>Es besteht die Möglichkeit, in externen Assemblies untergebrachte WCF Service Contracts direkt in Framework Studio einzubinden. Hierzu kann über den Button Bind Contract eine .NET-Dll importiert werden.</p>
+<p>Importieren eines Service Contracts aus einer Assembly:</p>
+<p><img src="media/service-contract-assembly.png" alt="assembly"></p>
+<p>Mit dem Button <strong>Add Assembly</strong> kann nach einer gewünschten Assembly auf dem System gesucht werden. Nach dem Import wird die Assembly automatisch nach Interfaces mit dem Attribut <strong>[Service Contract]</strong> durchsucht und diese in der Combobox <strong>Choose Contract</strong> angezeigt.</p>
+<p>Die importierte Assembly wird als Ressource in Framework Studio eingebunden und bei einem Anwendungsstart oder Publish in das /bin-Verzeichnis des Brokers herausgeschrieben.</p>
+<p><img src="media/service-contract-tab-general.png" alt="Service Contract Registerkarte General"></p>
+<p>Die Verbindung zum WCF Service Contract kann über einen Klick auf den Button <strong>Unbind Contract</strong> wieder gelöscht warden. Dann fungiert der Service Contract wieder als <strong>Userdefined Contract</strong> und es können manuell Methoden deklariert werden.</p>
+<p>Im Textfeld <strong>External Contract Information</strong> werden alle verfügbaren Methoden des WCF Service Contracts aus der externen Assembly angezeigt.</p>
+<p>Solange ein externer WCF Service Contract gebunden ist, steht die Registerkarte <strong>Operations</strong> nicht zur Verfügung.</p>
+<h3 id="registerkarte-operations">Registerkarte Operations</h3>
+<p><img src="media/service-contract-tab-operations.png" alt="Service Contract Registerkarte Operations"></p>
+<p>Hier werden die Methoden deklariert, welche der Webservice später implementieren soll. Mit Rechtsklick in das <strong>Grid -&gt; New -&gt; Operation</strong> wird eine neue Methode angelegt. Anschließend werden in der Textbox <strong>Declaration</strong> Rückgabewert, Methodenname und optional Übergabeparameter definiert. Der Access Level der Methode wird automatisch auf <strong>public</strong> gesetzt.</p>
+<p>In der Textbox <strong>Attributes</strong> können zusätzliche Attribute für die Operation definiert werden. Das Attribut <strong>[OperationContract]</strong> wird automatisch hinzugefügt und muss nicht manuell angegeben werden.</p>
+<p>In der Liste <strong>Fault Contracts</strong> können zur derzeit ausgewählten Operation Fault Contracts hinzugefügt werden, die später im Service als Type für eine <code>FaultException&lt;T&gt;</code> verwendet werden können. Mehr Information hierzu im Kapitel <a href="fault-contracts.html">Fault Contracts</a>.</p>
+<h3 id="generieren-eines-services-aus-einem-service-contract">Generieren eines Services aus einem Service Contract</h3>
+<p>Im Menüpunkt <strong>Edit</strong> befindet sich der Eintrag <strong>New service implementing this contract</strong>. Damit wird auf Basis des ausgewählten Service Contracts ein Service-Element (<a href="service.html">Service</a>) im selben Namespace generiert, welches den Service Contract implementiert. Dies erspart dem Programmierer das Anlegen eines Service-Elements und das manuelle Einbinden des zugehörigen Service Contracts zum Service-Element.</p>
+<h3 id="customizen-von-service-contracts">Customizen von Service Contracts</h3>
+<p>Service Contracts können in Framework Studio nur gecustomized werden. Es besteht die Möglichkeit, den Service Contract um Methoden zu erweitern. Das Ableiten von Service Contracts ist nicht möglich.</p>
+<p><img src="media/service-contract-customizing.png" alt="Service Contract Customizing"></p>
+<p>Methoden aus der Basis werden ausgegraut dargestellt. Werden in der Ableitung oder Customization Attribute am Service Contract oder an dessen Methoden definiert, werden diese als zusätzliche Attribute in den Code generiert. Attribute aus der Basis werden demnach <strong>NICHT</strong> überschrieben.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.3/master/doc/webservices/service-contract.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

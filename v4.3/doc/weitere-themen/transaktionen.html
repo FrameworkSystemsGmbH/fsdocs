@@ -1,0 +1,380 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Transaktionen </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Transaktionen ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="transaktionen">Transaktionen</h1>
+
+<p><strong>Framework Studio</strong> besitzt ein eigenes Transaktionsmanagement. In den meisten Fällen müssen Sie sich nicht um Transaktionen kümmern, da jeder Save auf einer Component mit einem Datasource automatisch in einer Transaktion verpackt wird.</p>
+<p>Jede Transaktion wird in Form eines FrameworkDataTransaction-Objekts repräsentiert. Dieses implementiert die Schnittstelle IDisposable, weshalb sich ein using-Block für Aktivitäten innerhalb der Transaktion empfiehlt.</p>
+<pre><code class="lang-csharp">// FrameworkDataConnection ermitteln
+FrameworkDataConnection connection = ...;
+
+// Transaktion starten
+using(FrameworkDataTransaction transaction = connection.BeginTransaction())
+{
+  // Nun kann mit dieser Transaktion gearbeitet werden
+  [...]
+
+  transaction.Commit();
+}
+</code></pre><p>Werden FrameworkDataTransaction-Objekte verschachtelt erzeugt, so muss sichergestellt sein, dass innere Transaktionen vor den äußeren abgeräumt werden. Andernfalls wird eine Exception geworfen:</p>
+<p>Innere Transaktionen müssen vor äußeren beendet werden:</p>
+<p><img src="media/trasaktionen_inner.png" alt="inner-transaktionen"></p>
+<p>Beim Aufruf der Methode Commit an einer inneren Transaktion wird sie lediglich als geschlossen markiert und es erfolgt kein <strong>echter</strong> Commit. Dennoch wird aus <strong>Sauberkeitsgründen</strong> ggf. eine FrameworkDataTransactionException geworfen, falls die Aktion in dem aktuellen Transaktionsstapel ungültig sein sollte. Bis zum Dispose-Aufruf dieser <strong>inneren</strong> Transaktion darf dann keine weitere Transaktion geöffnet werden. Aus diesem Grund sollte der Dispose-Aufruf zeitnah auf das Commit folgen.</p>
+<p>Die Methode Rollback hingegen führt wirklich zu einem Rollback bis zum Erstellungszeitpunkt der <strong>äußersten (physischen)</strong> Transaktion. Daher darf, bis die <strong>äußerste</strong> Transaktion geschlossen wurde, keine weitere Transaktion geöffnet werden:</p>
+<p><img src="media/trasaktionen_rollback.png" alt="rollback-transaktionen"></p>
+<p>Nach einem Rollback müssen alle Transaktionen der Verbindung freigegeben werden, bevor die nächste geöffnet wird.</p>
+<p>Zur Fehlerprotokollierung nach einem Rollback wurde ein Modus geschaffen, mit dem Transaktionen auch dann gestartet werden können, wenn noch nicht alle Transaktionen abgeräumt wurden. Das erfolgt durch den Aufruf von <strong>Begin-/CreateTransaction (TransactionBeginMode.Rollback)</strong>. Dadurch wird jedoch eine innere Transaktion zur <strong>physischen Transaktion</strong> und es können weitere, innere Transaktionen auf Basis dieser erstellt werden.</p>
+<p>Die folgende Tabelle zeigt die Eigenschaften und Methoden der Klasse FrameworkDataTransaction.</p>
+<h2 id="eigenschaft">Eigenschaft</h2>
+<h4 id="activetransaction">ActiveTransaction</h4>
+<p>Die innerste Transaktion der Verbindung.</p>
+<h4 id="connection">Connection</h4>
+<p>Die FrameworkDataConnection, mit der das Transaktionsobjekt erzeugt wurde.</p>
+<h4 id="innertransaction">InnerTransaction</h4>
+<p>Die innere Transaktion oder <code>null</code>, falls diese nicht existiert.</p>
+<h4 id="isactive">IsActive</h4>
+<p>Genau dann <code>true</code>, wenn die Transaktion die innerste ist.</p>
+<h4 id="isdisposed">IsDisposed</h4>
+<p>Genau dann <code>true</code>, wenn bereits ein Dispose aufgerufen wurde. Dies geschieht auch an allen inneren Transaktionen der Wurzeltransaktion nachdem ein Rollback ausgeführt wurde.</p>
+<h4 id="isolationlevel">IsolationLevel</h4>
+<p>Die Isolationsstufe.</p>
+<h4 id="isopen">IsOpen</h4>
+<p>Genau dann <code>true</code>, wenn die Transaktion noch nicht Comitted, Rollbacked oder Disposed wurde.</p>
+<h4 id="isphysical">IsPhysical</h4>
+<p>Genau dann <code>true</code>, wenn die Transaktion die physische ist.</p>
+<h4 id="isroot">IsRoot</h4>
+<p>Genau dann <code>true</code>, wenn die Transaktion die äußerste ist.</p>
+<h4 id="outertransaction">OuterTransaction</h4>
+<p>Die äußere Transaktion oder <code>null</code>, falls diese nicht existiert.</p>
+<h4 id="physicaltransaction">PhysicalTransaction</h4>
+<p>Die physische Transaktion, auf die diese Transaktion verweist.</p>
+<h4 id="roottransaction">RootTransaction</h4>
+<p>Die äußerste Transaktion der Verbindung.</p>
+<h4 id="transactionprovider">TransactionProvider</h4>
+<p>Die native Transaktionsinstanz der Root-Transaction (innere Transaktionen besitzen keinen eigenen TransactionProvider und zeigen nur auf den der RootTransaction).</p>
+<h2 id="methode">Methode</h2>
+<h4 id="commit">Commit()</h4>
+<p>Schreibt die Änderungen in die Datenbank. Danach darf bis zum Dispose-Aufruf keine weitere Transaktion an der Verbindung geöffnet werden.</p>
+<h4 id="dispose">Dispose()</h4>
+<p>Wird üblicherweise vom using-Block automatisiert am Ende aufgerufen. Sollte bis dahin kein Commit-Aufruf erfolgt sein, so wird Rollback aufgerufen.</p>
+<h4 id="rollback">Rollback()</h4>
+<p>Verwirft alle Änderungen, die seit dem Öffnen der äußersten Transaktion gemacht wurden. Danach müssen alle Transaktionen geschlossen werden, bevor eine neue erzeugt wird.</p>
+<h4 id="registerkartesourceframeworkdatatransactionisource">RegisterkarteSource(FrameworkDataTransaction.ISource)</h4>
+<p>Registriert ein FrameworkDataTransaction.ISource Objekt an der Transaktion. Components und Collections implementieren dieses Interface, um nach einem Commit/Dispose die Methoden OnRollback() bzw. OnAfterCommit() aufzurufen. In OnRollback() würden die Originalwerte wiederhergestellt werden. Parallel zu OnAfterCommit() wird ApplyChanges() ausgeführt.</p>
+<p>Wird darin ein Save einer anderen Component aufgerufen, nimmt dieser quasi an der bereits geöffneten Transaktion teil.</p>
+<h2 id="transaktionen-manuell-verwalten">Transaktionen manuell verwalten</h2>
+<p>Für komplexere Operationen kann es notwendig sein, dass eine Transaktion manuell gesteuert werden muss. Das kann zum einen in einer Komponente notwendig sein, wenn Sie in einer Methode hintereinander an anderen Components einen Save ausführen möchten, und das alles aber eine Transaktion ergeben soll.</p>
+<p>Eine Component besitzt eine <code>CreateTransaction</code>-Methode zur Erzeugung einer Transaktion (<a href="../comp/tab_method.html#methoden-in-jeder-component--collection">Methoden in jeder Component / Collection</a>). Das folgende Beispiel zeigt, wie eine eigene Transaktion damit aufgebaut sein sollte.</p>
+<pre><code class="lang-csharp">using(FrameworkDataTransaction transaction = this.CreateTransaction())
+{
+    this.oComponent1.Save();
+    this.oComponent2.Save();
+
+    transaction.Commit();
+}
+</code></pre><p>Unabhängig von Komponenten kann auch an FrameworkDataConnection-Instanzen mittels <code>BeginTransaction()</code> eine Transaktion geöffnet werden. Jede Komponente, der ein DataSource zugewiesen ist, besitzt eine FrameworkDataConnection. Es sollte bevorzugt die Komponente gewählt werden, an der ggf. ein Save-Aufruf erfolgt. Das folgende Beispiel zeigt, wie eine Transaktion aufgebaut wird:</p>
+<pre><code class="lang-csharp">FrameworkDataConnection connection = this.oComponent1.Connection;
+using(FrameworkDataTransaction transaction = connection.BeginTransaction())
+{
+    this.oComponent1.Save();
+    this.oComponent2.Save();
+
+    transaction.Commit();
+}
+</code></pre><p>Der Unterschied zwischen dieser und der CreateTransaction-Vorgehensweise besteht darin, dass die Component/Collection sich in CreateTransaction zusätzlich an der äußersten Transaktion als <code>FrameworkDataTransaction.ISource-Objekt</code> registriert. Sobald die Transaktion endgültig geschlossen wird, teilt die Transaktion es den daran registrierten ISource-Objekten mit. Die Components und Collections benötigen diese Information, da sie ihre internen Originalwerte (die im Falle eines RollbackChanges-Aufrufs herangezogen werden) wiederherstellen oder die Änderungen akzeptieren müssen.</p>
+<p>Die folgenden zwei Beispiele zeigen, wie das zu verstehen ist. Ihre Wirkung ist identisch, sofern es sich bei der Transaktion um die einzige Transaktion der Verbindung handelt:</p>
+<pre><code class="lang-csharp">using(FrameworkDataTransaction transaction = this.CreateTransaction())
+{
+    this.Save();
+
+    ...
+
+    transaction.Commit();
+    bool committed = false; // bezieht sich auf die äußerste Transaktion
+    using(FrameworkDataTransaction transaction = this.Connection.BeginTransaction())
+    {
+        this.Save();
+
+        ...
+
+        transaction.Commit();
+        committed = true; // sofern transaction die äußerste Transaktion ist
+    }
+
+    // Nachdem selbst auf der äußersten Transaktion ein Dispose aufgerufen wurde:
+    if(committed)
+    {
+        this.ApplyChanges(); // Änderungen akzeptieren
+        this.OnAfterCommit();
+    }
+    else
+    {
+        this.OnRollback(); // Eine interne Routine =&gt; DB Originalwerte wiederherstellen
+    }
+}
+</code></pre><p>Handelt es sich um eine innere Transaktion, so müsste im zweiten Beispiel der if-Block hinter der Freigabe der äußersten Transaktion erfolgen. Genauso muss sich die Variable <strong>comitted</strong> auf die äußerste Transaktion beziehen, da nur auf der äußersten Transaktion ein Commit erfolgen kann.</p>
+<h2 id="transaktionen-fehlerbehandlung">Transaktionen Fehlerbehandlung</h2>
+<p>Wenn bei einem Save eine Exception auftritt, darf diese nicht unterdrückt werden. Dadurch würde die Transaktion nicht mehr korrekt arbeiten und ggf. falsche Daten in die Datenbank gelangen.</p>
+<p>Wenn während dem Save in einer Component ein Fehler auftritt, dann wird die Transaktion mit einem <code>Rollback()</code> zurückgesetzt. Der <code>Rollback()</code> wird – im Gegensatz zum <code>Commit()</code> – sofort ausgeführt. Wenn durch das Unterdrücken der Exception nachfolgende Speicher-Vorgänge normal aufgerufen werden, hat das zur Folge, dass beim nächsten Save eine neue Transaktion gestartet wird. Diese würde dann außerhalb der ursprünglich geöffneten Transaktion laufen.</p>
+<p>Deshalb muss im Fehlerfall immer eine weitere Exception geworfen werden.</p>
+<pre><code class="lang-csharp">try
+{
+    this.oComponent1.Save( );
+    this.oComponent2.Save( );
+}
+catch (Exception e)
+{
+    throw new Exception(`Error”, e);
+}
+</code></pre><p>Wenn im Falle einer Exception innerhalb einer Transaktion eine eigene Protokollierung oder ein kontrolliertes Zurücksetzten von Daten in der Datenbank realisiert werden soll, dann muss dafür eine spezielle Transaktion geöffnet werden. Zuvor muss ein Rollback auf der aktuellen Transaktion ausgeführt werden.</p>
+<pre><code class="lang-csharp">  ...
+}
+// eine Fehlerbehandlung mit try-catch
+catch
+{  ...
+
+// oder eine andere Fehler-Situation:
+if( bError )
+{
+  IcdLogEntry oLogEntry = cdLogEntryFactory.Create(this.Global);
+
+  // Fehler, also Rollback – wenn eine Transaktion offen ist
+  if (oLogEntry.Connection.ActiveTransaction != null)
+  {
+    oLogEntry.Connection.ActiveTransaction.Rollback();
+  }
+
+  // Wenn die Transaktion bekannt ist, geht auch
+  oTrans.Rollback();
+
+
+
+  // nun wird eine eigene spezielle Hilfs-Transaktion aufgemacht..
+  // Diese sollte immer oTransError heißen.
+  using (FrameworkDataTransaction oTransError
+      = oLogEntry.CreateTransaction(TransactionBeginMode.Rollback))
+  {
+    ...
+    oLogEntry.Save();
+    ...
+    // Daten zurücksetzen uns speichern...
+    ...
+    oTransError.Commit();
+  }
+
+
+
+  // In einer Exceptiopn den Fehler weiterwerfen oder anders behandeln
+  throw;
+
+  // Ansonsten eine Excetpion bzw. FrameworkApplicationException auslösen, damit evtl.
+  // außerhalb organisierte Transaktion richtig reagieren können.
+  throw new FrameworkApplicationException (&quot;error..&quot;);
+}
+</code></pre><p>Dieser Mechanismus funktioniert nur nach einem Rollback. Ansonsten wird eine ganz normale Transaktion geöffnet, die sich unter die bereits geöffnete Transaktion eingliedert. Diese würde entweder erst ganz am Ende commitet oder im Fehlerfall auch wieder rollbacked werden.</p>
+<h2 id="beispiel-einer-transaktion">Beispiel einer Transaktion</h2>
+<pre><code class="lang-csharp">// Transaktion starten
+using (FrameworkDataTransaction oTrans = oObjectXY.CreateTransaction())
+{
+  // Nun kann mit dieser Transaktion gearbeitet werden
+  ...
+  // z.B. auch ein Save am oObjectXY:
+  oObjectXY.Save();
+  oObjectOtherColl.Save();
+  ...
+
+  // wird hier kein Commit() ausgeführt, so wird am Ende des using-Blocks
+  // automatisch ein Rollback() ausgelöst
+  oTrans.Commit();
+}
+</code></pre><p>Anstatt mit oObjectXY kann innerhalb einer Component-Methode auch direkt mit <code>this.CreateTransaction()</code> gearbeitet werden, sofern das this-Objekt einen Data-Source besitzt und dieser den o.g. Anforderungen an die Connection-Einheitlichkeit erfüllt.</p>
+<h2 id="weitere-wichtige-fakten">Weitere wichtige Fakten</h2>
+<ul>
+<li><p>Der Commit-Aufruf sollte möglichst immer der letzte Code im using-Block sein. Aktionen nach dem Commit – insbesondere Save-Aktionen – könnten zu Exceptions führen. Wenn, dann müssen diese Aktionen hinter den using-Block gepackt werden.</p>
+</li>
+<li><p>Besonders zu beachten sind vorzeitige Ausstiege aus der Funktion (return…) oder verschluckte Exceptions (catch). Beim Code-Review oder einem Umbau können Sie diese Stellen ganz einfach mit einer Suche nach <code>return</code> bzw. <code>catch</code> finden. Siehe auch Abschnitt <a href="#using-block-vorzeitig-verlassen">Using-Block vorzeitig verlassen</a>.</p>
+</li>
+<li><p>Die alte Transaktions-Logik muss durch die neue ersetzt werden. Die alten Methoden sind als [Obsolete] gekennzeichnet und deren Verwendung führt beim Compile zu Warnungen.</p>
+</li>
+<li><p>Es dürfen keine eigenen Transaktionen an der physischen Connection (ConnectionProvider) geöffnet werden. Diese würden die FS-Logik durcheinander bringen. Die Arbeit mit den Provider-Objekten ist prinzipiell Tabu!!!</p>
+</li>
+</ul>
+<h2 id="exception-handling">Exception-Handling</h2>
+<p>Wenn beim Einsatz einer Transaktion eine Exception behandelt werden soll, dann ist es empfehlenswert, dies außerhalb des using-Blocks zu machen. Beispiel:</p>
+<pre><code class="lang-csharp">try
+{
+    using (FrameworkDataTransaction oTrans = this.CreateTransaction())
+    {
+        ...
+        oTrans.Commit();
+    }
+}
+catch (Exception ex)
+{
+    // Ausnahme hier behandeln
+}
+</code></pre><h2 id="using-block-vorzeitig-verlassen">Using-Block vorzeitig verlassen</h2>
+<p>Manchmal kann es nötig sein, eine Funktion und damit den using-Block vorzeitig zu verlassen. Sollen die Daten gespeichert bleiben, muss frühzeitig ein Commit() stattfinden.</p>
+<p>Findet dieser nicht statt, wird der using-Block ohne Commit() verlassen und es gibt automatisch einen Rollback.</p>
+<pre><code class="lang-csharp">using (FrameworkDataTransaction oTrans = this.CreateTransaction())
+{
+    ...
+
+    if (bAllCompleted_Vorzeitig)
+    {
+        oTrans.Commit();
+        return;
+    }
+
+    if (bXyz)
+    {
+        return;
+        // würde automatisch einen Rollback() erzeugen.
+    }
+
+    ...
+
+    oTrans.Commit();
+}
+</code></pre><h2 id="spezialfall-transaktionen-bei-mehreren-connections">Spezialfall: Transaktionen bei mehreren Connections</h2>
+<p>Wenn mehrere Connections bei einer Logik betroffen, sind und auf beiden übergreifend eine Transaktion organisiert werden soll, dann müssen jeweils Transaktionen geöffnet und diese verschachtelt werden. Auch hier sollten beide Commit()-Aufrufe ganz am Ende der using-Blöcke stehen.</p>
+<pre><code class="lang-csharp">using(FrameworkDataTransaction oTrans1 = oObject1.CreateTransaction())
+{
+    using(FrameworkDataTransaction oTrans2 = oObject2.CreateTransaction())
+    {
+        // Aktionen auf beiden Connections...
+        ...
+
+        oTrans2.Commit();
+    }
+    oTrans1.Commit();
+}
+</code></pre><p>Oder direkt mit den Connections, wenn diese verfügbar sind. Es könnte auch Connection und Object gemischt werden.</p>
+<pre><code class="lang-csharp">using(FrameworkDataTransaction oTrans1 = oConnection1.BeginTransaction())
+{
+    using(FrameworkDataTransaction oTrans2 = oConnection2.BeginTransaction())
+    {
+        // Aktionen auf beiden Connections...
+        ...
+
+        oTrans2.Commit();
+    }
+    oTrans1.Commit();
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.3/master/doc/weitere-themen/transaktionen.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

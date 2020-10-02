@@ -98,13 +98,14 @@
   <div classs="implements">
     <h5>Implements</h5>
     <div><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.html">IDevFrameworkObject</a></div>
+    <div><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.html">IDevFrameworkBaseObject</a></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkBase.html">FrameworkSystems.FrameworkBase</a></h6>
   <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkBase.dll</h6>
   <h5 id="FrameworkSystems_FrameworkBase_DevFrameworkObject_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[ComVisible(false)]
-public abstract class DevFrameworkObject : DevFrameworkBaseObject, ICloneable, IFSRebind, IDevFrameworkObject, IDevFrameworkBaseObject, FrameworkDataTransaction.ISource, IGuidObject, IGuidObjectBase</code></pre>
+public abstract class DevFrameworkObject : DevFrameworkBaseObject, ICloneable, IFSRebind, IDevFrameworkObject, IDevFrameworkBaseObject, FrameworkDataTransaction.ISource, INotifyPropertyChanged, IGuidObject, IGuidObjectBase</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -118,7 +119,7 @@ public abstract class DevFrameworkObject : DevFrameworkBaseObject, ICloneable, I
   
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.DevFrameworkObject.DeferRecursiveSaves.html#FrameworkSystems_FrameworkBase_DevFrameworkObject_DeferRecursiveSaves">DeferRecursiveSaves()</a></h4>
     <section><p><p>Gibt zurück, ob alle Save-Aufrufe an dieser Instanz,
-die während eines laufenden Save-Aufrufs an dieser Instanz erfolgen, 
+die während eines laufenden Save-Aufrufs an dieser Instanz erfolgen,
 direkt abgebrochen werden sollen und stattdessen nach dem initialen Save-Aufruf
 (innerhalb der Transaktion) ein weiterer Save-Aufruf erfolgen soll.
 Standardmäßig gibt die Methode &quot;false&quot; zurück. Der Mechanismus kann aktiviert werden,
@@ -136,7 +137,7 @@ in dem die Methode mit &quot;return true;&quot; überschrieben wird.</p>
                     <a href="https://github.com/FrameworkSystemsGmbH/fs/new/4.3/dev/apiSpec/new?filename=FrameworkSystems_FrameworkBase_DevFrameworkObject.md&amp;value=---%0Auid%3A%20FrameworkSystems.FrameworkBase.DevFrameworkObject%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.3/dev/FS/FrameworkBase/DevFrameworkObject.cs/#L24" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.3/dev/FS/FrameworkBase/DevFrameworkObject.cs/#L27" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

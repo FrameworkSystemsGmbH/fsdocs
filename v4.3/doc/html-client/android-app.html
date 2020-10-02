@@ -81,13 +81,22 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="android-app">Android App</h1>
 
-<p>Für die volle Integration des HTML-Clients in die mobile Welt, stellen wir im Google Play Store den Client als Android App zur Verfügung. Diese ist vom Funktionsumfang equivalent zur Browser-Version.</p>
+<p>Für die volle Integration des HTML-Clients in die mobile Welt, stellen wir im Google Play Store den Client als Android App zur Verfügung. Die App basiert auf demselben Sourcecode wie die Browser-Version. Einzelne Features greifen im Gegensatz zu einem Browser aber direkt auf die Hardware des mobilen Geräts zu und integrieren sich dadurch besser in die App.</p>
 <p><strong>Name der App</strong>:</p>
 <p>Framework Studio Mobile Client</p>
 <p><strong>Store Link</strong>:</p>
 <p><a href="https://play.google.com/store/apps/details?id=com.fs.htmlclient">https://play.google.com/store/apps/details?id=com.fs.htmlclient</a></p>
-<div class="NOTE"><h5>Note</h5><p>Wir können derzeit noch keine Aussagen zu einer Veröffentlichung der App für iOS treffen.</p>
+<div class="NOTE"><h5>Note</h5><p>Apple verweigert Apps per Richtlinie, dynamische Benutzeroberflächen von einer extenen Quelle (Broker) zu laden und am Client aufzubauen. Durch diese Limitierung sind wir leider nicht in der Lage, den Framework Studio Mobile Client auf IOS bereitzustellen.</p>
 </div>
+<h2 id="installieren-sie-google-chrome-auf-android">Installieren Sie Google Chrome auf Android</h2>
+<p>Der Framework Studio Mobile Client ist eine App basierend auf dem Ionic Capacitor Framework, welches HTML-Applikationen mit Hardware-Unterstützung auf mobile Endgeräte bringt. Zur Anzeige von HTML und zur Ausführung von Javascript wird in Android standardmäßig die im Betriebssystem integrierte WebView verwendet. Seit Android 5 ist die WebView als System-App ausgelagert worden, damit sie unabhängig vom Betriebssystem über den Play Store upgedated werden kann. Vor allem auf alten Geräten (Android 7.0 oder älter) und zusätzlich abhängig vom Hersteller ist dies jedoch oft nicht der Fall und HTML-Applikationen werden auf Grund der betagten Engine fehlerhaft dargestellt.</p>
+<p>Das Ionic Capacitor Framework löst dieses Problem und nutzt ggf. die Engine eines installierten Google Chrome.</p>
+<p>Es gelten folgende Regeln:</p>
+<ul>
+<li>Wenn Google Chrome installiert ist, wird dessen Engine für die Ausführung der App verwendet</li>
+<li>Ist Chrome nicht installiert, wird die Android WebView verwendet</li>
+</ul>
+<p>Wir empfehlen deshalb unbedingt, auf allen Geräten, auf denen der Framework Studio Mobile Client genutzt wird, auch Google Chrome zu installieren und auf die aktuellste Version upzudaten, um die breiteste Unterstützung von Features und die fehlerfreie Darstellung der App zu garantieren.</p>
 <h2 id="einrichten-eines-brokers">Einrichten eines Brokers</h2>
 <p>Es muss natürlich definiert werden, mit welchem Broker sich der Mobile Client verbinden soll. Nach dem Start der App wird der Login angezeigt. Über den Button „+ New“ können beliebig viele Broker zur Liste hinzugefügt werden.</p>
 <p><img src="media/app-broker-1.png" alt="App-Broker1"> <img src="media/app-broker-2.png" alt="App-Broker2"> <img src="media/app-broker-3.png" alt="App-Broker3"></p>

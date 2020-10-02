@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Namespaces </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Namespaces ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="namespaces">Namespaces</h1>
+
+<p>Die Namespaces sind, wie im .NET die Klassen, systematisch zu gruppieren. In einer leeren Anwendung stehen im <strong>SystemPackage</strong> (<a href="../package-manager/packages.html">Packages</a>) bereits einige Namespaces zur Verfügung, die <strong>Framework Studio</strong> benötigt, um einige Dinge zu organisieren.</p>
+<p>Zum einen gibt es den <strong>System</strong>-Namespace. Hier sind bereits die einfachen Typen von .NET wie z.B. string, int und long als Komponenten angelegt. Darunter gibt es einen Namespace <strong>Framework Studio</strong>, in dem System-Klassen abgelegt sind, die <strong>Framework Studio</strong> anbietet. Zu diesen Klassen gehört z.B. <strong>DevFrameworkObject</strong>, welches die Basis-Klasse aller Components in <strong>Framework Studio</strong> darstellt oder die <a href="../konzepte/fs-types.html">FS-Datentypen</a>, die sich fast wie die .NET-Datentypen verhalten, aber zusätzlich NULL als Wert annehmen können. Im Unternamespace <a href="../mdt/metadatentypen.html">Metadatatypes</a> sind die Basis-Metadatentypen für Datenbankspalten hinterlegt.</p>
+<p>Alle diese hier angebotenen Klassen können im <strong>Framework Studio</strong> nicht editiert werden – die Datentypen lassen sich nicht öffnen. Sie werden angezeigt, damit sie später in den Components oder Forms als Datentyp für Properties ausgewählt werden können.</p>
+<p>Ein weiterer besonderer Namespace ist der Namespace <strong>FSGeneral</strong>. Dieser Namespace wird von allen anderen Namespaces automatisch (durch eine using-Direktive) eingebunden und daher als erstes kompiliert. Neue Namespaces können nur im Unterordner <strong>Resources</strong> angelegt werden. Im Namespace FSGeneral befinden sich folgende Unter-Namespaces, die im <strong>DefaultPackage</strong> (und ggf. in weiteren Packages) diese Elemente enthalten:</p>
+<h3 id="controls">Controls</h3>
+<p>In diesem Namespace werden alle <a href="../form/default-control-styles.html"><strong>Default Control Styles</strong></a> und alle <a href="../custom-controls/custom-controls.html"><strong>Custom Controls</strong></a> angezeigt.</p>
+<h3 id="dbtables">DBTables</h3>
+<p>In diesem Namespace werden alle <a href="../database/datasource.html"><strong>Datasources</strong></a> und unterhalb der Datasouces die <a href="../database/dbtable.html"><strong>DBTables</strong></a>, die an dem jeweiligen Datasouce definiert wurden, angezeigt.</p>
+<h3 id="globalobjects">GlobalObjects</h3>
+<p>In diesem Namespace werden alle <a href="../globalobjects/globalobjects.html"><strong>Global Objects</strong></a> angezeigt.</p>
+<h3 id="resources">Resources</h3>
+<p>In diesem Namespace werden alle <a href="../resources/resources.html"><strong>Resources</strong></a> angezeigt. Unternamespaces haben dabei die Bedeutung von Unterordnern im Brokerverzeichnis. Dieser Namespace ist der einzige in <strong>FSGeneral</strong>, in dem neue Namespaces angelegt werden dürfen!</p>
+<p><img src="media/framework-designer.png" alt="FrameworkDesigner"></p>
+<h2 id="namespace-erstellen--löschen">Namespace erstellen / löschen</h2>
+<p>Erstellen eines Namespaces</p>
+<p><a href="../ide/bearbeiten-von-elementen.html#elemente-erstellen">Elemente erstellen</a></p>
+<p>Löschen eines Namespaces</p>
+<p><a href="../ide/bearbeiten-von-elementen.html#elemente-löschen">Elemente löschen</a></p>
+<div class="WARNING"><h5>Warning</h5><p>Ein Namespace kann nur gelöscht werden, wenn er keine Elemente mehr enthält.</p>
+</div>
+<h2 id="namespace-umbenennen">Namespace umbenennen</h2>
+<p>Um den Namespace zu einem späteren Zeitpunkt umbenennen zu können, bietet das Kontext-Menu des Namespaces den Eintrag <strong>Rename</strong>.</p>
+<p>Da sich <strong>Framework Studio</strong> für eingecheckte Elemente den generierten Quellcode merkt, kann ein Umbenennen eines Namespaces im laufenden Betrieb Probleme mit sich bringen. Der Name des Namespaces sollte deshalb schon beim Anlegen gut überlegt sein. Spätestens beim ersten CheckIn sollte der Name feststehen, damit andere Entwickler, die diesen Namespace bereits verwenden, keine Probleme bekommen.</p>
+<div class="CAUTION"><h5>Caution</h5><p>Lässt es sich dennoch nicht vermeiden, einen Namespace umzubenennen, muss danach der gesamte zwischengespeicherte Code der Anwendung gelöscht und neu erzeugt werden. Nähere Informationen dazu gibt es im Abschnitt <a href="../ide/code-builder.html">Code Builder</a> und Kompilieren als <a href="../ide/framework-compiler.html">FrameworkCompiler</a>.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.3/master/doc/namespace/namespace.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

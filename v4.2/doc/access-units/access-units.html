@@ -1,0 +1,156 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Access Units </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Access Units ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="access-units">Access Units</h1>
+
+<p>Eine <strong>Access Unit</strong> repräsentiert einen Programmbereich.</p>
+<p>Für jede Access Unit kann für 5 verschiedene Zugriffsarten (<strong>Access</strong>, <strong>AccessDerived</strong>, <strong>Insert</strong>, <strong>Update</strong> und <strong>Delete</strong>) abgefragt werden, ob der entsprechende Zugriff (nach Auswertung der Lizenzen und der Rechte des Benutzers) erlaubt wird.</p>
+<p>Für ein Form haben die Zugriffsarten folgende Bedeutung:</p>
+<ul>
+<li><strong>Access:</strong> Das Form darf geöffnet werden</li>
+<li><strong>AccessDerived:</strong> Ableitungen dieses Forms dürfen geöffnet werden</li>
+<li><strong>Insert:</strong> Einfügen von Datensätzen ist mit diesem Form erlaubt</li>
+<li><strong>Update:</strong> Vorhandene Datensätze dürfen aktualisiert werden</li>
+<li><strong>Delete:</strong> Datensätze dürfen gelöscht werden</li>
+</ul>
+<p>Der Entwickler kann folgende Eigenschaften über das Designerfenster einer Access Unit definieren:</p>
+<h4 id="name">Name</h4>
+<p>Name der Access Unit. Aus diesem ergibt sich automatisch der im generierten Code verwendete Name Name in code.</p>
+<h4 id="label">Label</h4>
+<p>Mehrsprachige Bezeichnung der AccessUnit. Diese wird im externen Werkzeug zur Rollenverwaltung (Bestandteil der Runtime Administration) angezeigt.</p>
+<h4 id="description">Description</h4>
+<p>Hier kann (mehrsprachig) beschrieben werden, welchen Programmbereich diese Access Unit repräsentiert. Die Beschreibung wird u. a. im externen Werkzeug zur Rollenverwaltung als Tooltip zur AccessUnit angezeigt.</p>
+<p>Im Designerfenster wird über die Checkbox <strong>is form AccessUnit</strong> angezeigt, ob diese Access Unit die spezielle <strong>Form Access Unit</strong> (s.u.) ist, die beim Öffnen des Forms in der Anwendung ausgewertet wird. Diese Eigenschaft kann durch den Benutzer nicht geändert werden.</p>
+<p>Unter dem Punkt <strong>Parents</strong> werden alle Access Units aufgeführt, von denen diese Access Unit eine Unterkomponente ist, also alle Vaterknoten im Access Unit Treeview. Diese Eigenschaft kann nur über den Access Unit Treeview (<a href="access-unit-hierarchie.html">Access Unit Hierarchie</a>) geändert werden.</p>
+<p>Access Units können <strong>im Namespace</strong> angelegt werden (z.B. auSales, um den kompletten Verkauf zu repräsentieren). Für diese Access Units steht der gewohnte Checkin/Checkout-Mechanismus zur Verfügung.</p>
+<p><img src="media/access-unit-designer.png" alt="Access Unit Designer"></p>
+<p>Außerdem können <strong>Access Units</strong> in einem <strong>Form</strong> angelegt werden (Menü <strong>File / New / Access Unit</strong> oder Button <img src="../media/button-new.png" alt="button-new">  <strong>New ... / Access Unit</strong>). Diese Access Units sind Unterkomponenten des Forms und werden daher automatisch mit dem Form aus- und eingecheckt.</p>
+<p>Jedes Form besitzt automatisch eine besondere Access Unit, die das Form selber repräsentiert. Der Name dieser <strong>Form Access Unit</strong> ist der Name des Forms mit dem Präfix <strong><code>au</code></strong> (also z.B. für <strong>frmSalesOrder</strong> <strong>aufrmSalesOrder</strong>).</p>
+<p>Wenn ein Form in der Anwendung geöffnet wird, so wird vorher automatisch überprüft, ob das Recht „Access“ für die FormAccessUnit des Forms erteilt wurde und ob für alle FormAccessUnits der Basisforms das Recht „AccessDerived“ erteilt wurde.</p>
+<p>Für jedes Form wird automatisch eine FormAccessUnit angelegt. Diese Access Unit kann nicht gelöscht werden.</p>
+<p><strong>Form Designer Registerkarte Access Units:</strong></p>
+<p><img src="media/form-designer-access-unit.png" alt="Form Designer Registerkarte Access Units"></p>
+<p>Aus dem Code heraus kann ein Zugriffsrecht einer AccessUnit von einem Form aus folgendermaßen abgefragt werden:</p>
+<pre><code class="lang-csharp">bool InsertGranted = Global.AUHelper.Granted(this.aufrmSalesOrder, AUPermissionType.Insert);
+
+bool FormAccessGranted = Global.AUHelper.Granted(this.FormAccessUnit);
+
+bool AuSalesGranted = Global.AUHelper.Granted(AUList.auSales, AUPermissionType.Delete);
+</code></pre><p>Wenn kein <strong>AUPermissionType</strong> angegeben wird, wird automatisch <strong>Access</strong> abgeprüft. Auf die FormAccessUnit kann aus dem Form sowohl über ihren Namen als auch über FormAccessUnit zugegriffen werden. Über die Klasse <strong>AUList</strong> sind alle global verfügbaren AccessUnits ansprechbar.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/access-units/access-units.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

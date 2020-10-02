@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Fault Contracts </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Fault Contracts ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="fault-contracts">Fault Contracts</h1>
+
+<p>Wird eine Webservicemethode von einem Client (z.B. ein C#-Programm) aufgerufen, kann es auf dem Server zu Exceptions kommen. Im Normalfall können auf Client-Seite diese Exceptions abgefangen und ausgewertet werden. Es stehen aber nur limitierte Informationen bereit (Message/StackTrace).</p>
+<p>Im folgenden Beispiel wird an einem Webservice, der mit Framework Studio erstellt wurde, die Methode <code>string GetArticleByID(string id)</code> aufgerufen.</p>
+<p><img src="media/fault-contract-code-beispiel.png" alt="code-beispiel"></p>
+<p>Wird während der Abarbeitung der Methode auf dem Server eine Exception geworfen, kann diese auf Clientseite mittels try/catch abgefangen und behandelt werden.</p>
+<p>Es gibt jedoch auch den Anwendungsfall, dass die Servicemethode ganz bewusst ein Scheitern der Abarbeitung an den Client zurückgeben soll und dies mit möglichst ausführlichen Daten, wieso es zu dem Fehler gekommen ist. Eine normale Exception mit Message und StackTrace ist dann nicht mehr ausreichend.</p>
+<p><strong>Beispiel:</strong></p>
+<p>Die Servicemethode string „GetArticleByID(string id)“ gibt normalerweise den Namen des Artikels zurück, welcher für die angegebene ID in der Datenbank gefunden wurde. Wenn die ID allerdings nicht gefunden wurde, soll nicht nur ein Leerstring oder Null an den Client zurückgegeben werden, sondern ein definierter Statuscode und zusätzlich eine adequate Fehlermeldung. Da dies schon zwei Properties sind, die an den Client übertragen werden müssen, wird ein Objekt benötigt, welches alle gewünschten Informationen enthält – der Fault Contract.</p>
+<h2 id="fault-contract--data-contract">Fault Contract = Data Contract</h2>
+<p>In der Praxis ist ein Fault Contract ein Data Contract, d.h. ein komplexes Objekt mit Properties, die wiederum vom Typ eines Data Contracts sein können. Um das obige Beispiel in die Tat umsetzen zu können, wird also ein Data Contract benötigt, der einen Statuscode und die dazugehörige Fehlermeldung aufnehmen kann. Hierzu wird in Framework Studio ein neuer Data Contract erstellt, der folgendermaßen aussieht:</p>
+<p><img src="media/fault-contract-data-contract.png" alt="fault-contract-data-contract"></p>
+<h2 id="fault-contracts-zuweisen">Fault Contracts zuweisen</h2>
+<p>Die Verbindung zwischen Service-Methode und Fault Contract kommt im Service Contract zustande. Dieses Interface legt fest, welche Methoden vom Service implementiert werden müssen und zusätzlich, welche Fault Contracts von welcher Methode genutzt werden dürfen. Der für das Beispiel nötige Service Contract sieht folgendermaßen aus:</p>
+<p><img src="media/fault-contract-contracts-zuweisen.png" alt="Fault Contracts zuweisen"></p>
+<p>Es soll also später vom Service die Methode <code>string GetArticleByID(string id)</code> implementiert werden. Zusätzlich wurde für diese Methode in der Liste der Fault Contracts der zuvor angelegte Data Contract <strong>dcArticleFault</strong> als Fault Contract hinterlegt. Das bedeutet, die Methode <code>GetArticleByID</code> kann im Fehlerfall ein Objekt vom Typ „dcArticleFault“ instantiieren und dieses an den aufrufenden Client zurückgeben.</p>
+<p>Um die Funktionsweise noch weiter zu verdeutlichen, folgt nun ein kleiner Ausschnitt aus dem generierten Code von Framework Studio. Zu sehen ist der Code des Service Contracts <strong>ArticleService Contract</strong>:</p>
+<p><img src="media/fault-contract-use-code.png" alt="usecode"></p>
+<p>Zu sehen ist, dass über der Methode <code>string GetArticleByID(string id)</code> ein Attribut <code>[Fault Contract(typeof(dcArticleFault))]</code> hinzugefügt wurde. Dies bedeutet, dass ein Service, der diesen Service Contract implementiert, in der Methode <code>GetArticleByID</code> den Data Contract <strong>dcArticleFault</strong> als Fault Contract verwenden kann. Dabei können einer Methode beliebig viele Fault Contracts zugewiesen werden.</p>
+<h3 id="zurückgeben-eines-fault-contracts">Zurückgeben eines Fault Contracts</h3>
+<p>Als erstes muss nun ein neuer Service in Framework Studio angelegt werden, der den Service Contract „ArticleService Contract“ implementiert:</p>
+<p><img src="media/fault-contract-zurueckgeben.png" alt="Zurückgeben eines Fault Contracts"></p>
+<p>Zu beachten ist, dass die Option <strong>Autogenerate Contract</strong> auf <strong>No</strong> gestellt ist, da wir uns ja selbst um einen Service Contract gekümmert haben.</p>
+<p>Der Service ist nun erstellt und der Contract korrekt zugewiesen. Nun muss die Methode <code>string GetArticleByID(string id)</code> am Service <strong>ArticleService</strong> ausprogrammiert werden.</p>
+<p><img src="media/fault-contract-incode-verwenden.png" alt="incode"></p>
+<p>Im Beispiel wurde die übliche Businesslogik außer Acht gelassen. Wir gehen einfach davon aus, dass für die übergebene ID kein zugehöriger Artikel in der Datenbank gefunden wurde. Diese Information soll dem Client nun adequat mitgeteilt werden.</p>
+<p>Es kann nun, nachdem der Artikel nicht in der Datenbank gefunden wurde, eine neue Instanz des Data-/Fault Contracts <strong>dcArticleFault</strong> erstellt werden. Dieser kann mit den gewünschten Werten gefüllt werden, die zum Client übertragen werden sollen. In unserem Fall ist es der Statuscode <code>1</code> als Integer und die Information, dass der Artikel nicht gefunden wurde in Form eines Strings.</p>
+<p>Alles was nun noch getan werden muss, ist das Werfen einer FaultException vom Typ des Fault Contracts. In unserem Fall also <code>FaultException&lt;dcArticleFault&gt;</code>. Dieser generischen FaultException wird die gerade eben erstellte Faultinstanz übergeben.</p>
+<p>Um den Service ansprechen zu können, bedarf es nur noch einem Service Host, der für den Service einen entsprechenden Endpoint bereitstellt.</p>
+<h3 id="abfangen-einer-faultexception-am-client">Abfangen einer FaultException am Client</h3>
+<p>Das folgende Beispiel des Clients wurde in Visual Studio 2012 entwickelt. Hierzu wurde der Service Host in Framework Studio gestartet und in Visual Studio eine neue Service Referenz angelegt.</p>
+<p>Das zuvor angesprochene Attribut <code>[Fault Contract(typeof(dcArticleFault))]</code> über der Methode im Service Contract sorgt dafür, dass die Beschreibung des Typs <strong>dcArticleFault</strong> in das WSDL des Webservices generiert wird. Dies hat zur Folge, dass jegliche Clients, die mit dem Service arbeiten, von diesem Typ wissen und ihn somit ohne Weiteres in ihrem eigenen Code verwenden können. Es folgt der neue Clientcode:</p>
+<p><img src="media/fault-contract-code-beispiel2.png" alt="Bespiel2"></p>
+<p>Der Client weiß also mit Hilfe des WSDL, dass die Servicemethode <code>string GetArticleByID(string id)</code> potenziell eine Exception vom Typ <code>FaultException&lt;dcArticleFault&gt;</code> werfen kann. Es kann immer noch eine <strong>unhandled Exception</strong> auftreten. Der Code wird also um einen neuen Catch-Block erweitert, der nur auf die FaultException hört. Würden der Servicemethode mehrere Fault Contracts zugewiesen, könnten die unterschiedlichen FaultExceptions in weiteren Catch-Blöcken abgefangen werden.</p>
+<p>Die generische <code>FaultException&lt;T&gt;</code> bietet den jeweiligen Fault Contract über das Property <strong>Detail</strong> schon korrekt typisiert an. Es muss nichts gecastet werdeb. Danach kann auf die zur Verfügung stehenden Properties des Fault Contracts zugegriffen und vom Client verarbeitet werden.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/webservices/fault-contracts.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

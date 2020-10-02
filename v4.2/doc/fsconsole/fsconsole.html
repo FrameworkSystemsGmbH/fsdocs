@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>FSConsole </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="FSConsole ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="fsconsole">FSConsole</h1>
+
+<h2 id="allgemeines">Allgemeines</h2>
+<p>FSConsole.exe ist ein Kommandozeilen-Programm, mit dem man viele Operationen automatisieren kann. Das sind unter anderem:</p>
+<ul>
+<li>Kompilieren von Package-Version</li>
+<li>Export und Import von Packages</li>
+</ul>
+<p>Dieses Programm wird von Framework Studio selber z.B. im Compile-Wizard verwendet. Es kann aber auch für eigene Automatisierungen,, z.B. nächtliche Compile-Läufe, verwendet werden.</p>
+<h2 id="kommandozeilen-parameter">Kommandozeilen-Parameter</h2>
+<p>Wenn FSConsole.exe ohne Parameter aufgerufen wird, wird eine Beschreibung der Parameter in der Konsole ausgegeben.</p>
+<h3 id="loginxml-pathtoxml">\LOGINXML &lt;pathToXML></h3>
+<p>Pfad einer XML-Datei mit einer Compile-Wizard-Konfiguration. Die Login-Informationen und die zu kompilierenden Labels werden aus dieser Datei gelesen. Mit anderen Parametern angegebene Login- oder Label-Informationen werden ignoriert.</p>
+<p>So eine Datei kann im Compile-Wizard über das Menü File / Export Settings erzeugt werden.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-dos">\LoginXML &quot;c:\temp\FSDemo.xml&quot;
+</code></pre><h3 id="connectiontype-conntype">\ConnectionType &lt;connType></h3>
+<p>Datenbank-Typ: SqlServer oder Oracle.</p>
+<pre><code class="lang-dos">\SERVER &lt;servername&gt;
+\DATABASE &lt;database&gt;
+\DBUser &lt;user&gt;
+\DBPassword &lt;passwd&gt;
+</code></pre><p>Verbindungsdaten für das Repository. Wenn kein Benutzer angegeben ist, wird Windows-Authentifizierung verwendet. Der Parameter \ConnectionType muss ebenfalls angegeben werden.</p>
+<p>Beispiel SQL-Server mit Windows-Authentication:</p>
+<pre><code class="lang-dos">\ConnectionType SqlServer \SERVER db01 \DATABASE Repository
+</code></pre><p>Beispiel SQL-Server mit SQL-Server-Authentication:</p>
+<pre><code class="lang-dos">\ConnectionType SqlServer \SERVER db01 \DATABASE Repository \DBUser sa \DBPassword Xt4r5w
+</code></pre><p>Beispiel Oracle:</p>
+<pre><code class="lang-dos">\ConnectionType Oracle \DATABASE OraRep \DBUser fs \DBPassword Xt4r5w
+</code></pre><h3 id="logfile-logfilepath">\LOGFILE &lt;logFilePath></h3>
+<p>Pfad der Log-Datei.
+Platzhalter:  $datetime$: Startzeit des Processes im dem Format yyyy-MM-dd_HH-mm-ss
+Beispiel:</p>
+<pre><code class="lang-dos">\LogFile &quot;C:\CompileLogs\FSDemo_$datetime$.log&quot;
+</code></pre><h3 id="compilerun-compilerunname">\CompileRun &lt;CompileRunName></h3>
+<p>Kompiliert alle Package-Versionen, bei denen im Package-Manager das Feld Compile Run mit dem entsprechenden Namen angegeben wurde. Der Name ist nicht case-sensitiv.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-dos">\CompileRun &quot;Daily&quot;
+</code></pre><h3 id="refreshws">\RefreshWS</h3>
+<p>Aktualisiert den Workspace. Wenn es mit \Compile kombiniert wird, dann wird die Aktualisierung als erstes ausgeführt werden.</p>
+<h3 id="debugcode">\DebugCode</h3>
+<p>Es werden zusätzlich Debug-Stände kompiliert.</p>
+<h3 id="compile">\Compile</h3>
+<p>Führt einen Compile durch. Die Parameter \Package und \Version oder \LabelID müssen angegeben werden.</p>
+<pre><code class="lang-dos">\Package &lt;name&gt;
+\Version &lt;name&gt;
+</code></pre><p>Beispiel:</p>
+<pre><code class="lang-dos">\Package &quot;MyPackage1&quot; \Version &quot;1.0&quot;
+</code></pre><h3 id="objecttype-type">\OBJECTTYPE &lt;type></h3>
+<p>Gibt an, welcher Element-Typ kompiliert werden soll.
+Mögliche Typen: AccessUnitOwner, Component, CustomControl, DBTable, Form, GlobalObject, Interface, Metadatatype, ReportDocument, Resource, Workflow</p>
+<h3 id="labelid-id">\LabelID <id></id></h3>
+<p>Interne ID einer Package-Version.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-dos">\LabelID &quot;17ab3fe4de22146f87edf715faedcb56&quot;
+</code></pre><h3 id="newprocessperstep">\NewProcessPerStep</h3>
+<p>Jeder Element-Typ wird nacheinander in einem separaten Prozess kompiliert.</p>
+<h3 id="verbose">\Verbose</h3>
+<p>In der Log-Datei werden mehr Detail-Informationen ausgegeben.</p>
+<h3 id="loginuser-username">\LoginUser &lt;username></h3>
+<p>Wenn nicht angegeben, wird FrameworkCompiler verwendet.</p>
+<h3 id="check-checktype">\CHECK <checktype></checktype></h3>
+<p>valid values: None,WorkflowBranchAndSwitch,All</p>
+<h3 id="export-withcode-filename">\Export &lt;withCode> &lt;fileName></h3>
+<p>Exports the label to the file fileName. Valid values for withCode are true and false.</p>
+<h3 id="import-filename">\Import &lt;fileName></h3>
+<p>Imports the file fileName to the repository.</p>
+<h3 id="publish">\PUBLISH</h3>
+<p>Führt einen Publish mit dem angegebenen Setting durch (siehe \SETTING).</p>
+<h3 id="publish2go">\PUBLISH2GO</h3>
+<p>Erstellt ein Publish2Go mit dem angegebenen Setting (siehe \SETTING).</p>
+<h3 id="setting">\SETTING</h3>
+<p>Definiert das Setting, welches bei \PUBLISH oder \PUBLISH2GO verwendet wird. Kann entweder als Name des Settings im Repository oder als Datei angegeben werden.</p>
+<p>Beispiel 1:</p>
+<pre><code class="lang-dos">\SETTING Test_Setting
+</code></pre><p>Beispiel 2:</p>
+<pre><code class="lang-dos">\SETTING “C:\Temp\Test_Setting.FSSetting”
+</code></pre><h3 id="documentation">\DOCUMENTATION</h3>
+<p>Rendert die gesamte Dokumentation als HTML 5 Webapplikation. Benötigt die Parameter \ISO und \OUTPUT.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-dos">\DOCUMENTATION \ISO de \OUTPUT “C:\Temp\Dokumentation”
+</code></pre><h3 id="iso">\ISO</h3>
+<p>Gibt an in welcher Sprache die Dokumentation gerendert werden soll.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-dos">\ISO de
+</code></pre><h3 id="output">\OUTPUT</h3>
+<p>Gibt das Verzeichnis an, in welches die Dokumentation gerendert werden soll.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-dos">\OUTPUT “C:\Temp\Dokumentation”
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/fsconsole/fsconsole.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

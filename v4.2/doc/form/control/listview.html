@@ -161,7 +161,7 @@
     padding: 0.3rem;
     padding-right: 2.8rem;
 }
-.lvItem[lvDisabled] {
+.lvItem[lvdisabled] {
     background-color: #cccccc;
 }
 img {
@@ -194,13 +194,13 @@ body {
 <div class="TIP"><h5>Tip</h5><p>Es wird ausdrücklich empfohlen, im HTML/CSS des ListItems <code>rem</code> als Größeneinheit zu verwenden.</p>
 </div>
 <h3 id="iseditable">IsEditable</h3>
-<p>Im CSS kann auch ein Style für deaktivierte ListItems in einem nicht editierbaren ListView hinterlegt werden. Wird ein ListView im Designer oder per Action auf isEditable = false gesetzt, so wird am <code>&lt;div&gt;</code>-Tag lvItem das HTML-Attribut <code>lvDisabled</code> hinzugefügt:</p>
+<p>Im CSS kann auch ein Style für deaktivierte ListItems in einem nicht editierbaren ListView hinterlegt werden. Wird ein ListView im Designer oder per Action auf isEditable = false gesetzt, so wird am <code>&lt;div&gt;</code>-Tag lvItem das HTML-Attribut <code>lvdisabled</code> hinzugefügt:</p>
 <pre><code class="lang-html">&lt;hc-listitem-content _nghost-wvt-c19 class=&quot;ng-star-inserted&quot;&gt;
-    &lt;div _ngcontent-wvt-c19 class=&quot;lvItem&quot; lvDisabled=&quot;true&quot;&gt;
+    &lt;div _ngcontent-wvt-c19 class=&quot;lvItem&quot; lvdisabled=&quot;true&quot;&gt;
         [...]
     &lt;/div&gt;
 &lt;/hc-listitem-content&gt;
-</code></pre><p>Im CSS-Code kann über den Attribute-Selector <code>.lvItem[lvDisabled]</code> genau dieser Fall abgefragt werden. Im Beispiel wird der Hintergrund des ListItems auf grau (<code>#cccccc</code>) gesetzt.</p>
+</code></pre><p>Im CSS-Code kann über den Attribute-Selector <code>.lvItem[lvdisabled]</code> genau dieser Fall abgefragt werden. Im Beispiel wird der Hintergrund des ListItems auf grau (<code>#cccccc</code>) gesetzt.</p>
 <h2 id="images-im-listviewitem">Images im ListViewItem</h2>
 <p><img src="../media/listview-img-list.png" alt="ListviewImages"></p>
 <p>Eine Besonderheit ist das Anzeigen von Bildern in einem ListViewItem mittels <code>&lt;img /&gt;</code>, wenn dieses über ein <code>byte[]</code> aus der Datenbank gebunden werden soll. Ein Anwendungsfall wäre z.B. das Anzeigen von Artikelbildern.</p>

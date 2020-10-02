@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Connection Pooling Protokoll </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Connection Pooling Protokoll ">
+    <meta name="generator" content="docfx 2.46.0.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="connection-pooling-protokoll">Connection Pooling Protokoll</h1>
+
+<p>Das Connection-Pooling bietet die Möglichkeit, die Aktionen in einer Datei zu protokollieren. Damit können Probleme besser analysiert werden.</p>
+<p>Diese Protokollierung sollte nur vorrübergend eingesetzt werden, weil dadurch sehr große Datenmengen produziert werden - vor allem auf Broker mit hoher Last.</p>
+<p>Um die Protokollierung für das Connection-Pooling zu aktivieren, muss im ConnectionString die Eigenschaft <strong>FSPoolingDebugOutput</strong> ergänzt werden.</p>
+<p>Dies muss manuell nach dem Publish der Applikation erfolgen, weil diese Eigenschaft nicht im Publish-Dialog konfiguriert werden kann. Diese Angabe kann sowohl für die Runtime-Connection als auch für die <strong>Business</strong>-Connections gemacht werden.</p>
+<p>Beispiel für die Runtime-Connection:</p>
+<pre><code class="lang-xml">&lt;RuntimeDB ConnectionType=&quot;Oracle&quot; ConnectionString=&quot;Data Source=ORCLNV270;User ID=FSD35; Password=FSD35;Persist Security Info=False; Pooling=False; FSPoolingMin=5; FSPoolingMax=15; FSPoolingTimeout=60; FSPoolingDebugOutput=C:\temp\FSPool.txt; FSUseAnsiString=False&quot; /&gt;
+</code></pre><p>Informationen zur Protokollierung</p>
+<pre><code class="lang-dos">2012-05-18 20:37:01.449 PID=9976    1;DB=DEV01.sysadm   Used 0  Free 0  #025EE953   CREATE Connection 1
+2012-05-18 20:37:01.454 PID=9976    1;DB=DEV01.sysadm   Used 1  Free 0  #025EE953   GET Connection 1
+2012-05-18 20:37:17.991 PID=9976    1;DB=DEV01.sysadm   Used 0  Free 1  #025EE953   FREE Connection 1
+</code></pre><p>Eine Protokoll-Zeile beinhaltet die folgenden Felder:</p>
+<ul>
+<li><p>Datum/Uhrzeit</p>
+</li>
+<li><p>PID - Prozess-ID. Wichtig, wenn auf einem Rechner mehrere Anwendungen laufen, die in dieselbe Datei protokollieren</p>
+</li>
+<li><p>Pool-Information: eindeutige Nummer des Pools im Prozess; Datenbank</p>
+</li>
+<li><p>Used: Anzahl der gerade verwendeten Connections</p>
+</li>
+<li><p>Free: Anzahl der freien Connections im Pool</p>
+</li>
+<li><p>#xxxxxxxx: Eindeutige ID der Connection. Dabei handelt es sich um den HashCode des Connection-Objektes. Dieser kann dazu verwendet werden, die Aktionen einer Connection sauber zuzuordnen.</p>
+</li>
+<li><p>Aktion mit Connection-Nummer. Diese Nummer ist innerhalb des Pools eindeutig. Über diese Nummer können die Aktionen einander sauber zugeorndet werden und so z.B. analysiert werden, ob es zu einem &quot;GET Connection&quot; auch ein passendes &quot;FREE Connection&quot; oder &quot;DESTROY Connection&quot; gibt.</p>
+<ul>
+<li><p><strong>CREATE Connection 1:</strong> Eine Connection wird erzeugt. Die Information &quot;Free&quot; hängt hinterher, weil die Connection erst nach dieser Aktion in den Pool gepackt wird.</p>
+</li>
+<li><p><strong>GET Connection 1:</strong> Eine Connection wird verwendet. Wenn im Pool keine Connection zur Verfügung steht, dann wird direkt im Vorfeld eine neue Connection geöffnet (CREATE Connection)</p>
+</li>
+<li><p><strong>FREE Connection 1:</strong> Die Connection wird wieder freigegeben und steht dem Pool wieder zur Verfügung. Wenn</p>
+</li>
+<li><p><strong>DESTROY Connection 1:</strong> Die Connection wird beendet. Das passiert,</p>
+<ol>
+<li>wenn bei der Aktion FREE Connection die Anzahl der offenen Connection FSPoolingMax übersteigt, oder</li>
+<li>wenn bei einer Aktion (GET Connection oder FREE Connection) der Timeout einer freien  Connection erreicht ist.</li>
+</ol>
+</li>
+<li><p><strong>DISPOSE POOL:</strong> Der Pool wird geleert. Das passiert,</p>
+<ol>
+<li>wenn der Broker beendet wird, oder</li>
+<li><p>wenn die letzte Broker-Sitzung beendet wird.</p>
+<p> Wenn bei dieser Aktion noch Connections in Verwendung sind (Used), dann wird für diese Connections der Callstack ausgegeben, mit dem sie verwendet wurden. So kann analysiert werden, wer eine Connection öffnet, sie aber nicht freigibt. Diese Connections werden nicht vom Pool geschlossen.
+ Mit dieser Aktion wird der komplette Pool zurückgesetzt. Die Informationen &quot;Used&quot; und &quot;Free&quot; beginnen wieder bei 0. Das ist auch der Fall, wenn zuvor noch Connections geöffnet waren.</p>
+</li>
+</ol>
+</li>
+<li><p><strong>ESCALATION OF USED CONNECTIONS:</strong> Wenn die Anzahl der benutzten Connctions im Pool 30 übersteigt, dann werden einmalig pro Pool die momentan benutzten Connections mit den Callstacks, durch die sie geöffnet wurden, ausgegeben.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Die einzelnen Felder sind mit Tabulator getrennt. So können Sie diese Daten sehr gut z.B. in Excel kopieren und weiter analysieren.</p>
+<p>Auf einem Rechner können mehrere Prozesse in dasselbe Protokoll schreiben, die Routine ist entsprechend abgesichert. Die Absicherung funktioniert NICHT auf Netzlaufwerken für mehrere Rechner!</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/weitere-themen/connection-pooling-protokoll.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

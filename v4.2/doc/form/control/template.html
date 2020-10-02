@@ -169,7 +169,7 @@
     border-radius: 0.3rem;
 }
 
-.tpl[tplDisabled] {
+.tpl[tpldisabled] {
     background-color: grey;
 }
 
@@ -234,14 +234,14 @@ body {
 <div class="TIP"><h5>Tip</h5><p>Es wird ausdrücklich empfohlen, im HTML/CSS des Template Controls <code>rem</code> als Größeneinheit zu verwenden.</p>
 </div>
 <h3 id="iseditable">IsEditable</h3>
-<p>Im CSS kann auch ein Style für das Template hinterlegt werden, wenn <code>IsEditable</code> auf <code>false</code> gesetzt wird. Wird ein Template Control im Designer oder per Action auf isEditable = false gesetzt, so wird am <code>&lt;div&gt;</code>-Tag <code>tpl</code> das HTML-Attribut <code>tplDisabled</code> hinzugefügt:</p>
+<p>Im CSS kann auch ein Style für das Template hinterlegt werden, wenn <code>IsEditable</code> auf <code>false</code> gesetzt wird. Wird ein Template Control im Designer oder per Action auf isEditable = false gesetzt, so wird am <code>&lt;div&gt;</code>-Tag <code>tpl</code> das HTML-Attribut <code>tpldisabled</code> hinzugefügt:</p>
 <pre><code class="lang-html">```html
 &lt;hc-tpl-ctrl-content class=&quot;ng-star-inserted&quot;&gt;
-    &lt;div class=&quot;tpl&quot; tplDisabled=&quot;true&quot;&gt;
+    &lt;div class=&quot;tpl&quot; tpldisabled&gt;
         [...]
     &lt;/div&gt;
 &lt;/hc-tpl-ctrl-content&gt;
-</code></pre><p>Im CSS-Code kann über den Attribute-Selector <code>.tpl[tplDisabled]</code> genau dieser Fall abgefragt werden. Im Beispiel wird der Hintergrund des Templates auf grau gesetzt.</p>
+</code></pre><p>Im CSS-Code kann über den Attribute-Selector <code>.tpl[tpldisabled]</code> genau dieser Fall abgefragt werden. Im Beispiel wird der Hintergrund des Templates auf grau gesetzt.</p>
 <h2 id="images-im-template">Images im Template</h2>
 <p><img src="../media/template.png" alt="TemplateImages"></p>
 <p>Eine Besonderheit ist das Anzeigen von Bildern in einem Template Control mittels <code>&lt;img /&gt;</code>, wenn dieses über ein <code>byte[]</code> aus der Datenbank gebunden werden soll. Ein Anwendungsfall wäre z.B. das Anzeigen von Icons.</p>

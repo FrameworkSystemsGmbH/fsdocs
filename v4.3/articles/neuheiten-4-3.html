@@ -85,10 +85,37 @@
 <h2 id="statisches-caching-an-components-static-cache">Statisches Caching an Components (Static Cache)</h2>
 <p>Framework Studio wurde um einen statischen Caching-Mechanismus erweitert. Wird dieser für eine geeignete Component aktiviert, so können Daten statt von der Datenbank aus diesem Cache geladen werden. Dadurch sind erhebliche Performance-Vorteile möglich.</p>
 <p>Details sind im Kapitel <a href="../doc/comp/static-cache.html">Statisches Caching</a> beschrieben.</p>
-<h2 id="umstellung-auf-propertychanged-ab-beta-2">Umstellung auf PropertyChanged (ab Beta 2)</h2>
+<h2 id="umstellung-auf-propertychanged">Umstellung auf PropertyChanged</h2>
+<div class="NOTE"><h5>Note</h5><p>Verfügbar ab <strong>Beta 2</strong></p>
+</div>
 <p>Die Framework Studio Components implementieren jetzt das Standard-Interface INotifyPropertyChanged.</p>
 <p>Details sind im Kapitel <a href="../doc/konzepte/property-changed.html">PropertyChanged</a> beschrieben.</p>
 <p>Ggf. sind Anpassungen im eigenen Code notwendig. Bitte beachten sie dazu die <a href="update-4-3/property-changed.html">Hinweise für die Umstellung</a>.</p>
+<p>In diesem Zuge sind einige weitere Änderungen vorgenommen wurden:</p>
+<ul>
+<li><p>Die Methoden <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.GetProperty.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_GetProperty_System_String_">GetProperty</a>,
+<a class="xref" href="../api/FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.SetProperty.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_SetProperty_System_String_System_Object_">SetProperty</a>,
+<a class="xref" href="../api/FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.GetPropertyMdt.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_GetPropertyMdt_System_String_">GetPropertyMdt</a>
+und die Eigenschaft <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.ComponentProperties.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_ComponentProperties">ComponentProperties</a>
+wurde an (I)DevFramework<strong>Base</strong>Object verschoben. Damit können jetzt auch direkt an der Collection definierte Properties verarbeitet werden.</p>
+</li>
+<li><p>Mit der neuen Methode <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.IsComponentProperty.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_IsComponentProperty_System_String_">IsComponentProperty</a> kann man prüfen, ob es sich um ein vom Entwickler angelegtes Property handelt.</p>
+</li>
+<li><p>Sie Setter von Individual Properties rufen den Getter nicht mehr auf. Dadurch wird die Performance gesteigert.</p>
+<div class="WARNING"><h5>Warning</h5><p>Das bedeutet jedoch, dass jetzt <strong>jeder</strong> Aufruf des Setters direkt und &quot;ungeprüft&quot; im Entwickler-Code landet.</p>
+</div>
+</li>
+</ul>
+<p>Das Databinding in den Forms wurde komplett neu entwickelt.
+Das bringt unter anderem die folgenden Vorteile:</p>
+<ul>
+<li><p>Deutlich weniger Code und deutlich kleinere Assemblies (ca. -30%)</p>
+</li>
+<li><p>Bei der Änderung von Werten wird am für die Aktualisierung der Control-Inhalte Ende des Requests jeder Wert nur einmal neu gelesen.
+Das gilt auch, wenn ein Property im Laufe des Requests mehrfach geändert wurde.
+Im Einzelfall kann das eine signifikante Steigerung der Performance bedeuten.</p>
+</li>
+</ul>
 <h2 id="intellisense-mit-roslyn">Intellisense mit Roslyn</h2>
 <p>Das Intellisense im Code-Editor wurde komplett überarbeitet. Es setzt jetzt mit &quot;Roslyn&quot; auf dieselbe Technologie auf wie das Intellisene von Visual Studio.</p>
 <p>Folgende Features werden jetzt unterstützt (Auszug):</p>

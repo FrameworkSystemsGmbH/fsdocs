@@ -98,23 +98,27 @@ public interface IDevFrameworkBaseObject : FrameworkDataTransaction.ISource, INo
   </h3>
   
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.ComponentProperties.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_ComponentProperties">ComponentProperties</a></h4>
-    <section><p><p>Gibt eine Liste mit allen Properties zurück.</p>
+    <section><p><p>Gibt eine Liste mit den Namen aller public oder internal Properties zurück, die vom Entwickler
+in der IDE definiert wurden.
+RowID und RowVersion sind nicht enthalten.</p>
 </p></section>
   
   <h3 id="methods">Methods
   </h3>
   
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.GetProperty.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_GetProperty_System_String_">GetProperty(String)</a></h4>
-    <section><p><p>Ermittelt den Wert des Property mit dem übergebenen propertyName.</p>
+    <section><p><p>Gibt den Wert des Properties mit dem übergebenen <code>propertyName</code> zurück.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.GetPropertyMdt.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_GetPropertyMdt_System_String_">GetPropertyMdt(String)</a></h4>
     <section><p><p>Gibt den Metadatentyp des übergebenen Properties zurück</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.IsComponentProperty.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_IsComponentProperty_System_String_">IsComponentProperty(String)</a></h4>
-    <section><p><p>Prüft, ob der übergebene PropertyName in <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.ComponentProperties.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_ComponentProperties">ComponentProperties</a> enthalten ist.</p>
+    <section><p><p>Prüft, ob der übergebene PropertyName in <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.ComponentProperties.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_ComponentProperties">ComponentProperties</a> enthalten ist.
+So kann man z.B. bei der Behandlung des Events <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged.propertychanged">PropertyChanged</a> prüfen, ob das Property vom Entwickler angelgt wurde.
+Andernfalls handelt es sich ggf. um ein von Framework Studio bereitgestelltes Property wie z.B. <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.State.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_State">State</a>.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.SetProperty.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_SetProperty_System_String_System_Object_">SetProperty(String, Object)</a></h4>
-    <section><p><p>Setzt das Property mit dem Namen propertyName auf den Wert value</p>
+    <section><p><p>Setzt das Properties mit dem übergebenen <code>propertyName</code> auf den Wert <code>value</code>.</p>
 </p></section>
   
 </article>
@@ -128,7 +132,7 @@ public interface IDevFrameworkBaseObject : FrameworkDataTransaction.ISource, INo
                     <a href="https://github.com/FrameworkSystemsGmbH/fs/new/4.3/dev/apiSpec/new?filename=FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject.md&amp;value=---%0Auid%3A%20FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.3/dev/FS/FrameworkBase/IDevFrameworkObject.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.3/dev/FS/FrameworkBase/IDevFrameworkBaseObject.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

@@ -170,7 +170,7 @@ protected override void OnIsModifiedChanged()
 }
 </code></pre><p>Neuer Code für Event-Handler:</p>
 <pre><code class="lang-csharp">// anhängen des Event-Handlers
-oArticle.StateChanged += OnArticleStateChanged;
+oArticle.PropertyChanged += OnArticleStateChanged;
 
 // Event-Handler-Methode
 protected void OnArticleStateChanged(object sender, PropertyChangedEventArgs args)

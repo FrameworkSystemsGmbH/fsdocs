@@ -91,7 +91,7 @@
 <p>Die Framework Studio Components implementieren jetzt das Standard-Interface INotifyPropertyChanged.</p>
 <p>Details sind im Kapitel <a href="../doc/konzepte/property-changed.html">PropertyChanged</a> beschrieben.</p>
 <p>Ggf. sind Anpassungen im eigenen Code notwendig. Bitte beachten sie dazu die <a href="update-4-3/property-changed.html">Hinweise für die Umstellung</a>.</p>
-<p>In diesem Zuge sind einige weitere Änderungen vorgenommen wurden:</p>
+<p>In diesem Zuge sind einige weitere Änderungen vorgenommen worden:</p>
 <ul>
 <li><p>Die Methoden <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.GetProperty.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_GetProperty_System_String_">GetProperty</a>,
 <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.SetProperty.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_SetProperty_System_String_System_Object_">SetProperty</a>,
@@ -111,7 +111,7 @@ Das bringt unter anderem die folgenden Vorteile:</p>
 <ul>
 <li><p>Deutlich weniger Code und deutlich kleinere Assemblies (ca. -30%)</p>
 </li>
-<li><p>Bei der Änderung von Werten wird am für die Aktualisierung der Control-Inhalte Ende des Requests jeder Wert nur einmal neu gelesen.
+<li><p>Bei der Änderung von Werten wird für die Aktualisierung der Control-Inhalte am Ende des Requests jeder Wert nur einmal neu gelesen.
 Das gilt auch, wenn ein Property im Laufe des Requests mehrfach geändert wurde.
 Im Einzelfall kann das eine signifikante Steigerung der Performance bedeuten.</p>
 </li>

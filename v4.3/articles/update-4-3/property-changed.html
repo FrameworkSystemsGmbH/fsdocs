@@ -181,6 +181,20 @@ protected void OnArticleStateChanged(object sender, PropertyChangedEventArgs arg
         // Status hat sich geändert
     }
 }
+</code></pre><h4 id="reflection">Reflection</h4>
+<div class="CAUTION"><h5>Caution</h5><p>Wenn die alten Changed-Events per Reflection angesprochen wurden, dann muss das gezielt umgebaut werden.
+Diese Fälle werden nicht durch den Compiler gefunden.</p>
+</div>
+<p>Mit einer Volltext-Suche nach folgendem Regulären Ausdruck könnten potentielle Stellen leicht gefunden werden:</p>
+<ul>
+<li><code>\bEventInfo\b</code></li>
+</ul>
+<p>Beispiel für einen problematischen Code:</p>
+<pre><code class="lang-csharp">System.Reflection.EventInfo oChangedEventInfo = this.oTarget.GetType().GetEvent(sPropertyNameP + &quot;Changed&quot;);
+if (oChangedEventInfo != null)
+{
+    oChangedEventInfo.AddEventHandler(this.oTarget, oXmlPropertyInfo.oChangedEventHandler); 
+}
 </code></pre></article>
           </div>
           

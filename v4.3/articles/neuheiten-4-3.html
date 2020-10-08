@@ -112,6 +112,15 @@ Das gilt auch, wenn ein Property im Laufe des Requests mehrfach geändert wurde.
 Im Einzelfall kann das eine signifikante Steigerung der Performance bedeuten.</p>
 </li>
 </ul>
+<h4 id="verhaltens-änderung-bei-der-selectedrowscollection">Verhaltens-Änderung bei der SelectedRowsCollection.</h4>
+<p>Die an einem Grid gebundene Objekt-Collection und SelectedRowsCollection haben in der Vergangenheit eng zusammengearbeitet.
+Werden Records aus der Collection gelöscht oder eine neue Collection zugewiesen, dann werden aus der SelectedRowsCollection unmittelbar die entsprechenden Einträge entfernt.
+Das war möglich weil jede Änderung sofort vom Data-Binding übernommen wurde.
+Der neue asynchrone Ansatz im Data-Binding verhindert dies erst einmal.</p>
+<p>Damit bestehende Logik, die heute diesen Mechanismus vorraussetzt, weiterhin funktioniert, wurde er im neuen Data-Binding nachgebaut - allerdings mit einer kleinen Einschränkung:</p>
+<div class="WARNING"><h5>Warning</h5><p>Weist man im Form eine neue Objekt-Hierarchie zu, das ihrerseits die Objekt-Collection für das Grid beinhaltet, dann wird die SelectedRowsCollection nicht automatisch geleert.
+Das muss in diesem Fall manuell durchgeführt werden.</p>
+</div>
 <h2 id="intellisense-mit-roslyn">Intellisense mit Roslyn</h2>
 <p>Das Intellisense im Code-Editor wurde komplett überarbeitet. Es setzt jetzt mit &quot;Roslyn&quot; auf dieselbe Technologie auf wie das Intellisene von Visual Studio.</p>
 <p>Folgende Features werden jetzt unterstützt (Auszug):</p>

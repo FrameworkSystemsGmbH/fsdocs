@@ -8,7 +8,7 @@
     <title>Neuheiten Framework Studio 4.3 </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Neuheiten Framework Studio 4.3 ">
-    <meta name="generator" content="docfx 2.46.0.0">
+    <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -112,12 +112,12 @@ Das gilt auch, wenn ein Property im Laufe des Requests mehrfach geändert wurde.
 Im Einzelfall kann das eine signifikante Steigerung der Performance bedeuten.</p>
 </li>
 </ul>
-<h4 id="verhaltens-änderung-bei-der-selectedrowscollection">Verhaltens-Änderung bei der SelectedRowsCollection.</h4>
+<h4 id="verhaltens-änderung-bei-der-selectedrowscollection">Verhaltens-Änderung bei der SelectedRowsCollection</h4>
 <p>Die an einem Grid gebundene Objekt-Collection und SelectedRowsCollection haben in der Vergangenheit eng zusammengearbeitet.
 Werden Records aus der Collection gelöscht oder eine neue Collection zugewiesen, dann werden aus der SelectedRowsCollection unmittelbar die entsprechenden Einträge entfernt.
 Das war möglich weil jede Änderung sofort vom Data-Binding übernommen wurde.
 Der neue asynchrone Ansatz im Data-Binding verhindert dies erst einmal.</p>
-<p>Damit bestehende Logik, die heute diesen Mechanismus vorraussetzt, weiterhin funktioniert, wurde er im neuen Data-Binding nachgebaut - allerdings mit einer kleinen Einschränkung:</p>
+<p>Damit bestehende Logik, die heute diesen Mechanismus voraussetzt, weiterhin funktioniert, wurde er im neuen Data-Binding nachgebaut - allerdings mit einer kleinen Einschränkung:</p>
 <div class="WARNING"><h5>Warning</h5><p>Weist man im Form eine neue Objekt-Hierarchie zu, das ihrerseits die Objekt-Collection für das Grid beinhaltet, dann wird die SelectedRowsCollection nicht automatisch geleert.
 Das muss in diesem Fall manuell durchgeführt werden.</p>
 </div>
@@ -142,13 +142,6 @@ Das muss in diesem Fall manuell durchgeführt werden.</p>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.3/master/articles/neuheiten-4-3.md/#L1" class="contribution-link">Improve this Doc</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>

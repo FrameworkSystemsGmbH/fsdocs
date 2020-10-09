@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Namespace FrameworkSystems.FrameworkExceptions
    ">
-    <meta name="generator" content="docfx 2.46.0.0">
+    <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -96,6 +96,10 @@
 Fehler darstellen sollten von dieser Klasse sein. Der Broker gibt
 diese dann als Fehler ohne StackTrace an den Client weiter.</p>
 </section>
+      <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.PropertyNotFoundException.html">PropertyNotFoundException</a></h4>
+      <section><p>Diese Exception wir geworfen, wenn bei einem Property-Zugriff über die Methode
+IDevFrameworkBaseObject.GetProperty() der Property-Name nicht gefunden wurde.</p>
+</section>
       <h4><a class="xref" href="FrameworkSystems.FrameworkExceptions.RowVersionInvalidException.html">RowVersionInvalidException</a></h4>
       <section><p>Die Component prüft beim Save automatisch, ob der Datensatz auf der Datenbank zwischenzeitlich 
 von einer anderen Instanz geändert wurde – sprich, ob sich der Wert in der Spalte <strong>FSROWVERSION</strong>
@@ -111,10 +115,6 @@ geändert hat. Wenn das der Fall ist, dann wird eine diese Exception geworfen.</
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>

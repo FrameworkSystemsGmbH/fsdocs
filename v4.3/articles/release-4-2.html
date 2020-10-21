@@ -85,28 +85,42 @@
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.2.11_Setup_x64</li>
+<li>FS4.0.29_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="crystal-reports-runtime-neuer-print-service">Crystal Reports Runtime, neuer Print-Service</h4>
+<p>Es wird die Crystal Reports Runtime 13.0.26 oder höher unterstützt.</p>
+<p>Mit dem SP 26 der Crystal Reports Runtime gab es eine Versions-Änderung, die dafür sorgt, dass sie von Framework-Studio-Programmen nicht mehr erkannt wird.</p>
+<p>Es müssen alle Print-Services und alle gepublishten Broker und Services aktualisiert werden.</p>
 <h4 id="html-client-neuerungen">HTML Client Neuerungen</h4>
 <h5 id="neues-framework-als-basis">Neues Framework als Basis</h5>
-<p>Der HTML Client wurde bisher mit <strong>Apache Cordova</strong> und <strong>Adobe PhoneGap Build</strong> in die mobile Welt gebracht. Adobe hat jedoch angekündigt, PhoneGap nicht mehr weiter zu entwickeln. Auf Grund von erweiterter Hardware-Unterstützung und der einfacheren Integration in den Entwicklungsprozess haben wir jedoch schon vor dieser Ankündigung den HTML Client auf das <strong>Ionic Capacitor Framework</strong> umgezogen. Auch die Browser-Version des HTML Clients profitiert maßgeblich vom neuen Framework.</p>
-<p>Folgende Verbesserungen sind ab sofort Verfügbar:</p>
+<p>Der HTML Client wurde bisher mit <strong>Apache Cordova</strong> und <strong>Adobe PhoneGap Build</strong> in die mobile Welt gebracht. Adobe hat im September angekündigt, PhoneGap nicht mehr weiter zu entwickeln. Auf Grund von erweiterter Hardware-Unterstützung und der einfacheren Integration in den Entwicklungsprozess haben wir jedoch schon vor dieser Ankündigung den HTML Client auf das <strong>Ionic Capacitor Framework</strong> umgezogen. Auch die Browser-Version des HTML Clients profitiert maßgeblich vom neuen Framework.</p>
+<p>Zusätzlich zu den Bugfixes unter <strong>Korrigierte Fehler</strong> sind ab sofort folgende Verbesserungen Verfügbar:</p>
 <ul>
-<li>Die TakePhoto Action funktioniert nun auch im Browser</li>
-<li>Die GetGeolocation Action funktioniert nun auch im Browser</li>
+<li>Die <code>TakePhoto</code> Action funktioniert nun auch im Browser</li>
+<li>Die <code>GetGeolocation</code> Action funktioniert nun auch im Browser</li>
+<li>Die <code>PrintReport</code> Action wird nun unterstützt</li>
 <li>Eine noch aktive Session wird sofort beim Starten der App geladen</li>
 <li>Wird das letzte Form geschlossen, gibt es eine Rückfrage, ob die Session geschlossen werden soll</li>
 <li>Die UI wird bei länger laufenden Requests nun vollständig gesperrt, um parallele Eingaben zu verhindern</li>
 </ul>
-<h5 id="installieren-sie-google-chrome-auf-android">Installieren Sie Google Chrome auf Android</h5>
-<p>Adobe Cordova hat bisher zur Anzeige des HTML und zur Ausführung von Javascript in der App die im Android System integrierte WebView verwendet. Seit Android 5 ist die WebView als System-App ausgelagert worden, damit sie unabhängig vom Betriebssystem über den Play Store upgedated werden kann. Vor allem auf alten Geräten (Android 7.0 oder älter) und zusätzlich abhängig vom Hersteller ist dies jedoch oft nicht der Fall und HTML-Applikationen werden auf Grund der betagten Engine fehlerhaft dargestellt.</p>
-<p>Das Ionic Capacitor Framework löst dieses Problem und nutzt ggf. die Engine eines installierten Google Chrome.</p>
+<h5 id="neue-systemvoraussetzungen">Neue Systemvoraussetzungen</h5>
+<p>Unterstützt werden wie bisher Handys und Tablets mit Android 6.0 oder höher.</p>
+<div class="CAUTION"><h5>Caution</h5><p>Auf Geräten mit Android 7.X oder niedriger muss Google Chrome parallel zwingend installiert sein, da die integrierte WebView nicht mehr unterstützt wird</p>
+</div>
+<p>Der Framework Studio Mobile Client ist eine App basierend auf dem neuen Ionic Capacitor Framework, welches HTML-Applikationen mit Hardware-Unterstützung auf mobile Endgeräte bringt. Ist auf dem Endgerät Google Chrome nicht installiert, so wird zur Anzeige der HTML-Applikation die integrierte Android WebView verwendet. Diese basiert wie Google Chrome ebenfalls auf der Chromium Engine, ist aber auf vielen - vor allem älteren - Endgeräten nur in einer sehr betagten Version verfügbar. Dies kann ggf. zu Fehlern führen.</p>
 <p>Es gelten folgende Regeln:</p>
 <ul>
-<li>Wenn Google Chrome installiert ist, wird dessen Engine für die Ausführung der App verwendet</li>
-<li>Ist Chrome nicht installiert, wird die Android WebView verwendet</li>
+<li>Ist Google Chrome installiert, wird dessen Chromium Engine für die Ausführung des Framework Studio Mobile Client verwendet</li>
+<li>Ist Google Chrome nicht installiert, wird die Android WebView verwendet</li>
 </ul>
-<p>Wir empfehlen deshalb unbedingt, auf allen Geräten, auf denen der Framework Studio Mobile Client genutzt wird, auch Google Chrome zu installieren und auf die aktuellste Version upzudaten, um die breiteste Unterstützung von Features und die fehlerfreie Darstellung der App zu garantieren.</p>
+<div class="NOTE"><h5>Note</h5><p>Auch auf neueren Geräten ab Android 8.0 empfehlen wir, die aktuellste Version von Google Chrome zu installieren, um die breiteste Unterstützung von Features und die fehlerfreie Darstellung der App zu garantieren.</p>
+</div>
+<h5 id="globales-css-für-listviewitems-und-template-controls">Globales CSS für ListViewItems und Template Controls</h5>
+<p>Es besteht ab sofort die Möglichkeit, ListViewItems und Template Controls mit globalen CSS Styles zu versehen, welche applikationsweit angewendet werden. So kann sehr einfach ein grundlegendes Theme für die HTML Controls bereitgestellt werden, ohne dasselbe CSS an jedem Control erneut anwenden zu müssen.</p>
+<p>Mehr Informationen dazu gibt es unter folgenden Links:</p>
+<p><a href="../doc/form/control/listview.html#globales-css-für-listviewiems">ListView</a></p>
+<p><a href="../doc/form/control/template.html#globales-css-für-template-controls">TemplateControl</a></p>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <h2 id="4210-25092020">4.2.10 (25.09.2020)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>

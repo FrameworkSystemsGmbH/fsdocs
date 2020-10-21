@@ -208,6 +208,22 @@
     margin-bottom: 0.3rem;
 }
 </code></pre><p>Wie im Kapitel HTML beschrieben, wird ein ListItem mit einem <code>&lt;div&gt;</code>-Tag der CSS-Klasse <code>tpl</code> umgeben. Im CSS-Code kann somit über den CSS-Selector <code>.tpl</code> auf das Element zugegriffen werden.</p>
+<h3 id="globales-css-für-template-controls">Globales CSS für Template Controls</h3>
+<p>Es ergiebt durchaus Sinn, grundelegende Styles von Template Controls global zu definieren. Sie könnten z.B. eine einheitliche Border oder Hintergrundfarbe besitzen. Für diesen Zweck existiert der globale CSS Editor für Template Controls am <code>FSGeneral.Controls.BaseControl</code>.</p>
+<p><img src="../media/basecontrol-global-css.png" alt="BaseControl"></p>
+<p>Über das Property <code>TemplateControl</code> unter der Kategorie <code>Global CSS</code> öffnet sich der CSS Editor.</p>
+<p><img src="../media/templatecontrol-global-css-editor.png" alt="GlobalCssEditor"></p>
+<p>Die globalen Styles können je Sprache definiert werden. Ist für eine Sprache kein CSS definiert, wird auf Deutsch zurückgegriffen. Alle globalen Styles werden vom individuellen CSS am Control überschrieben, wie das folgende Beispiel zeigt:</p>
+<p><strong>Globales CSS:</strong></p>
+<pre><code class="lang-css">.tpl {
+    color: white;
+    background-color: green;
+}
+</code></pre><p><strong>CSS an Template Control <code>TPL1</code>:</strong></p>
+<pre><code class="lang-css">.tpl {
+    background-color: blue;
+}
+</code></pre><p>Die global definierte grüne Hintergrundfarbe wird im CSS von Template Control <code>TPL1</code> überschrieben. Somit hat dies eine blaue Hintergrundfarbe und weißen Text.</p>
 <h3 id="rem-anstatt-pixel">REM anstatt Pixel</h3>
 <p>Im CSS sollten Größenangaben ausschließlich mit <code>rem</code> angegeben werden. Der HTML Client skaliert die gesamte Anzeige anhand der vom Browser vorgegebenen Schriftgröße. Im HTML Client wird global für das HTML- und das BODY-Tag folgendes definiert:</p>
 <pre><code class="lang-CSS">html {
@@ -242,6 +258,14 @@ body {
     &lt;/div&gt;
 &lt;/hc-tpl-ctrl-content&gt;
 </code></pre><p>Im CSS-Code kann über den Attribute-Selector <code>.tpl[tpldisabled]</code> genau dieser Fall abgefragt werden. Im Beispiel wird der Hintergrund des Templates auf grau gesetzt.</p>
+<h3 id="preview">Preview</h3>
+<p><img src="../media/template-preview.png" alt="Template Editor"></p>
+<p>Wenn der HTML-Code gültig ist, wird auf der Registerkarte &quot;Preview&quot; eine gerenderte Vorschau des Templates angezeigt.</p>
+<p>Für die Vorschau werden die PreviewValues für die einzelnen Template Variablen verwendet. Sollte ein PreviewValue nicht gesetzt sein, wird stattdessen der DataSource Name angezeigt. Template MLKeys zeigen den im Wörterbuch hinterlegten Text an.</p>
+<h4 id="preview-size">Preview Size</h4>
+<p>Mit der Preview Size kann im Editor die Größe der Vorschau geändert werden. Damit kann sehr einfach überprüft werden, wie sich das Template in unterschiedlichen Größen verhält. Diese Einstellung hat keinen Einfluss auf die Laufzeit.</p>
+<h4 id="fallback-auf-die-standardsprache">Fallback auf die Standardsprache</h4>
+<p>Sollte für die im Template Editor ausgewählte Sprache (z.B. Englisch) kein HTML oder CSS vorhanden sein, so wird das HTML oder CSS der Standardsprache (Deutsch) verwendet. So kann z.B. für &quot;Englisch&quot; nur das HTML überschrieben werden. im Preview und zur Laufzeit wird dann das englische HTML mit dem deutschen CSS kombiniert.</p>
 <h2 id="images-im-template">Images im Template</h2>
 <p><img src="../media/template.png" alt="TemplateImages"></p>
 <p>Eine Besonderheit ist das Anzeigen von Bildern in einem Template Control mittels <code>&lt;img /&gt;</code>, wenn dieses über ein <code>byte[]</code> aus der Datenbank gebunden werden soll. Ein Anwendungsfall wäre z.B. das Anzeigen von Icons.</p>
@@ -254,14 +278,6 @@ body {
 <pre><code class="lang-html">&lt;img class=&quot;img&quot; src=&quot;data:;base64,{{ ds:Image }}&quot; /&gt;
 </code></pre><p>Das Semicolon vor <code>base64</code> ist ohne die Angabe des Mime-Types zwingend notwendig.</p>
 </div>
-<h3 id="preview">Preview</h3>
-<p><img src="../media/template-preview.png" alt="Template Editor"></p>
-<p>Wenn der HTML-Code gültig ist, wird auf der Registerkarte &quot;Preview&quot; eine gerenderte Vorschau des Templates angezeigt.</p>
-<p>Für die Vorschau werden die PreviewValues für die einzelnen Template Variablen verwendet. Sollte ein PreviewValue nicht gesetzt sein, wird stattdessen der DataSource Name angezeigt. Template MLKeys zeigen den im Wörterbuch hinterlegten Text an.</p>
-<h4 id="preview-size">Preview Size</h4>
-<p>Mit der Preview Size kann im Editor die Größe der Vorschau geändert werden. Damit kann sehr einfach überprüft werden, wie sich das Template in unterschiedlichen Größen verhält. Diese Einstellung hat keinen Einfluss auf die Laufzeit.</p>
-<h4 id="fallback-auf-die-standardsprache">Fallback auf die Standardsprache</h4>
-<p>Sollte für die im Template Editor ausgewählte Sprache (z.B. Englisch) kein HTML oder CSS vorhanden sein, so wird das HTML oder CSS der Standardsprache (Deutsch) verwendet. So kann z.B. für &quot;Englisch&quot; nur das HTML überschrieben werden. im Preview und zur Laufzeit wird dann das englische HTML mit dem deutschen CSS kombiniert.</p>
 </article>
           </div>
           

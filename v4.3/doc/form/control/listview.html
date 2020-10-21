@@ -168,6 +168,22 @@ img {
     display: inline;
 }
 </code></pre><p>Wie im Kapitel HTML beschrieben, wird ein ListItem mit einem <code>&lt;div&gt;</code>-Tag der CSS-Klasse <code>lvItem</code> umgeben. Im CSS-Code kann somit über den CSS-Selector <code>.lvItem</code> auf das Element zugegriffen werden.</p>
+<h3 id="globales-css-für-listviewitems">Globales CSS für ListViewItems</h3>
+<p>Es ergiebt durchaus Sinn, grundelegende Styles von ListViewItems global zu definieren. ListViewItems könnten z.B. eine einheitliche Border oder Hintergrundfarbe besitzen. Für diesen Zweck existiert der globale CSS Editor für ListViewItems am <code>FSGeneral.Controls.BaseControl</code>.</p>
+<p><img src="../media/basecontrol-global-css.png" alt="BaseControl"></p>
+<p>Über das Property <code>ListVIewItem</code> unter der Kategorie <code>Global CSS</code> öffnet sich der CSS Editor.</p>
+<p><img src="../media/listviewitem-global-css-editor.png" alt="GlobalCssEditor"></p>
+<p>Die globalen Styles können je Sprache definiert werden. Ist für eine Sprache kein CSS definiert, wird auf Deutsch zurückgegriffen. Alle globalen Styles werden vom individuellen CSS am Control überschrieben, wie das folgende Beispiel zeigt:</p>
+<p><strong>Globales CSS:</strong></p>
+<pre><code class="lang-css">.lvItem {
+    color: white;
+    background-color: green;
+}
+</code></pre><p><strong>CSS an ListView <code>LV1</code>:</strong></p>
+<pre><code class="lang-css">.lvItem {
+    background-color: blue;
+}
+</code></pre><p>Die global definierte grüne Hintergrundfarbe wird im CSS von ListView <code>LV1</code> überschrieben. So haben alle ListViewItems von <code>LV1</code> eine blaue Hintergrundfarbe und weißen Text.</p>
 <h3 id="rem-anstatt-pixel">REM anstatt Pixel</h3>
 <p>Im CSS sollten Größenangaben ausschließlich mit <code>rem</code> angegeben werden. Der HTML Client skaliert die gesamte Anzeige anhand der vom Browser vorgegebenen Schriftgröße. Im HTML Client wird global für das HTML- und das BODY-Tag folgendes definiert:</p>
 <pre><code class="lang-CSS">html {
@@ -201,6 +217,12 @@ body {
     &lt;/div&gt;
 &lt;/hc-listitem-content&gt;
 </code></pre><p>Im CSS-Code kann über den Attribute-Selector <code>.lvItem[lvdisabled]</code> genau dieser Fall abgefragt werden. Im Beispiel wird der Hintergrund des ListItems auf grau (<code>#cccccc</code>) gesetzt.</p>
+<h3 id="preview">Preview</h3>
+<p><img src="../media/listview-template-preview.png" alt="Template Editor"></p>
+<p>Wenn der HTML-Code gültig ist, wird auf der Registerkarte &quot;Preview&quot; eine gerenderte Vorschau des Templates angezeigt.</p>
+<p>Für die Vorschau werden die PreviewValues für die einzelnen Template Variablen verwendet. Sollte ein PreviewValue nicht gesetzt sein, wird stattdessen der DataSource Name angezeigt. Template MLKeys zeigen den im Wörterbuch hinterlegten Text an.</p>
+<h4 id="fallback-für-die-standartsprache">Fallback für die Standartsprache</h4>
+<p>Wenn für eine Sprache eines bestimmten HTML-Codes nicht gibt, wird den HTML-Code des Standartsprache (Deutsch) verwendet. Diese Regel wird auch für den CSS-Code anwenden. Anderseits, wenn kein Code auch für die Standardsprache gibt, wird die Meldung <strong>TEMPLATE NULL</strong> angezeigt.</p>
 <h2 id="images-im-listviewitem">Images im ListViewItem</h2>
 <p><img src="../media/listview-img-list.png" alt="ListviewImages"></p>
 <p>Eine Besonderheit ist das Anzeigen von Bildern in einem ListViewItem mittels <code>&lt;img /&gt;</code>, wenn dieses über ein <code>byte[]</code> aus der Datenbank gebunden werden soll. Ein Anwendungsfall wäre z.B. das Anzeigen von Artikelbildern.</p>
@@ -213,12 +235,6 @@ body {
 <pre><code class="lang-html">&lt;img class=&quot;img&quot; src=&quot;data:;base64,{{ ds:Image }}&quot; /&gt;
 </code></pre><p>Das Semicolon vor <code>base64</code> ist ohne die Angabe des Mime-Types zwingend notwendig.</p>
 </div>
-<h3 id="preview">Preview</h3>
-<p><img src="../media/listview-template-preview.png" alt="Template Editor"></p>
-<p>Wenn der HTML-Code gültig ist, wird auf der Registerkarte &quot;Preview&quot; eine gerenderte Vorschau des Templates angezeigt.</p>
-<p>Für die Vorschau werden die PreviewValues für die einzelnen Template Variablen verwendet. Sollte ein PreviewValue nicht gesetzt sein, wird stattdessen der DataSource Name angezeigt. Template MLKeys zeigen den im Wörterbuch hinterlegten Text an.</p>
-<h4 id="fallback-für-die-standartsprache">Fallback für die Standartsprache</h4>
-<p>Wenn für eine Sprache eines bestimmten HTML-Codes nicht gibt, wird den HTML-Code des Standartsprache (Deutsch) verwendet. Diese Regel wird auch für den CSS-Code anwenden. Anderseits, wenn kein Code auch für die Standardsprache gibt, wird die Meldung <strong>TEMPLATE NULL</strong> angezeigt.</p>
 </article>
           </div>
           

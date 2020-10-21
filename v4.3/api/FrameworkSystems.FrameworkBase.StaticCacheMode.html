@@ -109,15 +109,17 @@ Dieser kann im Einsprungpunkt <a class="xref" href="FrameworkSystems.FrameworkBa
         <td id="FrameworkSystems_FrameworkBase_StaticCacheMode_Broker">Broker</td>
         <td><p>Daten werden für alle Sessions zentral im Broker verwaltet.
 Der Einsprungpunkt <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalWhereStaticCache.html#FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_GlobalWhereStaticCache_FrameworkSystems_FrameworkBase_IStaticCacheObject_">GlobalWhereStaticCache(IStaticCacheObject)</a> wird durchlaufen. 
-Nicht durchlaufen werden die Einsprungpunkte <span class="xref">FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalOnBeforeLoad(FrameworkSystems.FrameworkBase.DevFrameworkObject,System.String@,System.String@,System.String@)</span>
-und <span class="xref">FrameworkSystems.FrameworkBase.FrameworkDataObject`2.OnBeforeLoad(System.String@,System.String@,System.String@,System.Boolean)</span>.</p>
+Nicht durchlaufen werden die Einsprungpunkte <span class="xref">FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalOnBeforeLoad(FrameworkSystems.FrameworkBase.DevFrameworkObject,System.String@,System.String@,System.String@)</span>, 
+<span class="xref">FrameworkSystems.FrameworkBase.FrameworkDataObject`2.OnBeforeLoad(System.String@,System.String@,System.String@,System.Boolean)</span> und
+<see cref="!:FrameworkDataColl&lt;DataStructType, PKStructType>.OnBeforeLoad(ref string, ref string, ref string, bool)"></see>.</p>
 </td>
       </tr>
       <tr>
         <td id="FrameworkSystems_FrameworkBase_StaticCacheMode_Session">Session</td>
         <td><p>Daten werden pro Session verwaltet.
-Die Einsprungpunkte <span class="xref">FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalOnBeforeLoad(FrameworkSystems.FrameworkBase.DevFrameworkObject,System.String@,System.String@,System.String@)</span>
-und <span class="xref">FrameworkSystems.FrameworkBase.FrameworkDataObject`2.OnBeforeLoad(System.String@,System.String@,System.String@,System.Boolean)</span> werden durchlaufen.
+Die Einsprungpunkte <span class="xref">FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalOnBeforeLoad(FrameworkSystems.FrameworkBase.DevFrameworkObject,System.String@,System.String@,System.String@)</span>,
+<span class="xref">FrameworkSystems.FrameworkBase.FrameworkDataObject`2.OnBeforeLoad(System.String@,System.String@,System.String@,System.Boolean)</span> und
+<see cref="!:FrameworkDataColl&lt;DataStructType, PKStructType>.OnBeforeLoad(ref string, ref string, ref string, bool)"></see> werden durchlaufen.
 Nicht durchlaufen wird <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalWhereStaticCache.html#FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_GlobalWhereStaticCache_FrameworkSystems_FrameworkBase_IStaticCacheObject_">GlobalWhereStaticCache(IStaticCacheObject)</a>.</p>
 </td>
       </tr>

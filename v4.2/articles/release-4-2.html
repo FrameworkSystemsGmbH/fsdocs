@@ -8,7 +8,7 @@
     <title>Release-Information Framework Studio 4.2 </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Release-Information Framework Studio 4.2 ">
-    <meta name="generator" content="docfx 2.46.0.0">
+    <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
     <link rel="stylesheet" href="../styles/docfx.vendor.css">
@@ -85,29 +85,113 @@
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.2.11_Setup_x64</li>
+<li>FS4.0.29_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="html-client-neuerungen">HTML Client Neuerungen</h4>
 <h5 id="neues-framework-als-basis">Neues Framework als Basis</h5>
-<p>Der HTML Client wurde bisher mit <strong>Apache Cordova</strong> und <strong>Adobe PhoneGap Build</strong> in die mobile Welt gebracht. Adobe hat jedoch angekündigt, PhoneGap nicht mehr weiter zu entwickeln. Auf Grund von erweiterter Hardware-Unterstützung und der einfacheren Integration in den Entwicklungsprozess haben wir jedoch schon vor dieser Ankündigung den HTML Client auf das <strong>Ionic Capacitor Framework</strong> umgezogen. Auch die Browser-Version des HTML Clients profitiert maßgeblich vom neuen Framework.</p>
-<p>Folgende Verbesserungen sind ab sofort Verfügbar:</p>
+<p>Der HTML Client wurde bisher mit <strong>Apache Cordova</strong> und <strong>Adobe PhoneGap Build</strong> in die mobile Welt gebracht. Adobe hat im September angekündigt, PhoneGap nicht mehr weiter zu entwickeln. Auf Grund von erweiterter Hardware-Unterstützung und der einfacheren Integration in den Entwicklungsprozess haben wir jedoch schon vor dieser Ankündigung den HTML Client auf das <strong>Ionic Capacitor Framework</strong> umgezogen. Auch die Browser-Version des HTML Clients profitiert maßgeblich vom neuen Framework.</p>
+<p>Zusätzlich zu den Bugfixes unter <strong>Korrigierte Fehler</strong> sind ab sofort folgende Verbesserungen Verfügbar:</p>
 <ul>
-<li>Die TakePhoto Action funktioniert nun auch im Browser</li>
-<li>Die GetGeolocation Action funktioniert nun auch im Browser</li>
+<li>Die <code>TakePhoto</code> Action funktioniert nun auch im Browser</li>
+<li>Die <code>GetGeolocation</code> Action funktioniert nun auch im Browser</li>
+<li>Die <code>PrintReport</code> Action wird nun unterstützt</li>
 <li>Eine noch aktive Session wird sofort beim Starten der App geladen</li>
 <li>Wird das letzte Form geschlossen, gibt es eine Rückfrage, ob die Session geschlossen werden soll</li>
 <li>Die UI wird bei länger laufenden Requests nun vollständig gesperrt, um parallele Eingaben zu verhindern</li>
 </ul>
-<h5 id="installieren-sie-google-chrome-auf-android">Installieren Sie Google Chrome auf Android</h5>
-<p>Adobe Cordova hat bisher zur Anzeige des HTML und zur Ausführung von Javascript in der App die im Android System integrierte WebView verwendet. Seit Android 5 ist die WebView als System-App ausgelagert worden, damit sie unabhängig vom Betriebssystem über den Play Store upgedated werden kann. Vor allem auf alten Geräten (Android 7.0 oder älter) und zusätzlich abhängig vom Hersteller ist dies jedoch oft nicht der Fall und HTML-Applikationen werden auf Grund der betagten Engine fehlerhaft dargestellt.</p>
-<p>Das Ionic Capacitor Framework löst dieses Problem und nutzt ggf. die Engine eines installierten Google Chrome.</p>
+<h5 id="neue-systemvoraussetzungen">Neue Systemvoraussetzungen</h5>
+<p>Unterstützt werden wie bisher Handys und Tablets mit Android 6.0 oder höher.</p>
+<div class="CAUTION"><h5>Caution</h5><p>Auf Geräten mit Android 7.X oder niedriger muss Google Chrome parallel zwingend installiert sein, da die integrierte WebView nicht mehr unterstützt wird</p>
+</div>
+<p>Ist auf dem Endgerät Google Chrome nicht installiert, so wird zur Anzeige der HTML-Applikation die integrierte Android WebView verwendet. Diese basiert wie Google Chrome ebenfalls auf der Chromium Engine, ist aber auf vielen - vor allem älteren - Endgeräten nur in einer sehr betagten Version verfügbar. Dies kann ggf. zu Fehlern führen.</p>
 <p>Es gelten folgende Regeln:</p>
 <ul>
-<li>Wenn Google Chrome installiert ist, wird dessen Engine für die Ausführung der App verwendet</li>
-<li>Ist Chrome nicht installiert, wird die Android WebView verwendet</li>
+<li>Ist Google Chrome installiert, wird dessen Chromium Engine für die Ausführung des Framework Studio Mobile Client verwendet</li>
+<li>Ist Google Chrome nicht installiert, wird die Android WebView verwendet</li>
 </ul>
-<p>Wir empfehlen deshalb unbedingt, auf allen Geräten, auf denen der Framework Studio Mobile Client genutzt wird, auch Google Chrome zu installieren und auf die aktuellste Version upzudaten, um die breiteste Unterstützung von Features und die fehlerfreie Darstellung der App zu garantieren.</p>
+<div class="NOTE"><h5>Note</h5><p>Auch auf neueren Geräten ab Android 8.0 empfehlen wir, die aktuellste Version von Google Chrome zu installieren, um die breiteste Unterstützung von Features und die fehlerfreie Darstellung der App zu garantieren.</p>
+</div>
+<h5 id="globales-css-für-listviewitems-und-template-controls">Globales CSS für ListViewItems und Template Controls</h5>
+<p>Es besteht ab sofort die Möglichkeit, ListViewItems und Template Controls mit globalen CSS Styles zu versehen, welche applikationsweit angewendet werden. So kann sehr einfach ein grundlegendes Theme für die HTML Controls bereitgestellt werden, ohne dasselbe CSS an jedem Control erneut anwenden zu müssen.</p>
+<p>Mehr Informationen dazu gibt es unter folgenden Links:</p>
+<p><a href="../doc/form/control/listview.html#globales-css-für-listviewiems">ListView</a></p>
+<p><a href="../doc/form/control/template.html#globales-css-für-template-controls">TemplateControl</a></p>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2020104399 - <strong>Broker</strong>: Bei der Konvertierung von XML nach JSON kann kann es
+  zu einer Exception kommen, welche als Folge ggf. den HTML Client abstürzen
+  lässt.</p>
+</li>
+<li><p>2020104461 - <strong>Package-Manager</strong>: Beim Löschen einer Package-Version wird eine
+  Exception angezeigt:<br>
+  <em>Record to update was not found in repository. Type: LabelRecord, Lbl_ID:
+  12...</em></p>
+</li>
+<li><p>2020093967 - <strong>IDE</strong>: Werden Properties an Template DataSources geändert, so
+  wird keine Rückfrage zum Auschecken des Forms gestellt. Betrifft den
+  ListView Template Editor sowie den Template Control Editor.</p>
+</li>
+<li><p>2020104124 - <strong>IDE</strong>: Im Template Editor von Template Control und ListView
+  wird das DataSource Editor Panel nicht geschlossen, wenn die letzte
+  DataSource aus der Liste entfernt wird.</p>
+</li>
+<li><p>2020104125 - <strong>IDE</strong>: Wenn am ListView ein Padding oder Margin definiert ist,
+  so stellt die Preview im Template Editor das ListViewItem falsch dar.</p>
+</li>
+<li><p>2020104354 - <strong>IDE</strong>: Namespace-Referenzen auf den v4.0 Global Assembly Cache
+  werden nicht unterstätzt. Der Auswahl-Dialog bietet diese Assemblies nicht
+  an.</p>
+</li>
+<li><p>2020094098 - <strong>Framework</strong>: Wird mit einer Component, die eine Tabelle einer
+  importierten Datenbank verwendet, ein Datensatz gelöscht, dann kommt es zu
+  Exceptions, wenn die Datenbank keine Tabelle dbRun_mlStrings besitzt.<br>
+  Die Tabelle dbRun_mlStrings wird durch die Update-Logik automatisch
+  angelegt, allerdings dann nicht, wenn die komplette Datenbank als &quot;imported&quot;
+  gekennzeichnet ist.</p>
+</li>
+<li><p>2020031857 - <strong>HTML Client</strong>: Wird direkt im Form_Load-Event der Fokus mit
+  SetFocus() in ein Control gesetzt, so wird dieses dennoch nicht fokussiert.</p>
+</li>
+<li><p>2020083526 - <strong>HTML Client</strong>: Bei langen Requests wird nun die komplette UI
+  gesperrt (nach 300ms), sodass während der Bearbeitung keine Request-Kaskaden
+  vom User ausgelöst werden können, die für Verwirrung sorgen.</p>
+</li>
+<li><p>2020083528 - <strong>HTML Client</strong>: Wird SetFocus() auf einem Control ausgeführt,
+  welches im gleichen Request erst auf &quot;Visible&quot; geschaltet wird, so wird der
+  Fokus nicht in das Control gesetzt.</p>
+</li>
+<li><p>2020083532 - <strong>HTML Client</strong>: Wird eine FieldRow zum ersten Mal auf &quot;Visible&quot;
+  gesetzt, kann es sein, dass das Control-Label in der ersten Spalte nicht
+  angezeigt wird.</p>
+</li>
+<li><p>2020083684 - <strong>HTML Client</strong>: Wird das letzte Form einer App geschlossen, so
+  bleibt die Session offen, ohne die Möglichkeit, zurück ins Hauptmenü des
+  HTML Client zu wechseln. Beim Schließen des letzten Forms der App wird nun
+  gefragt, ob die Session beendet und zurück ins Hauptmenü gewechselt werden
+  soll.</p>
+</li>
+<li><p>2020104210 - <strong>HTML Client</strong>: Wenn ein ListView ein Bottom Padding hat und
+  durch die Anzahl der ListViewItems scrollbar wird, so wird das Bottom
+  Padding nicht angezeigt, wenn man ganz nach unten scrollt.</p>
+</li>
+<li><p>2020104396 - <strong>HTML Client</strong>: Wenn in einem ListView oder Template Control der
+  %FILESURL% Platzhalter verwendet wird, aber keine Template-Variablen
+  definiert sind, so wird der Platzhalter zur Laufzeit nicht durch den
+  Broker-Pfad ersetzt.</p>
+</li>
+<li><p>2020104444 - <strong>HTML Client</strong>: Auf Android-Geräten werden alle Bilder (z.B. an
+  ImageButtons oder in ListViews) auf unbestimmte Zeit gecached. Selbst wenn
+  eine Resource mit einem neuen Bild versehen und compiliert wird, wird am
+  Client immernoch das alte Bild angezeigt.</p>
+</li>
+<li><p>2020094030 - <strong>Package-Merge</strong>: WorkflowEvents an Forms und ihre Links gehen
+  unter Umständen verloren.</p>
+</li>
+<li><p>2020094032 - <strong>Package-Merge</strong>: Die Checkbox &quot;Output&quot; wird an VirtualColumns
+  beim Merge nicht immer korrekt gesetzt.</p>
+</li>
+</ul>
 <h2 id="4210-25092020">4.2.10 (25.09.2020)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -138,7 +222,7 @@
 <li><p>2020093992 - <strong>IDE</strong>: In TextCollections ist die Angabe von Texten nicht mehr
   möglich.</p>
 </li>
-<li><p>2020083585 - <strong>HTML Client</strong>: Die Enter-Tast wird auf Android &lt;= 6.0 nicht
+<li><p>2020083585 - <strong>HTML Client</strong>: Die Enter-Taste wird auf Android &lt;= 6.0 nicht
   erkannt. So kann z.B. nicht mit Enter aus einem Editfield heraus gesprungen
   werden.</p>
 </li>
@@ -676,13 +760,6 @@ Zusätzlich wurden die folgenden Bugs behoben.</p>
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/articles/release-4-2.md/#L1" class="contribution-link">Improve this Doc</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>

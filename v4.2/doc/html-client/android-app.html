@@ -8,7 +8,7 @@
     <title>Android App </title>
     <meta name="viewport" content="width=device-width">
     <meta name="title" content="Android App ">
-    <meta name="generator" content="docfx 2.46.0.0">
+    <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
     <link rel="stylesheet" href="../../styles/docfx.vendor.css">
@@ -88,15 +88,18 @@
 <p><a href="https://play.google.com/store/apps/details?id=com.fs.htmlclient">https://play.google.com/store/apps/details?id=com.fs.htmlclient</a></p>
 <div class="NOTE"><h5>Note</h5><p>Apple verweigert Apps per Richtlinie, dynamische Benutzeroberflächen von einer extenen Quelle (Broker) zu laden und am Client aufzubauen. Durch diese Limitierung sind wir leider nicht in der Lage, den Framework Studio Mobile Client auf IOS bereitzustellen.</p>
 </div>
-<h2 id="installieren-sie-google-chrome-auf-android">Installieren Sie Google Chrome auf Android</h2>
-<p>Der Framework Studio Mobile Client ist eine App basierend auf dem Ionic Capacitor Framework, welches HTML-Applikationen mit Hardware-Unterstützung auf mobile Endgeräte bringt. Zur Anzeige von HTML und zur Ausführung von Javascript wird in Android standardmäßig die im Betriebssystem integrierte WebView verwendet. Seit Android 5 ist die WebView als System-App ausgelagert worden, damit sie unabhängig vom Betriebssystem über den Play Store upgedated werden kann. Vor allem auf alten Geräten (Android 7.0 oder älter) und zusätzlich abhängig vom Hersteller ist dies jedoch oft nicht der Fall und HTML-Applikationen werden auf Grund der betagten Engine fehlerhaft dargestellt.</p>
-<p>Das Ionic Capacitor Framework löst dieses Problem und nutzt ggf. die Engine eines installierten Google Chrome.</p>
+<h2 id="systemvoraussetzungen">Systemvoraussetzungen</h2>
+<p>Unterstützt werden Handys und Tablets mit Android 6.0 oder höher.</p>
+<div class="CAUTION"><h5>Caution</h5><p>Auf Geräten mit Android 7.X oder niedriger muss Google Chrome parallel zwingend installiert sein, da die integrierte WebView nicht mehr unterstützt wird</p>
+</div>
+<p>Der Framework Studio Mobile Client ist eine App basierend auf dem Ionic Capacitor Framework, welches HTML-Applikationen mit Hardware-Unterstützung auf mobile Endgeräte bringt. Ist auf dem Endgerät Google Chrome nicht installiert, so wird zur Anzeige der HTML-Applikation die integrierte Android WebView verwendet. Diese basiert wie Google Chrome ebenfalls auf der Chromium Engine, ist aber auf vielen - vor allem älteren - Endgeräten nur in einer sehr betagten Version verfügbar. Dies kann ggf. zu Fehlern führen.</p>
 <p>Es gelten folgende Regeln:</p>
 <ul>
-<li>Wenn Google Chrome installiert ist, wird dessen Engine für die Ausführung der App verwendet</li>
-<li>Ist Chrome nicht installiert, wird die Android WebView verwendet</li>
+<li>Ist Google Chrome installiert, wird dessen Chromium Engine für die Ausführung des Framework Studio Mobile Client verwendet</li>
+<li>Ist Google Chrome nicht installiert, wird die Android WebView verwendet</li>
 </ul>
-<p>Wir empfehlen deshalb unbedingt, auf allen Geräten, auf denen der Framework Studio Mobile Client genutzt wird, auch Google Chrome zu installieren und auf die aktuellste Version upzudaten, um die breiteste Unterstützung von Features und die fehlerfreie Darstellung der App zu garantieren.</p>
+<div class="NOTE"><h5>Note</h5><p>Auch auf neueren Geräten ab Android 8.0 empfehlen wir, die aktuellste Version von Google Chrome zu installieren, um die breiteste Unterstützung von Features und die fehlerfreie Darstellung der App zu garantieren.</p>
+</div>
 <h2 id="einrichten-eines-brokers">Einrichten eines Brokers</h2>
 <p>Es muss natürlich definiert werden, mit welchem Broker sich der Mobile Client verbinden soll. Nach dem Start der App wird der Login angezeigt. Über den Button „+ New“ können beliebig viele Broker zur Liste hinzugefügt werden.</p>
 <p><img src="media/app-broker-1.png" alt="App-Broker1"> <img src="media/app-broker-2.png" alt="App-Broker2"> <img src="media/app-broker-3.png" alt="App-Broker3"></p>
@@ -107,13 +110,6 @@
           
           <div class="hidden-sm col-md-2" role="complementary">
             <div class="sideaffix">
-              <div class="contribution">
-                <ul class="nav">
-                  <li>
-                    <a href="https://github.com/FrameworkSystemsGmbH/fsdocs-content/blob/4.2/master/doc/html-client/android-app.md/#L1" class="contribution-link">Improve this Doc</a>
-                  </li>
-                </ul>
-              </div>
               <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
               <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
               </nav>

@@ -88,10 +88,6 @@
 <li>FS4.0.29_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="crystal-reports-runtime-neuer-print-service">Crystal Reports Runtime, neuer Print-Service</h4>
-<p>Es wird die Crystal Reports Runtime 13.0.26 oder höher unterstützt.</p>
-<p>Mit dem SP 26 der Crystal Reports Runtime gab es eine Versions-Änderung, die dafür sorgt, dass sie von Framework-Studio-Programmen nicht mehr erkannt wird.</p>
-<p>Es müssen alle Print-Services und alle gepublishten Broker und Services aktualisiert werden.</p>
 <h4 id="html-client-neuerungen">HTML Client Neuerungen</h4>
 <h5 id="neues-framework-als-basis">Neues Framework als Basis</h5>
 <p>Der HTML Client wurde bisher mit <strong>Apache Cordova</strong> und <strong>Adobe PhoneGap Build</strong> in die mobile Welt gebracht. Adobe hat im September angekündigt, PhoneGap nicht mehr weiter zu entwickeln. Auf Grund von erweiterter Hardware-Unterstützung und der einfacheren Integration in den Entwicklungsprozess haben wir jedoch schon vor dieser Ankündigung den HTML Client auf das <strong>Ionic Capacitor Framework</strong> umgezogen. Auch die Browser-Version des HTML Clients profitiert maßgeblich vom neuen Framework.</p>
@@ -119,9 +115,83 @@
 <h5 id="globales-css-für-listviewitems-und-template-controls">Globales CSS für ListViewItems und Template Controls</h5>
 <p>Es besteht ab sofort die Möglichkeit, ListViewItems und Template Controls mit globalen CSS Styles zu versehen, welche applikationsweit angewendet werden. So kann sehr einfach ein grundlegendes Theme für die HTML Controls bereitgestellt werden, ohne dasselbe CSS an jedem Control erneut anwenden zu müssen.</p>
 <p>Mehr Informationen dazu gibt es unter folgenden Links:</p>
-<p><a href="../doc/form/control/listview.html#globales-css-für-listviewiems">ListView</a></p>
+<p><a href="../doc/form/control/listview.html#globales-css-für-listviewitems">ListView</a></p>
 <p><a href="../doc/form/control/template.html#globales-css-für-template-controls">TemplateControl</a></p>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2020104399 - <strong>Broker</strong>: Bei der Konvertierung von XML nach JSON kann kann es
+  zu einer Exception kommen, welche als Folge ggf. den HTML Client abstürzen
+  lässt.</p>
+</li>
+<li><p>2020104461 - <strong>Package-Manager</strong>: Beim Löschen einer Package-Version wird eine
+  Exception angezeigt:<br>
+  <em>Record to update was not found in repository. Type: LabelRecord, Lbl_ID:
+  12...</em></p>
+</li>
+<li><p>2020093967 - <strong>IDE</strong>: Werden Properties an Template DataSources geändert, so
+  wird keine Rückfrage zum Auschecken des Forms gestellt. Betrifft den
+  ListView Template Editor sowie den Template Control Editor.</p>
+</li>
+<li><p>2020104124 - <strong>IDE</strong>: Im Template Editor von Template Control und ListView
+  wird das DataSource Editor Panel nicht geschlossen, wenn die letzte
+  DataSource aus der Liste entfernt wird.</p>
+</li>
+<li><p>2020104125 - <strong>IDE</strong>: Wenn am ListView ein Padding oder Margin definiert ist,
+  so stellt die Preview im Template Editor das ListViewItem falsch dar.</p>
+</li>
+<li><p>2020104354 - <strong>IDE</strong>: Namespace-Referenzen auf den v4.0 Global Assembly Cache
+  werden nicht unterstätzt. Der Auswahl-Dialog bietet diese Assemblies nicht
+  an.</p>
+</li>
+<li><p>2020094098 - <strong>Framework</strong>: Wird mit einer Component, die eine Tabelle einer
+  importierten Datenbank verwendet, ein Datensatz gelöscht, dann kommt es zu
+  Exceptions, wenn die Datenbank keine Tabelle dbRun_mlStrings besitzt.<br>
+  Die Tabelle dbRun_mlStrings wird durch die Update-Logik automatisch
+  angelegt, allerdings dann nicht, wenn die komplette Datenbank als &quot;imported&quot;
+  gekennzeichnet ist.</p>
+</li>
+<li><p>2020031857 - <strong>HTML Client</strong>: Wird direkt im Form_Load-Event der Fokus mit
+  SetFocus() in ein Control gesetzt, so wird dieses dennoch nicht fokussiert.</p>
+</li>
+<li><p>2020083526 - <strong>HTML Client</strong>: Bei langen Requests wird nun die komplette UI
+  gesperrt (nach 300ms), sodass während der Bearbeitung keine Request-Kaskaden
+  vom User ausgelöst werden können, die für Verwirrung sorgen.</p>
+</li>
+<li><p>2020083528 - <strong>HTML Client</strong>: Wird SetFocus() auf einem Control ausgeführt,
+  welches im gleichen Request erst auf &quot;Visible&quot; geschaltet wird, so wird der
+  Fokus nicht in das Control gesetzt.</p>
+</li>
+<li><p>2020083532 - <strong>HTML Client</strong>: Wird eine FieldRow zum ersten Mal auf &quot;Visible&quot;
+  gesetzt, kann es sein, dass das Control-Label in der ersten Spalte nicht
+  angezeigt wird.</p>
+</li>
+<li><p>2020083684 - <strong>HTML Client</strong>: Wird das letzte Form einer App geschlossen, so
+  bleibt die Session offen, ohne die Möglichkeit, zurück ins Hauptmenü des
+  HTML Client zu wechseln. Beim Schließen des letzten Forms der App wird nun
+  gefragt, ob die Session beendet und zurück ins Hauptmenü gewechselt werden
+  soll.</p>
+</li>
+<li><p>2020104210 - <strong>HTML Client</strong>: Wenn ein ListView ein Bottom Padding hat und
+  durch die Anzahl der ListViewItems scrollbar wird, so wird das Bottom
+  Padding nicht angezeigt, wenn man ganz nach unten scrollt.</p>
+</li>
+<li><p>2020104396 - <strong>HTML Client</strong>: Wenn in einem ListView oder Template Control der
+  %FILESURL% Platzhalter verwendet wird, aber keine Template-Variablen
+  definiert sind, so wird der Platzhalter zur Laufzeit nicht durch den
+  Broker-Pfad ersetzt.</p>
+</li>
+<li><p>2020104444 - <strong>HTML Client</strong>: Auf Android-Geräten werden alle Bilder (z.B. an
+  ImageButtons oder in ListViews) auf unbestimmte Zeit gecached. Selbst wenn
+  eine Resource mit einem neuen Bild versehen und compiliert wird, wird am
+  Client immernoch das alte Bild angezeigt.</p>
+</li>
+<li><p>2020094030 - <strong>Package-Merge</strong>: WorkflowEvents an Forms und ihre Links gehen
+  unter Umständen verloren.</p>
+</li>
+<li><p>2020094032 - <strong>Package-Merge</strong>: Die Checkbox &quot;Output&quot; wird an VirtualColumns
+  beim Merge nicht immer korrekt gesetzt.</p>
+</li>
+</ul>
 <h2 id="4210-25092020">4.2.10 (25.09.2020)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>

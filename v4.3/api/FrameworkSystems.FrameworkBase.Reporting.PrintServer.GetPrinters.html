@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Property MLCaption
+    <title>Method GetPrinters
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Property MLCaption
+    <meta name="title" content="Method GetPrinters
    ">
     <meta name="generator" content="docfx 2.56.2.0">
     
@@ -80,39 +80,73 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.MLCaption*">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.Reporting.PrintServer.GetPrinters*">
 
-<h1 id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_MLCaption_" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.MLCaption*">Property MLCaption
+<h1 id="FrameworkSystems_FrameworkBase_Reporting_PrintServer_GetPrinters_" data-uid="FrameworkSystems.FrameworkBase.Reporting.PrintServer.GetPrinters*">Method GetPrinters
 </h1>
 <div class="markdown level0 summary"></div>
 <div class="markdown level0 conceptual"></div>
 
-<a id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_MLCaption_" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.MLCaption*"></a>
-<h4 id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_MLCaption" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.MLCaption">MLCaption</h4>
+<a id="FrameworkSystems_FrameworkBase_Reporting_PrintServer_GetPrinters_" data-uid="FrameworkSystems.FrameworkBase.Reporting.PrintServer.GetPrinters*"></a>
+<h4 id="FrameworkSystems_FrameworkBase_Reporting_PrintServer_GetPrinters_FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_" data-uid="FrameworkSystems.FrameworkBase.Reporting.PrintServer.GetPrinters(FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects,FrameworkSystems.FrameworkDataProvider.BaseObjects.guid)">GetPrinters(IGlobalObjects, guid)</h4>
 <section>
-  <div class="markdown level1 summary"><p>Mehrsprachige Beschriftung des Reports.</p>
+  <div class="markdown level1 summary"><p>Liefert eine Liste mit Druckern des Print-Servers, die in der Runtime-Datenbank registriert sind.
+Als gelöscht markierte Drucker werden nicht zurückgegeben.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">public DevMLString MLCaption { get; }</code></pre>
+      <pre><code class="lang-csharp hljs">public static List&lt;Printer&gt; GetPrinters(IGlobalObjects global, guid printServerId)</code></pre>
+    </div>
+  </section>
+  <h5 class="parameters">Parameters</h5>
+  <section>
+    <div class="propertyInfo">
+      <span class="parametername"><code>global</code></span> <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.html">IGlobalObjects</a>
+      <div class="markdown level1 summary"><p>GlobalObject für die Verbinding zur Runtime-Datenbank.</p>
+</div>
+    </div>
+    <div class="propertyInfo">
+      <span class="parametername"><code>printServerId</code></span> <a class="xref" href="FrameworkSystems.FrameworkDataProvider.BaseObjects.guid.html">guid</a>
+      <div class="markdown level1 summary"><p>ID des PrintServers.</p>
+</div>
     </div>
   </section>
 
-
-  <h5 class="propertyValue">Property Value</h5>
-  <section>
+    <h5 class="returns">Returns</h5>
+    <section>
       <div class="propertyInfo">
-        <a class="xref" href="FrameworkSystems.FrameworkBase.MultiLanguage.DevMLString.html">DevMLString</a>
+        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkBase.Reporting.Printer.html">Printer</a>&gt;
         <div class="markdown level1 summary"></div>
-      </div>  
+      </div>
+    </section>
+
+</section>
+<a id="FrameworkSystems_FrameworkBase_Reporting_PrintServer_GetPrinters_" data-uid="FrameworkSystems.FrameworkBase.Reporting.PrintServer.GetPrinters*"></a>
+<h4 id="FrameworkSystems_FrameworkBase_Reporting_PrintServer_GetPrinters" data-uid="FrameworkSystems.FrameworkBase.Reporting.PrintServer.GetPrinters">GetPrinters()</h4>
+<section>
+  <div class="markdown level1 summary"><p>Liefert eine Liste mit Druckern des Print-Servers, die in der Runtime-Datenbank registriert sind.
+Als gelöscht markierte Drucker werden nicht zurückgegeben.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <h5 class="decalaration">Declaration</h5>
+  <section>
+    <div class="codewrapper">
+      <pre><code class="lang-csharp hljs">public List&lt;Printer&gt; GetPrinters()</code></pre>
+    </div>
   </section>
-  <h5 id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_MLCaption_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.GetCaption.html#FrameworkSystems_FrameworkBase_Reporting_ReportEnum_GetCaption_FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_">GetCaption(IGlobalObjects)</a></div>
-  </div>
+
+    <h5 class="returns">Returns</h5>
+    <section>
+      <div class="propertyInfo">
+        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.list-1">List</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkBase.Reporting.Printer.html">Printer</a>&gt;
+        <div class="markdown level1 summary"></div>
+      </div>
+    </section>
+
 </section>
 </article>
           </div>

@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Property MLCaption
+    <title>Field Reports
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Property MLCaption
+    <meta name="title" content="Field Reports
    ">
     <meta name="generator" content="docfx 2.56.2.0">
     
@@ -80,40 +80,45 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.MLCaption*">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportDocument.Reports">
 
-<h1 id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_MLCaption_" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.MLCaption*">Property MLCaption
+
+<h1 id="FrameworkSystems_FrameworkBase_Reporting_ReportDocument_Reports" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportDocument.Reports" class="text-break">Field Reports
 </h1>
-<div class="markdown level0 summary"></div>
-<div class="markdown level0 conceptual"></div>
-
-<a id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_MLCaption_" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.MLCaption*"></a>
-<h4 id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_MLCaption" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.MLCaption">MLCaption</h4>
-<section>
-  <div class="markdown level1 summary"><p>Mehrsprachige Beschriftung des Reports.</p>
+<div class="markdown level0 summary"><p>Eine Instanz, die alle, im Report-Document-Type definierten Crystal Reports, als Properties beinhaltet.</p>
 </div>
-  <div class="markdown level1 conceptual"></div>
+<div class="markdown level0 conceptual"></div>
+<h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkBase.Reporting.html">FrameworkSystems.FrameworkBase.Reporting</a></h6>
+<h6><strong>Assembly</strong>: FrameworkSystems.FrameworkBase.dll</h6>
+<h5 id="FrameworkSystems_FrameworkBase_Reporting_ReportDocument_Reports_syntax">Syntax</h5>
+<div class="codewrapper">
+  <pre><code class="lang-csharp hljs">public static readonly ReportDocument.ReportEnumList Reports</code></pre>
+</div>
+<h5 class="returns">Returns</h5>
+<table class="table table-bordered table-striped table-condensed">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><span class="xref">FrameworkSystems.FrameworkBase.Reporting.ReportDocument.ReportEnumList</span></td>
+      <td></td>
+    </tr>
+  </tbody>
+</table>
+<h5 id="FrameworkSystems_FrameworkBase_Reporting_ReportDocument_Reports_remarks"><strong>Remarks</strong></h5>
+<div class="markdown level0 remarks"><p>Verwenden dieses Properties:</p>
+<p>1.) bei der Instanziierung des Reports</p>
+<pre><code>rptReport myRptReport = new rptReport(this.Global, rptReport.Reports.SpecialReport1, ExportFormat.PDF );</code></pre>
 
-  <h5 class="decalaration">Declaration</h5>
-  <section>
-    <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">public DevMLString MLCaption { get; }</code></pre>
-    </div>
-  </section>
+<p>2.) Nachträglich setzen</p>
+<pre><code>myRptReport.SelectedReport = rptReport.Reports.SpecialReport2;</code></pre>
 
-
-  <h5 class="propertyValue">Property Value</h5>
-  <section>
-      <div class="propertyInfo">
-        <a class="xref" href="FrameworkSystems.FrameworkBase.MultiLanguage.DevMLString.html">DevMLString</a>
-        <div class="markdown level1 summary"></div>
-      </div>  
-  </section>
-  <h5 id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_MLCaption_seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.GetCaption.html#FrameworkSystems_FrameworkBase_Reporting_ReportEnum_GetCaption_FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_">GetCaption(IGlobalObjects)</a></div>
-  </div>
-</section>
+<p>Mithilfe der Methode <a class="xref" href="FrameworkSystems.FrameworkBase.Reporting.ReportDocument.GetReportEnums.html#FrameworkSystems_FrameworkBase_Reporting_ReportDocument_GetReportEnums">GetReportEnums()</a> können alle verfügbaren Reports ermittelt werden.</p>
+</div>
 </article>
           </div>
           

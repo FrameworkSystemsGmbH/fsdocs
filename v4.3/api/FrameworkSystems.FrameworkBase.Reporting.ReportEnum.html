@@ -85,7 +85,7 @@
   
   <h1 id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum" class="text-break">Class ReportEnum
   </h1>
-  <div class="markdown level0 summary"><p>Beschreibt eine Report-Definition.</p>
+  <div class="markdown level0 summary"><p>Diese Klasse repräsentiert einen im Report Document Type definierten Crystal Report.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -99,6 +99,21 @@
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">public class ReportEnum</code></pre>
   </div>
+  <h5 id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_examples"><strong>Examples</strong></h5>
+  <p>Beispiel für die Verwendung von ReportEnum:</p>
+<pre><code>foreach( ReportEnum oReportEnum in rptDocumentP.GetReportEnums() )
+{
+    cPrintReportName oPrintReportName = new cPrintReportName(this.Global);
+
+    oPrintReportName.sReportName = oReportEnum.ReportName;
+    oPrintReportName.sReportCaption = oReportEnum.GetCaption( this.Global );
+    oPrintReportName.sReportFileName = rptDocumentP.ReportDir + &quot;\\&quot; + oReportEnum.ReportFileName;
+    oPrintReportName.oReportName = oReportEnum;
+    oPrintReportName.intPaperOrientaion = (int)oReportEnum.Orientation;
+
+    this.Add(oPrintReportName);
+}</code></pre>
+
   <h3 id="constructors">Constructors
   </h3>
   
@@ -123,14 +138,14 @@ Wird für Custom Report-Definitionen verwendet.</p>
     <section><p><p>Mehrsprachige Beschriftung des Reports.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.Orientation.html#FrameworkSystems_FrameworkBase_Reporting_ReportEnum_Orientation">Orientation</a></h4>
-    <section><p><p>Die Orientierung des Reports.</p>
+    <section><p><p>Die Orientierung des Reports. Wird bei der Code-Generierung aus der Crystal Report-Datei ermittelt.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.ReportBytes.html#FrameworkSystems_FrameworkBase_Reporting_ReportEnum_ReportBytes">ReportBytes</a></h4>
     <section><p><p>Binär-Daten einer rpt-Datei. Diese haben höhere Priorität als <a class="xref" href="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.ReportFileName.html#FrameworkSystems_FrameworkBase_Reporting_ReportEnum_ReportFileName">ReportFileName</a>.
 Wird für Custom Report-Definitionen verwendet.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.ReportFileName.html#FrameworkSystems_FrameworkBase_Reporting_ReportEnum_ReportFileName">ReportFileName</a></h4>
-    <section><p><p>Der Datei-Name des Reports im Broker-Verzeichnis.</p>
+    <section><p><p>Der Datei-Name des Reports im Broker-Verzeichnis. (ohne Pfad)</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.ReportName.html#FrameworkSystems_FrameworkBase_Reporting_ReportEnum_ReportName">ReportName</a></h4>
     <section><p><p>Der Name des Reports.</p>

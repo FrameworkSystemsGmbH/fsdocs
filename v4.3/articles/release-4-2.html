@@ -81,13 +81,75 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-42">Release-Information Framework Studio 4.2</h1>
 
+<h2 id="4212-27112020">4.2.12 (27.11.2020)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.12_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="html-client-neuerungen">HTML Client Neuerungen</h4>
+<h5 id="setfocus-action-auf-formebene">SetFocus Action auf Formebene</h5>
+<p>Bisher wurde lediglich die letzte am Broker ausgeführte SetFocus-Action am Client ausgeführt und das unabhängig von den Forms. SetFocus-Actions werden nun per Form abgearbeitet.</p>
+<h5 id="deep-links">Deep Links</h5>
+<p>Der Android Mobile Client unterstützt nun das Öffnen von Deep Links. Damit kann z.B. aus einem Browser heraus per Link der Mobile Client geöffnet und automatisch ein Login an einem Broker ausgeführt werden. Zudem kann der Broker-Liste ein Eintrag hinzugefügt werden.</p>
+<p>Beispiel im HTML:</p>
+<pre><code class="lang-html">&lt;a href=&quot;fsbroker://framework-systems.de?name=Demo&amp;url=http%3A%2F%2FAwesomeServer%3A8080%2FAwesomeApplication&amp;login=true&amp;save=true&quot;&gt;Open Deep Link&lt;/a&gt;
+</code></pre><p>Der Link beginnt immer mit der Custom-Url <code>fsbroker://framework-systems.de</code>. Diese wird vom Mobile Client im Android-System registriert und sorgt für das Öffnen der App. Zusätzlich kann die Url aus bis zu vier der folgenden Parameter bestehen:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Typ</th>
+<th style="text-align:left">Benötigt</th>
+<th style="text-align:left">Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>name</code></td>
+<td style="text-align:left"><code>string (url-encoded)</code></td>
+<td style="text-align:left">Ja</td>
+<td style="text-align:left">Der Name des Brokers</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>url</code></td>
+<td style="text-align:left"><code>string (url-encoded)</code></td>
+<td style="text-align:left">Ja</td>
+<td style="text-align:left">Die Broker-Url</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>login</code></td>
+<td style="text-align:left"><code>boolean (true/false)</code></td>
+<td style="text-align:left">Nein</td>
+<td style="text-align:left">Steuert, ob sich die App nach dem Öffnen sofort am gegebenen Broker angemelden soll. Bei <code>false</code> wird lediglich die Startseite angezeigt. Der Standardwert ist <code>true</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>save</code></td>
+<td style="text-align:left"><code>boolean (true/false)</code></td>
+<td style="text-align:left">Nein</td>
+<td style="text-align:left">Steuert, ob der angegebene Broker in der Login-Liste des Mobile Client gespeichert werden soll. Existiert ein Eintrag mit demselben namen, so wird dessen Url überschrieben. Der Standardwert ist <code>false</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Die Parameter <code>name</code> und <code>url</code> müssen immer url-enkodiert sein. So muss wie im Beispiel statt</p>
+<p><code>fsbroker://AwesomeServer:8080/AwesomeApplication</code></p>
+<p>die url-enkodierte Variante</p>
+<p><code>fsbroker%3A%2F%2FAwesomeServer%3A8080%2FAwesomeApplication</code></p>
+<p>angegeben werden.</p>
+<p>Einen entsprechenden Url-Encoder finden Sie z.B. unter <a href="https://www.urlencoder.org/">https://www.urlencoder.org</a></p>
+<div class="NOTE"><h5>Note</h5><p>Ein Klick auf einen Deep Link wird vom Mobile Client nur dann interpretiert, wenn folgende Bedingungen erfüllt sind:</p>
+<ul>
+<li>Die App ist nicht bereits an einem Broker angemeldet</li>
+<li>Die App findet beim Start keine alte Session, die fortgeführt werden kann</li>
+</ul>
+</div>
 <h2 id="4211-30102020">4.2.11 (30.10.2020)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.2.11_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="html-client-neuerungen">HTML Client Neuerungen</h4>
+<h4 id="html-client-neuerungen-1">HTML Client Neuerungen</h4>
 <h5 id="neues-framework-als-basis">Neues Framework als Basis</h5>
 <p>Der HTML Client wurde bisher mit <strong>Apache Cordova</strong> und <strong>Adobe PhoneGap Build</strong> in die mobile Welt gebracht. Adobe hat im September angekündigt, PhoneGap nicht mehr weiter zu entwickeln. Auf Grund von erweiterter Hardware-Unterstützung und der einfacheren Integration in den Entwicklungsprozess haben wir jedoch schon vor dieser Ankündigung den HTML Client auf das <strong>Ionic Capacitor Framework</strong> umgezogen. Auch die Browser-Version des HTML Clients profitiert maßgeblich vom neuen Framework.</p>
 <p>Zusätzlich zu den Bugfixes unter <strong>Korrigierte Fehler</strong> sind ab sofort folgende Verbesserungen Verfügbar:</p>
@@ -312,7 +374,7 @@ Customizing-Package gelöscht und neu customized werden.</p>
 <li>FS_4.2.8_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="html-client-neuerungen-1">HTML Client Neuerungen</h4>
+<h4 id="html-client-neuerungen-2">HTML Client Neuerungen</h4>
 <h5 id="mlkeys-und-preview-im-templatecontrol-und-listview">MLKeys und Preview im TemplateControl und ListView</h5>
 <p>Im HTML-Editor des TemplateControls und ListViews können jetzt MLKeys verwendet werden. Außerdem gibt es dort nun eine Preview-Funktion. Weitere Informationen: <a href="../doc/form/control/template.html">TemplateControl</a> und <a href="../doc/form/control/listview.html">ListView</a>.</p>
 <h5 id="unterstützung-für-das-tabbedwindow-control">Unterstützung für das TabbedWindow Control</h5>

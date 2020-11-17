@@ -81,45 +81,67 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="report-document-type">Report Document Type</h1>
 
-<p><strong>Report Document Types</strong> stellen die Verbindung zwischen den Components und den Reports dar. Sie definieren, was für Daten in welchem Report ausgegeben werden. Ein Report Document Type enthält eine Angabe, welche Components ausgedruckt werden sollen und welche Reports dafür zur Verfügung stehen. Diese <strong>Report Document Types</strong> können später in Forms verwendet werden.</p>
+<p><strong>Report Document Types</strong> stellen die Verbindung zwischen den Components und den Reports dar.
+Sie definieren, was für Daten in welchem Report ausgegeben werden. Ein Report Document Type enthält eine Angabe, welche Components ausgedruckt werden sollen und welche Reports dafür zur Verfügung stehen.
+Diese <strong>Report Document Types</strong> können später in Forms verwendet werden.</p>
 <p><strong>Report-Document Types</strong> sind an dem <img src="media/report-icon.png" alt="rpt-icon">– Icon zu erkennen.</p>
 <h2 id="erstellen-bearbeiten-und-löschen-von-report-document-types">Erstellen, bearbeiten und löschen von Report Document Types</h2>
 <p>Sie erstellen einen neuen Report Document Type, indem Sie in der Registerkarte <strong>Namespaces</strong> den Namespace auswählen, in dem der Report Document Type abgelegt werden soll.</p>
-<p>Mit dem Button <img src="../media/button-new.png" alt="new-button">(<strong>New</strong>) und dem Eintrag <strong>ReportDocuemtType</strong> aus dem Menü wird im markierten Namespace ein neuer Report Document Type angelegt. Dieser wird auch gleich geöffnet. Direkt nach dem Anlegen des Report Document Types steht der Cursor in dem sich öffnenden Designer auf dem Feld <strong>Name</strong>, wo Sie gleich den Namen eingeben können.</p>
+<p>Mit dem Button <img src="../media/button-new.png" alt="new-button">(<strong>New</strong>) und dem Eintrag <strong>ReportDocuemtType</strong> aus dem Menü wird im markierten Namespace ein neuer Report Document Type angelegt.
+Dieser wird auch gleich geöffnet.
+Direkt nach dem Anlegen des Report Document Types steht der Cursor in dem sich öffnenden Designer auf dem Feld <strong>Name</strong>, wo Sie gleich den Namen eingeben können.</p>
 <p>Es wird empfohlen, den Namen mit <strong>rpt</strong> zu beginnen.</p>
-<p>Löschen können Sie einen Report Document Type mit dem Button <img src="../media/button-delete.png" alt="delete-button"> (<strong>Delete</strong>). Sie müssen dazu den gewünschten Report Document Type im Namespace-Baum markiert haben. Es gibt auch im Kontext-Menü den Eintrag <strong>Delete</strong>. Der Löschvorgang wird erst im Repository wirksam, wenn Sie den Button <img src="../media/button-save-all.png" alt="saveall-button"> (<strong>Save All</strong>) drücken.
- </p>
+<p>Löschen können Sie einen Report Document Type mit dem Button <img src="../media/button-delete.png" alt="delete-button"> (<strong>Delete</strong>).
+Sie müssen dazu den gewünschten Report Document Type im Namespace-Baum markiert haben.
+Es gibt auch im Kontext-Menü den Eintrag <strong>Delete</strong>.
+Der Löschvorgang wird erst im Repository wirksam, wenn Sie den Button <img src="../media/button-save-all.png" alt="saveall-button"> (<strong>Save All</strong>) drücken.</p>
 <h2 id="datasource">DataSource</h2>
-<p>Unter Datasource werden die Components angegeben, die in einem Report ausgegeben werden sollen. Es ist möglich, mehrere Components (Collections) aus unterschiedlichen Namespaces einzubinden.</p>
+<p>Unter Datasource werden die Components angegeben, die in einem Report ausgegeben werden sollen.
+Es ist möglich, mehrere Components (Collections) aus unterschiedlichen Namespaces einzubinden.</p>
 <p>Jede Component wiederum kann für mehrere Reports als Datasource angegeben werden.</p>
-<p><strong>Report Document Type – Registerkarte DataSource:</strong>
-<img src="media/report-document-type-data-source.png" alt="Report Document Type – Registerkarte DataSource"></p>
-<p>Mit dem Button <strong>Add</strong> wird ein neuer Eintrag in der Liste erstellt. In der Combobox <strong>Datatype</strong> können Sie angeben, welche Component / Collection verwendet werden soll. Im Feld <strong>Name</strong> können Sie dem Eintrag einen Namen geben. Dieser wird anhand des ausgewählten Datentyps mit einem Standard-Namen vorbelegt.</p>
-<p>Diese Einträge sind sozusagen die Properties des Reports. Diese Properties müssen später beim Druck mit Werten gefüllt werden.</p>
-<p>Wenn Sie Components oder Collections eingebunden haben, können Sie die Properties aufklappen und die Properties der Component / Collection werden angeboten. Sind dies wiederum Components, können diese wiederum aufgeklappt werden.</p>
-<p>In diesem Baum können Sie angeben, welche Properties an den Report übergeben werden sollen. Dazu müssen Sie die Checkbox an dem entsprechenden Eintrag setzen.</p>
-<p>Aus diesen Daten wird eine XSD-Datei (XML-Definition) erstellt. Diese XSD-Datei kann einem Crystal-Report zugewiesen werden. So versteht der Report die Daten, die ihm übergeben werden. Mit jedem Klick im Baum wird die XSD-Datei neu erzeugt. Sie wird im Report-Pfad der aktuellen Applikation abgelegt. Und bekommt folgenden Namen: Namespaces.rptXXX.xsd.</p>
+<p><img src="media/report-document-type-data-source.png" alt="Report Document Type – Registerkarte DataSource"></p>
+<p>Mit dem Button <strong>Add</strong> wird ein neuer Eintrag in der Liste erstellt.
+In der Combobox <strong>Datatype</strong> können Sie angeben, welche Component / Collection verwendet werden soll.
+Im Feld <strong>Name</strong> können Sie dem Eintrag einen Namen geben.
+Dieser wird anhand des ausgewählten Datentyps mit einem Standard-Namen vorbelegt.</p>
+<p>Diese Einträge sind sozusagen die Properties des Reports.
+Diese Properties müssen später beim Druck mit Werten gefüllt werden.</p>
+<p>Wenn Sie Components oder Collections eingebunden haben, können Sie die Properties aufklappen und die Properties der Component / Collection werden angeboten.
+Sind dies wiederum Components, können diese wiederum aufgeklappt werden.</p>
+<p>In diesem Baum können Sie angeben, welche Properties an den Report übergeben werden sollen.
+Dazu müssen Sie die Checkbox an dem entsprechenden Eintrag setzen.</p>
+<p>Aus diesen Daten wird eine XSD-Datei (XML-Definition) erstellt.
+Diese XSD-Datei kann einem Crystal-Report zugewiesen werden.
+So versteht der Report die Daten, die ihm übergeben werden.
+Mit jedem Klick im Baum wird die XSD-Datei neu erzeugt.
+Sie wird im Report-Pfad der aktuellen Applikation abgelegt.
+Und bekommt folgenden Namen: Namespaces.rptXXX.xsd.</p>
 <p>Zum Einstellen des Pfades siehe Kapitel <strong>Code-Builder / Applications</strong> (<a href="../ide/application.html">Application</a>).</p>
-<p>Beim Druck werden die kompletten Components / Collections an den ReportDocmentType übergeben. Es werden aber nur die ausgewählten Daten weitergegeben. Umso größer die Listen, desto wichtiger ist es, dass nur die Daten übergeben werden, die wirklich benötigt werden.</p>
-<p>Aus den Daten wird XML erzeugt. Dieses wird dann Crystal Reports übergeben, wo die Daten entsprechend aufbereitet und ausgegeben werden.</p>
+<p>Beim Druck werden die kompletten Components / Collections an den ReportDocmentType übergeben.
+Es werden aber nur die ausgewählten Daten weitergegeben.
+Umso größer die Listen, desto wichtiger ist es, dass nur die Daten übergeben werden, die wirklich benötigt werden.</p>
+<p>Aus den Daten wird XML erzeugt.
+Dieses wird dann Crystal Reports übergeben, wo die Daten entsprechend aufbereitet und ausgegeben werden.</p>
 <h2 id="crystal-reports">Crystal Reports</h2>
 <p>Auf der Registerkarte Crystal Reports können dem Report Document Type mehrere Reports zugewiesen werden.</p>
-<p>Report Document Type – Crystal Reports:
-<img src="media/report-document-type-crystal-reports.png" alt="Report Document Type – Crystal Reports"></p>
+<p><img src="media/report-document-type-crystal-reports.png" alt="Report Document Type – Crystal Reports"></p>
 <p>Einen neuen Report fügen Sie beispielsweise über das Kontextmenü der Tabelle hinzu, in der die Reports angezeigt werden.</p>
-<p>Mit der Checkbox <strong>Include Base Reports</strong> legen Sie fest, ob vererbte, nicht geänderte Basisreports später in der Applikation zur Auswahl stehen sollen.</p>
+<p>Mit der Checkbox <strong>Include Base Reports</strong> legen Sie fest, ob vererbte, nicht geänderte Basisreports später in der Applikation zur Auswahl stehen sollen.
+Sie hat Einfluss darauf, was die Methode ReportDocument.<a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.ReportDocument.GetReportEnums.html#FrameworkSystems_FrameworkBase_Reporting_ReportDocument_GetReportEnums">GetReportEnums()</a> zurückgibt.</p>
 <p>Die folgenden Einstellungen beziehen sich auf den in der Tabelle ausgewählten Report:</p>
 <p>Im Feld <strong>Name</strong> kann dem Report ein Name gegeben werden.</p>
-<div class="WARNING"><h5>Warning</h5><p>Dieser Name darf keine Leer- und Sonderzeichen enthalten, weil dieser später im Code zum Einsatz kommt. </p>
+<div class="WARNING"><h5>Warning</h5><p>Dieser Name darf keine Leer- und Sonderzeichen enthalten, weil dieser später im Code zum Einsatz kommt.</p>
 </div>
-<p>Im Feld <strong>File</strong> kann ein vorhandener Report geöffnet und eingebunden werden. Dieser Report muss als Datenquelle das erzeugte XSD-File besitzen.</p>
+<p>Im Feld <strong>File</strong> kann ein vorhandener Report geöffnet und eingebunden werden.
+Dieser Report muss als Datenquelle das erzeugte XSD-File besitzen.</p>
 <p>Mit dem Button <strong>Edit Report</strong> wird der Report über ein externes Tool bearbeitet.</p>
 <div class="WARNING"><h5>Warning</h5><p>Zum Erstellen und Editieren von Reports benötigen Sie Crystal Reports oder Visual Studio.</p>
 </div>
 <p>Mit dem Button <strong>New Report</strong> wird ein neuer Report zugewiesen.</p>
 <p>Der Button <strong>Choose Report</strong> öffnet einen Dateiauswahl Dialog, in dem Sie einen neuen, bereits existierenden Report zuweisen können.</p>
 <h4 id="caption">Caption</h4>
-<p>Im Report Document Type können Sie für Crystal Reports lokalisierte Bezeichnungen (Captions) hinterlegen, also die Bezeichnung mehrsprachig pflegen. Diese Captions können zur Laufzeit ausgewertet werden, um z.B. im Druck-Dialog bei der Auswahl der unterschiedlichen Report-Varianten einen sprechenden Text auszugeben.</p>
+<p>Im Report Document Type können Sie für Crystal Reports lokalisierte Bezeichnungen (Captions) hinterlegen, also die Bezeichnung mehrsprachig pflegen.
+Diese Captions können zur Laufzeit ausgewertet werden, um z.B. im Druck-Dialog bei der Auswahl der unterschiedlichen Report-Varianten einen sprechenden Text auszugeben.</p>
 <h2 id="crystal-report-mit-visual-studio-erstellen">Crystal Report mit Visual Studio erstellen</h2>
 <p>Öffnen Sie Visual Studio.</p>
 <p>Legen Sie jetzt ein neues Projekt an (Visual C# Project / leeres Projekt oder empty Project) oder öffnen Sie ein bereits vorhandenes Projekt.</p>
@@ -151,163 +173,14 @@
 <p>Wenn die XSD-Dateien nicht gefunden werden, fragt <strong>Visual Studio</strong> nach, wo diese zu finden sind.</p>
 <p>Es werden jetzt die neuen Felder hinzugefügt und die entfernten Felder gelöscht. Das Löschen kann ggf. zu Fehlermeldungen führen.</p>
 <p>Wenn Sie neue Components eingebunden haben, können diese mit dem Befehl <strong>Add/Remove Database</strong> manuell hinzugefügt werden.</p>
-<h2 id="die-klasse-reportdocument">Die Klasse ReportDocument</h2>
-<p>Diese Klasse ist die Basis-Klasse aller Reports, die mit Framework-Studio entwickelt werden.</p>
-<p>Es folgt eine Beschreibung der allgemeinen Properties und Methoden, die jeder Report besitzt.</p>
-<h3 id="properties">Properties</h3>
-<h4 id="reports-static">Reports (static)</h4>
-<p>Eine Klasse, die alle, im Report-Document-Type definierten Crystal Reports, als Properties beinhaltet.</p>
-<p>Verwenden dieser Klasse:</p>
-<p>bei der Instanziierung des Reports</p>
-<pre><code class="lang-csharp">rptReport myRptReport = new rptReport( this.Global, rptReport.Reports.SpecialReport1, ExportFormat.PDF );
-</code></pre><p>nachträglich setzen</p>
-<pre><code class="lang-csharp">myRptReport.SelectedReport = rptReport.Reports.SpecialReport2;
-</code></pre><p>Auslesen der Informationen, um diese zum Beispiel in einer Auswahl anzubieten. Das erfolgt mithilfe von Reflection:</p>
-<pre><code class="lang-csharp">System.Type T = rptDocumentP.GetType().GetNestedType &quot;Reports&quot;);
-System.Reflection.FieldInfo [] Fields = T.GetFields
-    (System.Reflection.BindingFlags.Static |System.Reflection.BindingFlags.Public);
-
-foreach (System.Reflection.FieldInfo F in Fields)
-{
-    // den Namen auslesen
-    String sName  = F.Name;
-    // Das object auslesen, um es später dem SelectedReport-Property zuzuweisen.
-    Object oReportType = F.GetValue (null) as
-        FrameworkSystems.FrameworkBase.Reporting.ReportEnum;
-}
-</code></pre><p>Siehe auch: <a href="#crystal-reports">Crystal Reports</a></p>
-<h4 id="useoldlogic-get-set-static">UseOldLogic {get; set} (static)</h4>
-<p>Dieses boolsche Property aktiviert eine alte Logik, bei der die Reports komplett im Print-Server oder in der ReportGenerator.aspx verarbeitet werden.</p>
-<p>Mit der neuen Logik werden mehr Verarbeitungs-Schritte direkt in der Broker-Logik durchgeführt. So werden die Daten nicht mehr als separates XML verarbeitet, sondern direkt in die Report-Datei hineingegeben und bei der Anzeige von Reports generiert der Broker schon das fertige PDF. Falls es dadurch zu Komplikationen kommt, können Sie mit diesem Schalter auf alte Logik umschalten.</p>
-<p>Dieses Property ist statisch. Eine Änderung wirkt sich somit auf den kompletten Broker aus.</p>
-<h4 id="selectedreport">SelectedReport</h4>
-<p>Der aktuell ausgewählte Report. Die vorhandenen Reports können über das Statische Property Reports ermittelt werden.</p>
-<p>Siehe <a href="#properties">Properties</a></p>
-<h4 id="exportformat">ExportFormat</h4>
-<p>Das Format, in dem der Report ausgegeben werden soll.</p>
-<p>Diese Einstellung wird ignoriert, wenn der Report auf einem Drucker ausgegeben werden soll.</p>
-<p>Es gibt folgende Typen:</p>
+<h2 id="für-den-druck-relevente-klassen">Für den Druck relevente Klassen</h2>
 <ul>
-<li>RichText</li>
-<li>Word</li>
-<li>Excel</li>
-<li>PDF</li>
-<li>Html32</li>
-<li>Html40</li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.ReportDocument.html">ReportDocument</a></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.ReportEnum.html">ReportEnum</a></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.PrintServer.html">PrintServer</a></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.PrintQueue.html">PrintQueue</a></li>
 </ul>
-<p>Verwenden des Properties:</p>
-<p>bei der Instanziierung des Reports</p>
-<pre><code class="lang-csharp">rptReport myRptReport = 
-    new rptReport( this.Global, rptReport.Reports.SpecialReport1, ExportFormat.PDF );
-</code></pre><p>nachträglich setzen</p>
-<pre><code class="lang-csharp">myRptReport.ExportFormat = ExportFormat.Html40;
-</code></pre><h4 id="xsdfilename">XSDFileName</h4>
-<p>Gibt den Namen der XSD-Datei zurück, die verwendet wird.</p>
-<h4 id="reportdir">ReportDir</h4>
-<p>Gibt den Namen des Dateiordners zurück, in dem die Crystal Reports abgelegt sind.</p>
-<h4 id="cachecrystalreport-get-set">CacheCrystalReport {get; set}</h4>
-<p>Dieses boolsche Property gibt an, ob der CrystalReport zwischengespeichert werden soll, der mit der Methode ExportReport erzeugt wird.</p>
-<p>Wenn ein Report mehrfach verarbeitet werden soll, dann erhöht dieser Schalter die Performance, da der Report nur einmal geladen und mit Daten befüllt werden muss. Die Methoden Print und PrintToPrinter rufen intern ebenfalls die Methode ExportReport auf. Wenn man also einen Report anzeigt oder druckt und zugleich ein PDF erzeugen möchte, dann handelt es sich um eine mehrfache Verarbeitung.</p>
-<p>Der Schalter muss vor der ersten Verarbeitung aktiviert werden.</p>
-<p>Nach der letzten Verarbeitung muss die Methode UncacheCrystalReports aufgerufen werden. Ansonsten kann es zu Speicher-Lecks und ggf. auch zu Exceptions führen.</p>
-<p>Ein Report sollte nicht über einen Request hinaus zwischengespeichert werden.</p>
-<p>Beispiel-Code:</p>
-<pre><code class="lang-csharp">ReportDocument rd = new ReportDocument(….)
-[…]
-rd.CacheCrystalReport = true;
-rd.PrintToPrinter(….);
-btye[] bytesPDF = rd.ExportReport( ExportFormat.PDF );
-rd.UncacheCrystalReport();
-</code></pre><h4 id="methoden">Methoden</h4>
-<h5 id="listreportenum-getreportenums">List<reportenum> GetReportEnums()</reportenum></h5>
-<p>Damit kann man aus dem ReportDocument die Liste der ReportEnums (Klasse ReportEnum) ermitteln. Diese beinhaltet je nach Angabe im ReportDocument ggf. auch die Basis-Reports.</p>
-<h5 id="string-setdatasourcestring-dsname-object-value">String SetDatasource(String dsName, Object value)</h5>
-<p>Mit dieser Methode können die Datasources dynamisch gesetzt werden.</p>
-<h5 id="reportenum-convertfilenametoreportsenumfilename">ReportEnum ConvertFileNameToReportsEnum(filename)</h5>
-<p>Diese Methode kann verwendet werden, um einen Report mit einem bestimmten Datei-Namen zu finden.</p>
-<h5 id="byte-exportreportexportformat-format">byte[] ExportReport(ExportFormat format)</h5>
-<p>Exportiert den Report in das gewünschte Format. Dabei wird der SelectedReport verwendet.</p>
-<p>Wird diese Funktion mehrfach hintereinander aufgerufen, dann kann die Performance mit dem Property <a href="#cachecrystalreport-get-set">CacheCrystalReports</a> gesteigert werden.</p>
-<h4 id="void-uncachecrystalreport">void UncacheCrystalReport()</h4>
-<p>Räumt den zwischengespeicherten CrystalReport auf. siehe <a href="#cachecrystalreport-get-set">CacheCrystalReports</a>.</p>
-<h2 id="klasse-reportenum">Klasse ReportEnum</h2>
-<p>Diese Klasse repräsentiert einen Crystal Report.</p>
-<h3 id="properties-1">Properties</h3>
-<h4 id="orientation">Orientation</h4>
-<p>Landscape, Portrait, Default (Wird bei der Code-Generierung aus der Crystal Report-Datei ermittelt.)</p>
-<h4 id="string-name">String Name</h4>
-<p>Der interne Name des Reports.</p>
-<h4 id="string-reportfilename">String ReportFileName</h4>
-<p>Der Dateiname des Reports (ohne Pfad)</p>
-<h4 id="imlstring-mlcaption">IMLString MLCaption</h4>
-<p>Mehrsprachige Bezeichnung des Reports. (Siehe auch String GetCaption(IFSGlobalObject globalObj)).</p>
-<h3 id="methoden-1">Methoden</h3>
-<h4 id="string-getcaptionifsglobalobject-globalobj">String GetCaption(IFSGlobalObject globalObj)</h4>
-<p>Gibt die Bezeichnung des Reports (Caption) für die aktuelle Sprache im GlobalObj zurück. Da der ReportEnum aus einer statischen Struktur kommt, kennt er selber kein GlobalObject. Deshalb muss dieses übergeben werden, um die Caption in der richtigen Sprache zu ermitteln.</p>
-<p>Beispiel für die Verwendung von ReportEnum:</p>
-<pre><code class="lang-csharp">foreach( ReportEnum oReportEnum in rptDocumentP.GetReportEnums() )
-{
-    cPrintReportName oPrintReportName = new cPrintReportName(this.Global);
-
-    oPrintReportName.sReportName = oReportEnum.ReportName;
-    oPrintReportName.sReportCaption = oReportEnum.GetCaption( this.Global );
-    oPrintReportName.sReportFileName = rptDocumentP.ReportDir + &quot;\\&quot; 
-        + oReportEnum.ReportFileName;
-    oPrintReportName.oReportName = oReportEnum;
-    oPrintReportName.intPaperOrientaion = (int)oReportEnum.Orientation;
-
-    this.Add(oPrintReportName);
-}
-</code></pre><h2 id="klasse-printserver">Klasse PrintServer</h2>
-<p>Diese Klasse dient zum einen dazu die bestehenden Print-Server zu ermitteln und zum anderen um Transaktionen an einem Print-Server zu steuern.</p>
-<h3 id="methode-getprintservers">Methode GetPrintServers()</h3>
-<pre><code class="lang-csharp">public static IList&lt;PrintServer&gt; GetPrintServers(IGlobalObjects global)
-</code></pre><p>Liefert eine Liste der an der Runtime-Datenbank registrierten Print-Server zurück.</p>
-<pre><code class="lang-csharp">IList&lt;PrintServer&gt; PSList = PrintServer.GetPrintServers(this.Global);
-foreach (PrintServer PS in PSList)
-{
-    // PS
-}
-</code></pre><h3 id="methode-getprinters-">Methode GetPrinters( )</h3>
-<pre><code class="lang-csharp">public IList&lt;Printer&gt; GetPrinters( );
-IList&lt;PrintServer&gt; PSList = PrintServer.GetPrintServers(this.Global);
-
-foreach (PrintServer PS in PSList)
-{
-    IList&lt;Printer&gt; Plist = PS.GetPrinters( );
-}
-</code></pre><pre><code class="lang-csharp">public static IList&lt;Printer&gt; GetPrinters( IGlobalObjects global, guid printServerId ) 
-</code></pre><pre><code class="lang-csharp">IList&lt;PrintServer&gt; PSList = PrintServer.GetPrintServers(this.Global);
-foreach (PrintServer PS in PSList)
-{
-    IList&lt;Printer&gt; Plist = PrintServer.GetPrinters( this.Global, PS.PrintServerId);
-}
-</code></pre><h2 id="klasse-printqueue">Klasse PrintQueue</h2>
-<p>Diese Klasse bietet Methoden an, mit denen die Print-Queue ausgewertet und bearbeitet werden kann.</p>
-<h3 id="methode-getstate-">Methode GetState( )</h3>
-<pre><code class="lang-csharp">public static int GetState( IGlobalObjects global, guid printJobId )
-</code></pre><p>Diese Methode liefert den Status des Druckauftrags mit der übergebenen PrintJobID zurück. Dabei wird der Status der den Druckauftrag umklammernden Transaktion zurückgegeben.</p>
-<ol>
-<li>Transaktion ist offen. Es können weitere Druckaufträge zur Transaktion hinzugefügt werden.</li>
-<li>Transaktion ist bereit zu drucken. Alle Druckaufträge sind hinzugefügt und der Printserver kann mit dem Druck beginnen.</li>
-<li>Der Druck läuft gerade.</li>
-<li>Druckauftrag ist abgeschlossen.</li>
-<li>Der Druckauftrag wurde mit einem Fehler beendet.</li>
-</ol>
-<pre><code class="lang-csharp">int Status = PrintQueue.GetState( this.Global, new guid( sPrintJobID ) );
-</code></pre><h3 id="methode-getdocumentout-">Methode GetDocumentOut( )</h3>
-<pre><code class="lang-csharp">public static byte[] GetDocumentOut( IGlobalObjects global, guid printJobId )
-</code></pre><p>Diese Methode liefert das herausgeschriebene Dokument.</p>
-<p>Dazu muss der Druck mit dem Kommando <strong>Out</strong> ausgeführt worden sein und der Status des Druck-Jobs muss 3 sein.</p>
-<pre><code class="lang-csharp">byte[] PdfBytes = PrintQueue.GetDocumentOut( this.Global, new guid( sPrintJobID ) );
-</code></pre><h3 id="method-delete-">Method Delete( )</h3>
-<pre><code class="lang-csharp">public static void Delete( IGlobalObjects global, guid printJobId )
-</code></pre><p>Diese Methode löscht den Datensatz aus der Print-Queue. Handelt es sich dabei um den letzten Eintrag für eine Transaktion wird diese ebenfalls mit gelöscht.</p>
-<pre><code class="lang-csharp">if (PrintQueue.GetStatus( this.Global, guid( sPrintJobID) ) == 3 )
-{
-    PrintQueue.Delete( this.Global, new guid( sPrintJobID) );
-}
-</code></pre></article>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

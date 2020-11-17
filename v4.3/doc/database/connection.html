@@ -89,14 +89,24 @@
 <p>1.) Server / Database</p>
 <p>Bei der Angabe von Server und einer Database erzeugt Framework Studio einen TNS-String in dem folgenden Format:</p>
 <p><code>(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=</code><em><code>&lt;SERVER&gt;</code></em><code>)(PORT=1521)))(CONNECT_DATA=(SID=</code><em><code>&lt;Database&gt;</code></em><code>)(SERVER=DEDICATED)))</code></p>
-<p>Der Standard-Port 1521 kann über den Server-Namen beeinflusst werden, indem er mit einem Komma getrennt angegeben wird.</p>
-<p>Beispiel:</p>
+<p>Der Standard-Port 1521 kann über den Server-Namen beeinflusst werden, indem er mit einem &quot;:&quot; getrennt angegeben wird.</p>
+<p>Die Database wird standardmäßig als <strong>SID</strong> angegeben. Durch Angabe von &quot;SERVICE_NAME=&quot; kann die Angabe als <strong>SERVICE_NAME</strong> definiert werden. Das kann bei Container-Datenbanken sinnvoll sein.</p>
+<p>Beispiel 1:</p>
 <ul>
-<li><code>Server=MyServer,1234</code></li>
-<li><code>Database=MyDatabase</code></li>
+<li><code>Server=MyServer:1234</code></li>
+<li><p><code>Database=MyDatabase</code> dasselbe wie <code>Database=&quot;SID=MyDatabase&quot;</code></p>
+<p>Ergibt den folgenden TNS-String:
+<code>(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=MyServer)(PORT=1234)))(CONNECT_DATA=(SID=MyDatabase)(SERVER=DEDICATED)))</code></p>
+</li>
 </ul>
-<p>Ergibt den folgenden TNS-String:</p>
-<p><code>(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=MyServer)(PORT=1234)))(CONNECT_DATA=(SID=MyDatabase)(SERVER=DEDICATED)))</code></p>
+<p>Beispiel 2:</p>
+<ul>
+<li><code>Server=[2607:f0d0:1002:51::4]:1234</code> (IPv6-Adresse mit Port)</li>
+<li><p><code>Database=&quot;SERVICE_NAME=MyDatabase&quot;</code></p>
+<p>Ergibt den folgenden TNS-String:
+<code>(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=[2607:f0d0:1002:51::4])(PORT=1234)))(CONNECT_DATA=(SERVICE_NAME=MyDatabase)(SERVER=DEDICATED)))</code></p>
+</li>
+</ul>
 <p>2.) TNS-String</p>
 <p>Wird kein Server angegeben, dann wird die Database direkt als TNS-String verwendet. Das kann benutzt werden, wenn der automatisch generierte TNS-String nicht ausreicht.</p>
 <h2 id="connection-string">Connection-String</h2>

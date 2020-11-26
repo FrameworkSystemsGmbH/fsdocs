@@ -81,13 +81,120 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-42">Release-Information Framework Studio 4.2</h1>
 
+<h2 id="4212-27112020">4.2.12 (27.11.2020)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.12_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="html-client-neuerungen">HTML Client Neuerungen</h4>
+<h5 id="setfocus-action-auf-formebene">SetFocus Action auf Formebene</h5>
+<p>Bisher wurde lediglich die letzte am Broker ausgeführte SetFocus-Action am Client ausgeführt und das unabhängig von den Forms. SetFocus-Actions werden nun per Form abgearbeitet.</p>
+<h5 id="deep-links">Deep Links</h5>
+<p>Der Android Mobile Client unterstützt nun das Öffnen von Deep Links. Damit kann z.B. aus einem Browser heraus per Link der Mobile Client geöffnet und automatisch ein Login an einem Broker ausgeführt werden. Zudem kann der Broker-Liste ein Eintrag hinzugefügt werden.</p>
+<p>Beispiel im HTML:</p>
+<pre><code class="lang-html">&lt;a href=&quot;fsbroker://framework-systems.de?name=Demo&amp;url=http%3A%2F%2FAwesomeServer%3A8080%2FAwesomeApplication&amp;login=true&amp;save=true&quot;&gt;Open Deep Link&lt;/a&gt;
+</code></pre><p>Der Link beginnt immer mit der Custom-Url <code>fsbroker://framework-systems.de</code>. Diese wird vom Mobile Client im Android-System registriert und sorgt für das Öffnen der App. Zusätzlich kann die Url aus bis zu vier der folgenden Parameter bestehen:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Typ</th>
+<th style="text-align:left">Benötigt</th>
+<th style="text-align:left">Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>name</code></td>
+<td style="text-align:left"><code>string (url-encoded)</code></td>
+<td style="text-align:left">Ja</td>
+<td style="text-align:left">Der Name des Brokers</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>url</code></td>
+<td style="text-align:left"><code>string (url-encoded)</code></td>
+<td style="text-align:left">Ja</td>
+<td style="text-align:left">Die Broker-Url</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>login</code></td>
+<td style="text-align:left"><code>boolean (true/false)</code></td>
+<td style="text-align:left">Nein</td>
+<td style="text-align:left">Steuert, ob sich die App nach dem Öffnen sofort am gegebenen Broker angemelden soll. Bei <code>false</code> wird lediglich die Startseite angezeigt. Der Standardwert ist <code>true</code>.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>save</code></td>
+<td style="text-align:left"><code>boolean (true/false)</code></td>
+<td style="text-align:left">Nein</td>
+<td style="text-align:left">Steuert, ob der angegebene Broker in der Login-Liste des Mobile Client gespeichert werden soll. Existiert ein Eintrag mit demselben namen, so wird dessen Url überschrieben. Der Standardwert ist <code>false</code>.</td>
+</tr>
+</tbody>
+</table>
+<p>Die Parameter <code>name</code> und <code>url</code> müssen immer url-enkodiert sein. So muss wie im Beispiel statt</p>
+<p><code>fsbroker://AwesomeServer:8080/AwesomeApplication</code></p>
+<p>die url-enkodierte Variante</p>
+<p><code>fsbroker%3A%2F%2FAwesomeServer%3A8080%2FAwesomeApplication</code></p>
+<p>angegeben werden.</p>
+<p>Einen entsprechenden Url-Encoder finden Sie z.B. unter <a href="https://www.urlencoder.org/">https://www.urlencoder.org</a></p>
+<div class="NOTE"><h5>Note</h5><p>Ein Klick auf einen Deep Link wird vom Mobile Client nur dann interpretiert, wenn folgende Bedingungen erfüllt sind:</p>
+<ul>
+<li>Die App ist nicht bereits an einem Broker angemeldet</li>
+<li>Die App findet beim Start keine alte Session, die fortgeführt werden kann</li>
+</ul>
+</div>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2020114581 - <strong>Publish</strong>: Im Publish-Setting können keine Unicode-Zeichen
+  gespeichert werden. Je nach Code-Page der Datenbank gehen ggf. auch deutsche
+  Umlaute verloren. Auch beim Einlesen eines Release-Settings im Publish und
+  Publish2Go gehen Unicode-Zeichen verloren.</p>
+</li>
+<li><p>2020114749 - <strong>Package-Manager</strong>: Existieren in der Repsitory-Datenbank
+  Tabellen oder Constraints mit Namen, die Whitespaces oder Sonderzeichen
+  enthalten (z.B. BIN$-Tabellen auf Oracle), dann kann es beim Import oder
+  beim Löschen einer Package-Version zu SQL-Fehlermeldungen kommen. In der
+  Folge kann es passieren, dass auf dem Repository die Constraints nicht mehr
+  aktiviert werden.</p>
+</li>
+<li><p>2020104499 - <strong>IDE</strong>: Bei der Code-Generierung der Interfaces kann es
+  passieren, dass für die Component-Properties falsche Display-Length
+  Informationen generiert werden. In der Folge werden Änderungen am
+  Metadatentyp nicht korrekt gezogen.</p>
+</li>
+<li><p>2020114542 - <strong>IDE</strong>: Für das Anzeigen des generierten Codes zu
+  Debugging-Zwecken wird Visual Studio 2019 nicht erkannt.</p>
+<div class="NOTE"><h5>Note</h5><p>Da es mehrere parallele Installationen von Visual Studio geben kann, ist
+eine eindeutige Ermittlung des Installationspfades nicht möglich. Der Pfad
+muss in den Optionen manuell angegeben werden. Framework Studio öffnet bei
+Bedarf den Optionen-Dialog.</p>
+</div>
+</li>
+<li><p>2020114672 - <strong>IDE</strong>: Bei einem Oracle-Repository kann als Database kein
+  TNS-String angegeben werden. Das führt zur Exceptions bei der Anmeldung am
+  Repository.</p>
+<div class="NOTE"><h5>Note</h5><p>Für die Verwendung einer Container-Datenbank kann bei Database
+&quot;SERVICE_NAME=AbcXyz&quot; angegeben werden.<br>
+Beim Server-Namen kann der Port jetzt mit &quot;:&quot; angegeben werden z.B.
+&quot;Server:1521&quot;.</p>
+</div>
+</li>
+<li><p>2020114783 - <strong>IDE</strong>: Wird eine Component-Methode von public auf protected
+  gesetzt, dann werden die Interfaces nicht in den Auto-Compile aufgenommen.
+  Die Folge ist ein Compile-Error bei den Components.</p>
+</li>
+<li><p>2020114578 - <strong>HTML Client</strong>: Wird beim Start der App eine alte Session wieder
+  hergestellt, so kommt es ggf. vor, dass der dem Form per Action zugewiesene
+  CloseButton nicht funktioniert.</p>
+</li>
+</ul>
 <h2 id="4211-30102020">4.2.11 (30.10.2020)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.2.11_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="html-client-neuerungen">HTML Client Neuerungen</h4>
+<h4 id="html-client-neuerungen-1">HTML Client Neuerungen</h4>
 <h5 id="neues-framework-als-basis">Neues Framework als Basis</h5>
 <p>Der HTML Client wurde bisher mit <strong>Apache Cordova</strong> und <strong>Adobe PhoneGap Build</strong> in die mobile Welt gebracht. Adobe hat im September angekündigt, PhoneGap nicht mehr weiter zu entwickeln. Auf Grund von erweiterter Hardware-Unterstützung und der einfacheren Integration in den Entwicklungsprozess haben wir jedoch schon vor dieser Ankündigung den HTML Client auf das <strong>Ionic Capacitor Framework</strong> umgezogen. Auch die Browser-Version des HTML Clients profitiert maßgeblich vom neuen Framework.</p>
 <p>Zusätzlich zu den Bugfixes unter <strong>Korrigierte Fehler</strong> sind ab sofort folgende Verbesserungen Verfügbar:</p>
@@ -116,7 +223,7 @@
 <p>Mehr Informationen dazu gibt es unter folgenden Links:</p>
 <p><a href="../doc/form/control/listview.html#globales-css-für-listviewitems">ListView</a></p>
 <p><a href="../doc/form/control/template.html#globales-css-für-template-controls">TemplateControl</a></p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020104399 - <strong>Broker</strong>: Bei der Konvertierung von XML nach JSON kann kann es
   zu einer Exception kommen, welche als Folge ggf. den HTML Client abstürzen
@@ -200,7 +307,7 @@
 <h4 id="fehler-im-package-merge">Fehler im Package-Merge</h4>
 <div class="WARNING"><h5>Warning</h5><p>Seit 29.05.2020 gibt es mehrere Probleme mit dem Package-Merge. Einige wurden korrigiert, jedoch sind noch offene Punkte bekannt. Daher empfehlen wir, bis zum nächsten Patchday auf den Package-Merge zu verzichten.</p>
 </div>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020093914 - <strong>JavaClient</strong>: Der Client startet im Hintergrund eine cmd.exe.
   Das führt ggf. zu Problemen, wenn per Gruppenrichtline der Zugriff auf die
@@ -249,7 +356,7 @@
 <li>FS_4.2.9_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020083454 - <strong>JavaClient</strong>: Wird eine Anwendung als &quot;Frameless&quot; gestartet
   (z.B. der Pick-Monitor in eNVenta ERP), dann kann es passieren, dass eine
@@ -312,7 +419,7 @@ Customizing-Package gelöscht und neu customized werden.</p>
 <li>FS_4.2.8_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="html-client-neuerungen-1">HTML Client Neuerungen</h4>
+<h4 id="html-client-neuerungen-2">HTML Client Neuerungen</h4>
 <h5 id="mlkeys-und-preview-im-templatecontrol-und-listview">MLKeys und Preview im TemplateControl und ListView</h5>
 <p>Im HTML-Editor des TemplateControls und ListViews können jetzt MLKeys verwendet werden. Außerdem gibt es dort nun eine Preview-Funktion. Weitere Informationen: <a href="../doc/form/control/template.html">TemplateControl</a> und <a href="../doc/form/control/listview.html">ListView</a>.</p>
 <h5 id="unterstützung-für-das-tabbedwindow-control">Unterstützung für das TabbedWindow Control</h5>
@@ -330,7 +437,7 @@ Customizing-Package gelöscht und neu customized werden.</p>
 <p>Der HTML Client wird auf mobilen Geräten ab sofort im Fullscreen-Modus ausgeführt. So steht noch etwas mehr platz für Controls zur Verfügung, da die Statusleiste und Softbuttons des Geräts die App nun überlappen.</p>
 <h5 id="form-badgeimages">Form BadgeImages</h5>
 <p>Zusätzlich zu den ImageButtons werden BadgeImages nun auch am Form über das Property <code>BadgeImage DataSource</code> unterstützt.</p>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020073096 - <strong>JavaClient</strong>: Wird die Anwendung über den FSClient-Launcher
   gestartet, dann erfolgt bei mehreren Anwendungen keine Gruppierung in der
@@ -414,7 +521,7 @@ die Anzahl auf 4 begrenzt.</p>
 <li>FS_4.2.7_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020031817 - <strong>Java-Client</strong>: Die Shortcuts Ctrl-H, Ctrl-T, Ctrl-Shift-T und
   Ctrl-Shift-O funktionieren nicht, wenn sich der Fokus in einem
@@ -436,7 +543,7 @@ damit die Korrektur wirksam wird.</p>
 <li>FS_4.2.6_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020052640 - <strong>IDE</strong>: Leitet man von einer Basis-Formklasse aus einem
   Basis-Package ab (Derive), zu der es eine Customization im aktuellen Package
@@ -483,7 +590,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>DisplayMinLength, DisplayMaxLength</li>
 <li>DisplayMinLines, DisplayMaxLines</li>
 </ul>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020042334 - <strong>Java-Client</strong>: Die Windows-Skalierung hat keinen Einfluss auf
   die Skalierung des Browser Controls.</p>
@@ -517,7 +624,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>FS_4.2.4_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021741 - <strong>Java-Client</strong>: Werden in ein Html-Texteingabefeld mindestens 35
   Zeilenumbrüche (p-Tags) eingefügt und erst danach Text, so kommt es beim
@@ -565,7 +672,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 </ol>
 <h4 id="html-client">HTML Client</h4>
 <p>Der ImageButton unterstützt nun das BadgeImage.</p>
-<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021640 - <strong>IDE</strong>: Öffnet man einen bestehenden Exception Editor / Message
   Box Wizard und öffnet die MLKey-Auswahl, dann ist der erste MLKey ist
@@ -596,7 +703,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>FS_4.2.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021533 - <strong>Broker</strong>: Wird ein im Treeview dargestelltes Element aus seiner
   Collection am Parent entfernt und anschließend eine Eigenschaft geändert,
@@ -655,7 +762,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <ul>
 <li><a href="../doc/database/ml-column.html#such-funktion">Such-Funktionalität für die ML-Columns</a></li>
 </ul>
-<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020011151 - <strong>Oracle</strong>: Wird in einer DB-Column eine Spalte mit dem Typ
   Boolean angelegt, dann bringt der Datenbank-Update-Assistent einen Fehler,
@@ -736,7 +843,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <div class="WARNING"><h5>Warning</h5><p>Bestehende SQL-Server Runtime Repositories müssen manuell korrigiert werden!
 Details dazu finden Sie hier: <a href="knowledge/snapshot-isolation.html">Zeilenversionierung im SQL-Server</a>.</p>
 </div>
-<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
 <p>In der Version 4.2 sind alle Fehler-Korrekturen bis einschließlich Framework Studio 4.0.18 enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

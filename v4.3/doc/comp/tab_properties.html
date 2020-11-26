@@ -149,7 +149,8 @@ Eine dritte Möglichkeit besteht darin, eine Component direkt per Drag &amp; Dro
 <p>Dies bietet sich z.B. an, wenn in einem Namespace mit externen Assemblies gearbeitet wird, deren Klassen als Datentypen von Properties verwendet werden sollen.</p>
 <p>Im IntelliSense wird beim Aufruf eines solchen Properties „object“ angezeigt, da im Hintergrund mit „object“ gearbeitet wird. Das Property „lstTest“ aus dem Beispiel kann aber z.B. trotzdem so verwendet werden:</p>
 <pre><code class="lang-csharp">int i = this.lstTest[0][1]; // Der Wert von i ist danach 2
-</code></pre><h3 id="membervariablen">Membervariablen</h3>
+</code></pre><h2 id="arten-von-properties">Arten von Properties</h2>
+<h3 id="membervariablen">Membervariablen</h3>
 <p>Bei diesem Typ wird kein Property, sondern eine Membervariable erzeugt. Membervariablen haben keine get- und keine set-Methode.</p>
 <p>Sie sollten nur mit dem Access-Level <strong>private</strong> versehen werden, um eine externe Manipulation zu unterbinden, da keinerlei Sicherungsmöglichkeiten nach außen definiert werden können.</p>
 <p>Eine Membervariable wird nicht im <strong>Form-Designer</strong> angeboten. Sie sollte nur zum Merken von Informationen innerhalb der Komponente verwendet werden.</p>
@@ -166,6 +167,8 @@ if (this.prop != this.propOrgValue )
 <p>Properties mit einem Mapping können nur auf <strong>Generated</strong> oder <strong>Generated (readonly)</strong> stehen. Ist in der Query die Spalte ’Readonly’ gecheckt, ist sogar nur <strong>Generated (readonly)</strong> möglich.</p>
 <h3 id="individual--individual-readonly-properties">Individual / Individual (readonly) Properties</h3>
 <p>Bei diesen Typen können/müssen Sie die get- und die set-Methode manuell ausprogrammieren. Es werden in den Registerkarten <strong>Get Property</strong> und <strong>Set Property</strong> die entsprechenden Code-Felder aktiv. Der Aufruf des Setters führt nicht dazu, dass der Status der Component geändert wird.</p>
+<p>In der Registerkarte <strong>Set Method</strong> kann bei Properties vom Typ <strong>Individual</strong> die von Framework Studio generierte Prüfung auf den Getter mit der Checkbox <strong>Check before set</strong> unterbunden werden.
+Eine Prüfung findet standardmäßig statt, weshalb die Checkbox per default gesetzt ist.</p>
 <p>Bei <strong>Individual (readonly)</strong> wird nur das Code-Feld für die get-Methode aktiv.</p>
 <div class="WARNING"><h5>Warning</h5><p>Achten Sie darauf, dass eine Get-Methode immer einen Rückgabewert vom Typ des Properties besitzen muss.</p>
 </div>
@@ -198,8 +201,13 @@ return oCompMember
 <p>Relations stellen eine Möglichkeit dar, diese beiden Komponenten miteinander zu verbinden. Dazu wird im Auftrag ein Property Kunde angelegt. Dieses Property muss dem Typ Relation entsprechen. Anschließend müssen noch Angaben darüber gemacht werden, wie die beiden Komponenten miteinander verbunden sind.</p>
 <div class="WARNING"><h5>Warning</h5><p>Achten Sie darauf, dass als Datatype eine Component ausgewählt ist, da Sie andernfalls Relation nicht als Property Type auswählen können.</p>
 </div>
+<h4 id="registerkarte-general">Registerkarte General</h4>
+<p>In der Registerkarte <strong>General</strong> können Sie die Checkbox <strong>Autogenerate Membervariable</strong> bei Individual/Individual (readonly) Properties setzen.
+Wird die Checkbox aktiviert, wird automatisch eine Membervariable generiert und das entsprechende <strong>Depends on Property</strong> gesetzt.
+Die Textfelder <strong>Display MinLength</strong>, <strong>Display MaxLength</strong>, <strong>Display MinLines</strong> und <strong>Display MaxLines</strong> und die Comboboxen <strong>Mapping</strong> und <strong>Drag Source</strong> befinden sich ebenfalls hier.
+Des Weiteren können Sie im Textfeld <strong>Description</strong> eine Beschreibung hinzufügen.</p>
 <h4 id="registerkarten-get-method-und-set-method">Registerkarten Get Method und Set Method</h4>
-<p><strong>Analog zu Generated Properties <a href="#generated--generated-readonly-properties">Generated / Generated (readonly) Properties</a> Properties:) kann bei Bedarf zusätzlich individueller Code, der beim Setzen und Auslesen des Properties durchlaufen werden soll, programmiert werden.</strong></p>
+<p><strong>Analog zu Generated Properties <a href="#generated--generated-readonly-properties">Generated / Generated (readonly) Properties</a>  kann bei Bedarf zusätzlich individueller Code, der beim Setzen und Auslesen des Properties durchlaufen werden soll, programmiert werden.</strong></p>
 <h4 id="registerkarte-depends-on">Registerkarte Depends On</h4>
 <p>Auf dieser Registerkarte können Sie angeben, welches Property aus dem Auftrag mit welchem Property aus dem Kunden verbunden werden soll. Sie geben also eine Schlüsselbeziehung an, ähnlich wie Sie das auf einer relationalen Datenbank tun würden. Sie können auch mehrere Properties miteinander verknüpfen, wenn sich der Schlüssel aus mehreren Properties zusammensetzt.</p>
 <h4 id="button-add">Button Add</h4>

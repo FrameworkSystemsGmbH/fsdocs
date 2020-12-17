@@ -106,6 +106,8 @@
 <p>Jedes Form besitzt automatisch eine besondere Access Unit, die das Form selber repräsentiert. Der Name dieser <strong>Form Access Unit</strong> ist der Name des Forms mit dem Präfix <strong><code>au</code></strong> (also z.B. für <strong>frmSalesOrder</strong> <strong>aufrmSalesOrder</strong>).</p>
 <p>Wenn ein Form in der Anwendung geöffnet wird, so wird vorher automatisch überprüft, ob das Recht „Access“ für die FormAccessUnit des Forms erteilt wurde und ob für alle FormAccessUnits der Basisforms das Recht „AccessDerived“ erteilt wurde.</p>
 <p>Für jedes Form wird automatisch eine FormAccessUnit angelegt. Diese Access Unit kann nicht gelöscht werden.</p>
+<p>Ist ein oder mehrere Parents ungültig, wird der Button &#39;Fix the parent Access Unit&#39; angezeigt.
+Wird dieser Button gedrückt, hat dies zur Folge, dass die ungültige Beziehung gelöscht wird. Sollte kein anderer gültiger Parent verfügbar sein, wird &#39;Root&#39; als Parent definiert.</p>
 <p><strong>Form Designer Registerkarte Access Units:</strong></p>
 <p><img src="media/form-designer-access-unit.png" alt="Form Designer Registerkarte Access Units"></p>
 <p>Aus dem Code heraus kann ein Zugriffsrecht einer AccessUnit von einem Form aus folgendermaßen abgefragt werden:</p>

@@ -148,11 +148,11 @@ Gibt an, auf welchen Server das Repository abgelegt ist bzw. abgelegt werden sol
 <li>Durchführen eines Kompiliervorgangs als FrameworkCompiler mit der direkten Möglichkeit, Korrekturen durchführen zu können – auch in Kombination mit dem Compile Manager (<a href="../ide/compile-menu.html#compile-manager">Compile Manager</a>). Das ist z.B. bei einem Package-Update sehr vorteilhaft.</li>
 <li>Arbeiten im Ein-Benutzer-Betrieb. So können z.B. auch Korrekturen durchgeführt werden, ohne am Ende mit dem FrameworkCompiler erneut kompilieren zu müssen.</li>
 </ol>
-<p>Bei der Arbeit mit einem Benutzer im FrameworkCompiler Mode (FC-User) müssen einige Richtlinien beachtet werden:</p>
+<p>Bei der Arbeit mit einem Benutzer im FrameworkCompiler Mode (FCUser) müssen einige Richtlinien beachtet werden:</p>
 <ol>
-<li>Es sollte nur einen FC-User geben. Mit diesem können Sie sich aber durchaus zur selben Zeit an verschiedenen Package-Versionen anmelden.</li>
-<li>Wenn mit einem FC-User an einer Package-Version gearbeitet wird, dann sollte dies der einzige Benutzer sein, der an dieser Package-Version arbeitet. Weil der FC-User generierten Code zurückschreibt, der sich ggf. auch auf von ihm ausgecheckte Elemente bezieht, kann das für andere Benutzer zu Fehlern führen.</li>
-<li>In der Zeit, in der mit einem FC-User gearbeitet wird, darf kein FrameworkCompiler laufen. Andernfalls kann es dazu führen, dass sich FC-User und FrameworkCompiler die generierten Codes und Assemblies gegenseitig zerstören.</li>
+<li>Es sollte nur einen FCUser geben. Mit diesem können Sie sich aber durchaus zur selben Zeit an verschiedenen Package-Versionen anmelden.</li>
+<li>Wenn mit einem FCUser an einer Package-Version gearbeitet wird, dann sollte dies der einzige Benutzer sein, der an dieser Package-Version arbeitet. Weil der FCUser generierten Code zurückschreibt, der sich ggf. auch auf von ihm ausgecheckte Elemente bezieht, kann das für andere Benutzer zu Fehlern führen.</li>
+<li>In der Zeit, in der mit einem FCUser gearbeitet wird, darf kein FrameworkCompiler laufen. Andernfalls kann es dazu führen, dass sich FCUser und FrameworkCompiler die generierten Codes und Assemblies gegenseitig zerstören.</li>
 <li>Am Ende der Arbeit sollten wieder alle Elemente eingecheckt werden. FrameworkStudio gibt beim Beenden eine entsprechende Warnmeldung aus.</li>
 </ol>
 <h3 id="benutzer-löschen">Benutzer löschen</h3>

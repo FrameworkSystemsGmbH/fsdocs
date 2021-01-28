@@ -366,7 +366,7 @@ IsMarkedForDeletion den Wert true hat, die Methode <a href="#delete-">Delete()</
 <pre><code class="lang-csharp">public int Add( object )
 </code></pre><p>Am eingefügten Objekt wird die Collection-Eigenschaft auf die neue Collection geändert.</p>
 <pre><code class="lang-csharp">public int Add( object, bool setCollection )
-</code></pre><p>Wenn der Parameter setCollection mit false angegeben wird, dann wird die Collection-Eigenschaft des Objektes nicht verändert. </p>
+</code></pre><p>Wenn der Parameter setCollection mit false angegeben wird, dann wird die Collection-Eigenschaft des Objektes nicht verändert.</p>
 <h2 id="addrange">AddRange()</h2>
 <p>Verfügbar in Collection</p>
 <p>Diese Methode fügt mehrere Objekte in die Collection ein. Sie können dieser Methode ganze Collections übergeben. So ist es beispielsweise möglich, zwei Collections zusammenzuführen.</p>
@@ -478,7 +478,7 @@ Ein Save() führt einen Update-Befehl auf der Datenbank aus.</p>
 <p>Die Komponente wurde mit Load() eingelesen und es wurde die Methode Delete() aufgerufen.
 Ein Save() führt einen Delete-Befehl auf der Datenbank aus.</p>
 <p><strong>NewButDeleted:</strong></p>
-<p>Die Komponente wurde mit einem new() erstellt und es wurde die Methode Delete() aufgerufen. 
+<p>Die Komponente wurde mit einem new() erstellt und es wurde die Methode Delete() aufgerufen.
 Ein Save() führt keine Aktion auf der Datenbank aus.</p>
 <p><strong>UnchangedButDeleted:</strong></p>
 <p>Nachdem die Methode Delete() aufgerufen und mit <a href="#save-">Save()</a> der Delete-Befehl auf der Datenbank ausgeführt wurde, erhält die Komponente diesen Status.
@@ -535,7 +535,7 @@ this.oContactHistoryColl.Load( this.sWhereClause );
 <p>Beispiel: An der Component cdArticle gibt es ein Property sArticleID.</p>
 <pre><code class="lang-csharp">int intMaxSize = cdArticleFactory.mdt_sArticleID.Size;
 </code></pre><p>Mit der Methode <a href="#getpropertymdt-">GetPropertyMdt()</a> kann mithilfe des Property-Namen die Metadatentyp-Information ermittelt werden. Das ermöglicht auch die Arbeit auf der Ebene DevFrameworkObject.</p>
-<p>Beispiel:</p>
+<h4 id="beispiel">Beispiel</h4>
 <pre><code class="lang-csharp">MLContainer mdt = oArticle.GetPropertyMdt(&quot;sArticleID&quot;);
 if (mdt is MDTStringBase)
 {
@@ -616,21 +616,20 @@ if (mdt is MDTStringBase)
 </tr>
 </tbody>
 </table>
-<p><strong>Beschreibungen der o.g. Properties:</strong></p>
-<p><strong>DevMLString DefaultLabel:</strong></p>
-<p>Das mehrsprachige Default-Label</p>
-<p><strong>DevMLString MLColumnCaption:</strong></p>
-<p>Die mehrsprachige Spalten-Beschriftung. Wenn diese nicht gepflegt ist, wird DefaultLabel zurückgegeben.</p>
-<p><strong>DevMLString MLToolTip:</strong></p>
-<p>Der mehrsprachige Tooltip.</p>
-<p><strong>int Precision:</strong></p>
-<p>Anzahl von Nachkommastellen; wird nur bei numerischen Typen angeboten.</p>
-<p><strong>int Scale:</strong></p>
-<p>Maximale Anzahl von Stellen inkl. Nachkommastellen. Wird nur bei numerischen Typen angeboten.</p>
-<p><strong>int Size:</strong></p>
-<p>Maximale Länge eines Strings.</p>
-<p><strong>FrameworkFormatMask FormatMask:</strong></p>
-<p>Gibt einen Wert mit dem Typ <strong>FrameworkFormatMask</strong> zurück. Dieses Enum kann folgende Werte beinhalten:</p>
+<h4 id="beschreibungen-der-og-properties">Beschreibungen der o.g. Properties</h4>
+<p><strong>DevMLString DefaultLabel:</strong>
+Das mehrsprachige Default-Label</p>
+<p><strong>DevMLString MLColumnCaption:</strong>
+Die mehrsprachige Spalten-Beschriftung. Wenn diese nicht gepflegt ist, wird DefaultLabel zurückgegeben.</p>
+<p><strong>DevMLString MLToolTip:</strong>
+Der mehrsprachige Tooltip.</p>
+<p><strong>int Precision:</strong>
+Anzahl von Nachkommastellen; wird nur bei numerischen Typen angeboten.</p>
+<p><strong>int Scale:</strong>
+Maximale Anzahl von Stellen inkl. Nachkommastellen. Wird nur bei numerischen Typen angeboten.</p>
+<p><strong>int Size:</strong>
+Maximale Länge eines Strings.</p>
+<p><strong>FrameworkFormatMask FormatMask:</strong> Gibt einen Wert mit dem Typ <strong>FrameworkFormatMask</strong> zurück. Dieses Enum kann folgende Werte beinhalten:</p>
 <ul>
 <li>FrameworkFormatMask.None</li>
 <li>FrameworkFormatMask.LowerCase</li>
@@ -650,14 +649,14 @@ if (mdt is MDTStringBase)
 <li>FrameworkFormatMask.NegativeInteger</li>
 <li>FrameworkFormatMask.UserDefined</li>
 </ul>
-<p><strong>string FormatPattern:</strong></p>
-<p>Ein individuelles Format-Pattern. Dieses kann z.B. bei numerischen Typen für die Formatierung von Zahlen in Strings verwendet werden.
+<p><strong>string FormatPattern:</strong>
+Ein individuelles Format-Pattern. Dieses kann z.B. bei numerischen Typen für die Formatierung von Zahlen in Strings verwendet werden.
 Bei FSstrings handelt es sich um einen regulären Ausdruck.</p>
-<p><strong><typ>[,] Values:</typ></strong></p>
-<p>Dieser Array beinhaltet die im Metadatentyp vorgenommenen Value-Einschränkungen.</p>
-<p>Die erste Dimension des Arrays bildet die einzelnen Einschränkungen ab.</p>
-<p>In der 2. Dimension sind der Von- und der Bis-Wert enthalten. Wenn nur der Von-Wert definiert wurde, dann steht dieser auch im Bis-Wert.</p>
-<p>Beispiel: <strong>A</strong>, <strong>B</strong>, <strong>E</strong>-<strong>G</strong> bildet folgenden Array</p>
+<p><strong><typ>[,] Values:</typ></strong>
+Dieser Array beinhaltet die im Metadatentyp vorgenommenen Value-Einschränkungen.
+Die erste Dimension des Arrays bildet die einzelnen Einschränkungen ab.
+In der 2. Dimension sind der Von- und der Bis-Wert enthalten. Wenn nur der Von-Wert definiert wurde, dann steht dieser auch im Bis-Wert.</p>
+<p>Beispiel: <strong>A</strong>, <strong>B</strong>, <strong>E</strong>-<strong>G</strong> bildet folgendes Array</p>
 <pre><code class="lang-csharp">new string[,] {
     {@&quot;A&quot;, @&quot;A&quot;},
     {@&quot;C&quot;, @&quot;C&quot;},
@@ -692,7 +691,7 @@ Bei FSstrings handelt es sich um einen regulären Ausdruck.</p>
 </ol>
 <p>Die anderen Registerkarte sollten also der Reihe nach – wie ein Wizard – durchgearbeitet und die entsprechenden Einstellungen vorgenommen werden, um die Aktion am Ende korrekt ausführen zu können. Die Registerkarte sind bei beiden Aktionen Paste und Merge identisch.</p>
 <h3 id="registerkarte-needed-types">Registerkarte Needed Types</h3>
-<p>Bei den Needed Types werden alle Typen aufgelistet, die nicht zum Standard gehören. Diese können beliebig ausgetauscht werden. Das kann z.B. dann sinnvoll sein, wenn eine benötigte Component vorher auch schon kopiert wurde und jetzt ggf. unter einem anderen Namen in einem anderen Namespace zu finden ist. </p>
+<p>Bei den Needed Types werden alle Typen aufgelistet, die nicht zum Standard gehören. Diese können beliebig ausgetauscht werden. Das kann z.B. dann sinnvoll sein, wenn eine benötigte Component vorher auch schon kopiert wurde und jetzt ggf. unter einem anderen Namen in einem anderen Namespace zu finden ist.</p>
 <p><img src="media/registerkarte-methods-needed-types.png" alt="Registerkarte Needed Types"></p>
 <h3 id="registerkarte-general">Registerkarte General</h3>
 <p>Unter General können die Interfaces, die Description und die ControlTypes überschrieben werden.</p>

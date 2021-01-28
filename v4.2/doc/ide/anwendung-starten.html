@@ -101,12 +101,14 @@
 <p>Beim Kompilieren der Anwendung werden alle Dateien in dieses Verzeichnis geschrieben. Das aktuell verwendete Compile-Verzeichnis kann über den Menüpunkt <strong>Compile / Open Compile Directory in Explorer</strong> geöffnet werden.</p>
 <p>Auf einem Rechner wird pro Framework Studio Entwickler, pro Package und pro Package-Version je ein eigenes Compile-Verzeichnis verwendet. Falls das aktuell zu verwendende Verzeichnis beim Start von Framework Studio noch nicht existiert, wird es automatisch angelegt.</p>
 <p>In den Compile-Verzeichnissen existieren immer die folgenden Unterordner:</p>
-<p><strong>bin:</strong> Enthält alle Assemblies und ggf. Textdateien mit den benutzten Referenzen
-<strong>src:</strong> Enthält alle Source Dateien, die von Framework Studio generiert wurden. Durch das Kompilieren dieser Dateien werden die Assemblies der Anwendung (im Verzeichnis bin) erzeugt.</p>
+<ul>
+<li><strong>bin:</strong> Enthält alle Assemblies und ggf. Textdateien mit den benutzten Referenzen</li>
+<li><strong>src:</strong> Enthält alle Source Dateien, die von Framework Studio generiert wurden. Durch das Kompilieren dieser Dateien werden die Assemblies der Anwendung (im Verzeichnis bin) erzeugt.</li>
+</ul>
 <h2 id="anwendung-zum-testen-starten">Anwendung zum Testen starten</h2>
 <p>Wenn Sie Ihre Anwendung während der Entwicklung zum Testen starten wollen, verwenden Sie dazu den <a href="#development-broker">Development-Broker</a>.</p>
-<p>Dieser wird mit den Menüpunkt <strong>Compile / Run</strong> (oder mit der Taste <strong>F5</strong>) mit den zuletzt im [Run-Wizard](!TODO LINK) vorgenommenen Einstellungen gestartet.</p>
-<p>Wenn Sie die Einstellungen für den Start der Applikation (z.B. andere Business Datenbank verwenden) ändern möchten, öffnen Sie mit dem Menüpunkt <strong>Compile / Run…</strong> (oder der Tastenkombination <strong>Umschalt + F5</strong>) den [Run-Wizard](!TODO LINK). Dort können alle Einstellungen vorgenommen werden. Wenn Sie den Wizard anschließend mit <strong>Run</strong> beenden, wird die ausgewählte Applikation mit den vorgenommenen Einstellungen gestartet.</p>
+<p>Dieser wird mit den Menüpunkt <strong>Compile / Run</strong> (oder mit der Taste <strong>F5</strong>) mit den zuletzt im <a href="../publish-wizards/run-wizard.html">Run-Wizard</a> vorgenommenen Einstellungen gestartet.</p>
+<p>Wenn Sie die Einstellungen für den Start der Applikation (z.B. andere Business Datenbank verwenden) ändern möchten, öffnen Sie mit dem Menüpunkt <strong>Compile / Run…</strong> (oder der Tastenkombination <strong>Umschalt + F5</strong>) den <a href="../publish-wizards/run-wizard.html">Run-Wizard</a>. Dort können alle Einstellungen vorgenommen werden. Wenn Sie den Wizard anschließend mit <strong>Run</strong> beenden, wird die ausgewählte Applikation mit den vorgenommenen Einstellungen gestartet.</p>
 <h2 id="debugging">Debugging</h2>
 <p>Die Anwendung kann mit einem beliebigen .NET Debugger (z.B. Visual Studio) debuggt werden. Dazu müssen Sie die für Sie relevanten Teile der Anwendung <strong>Debuggable</strong> kompiliert haben (<a href="allgemeine-funktionatitaeten.html#compile">Compile</a>). Dadurch werden entsprechende .cs- und .pdb-Dateien in das Unterverzeichnis \src des Compileverzeichnisses (<a href="#compile-verzeichnis">Compile-Verzeichnis</a>) geschrieben. Nach dem Start der Anwendung muss der Debugger an den Prozess <strong>FSDevBrokerHost.exe</strong> angehängt werden (Visual Studio: Menüpunkt <strong>Debug / Attach to process</strong>). Gegebenenfalls müssen Sie noch die relevanten .cs-Dateien im Debugger öffnen, um beispielsweise einen Breakpoint setzen zu können.</p>
 <h2 id="protokollieren-der-xml-kommunikation">Protokollieren der XML-Kommunikation</h2>

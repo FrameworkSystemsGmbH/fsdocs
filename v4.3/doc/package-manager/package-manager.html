@@ -90,62 +90,62 @@
 </ul>
 <p>Folgende Funktionen stehen sowohl im <strong>Package Manager</strong> als auch in <strong>Framework Studio</strong> zur Verfügung:</p>
 <ul>
-<li>Runtime License Manager ([<strong>Laufzeitlizenzen</strong>](!TODO LINK))</li>
-<li>Publish Wizard ([<strong>Publish-Wizard</strong>](!TODO LINK))</li>
-<li>Publish2Go Wizard ([<strong>Publish2Go Export-Wizard</strong>](!TODO LINK))</li>
+<li>Runtime License Manager (<a href="../access-units/laufzeitlizenzen.html">Laufzeitlizenzen</a></li>
+<li><a href="../publish-wizards/publish-wizard.html">Publish Wizard</a></li>
+<li><a href="../publish-wizards/publish2go-wizard.html">Publish2Go Wizard</a></li>
 </ul>
 <h2 id="start-des-package-managers">Start des Package Managers</h2>
 <p>Starten Sie den Package Manager, indem Sie im Programmverzeichnis von Framework Studio die Datei <strong>FrameworkStudioPackageManager.exe</strong> ausführen.</p>
-<p>Es erscheint der Dialog zur Auswahl eines Repositories (analog zum Start von Framework Studio [<strong>Framework Studio start</strong>](!TODO LINK)).</p>
+<p>Es erscheint der Dialog zur Auswahl eines Repositories (analog zum Start von <a href="../ide/start.html">Framework Studio start</a>.</p>
 <p>Nach der Repository-Auswahl werden Sie aufgefordert, sich als FrameworkAdministrator anzumelden.</p>
 <h2 id="bedienung-des-package-managers">Bedienung des Package Managers</h2>
 <p>Nach dem Start des Package Managers erscheint das Hauptfenster.</p>
 <p><img src="media/package-manager.png" alt="Assign Controls"></p>
 <p>Im Hauptfenster werden über die Toolbar folgende Funktionen angeboten:</p>
-<h4 id="new"><strong>New</strong></h4>
+<h4 id="new">New</h4>
 <p>Sie erkennen <strong>New</strong> an einem <img src="../media/icon-new.png" alt="icon-new.png">-Icon.</p>
-<p>Anlegen eines neuen Packages, einer neuen Lizenz oder einer neuen Sprache. Um eine neue Sprache anlegen zu können, muss in der Baumstruktur ein Default-Package (also das unterste Package in der Package-Hierarchie einer Anwendung) ausgewählt sein, da Sprachen nur am Default-Package definiert werden. Um neue Lizenzen anlegen zu können, muss man Eigentümer eines Packages sein (<a href="package.html"><strong>Package</strong></a>).</p>
-<h4 id="delete"><strong>Delete</strong></h4>
+<p>Anlegen eines neuen Packages, einer neuen Lizenz oder einer neuen Sprache. Um eine neue Sprache anlegen zu können, muss in der Baumstruktur ein Default-Package (also das unterste Package in der Package-Hierarchie einer Anwendung) ausgewählt sein, da Sprachen nur am Default-Package definiert werden. Um neue Lizenzen anlegen zu können, muss man Eigentümer eines Packages sein (<a href="package.html">Package</a>).</p>
+<h4 id="delete">Delete</h4>
 <p>Sie erkennen <strong>Delete</strong> an einem <img src="../media/icon-delete.png" alt="icon-delete.png">-Icon.</p>
-<p>Löschen der in der Baumstruktur ausgewählten Lizenz (<a href="package-lizenz.html"><strong>Lizenzen</strong></a>), Version (<a href="package-version.html"><strong>Package-Versionen</strong></a>) oder Sprache (<a href="sprachen.html"><strong>Sprachen</strong></a>). Versionen dürfen nur mit dem Package Manager der aktuellsten Framework Studio Version gelöscht werden, die im Repository zum Einsatz kommt!</p>
-<h4 id="save"><strong>Save</strong></h4>
+<p>Löschen der in der Baumstruktur ausgewählten Lizenz (<a href="package-lizenz.html">Lizenzen</a>), Version (<a href="package-version.html">Package-Versionen</a>) oder Sprache (<a href="sprachen.html">Sprachen</a>). Versionen dürfen nur mit dem Package Manager der aktuellsten Framework Studio Version gelöscht werden, die im Repository zum Einsatz kommt!</p>
+<h4 id="save">Save</h4>
 <p>Sie erkennen <strong>Save</strong> an einem <img src="../media/icon-save.png" alt="icon-save.png">-Icon.</p>
 <p>Speichern der Änderungen am ausgewählten Element.</p>
-<h4 id="save-all"><strong>Save All</strong></h4>
+<h4 id="save-all">Save All</h4>
 <p>Sie erkennen <strong>Save All</strong> an einem <img src="../media/icon-save-all.png" alt="icon-save-all.png">-Icon.</p>
 <p>Speichern aller Änderungen.</p>
-<h4 id="label"><strong>Label</strong></h4>
+<h4 id="label">Label</h4>
 <p>Sie erkennen <strong>Label</strong> an einem <img src="../media/icon-label.png" alt="icon-label.png">-Icon.</p>
-<p>Erzeugt eine neue <a href="package-version.html"><strong>Package-Version</strong></a> auf gleicher Ebene und versiegelt dabei die Ursprungsversion (Status=<em>sealed</em>). Ausgecheckte Elemente werden dabei in die neue Version übertragen.</p>
+<p>Erzeugt eine neue <a href="package-version.html">Package-Version</a> auf gleicher Ebene und versiegelt dabei die Ursprungsversion (Status=<em>sealed</em>). Ausgecheckte Elemente werden dabei in die neue Version übertragen.</p>
 <p><strong>Beispiel</strong>: Label 3.0 =&gt; 3.1</p>
 <p><img src="media/example-label-package-version.png" alt="Beispiel Labeln"></p>
 <p>Der Status der Ursprungsversion kann anschließend bei Bedarf auf <em>Service-Release</em> oder wieder zurück auf <em>Open</em> gesetzt werden.</p>
-<h4 id="branch"><strong>Branch</strong></h4>
+<h4 id="branch">Branch</h4>
 <p>Sie erkennen <strong>Branch</strong> an einem <img src="../media/icon-branch.png" alt="icon-branch.png">-Icon.</p>
-<p>Erzeugt eine neue <a href="package-version.html"><strong>Package-Version</strong></a> eine Ebene tiefer und verändert den Zustand der Ursprungsversion dabei nicht. Ausgecheckte Elemente verbleiben in der Ursprungsversion.</p>
+<p>Erzeugt eine neue <a href="package-version.html">Package-Version</a> eine Ebene tiefer und verändert den Zustand der Ursprungsversion dabei nicht. Ausgecheckte Elemente verbleiben in der Ursprungsversion.</p>
 <p><strong>Beispiel</strong> Branch 3.0 =&gt; 3.0.2</p>
 <p><img src="media/example-branch-package-version.png" alt="Beispiel Branchen"></p>
-<h4 id="import-package"><strong>Import Package</strong></h4>
+<h4 id="import-package">Import Package</h4>
 <p>Sie erkennen <strong>Import Package</strong> an einem <img src="../media/icon-import-package.png" alt="icon-import-package.png">-Icon.</p>
 <p>Importieren einer Package-Version. Nach dem Import ist es in der Regel notwendig, abhängige Package-Versionen zu compilieren bzw. passende Stände von abhängigen Package-Versionen zu importieren.</p>
-<h4 id="export-package"><strong>Export Package</strong></h4>
+<h4 id="export-package">Export Package</h4>
 <p>Sie erkennen <strong>Export Package</strong> an einem <img src="../media/icon-export-package.png" alt="icon-export-package.png">-Icon.</p>
 <p>Exportieren der ausgewählten Package-Version.</p>
-<h4 id="import-license"><strong>Import License</strong></h4>
+<h4 id="import-license">Import License</h4>
 <p>Sie erkennen <strong>Import License</strong> an einem <img src="../media/icon-import-license.png" alt="icon-import-license.png">-Icon.</p>
 <p>Importieren einer Package Lizenz (PKL)</p>
-<h4 id="export-license"><strong>Export License</strong></h4>
+<h4 id="export-license">Export License</h4>
 <p>Sie erkennen <strong>Export License</strong> an einem <img src="../media/icon-export-license.png" alt="icon-export-licence.png">-Icon.</p>
 <p>Exportieren der ausgewählten Lizenz</p>
-<h4 id="export-service-release"><strong>Export Service Release</strong></h4>
+<h4 id="export-service-release">Export Service Release</h4>
 <p>Sie erkennen <strong>Export Service Release</strong> an einem <img src="../media/icon-export-service-release.png" alt="icon-export-service-release.png">-Icon.</p>
 <p>Exportiert den Service Release Stand der ausgewählten Package-Version. Dabei werden nur die Änderungen seit dem Eröffnen des Service Release Modus übernommen. Dadurch entstehen deutlich kleinere Dateien als beim normalen Package-Export.</p>
-<h4 id="import-service-release"><strong>Import Service Release</strong></h4>
+<h4 id="import-service-release">Import Service Release</h4>
 <p>Sie erkennen <strong>Import Service Release</strong> an einem <img src="../media/icon-import-service-release.png" alt="icon-import-service-release.png">-Icon.</p>
 <p>Importiert einen Service Release Stand, welcher zuvor mit Export Service Release exportiert wurde. Durch den Import ändert sich der Compile-Stamp nicht, deshalb müssen die abhängigen Package-Version nicht neu compiliert werden.</p>
 <p>Über das Menü <strong>Tools / Publish / Wizard</strong> bzw. <strong>Tools / Publish / 2Go</strong> kann der Publish- bzw. der Publish2Go-Wizard für die ausgewählte Package-Version aufgerufen werden.</p>
 <p>Über das Menü <strong>Tools / Check Using Hierarchies</strong> des Hauptmenüs können die Abhängigkeiten der Packages überprüft werden.</p>
-<p>Über das Menü <strong>Tools / Runtime Licenses Manager</strong> kann der Runtime License Manager ([<strong>Laufzeitlizenzen</strong>](!TODO LINK)) für die ausgewählte Package-Version gestartet werden.</p>
+<p>Über das Menü <strong>Tools / Runtime Licenses Manager</strong> kann der Runtime License Manager (<a href="../access-units/laufzeitlizenzen.html">Laufzeitlizenzen</a>) für die ausgewählte Package-Version gestartet werden.</p>
 <p>In der Baumstruktur des Package Managers werden <strong>Packages</strong>, <strong>Package-Versionen</strong>, <strong>Lizenzen</strong> und <strong>Sprachen</strong> hierarchisch dargestellt. Die einzelnen Elemente werden im Folgenden genauer beschrieben.</p>
 </article>
           </div>

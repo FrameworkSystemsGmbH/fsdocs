@@ -84,7 +84,7 @@
 <p>In den folgenden Abschnitten werden die Menüpunkte im Menü <strong>Tools</strong> beschrieben.</p>
 <p><img src="media/compile-menu.png" alt="compile-menu.png"></p>
 <h2 id="compile-manager">Compile Manager</h2>
-<p>Wenn viele Namespaces kompiliert werden sollen und der Kompiliervorgang durch einen Fehler unterbrochen wird, kann mit dem Compile Manager der Kompiliervorgang fortgesetzt werden. In Verbindung mit dem FC-User ist das vor allem bei Update-Szenarien sehr vorteilhaft.</p>
+<p>Wenn viele Namespaces kompiliert werden sollen und der Kompiliervorgang durch einen Fehler unterbrochen wird, kann mit dem Compile Manager der Kompiliervorgang fortgesetzt werden. In Verbindung mit dem FCUser ist das vor allem bei Update-Szenarien sehr vorteilhaft.</p>
 <p><img src="media/compile-manager.png" alt="compile-manager.png"></p>
 <p>Mit den Buttons in der Gruppe <strong>Add Namespaces to List</strong> werden die zu kompilierenden Elemente typweise in die Liste übernommen. In der Liste auf der rechten Seite werden alle Namespaces gesammelt. Beim Erstellen der Liste wird nicht geprüft, ob ein Namespace auch tatsächlich Elemente eines bestimmten Typs (z.B. Forms) beinhaltet. Es landen immer alle existierenden Namespaces in der Liste.</p>
 <p>Diese Liste versteht sich als eine Aufgabenliste, die durch kompilieren abzuarbeiten ist. Das Abarbeiten kann auf 2 Arten erfolgen:</p>
@@ -96,11 +96,11 @@
 </ol>
 <p>Ganz gleich, von wo aus der Compile gestartet wird, immer wenn ein Namespace erfolgreich kompiliert wurde, wird dieser aus der Liste entfernt.</p>
 <p>Mit dem Button <strong>Save</strong> kann die aktuelle Liste in eine Datei gespeichert werden. Die Datei wird in das Compile-Directory geschrieben. Mit dem Button <strong>Load</strong> kann diese Liste wieder aus einer Datei eingelesen werden. Das ist nützlich, wenn Framework Studio zwischendurch verlassen werden muss. So kann nach dem Neustart dort weitergemacht werden, wo zuletzt aufgehört wurde.</p>
-<p>Mit dem Button <strong>Complete FrameworkCompiler</strong> wird der FrameworkCompiler-Vorgang abgeschlossen. Dieser Button wird nur angezeigt, wenn ein FC-User oder der FrameworkCompiler angemeldet ist. Folgende Aktionen werden ausgeführt:</p>
+<p>Mit dem Button <strong>Complete FrameworkCompiler</strong> wird der FrameworkCompiler-Vorgang abgeschlossen. Dieser Button wird nur angezeigt, wenn ein FCUser oder der FrameworkCompiler angemeldet ist. Folgende Aktionen werden ausgeführt:</p>
 <ol>
 <li><p>Prüfen, ob etwas ausgecheckt ist. Für diese Aktion muss alles eingecheckt sein.</p>
 </li>
-<li><p>Refresh des FrameworkCompiler-Workspaces (nur wenn man als FC-User angemeldet ist). Beim Arbeiten mit dem FC-User können Elemente aus- und eingecheckt werden. Die SavedCodes und Assemblies wurden generiert und jetzt muss noch der Workspace vom FrameworkCompiler aktualisiert werden, damit dieser wieder zu den generierten Informationen passt. Das ist notwendig, wenn das Package exportiert werden soll oder anschließend andere User beim Refresh des eigenen Workspaces den vom FrameworkCompiler verwenden (<strong>FrameworkCompiler Version and checked out</strong> im Login-Dialog).</p>
+<li><p>Refresh des FrameworkCompiler-Workspaces (nur wenn man als FCUser angemeldet ist). Beim Arbeiten mit dem FCUser können Elemente aus- und eingecheckt werden. Die SavedCodes und Assemblies wurden generiert und jetzt muss noch der Workspace vom FrameworkCompiler aktualisiert werden, damit dieser wieder zu den generierten Informationen passt. Das ist notwendig, wenn das Package exportiert werden soll oder anschließend andere User beim Refresh des eigenen Workspaces den vom FrameworkCompiler verwenden (<strong>FrameworkCompiler Version and checked out</strong> im Login-Dialog).</p>
 </li>
 <li><p>Aktualisieren des Compile-Stamps. Das beinhaltet die Information, dass der FrameworkCompiler erfolgreich gelaufen ist und sorgt dafür, dass die rote Kennzeichnung im Package-Manager verschwindet.</p>
 </li>
@@ -116,44 +116,49 @@
 <li><p>Wenn mindestens ein <strong>Form</strong> ausgecheckt ist, werden auch <strong>Access Units</strong> mit kompiliert.</p>
 </li>
 </ul>
-<p>Diese Funktion verwendet im Hintergrund den <a href="#compile-manager"><strong>Compile Manager</strong></a>. Wenn beim Kompilieren ein Fehler auftritt, dann kann der Kompiliervorgang im Compile-Manager fortgesetzt werden.</p>
+<p>Diese Funktion verwendet im Hintergrund den <a href="#compile-manager">Compile Manager</a>. Wenn beim Kompilieren ein Fehler auftritt, dann kann der Kompiliervorgang im Compile-Manager fortgesetzt werden.</p>
 <h2 id="compile-changes">Compile Changes</h2>
-<p>!TODO: muss noch genauer beschrieben.</p>
+<p>!TODO</p>
 <h2 id="run--run">Run / Run…</h2>
-<p>Mit dem Menüeintrag <strong>Run</strong> werden die Testumgebung (<a href="#start--stop-current-development-fsdomain"><strong>Start / Stop current development FSDomain</strong></a>) und ein Client für die Applikation gestartet. Es werden dazu die zuletzt im [<strong>Run-Wizard</strong>](!TODO LINK) vorgenommenen Einstellungen verwendet.</p>
-<p>Mit dem Menüeintrag <strong>Run…</strong> wird zunächst der [<strong>Run-Wizard</strong>](!TODO LINK) gestartet und anschließend die Testumgebung mit Client für die Applikation gestartet.</p>
+<p>Mit dem Menüeintrag <strong>Run</strong> werden die Testumgebung (<a href="#start--stop-current-development-fsdomain">Start / Stop current development FSDomain</a>) und ein Client für die Applikation gestartet. Es werden dazu die zuletzt im <a href="../publish-wizards/run-wizard.html#start">Run-Wizard</a> vorgenommenen Einstellungen verwendet.</p>
+<p>Mit dem Menüeintrag <strong>Run…</strong> wird zunächst der <a href="../publish-wizards/run-wizard.html#start">Run-Wizard</a> gestartet und anschließend die Testumgebung mit Client für die Applikation gestartet.</p>
 <h2 id="run-without-compile">Run Without Compile</h2>
-<p>!TODO: muss noch genauer beschrieben.</p>
-<h2 id="run-wizards">Run Wizards…</h2>
-<p>!TODO: muss noch genauer beschrieben.</p>
+<p>!TODO</p>
+<h2 id="run-wizard">Run Wizard…</h2>
+<p>Siehe hierzu <a href="../publish-wizards/run-wizard.html">Run Wizard</a></p>
 <h2 id="start--stop-current-development-fsdomain">Start / Stop current development FSDomain</h2>
-<p>Mit dem Menüeintrag <strong>Start current development FSDomain</strong> starten Sie alle im [<strong>Run-Wizard</strong>](!TODO LINK) konfigurierten Dienste (Service Hosts) und den Development Broker (<a href="anwendung-starten.html#development-broker"><strong>Development-Broker</strong></a>).</p>
+<p>Mit dem Menüeintrag <strong>Start current development FSDomain</strong> starten Sie alle im <a href="../publish-wizards/run-wizard.html#start">Run-Wizard</a> konfigurierten Dienste (Service Hosts) und den Development Broker (<a href="anwendung-starten.html#development-broker">Development-Broker</a>).</p>
 <p>Mit dem Menüeintrag <strong>Stop development FSDomain</strong> wird der Development Broker beendet.</p>
 <h2 id="open-client-start-page">Open Client Start Page</h2>
-<p>!TODO: muss noch genauer beschrieben.</p>
+<p>!TODO</p>
 <h2 id="development-service-host-options">Development Service Host Options</h2>
 <p>Mit dem Menüpunkt Development Service Host Options können die folgenden beiden Schalter gesetzt werden:</p>
 <ul>
-<li><p><strong>Compile forces stop of Development Broker Service Host:</strong> Ist diese Option mit einem Häkchen versehen, wird der <a href="anwendung-starten.html#development-broker"><strong>Development-Broker</strong></a> automatisch beendet, wenn in Framework Studio ein Kompiliervorgang gestartet wird. Andernfalls werden Sie beim Start eines Kompiliervorgangs gefragt, ob der laufende Development-Broker beendet werden soll. Die Beendung des Development-Brokers ist nötig, um kompilieren zu können. Der Schalter ist im Standard gesetzt.</p>
+<li><p><strong>Compile forces stop of Development Broker Service Host:</strong>
+Ist diese Option mit einem Häkchen versehen, wird der <a href="anwendung-starten.html#development-broker">Development-Broker</a> automatisch beendet, wenn in Framework Studio ein Kompiliervorgang gestartet wird.
+Andernfalls werden Sie beim Start eines Kompiliervorgangs gefragt, ob der laufende Development-Broker beendet werden soll.
+Die Beendung des Development-Brokers ist nötig, um kompilieren zu können. Der Schalter ist im Standard gesetzt.</p>
 </li>
-<li><p><strong>Autostop of Development Broker Service Host after run of application:</strong> Ist diese Option mit einem Häkchen versehen, wird der Development-Broker automatisch beendet, wenn die Testapplikation geschlossen wird.</p>
+<li><p><strong>Autostop of Development Broker Service Host after run of application:</strong>
+Ist diese Option mit einem Häkchen versehen, wird der Development-Broker automatisch beendet, wenn die Testapplikation geschlossen wird.</p>
 </li>
 </ul>
 <h2 id="logging">Logging</h2>
 <p>Mit dem Menüpunkt <strong>Logging</strong> wird ein Dialog geöffnet, in dem alle Einstellungen zur Protokollierung der Xml Kommunikation zwischen Client und Broker vorgenommen werden.</p>
-<p>Siehe <a href="anwendung-starten.html#protokollieren-der-xml-kommunikation"><strong>Protokollieren der XML-Kommunikation</strong></a></p>
+<p>Siehe <a href="anwendung-starten.html#protokollieren-der-xml-kommunikation">Protokollieren der XML-Kommunikation</a></p>
 <h2 id="autocompile-report">AutoCompile Report</h2>
-<p>!TODO: muss noch genauer beschrieben.</p>
+<p>!TODO</p>
 <h2 id="open-compile-directory-in-explorer">Open Compile Directory In Explorer</h2>
-<p>Mit dem Menüpunkt <strong>Open Compile Directory In Explorer</strong> wird das Kompilierverzeichnis (<a href="anwendung-starten.html#compile-verzeichnis"><strong>Compile-Verzeichnis</strong></a>) im Windows Explorer geöffnet.</p>
+<p>Mit dem Menüpunkt <strong>Open Compile Directory In Explorer</strong> wird das Kompilierverzeichnis (<a href="anwendung-starten.html#compile-verzeichnis">Compile-Verzeichnis</a>) im Windows Explorer geöffnet.</p>
 <h2 id="open-development-broker-directory-in-explorer">Open Development Broker Directory In Explorer</h2>
-<p>Mit dem Menüpunkt <strong>Open Development Broker Directory In Explorer</strong> wird das im IIS freigegebene Verzeichnis des Development-Brokers (<a href="anwendung-starten.html#development-broker"><strong>Development-Broker</strong></a>) im Windows Explorer geöffnet.</p>
+<p>Mit dem Menüpunkt <strong>Open Development Broker Directory In Explorer</strong> wird das im IIS freigegebene Verzeichnis des Development-Brokers (<a href="anwendung-starten.html#development-broker">Development-Broker</a>) im Windows Explorer geöffnet.</p>
 <h2 id="open-user-directory-in-explorer">Open User Directory In Explorer</h2>
-<p>Mit dem Menüpunkt <strong>Open User Directory In Explorer</strong> wird das Verzeichnis im Windows Explorer geöffnet, in dem <strong>Framework Studio</strong> benutzerbezogene Daten ablegt. Dazu gehören verschiedene Konfigurationsdateien sowie ggf. Trace- und Log-Dateien.</p>
+<p>Mit dem Menüpunkt <strong>Open User Directory In Explorer</strong> wird das Verzeichnis im Windows Explorer geöffnet, in dem <strong>Framework Studio</strong> benutzerbezogene Daten ablegt.
+Dazu gehören verschiedene Konfigurationsdateien sowie ggf. Trace- und Log-Dateien.</p>
 <h2 id="application">Application…</h2>
-<p>!TODO: muss noch genauer beschrieben.</p>
-<h2 id="get-dlls">Get Dll‘s</h2>
-<p>Mit diesem Menüpunkt können die Dll‘s vom FrameworkCompiler, die Debug-Dll’s vom aktiven Package oder die Debug-Dll’s von allen Basis-Packages in das eigene Compile-Verzeichnis geschrieben werden.</p>
+<p>Siehe hierzu <a href="application.html">Application</a></p>
+<h2 id="get-dlls">Get Dlls</h2>
+<p>Mit diesem Menüpunkt können die Dlls vom FrameworkCompiler, die Debug-Dlls vom aktiven Package oder die Debug-Dlls von allen Basis-Packages in das eigene Compile-Verzeichnis geschrieben werden.</p>
 </article>
           </div>
           

@@ -83,7 +83,7 @@
 
 <p>Der Publish-Wizard wird verwendet, wenn mit Framework Studio entwickelte Applikationen und Dienste (Service Hosts) lokal veröffentlicht (installiert) werden sollen.
 Gestartet wird der Publish-Wizard über den Menüeintrag <strong>Tools / Publish Wizard</strong>.</p>
-<p><img src="media/publish_wizard.png" alt="Publish Wizard"></p>
+<p><img src="media/publish_wizard_start.png" alt="Publish Wizard"></p>
 <p>Der Publish-Wizard arbeitet grundsätzlich wie bei Wizards üblich.
 Man kann sich mit den Buttons <strong>Back</strong> und <strong>Next</strong> durch die verschiedenen Einstellungen navigieren.</p>
 <p>Um gezielt eine bestimmte Einstellung zu ändern kann man diese auch direkt über den Baum anwählen.</p>
@@ -98,18 +98,46 @@ Es werden die Applications und Services auf dem Rechner installiert.</p>
 Die geänderten Einstellungen werden in dem aktuellen User-Setting gespeichert.</p>
 <h2 id="start">Start</h2>
 <p><img src="media/publish_wizard_start.png" alt="Publish Wizard Start"></p>
-<p><strong>Installation Name:</strong> Hier muss ein eindeutiger Name für die Installation angegeben werden.
+<h4 id="installation-name">Installation Name</h4>
+<p>Hier muss ein eindeutiger Name für die Installation angegeben werden.
 Das ist vor allem dann wichtig, wenn man mehrere verschiedene Umgebungen installieren möchte.</p>
 <p>Framework Studio merkt sich unter diesen Namen alle erzeugten Verzeichnisse und Dienste.
 Wird eine Umgebung erneut gepublished, dann wird erst alles, was unter diesem Namen installiert wurde entfernt, bevor die neuen Dateien rausgeschrieben werden.
 Standardmäßig wird der Name des aktuellen Packages vorbelegt.</p>
-<p><strong>Windows Service Prefix:</strong> Wenn Services als Windows Dienst installiert werden, dann muss Framework Studio diesen Diensten einen eindeutigen Namen geben.
+<h4 id="windows-service-prefix">Windows Service Prefix</h4>
+<p>Wenn Services als Windows Dienst installiert werden, dann muss Framework Studio diesen Diensten einen eindeutigen Namen geben.
 Als Dienst-Name wird der Name des Services verwendet.
 Damit bei mehreren unterschiedlichen Installationen auf einem Rechner die Dienst-Namen eindeutig bleiben, kann man hier einen Prefix angeben, der dem Dienst-Namen vorangestellt werden soll.</p>
 <p>Standardmäßig wird der Name des aktuellen Packages vorbelegt.</p>
-<p><strong>Button Revoke Release:</strong> Mit diesem Button wird die komplette Umgebung deinstalliert.
+<h4 id="server-culture">Server-Culture</h4>
+<p>Hier kann eine Culture definiert werden (z.B: <code>de-DE</code>, <code>de-CH</code> oder <code>en-US</code>) mit der die Anwendung ausgeführt werden soll.
+Dies wirkt sich auf Culture-spezifische Aktionen wie z.B. Zahlen- und Datums-Formate aus.
+Erfolgt keine Angabe, dann wird die Culture des Betriebssystems verwendet.</p>
+<h4 id="client-timeout">Client-Timeout</h4>
+<p>Der Java-Client meldet sich in der Regel alle 2 Minuten beim Server - auch wenn der Benutzer keine Aktionen ausführt.
+Bleiben diese Meldungen aus beendet der Broker die entsprechende Session nach dem definierten Timeout.
+Dadurch werden Lizenzen und Ressourcen freigegeben, wenn ein Benutzer z.B. seinen Rechner ausschaltet ohne den Client zuvor zu beenden.
+Der Standard-Wert ist 5 Minuten.</p>
+<h4 id="logging--tracing">Logging / Tracing</h4>
+<p>Hier kann definiert werden, ob und in welche Ordner protokolliert werden soll.</p>
+<div class="WARNING"><h5>Warning</h5><p>Beide Protokollierung erzeugen große Daten-Mengen.
+Die Protokolle sollten nur gezielt in konkreten Situationen aktiviert werden.</p>
+</div>
+<p><strong>Checkbox Session Trace</strong>: Diese Checkbox aktiviert das <a href="../session-logging/session-trace-analyzer.html">Session Trace</a>.
+Dazu muss ein entsprechender <strong>Folder</strong> angegeben werden, in dem die Daten protokolliert werden sollen.
+Ist die Checkbox nicht gesetzt, dann hat ein ggf. definierter Ordner keine Funktion.</p>
+<p><strong>Checkbox Broker XML</strong>: Ist diese Checkbox gesetzt, dann werden alle Broker-Requests und Responses als XML-Datei gespeichert.
+Das kann hilfreich sein um ganz konkrete Probleme im Detail zu analysieren.
+Dazu muss ein entsprechender <strong>Folder</strong> angegeben werden, in dem die Daten protokolliert werden sollen.
+Ist die Checkbox nicht gesetzt, dann hat ein ggf. definierter Ordner keine Funktion.</p>
+<div class="WARNING"><h5>Warning</h5><p>In den XML-Dateien sind ALLE Daten enthalten, die ein Benutzer am Client eingibt und angezeigt bekommt.
+Das kann auch benutzerbezogene und sensible umfassen - insbesondere in produktiven Umgebungen.</p>
+</div>
+<h4 id="button-revoke-release">Button Revoke Release</h4>
+<p>Mit diesem Button wird die komplette Umgebung deinstalliert.
 Dabei wird alles das deinstalliert, was unter dem angegebenen Installations-Namen installiert wurde.</p>
-<p><strong>Button Configure Servernames:</strong> Mit diesem Button wird ein Dialog geöffnet, mit dem Server, welche einen vom internen Namen abweichenden externen Namen haben, konfiguriert werden können.</p>
+<h4 id="button-configure-servernames">Button Configure Servernames</h4>
+<p>Mit diesem Button wird ein Dialog geöffnet, mit dem Server, welche einen vom internen Namen abweichenden externen Namen haben, konfiguriert werden können.</p>
 <p><img src="media/publish_wizard_configure_external_servernames.png" alt="Publish Wizard Configure External Servernames"></p>
 <p>Mit dem Button <strong>New</strong> <img src="../media/icon-new.png" alt="icon-new.png"> wird in der linken Listbox ein neuer Eintrag angelegt. Dort werden alle Server mit ihrem internen Namen aufgeführt.</p>
 <p>Mit dem Button <strong>Delete</strong> <img src="../media/icon-delete.png" alt="icon-delete.png"> wird der Eintrag, den Sie in der linken Listbox ausgewählt haben, gelöscht.</p>
@@ -118,10 +146,8 @@ Dabei wird alles das deinstalliert, was unter dem angegebenen Installations-Name
 Gibt es mehrere externe Namen für einen Server, so müssen die Namen dort getrennt durch Zeilenumbrüche eingegeben werden.</p>
 <p>Mit dem Button <strong>OK</strong> werden alle Änderungen bestätigt und der Dialog geschlossen.
 Mit dem Button <strong>Cancel</strong> werden alle Änderungen verworfen.</p>
-<p><strong>Button Load Release:</strong> Bei jedem Publish-Vorgang wird das genutzte Setting in die Registry geschrieben.
-Somit ist die Möglichkeit gegeben, die Einstellungen von bereits veröffentlichten Anwendungen und Service Hosts wieder in den Publish-Dialog zu laden.</p>
-<p><strong>Button Load Setting:</strong> Hier kann ein gespeichertes Setting aus dem Repository geladen werden.
-Alle nicht gespeicherten Angaben gehen dabei verloren.</p>
+<h4 id="button-session-logging-analyzer">Button Session Logging Analyzer</h4>
+<p>Dieser Button öffnen den <a href="../session-logging/session-logging-analyzer.html">Session Logging Analyzer</a> und meldet ihn automatisch am Runtime-Repository an.</p>
 <h2 id="connection-groups">Connection Groups</h2>
 <p>Hier können die Verbindungseinstellungen für die verschiedenen Connection Groups definiert werden.
 Die RuntimeConnection ist die Verbindung zum Repository.</p>

@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>tblRep_ReportInstance (Runtime-Repository) </title>
+    <title>Application Logging </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="tblRep_ReportInstance (Runtime-Repository) ">
+    <meta name="title" content="Application Logging ">
     <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -79,46 +79,18 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="tblrepreportinstance-runtime-repository">tblRep_ReportInstance (Runtime-Repository)</h1>
+<h1 id="application-logging">Application Logging</h1>
 
-<p>Diese Tabelle beinhaltet die Druck-Jobs die per Anzeige / Vorschau direkt am Client angezeigt werden.</p>
-<table>
-<thead>
-<tr>
-<th>Spalte</th>
-<th>Beschreibung</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>RPTI_ID</td>
-<td>Eindeutige ID des Print-Jobs (Guid)</td>
-</tr>
-<tr>
-<td>RPTI_CreateDateTime</td>
-<td>Zeitpunkt, an dem der Print-Job erzeugt wurde</td>
-</tr>
-<tr>
-<td>RPTI_RPTExpF_ID</td>
-<td>Das Format in dem der Druck ausgegeben werden soll.<br>1 = CrystalReport <br> 2 = RichText <br> 3 = Word <br> 4 = Excel <br> 5 = PDF <br> 6/7 = HTML</td>
-</tr>
-<tr>
-<td>RPTI_Reportname</td>
-<td>Der Name der Report-Datei</td>
-</tr>
-<tr>
-<td>RPTI_ReportFile</td>
-<td>Der Inhalt der Datei im Binär-Format.</td>
-</tr>
-</tbody>
-</table>
-<p>Normalerweise werden die Datensätze in dieser Tabelle nach 10 Minuten automatisch gelöscht. Sollten dennoch Einträge stehen bleiben, dann können veraltete Einträge auch manuell gelöscht werden.</p>
-<pre><code class="lang-sql">-- SQL-Server:
-DELETE FROM [tblRep_ReportInstance] WHERE DATEADD(minute, 10, [RPTI_CreateDateTime]) &lt; GetDate ();
-
--- Oracle:
-DELETE FROM tblRep_ReportInstance WHERE (RPTI_CreateDateTime + (10 / 1440)) &lt; sysdate;
-</code></pre></article>
+<p>Framework Studio stellt mehrere Möglichkeiten bereit, Applications zu protokollieren.</p>
+<h2 id="session-logging">Session-Logging</h2>
+<p>Jede Application speichert automatisch Informationen in der Tabelle <a href="../tables/tblrep_sessionlogging.html">tblRep_SessionLogging</a> im Runtime-Repository.
+Es werden pro Session aggregierte Daten über die Anzahl und Dauer der ausgeführten Broker-Anfragen und die Datenbank-Befehle gespeichert.
+Diese Daten können mit dem <a href="session-logging-analyzer.html">Session Logging Analyzer</a> ausgewertet werden.</p>
+<h2 id="session-trace">Session-Trace</h2>
+<p>Das Session Trace protokolliert einzelne Requests und Datenbank-Befehle in Protokoll-Dateien auf dem Broker-Server.
+Das Session-Trace muss bei Bedarf explizit im <a href="../publish-wizards/publish-wizard.html#start">Publish-Wizard</a> bzw. <a href="../publish-wizards/publish2go-wizard.html">Publish2Go-Wizard</a> aktiviert werden.</p>
+<p>Diese Daten können mit dem <a href="session-trace-analyzer.html">Session Trace Analyzer</a> ausgewertet werden.</p>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

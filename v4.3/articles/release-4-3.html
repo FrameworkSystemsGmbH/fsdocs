@@ -81,23 +81,52 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-43">Release-Information Framework Studio 4.3</h1>
 
-<h2 id="431-fix-1-04022021">4.3.1 Fix 1 (04.02.2021)</h2>
+<h2 id="432-26022021">4.3.2 (26.02.2021)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.3.1_Fix_1_Setup_x64</li>
+<li>FS_4.3.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<h5 id="änderung-der-logik-beim-schließen-des-letzten-forms-im-html-client">Änderung der Logik beim Schließen des letzten Forms im HTML Client</h5>
+<p>Auf Grund von Bug 2021015392 wurde die Logik, die beim Schließen des letzten Forms im HTML Client greift, überarbeitet. Es gibt nun 2 Szenarien, die es zu beachten gilt.</p>
+<p>Eine detailierte Beschreibung gibt es <a href="../doc/html-client/funktionsumfang.html#szenarien-beim-schließen-des-letzten-forms">hier</a></p>
+<h5 id="html-client-actions">HTML Client Actions</h5>
+<p>Der HTML Client unterstutzt nun die Actions <code>SetTitle</code> und <code>SetCaption</code>. Mehr Informationen zu den unterstützten Action finden Sie <a href="../doc/html-client/funktionsumfang.html#actions">hier</a></p>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
-<li><p>2021025498 - <strong>FS Framework</strong>: Bei Template- und ListView-Controls werden die
+<li><p>2021025560 - <strong>Java-Client</strong>: In einem TreeView wird durch den Benutzer ein
+  TreeNode selektiert. Das löst ein OnAfterSelect-Event aus. Dann wird durch
+  eine Aktion am Broker (z.B. durch setzen des TreeView-Datasources) ein
+  anderer TreeNode selektiert. Klickt der Benutzer jetzt erneut auf den zuerst
+  selektierten Eintrag, dann wird kein OnAfterSelect-Event ausgelöst.</p>
+</li>
+<li><p>2021025568 - <strong>Java-Client</strong>: Bei der Arbeit mit der
+  Accessibility-Schnitstelle kann es beim Schließen von Forms zu Exceptions
+  kommen: <em>java.lang.ClassCastException:
+  FrameworkSystems.FSJavaClient.DevControl.DevControlFieldRow cannot be cast
+  to javax.accessibility.Accessible</em></p>
+</li>
+<li><p>2021015413 - <strong>Framework</strong>: Wird einem Property, welches an ein Grid-Control
+  gebunden ist eine neue Instanz zugewiesen, dann werden die am Grid
+  eingestellten Filter und Sortierungen zurückgesetzt.</p>
+</li>
+<li><p>2021025449 - <strong>Framework</strong>: die Eigenschaft &quot;ComponentProperties&quot; hat eine
+  schlechte Performance.</p>
+</li>
+<li><p>2021025498 - <strong>Framework</strong>: Bei Template- und ListView-Controls werden die
   Namen der Template-Variablen nicht korrekt im Response verschlüsselt. In der
   Folge kommt es zu Fehlermeldungen im Mobile-Client: <em>Could not find
   TemplateDataSource</em></p>
 </li>
 <li><p>2021025514 - <strong>FS-IDE</strong>: Wird in einem Namespace, der im Basis-Package keine
-  Component beinhaltet (z.B. eNVenta <code>NV.ERP.MM</code>), im Customizing-Package eine
+  Component beinhaltet (z.B. eNVenta NV.ERP.MM), im Customizing-Package eine
   neue Component angelegt, dann kommt es beim Compile zu einer
   FileNotFoundException.</p>
+</li>
+<li><p>2021015392 - <strong>HTML Client</strong>: Wird das letzte Form vom Broker aus per Action
+  geschlossen, so muss am Client die Session ohne Rückfrage geschlossen
+  werden, wenn keine weiteren Forms offen sind.</p>
 </li>
 </ul>
 <h2 id="431-29012021">4.3.1 (29.01.2021)</h2>
@@ -106,7 +135,7 @@
 <li>FS_4.3.1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <ul>
 <li>Die <a href="../doc/ide/allgemeine-funktionatitaeten.html#vorwärts--und-rückwärtsnavigation">Vorwärts- und Rückwärtsnavigation</a> zwischen Einträgen ist nun auch mit den beiden zusätzlichen Navigationstasten an der Seite der Maus möglich.</li>
 </ul>
@@ -161,7 +190,7 @@
 <li>FS_4.3.0_Requirements_x64 (<a href="requirements-package.html">Requirements-Paket</a>)</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-1">Neuerungen</h4>
+<h4 id="neuerungen-2">Neuerungen</h4>
 <p>Die Neuerungen finden Sie unter <a href="neuheiten-4-3.html">Neuheiten 4.3</a></p>
 <h4 id="bekannte-probleme">Bekannte Probleme</h4>
 <div class="WARNING"><h5>Warning</h5><p>In der aktuellen Version sind die folgenden Probleme vorhanden. Diese werden mit dem nächsten Service-Release behoben.</p>

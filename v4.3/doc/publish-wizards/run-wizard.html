@@ -83,7 +83,7 @@
 
 <p>Der Run-Wizard wird verwendet, wenn mit Framework Studio entwickelte Applikationen und Dienste (Service Hosts) getestet werden sollen.
 Gestartet wird der Run-Wizard über den Menüeintrag <strong>Compile / Run…</strong> oder über die Tastenkombination <strong>Umschalt+F5</strong>.</p>
-<p><img src="media/run_wizard.png" alt="Run Wizard"></p>
+<p><img src="media/run_wizard_start.png" alt="Run Wizard"></p>
 <p>Der Run-Wizard arbeitet grundsätzlich wie bei Wizards üblich.
 Man kann sich mit den Buttons <strong>Back</strong> und <strong>Next</strong> durch die verschiedenen Einstellungen navigieren.</p>
 <p>Um gezielt eine bestimmte Einstellung zu ändern kann man diese auch direkt über den Baum anwählen.</p>
@@ -96,11 +96,38 @@ Siehe auch Registerkarte <a href="#end">End</a></p>
 <p><strong>Button Close:</strong> Schließt den Run-Wizard.
 Die geänderten Einstellungen werden in dem aktuellen User-Setting gespeichert.</p>
 <h2 id="start">Start</h2>
-<p><img src="media/run_wizard.png" alt="Run Wizard"></p>
-<p><strong>Choose language:</strong> Mit der Combobox wird die Sprache festgelegt, in der der Client für die Applikation gestartet werden soll.</p>
-<p><strong>Choose client:</strong> Mit der Combobox wird der zu startende Client ausgewählt.</p>
-<p><strong>Button Load Setting:</strong> Hier kann ein gespeichertes Setting aus dem Repository geladen werden.
-Alle nicht gespeicherten Angaben gehen dabei verloren.</p>
+<p><img src="media/run_wizard_start.png" alt="Run Wizard Start"></p>
+<h4 id="active-languages">Active Languages</h4>
+<p>In dieser Liste kann die Sprach-Hierarchie definiert werden.</p>
+<h4 id="start-mode">Start Mode</h4>
+<p>Mit der Combobox wird der zu startende Client ausgewählt.</p>
+<ul>
+<li>Client Launcher: Die Anwendung wird als Java-Client über den FS Client Launcher gestartet.</li>
+<li>Java Client:  Die Anwendung wird als Java-Client über Java WebStart gestartet.
+Das setzt die Installation einer Java Runtime voraus.</li>
+<li>Html Client: Es wird der HTML-Client im Browser geöffnet.
+Diese Option steht nur zur Verfügung, wenn der HTML-Client in der Application aktiviert ist.</li>
+<li>Client Start Page: Es wird die Client Start-Page im Browser angezeigt.
+Diese Aktion kann man auch direkt mit dem Befehl Open Client Start Page (F6) aufrufen.</li>
+</ul>
+<h4 id="server-culture">Server-Culture</h4>
+<p>Hier kann eine Culture definiert werden (z.B: <code>de-DE</code>, <code>de-CH</code> oder <code>en-US</code>) mit der die Anwendung ausgeführt werden soll.
+Dies wirkt sich auf Culture-spezifische Aktionen wie z.B. Zahlen- und Datums-Formate aus.
+Erfolgt keine Angabe, dann wird die Culture des Betriebssystems verwendet.</p>
+<h4 id="logging--tracing">Logging / Tracing</h4>
+<p>Hier kann definiert werden, ob und in welche Ordner protokolliert werden soll.</p>
+<div class="WARNING"><h5>Warning</h5><p>Beide Protokollierung erzeugen große Daten-Mengen.
+Die Protokolle sollten nur gezielt in konkreten Situationen aktiviert werden.</p>
+</div>
+<p><strong>Checkbox Session Trace</strong>: Diese Checkbox aktiviert das <a href="../session-logging/session-trace-analyzer.html">Session Trace</a>.
+Dazu muss ein entsprechender <strong>Folder</strong> angegeben werden, in dem die Daten protokolliert werden sollen.
+Ist die Checkbox nicht gesetzt, dann hat ein ggf. definierter Ordner keine Funktion.</p>
+<p><strong>Checkbox Broker XML</strong>: Ist diese Checkbox gesetzt, dann werden alle Broker-Requests und Responses als XML-Datei gespeichert.
+Das kann hilfreich sein um ganz konkrete Probleme im Detail zu analysieren.
+Dazu muss ein entsprechender <strong>Folder</strong> angegeben werden, in dem die Daten protokolliert werden sollen.
+Ist die Checkbox nicht gesetzt, dann hat ein ggf. definierter Ordner keine Funktion.</p>
+<h4 id="button-session-logging-analyzer">Button Session Logging Analyzer</h4>
+<p>Dieser Button öffnen den <a href="../session-logging/session-logging-analyzer.html">Session Logging Analyzer</a> und meldet ihn automatisch am Runtime-Repository an.</p>
 <h2 id="connection-groups">Connection Groups</h2>
 <p>Hier können die Verbindungseinstellungen für die verschiedenen Connection Groups definiert werden.</p>
 <p>Die RuntimeConnection ist die Verbindung zum Repository.</p>

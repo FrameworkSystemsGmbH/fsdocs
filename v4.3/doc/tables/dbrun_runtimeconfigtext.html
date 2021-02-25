@@ -103,12 +103,27 @@
 </tr>
 </tbody>
 </table>
+<h2 id="tenant-namen">Tenant-Namen</h2>
+<p>Der Tenant wird in der Spalte <code>RCT_Tenant</code> angegeben.</p>
+<p>Der Name des Tenants kann frei vergeben werden.
+Er darf Buchstaben, Zahlen und Unterstriche beinhalten - z.B. <code>MyTenant_7</code>.</p>
+<p>Es gibt reservierte Namen für Tenants:</p>
+<ul>
+<li><p><code>*</code> (Stern): Konfigurationen für diesen &quot;generellen&quot; Tenant werden von allen anderen Tenants verwendet
+Das gilt auch für die anderen reservierten Tenants, sofern sie den Konfigurations-Schlüssel unterstützen.
+Wird in anderen Tenants ebenfalls ein Eintrag für einen Konfigurations-Schlüssel definiert, dann hat dieser höhere Priorität und überschreibt so die Konfiguration des &quot;generellen&quot; Tenants.</p>
+</li>
+<li><p><code>#Proxy#</code>: In diesen speziellen &quot;Tenant&quot; werden Konfigurationen für den FrameworkBrokerHostProxy hinterlegt.</p>
+</li>
+<li><p><code>#AuthService#</code>: In diesen speziellen &quot;Tenant&quot; werden Konfigurationen für den Authentication-Service hinterlegt.</p>
+</li>
+</ul>
 <h2 id="gültigkeit">Gültigkeit</h2>
 <h4 id="expiration-date">Expiration Date</h4>
 <p>Datum, an dem der Tenant ausläuft.</p>
 <div class="IMPORTANT"><h5>Important</h5><ul>
 <li>Dieser Wert muss angegeben sein, ansonsten kann ein Tenant nicht gestartet werden.</li>
-<li>Für den generellen Tenannt &quot;*&quot; darf dieser Wert nicht angegeben werden.</li>
+<li>Für den generellen Tenant &quot;*&quot; darf dieser Wert nicht angegeben werden.</li>
 </ul>
 </div>
 <ul>
@@ -171,6 +186,81 @@
 <li><p>AppService|IsAuthenticationEnabled
 <code>true</code> oder <code>false</code></p>
 </li>
+</ul>
+<h2 id="service-proxies">Service-Proxies</h2>
+<ul>
+<li>RCT_Key: <code>ServiceProxy|&lt;ProxyType-FullName&gt;|Address</code></li>
+<li>RCT_Value: Adresse des Proxy</li>
+</ul>
+<h2 id="proxy-settings">Proxy-Settings</h2>
+<p>Settings für den FrameworkBrokerHostProxy.</p>
+<p>(Tenant = <code>#Proxy#</code>)</p>
+<h4 id="use-http">Use Http</h4>
+<p>Startet den FrameworkBrokerHostProxy mit HTTP statt HTTPS.</p>
+<p>Diese Einstellung sollte in Produktiv-Umgebungen nicht verwendet werden.</p>
+<ul>
+<li>RCT_Key: <code>Proxy|UseHttp</code></li>
+<li>RCT_Value: <code>true</code> oder <code>false</code>.</li>
+</ul>
+<h4 id="password-hash">Password Hash</h4>
+<p>Password-Hash für die API des FrameworkBrokerHostProxy.</p>
+<ul>
+<li>RCT_Key: <code>Proxy|PasswordHash</code></li>
+<li>RCT_Value: SAH512 Hashwert des API-Passworts.</li>
+</ul>
+<p>Z.B. auf der Seite <a href="https://passwordsgenerator.net/sha512-hash-generator/">https://passwordsgenerator.net/sha512-hash-generator/</a> (Benutzung auf eigene Gefahr!) kann man einen Passwort-Hash generieren.</p>
+<h2 id="authservice-settings">AuthService-Settings</h2>
+<p>Settings für den Authentication-Service.</p>
+<p>(Tenant = <code>#AuthService#</code>)</p>
+<h4 id="connection">Connection</h4>
+<ul>
+<li>RCT_Key: <code>AuthService|Connection</code></li>
+<li>RCT_Value: Connection-String</li>
+</ul>
+<h4 id="service-id">Service-ID</h4>
+<p>Eindeutige ID des Service.</p>
+<ul>
+<li>RCT_Key: <code>AuthService|Id</code></li>
+<li>RCT_Value: guid-String</li>
+</ul>
+<h4 id="service-uri">Service-Uri</h4>
+<p>Url des Auth-Service</p>
+<ul>
+<li>RCT_Key: <code>AuthService|Uri</code></li>
+<li>RCT_Value: Url des Auth-Service</li>
+</ul>
+<h4 id="service-name">Service-Name</h4>
+<ul>
+<li>RCT_Key: <code>AuthService|Name</code></li>
+<li>RCT_Value: Name des Service. Wenn nicht angegeben, dann ist der Default-Wert &quot;AuthenticationService&quot;</li>
+</ul>
+<h4 id="service-description">Service-Description</h4>
+<ul>
+<li>RCT_Key: <code>AuthService|Description</code></li>
+<li>RCT_Value: Beschreibung des Service</li>
+</ul>
+<h4 id="public-key">Public Key</h4>
+<p>Öffentlicher Schlüssel den Authentication-Service.</p>
+<p>Dieser kann auch im generellen Tenant &quot;*&quot; definiert und so automatisch von allen Tenants verwendet werden.</p>
+<ul>
+<li>RCT_Key: <code>AuthService|PublicKey</code></li>
+<li>RCT_Value: Public Key in Hex-Schreibweise</li>
+</ul>
+<h4 id="private-key">Private Key</h4>
+<ul>
+<li>RCT_Key: <code>AuthService|PrivateKey</code></li>
+<li>RCT_Value: Private Key in Hex-Schreibweise</li>
+</ul>
+<h4 id="runtime-supervisor">Runtime Supervisor</h4>
+<p>Gibt an, ob der Runtime-Supervisor aktiviert ist:</p>
+<ul>
+<li>RCT_Key: <code>RuntimeSupervisorEnabled</code></li>
+<li>RCT_Value: <code>true</code> oder <code>false</code></li>
+</ul>
+<p>Gibt die URL des Runtime-Supervisor an:</p>
+<ul>
+<li>RCT_Key: <code>RuntimeSupervisorUri</code></li>
+<li>RCT_Value: Url des Runtime-Supervisor</li>
 </ul>
 </article>
           </div>

@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Method SaveGridLayout
+    <title>Property AppServicePrivateKeyHex
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Method SaveGridLayout
+    <meta name="title" content="Property AppServicePrivateKeyHex
    ">
     <meta name="generator" content="docfx 2.56.2.0">
     
@@ -80,54 +80,36 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkControls.Actions.GridControlAction.SaveGridLayout*">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.Configuration.Runtime.IRuntimeConfigProvider.AppServicePrivateKeyHex*">
 
-<h1 id="FrameworkSystems_FrameworkControls_Actions_GridControlAction_SaveGridLayout_" data-uid="FrameworkSystems.FrameworkControls.Actions.GridControlAction.SaveGridLayout*">Method SaveGridLayout
+<h1 id="FrameworkSystems_FrameworkBase_Configuration_Runtime_IRuntimeConfigProvider_AppServicePrivateKeyHex_" data-uid="FrameworkSystems.FrameworkBase.Configuration.Runtime.IRuntimeConfigProvider.AppServicePrivateKeyHex*">Property AppServicePrivateKeyHex
 </h1>
 <div class="markdown level0 summary"></div>
 <div class="markdown level0 conceptual"></div>
 
-<a id="FrameworkSystems_FrameworkControls_Actions_GridControlAction_SaveGridLayout_" data-uid="FrameworkSystems.FrameworkControls.Actions.GridControlAction.SaveGridLayout*"></a>
-<h4 id="FrameworkSystems_FrameworkControls_Actions_GridControlAction_SaveGridLayout_System_String_System_Boolean_" data-uid="FrameworkSystems.FrameworkControls.Actions.GridControlAction.SaveGridLayout(System.String,System.Boolean)">SaveGridLayout(String, Boolean)</h4>
+<a id="FrameworkSystems_FrameworkBase_Configuration_Runtime_IRuntimeConfigProvider_AppServicePrivateKeyHex_" data-uid="FrameworkSystems.FrameworkBase.Configuration.Runtime.IRuntimeConfigProvider.AppServicePrivateKeyHex*"></a>
+<h4 id="FrameworkSystems_FrameworkBase_Configuration_Runtime_IRuntimeConfigProvider_AppServicePrivateKeyHex" data-uid="FrameworkSystems.FrameworkBase.Configuration.Runtime.IRuntimeConfigProvider.AppServicePrivateKeyHex">AppServicePrivateKeyHex</h4>
 <section>
-  <div class="markdown level1 summary"><p>Sendet eine Action an den Client, die das Layout des Grids auf dem Client-Rechner speichert. </p>
+  <div class="markdown level1 summary"><p>Gibt den Private Key der Application als Hex-String zurück.
+Der Authentication-Service besitzt den Public teil dieses Keys und validiert damit Nachrichten von der Application.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">public virtual void SaveGridLayout(string fileName, bool displayErrorMsg)</code></pre>
+      <pre><code class="lang-csharp hljs">string AppServicePrivateKeyHex { get; }</code></pre>
     </div>
   </section>
-  <h5 class="parameters">Parameters</h5>
+
+
+  <h5 class="propertyValue">Property Value</h5>
   <section>
-    <div class="propertyInfo">
-      <span class="parametername"><code>fileName</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
-      <div class="markdown level1 summary"><p>Relativer Dateipfad.</p>
-</div>
-    </div>
-    <div class="propertyInfo">
-      <span class="parametername"><code>displayErrorMsg</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>
-      <div class="markdown level1 summary"><p>Gibt an, ob im Fehlerfall eine Meldung angezeigt werden soll.</p>
-</div>
-    </div>
+      <div class="propertyInfo">
+        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
+        <div class="markdown level1 summary"></div>
+      </div>  
   </section>
-
-
-    <h5 id="FrameworkSystems_FrameworkControls_Actions_GridControlAction_SaveGridLayout_System_String_System_Boolean__remarks">Remarks</h5>
-    <section>
-      <div class="markdown level1 remarks"><p>Es muss ein relativer Dateipfad angegeben werden. 
-Dieser wird unterhalb des Ordners <code>%userprofile%\FSJavaClient\[Broker-Url]\</code> gespeichert.</p>
-<p>In diesem Ordner werden auch die Layout-Einstellungen gespeichert. 
-Werden Layout-Einstellungen mit <a class="xref" href="FrameworkSystems.FrameworkControls.GeneratedForm.ResetClientLayout.html#FrameworkSystems_FrameworkControls_GeneratedForm_ResetClientLayout">ResetClientLayout()</a> zurückgesetzt, dann wird der komplette Ordner gelöscht.</p>
-<p>Absolute Dateipfade werden vom Java-Client unterbunden.</p>
-</div>
-    </section>
-  <h5 id="FrameworkSystems_FrameworkControls_Actions_GridControlAction_SaveGridLayout_System_String_System_Boolean__seealso">See Also</h5>
-  <div class="seealso">
-      <div><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.GridControlAction.LoadGridLayout.html#FrameworkSystems_FrameworkControls_Actions_GridControlAction_LoadGridLayout_System_String_System_Boolean_">LoadGridLayout(String, Boolean)</a></div>
-  </div>
 </section>
 </article>
           </div>

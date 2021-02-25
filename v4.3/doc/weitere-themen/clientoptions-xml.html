@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>tblRep_ReportInstance (Runtime-Repository) </title>
+    <title>ClientOptions.xml </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="tblRep_ReportInstance (Runtime-Repository) ">
+    <meta name="title" content="ClientOptions.xml ">
     <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -79,46 +79,27 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="tblrepreportinstance-runtime-repository">tblRep_ReportInstance (Runtime-Repository)</h1>
+<h1 id="clientoptionsxml">ClientOptions.xml</h1>
 
-<p>Diese Tabelle beinhaltet die Druck-Jobs die per Anzeige / Vorschau direkt am Client angezeigt werden.</p>
-<table>
-<thead>
-<tr>
-<th>Spalte</th>
-<th>Beschreibung</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>RPTI_ID</td>
-<td>Eindeutige ID des Print-Jobs (Guid)</td>
-</tr>
-<tr>
-<td>RPTI_CreateDateTime</td>
-<td>Zeitpunkt, an dem der Print-Job erzeugt wurde</td>
-</tr>
-<tr>
-<td>RPTI_RPTExpF_ID</td>
-<td>Das Format in dem der Druck ausgegeben werden soll.<br>1 = CrystalReport <br> 2 = RichText <br> 3 = Word <br> 4 = Excel <br> 5 = PDF <br> 6/7 = HTML</td>
-</tr>
-<tr>
-<td>RPTI_Reportname</td>
-<td>Der Name der Report-Datei</td>
-</tr>
-<tr>
-<td>RPTI_ReportFile</td>
-<td>Der Inhalt der Datei im Binär-Format.</td>
-</tr>
-</tbody>
-</table>
-<p>Normalerweise werden die Datensätze in dieser Tabelle nach 10 Minuten automatisch gelöscht. Sollten dennoch Einträge stehen bleiben, dann können veraltete Einträge auch manuell gelöscht werden.</p>
-<pre><code class="lang-sql">-- SQL-Server:
-DELETE FROM [tblRep_ReportInstance] WHERE DATEADD(minute, 10, [RPTI_CreateDateTime]) &lt; GetDate ();
-
--- Oracle:
-DELETE FROM tblRep_ReportInstance WHERE (RPTI_CreateDateTime + (10 / 1440)) &lt; sysdate;
-</code></pre></article>
+<p>In dieser Datei können Einstellungen für den Java-Client vorgenommen werden. Die Datei muss manuell angelegt und bearbeitet werden.</p>
+<p>Die Datei <code>ClientOptions.xml</code> wird auf dem Client-Rechner im Ordner <code>%userprofile%\FSClientLauncher\</code> abgelegt.</p>
+<p>Die darin vorgenommenen Einstellungen ziehen für alle Java-Clients die auf diesem Rechner gestartet werden, sofern sie die entsprechende Einstellung unterstützen. Das gilt sowohl für Clients, die über den Client-Launcher als auch für Clients, die über Java Web Start gestartet werden.</p>
+<p>Beispiel-Datei:</p>
+<pre><code class="lang-xml">&lt;ClientOptions&gt;
+    &lt;add key=&quot;NoTooltip&quot; value=&quot;1&quot;/&gt;
+    &lt;add key=&quot;NoProgressWindow&quot; value=&quot;1&quot;/&gt;
+    &lt;add key=&quot;NoFrameAnimation&quot; value=&quot;1&quot;/&gt;
+&lt;/ClientOptions&gt;
+</code></pre><p>Es werden folgende Einstellungen unterstützt:</p>
+<ul>
+<li><p><code>NoTooltip</code>: Es werden in der Anwendung keine Tooltips angezeigt.</p>
+</li>
+<li><p><code>NoProgressWindow</code>: Es wird in der Anwendung kein Progress-Fenster angezeigt.</p>
+</li>
+<li><p><code>NoFrameAnimation</code>: Das Ein- und Ausblenden von Frames im Frameset wird nicht animiert.</p>
+</li>
+</ul>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

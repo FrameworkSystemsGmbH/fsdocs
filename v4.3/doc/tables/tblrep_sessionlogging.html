@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>tblRep_ReportInstance (Runtime-Repository) </title>
+    <title>tblRep_SessionLogging (Runtime-Repository) </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="tblRep_ReportInstance (Runtime-Repository) ">
+    <meta name="title" content="tblRep_SessionLogging (Runtime-Repository) ">
     <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -79,9 +79,10 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="tblrepreportinstance-runtime-repository">tblRep_ReportInstance (Runtime-Repository)</h1>
+<h1 id="tblrepsessionlogging-runtime-repository">tblRep_SessionLogging (Runtime-Repository)</h1>
 
-<p>Diese Tabelle beinhaltet die Druck-Jobs die per Anzeige / Vorschau direkt am Client angezeigt werden.</p>
+<p>Diese Tabelle speichert die von jeder Application automatisch erzeugten Session-Logging Informationen.</p>
+<p>Ausgewertet werden können die Daten mit dem <a href="../session-logging/session-logging-analyzer.html">Session Logging Analyzer</a>.</p>
 <table>
 <thead>
 <tr>
@@ -91,34 +92,84 @@
 </thead>
 <tbody>
 <tr>
-<td>RPTI_ID</td>
-<td>Eindeutige ID des Print-Jobs (Guid)</td>
+<td>SL_ID</td>
+<td>Eindeutige ID der Session (Guid)</td>
 </tr>
 <tr>
-<td>RPTI_CreateDateTime</td>
-<td>Zeitpunkt, an dem der Print-Job erzeugt wurde</td>
+<td>SL_SessionStart</td>
+<td>Zeitpunkt, an dem die Session gestartet wurde</td>
 </tr>
 <tr>
-<td>RPTI_RPTExpF_ID</td>
-<td>Das Format in dem der Druck ausgegeben werden soll.<br>1 = CrystalReport <br> 2 = RichText <br> 3 = Word <br> 4 = Excel <br> 5 = PDF <br> 6/7 = HTML</td>
+<td>SL_LastUpdate</td>
+<td>Zeitpunkt, an dem der Datensatz zuletzt aktualisiert wurde</td>
 </tr>
 <tr>
-<td>RPTI_Reportname</td>
-<td>Der Name der Report-Datei</td>
+<td>SL_State</td>
+<td>Status der Session</td>
 </tr>
 <tr>
-<td>RPTI_ReportFile</td>
-<td>Der Inhalt der Datei im Binär-Format.</td>
+<td>SL_RequestsCount</td>
+<td>Anzahl der Broker-Requests</td>
+</tr>
+<tr>
+<td>SL_TopRequests</td>
+<td>Informationen über alle Requests, aggregiert pro Event (XML)</td>
+</tr>
+<tr>
+<td>SL_CommandsCount</td>
+<td>Anzahl der Datenbank-Befehle</td>
+</tr>
+<tr>
+<td>SL_TopCommands</td>
+<td>Informationen über die langsamsten Datenbank-Befehle (XML)</td>
+</tr>
+<tr>
+<td>SL_ObjectsCount</td>
+<td>Aktuelle Anzahl von Framework-Studio Objekten</td>
+</tr>
+<tr>
+<td>SL_CreatedObjectsCount</td>
+<td>Gesamt-Anzahl der während der Session erzeugten Framework-Studio Objekte</td>
+</tr>
+<tr>
+<td>SL_UserName</td>
+<td>Name des Benutzers</td>
+</tr>
+<tr>
+<td>SL_MachineName</td>
+<td>Name des Broker-Servers</td>
+</tr>
+<tr>
+<td>SL_DBDuration</td>
+<td>Gesamte Dauer aller Datenbank-Befehle in Millisekunden</td>
+</tr>
+<tr>
+<td>SL_RequestDuration</td>
+<td>Gesamte Dauer aller Broker-Requests in Millisekunden (am Broker gemessen)</td>
+</tr>
+<tr>
+<td>SL_ClientRequestDuration</td>
+<td>Gesamte Dauer aller Broker-Requests in Millisekunden (am Client gemessen)</td>
+</tr>
+<tr>
+<td>SL_ClientDuration</td>
+<td>Gesamte Dauer der Client-Zeit in Millisekunden</td>
+</tr>
+<tr>
+<td>SL_RequestSize</td>
+<td>Summe der Größe aller Requests in Bytes (vom Client zum Broker gesendeten Daten)</td>
+</tr>
+<tr>
+<td>SL_ResponseSize</td>
+<td>Summe der Größe aller Responses in Bytes (vom Broker zum Client gesendeten Daten)</td>
+</tr>
+<tr>
+<td>SL_ClientInfo</td>
+<td>Textuelle Liste mit Informationen zum Client und Package-Versionen</td>
 </tr>
 </tbody>
 </table>
-<p>Normalerweise werden die Datensätze in dieser Tabelle nach 10 Minuten automatisch gelöscht. Sollten dennoch Einträge stehen bleiben, dann können veraltete Einträge auch manuell gelöscht werden.</p>
-<pre><code class="lang-sql">-- SQL-Server:
-DELETE FROM [tblRep_ReportInstance] WHERE DATEADD(minute, 10, [RPTI_CreateDateTime]) &lt; GetDate ();
-
--- Oracle:
-DELETE FROM tblRep_ReportInstance WHERE (RPTI_CreateDateTime + (10 / 1440)) &lt; sysdate;
-</code></pre></article>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

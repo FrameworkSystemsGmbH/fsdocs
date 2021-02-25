@@ -110,9 +110,11 @@
 <li>ScanBarcode</li>
 <li>TakePhoto</li>
 <li>GetGeoLocation</li>
+<li>SetCaption</li>
 <li>SetCloseButton</li>
 <li>SetEnabled</li>
 <li>SetImage</li>
+<li>SetTitle</li>
 <li>SetVisible</li>
 <li>PrintReport</li>
 <li>ViewDocument</li>
@@ -143,6 +145,18 @@ Wurde dem Form über die Action SetCloseButton ein Button mit einem Click-Event 
 <h3 id="normale-anzeige">Normale Anzeige</h3>
 <p>Befindet sich der HTML Client in einem normalen Form, wird beim Drücken des Zurück-Buttons das Beenden der Application angestoßen, was mit der Rückfrage, ob die Session beendet werden soll, einher geht.</p>
 <p>Befindet sich der HTML Client im Broker-Auswahldialog, wird die Anwendung ohne Rückfrage geschlossen.</p>
+<h2 id="szenarien-beim-schließen-des-letzten-forms">Szenarien beim Schließen des letzten Forms</h2>
+<p>Wird das letzte Form der Applikation geschlossen, so muss die Session beendet werden, da eine Applikation ohne Forms keinen Sinn ergibt. Allerdings müssen 2 Szenarien bei der Entwicklung bedacht werden, die auftreten können, wenn das letzte Form geschlossen wird:</p>
+<ol>
+<li><p>Das letzte Form hat <strong>keinen</strong> CloseButton zugewiesen und sendet beim Schließen somit <strong>keinen</strong> Request zum Broker. Wird dieses Form über das &quot;X&quot; (vorausgesetzt <code>IsCloseIconVisible</code> am Form ist auf auf <code>true</code> gesetzt) geschlossen, so wird eine Rückfrage angezeigt, ob die Session beendet werden soll. Wird diese mit &quot;Ja&quot; beantwortet, beendet der HTML Client die Session und zeigt die Broker-Auswahl an. Wird &quot;Nein&quot; ausgewählt, so bleibt das Form sowie die Applikation offen.</p>
+</li>
+<li><p>Das letzte Form hat einen CloseButton zugewiesen, über dessen Handler brokerseitig mit der CloseForm() Action das Form geschlossen wird.</p>
+<ul>
+<li>Wird im gleichen Request <strong>kein</strong> anderes Form geöffnet und existiert somit nach dem Request kein offenes Form, so wird die Applikation vom Client <strong>ohne Rückfrage</strong> geschlossen. Da das Schließen des Forms vom Broker ausgeht, hat der Client &quot;kein Mitspracherecht&quot; mehr. Eine Rückfrage müsste brokerseitig über eine MessageBox implementiert werden.</li>
+<li>Wird im gleichen Request ein neues Form geöffnet, so wird die Applikation nicht beendet und ganz normal das neue Form am Client angezeigt. Beispielsweise könnte nach dem Schließen des letzten Forms ein Login-Dialog angezeigt werden.</li>
+</ul>
+</li>
+</ol>
 </article>
           </div>
           

@@ -90,7 +90,7 @@
 <a id="FrameworkSystems_FrameworkControls_Actions_GridControlAction_SaveGridLayout_" data-uid="FrameworkSystems.FrameworkControls.Actions.GridControlAction.SaveGridLayout*"></a>
 <h4 id="FrameworkSystems_FrameworkControls_Actions_GridControlAction_SaveGridLayout_System_String_System_Boolean_" data-uid="FrameworkSystems.FrameworkControls.Actions.GridControlAction.SaveGridLayout(System.String,System.Boolean)">SaveGridLayout(String, Boolean)</h4>
 <section>
-  <div class="markdown level1 summary"><p>!TODO</p>
+  <div class="markdown level1 summary"><p>Sendet eine Action an den Client, die das Layout des Grids auf dem Client-Rechner speichert. </p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -104,15 +104,30 @@
   <section>
     <div class="propertyInfo">
       <span class="parametername"><code>fileName</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>Relativer Dateipfad.</p>
+</div>
     </div>
     <div class="propertyInfo">
       <span class="parametername"><code>displayErrorMsg</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>Gibt an, ob im Fehlerfall eine Meldung angezeigt werden soll.</p>
+</div>
     </div>
   </section>
 
 
+    <h5 id="FrameworkSystems_FrameworkControls_Actions_GridControlAction_SaveGridLayout_System_String_System_Boolean__remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Es muss ein relativer Dateipfad angegeben werden. 
+Dieser wird unterhalb des Ordners <code>%userprofile%\FSJavaClient\[Broker-Url]\</code> gespeichert.</p>
+<p>In diesem Ordner werden auch die Layout-Einstellungen gespeichert. 
+Werden Layout-Einstellungen mit <a class="xref" href="FrameworkSystems.FrameworkControls.GeneratedForm.ResetClientLayout.html#FrameworkSystems_FrameworkControls_GeneratedForm_ResetClientLayout">ResetClientLayout()</a> zurückgesetzt, dann wird der komplette Ordner gelöscht.</p>
+<p>Absolute Dateipfade werden vom Java-Client unterbunden.</p>
+</div>
+    </section>
+  <h5 id="FrameworkSystems_FrameworkControls_Actions_GridControlAction_SaveGridLayout_System_String_System_Boolean__seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.GridControlAction.LoadGridLayout.html#FrameworkSystems_FrameworkControls_Actions_GridControlAction_LoadGridLayout_System_String_System_Boolean_">LoadGridLayout(String, Boolean)</a></div>
+  </div>
 </section>
 </article>
           </div>

@@ -81,13 +81,67 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-43">Release-Information Framework Studio 4.3</h1>
 
+<h2 id="433-26032021">4.3.3 (26.03.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.3_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li><p>im <a href="../doc/fsclientlauncher/fsclientlauncher-configuration.html">FS Client-Launcher</a> werden die Protokolle automatisch in Dateien gespeichert.</p>
+</li>
+<li><p>Im FS Client-Launcher kann über eine Umgebungs-Variable eine abweichende <a href="../doc/fsclientlauncher/fsclientlauncher-configuration.html#java-laufzeitumgebung">Java Runtime</a> definiert werden.</p>
+</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021025789 - <strong>Java-Client</strong>: In den Fenstern des Haupt-Arbeitsbereiches ist
+  es nicht mehr möglich, mit den Pfeil-Tasten durch die Menüs zu navigieren.
+  Das erschwert die Bedienung an Blindenarbeitsplätzen.</p>
+</li>
+<li><p>2021035831 - <strong>Publish</strong>: Beim Auto-Publish mit FSConsole wird bei
+  Datenbankverbindungen mit Windows Authentication fälschlicherweise trotzdem
+  ein Username und ein Passwort erwartet.</p>
+</li>
+<li><p>2021025761 - <strong>IDE</strong>: Wird beim Export des Wörterbuches die Auswahl der
+  Sprachen eingeschränkt, dann werden trotzdem alle Sprachen exportiert.</p>
+</li>
+<li><p>2021035810 - <strong>IDE</strong>: Der Befehl &quot;New Workflow for Form&quot; legt einen neuen
+  Workflow an, auch wenn dieser bereits existiert.</p>
+<div class="NOTE"><h5>Note</h5><p>Der Befehl wurde in &quot;Open or create Workflow for Form&quot; umbenannt und öffnet
+einen bereits existierenden Workflow.<br>
+Sollten mehrere Workflows für eine Form existieren, wird die
+Dependency-Suche ausgeführt.</p>
+</div>
+</li>
+<li><p>2021025793 - <strong>Framework</strong>: Das ListView-Control löscht bei einem Aufruf von
+  Load() oder Clear() an der gebundenen Collection nicht die bisher
+  angezeigten ListViewItems.</p>
+</li>
+<li><p>2021036115 - <strong>Framework</strong>: Arbeitet eine Component mit einer importierten
+  Business-Datenbank, dann kann es beim Aufruf der Methode
+  GenerateLoadCondition() zu einer SQL-Exception kommen, wenn die
+  Datenbank-Tabelle &quot;dbRun_Config&quot; nicht existiert.</p>
+</li>
+<li><p>2021035904 - <strong>FS-Framework</strong>: In einer Component kann es in sehr seltenen
+  Fällen bei einem Aufruf von PropertyChanged zu einer NullException kommen.
+  Der Fehler tritt nur im Multi-Threading auf (z.B. im eNVenta Job-Server).</p>
+</li>
+<li><p>2021035808 - <strong>FS-Services</strong>: Nach dem Publish eines Services startet dieser
+  nicht. Es wird eine Fehlermeldung <em>System.ArgumentNullException</em> ausgegeben.</p>
+</li>
+<li><p>2021035983 - <strong>Package Merge</strong>: Beim Analysieren der betroffenen Records kann
+  im Bereich Workflow eine NullReferenceException auftreten.</p>
+</li>
+</ul>
 <h2 id="432-fix-2-10032021">4.3.2 Fix 2 (10.03.2021)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.3.2_Fix_2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li>2021035904 - <strong>FS-Framework</strong>: In einer Component kann es in sehr seltenen
   Fällen bei einem Aufruf von PropertyChanged zu einer NullException kommen.
@@ -99,7 +153,7 @@
 <li>FS_4.3.2_Fix_1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021025761 - <strong>IDE</strong>: Wird beim Export des Wörterbuches die Auswahl der
   Sprachen eingeschränkt, dann werden trotzdem alle Sprachen exportiert.</p>
@@ -118,13 +172,13 @@
 <li>FS_4.3.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <h5 id="änderung-der-logik-beim-schließen-des-letzten-forms-im-html-client">Änderung der Logik beim Schließen des letzten Forms im HTML Client</h5>
 <p>Auf Grund von Bug 2021015392 wurde die Logik, die beim Schließen des letzten Forms im HTML Client greift, überarbeitet. Es gibt nun 2 Szenarien, die es zu beachten gilt.</p>
 <p>Eine detailierte Beschreibung gibt es <a href="../doc/html-client/funktionsumfang.html#szenarien-beim-schließen-des-letzten-forms">hier</a></p>
 <h5 id="html-client-actions">HTML Client Actions</h5>
 <p>Der HTML Client unterstutzt nun die Actions <code>SetTitle</code> und <code>SetCaption</code>. Mehr Informationen zu den unterstützten Action finden Sie <a href="../doc/html-client/funktionsumfang.html#actions">hier</a></p>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021025560 - <strong>Java-Client</strong>: In einem TreeView wird durch den Benutzer ein
   TreeNode selektiert. Das löst ein OnAfterSelect-Event aus. Dann wird durch
@@ -166,11 +220,11 @@
 <li>FS_4.3.1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-1">Neuerungen</h4>
+<h4 id="neuerungen-2">Neuerungen</h4>
 <ul>
 <li>Die <a href="../doc/ide/allgemeine-funktionatitaeten.html#vorwärts--und-rückwärtsnavigation">Vorwärts- und Rückwärtsnavigation</a> zwischen Einträgen ist nun auch mit den beiden zusätzlichen Navigationstasten an der Seite der Maus möglich.</li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020125151 - <strong>Oracle</strong>: An einigen Stellen wird für das Ermitteln von
   Datenstrukturen der Datenbank auf die ALL_-Views zugegriffen. Besser ist es,
@@ -221,7 +275,7 @@
 <li>FS_4.3.0_Requirements_x64 (<a href="requirements-package.html">Requirements-Paket</a>)</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-2">Neuerungen</h4>
+<h4 id="neuerungen-3">Neuerungen</h4>
 <p>Die Neuerungen finden Sie unter <a href="neuheiten-4-3.html">Neuheiten 4.3</a></p>
 <h4 id="bekannte-probleme">Bekannte Probleme</h4>
 <div class="WARNING"><h5>Warning</h5><p>In der aktuellen Version sind die folgenden Probleme vorhanden. Diese werden mit dem nächsten Service-Release behoben.</p>
@@ -232,7 +286,7 @@ In diesem Fall ist ein Restart von Framework Studio nötig um die Situation zu b
 <p><strong>Workaround</strong>: Zuerst mit der Maus in die Get-Method des Properties klicken. Dadurch wird eine Initialisierung ausgeführt, die die Exception verhindert.</p>
 </li>
 </ul>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <p>In der Version 4.3 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-2.html#4213-18122020">Framework Studio 4.2.13</a> enthalten.</p>
 <p>Zusätzlich wurden die folgenden Bugs behoben:</p>
 <ul>

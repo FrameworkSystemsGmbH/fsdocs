@@ -99,17 +99,23 @@
 <h4 id="description">Description</h4>
 <p>Hier kann (mehrsprachig) beschrieben werden, welchen Programmbereich diese Access Unit repräsentiert. Die Beschreibung wird u. a. im externen Werkzeug zur Rollenverwaltung als Tooltip zur AccessUnit angezeigt.</p>
 <p>Im Designerfenster wird über die Checkbox <strong>is form AccessUnit</strong> angezeigt, ob diese Access Unit die spezielle <strong>Form Access Unit</strong> (s.u.) ist, die beim Öffnen des Forms in der Anwendung ausgewertet wird. Diese Eigenschaft kann durch den Benutzer nicht geändert werden.</p>
-<p>Unter dem Punkt <strong>Parents</strong> werden alle Access Units aufgeführt, von denen diese Access Unit eine Unterkomponente ist, also alle Vaterknoten im Access Unit Treeview. Diese Eigenschaft kann nur über den Access Unit Treeview (<a href="access-unit-hierarchie.html">Access Unit Hierarchie</a>) geändert werden.</p>
+<p>Unter dem Punkt <strong>Parents</strong> werden alle Access Units aufgeführt, von denen diese Access Unit eine Unterkomponente ist, also alle Elternknoten im Access Unit Treeview.
+Diese Eigenschaft kann über den Access Unit Treeview (<a href="access-unit-hierarchie.html">Access Unit Hierarchie</a>) oder hier direkt geändert werden.
+Über die Textbox kann ein neuer Parent ausgewählt und über den Plus-Button hinzugefügt werden.
+Über den Löschen-Button kann eine zuvor selektierte Parent-AccessUnit gelöscht werden.
+Der letzte Parent kann jedoch nicht entfernt werden.
+Sowohl die Children als auch die Parent-AccessUnits können über einen Doppelklick geöffnet werden.</p>
 <p>Access Units können <strong>im Namespace</strong> angelegt werden (z.B. auSales, um den kompletten Verkauf zu repräsentieren). Für diese Access Units steht der gewohnte Checkin/Checkout-Mechanismus zur Verfügung.</p>
 <p><img src="media/access-unit-designer.png" alt="Access Unit Designer"></p>
-<p>Außerdem können <strong>Access Units</strong> in einem <strong>Form</strong> angelegt werden (Menü <strong>File / New / Access Unit</strong> oder Button <img src="../media/button-new.png" alt="button-new">  <strong>New ... / Access Unit</strong>). Diese Access Units sind Unterkomponenten des Forms und werden daher automatisch mit dem Form aus- und eingecheckt.</p>
+<p>Außerdem können <strong>Access Units</strong> in einem <strong>Form</strong> angelegt werden (Menü <strong>File / New / Access Unit</strong> oder Button <img src="../media/button-new.png" alt="button-new">  <strong>New ... / Access Unit</strong>).
+Diese Access Units sind Unterkomponenten des Forms und werden daher automatisch mit dem Form aus- und eingecheckt.</p>
 <p>Jedes Form besitzt automatisch eine besondere Access Unit, die das Form selber repräsentiert. Der Name dieser <strong>Form Access Unit</strong> ist der Name des Forms mit dem Präfix <strong><code>au</code></strong> (also z.B. für <strong>frmSalesOrder</strong> <strong>aufrmSalesOrder</strong>).</p>
 <p>Wenn ein Form in der Anwendung geöffnet wird, so wird vorher automatisch überprüft, ob das Recht „Access“ für die FormAccessUnit des Forms erteilt wurde und ob für alle FormAccessUnits der Basisforms das Recht „AccessDerived“ erteilt wurde.</p>
 <p>Für jedes Form wird automatisch eine FormAccessUnit angelegt. Diese Access Unit kann nicht gelöscht werden.</p>
-<p>Ist ein oder mehrere Parents ungültig, wird der Button &#39;Fix the parent Access Unit&#39; angezeigt.
+<p>Ist ein oder mehrere Parents ungültig, wird der Button <strong>Fix the parent Access Unit</strong> angezeigt.
 Wird dieser Button gedrückt, hat dies zur Folge, dass die ungültige Beziehung gelöscht wird. Sollte kein anderer gültiger Parent verfügbar sein, wird &#39;Root&#39; als Parent definiert.</p>
 <p><strong>Form Designer Registerkarte Access Units:</strong></p>
-<p><img src="media/form-designer-access-unit.png" alt="Form Designer Registerkarte Access Units"></p>
+<p><img src="media/form-designer-access-unit.png" alt="Access Units"></p>
 <p>Aus dem Code heraus kann ein Zugriffsrecht einer AccessUnit von einem Form aus folgendermaßen abgefragt werden:</p>
 <pre><code class="lang-csharp">bool InsertGranted = Global.AUHelper.Granted(this.aufrmSalesOrder, AUPermissionType.Insert);
 

@@ -81,6 +81,58 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-43">Release-Information Framework Studio 4.3</h1>
 
+<h2 id="fs-434-30042021">FS 4.3.4 (30.04.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.4_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Bei den <a href="../doc/access-units/access-units.html#description">Access Units</a> wurde die Ansicht der verbundenen AccessUnits verbessert.
+Es werden nun neben den Parents auch die AccessUnit-Children angezeigt.
+Zudem können die AccessUnit-Parents bearbeitet werden.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021036188 - <strong>Oracle</strong>: Werden in einem Grid Spalten mit Langtext gefiltert
+  oder sortiert, dann kommt zu einer Sql-Exception, wenn die Texte auf der
+  Datenbank eine Länge von 2000 bzw. 4000 Zeichen überschreiten. Die
+  SQL-Methode LOB_COMPARABLE( ) beinhaltet keine Längenbegrenzung.<br>
+  <em>ORA-22835: Buffer too small for CLOB to CHAR or BLOB to RAW conversion.</em></p>
+</li>
+<li><p>2021036077 - <strong>IDE</strong>: Ist in einem Workflow-Link ein Target FormContainer
+  zugewiesen, dann kann es sein, dass dieser in einem abgeleiteten Workflow
+  nicht mehr zieht.</p>
+</li>
+<li><p>2021036122 - <strong>IDE</strong>: Beim Öffnen des Method History Browser für kopierte oder
+  neu erstellte Methoden, bei denen die Deklaration vor dem Speichern nicht
+  bearbeitet wurde, kann es zu einer Fehlermeldung kommen.</p>
+</li>
+<li><p>2021046301 - <strong>IDE</strong>: Im Runtime License Manager kann es im AccessUnitTree
+  durch Drücken der Leertaste zu einer Unhandled Exception und in der Folge
+  zum Absturz der IDE kommen.</p>
+</li>
+<li><p>2021046405 - <strong>IDE</strong>: Beim Anlegen oder Löschen von Template DataSources im
+  ListView- oder Template Control Designer kommt keine Rückfrage zum
+  Auschecken des Forms.</p>
+</li>
+<li><p>2021046240 - <strong>Framework</strong>: Gibt es in einem Grid mehrere Spalten, die
+  dasselbe Property anzeigen, dann führt das beim Sortieren und Filtern im
+  Client zu einer Exception.</p>
+</li>
+<li><p>2021046385 - <strong>HTML Client</strong>: Bei sehr schnellen Eingaben per Maus oder Touch
+  können versehentlich mehrere Requests aneinandergereiht werden.</p>
+</li>
+<li><p>2021046388 - <strong>HTML Client</strong>: Im ListView und Template Control werden
+  NULL-Werte als &quot;null&quot; (String) angezeigt, anstatt nichts anzuzeigen.</p>
+</li>
+<li><p>2021046253 - <strong>SqlServer</strong>: Wird am Ende einer sehr großen Transaktion ein
+  Rollback ausgeführt, dann kann das zu einem Timeout und einem Abbruch der
+  Sql-Connection führen. In der Folge kann es wegen der geschlossenen
+  Sql-Connection im laufenden Broker-Request zu weiteren Sql-Fehlern kommen.</p>
+</li>
+</ul>
 <h2 id="433-26032021">4.3.3 (26.03.2021)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -88,14 +140,14 @@
 <li>FS_4.3.3_Requirements_x64 (neuer FSClient Launcher)</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <ul>
 <li><p>im <a href="../doc/fsclientlauncher/fsclientlauncher-configuration.html">FS Client-Launcher</a> werden die Protokolle automatisch in Dateien gespeichert.</p>
 </li>
 <li><p>Im FS Client-Launcher kann über eine Umgebungs-Variable eine abweichende <a href="../doc/fsclientlauncher/fsclientlauncher-configuration.html#java-laufzeitumgebung">Java Runtime</a> definiert werden.</p>
 </li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021025789 - <strong>Java-Client</strong>: In den Fenstern des Haupt-Arbeitsbereiches ist
   es nicht mehr möglich, mit den Pfeil-Tasten durch die Menüs zu navigieren.
@@ -142,13 +194,13 @@ Dependency-Suche ausgeführt.</p>
 <li>FS_4.3.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-1">Neuerungen</h4>
+<h4 id="neuerungen-2">Neuerungen</h4>
 <h5 id="änderung-der-logik-beim-schließen-des-letzten-forms-im-html-client">Änderung der Logik beim Schließen des letzten Forms im HTML Client</h5>
 <p>Auf Grund von Bug 2021015392 wurde die Logik, die beim Schließen des letzten Forms im HTML Client greift, überarbeitet. Es gibt nun 2 Szenarien, die es zu beachten gilt.</p>
 <p>Eine detailierte Beschreibung gibt es <a href="../doc/html-client/funktionsumfang.html#szenarien-beim-schließen-des-letzten-forms">hier</a></p>
 <h5 id="html-client-actions">HTML Client Actions</h5>
 <p>Der HTML Client unterstutzt nun die Actions <code>SetTitle</code> und <code>SetCaption</code>. Mehr Informationen zu den unterstützten Action finden Sie <a href="../doc/html-client/funktionsumfang.html#actions">hier</a></p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021025560 - <strong>Java-Client</strong>: In einem TreeView wird durch den Benutzer ein
   TreeNode selektiert. Das löst ein OnAfterSelect-Event aus. Dann wird durch
@@ -190,11 +242,11 @@ Dependency-Suche ausgeführt.</p>
 <li>FS_4.3.1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-2">Neuerungen</h4>
+<h4 id="neuerungen-3">Neuerungen</h4>
 <ul>
 <li>Die <a href="../doc/ide/allgemeine-funktionatitaeten.html#vorwärts--und-rückwärtsnavigation">Vorwärts- und Rückwärtsnavigation</a> zwischen Einträgen ist nun auch mit den beiden zusätzlichen Navigationstasten an der Seite der Maus möglich.</li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020125151 - <strong>Oracle</strong>: An einigen Stellen wird für das Ermitteln von
   Datenstrukturen der Datenbank auf die ALL_-Views zugegriffen. Besser ist es,
@@ -245,7 +297,7 @@ Dependency-Suche ausgeführt.</p>
 <li>FS_4.3.0_Requirements_x64 (<a href="requirements-package.html">Requirements-Paket</a>)</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-3">Neuerungen</h4>
+<h4 id="neuerungen-4">Neuerungen</h4>
 <p>Die Neuerungen finden Sie unter <a href="neuheiten-4-3.html">Neuheiten 4.3</a></p>
 <h4 id="bekannte-probleme">Bekannte Probleme</h4>
 <div class="WARNING"><h5>Warning</h5><p>In der aktuellen Version sind die folgenden Probleme vorhanden. Diese werden mit dem nächsten Service-Release behoben.</p>
@@ -256,7 +308,7 @@ In diesem Fall ist ein Restart von Framework Studio nötig um die Situation zu b
 <p><strong>Workaround</strong>: Zuerst mit der Maus in die Get-Method des Properties klicken. Dadurch wird eine Initialisierung ausgeführt, die die Exception verhindert.</p>
 </li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <p>In der Version 4.3 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-2.html#4213-18122020">Framework Studio 4.2.13</a> enthalten.</p>
 <p>Zusätzlich wurden die folgenden Bugs behoben:</p>
 <ul>

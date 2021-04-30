@@ -19,4 +19,4 @@ The developer of the business application decides with his development, which fu
 One example is access to the camera. This is used to scan barcodes or transfer photos taken by the user within the application to the application server for further processing.
 
 * [Framework Systems GmbH](<http://www.framework-systems.de>)
-* [Impressum](<http://www.framework-systems.de/impressum.html/>)
+* [Impressum](<http://www.framework-systems.de/impressum.html>)

@@ -19,4 +19,4 @@ Der Entwickler der Geschäfts-Anwendung entscheidet mit seiner Entwicklung, welc
 Beispielhaft ist der Zugriff auf die Kamera zu erwähnen. Dieser dient dazu, Barcodes zu Scannen oder innerhalb der Anwendung durch den Benutzer aufgenommene Fotos für eine weitere Verarbeitung zum Anwendungs-Server zu übertragen.
 
 * [Framework Systems GmbH](<http://www.framework-systems.de>)
-* [Impressum](<http://www.framework-systems.de/impressum/>)
+* [Impressum](<http://www.framework-systems.de/impressum.html>)

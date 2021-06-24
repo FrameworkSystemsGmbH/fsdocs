@@ -5,23 +5,21 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Property LanguageHierarchy
-   </title>
+    <title>Java-Runtime </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Property LanguageHierarchy
-   ">
+    <meta name="title" content="Java-Runtime ">
     <meta name="generator" content="docfx 2.56.2.0">
     
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/fs-docfx.css">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
     
-    <meta property="docfx:rel" content="../">
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -38,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -80,47 +78,30 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.LanguageHierarchy*">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="java-runtime">Java-Runtime</h1>
 
-<h1 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_LanguageHierarchy_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.LanguageHierarchy*">Property LanguageHierarchy
-</h1>
-<div class="markdown level0 summary"></div>
-<div class="markdown level0 conceptual"></div>
-
-<a id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_LanguageHierarchy_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.LanguageHierarchy*"></a>
-<h4 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_LanguageHierarchy" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.LanguageHierarchy">LanguageHierarchy</h4>
-<section>
-  <div class="markdown level1 summary"><p>Gibt einen Enumeratur zurück, der die Sprach-Hierarchie beinhaltet, oder legt diesen fest.
-<p>Das sind die Sprachen in der Reihenfolge der Auswahl im Client Start.</p></p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <h5 class="decalaration">Declaration</h5>
-  <section>
-    <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">IEnumerable&lt;string&gt; LanguageHierarchy { get; set; }</code></pre>
-    </div>
-  </section>
-
-
-  <h5 class="propertyValue">Property Value</h5>
-  <section>
-      <div class="propertyInfo">
-        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;
-        <div class="markdown level1 summary"></div>
-      </div>  
-  </section>
-    <h5 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_LanguageHierarchy_remarks">Remarks</h5>
-    <section>
-      <div class="markdown level1 remarks"><p>Beim Setzen kann jeder Typ zugewiesen werden, der von <code>IEnumerable&lt;string&gt;</code> erbt.
-Es ist jedoch empfehlenswert, mit einer <code>ReadOnlyCollection&lt;string&gt;</code> zu arbeiten,
-um Manipulationen an dieser Liste zu verhindern. Diese kann zum Beispiel mit der Methode
-<code>Liste&lt;string&gt;.AsReadOnly()</code> erzeugt werden.</p>
-<div class="WARNING"><h5>Warning</h5><p>Dieser Wert sollte in einem normalen Broker nicht geändert werden.</p>
-</div>
-</div>
-    </section>
-</section>
+<h2 id="lizenz">Lizenz</h2>
+<p>Oracle hat im Februar 2019 für kommerzielle Nutzer den kostenlosen Support von Java 8 eingestellt.</p>
+<p>Der Client Launcher verwendet die letzte kostenlos verfügbare Version Java 8 Update 202.</p>
+<p>Der Einsatz einer aktuelleren Version ist auf eigene Rechnung möglich.
+Dafür müssen entsprechende Lizenzen direkt bei Oracle erworben werden.</p>
+<p>Eine abweichende <a href="fsclientlauncher-configuration.html#java-laufzeitumgebung">Laufzeitumgebung kann konfiguriert</a> werden.</p>
+<h2 id="sicherheit">Sicherheit</h2>
+<p>Die Sicherheits-Risiken durch den Einsatz einer veralteten Java-Runtime begründen sich durch die enge Integration der Runtime in das System.
+Dabei spielen insbesondere 3 Aspekte eine wesentliche Rolle:</p>
+<p>1.) Integration der installierten Java-Runtime in den Internet-Explorer.
+Dadurch werden Angriffe über entsprechend präparierte Webseiten ermöglicht.
+Für den Einsatz von Java Web Start ist die Aktivierung dieser Integration zwingend erforderlich.</p>
+<p>2.) Java Web Start selber stellt eine entscheidende Lücke dar, weil damit eine fast beliebige Anwendung / jnlp-Datei aus dem Internet gestartet werden kann.
+Code-Signierung kann das verhindern - sofern der Benutzer aufmerksam genug ist und nicht jedem Herausgeber blind vertraut.</p>
+<p>3.) Globale Erreichbarkeit der Installierten Java-Runtime für alle Java-Programme.
+Das wird z.B. durch die Umgebungs-Variable <code>java_home</code> erreicht.</p>
+<p>Der Client-Launcher besitzt seine eigene Java-Runtime.
+Diese wird in keiner Weise im System registriert.
+Damit weiß das System und Insbesondere die Browser nichts von dieser Runtime.</p>
+<p>Der Start einer Anwendung erfolgt mithilfe eines eigenen Dateiformats.</p>
+<p>Die oben genannten Sicherheits-Risiken bestehen damit nicht.</p>
 </article>
           </div>
           
@@ -148,8 +129,8 @@ um Manipulationen an dieser Liste zu verhindern. Diese kann zum Beispiel mit der
       </footer>
     </div>
     
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
   </body>
 </html>

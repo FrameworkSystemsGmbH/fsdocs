@@ -99,7 +99,7 @@ Geschäftseinheiten, Laufzeitlizensierung und Packages an. Sie ist über <a clas
   <h5 id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[Serializable]
-public sealed class AUHelper</code></pre>
+public sealed class AUHelper : ILicenseProvider</code></pre>
   </div>
   <h5 id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_examples"><strong>Examples</strong></h5>
   <pre><code>this.Global.AUHelper.ChangePassword( sOld, sNew );</code></pre>
@@ -113,6 +113,9 @@ Eine Developerlizenz deaktiviert die Benutzerauthentifizierung automatisch.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.IsDefaultUser.html#FrameworkSystems_FrameworkBase_AccessControl_AUHelper_IsDefaultUser">IsDefaultUser</a></h4>
     <section><p><p>Gibt an, ob der authentifizierte Benutzer der Default User ist.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.LicenseVerifier.html#FrameworkSystems_FrameworkBase_AccessControl_AUHelper_LicenseVerifier">LicenseVerifier</a></h4>
+    <section><p><p>Liefert den <a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.LicenseVerifier.html#FrameworkSystems_FrameworkBase_AccessControl_AUHelper_LicenseVerifier">LicenseVerifier</a> für die Verwaltung der ausgewerteten Lizenzen zurück.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.UnitKey.html#FrameworkSystems_FrameworkBase_AccessControl_AUHelper_UnitKey">UnitKey</a></h4>
     <section><p><p>Gibt Schlüsselwert der Unit (Geschäftseinheit) zurück, an der der Benutzer (mit der Methode <a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.IdentifyUnit.html#FrameworkSystems_FrameworkBase_AccessControl_AUHelper_IdentifyUnit_System_String_">IdentifyUnit(String)</a>) angemeldet wurde.</p>
@@ -143,17 +146,11 @@ In der als out Parameter angegebenen Message wird der Erfolg bzw. Grund für den
     <section><p><p>Ändert das Passwort für den angegebenen Benutzer unter Angabe einer Login Information.
 In der als out Parameter angegebenen Message wird der Erfolg bzw. Grund für den Misserfolg zurückgegeben.</p>
 </p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.GetAllLanguages.html#FrameworkSystems_FrameworkBase_AccessControl_AUHelper_GetAllLanguages">GetAllLanguages()</a></h4>
-    <section><p><p>Gibt eine Liste mit ISO Kürzeln aller an dieser Applikation bekannten Sprachen zurück.</p>
-</p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.GetApplicationRoles.html#FrameworkSystems_FrameworkBase_AccessControl_AUHelper_GetApplicationRoles">GetApplicationRoles()</a></h4>
     <section><p><p>Gibt eine Liste mit den Namen aller Rollen zurück, welche an dieser Applikation zur Verfügung stehen.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.GetApplicationRoles.html#FrameworkSystems_FrameworkBase_AccessControl_AUHelper_GetApplicationRoles_System_Boolean_">GetApplicationRoles(Boolean)</a></h4>
     <section><p><p>Gibt eine Liste mit den Namen aller Rollen zurück, welche an dieser Applikation zur Verfügung stehen.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.GetGrantedLanguages.html#FrameworkSystems_FrameworkBase_AccessControl_AUHelper_GetGrantedLanguages">GetGrantedLanguages()</a></h4>
-    <section><p><p>Gibt eine Liste mit ISO Kürzeln der Sprachen zurück, die zur Verfügung stehen und durch die verwendeten Lizenzen freigegeben sind.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.GetPackages.html#FrameworkSystems_FrameworkBase_AccessControl_AUHelper_GetPackages">GetPackages()</a></h4>
     <section><p><p>Gibt eine Liste zurück, die alle Packages der Applikation in der Verwendungsreihenfolge enthält.</p>

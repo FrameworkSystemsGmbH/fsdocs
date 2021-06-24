@@ -81,17 +81,90 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-43">Release-Information Framework Studio 4.3</h1>
 
-<h2 id="434-fix-1-02062021">4.3.4 Fix 1 (02.06.2021)</h2>
+<h2 id="435-25062021">4.3.5 (25.06.2021)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.3.4_Fix_1_Setup_x64</li>
+<li>FS_4.3.5_Setup_x64</li>
+<li>FS_4.2.18_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neue-crystal-reports-runtime">Neue Crystal Reports Runtime</h4>
+<p>Es wird die Crystal Reports Runtime mit Version <strong>13.0.26</strong> und höher unterstützt.</p>
+<p>Voraussetzung ist der neue Print-Service 4.2.18.</p>
+<p>Das <a href="requirements-package.html">Requirements-Paket</a> beinhaltet vorerst weiterhin die Version 13.0.18</p>
+<div class="NOTE"><h5>Note</h5><p>Bitte beachten sie unbedingt die Hinweise in den aktualisierten <a href="requirements.html#crystal-reports-runtime">Systemvoraussetzungen</a>!</p>
+</div>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
-<li>2021036077 - <strong>IDE</strong>: Mit einem Oracle-Repository kommt es beim Aufruf der
-  Method History zu einem Fehler: <br> <em>ORA-00932: Inkonsistente Datentypen:
-  CLOB erwartet, CHAR erhalten.</em></li>
+<li><p>2021066859 - <strong>Print-Service</strong>: Treten beim Verarbeiten von Druckaufträgen
+  wiederholt Fehler auf, dann führt der Print-Service einen Restart durch.
+  Wird der Print-Service aber als Console ausgeführt, dann funktioniert dieser
+  Restart nicht. In der Folge läuft der Print-Service weiter und produziert
+  weiter Fehler.</p>
+</li>
+<li><p>2021066919 - <strong>Print-Service</strong>: Wenn im Print-Service sehr viele Drucker
+  definiert sind, dann kann das den Start des Dienstes so stark verzögern,
+  dass der Start in einen Timeout läuft. Im PrintServiceConfigEditor wird ein
+  Timeout von 30 Sekunden verwendet.</p>
+<div class="NOTE"><h5>Note</h5><p>Die Analyse der Drucker wird jetzt nach dem Start des Dienstes ausgeführt.
+Anstehende Druckjobs werden erst im Anschluss verarbeitet.<br>
+Es kann also sein, dass die ersten Druckjobs erst mehrere Sekunden nach
+erfolgreichem Start des Dienstes verarbeitet werden.</p>
+</div>
+</li>
+<li><p>2021066928 - <strong>Print-Service</strong>: Läuft der Print-Service in einen Fehler - z.B.
+  bei der Verarbeitung eines Crystal Report Documents - dann erfolgt ein
+  automatischer Restart des Services. Dabei wird die letzte Transaktion auf
+  &quot;fehlerhaft&quot; gesetzt. In der Folge wird der Druck-Job nicht verarbeitet,
+  auch wenn nach dem Neustart eine Verarbeitung möglich wäre.</p>
+<div class="NOTE"><h5>Note</h5><p>Tritt so ein Fehler auf, dann wiederholt der Print-Service jetzt nach dem
+Restart einmalig den Druck-Job.</p>
+</div>
+</li>
+<li><p>2021066966 - <strong>Print-Service</strong>: Wird der Print-Service als Console ausgeführt,
+  dann blockiert eine Markierung von Text die Console und damit den kompletten
+  Print-Service.</p>
+<div class="NOTE"><h5>Note</h5><p>Bei einer Blockade läuft der Print-Service jetzt im Hintergrund weiter.
+Während der Blockade werden alle Ausgaben gepuffert und nach der Freigabe
+ausgegeben. Die Blockade der Console-Ausgabe während der Markierung ist eine
+Windows-Funktion und kann durch den Print-Service nicht unterbunden werden.</p>
+</div>
+</li>
+<li><p>2020093875 - <strong>IDE</strong>: Eine DLL-Referenz in einem Form-Namespace, welche in Sub
+  Namespaces verwendet werden kann, führt zu einem Compile-Fehler im Child
+  bzw. Sub-Namespace.</p>
+</li>
+<li><p>2021056504 - <strong>IDE</strong>: Werden an einer GridColumn die Events bearbeitet, werden
+  die Änderungen nicht autom. gespeichert und auch der Speicherbutton wird
+  nicht aktiviert.</p>
+</li>
+<li><p>2021066783 - <strong>IDE</strong>: Mit einem Oracle-Repository kommt es beim Aufruf der
+  Method History zu einem Fehler: ORA-00932: <em>Inkonsistente Datentypen: CLOB
+  erwartet, CHAR erhalten.</em></p>
+</li>
+<li><p>2021066884 - <strong>IDE</strong>: Im Paste-Dialog in der Registerkarte &quot;Summary&quot; wird bei
+  einem Replace &quot;No conflicts found!&quot; angezeigt. Hierdurch ist auf den ersten
+  Blick nicht ersichtlich, dass eine Methode mit gleicher Signatur
+  überschrieben wird.</p>
+</li>
+<li><p>2021066945 - <strong>IDE</strong>: Beim Checkin eines Records werden auch von dem Record
+  verwendete, neu angelegte Records erkannt und diese automatisch mit
+  eingecheckt. Handelt es sich bei dem verwendeten Record aber um eine
+  Customization, dann ist dessen Checkin nicht zwingend nötig, weil er ja
+  schon im Basis-Package eingecheckt wurde.</p>
+</li>
+<li><p>2021066957 - <strong>Framework</strong>: Die FS-Typen implementieren nicht IFormattable.
+  Deshalb können sie bei String.Format nicht mit Patterns formatiert werden.<br>
+  Beispiel:  <code>string.Format(&quot;{0:yyyy-MM-dd}&quot;, FSDateTime.Now)</code><br>
+  Das betrifft die Typen FSDateTime, FSshort, FSint, FSlong, FSdecimal,
+  FSfloat und FSdouble.</p>
+<div class="NOTE"><h5>Note</h5><p>Alle diese Typen bieten jetzt die Methoden <code>ToString(format)</code>,
+ <code>ToString(FormatProvider)</code> und  <code>ToString(format, FormatProvider)</code> an.</p>
+</div>
+</li>
+<li><p>2021066893 - <strong>HTML Client</strong>: Das sofortige Blockieren der UI bei einem Event
+  wurde entschärft. Das Sperren erfolgt erst nach 500ms.</p>
+</li>
 </ul>
 <h2 id="fs-434-30042021">FS 4.3.4 (30.04.2021)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>

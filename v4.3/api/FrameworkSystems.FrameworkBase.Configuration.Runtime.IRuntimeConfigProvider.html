@@ -115,6 +115,9 @@ Der Authentication-Service besitzt den Public teil dieses Keys und validiert dam
     <section><p><p>Gibt den Private Key der Application als Hex-String zurück.
 Der Authentication-Service besitzt den Public teil dieses Keys und validiert damit Nachrichten von der Application.</p>
 </p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Configuration.Runtime.IRuntimeConfigProvider.AppServiceTitle.html#FrameworkSystems_FrameworkBase_Configuration_Runtime_IRuntimeConfigProvider_AppServiceTitle">AppServiceTitle</a></h4>
+    <section><p><p>Gibt den Titel der Application zurück. Dieser wird in der Titelleiste im Client angezeigt.</p>
+</p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Configuration.Runtime.IRuntimeConfigProvider.AuthServiceDefaultUserName.html#FrameworkSystems_FrameworkBase_Configuration_Runtime_IRuntimeConfigProvider_AuthServiceDefaultUserName">AuthServiceDefaultUserName</a></h4>
     <section><p><p>Gibt den Namen des Users zurück, mit dem sich defaultmäßig am Authentication Service angemeldet werden soll.</p>
 </p></section>
@@ -160,10 +163,13 @@ Wird nicht mit Tenants gearbeitet, dann wird <code>null</code> zurückgegeben.</
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Configuration.Runtime.IRuntimeConfigProvider.GetConnectionString.html#FrameworkSystems_FrameworkBase_Configuration_Runtime_IRuntimeConfigProvider_GetConnectionString_System_String_">GetConnectionString(String)</a></h4>
     <section><p><p>Gibt den ConnectionString für eine Connection-Group zurück.</p>
 </p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Configuration.Runtime.IRuntimeConfigProvider.GetLicenseXml.html#FrameworkSystems_FrameworkBase_Configuration_Runtime_IRuntimeConfigProvider_GetLicenseXml_System_String_">GetLicenseXml(String)</a></h4>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Configuration.Runtime.IRuntimeConfigProvider.GetLicenseXml.html#FrameworkSystems_FrameworkBase_Configuration_Runtime_IRuntimeConfigProvider_GetLicenseXml_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_">GetLicenseXml(guid)</a></h4>
     <section><p><p>Gibt das Lizenz-Xml für ein Package zurück.</p>
 </p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Configuration.Runtime.IRuntimeConfigProvider.SetLicenseXml.html#FrameworkSystems_FrameworkBase_Configuration_Runtime_IRuntimeConfigProvider_SetLicenseXml_System_String_System_Xml_Linq_XElement_">SetLicenseXml(String, XElement)</a></h4>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Configuration.Runtime.IRuntimeConfigProvider.GetServiceHostEnabled.html#FrameworkSystems_FrameworkBase_Configuration_Runtime_IRuntimeConfigProvider_GetServiceHostEnabled_System_String_">GetServiceHostEnabled(String)</a></h4>
+    <section><p><p>Gibt die BaseAddress eines Service Hosts zurück.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Configuration.Runtime.IRuntimeConfigProvider.SetLicenseXml.html#FrameworkSystems_FrameworkBase_Configuration_Runtime_IRuntimeConfigProvider_SetLicenseXml_FrameworkSystems_FrameworkDataProvider_BaseObjects_guid_System_Xml_Linq_XElement_">SetLicenseXml(guid, XElement)</a></h4>
     <section><p><p>Schreibt die Lizenz-Information für ein Package. Diese Methode kann nur aufgerufen werden, wenn nicht <a class="xref" href="FrameworkSystems.FrameworkBase.Configuration.Runtime.IRuntimeConfigProvider.IsReadonly.html#FrameworkSystems_FrameworkBase_Configuration_Runtime_IRuntimeConfigProvider_IsReadonly">IsReadonly</a>.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Configuration.Runtime.IRuntimeConfigProvider.TryGetServiceProxyAddress.html#FrameworkSystems_FrameworkBase_Configuration_Runtime_IRuntimeConfigProvider_TryGetServiceProxyAddress_System_String_System_String__">TryGetServiceProxyAddress(String, out String)</a></h4>

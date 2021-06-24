@@ -218,35 +218,34 @@ Häufig wird dies in Bezug auf Data Contracts verwendet.
 <p><sup><strong>2</strong></sup> Ableitung des Elements kann weder kopiert noch gemerged werden.</p>
 </div>
 <h3 id="allgemein">Allgemein</h3>
-<h5 id="copy">Copy</h5>
+<h4 id="copy">Copy</h4>
 <p>Über das Kontextmenü eines Elements, über den Menüpunkt <strong>Copy</strong> im <strong>Edit</strong>-Menü oder über die Copy &amp; Paste Buttons kann ein Element kopiert werden.</p>
-<p><strong>Copy &amp; Paste Buttons:</strong></p>
 <p><img src="media/copy-paste-buttons.png" alt="copy-paste-buttons.png"></p>
-<h5 id="paste">Paste</h5>
+<h4 id="paste">Paste</h4>
 <p>Wird ein Element ohne Basis und ohne ID kopiert, kann es überall eingefügt werden. Wird ein Element mit ID kopiert, kann dies nur eingefügt werden, wenn ein Element mit derselben ID noch nicht existiert. Eine Customization kann nur erstellt werden, wenn im Package noch keine Customization vorhanden ist und die passende Basis existiert.</p>
 <p>Grundsätzlich wird zwischen zwei verschiedenen Arten unterschieden, um ein Element einzufügen:</p>
 <ol>
-<li><p><strong>Element am Namespace eingefügt</strong>
+<li><p><strong>Element am Namespace eingefügt:</strong>
  Über das KontextMenü am Namespace kann das kopierte Element in den Namespace eingefügt werden. Dabei wird ein neues Element erstellt.
  Falls ein Element mit derselben ID bereits existiert wird über ein Dialog vorgeschlagen das kopierte Element in das bestehende Element einzufügen.</p>
 </li>
-<li><p><strong>Element in ein bestehendes Element des gleichen Typs einfügen</strong>
+<li><p><strong>Element in ein bestehendes Element des gleichen Typs einfügen:</strong>
  Über das Kontextmenü eines Elements oder über den Menüpunkt Paste im Edit-Menü kann das kopierte Element in ein bestehendes Element desselben Typs eingefügt werden. Dieser Vorgang stand in älteren Versionen schon unter Merge bei Components zur Verfügung.</p>
 </li>
 </ol>
-<p><strong>Dialog zum zusammenfügen von Elementen mit gleicher ID:</strong></p>
+<p><strong>Dialog zum Zusammenfügen von Elementen mit gleicher ID:</strong></p>
 <p><img src="media/dialog-zusammenf%C3%BCgen-elementen-gleicher-id.png" alt="dialog-zusammenfügen-elementen-gleicher-id.png"></p>
-<h5 id="kompatibilität">Kompatibilität</h5>
-<p>Elemente bei denen Copy &amp; Paste bereits vorhanden war (Components, Forms) können zwischen der alten und neuen Version kopiert werden. Das Kopieren mit ID wird jedoch erst ab FS3.11 unterstützt.</p>
+<h4 id="kompatibilität">Kompatibilität</h4>
+<p>Elemente bei denen Copy &amp; Paste bereits vorhanden war (Components, Forms) können zwischen der alten und neuen Version kopiert werden. Das Kopieren mit ID wird jedoch erst ab FS 3.11 unterstützt.</p>
 <h3 id="paste-dialog">Paste Dialog</h3>
-<h5 id="allgemein-1">Allgemein</h5>
+<h4 id="allgemein-1">Allgemein</h4>
 <p>Über den <strong>Paste</strong> Dialog kann beim Kopieren in ein bestehendes Element ausgewählt werden, welche Unterelemente wie kopiert werden.
 Zu beachten ist, dass der <strong>Paste</strong> Dialog sehr viele Freiheiten bietet. Dies ermöglicht natürlich auch fehlerhafte Stände zu erstellen. Dieser Mechanismus ist für versierte Benutzer konzipiert. Grundsätzlich sollte der Benutzer wissen, was er tut und VOR der Aktion sicherstellen, dass alle benötigten Elemente am Ziel vorhanden sind.
 Die zu kopierenden Unterelemente sind in Gruppen auf verschiedene Registerkarten aufgeteilt. Jeder <strong>Paste</strong> Dialog enthält eine <strong><em>Summary</em></strong> und die <strong><em>NeededTypes</em></strong>.
 Im obersten Bereich des Paste-Dialogs werden der Type und der Pfad des kopierten Elements angezeigt. Der Pfad des kopierten Elements ist nur für Elemente sichtbar, die aus einer Version ≥ FS 3.11 kopiert wurden.</p>
-<p><strong>Paste Dialog: Angaben zum kopierten Element:</strong></p>
+<p><strong>Angaben zum kopierten Element:</strong></p>
 <p><img src="media/paste-dialog-angaben-kopierten-element.png" alt="paste-dialog-angaben-kopierten-element.png"></p>
-<h5 id="summary">Summary</h5>
+<h4 id="registerkarte-summary">Registerkarte Summary</h4>
 <p>Die erste Registerkarte beinhaltet immer die Summary. Diese zeigt, ob beim Paste oder Merge Konflikte auftreten.</p>
 <p>Framework Studio versucht grundsätzlich bei der Aktion die benötigten Elemente im Ziel-Package auf folgenden Wegen zu finden:</p>
 <ol>
@@ -261,14 +260,16 @@ Im obersten Bereich des Paste-Dialogs werden der Type und der Pfad des kopierten
 <p>Über verschiedene Buttons kann ausgewählt werden, welche Unterelemente der Registerkarte selektiert und beim Einfügen berücksichtigt werden.</p>
 <p><strong>Select all:</strong> Alle Unterelemente werden selektiert.</p>
 <p><strong>Select none:</strong> Alle Unterelemente werden deselektiert.</p>
-<p><strong>Select new:</strong> Es werden nur neu hinzugefügte Unterelemente selektiert</p>
-<p><strong>Paste Dialog: Summary:</strong>
-<img src="media/paste-dialog-summary.png" alt="paste-dialog-summary.png"></p>
+<p><strong>Select new:</strong> Es werden nur neu hinzugefügte Unterelemente selektiert.</p>
+<p><img src="media/paste-dialog-summary.png" alt="paste-dialog-summary.png"></p>
 <p>Beim Einfügen eines Elements am Namespace kann außerdem ausgewählt werden, ob die ID des Elements kopiert werden soll.</p>
 <p><img src="media/paste-dialog-copy-id.png" alt="paste-dialog-copy-id.png"></p>
-<h5 id="neededtypes">NeededTypes</h5>
+<div class="NOTE"><h5>Note</h5><p>Die Registerkarte Summary zeigt die initialen Merge Actions (Replace oder Insert) der Elemente an.
+Zu beachten ist, dass diese Übersicht nicht aktualisiert wird, wenn bspw. die Merge Action an einem Element geändert wurde.</p>
+</div>
+<h4 id="registerkarte-neededtypes">Registerkarte NeededTypes</h4>
 <p>Bei den <em>Needed Types</em> werden alle Typen aufgelistet, die nicht zum Standard gehören. Diese können beliebig ausgetauscht werden. Das kann z.B. dann sinnvoll sein, wenn ein benötigtes Element vorher auch schon kopiert wurde und jetzt ggf. unter einem anderen Namen in einem anderen Namespace zu finden ist.</p>
-<h5 id="zusammenführen-von-elementen">Zusammenführen von Elementen</h5>
+<h4 id="zusammenführen-von-elementen">Zusammenführen von Elementen</h4>
 <p>Mit einem Merge kann erreicht werden, dass Änderungen in einer Kopie nachgezogen werden. Was nicht möglich ist, sind gelöschte Elemente durch den Merge zu entfernen. Es werden nur neu hinzugekommene oder geänderte beachtet.
 Beim Kopieren in ein bestehendes Element werden zusätzlich alle zu kopierenden Unterelemente gruppiert und in verschiedenen Registerkarten dargestellt.</p>
 <p>Die Unterelemente sind wiederum nach MergeAction und Name sortiert.
@@ -316,22 +317,21 @@ Es stehen verschiedene Merge-Operationen zur Verfügung:</p>
 </ul>
 <h3 id="kopieren-von-ids">Kopieren von IDs</h3>
 <p>Um Parallelentwicklungen zu realisieren, ohne dass die internen IDs von Elementen in verschiedenen Versionen auseinanderlaufen, besteht nun die Möglichkeit die ID von Elementen zu kopieren.</p>
-<p>In der obersten Leiste des <strong>Paste</strong> Dialogs ist farblich gekennzeichnet, ob die IDs kopiert oder neu angelegt werden.</p>
+<p>In der obersten Leiste des <strong>Paste</strong> Dialogs ist farblich gekennzeichnet, ob die IDs kopiert oder neu angelegt werden (siehe Bilder).</p>
 <p><strong>Kopieren von IDs Aktiv:</strong>
 <img src="media/kopieren-von-ids-aktiv.png" alt="kopieren-von-ids-aktiv.png"></p>
 <p><strong>Kopieren von IDs Inaktiv:</strong>
 <img src="media/kopieren-von-ids-inaktiv.png" alt="kopieren-von-ids-inaktiv.png"></p>
 <p><strong>Für das Kopieren von IDs gelten folgende Regeln:</strong></p>
 <ul>
-<li><p>Wenn das zu kopierende Element am Namespace eingefügt wird und aus demselben Package aber unterschiedlicher Version stammt, ist das Kopieren der ID´s optional.</p>
+<li><p>Wenn das zu kopierende Element am Namespace eingefügt wird und aus demselben Package aber unterschiedlicher Version stammt, ist das Kopieren der IDs optional.</p>
 </li>
 <li><p>Beim Zusammenführen von Elementen im selben Package aber unterschiedlicher Version wird die ID automatisch kopiert, wenn die IDs der beiden Elemente übereinstimmen, ansonsten nicht.</p>
 </li>
-<li><p>Wenn das zu kopierende Element aus einem anderen Package stammt, ist das Kopieren der ID´s nicht möglich.</p>
+<li><p>Wenn das zu kopierende Element aus einem anderen Package stammt, ist das Kopieren der IDs nicht möglich.</p>
 </li>
 </ul>
-<p><strong>Kopieren von IDs:</strong>
-<img src="media/kopieren-von-ids.png" alt="kopieren-von-ids.png"></p>
+<p><img src="media/kopieren-von-ids.png" alt="kopieren-von-ids.png"></p>
 <h3 id="kopieren-von-unterelementen">Kopieren von Unterelementen</h3>
 <ul>
 <li><p>Es ist möglich Methoden, Controls, Form- und Component-Properties zu kopieren.</p>
@@ -340,21 +340,21 @@ Es stehen verschiedene Merge-Operationen zur Verfügung:</p>
 </li>
 <li><p>Die ID wird bei Unterelementen nur dann übernommen, wenn in demselben Package aber unterschiedlichen Versionen kopiert wird und die ID der Parent-Elemente übereinstimmt. Elemente aus einer älteren Version werden nicht mit ID kopiert.</p>
 </li>
-<li><p>Beim Einfügen von Unterelementen in ein anderes Parent-Element wird der PasteDialog angezeigt. Beim Einfügen von Unterelementen aus einer älteren Version wird der Dialog nicht angezeigt.</p>
+<li><p>Beim Einfügen von Unterelementen in ein anderes Parent-Element wird der Paste-Dialog angezeigt. Beim Einfügen von Unterelementen aus einer älteren Version wird der Dialog nicht angezeigt.</p>
 </li>
 </ul>
 <h3 id="sonderfälle">Sonderfälle</h3>
 <p>Es gibt Ausnahmen oder Sonderfälle beim Kopieren oder Mergen, die nachfolgend aufgelistet sind:</p>
-<h5 id="metadatentype">Metadatentype</h5>
+<h4 id="metadatentype">Metadatentype</h4>
 <ul>
 <li>Merge von Indices<ul>
 <li>Falls die ID oder der Name identisch sind, wird ein Replace angeboten.</li>
-<li>Fall ID und Name nicht übereinstimmen, aber dieselbe Konstellation von Spalten im Ziel enthalten ist und ASC/DSC identisch sind, wird ebenfalls ein Replace angeboten.</li>
+<li>Falls die ID und der Name nicht übereinstimmen, aber dieselbe Konstellation von Spalten im Ziel enthalten ist und ASC/DSC identisch sind, wird ebenfalls ein Replace angeboten.</li>
 <li>In allen anderen Fällen wird ein Insert angeboten.</li>
 </ul>
 </li>
 </ul>
-<h5 id="textcollection">TextCollection</h5>
+<h4 id="textcollection">TextCollection</h4>
 <ul>
 <li>Merge von TextEntries<ul>
 <li>Wenn der PK identisch ist, wird ein Replace vorgeschlagen.</li>
@@ -364,29 +364,23 @@ Es stehen verschiedene Merge-Operationen zur Verfügung:</p>
 </ul>
 </li>
 </ul>
-<h5 id="service-elemente">Service Elemente</h5>
+<h4 id="service-elemente">Service Elemente</h4>
 <ul>
-<li>Allgemein<ul>
 <li>Ableitungen von Service Elementen können weder kopiert noch gemerged werden.</li>
 </ul>
-</li>
-</ul>
-<h5 id="report">Report</h5>
+<h4 id="report">Report</h4>
 <ul>
 <li>Data Source<ul>
 <li>Die angehakten Checkboxen von DataSources werden beim Kopieren von Ableitungen oder Customizations nicht mit kopiert.</li>
-<li>Die angehakten Checkboxen vom DataSources werden beim Merge nicht berücksichtigt.</li>
+<li>Die angehakten Checkboxen von DataSources werden beim Merge nicht berücksichtigt.</li>
 </ul>
 </li>
 </ul>
-<h5 id="globalevent">GlobalEvent</h5>
+<h4 id="globalevent">GlobalEvent</h4>
 <ul>
-<li>Allgemein<ul>
 <li>Das GlobalEvent kann nicht gemerged werden.</li>
 </ul>
-</li>
-</ul>
-<h5 id="workflow">Workflow</h5>
+<h4 id="workflow">Workflow</h4>
 <ul>
 <li>Merge Allgemein<ul>
 <li>Die Position oder Größe eines Elements wird beim Mergen nicht berücksichtigt.</li>
@@ -417,20 +411,14 @@ Es stehen verschiedene Merge-Operationen zur Verfügung:</p>
 </ul>
 </li>
 </ul>
-<h5 id="resource">Resource</h5>
+<h4 id="resource">Resource</h4>
 <ul>
-<li>Allgemein<ul>
 <li>Ressources können nicht gemerged werden</li>
 </ul>
-</li>
-</ul>
-<h5 id="namespaces">Namespaces</h5>
+<h4 id="namespaces">Namespaces</h4>
 <ul>
-<li>Allgemein<ul>
 <li>Namespaces können nicht gemerged werden</li>
-<li>Namespace Referencen werden nicht kopiert</li>
-</ul>
-</li>
+<li>Namespace References werden nicht kopiert</li>
 </ul>
 </article>
           </div>

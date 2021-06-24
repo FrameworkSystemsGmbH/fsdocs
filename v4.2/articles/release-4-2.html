@@ -106,27 +106,29 @@
   definiert sind, dann kann das den Start des Dienstes so stark verzögern,
   dass der Start in einen Timeout läuft. Im PrintServiceConfigEditor wird ein
   Timeout von 30 Sekunden verwendet.</p>
-<p>  <em>Hinweis: Die Analyse der Drucker wird jetzt nach dem Start des Dienstes
-  ausgeführt. Anstehende Druckjobs werden erst im Anschluss verarbeitet.</em><br>
-  <em>Es kann also sein, dass die ersten Druckjobs erst mehrere Sekunden nach
-  erfolgreichem Start des Dienstes verarbeitet werden.</em></p>
+<div class="NOTE"><h5>Note</h5><p>Die Analyse der Drucker wird jetzt nach dem Start des Dienstes ausgeführt.
+Anstehende Druckjobs werden erst im Anschluss verarbeitet.<br>
+Es kann also sein, dass die ersten Druckjobs erst mehrere Sekunden nach
+erfolgreichem Start des Dienstes verarbeitet werden.</p>
+</div>
 </li>
 <li><p>2021066928 - <strong>Print-Service</strong>: Läuft der Print-Service in einen Fehler - z.B.
   bei der Verarbeitung eines Crystal Report Documents - dann erfolgt ein
-  automtischer Restart des Services. Dabei wird die letzte Transaktion auf
+  automatischer Restart des Services. Dabei wird die letzte Transaktion auf
   &quot;fehlerhaft&quot; gesetzt. In der Folge wird der Druck-Job nicht verarbeitet,
-  auch wenn nach dem Neustart eine Verabeitung möglich wäre.</p>
-<p>  Hinweis: Tritt so ein Fehler auf, dann wiederholt der Print-Service jetzt
-  nach dem Restart einmalig den Druck-Job.</p>
+  auch wenn nach dem Neustart eine Verarbeitung möglich wäre.</p>
+<div class="NOTE"><h5>Note</h5><p>Tritt so ein Fehler auf, dann wiederholt der Print-Service jetzt nach dem
+Restart einmalig den Druck-Job.</p>
+</div>
 </li>
 <li><p>2021066966 - <strong>Print-Service</strong>: Wird der Print-Service als Console ausgeführt,
   dann blockiert eine Markierung von Text die Console und damit den kompletten
   Print-Service.</p>
-<p>  <em>Hinweis: Bei einer Blockade läuft der Print-Service jetzt im Hintergrund
-  weiter. Während der Blockade werden alle Ausgaben gepuffert und nach der
-  Freigabe ausgegeben. Die Blockade der Console-Ausgabe während der Markierung
-  ist eine Windows-Funktion und kann durch den Print-Service nicht unterbunden
-  werden.</em></p>
+<div class="NOTE"><h5>Note</h5><p>Bei einer Blockade läuft der Print-Service jetzt im Hintergrund weiter.
+Während der Blockade werden alle Ausgaben gepuffert und nach der Freigabe
+ausgegeben. Die Blockade der Console-Ausgabe während der Markierung ist eine
+Windows-Funktion und kann durch den Print-Service nicht unterbunden werden.</p>
+</div>
 </li>
 <li><p>2020093875 - <strong>IDE</strong>: Eine DLL-Referenz in einem Form-Namespace, welche in Sub
   Namespaces verwendet werden kann, führt zu einem Compile-Fehler im Child
@@ -156,8 +158,9 @@
   Beispiel:  <code>string.Format(&quot;{0:yyyy-MM-dd}&quot;, FSDateTime.Now)</code><br>
   Das betrifft die Typen FSDateTime, FSshort, FSint, FSlong, FSdecimal,
   FSfloat und FSdouble.</p>
-<p>  Hinweis: Alle diese Typen bieten jetzt die Methoden <code>ToString(format)</code>,
-   <code>ToString(FormatProvider)</code> und  <code>ToString(format, FormatProvider)</code> an.</p>
+<div class="NOTE"><h5>Note</h5><p>Alle diese Typen bieten jetzt die Methoden <code>ToString(format)</code>,
+ <code>ToString(FormatProvider)</code> und  <code>ToString(format, FormatProvider)</code> an.</p>
+</div>
 </li>
 <li><p>2021066893 - <strong>HTML Client</strong>: Das sofortige Blockieren der UI bei einem Event
   wurde entschärft. Das Sperren erfolgt erst nach 500ms.</p>

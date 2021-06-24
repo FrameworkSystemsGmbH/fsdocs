@@ -99,17 +99,48 @@
     <pre><code class="lang-csharp hljs">[Serializable]
 [ComVisible(false)]
 [DataContract]
-public struct FSDateTime : IFSDateTime, IFSType, IComparable, IConvertible</code></pre>
+public struct FSDateTime : IFSDateTime, IFSType, IComparable, IConvertible, IFormattable</code></pre>
   </div>
   <h5 id="FrameworkSystems_FrameworkBase_Metadatatype_FSDateTime_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>Siehe auch: <a class="xref" href="../doc/konzepte/fs-types.html">FS-Datentypen</a></p>
 </div>
+  <h3 id="fields">Fields
+  </h3>
+  
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.Null.html">Null</a></h4>
+    <section><p><p>Gibt FSDateTime mit IsNull == true zurück</p>
+</p></section>
+  
   <h3 id="properties">Properties
   </h3>
   
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.Now.html#FrameworkSystems_FrameworkBase_Metadatatype_FSDateTime_Now">Now</a></h4>
     <section><p><p>Gets a FSDateTime object that is set to the current date and time (without milliseconds and ticks)
 on this computer, expressed as the local time.</p>
+</p></section>
+  
+  <h3 id="methods">Methods
+  </h3>
+  
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.ToString.html#FrameworkSystems_FrameworkBase_Metadatatype_FSDateTime_ToString">ToString()</a></h4>
+    <section><p><p>Arbeitet wie <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.datetime.tostring#System_DateTime_ToString">ToString()</a>.
+Bei <a class="xref" href="FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.Null.html">Null</a> wird der String <code>&quot;null&quot;</code> zurückgegeben.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.ToString.html#FrameworkSystems_FrameworkBase_Metadatatype_FSDateTime_ToString_System_IFormatProvider_">ToString(IFormatProvider)</a></h4>
+    <section><p><p>Arbeitet wie <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.datetime.tostring#System_DateTime_ToString_System_IFormatProvider_">ToString(IFormatProvider)</a>.
+Bei <a class="xref" href="FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.Null.html">Null</a> wird ein leerer String zurückgegeben.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.ToString.html#FrameworkSystems_FrameworkBase_Metadatatype_FSDateTime_ToString_System_String_">ToString(String)</a></h4>
+    <section><p><p>Arbeitet wie <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.datetime.tostring#System_DateTime_ToString_System_String_">ToString(String)</a>.
+Bei <a class="xref" href="FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.Null.html">Null</a> wird ein leerer String zurückgegeben.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.ToString.html#FrameworkSystems_FrameworkBase_Metadatatype_FSDateTime_ToString_System_String_System_IFormatProvider_">ToString(String, IFormatProvider)</a></h4>
+    <section><p><p>Arbeitet wie <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.datetime.tostring#System_DateTime_ToString_System_String_System_IFormatProvider_">ToString(String, IFormatProvider)</a>.
+Bei <a class="xref" href="FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.Null.html">Null</a> wird ein leerer String zurückgegeben.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.ToStringEmpty.html#FrameworkSystems_FrameworkBase_Metadatatype_FSDateTime_ToStringEmpty">ToStringEmpty()</a></h4>
+    <section><p><p>Arbeitet wie <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.datetime.tostring#System_DateTime_ToString">ToString()</a>.
+Bei <a class="xref" href="FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.Null.html">Null</a> wird ein leerer String zurückgegeben.</p>
 </p></section>
   
 </article>

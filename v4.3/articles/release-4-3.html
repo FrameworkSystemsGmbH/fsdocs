@@ -187,15 +187,6 @@ Windows-Funktion und kann durch den Print-Service nicht unterbunden werden.</p>
   Customization, dann ist dessen Checkin nicht zwingend nötig, weil er ja
   schon im Basis-Package eingecheckt wurde.</p>
 </li>
-<li><p>2021066957 - <strong>Framework</strong>: Die FS-Typen implementieren nicht IFormattable.
-  Deshalb können sie bei String.Format nicht mit Patterns formatiert werden.<br>
-  Beispiel:  <code>string.Format(&quot;{0:yyyy-MM-dd}&quot;, FSDateTime.Now)</code><br>
-  Das betrifft die Typen FSDateTime, FSshort, FSint, FSlong, FSdecimal,
-  FSfloat und FSdouble.</p>
-<div class="NOTE"><h5>Note</h5><p>Alle diese Typen bieten jetzt die Methoden <code>ToString(format)</code>,
- <code>ToString(FormatProvider)</code> und  <code>ToString(format, FormatProvider)</code> an.</p>
-</div>
-</li>
 <li><p>2021066893 - <strong>HTML Client</strong>: Das sofortige Blockieren der UI bei einem Event
   wurde entschärft. Das Sperren erfolgt erst nach 500ms.</p>
 </li>

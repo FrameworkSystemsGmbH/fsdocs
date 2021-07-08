@@ -81,6 +81,26 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-42">Release-Information Framework Studio 4.2</h1>
 
+<h2 id="4218-fix-1-09072021">4.2.18 Fix 1 (09.07.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.2.18_Fix_1_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021077150 - <strong>Framework</strong>: Mit Framework Studio 4.2.18 und 4.3.5 wurden an
+  den FS-Typen das Interface <code>IFormattable</code> implementiert (Bug 2021066957).
+  Diese Erweiterung hat negative Auswirkungen auf bestehenden Code - z.B. wenn
+  SQL-Statements mit <code>String.Format()</code> oder String-Interpolation erzeugt
+  werden.<br>
+  Bisher wurden null-Werte über Methode <code>ToString()</code> mit dem String <code>&quot;null&quot;</code>
+  abgebildet, die Format-Methoden liefern aber einen leeren String zurück.</p>
+<div class="NOTE"><h5>Note</h5><p>Die IFormattable-Implementierung wurde bis auf Weiteres wieder komplett
+entfernt.</p>
+</div>
+</li>
+</ul>
 <h2 id="4218-25062021">4.2.18 (25.06.2021)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -94,7 +114,7 @@
 <p>Das <a href="requirements-package.html">Requirements-Paket</a> beinhaltet vorerst weiterhin die Version 13.0.18</p>
 <div class="NOTE"><h5>Note</h5><p>Bitte beachten sie unbedingt die Hinweise in den aktualisierten <a href="requirements.html#crystal-reports-runtime">Systemvoraussetzungen</a>!</p>
 </div>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021066859 - <strong>Print-Service</strong>: Treten beim Verarbeiten von Druckaufträgen
   wiederholt Fehler auf, dann führt der Print-Service einen Restart durch.
@@ -153,15 +173,6 @@ Windows-Funktion und kann durch den Print-Service nicht unterbunden werden.</p>
   Customization, dann ist dessen Checkin nicht zwingend nötig, weil er ja
   schon im Basis-Package eingecheckt wurde.</p>
 </li>
-<li><p>2021066957 - <strong>Framework</strong>: Die FS-Typen implementieren nicht IFormattable.
-  Deshalb können sie bei String.Format nicht mit Patterns formatiert werden.<br>
-  Beispiel:  <code>string.Format(&quot;{0:yyyy-MM-dd}&quot;, FSDateTime.Now)</code><br>
-  Das betrifft die Typen FSDateTime, FSshort, FSint, FSlong, FSdecimal,
-  FSfloat und FSdouble.</p>
-<div class="NOTE"><h5>Note</h5><p>Alle diese Typen bieten jetzt die Methoden <code>ToString(format)</code>,
- <code>ToString(FormatProvider)</code> und  <code>ToString(format, FormatProvider)</code> an.</p>
-</div>
-</li>
 <li><p>2021066893 - <strong>HTML Client</strong>: Das sofortige Blockieren der UI bei einem Event
   wurde entschärft. Das Sperren erfolgt erst nach 500ms.</p>
 </li>
@@ -172,7 +183,7 @@ Windows-Funktion und kann durch den Print-Service nicht unterbunden werden.</p>
 <li>FS_4.2.17_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021036188 - <strong>Oracle</strong>: Werden in einem Grid Spalten mit Langtext gefiltert
   oder sortiert, dann kommt zu einer Sql-Exception, wenn die Texte auf der
@@ -227,7 +238,7 @@ Windows-Funktion und kann durch den Print-Service nicht unterbunden werden.</p>
 <li><p>Im FS Client-Launcher kann über eine Umgebungs-Variable eine abweichende <a href="../doc/fsclientlauncher/fsclientlauncher-configuration.html#java-laufzeitumgebung">Java Runtime</a> definiert werden.</p>
 </li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021025789 - <strong>Java-Client</strong>: In den Fenstern des Haupt-Arbeitsbereiches ist
   es nicht mehr möglich, mit den Pfeil-Tasten durch die Menüs zu navigieren.
@@ -262,7 +273,7 @@ Windows-Funktion und kann durch den Print-Service nicht unterbunden werden.</p>
 <p>Eine detailierte Beschreibung gibt es <a href="../doc/html-client/funktionsumfang.html#szenarien-beim-schließen-des-letzten-forms">hier</a></p>
 <h5 id="html-client-actions">HTML Client Actions</h5>
 <p>Der HTML Client unterstutzt nun die Actions <code>SetTitle</code> und <code>SetCaption</code>. Mehr Informationen zu den unterstützten Action finden Sie <a href="../doc/html-client/funktionsumfang.html#actions">hier</a></p>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021025560 - <strong>Java-Client</strong>: In einem TreeView wird durch den Benutzer ein
   TreeNode selektiert. Das löst ein OnAfterSelect-Event aus. Dann wird durch
@@ -290,7 +301,7 @@ Windows-Funktion und kann durch den Print-Service nicht unterbunden werden.</p>
 <h4 id="neuerungen-2">Neuerungen</h4>
 <h5 id="vorwärts--und-rückwärtsnavigation-mit-maustasten">Vorwärts- und Rückwärtsnavigation mit Maustasten</h5>
 <p>Die <a href="../doc/ide/allgemeine-funktionatitaeten.html#vorwärts--und-rückwärtsnavigation">bisherige Navigation</a> zwischen Einträgen ist nun auch mit den beiden zusätzlichen Navigationstasten an der Seite der Maus möglich.</p>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020125151 - <strong>Oracle</strong>: An einigen Stellen wird für das Ermitteln von
   Datenstrukturen der Datenbank auf die ALL_-Views zugegriffen. Besser ist es,
@@ -318,7 +329,7 @@ Windows-Funktion und kann durch den Print-Service nicht unterbunden werden.</p>
 <li>FS_4.2.13_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020125024 - <strong>JavaClient</strong>: Nach dem Aufruf der Grid-Action
   ResetSortAndFilter() am Broker wird im Client die Markierung im Spalten-Kopf
@@ -423,7 +434,7 @@ wird &#39;Root&#39; als Parent definiert.</p>
 <li>Die App findet beim Start keine alte Session, die fortgeführt werden kann</li>
 </ul>
 </div>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020114581 - <strong>Publish</strong>: Im Publish-Setting können keine Unicode-Zeichen
   gespeichert werden. Je nach Code-Page der Datenbank gehen ggf. auch deutsche
@@ -503,7 +514,7 @@ Beim Server-Namen kann der Port jetzt mit &quot;:&quot; angegeben werden z.B.
 <p>Mehr Informationen dazu gibt es unter folgenden Links:</p>
 <p><a href="../doc/form/control/listview.html#globales-css-für-listviewitems">ListView</a></p>
 <p><a href="../doc/form/control/template.html#globales-css-für-template-controls">TemplateControl</a></p>
-<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020104399 - <strong>Broker</strong>: Bei der Konvertierung von XML nach JSON kann kann es
   zu einer Exception kommen, welche als Folge ggf. den HTML Client abstürzen
@@ -587,7 +598,7 @@ Beim Server-Namen kann der Port jetzt mit &quot;:&quot; angegeben werden z.B.
 <h4 id="fehler-im-package-merge">Fehler im Package-Merge</h4>
 <div class="WARNING"><h5>Warning</h5><p>Seit 29.05.2020 gibt es mehrere Probleme mit dem Package-Merge. Einige wurden korrigiert, jedoch sind noch offene Punkte bekannt. Daher empfehlen wir, bis zum nächsten Patchday auf den Package-Merge zu verzichten.</p>
 </div>
-<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020093914 - <strong>JavaClient</strong>: Der Client startet im Hintergrund eine cmd.exe.
   Das führt ggf. zu Problemen, wenn per Gruppenrichtline der Zugriff auf die
@@ -636,7 +647,7 @@ Beim Server-Namen kann der Port jetzt mit &quot;:&quot; angegeben werden z.B.
 <li>FS_4.2.9_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020083454 - <strong>JavaClient</strong>: Wird eine Anwendung als &quot;Frameless&quot; gestartet
   (z.B. der Pick-Monitor in eNVenta ERP), dann kann es passieren, dass eine
@@ -717,7 +728,7 @@ Customizing-Package gelöscht und neu customized werden.</p>
 <p>Der HTML Client wird auf mobilen Geräten ab sofort im Fullscreen-Modus ausgeführt. So steht noch etwas mehr platz für Controls zur Verfügung, da die Statusleiste und Softbuttons des Geräts die App nun überlappen.</p>
 <h5 id="form-badgeimages">Form BadgeImages</h5>
 <p>Zusätzlich zu den ImageButtons werden BadgeImages nun auch am Form über das Property <code>BadgeImage DataSource</code> unterstützt.</p>
-<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020073096 - <strong>JavaClient</strong>: Wird die Anwendung über den FSClient-Launcher
   gestartet, dann erfolgt bei mehreren Anwendungen keine Gruppierung in der
@@ -801,7 +812,7 @@ die Anzahl auf 4 begrenzt.</p>
 <li>FS_4.2.7_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020031817 - <strong>Java-Client</strong>: Die Shortcuts Ctrl-H, Ctrl-T, Ctrl-Shift-T und
   Ctrl-Shift-O funktionieren nicht, wenn sich der Fokus in einem
@@ -823,7 +834,7 @@ damit die Korrektur wirksam wird.</p>
 <li>FS_4.2.6_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-13">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020052640 - <strong>IDE</strong>: Leitet man von einer Basis-Formklasse aus einem
   Basis-Package ab (Derive), zu der es eine Customization im aktuellen Package
@@ -870,7 +881,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>DisplayMinLength, DisplayMaxLength</li>
 <li>DisplayMinLines, DisplayMaxLines</li>
 </ul>
-<h4 id="korrigierte-fehler-13">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-14">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020042334 - <strong>Java-Client</strong>: Die Windows-Skalierung hat keinen Einfluss auf
   die Skalierung des Browser Controls.</p>
@@ -904,7 +915,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>FS_4.2.4_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-14">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-15">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021741 - <strong>Java-Client</strong>: Werden in ein Html-Texteingabefeld mindestens 35
   Zeilenumbrüche (p-Tags) eingefügt und erst danach Text, so kommt es beim
@@ -952,7 +963,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 </ol>
 <h4 id="html-client">HTML Client</h4>
 <p>Der ImageButton unterstützt nun das BadgeImage.</p>
-<h4 id="korrigierte-fehler-15">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-16">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021640 - <strong>IDE</strong>: Öffnet man einen bestehenden Exception Editor / Message
   Box Wizard und öffnet die MLKey-Auswahl, dann ist der erste MLKey ist
@@ -983,7 +994,7 @@ zusätzlichen Verbindungen wieder geschlossen.</p>
 <li>FS_4.2.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-16">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-17">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020021533 - <strong>Broker</strong>: Wird ein im Treeview dargestelltes Element aus seiner
   Collection am Parent entfernt und anschließend eine Eigenschaft geändert,
@@ -1042,7 +1053,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <ul>
 <li><a href="../doc/database/ml-column.html#such-funktion">Such-Funktionalität für die ML-Columns</a></li>
 </ul>
-<h4 id="korrigierte-fehler-17">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-18">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020011151 - <strong>Oracle</strong>: Wird in einer DB-Column eine Spalte mit dem Typ
   Boolean angelegt, dann bringt der Datenbank-Update-Assistent einen Fehler,
@@ -1123,7 +1134,7 @@ Jetzt steuern die <code>FSPooling</code>-Parameter nur noch den Vorrat. Das hat 
 <div class="WARNING"><h5>Warning</h5><p>Bestehende SQL-Server Runtime Repositories müssen manuell korrigiert werden!
 Details dazu finden Sie hier: <a href="knowledge/snapshot-isolation.html">Zeilenversionierung im SQL-Server</a>.</p>
 </div>
-<h4 id="korrigierte-fehler-18">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-19">Korrigierte Fehler</h4>
 <p>In der Version 4.2 sind alle Fehler-Korrekturen bis einschließlich Framework Studio 4.0.18 enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

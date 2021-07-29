@@ -81,15 +81,23 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-42">Release-Information Framework Studio 4.2</h1>
 
-<h2 id="4218-fix-1-09072021">4.2.18 Fix 1 (09.07.2021)</h2>
+<h2 id="4219-300721">4.2.19 (30.07.21)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.2.18_Fix_1_Setup_x64</li>
+<li>FS_4.2.19_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
-<li><p>2021077150 - <strong>Framework</strong>: Mit Framework Studio 4.2.18 und 4.3.5 wurden an
+<li><p>2020104512 - <strong>IDE</strong>: bei der Anlage eines neuen Crystal Report mit einer
+  neuen Report-Datei gibt es eine Exception:
+  <em>System.System.ArgumentNullException: Der Wert darf nicht NULL sein</em></p>
+</li>
+<li><p>2021077185 - <strong>IDE</strong>: Nach dem Bearbeiten von Namespace-Referenzen kann es
+  vorkommen, dass trotz Speichern der Namespace noch immer als geändert
+  angezeigt wird. FS muss neu gestartet werden .</p>
+</li>
+<li><p>2021077150 - <strong>Framework</strong>: Mit Framework Studio 4.2.17 und 4.3.5 wurden an
   den FS-Typen das Interface <code>IFormattable</code> implementiert (Bug 2021066957).
   Diese Erweiterung hat negative Auswirkungen auf bestehenden Code - z.B. wenn
   SQL-Statements mit <code>String.Format()</code> oder String-Interpolation erzeugt
@@ -99,6 +107,32 @@
 <div class="NOTE"><h5>Note</h5><p>Die IFormattable-Implementierung wurde bis auf Weiteres wieder komplett
 entfernt.</p>
 </div>
+</li>
+<li><p>2021077114 - <strong>HTML Client</strong>: Wird ein Control mit &quot;Tab&quot; verlassen, so kann es
+  ein, dass der Fokus-Indikator (Outline oder gelbe Hintergundfarbe) immer
+  noch sichtbar ist.</p>
+</li>
+<li><p>2021077151 - <strong>HTML Client</strong>: Ein TabbedWindow kann per &quot;Tab&quot; nicht fokussiert
+  werden. Befindet sich der Fokus im letzten Control der aktiven TabPage, so
+  springt der Fokus nicht mehr heraus zum nächsten Control.</p>
+</li>
+<li><p>2021077221 - <strong>HTML Client</strong>: Die Kamera funktioniert nicht auf Android 11
+  oder höher</p>
+</li>
+<li><p>2021077223 - <strong>HTML Client</strong>: Bei der Ausführung der TakePhoto-Action am
+  Client wird nicht nur das Bild zurück an den Broker geschickt, sondern auch
+  lokal eine Kopie in der Gallery gespeichert.</p>
+</li>
+<li><p>2021077228 - <strong>HTML Client</strong>: Der Fullscreen-Modus funktioniert auf Android 11
+  nicht.</p>
+<div class="NOTE"><h5>Note</h5><p>Auf Grund eines zwar bestätigten aber bisher nicht korrigierten Bugs in
+Android 11 kann der HTML Client auf dieser Version deshalb nur im normalen
+Modus betrieben werden.</p>
+</div>
+</li>
+<li><p>2021077229 - <strong>HTML Client</strong>: Beim Pausieren der App auf Android wird ggf. die
+  aktive Session nicht korrekt gespeichert. Dadurch kann nach einem Neustart
+  der App ggf. die Session nicht fortgeführt werden.</p>
 </li>
 </ul>
 <h2 id="4218-25062021">4.2.18 (25.06.2021)</h2>

@@ -115,7 +115,8 @@ Wird in anderen Tenants ebenfalls ein Eintrag für einen Konfigurations-Schlüss
 </li>
 <li><p><code>#Proxy#</code>: In diesen speziellen &quot;Tenant&quot; werden Konfigurationen für den FrameworkBrokerHostProxy hinterlegt.</p>
 </li>
-<li><p><code>#AuthService#</code>: In diesen speziellen &quot;Tenant&quot; werden Konfigurationen für den Authentication-Service hinterlegt.</p>
+<li><p><code>#AuthService#</code>: In diesen speziellen &quot;Tenant&quot; werden Konfigurationen für den Authentication-Service hinterlegt.
+Arbeitet der Auth-Service im Tenant-Betrieb, dann wird der normale Tenant verwendet.</p>
 </li>
 </ul>
 <h2 id="gültigkeit">Gültigkeit</h2>
@@ -213,8 +214,26 @@ Wird in anderen Tenants ebenfalls ein Eintrag für einen Konfigurations-Schlüss
 <p>Z.B. auf der Seite <a href="https://passwordsgenerator.net/sha512-hash-generator/">https://passwordsgenerator.net/sha512-hash-generator/</a> (Benutzung auf eigene Gefahr!) kann man einen Passwort-Hash generieren.</p>
 <h2 id="authservice-settings">AuthService-Settings</h2>
 <p>Settings für den Authentication-Service.</p>
-<p>(Tenant = <code>#AuthService#</code>)</p>
+<p>Wird der Auth-Service pro Tenant betrieben, wird mit dem normalen Tenant mit Fallback auf den generellen Tenant &quot;*&quot; gearbeitet.</p>
+<p>Arbeitet der Auth-Service ohne Tenants, dann wird der reservierte Tenant <code>#AuthService#</code> mit Fallback auf den generellen Tenant &quot;*&quot; verwendet.</p>
+<h4 id="multi-tenant">Multi-Tenant</h4>
+<p>Gibt an, ob der Auth-Service als Multi-Tenant betrieben werden soll.
+In diesem Fall werden Tenant-Spezifische Instanzen des Auth-Service, die ihre Einstellungen über den normalen Tenant beziehen.
+Für diese Einstellung muss der reservierte &quot;Tenant&quot; <code>#AuthService#</code> verwendet werden.</p>
+<ul>
+<li>RCT_Tenant: <code>#AuthService#</code></li>
+<li>RCT_Key: <code>AuthService|MultiTenant</code></li>
+<li>RCT_Value: <code>false</code> (default) | <code>true</code></li>
+</ul>
+<h4 id="enabled">Enabled</h4>
+<p>Gibt an, ob für den Tenant der Auth-Service gestartet werden soll.</p>
+<p>Diese Einstellung zieht nur im Tenant-Betrieb.</p>
+<ul>
+<li>RCT_Key: <code>AuthService|Enabled</code></li>
+<li>RCT_Value: <code>false</code> (default) | <code>true</code></li>
+</ul>
 <h4 id="connection">Connection</h4>
+<p>Im Tenant-Betrieb greift ein Fallback auf <code>Connection|RuntimeConnection</code>, falls dieser Key nicht gefüllt ist.</p>
 <ul>
 <li>RCT_Key: <code>AuthService|Connection</code></li>
 <li>RCT_Value: Connection-String</li>
@@ -242,7 +261,7 @@ Wird in anderen Tenants ebenfalls ein Eintrag für einen Konfigurations-Schlüss
 <li>RCT_Value: Beschreibung des Service</li>
 </ul>
 <h4 id="public-key">Public Key</h4>
-<p>Öffentlicher Schlüssel den Authentication-Service.</p>
+<p>Öffentlicher Schlüssel des Authentication-Service.</p>
 <p>Dieser kann auch im generellen Tenant &quot;*&quot; definiert und so automatisch von allen Tenants verwendet werden.</p>
 <ul>
 <li>RCT_Key: <code>AuthService|PublicKey</code></li>

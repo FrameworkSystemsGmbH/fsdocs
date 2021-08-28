@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Session Logging Analyzer </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Session Logging Analyzer ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="session-logging-analyzer">Session Logging Analyzer</h1>
+
+<p>Jede Application speichert automatisch Informationen in der Tabelle <a href="../tables/tblrep_sessionlogging.html">tblRep_SessionLogging</a> im Runtime-Repository.
+Es werden pro Session aggregierte Daten über die Anzahl und Dauer der ausgeführten Broker-Anfragen und die Datenbank-Befehle gespeichert.
+Mit dem Session Logging Analyzer können diese Daten ausgewertet werden.</p>
+<p>Im Session-Logging werden die Daten aggregiert.
+So lassen sich sehr gut statistische Aussagen auch über viele Sessions und lange Zeiträume treffen.
+Die Aussagen können maximal auf Session-Ebene heruntergebrochen werden.</p>
+<p>Einzelne Requests und auch exakte Zeitpunkte (z.B. von auftretenden Blockaden) sind nicht zu greifen.
+Dafür muss das deutlich detailliertere <a href="session-trace-analyzer.html">Session Trace</a> verwendet werden.</p>
+<p><img src="media/session-logging-analyzer.png" alt="Session Logging Analyzer"></p>
+<h2 id="einlesen-der-daten">Einlesen der Daten</h2>
+<p>Mit dem Button <strong>Login</strong> kann man sich an einem Runtime-Repository anmelden. Wird der Session Logging Analyzer über den <a href="../publish-wizards/run-wizard.html">Run Wizard</a>, <a href="../publish-wizards/publish-wizard.html">Publish Wizard</a> oder <a href="../publish-wizards/publish2go-wizard.html">Publish2Go-Wizard</a> gestartet, dann wird die Verbindung zum im Setting definierten Runtime-Repository automatisch hergestellt.</p>
+<p>Anschließend kann man mit dem Button <strong>Load from DB</strong> die Daten einlesen.
+Über die Datums-Felder kann vor dem Einlesen der Zeitraum eingeschränkt werden.
+Standardmäßig sind die letzten 30 Tage voreingestellt.</p>
+<p>Mit dem Button <strong>Load from Files</strong> können exportierte Daten eingelesen werden.
+Dabei können aus einem Ordner auch mehrere Dateien gleichzeitig ausgewählt werden.
+Dafür ist kein Login  notwendig.</p>
+<p>Mit jedem Einlese-Vorgang werden die aktuellen Daten verworfen.</p>
+<h2 id="export-der-daten">Export der Daten</h2>
+<p>Mit dem Button <strong>Export to File</strong> können die Daten aus dem Repository in eine Datei exportiert werden.
+Es ist sinnvoll, die Daten auf diese weise zu archivieren, bevor sie dauerhaft aus der Tabelle  <a href="../tables/tblrep_sessionlogging.html">tblRep_SessionLogging</a> gelöscht werden.
+Auf diese Weise lassen sich die Daten auch ganz einfach transportieren.</p>
+<p>Über die Datums-Felder muss vor dem Export der Zeitraum eingeschränkt werden.
+Standardmäßig sind die letzten 30 Tage voreingestellt.</p>
+<p>Der Export erfolgt immer direkt aus der Datenbank in die Datei.
+Die aktuell eingelesenen Daten landen nicht im Export.</p>
+<div class="TIP"><h5>Tip</h5><ul>
+<li>Es ist sinnvoll, monatsweise Exports zu erstellen und diese z.B. im Format <code>yyyy-mm-KundenName.sessionlogging</code> zu speichern.</li>
+<li>Die Export-Dateien lassen sich sehr gut zippen.</li>
+</ul>
+</div>
+<p>Um den Datenschutz zu gewährleisten ist die Checkbox <strong>Anonymous Export</strong> standardmäßig gesetzt.
+Sie bewirkt, dass alle Daten, die auf den Benutzer schließen können anonymisiert werden.
+In der Export-Datei werden nur noch Hash-Codes angezeigt.
+Das betrifft z.B.</p>
+<ul>
+<li>Name des Benutzers (UserName, ClientUser)</li>
+<li>Name und IP des Client-Rechners (ClientMachine)</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Neuheiten Framework Studio 4.4 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Neuheiten Framework Studio 4.4 ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="neuheiten-framework-studio-44">Neuheiten Framework Studio 4.4</h1>
+
+<p>Informationen zu aktuellen Versionen und korrigierten Fehlern finden Sie in den <a href="release-4-4.html">Release-Informationen</a>.</p>
+<h2 id="individueller-code---code-files">Individueller Code - Code files</h2>
+<p>Für die Definition von individuellem Code steht ein neues Element <a href="../doc/code-file/codefile.html#code-file">Code File</a> zur Verfügung.
+Der Code einer Code file muss eine Klasse beinhalten, in welcher Methoden, Konstruktoren, Properties etc. definiert werden können.
+Es können mehrere Klassen, jedoch keine Namespaces, in eine Code file definiert werden.
+Aufgrund gängiger Konventionen sollte ein Code File jedoch nur eine Klasse beinhalten und der Name des Code Files identisch mit dem Namen der Klasse sein.</p>
+<p>Für ein Code file muss ein Compile Step festgelegt werden.
+Dieser bestimmt mit welchem Object Typ der Code kompiliert wird und somit in welchem Namespace sich das Code file befindet.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Intellisense wird aktuell nicht unterstützt.
+Bis zum Release soll dies aber implementiert sein.</p>
+</div>
+<p>Soll der individuelle Code auch in einem anderen Namespace zur Verfügung stehen, muss hierfür eine Referenz angelegt werden.
+Diese muss auf den Namespace des Code files und auf dessen Compile step verweisen.
+Ein Beispiel hierzu findet sich <a href="../doc/code-file/codefile.html#referenz-beispiel">hier</a>.</p>
+<div class="NOTE"><h5>Note</h5><p>Der Compile step sollte zu einem späteren Zeitpunkt nicht geändert werden, da ansonsten bestehende Referenzen auf das Code file ungültig werden und der Compile Fehler generieren wird.
+Die Compile Fehler können verhindert werden, indem der ObjectType der Referenzen ebenfalls angepasst wird.</p>
+</div>
+<h2 id="maintenance-routine-für-referenzen-und-konstruktoren">Maintenance Routine für Referenzen und Konstruktoren</h2>
+<p>Im Maintenance-Mode steht eine neue Cleanup-Routine zur Verfügung.
+Es können unter &quot;Tools - Checks - Maintenance Routine for References and Constructors&quot; drei verschiedene Cleanups durchgeführt werden:</p>
+<ol>
+<li><p><em>Invalid external References:</em> Es wird überprüft, ob externe User-Referenzen existieren bzw. gültig sind. Sollte dies nicht der Fall sein, werden die entsprechenden Referenzen entfernt.</p>
+</li>
+<li><p><em>External $GAC references:</em> Hier werden alle externen $GAC-Referenzen (Global Assembly Cache) überprüft und falls möglich auf $DotNetDirectory umgestellt. $DotNetDirectory definiert das Verzeichnis des .NET Frameworks.</p>
+</li>
+<li><p><em>Constructor declarations:</em> Ungültige Konstruktor Deklarationen in Components werden in eine gültige Form überführt. Dies ist notwendig, da der Compile in der FS Version 4.4 ungültige Deklarationen als Error ausgibt.</p>
+</li>
+</ol>
+<h2 id="placeholder-für-editfields-und-comboboxen">Placeholder für Editfields und Comboboxen</h2>
+<p>Für Editfields und Comboboxen steht ein neues Property <a class="xref" href="../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.CaptionAsPlaceholder.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_CaptionAsPlaceholder">CaptionAsPlaceholder</a> zur Verfügung. Wenn dieses Property auf <code>true</code> gesetzt wird, zeigt das Editfield oder die Combobox die Caption als Placeholder an, solange das Control leer ist bzw. keinen Datensatz anzeigt. Auf diese Weise können zusammenhängende Daten ggf. übersichtlicher dargestellt werden:</p>
+<p><img src="media/placeholder.png" alt="Adresse"></p>
+<h3 id="hinweise">Hinweise</h3>
+<ul>
+<li>Placeholder funktionieren sowohl im Java Client als auch im HTML Client.</li>
+<li>Die Farbe des Placeholders ist fest auf <code>RGB(180, 180, 180)</code> bzw. <code>#b4b4b4</code> gesetzt.</li>
+<li>Befindet sich das Control in einem FieldPanel, so wird kein extra Label generiert, wenn <a class="xref" href="../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.CaptionAsPlaceholder.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_CaptionAsPlaceholder">CaptionAsPlaceholder</a> auf <code>true</code> gesetzt ist.</li>
+</ul>
+<h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
+<ul>
+<li><p>Für Comboboxen und Listboxen kann die <a class="xref" href="../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.DisabledBackColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_DisabledBackColor">DisabledBackColor</a> definiert werden.</p>
+</li>
+<li><p>In Methoden-Parametern und Rückgabetypen können die <a href="https://docs.microsoft.com/dotnet/csharp/language-reference/builtin-types/value-tuples">C# 7 Tuple-Types</a> verwendet werden.</p>
+</li>
+<li><p>Bei den <a href="../doc/access-units/access-units.html#description">Access Units</a> wurde die Ansicht der verbundenen AccessUnits verbessert.
+Es werden nun neben den Parents auch die AccessUnit-Children angezeigt.
+Zudem können die AccessUnit-Parents bearbeitet werden.</p>
+</li>
+<li><p>Die RowID und RowVersion sind nun zwei unabhängige Mechanismen.
+Dies bedeutet, dass die FSROWID als eindeutiger und alleiniger Primary Key für Update- und Delete-Bedingung gilt.
+Die RowVersion wird weiterhin für die Concurrency-Violation Überprüfung verwendet.
+Dabei ist es nebensächlich, ob der Primary Key eine ROWID oder ein individueller PK ist.</p>
+</li>
+<li><p>Analog zur GlobalOnBeforeSaveAction() gibt es auch eine <a class="xref" href="../api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.GlobalOnAfterSaveAction.html#FrameworkSystems_FrameworkBase_GlobalObj_IcGlobalBase_GlobalOnAfterSaveAction_FrameworkSystems_FrameworkBase_DevFrameworkObject_">GlobalOnAfterSaveAction()</a>, welche jedoch nach der SaveAction aufgerufen wird.</p>
+</li>
+<li><p>Im <a href="../doc/comp/static-cache.html">StaticCache</a> steht eine neue Methode <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IStaticCache.ContainsKey.html#FrameworkSystems_FrameworkBase_IStaticCache_ContainsKey_System_Object_">ContainsKey(pk)</a> zur Verfügung.</p>
+</li>
+<li><p>Für Checkboxen wurde der <a href="../doc/form/control/grid.html#grid-filter">Tabellenfilter</a> auf Checked/Unchecked (bzw. Aktiviert/Deaktiviert) geändert. Gibt es Datensätze mit Null-Werten, werden diese bei der Checkbox-Filterung als Unchecked gewertet.</p>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

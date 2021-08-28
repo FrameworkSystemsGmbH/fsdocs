@@ -1,0 +1,262 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Registerkarten im Framework Designer </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Registerkarten im Framework Designer ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="registerkarten-im-framework-designer">Registerkarten im Framework Designer</h1>
+
+<h2 id="registerkarte-namespaces">Registerkarte Namespaces</h2>
+<p>Diese Registerkarte ist noch mal in 2 Teile gegliedert.</p>
+<p>Im oberen Teil ist der Namespace-Baum abgebildet. In <strong>Framework Studio</strong> werden zu jedem Package (<a href="../package-manager/packages.html">Packages</a>) die Klassen wie in .NET üblich in Namespaces strukturiert. Diese Namespaces sind wie ein Baum unter ihrem Package aufgebaut und können beliebig tief verschachtelt sein.</p>
+<p>Im unteren Teil werden die Elemente des im oberen Baum ausgewählten Namespace im so genannten Objekt-Baum angezeigt. Mit einem Doppelklick können diese geöffnet werden. Es öffnet sich für jedes Element ein Designer-Fenster im Hauptfenster.</p>
+<p>Die Toolbar im mittleren Teil der Registerkarte bezieht sich auf den darunter dargestellten Objekt-Baum. Die einzelnen Elemente der Toolbar werden im Abschnitt <a href="allgemeine-funktionatitaeten.html">Allgemeine Funktionalitäten</a> erläutert.</p>
+<p>Außer der Registerkarte <a href="#registerkarte-search">Search</a> beziehen sich alle anderen Registerkarten, die im Folgenden beschrieben werden, immer auf das gerade aktive Designer-Fenster bzw. das dort ausgewählte Element. Ein Wechsel auf diese Registerkarten ist nur möglich, wenn bereits ein Designer-Fenster geöffnet wurde.</p>
+<h2 id="registerkarte-class">Registerkarte Class</h2>
+<p>Die Registerkarte <strong>Class</strong> zeigt alle Members des geöffneten Elements an. Über das Kontext-Menü des Elements (oberster Eintrag) können auch neue Member hinzugefügt werden.</p>
+<p>Mit einem Doppelklick auf einen Eintrag dieses Baums wird das entsprechende Member im Designer-Fenster auf der rechten Seite geöffnet bzw. ausgewählt.</p>
+<p>Über das Kontext-Menü eines Members lässt sich dieses aus dem Objekt löschen, umbenennen oder ein weiteres Member gleichen Typs erzeugen.</p>
+<h2 id="registerkarte-inheritance">Registerkarte Inheritance</h2>
+<p>In dieser Registerkarte wird der Vererbungsbaum für das geöffnete Objekt angezeigt.</p>
+<div class="WARNING"><h5>Warning</h5><p>Nur Metadatentypen, Reports, Forms und Workflows lassen sich vererben.</p>
+</div>
+<h2 id="registerkarte-properties">Registerkarte Properties</h2>
+<p>Hier können die Eigenschaften der Elemente eines Objektes geändert werden. Es werden immer die Eigenschaften des im aktiven Designer-Fensters ausgewählten Elements angeboten.</p>
+<p>Sie können ein Element wählen, indem Sie es im Designer-Fenster anklicken. Diese listet alle Elemente auf, die im Zusammenhang zu der im aktiven Designer-Fenster ausgewählten Registerkarte stehen.</p>
+<p><img src="media/registerkarte-properties.png" alt="registerkarte-properties.png"></p>
+<p><img src="../media/icon-sort-category.png" alt="icon-sort-category.png"> Sortierung nach Kategorien:
+Standardmäßige Sortierreihenfolge der Properties.</p>
+<p><img src="../media/icon-sort.png" alt="icon-sort.png"> Sortierung Alphabetisch:
+Alternativ können Sie sich die Properties alphabetisch sortiert anzeigen lassen.</p>
+<div class="WARNING"><h5>Warning</h5><p>TODO!
+++ Vererbte und Fett gedruckte Property-Werte
+++ Zurücksetzen auf default-Wert
+++ Ggf. Spezielle Editoren</p>
+</div>
+<h2 id="registerkarte-toolbox">Registerkarte Toolbox</h2>
+<p>Handelt es sich bei dem ausgewählten Objekt um ein Form oder einen Workflow, wird diese Registerkarte zugänglich.</p>
+<p>Bei Forms werden dort alle verfügbaren Controls angeboten. Ein Control kann per Drag &amp; Drop auf dem Form positioniert werden.</p>
+<p>Bei Workflows werden über diese Registerkarte Links, Branches und Switches angeboten, welche per Drag &amp; Drop in den Workflow gezogen und dort positioniert werden können.</p>
+<p>Ergänzende Informationen zu den Tools finden Sie in den Abschnitten zu <a href="../form/designer.html">Form</a> und Workflows Designer(!TODO LINK).</p>
+<h2 id="registerkarte-search">Registerkarte Search</h2>
+<p>Auf dieser Registerkarte werden verschiedene Suchfunktionen zur Verfügung gestellt.</p>
+<p><img src="media/registerkarte-search.png" alt="registerkarte-search.png"></p>
+<p>Für die Suche gelten folgende allgemeine Funktionen:</p>
+<h3 id="suchbegriffeingabe">Suchbegriffeingabe</h3>
+<p>Die Combobox unter der Suchdomänenauswahl ist zur Eingabe des Suchbegriffs vorgesehen. Sie speichert die 15 zuletzt verwendeten Suchbegriffe. Kommt ein sechzehnter Suchbegriff hinzu, so wird der älteste Eintrag verdrängt. Wird ein Suchbegriff verwendet, der schon in der Liste enthalten ist, so wird der Eintrag an den Anfang der Liste verschoben.</p>
+<h3 id="button-search">Button <strong>Search</strong></h3>
+<p>Mit dem Button <strong>Search</strong> wird die Suche gestartet und die Ergebnisse werden in der Liste im unteren Bereich angezeigt.</p>
+<h3 id="suchergebnis-historie">Suchergebnis-Historie</h3>
+<p><img src="media/search-historie-navigation.png" alt="search-historie-navigation.png"></p>
+<p>Die Links/Rechts Pfeil-Buttons ermöglichen das chronologische Wechseln (links = zurück, rechts = vor) zwischen Suchergebnissen, die in der Suchergebnis-Historie abgelegt wurden. Sobald eine neue Suche ausgeführt wird, wird das Ergebnis dieser Suche ans Ende der Historie angehängt und angezeigt. Die Historie speichert maximal 15 Einträge.</p>
+<p>Außerdem erscheinen beim Blättern zusätzliche Informationen zum jeweiligen Eintrag unterhalb der Suchergebnisse.</p>
+<p>Suchergebnis-Historie mit zusätzlichen Informationen</p>
+<p><img src="media/search-suchergebnis-historie.png" alt="search-suchergebnis-historie.png"></p>
+<h3 id="result-view-style">Result view style</h3>
+<p><img src="media/search-result-view-style.png" alt="search-result-view-style.png"></p>
+<p>Hier kann ausgewählt werden, ob die Ergebnisse in einer Liste <img src="../media/icon-view-list.png" alt="icon-view-list.png"> oder in einem Namespace-Baum <img src="../media/icon-view-tree.png" alt="icon-view-tree.png"> angezeigt werden sollen. Zusätzlich besteht die Möglichkeit nur Methoden <img src="../media/icon-method.png" alt="icon-method.png"> anzuzeigen. Diese Einstellung kann auch nach der Suche verändert werden.</p>
+<h3 id="ergebnis-liste">Ergebnis-Liste</h3>
+<p>Die Ergebnisse werden wie gewünscht als Liste oder in einem Namespace-Baum angezeigt.</p>
+<p>Beim Namespace-Baum sind die Einträge mit grauem Text nicht Bestandteil der Ergebnis-Menge sondern dienen dazu, die Ergebnisse in einem Baum anzuordnen. In dieser Ansicht ist das Einchecken von Elementen inklusive aller Unterelemente über das Kontextmenü möglich. So können beispielsweise, nach der Suche nach ausgecheckten Elementen, alle ausgecheckten Elemente des Benutzers in einem Vorgang eingecheckt werden.</p>
+<p>Durch Doppelklick auf ein Suchergebnis wird das Ergebnis geöffnet.</p>
+<p>Nun folgt die Beschreibung der verschiedenen Such-Mechanismen.</p>
+<h3 id="volltext-suche-in-generierten-code">Volltext-Suche in generierten Code</h3>
+<p>Die Suche auf den generierten Code ist ein guter Mechanismus, um z.B. nach bestimmten Verwendungen zu suchen. Der generierte Code beinhaltet sowohl alle im Designer angegebenen Informationen als auch den selbst geschriebenen Code. Der generierte Code wird mit entsprechenden Marken versehen, sodass die Suche bei einem Treffer die gefundene Code-Zeile einem Element (z.B. Component, Form) oder einem Teil (z.B. Property, Methode) zuordnen kann. Wird z.B. eine Zeile in einer selbst geschrieben Methode gefunden, kann diese Code-Zeile aus der Treffer-Liste heraus direkt angesprungen werden.</p>
+<p>Sie können in dem Textfeld einen zu suchenden Text angeben. Es wird dabei nach dem kompletten Text gesucht.</p>
+<h4 id="search-domain">Search Domain</h4>
+<p>Hier wird angegeben, in welchem Bereich die Suche erfolgen soll. Sie können ein gesamtes Package durchsuchen oder den Suchbereich auf einen Namespace mit allen darunter liegenden Namespaces einschränken.</p>
+<p>Der Suchbereich kann auch über den Menüeintrag <strong>Search...</strong> im Objektbaum auf der <a href="#registerkarte-namespaces">Registerkarte Namespaces</a> oder über den Menüeintrag <strong>Edit/Search...</strong> im Designerfenster eines LabeledRecords auf einen einzelnen LabeledRecord, also z.B. auf ein Form oder eine Textcollection eingeschränkt werden.</p>
+<p>Search in Component:
+<img src="media/search-in-component.png" alt="search-in-component.png"></p>
+<p>In diesem Fall wird der Button <strong>Select Namespace</strong> angezeigt, mit dem der Suchbereich wieder auf einen beliebigen Namespace festgelegt werden kann.</p>
+<p>Grundsätzlich gilt: Je kleiner der Suchbereich, desto schneller die Suche.</p>
+<p>Bei einer großen Anwendung kann die Suche über alle Namespaces sehr lange dauern.</p>
+<h4 id="checkbox-case-sensitive">Checkbox <strong>Case sensitive</strong></h4>
+<p>Bei der Suche wird nach Groß- und Klein-Schreibung unterschieden.</p>
+<h4 id="checkbox-regular-expressions">Checkbox <strong>Regular Expressions</strong></h4>
+<p>Bei dem Suchtext handelt es sich um einen regulären Ausdruck. Es muss ein gültiger Ausdruck angegeben werden.</p>
+<h4 id="checkbox-use-saved-code">Checkbox <strong>Use Saved Code</strong></h4>
+<p>Für die Suche soll der gespeicherte generierte Code verwendet werden.</p>
+<p>Es wird empfohlen, diese Option zu verwenden, da ansonsten der Code für die Suche komplett neu erzeugt werden muss. Das kann bei einer großen Anwendung sehr lange dauern.</p>
+<h4 id="combobox-element-type">Combobox <strong>Element type</strong></h4>
+<p>Hier können Sie angeben, in welcher Art von Elementen die Suche durchgeführt werden soll. (z.B. Components, Forms, …)</p>
+<h3 id="suche-in-textcollections">Suche in Textcollections</h3>
+<p>Mit der Suche in Textcollections ist es möglich, gezielt die in den Textcollections angegebenen Texte zu durchsuchen.</p>
+<p>Suche in Textcollections:</p>
+<p><img src="media/suche-in-textcollections.png" alt="suche-in-textcollections.png"></p>
+<h4 id="search-domain-1">Search Domain</h4>
+<p>Hier wird angegeben, in welchem Bereich die Suche erfolgen soll. Sie können in allen Textcollections eines Packages oder in allen Textcollections, die unterhalb eines bestimmten Namespaces liegen, suchen.</p>
+<p>Der Suchbereich kann außerdem über den Menüeintrag <strong>Search...</strong> im Objektbaum auf der <a href="#registerkarte-namespaces">Registerkarte Namespaces</a> oder über den Menüeintrag <strong>Edit/Search...</strong> im Designerfenster einer Textcollection auf eine spezielle Textcollection eingeschränkt werden.</p>
+<h4 id="checkbox-textcollection">Checkbox <strong>Textcollection</strong></h4>
+<p>Mit dieser Checkbox wird dieser Suchmodus aktiviert.</p>
+<h4 id="combobox-language">Combobox <strong>Language</strong></h4>
+<p>Hier kann angegeben werden, in welcher Sprache gesucht werden soll.</p>
+<h4 id="checkbox-case-sensitive-1">Checkbox <strong>Case sensitive</strong></h4>
+<p>Bei der Suche wird nach Groß- und Klein-Schreibung unterschieden.</p>
+<h4 id="checkbox-regular-expressions-1">Checkbox <strong>Regular Expressions</strong></h4>
+<p>Bei dem Suchtext handelt es sich um einen regulären Ausdruck. Es muss ein gültiger Ausdruck angegeben werden.</p>
+<p>Wird z.B. als Suchtext ein regulärer Ausdruck <strong>^$</strong> angegeben und es wird eine Sprache ausgewählt, lassen sich alle Texte finden, bei denen der Text in dieser Sprache nicht gefüllt ist. (<strong>^</strong> ist ein Zeilen-Anfang, <strong>$</strong> ist ein Zeilenende und dazwischen soll nichts stehen.)</p>
+<h3 id="suche-nach-ausgecheckten-elementen">Suche nach ausgecheckten Elementen</h3>
+<p>In diesem Suchmodus werden alle ausgecheckten Elemente des Benutzers im aktuellen Package angezeigt.</p>
+<p><img src="media/suche-nach-checked-out.png" alt="suche-nach-checked-out.png"></p>
+<h4 id="checkbox-checked-out">Checkbox <strong>Checked out</strong></h4>
+<p>Damit wird der Suchmodus aktiviert.</p>
+<p>Es werden alle anderen Controls inklusive des Namespace-Baumes deaktiviert.</p>
+<p>In der Ergebnis-Liste besteht die Möglichkeit, ein <a href="#check-in">Check In</a> oder ein <a href="#undo-check-out">Undo Check Out</a> durchzuführen. Dabei können auch mehrere Elemente gleichzeitig verarbeitet werden. Dazu gibt es für die Ergebnisse ein Kontext-Menu, welches mit der rechten Maustaste aufgerufen werden kann.</p>
+<p>Nach einem <a href="#check-in">Check In</a> oder ein <a href="#undo-check-out">Undo Check Out</a> wird die Ergebnis-Liste nicht aktualisiert. Es muss anschließend ggf. noch einmal neu gesucht werden, um die Liste zu aktualisieren.</p>
+<p>Während der <a href="#check-in">Check In</a> in einem Rutsch durchgeführt wird, wird der <a href="#undo-check-out">Undo Check Out</a> für jedes Element einzeln durchgeführt. Dabei erscheint jedes Mal eine Meldung, die bestätigt werden muss. Es kann auch vorkommen, dass ein <a href="#undo-check-out">Undo Check Out</a> mal nicht durchgeführt werden kann, weil dies durch eine bereits existierende Referenz verhindert wird. Der Vorgang muss ggf. wiederholt werden.</p>
+<p>Es folgt die Beschreibung des Kontext-Menus. Je nach Ergebnis können die Menu-Einträge variieren.</p>
+<h4 id="check-in">Check In</h4>
+<p>Checkt das einzelne Element ein.</p>
+<h4 id="check-in-all-sub-records">Check In all sub records</h4>
+<p>Checkt alle, unterhalb eines Namespaces liegenden Elemente ein – auch über mehrere Ebenen hinweg.</p>
+<h4 id="check-in-with-all-its-sub-records">Check In with all its sub records</h4>
+<p>Checkt den Namespace und alle unterhalb diesem Namespace liegenden Elemente ein – auch über mehrere Ebenen hinweg.</p>
+<h4 id="undo-check-out">Undo Check Out</h4>
+<p>Führt einen Undo Check Out für das einzelne Element durch.</p>
+<h4 id="undo-check-out-all-sub-records">Undo Check Out all sub records</h4>
+<p>Führt einen <strong><a href="#undo-check-out">Undo Check Out</a></strong> für alle unterhalb einem Namespace liegenden Elemente durch – auch über mehrere Ebenen hinweg.</p>
+<h4 id="undo-check-out-with-all-its-sub-records">Undo Check Out with all its sub records</h4>
+<p>Führt einen <strong><a href="#undo-check-out">Undo Check Out</a></strong> für den Namespace und alle unterhalb dieses Namespace liegenden Elemente durch – auch über mehrere Ebenen hinweg.</p>
+<h3 id="suche-nach-elementnamen">Suche nach Elementnamen</h3>
+<p>Dieser Suchmodus wird mit der Checkbox <strong>Element Name</strong> aktiviert und dient dem schnellen Auffinden von Elementen über ihren Namen.</p>
+<p>Suche nach Elementnamen:</p>
+<p><img src="media/suche-nach-elementnamen.png" alt="suche-nach-elementnamen.png"></p>
+<h4 id="checkbox-case-sensitive-2">Checkbox <strong>Case sensitive</strong></h4>
+<p>Bei der Suche wird nach Groß- und Klein-Schreibung unterschieden.</p>
+<h4 id="checkbox-regular-expressions-2">Checkbox <strong>Regular Expressions</strong></h4>
+<p>Bei dem Suchtext handelt es sich um einen regulären Ausdruck. Es muss ein gültiger Ausdruck angegeben werden.</p>
+<h4 id="combobox-element-type-1">Combobox <strong>Element type</strong></h4>
+<p>Hier kann die Suche auf einen Elementtyp (z.B. Components, Forms, ...) eingeschränkt werden.</p>
+<h3 id="suche-nach-abhängigkeiten">Suche nach Abhängigkeiten</h3>
+<p><img src="media/suche-nach-abhaengigkeiten.png" alt="suche-nach-abhaengigkeiten.png"></p>
+<p>Sucht alle Elemente, die vom aktuellen Element abhängig sind. Mit dieser Funktion können Sie beispielsweise von einem Form zu Workflows wechseln, in denen das Form verwendet wird:</p>
+<ul>
+<li>von einer Component zu anderen Components oder zu Forms wechseln, die diese Component verwenden</li>
+<li>von einem Metadatentypen zu Components oder Forms wechseln, die den Metadatentypen verwenden</li>
+<li>von Workflows zu anderen Workflows wechseln, die diesen Workflow verwenden</li>
+</ul>
+<p>Data Source Hierarchiesuche</p>
+<p><img src="media/datasource-hierarchiesuche.png" alt="datasource-hierarchiesuche.png"></p>
+<p>Eine spezielle Form der Abhängigkeitssuche ist die Data Source Hierarchiesuche. Diese wird an einem Control innerhalb eines Forms ausgelöst und listet eine geordnete Kette von Elementen auf, die sich aus der Datenquelle des Controls ergeben:</p>
+<ol>
+<li>Das Control, für das die Suche ausgeführt wurde.</li>
+<li>Das Form-Property. Wenn eine Component beteiligt ist, wird das entsprechende Component-Property ebenfalls dargestellt – wie z.B. cdCall.oPCSInfo.</li>
+<li>Das Component-Property</li>
+<li>Die Tabellen-Spalte</li>
+<li>Der Metadatentyp und ggf. Basis-Metadatentypen</li>
+</ol>
+<h4 id="checkbox-dependencies">Checkbox <strong>Dependencies</strong></h4>
+<p>Da diese Option eine spezielle Suchdomäne benötigt, kann die Suche nur durch das Menü <strong>Edit/Search Dependencies</strong> im Designerfenster bzw. über das Kontextmenü an einem Form Control erfolgen und die Checkbox <strong>Dependencies</strong> wird erst dann aktiv. Erst wenn das Häkchen entfernt wurde, kann wieder eine normale Suche durchgeführt werden.</p>
+<h2 id="registerkarte-comment">Registerkarte Comment</h2>
+<p><img src="media/registerkarte-comment.png" alt="registerkarte-comment.png"></p>
+<p>Auf der Registerkarte <strong>Comment</strong> können Methoden dokumentiert werden. Wird z.B. ein Form geöffnet und auf der <strong>Registerkarte Methods</strong> eine Methode ausgewählt, wird die Comment-Registerkarte freigeschaltet.</p>
+<h2 id="registerkarte-check-in-comment">Registerkarte Check In Comment</h2>
+<p>Auf der Registerkarte <strong>Check In Comment</strong> kann für ein Element (z.B. Form, Workflow, Component usw.) ein Kommentar hinterlegt werden, der beim nächsten <strong>Check In</strong> verwendet werden soll.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

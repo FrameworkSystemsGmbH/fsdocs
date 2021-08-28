@@ -1,0 +1,203 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>tblRep_SessionLogging (Runtime-Repository) </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="tblRep_SessionLogging (Runtime-Repository) ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="tblrepsessionlogging-runtime-repository">tblRep_SessionLogging (Runtime-Repository)</h1>
+
+<p>Diese Tabelle speichert die von jeder Application automatisch erzeugten Session-Logging Informationen.</p>
+<p>Ausgewertet werden können die Daten mit dem <a href="../session-logging/session-logging-analyzer.html">Session Logging Analyzer</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Spalte</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SL_ID</td>
+<td>Eindeutige ID der Session (Guid)</td>
+</tr>
+<tr>
+<td>SL_SessionStart</td>
+<td>Zeitpunkt, an dem die Session gestartet wurde</td>
+</tr>
+<tr>
+<td>SL_LastUpdate</td>
+<td>Zeitpunkt, an dem der Datensatz zuletzt aktualisiert wurde</td>
+</tr>
+<tr>
+<td>SL_State</td>
+<td>Status der Session</td>
+</tr>
+<tr>
+<td>SL_RequestsCount</td>
+<td>Anzahl der Broker-Requests</td>
+</tr>
+<tr>
+<td>SL_TopRequests</td>
+<td>Informationen über alle Requests, aggregiert pro Event (XML)</td>
+</tr>
+<tr>
+<td>SL_CommandsCount</td>
+<td>Anzahl der Datenbank-Befehle</td>
+</tr>
+<tr>
+<td>SL_TopCommands</td>
+<td>Informationen über die langsamsten Datenbank-Befehle (XML)</td>
+</tr>
+<tr>
+<td>SL_ObjectsCount</td>
+<td>Aktuelle Anzahl von Framework-Studio Objekten</td>
+</tr>
+<tr>
+<td>SL_CreatedObjectsCount</td>
+<td>Gesamt-Anzahl der während der Session erzeugten Framework-Studio Objekte</td>
+</tr>
+<tr>
+<td>SL_UserName</td>
+<td>Name des Benutzers</td>
+</tr>
+<tr>
+<td>SL_MachineName</td>
+<td>Name des Broker-Servers</td>
+</tr>
+<tr>
+<td>SL_DBDuration</td>
+<td>Gesamte Dauer aller Datenbank-Befehle in Millisekunden</td>
+</tr>
+<tr>
+<td>SL_RequestDuration</td>
+<td>Gesamte Dauer aller Broker-Requests in Millisekunden (am Broker gemessen)</td>
+</tr>
+<tr>
+<td>SL_ClientRequestDuration</td>
+<td>Gesamte Dauer aller Broker-Requests in Millisekunden (am Client gemessen)</td>
+</tr>
+<tr>
+<td>SL_ClientDuration</td>
+<td>Gesamte Dauer der Client-Zeit in Millisekunden</td>
+</tr>
+<tr>
+<td>SL_RequestSize</td>
+<td>Summe der Größe aller Requests in Bytes (vom Client zum Broker gesendeten Daten)</td>
+</tr>
+<tr>
+<td>SL_ResponseSize</td>
+<td>Summe der Größe aller Responses in Bytes (vom Broker zum Client gesendeten Daten)</td>
+</tr>
+<tr>
+<td>SL_ClientInfo</td>
+<td>Textuelle Liste mit Informationen zum Client und Package-Versionen</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

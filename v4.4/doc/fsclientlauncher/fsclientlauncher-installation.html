@@ -1,0 +1,217 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Installation </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Installation ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="installation">Installation</h1>
+
+<h2 id="system-voraussetzungen">System-Voraussetzungen</h2>
+<p>Betriebssystem (jeweils 32 Bit oder 64 Bit):</p>
+<ul>
+<li>Windows 8 – oder höher</li>
+<li>Windows 7 SP1</li>
+<li>Windows Vista SP2</li>
+<li>Windows Server 2012 – oder höher</li>
+<li>Windows Server 2008 R2 SP1</li>
+<li>Windows Server 2008 SP2</li>
+</ul>
+<p>Software:</p>
+<ul>
+<li>Microsoft .NET Framework Version 4.5 oder höher</li>
+</ul>
+<h2 id="hinweis">Hinweis</h2>
+<p>Der Client Launcher kann mittels des Standard- oder MSI-Installers installiert werden. Dabei ist zu beachten, dass die beiden Optionen nach Möglichkeit nicht vermischt werden sollten, um volle Upgrade-Fähigkeit zu garantieren.</p>
+<div class="CAUTION"><h5>Caution</h5><p>Ist der Client Launcher auf einem System mittels des Standard-Installers installiert worden, sollte dieser nicht durch eine MSI-Installation aktualisiert werden! In diesem Fall muss zuerst die alte Version deinstalliert werden!</p>
+</div>
+<h2 id="standard-installer">Standard-Installer</h2>
+<p>Der Standard-Installer liefert eine einfache Benutzeroberfläche zur Installation des Programms und kann ggf. auch per Kommandozeile im Silent-Modus ausgeführt werden.</p>
+<h3 id="standard-installation-ausführen">Standard Installation ausführen</h3>
+<p><code>FSCL_4.0.X_Setup_x64.exe</code> ausführen und der Installations-Routine folgen.
+Diese Installations-Routine beinhaltet die 32-Bit Version der Java-Runtime.</p>
+<p>Die <code>FSCL_4.0.X_Setup_x64.exe</code> ist ausschließlich für 64 Bit Betriebssysteme vorgesehen.
+Die <code>FSCL_4.0.X_Setup_x86.exe</code> ist ausschließlich für 32 Bit Betriebssysteme vorgesehen.</p>
+<h3 id="kommandozeilen-parameter">Kommandozeilen-Parameter</h3>
+<p>Die Setup-Routine kann mit folgenden Kommandozeilen-Parametern aufgerufen werden. Damit ist eine Automatisierung der Installation möglich.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>-uninstall</code></td>
+<td style="text-align:left">Deinstallation ausführen</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-s</code></td>
+<td style="text-align:left">Silent-Installation / Update ohne Benutzerinteraktion. Das Programm erkennt die installierte Version und führt bei Bedarf ein Update durch. Es sind Administrationsrechte notwendig.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-s -uninstall</code></td>
+<td style="text-align:left">Silent-Deinstallation ohne Benutzerinteraktion. Es sind Administrationsrechte notwendig.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>-l &lt;logfile&gt;</code></td>
+<td style="text-align:left">Erzeugt ein Logfile zur Analyse von Problemen bei der Ausführung des Installers</td>
+</tr>
+</tbody>
+</table>
+<h2 id="msi-installer">MSI-Installer</h2>
+<p>Der Client Launcher wird zusätzlich auch als MSI-Installer angeboten, um die Installation über GPO zu ermöglichen. Dieser Installer bietet bis auf Progress-Anzeigen keinerlei Benutzeroberfläche an und arbeitet somit vollständig automatisch.</p>
+<h3 id="msi-installation-ausführen">MSI Installation ausführen</h3>
+<p><code>FSCL_4.0.X_Setup_x64.msi</code> direkt oder per Kommandozeile ausführen.
+Diese Installations-Routine beinhaltet die 32-Bit Version der Java-Runtime.</p>
+<p>Die <code>FSCL_4.0.X_Setup_x64.msi</code> ist ausschließlich für 64 Bit Betriebssysteme vorgesehen.
+Die <code>FSCL_4.0.X_Setup_x86.msi</code> ist ausschließlich für 32 Bit Betriebssysteme vorgesehen.</p>
+<h3 id="kommandozeilen-parameter-nur-installation">Kommandozeilen-Parameter (nur Installation)</h3>
+<p>Die Setup-Routine kann mit mit allen Parametern des MSI-Systems manipuliert werden. Nachfolgend die wichtigsten.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>/q</code></td>
+<td style="text-align:left">Silent-Installation / Update ohne Benutzerinteraktion. Das Programm erkennt die installierte Version und führt bei Bedarf ein Update durch. Es sind Administrationsrechte notwendig.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>/L*v &lt;logfile&gt;</code></td>
+<td style="text-align:left">Erzeugt ein Logfile zur Analyse von Problemen bei der Ausführung des Installers.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="deinstallation">Deinstallation</h3>
+<p>MSI-Pakete können ausschließlich über die Systemsteuerung oder <code>Msiexec.exe</code> deinstalliert werden:
+<code>Msiexec.exe /x FSCL_4.0.X_Setup_x64.msi /q /L*v &lt;logfile&gt;</code></p>
+<p>Die folgenden Parameter sind dabei optional:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"></th>
+<th style="text-align:left"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>/q</code></td>
+<td style="text-align:left">Silent-Installation / Update ohne Benutzerinteraktion. Das Programm erkennt die installierte Version und führt bei Bedarf ein Update durch. Es sind Administrationsrechte notwendig.</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>/L*v &lt;logfile&gt;</code></td>
+<td style="text-align:left">Erzeugt ein Logfile zur Analyse von Problemen bei der Ausführung des Installers.</td>
+</tr>
+</tbody>
+</table>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

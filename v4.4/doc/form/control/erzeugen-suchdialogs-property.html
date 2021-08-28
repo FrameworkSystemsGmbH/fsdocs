@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Erzeugen eines Suchdialogs durch Property-Funktionalit&#228;t </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Erzeugen eines Suchdialogs durch Property-Funktionalit&#228;t ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="stylesheet" href="../../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="erzeugen-eines-suchdialogs-durch-property-funktionalität">Erzeugen eines Suchdialogs durch Property-Funktionalität</h1>
+
+<p>Wenn Sie sich die Properties der Controls aufmerksam angesehen haben, ist Ihnen sicher aufgefallen, dass Sie z.B. Buttons als <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ButtonBaseDesignViewModel.IsSearchButton.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ButtonBaseDesignViewModel_IsSearchButton">IsSearchButton</a> und Edit-Felder als <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.IsSearchField.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_IsSearchField">IsSearchField</a> deklarieren können.</p>
+<p><strong>Framework Studio</strong> bietet die Möglichkeit, relativ einfach Suchbedingungen anhand der vorhandenen Controls zu erzeugen und auch automatisch einen Load an einer Component oder Collection mit dieser Suchbedingung auszuführen. Die Felder, die sich an der Suchbedingung beteiligen sollen, werden entsprechend mit dem Property <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.IsSearchField.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_IsSearchField">IsSearchField</a> gekennzeichnet. Damit das funktioniert, muss den Controls als Datasource ein Property der Component zugeordnet sein, aus der die Suchbedingung erstellt werden soll.</p>
+<p>Wollen Sie z.B. einen Kundensuchdialog erstellen, werden Suchfelder als DataSource Properties der Komponente Kunden haben. Definieren Sie die Felder entsprechend als <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.IsSearchField.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_IsSearchField">IsSearchField</a> und stellen unter SearchOperator den Suchoperator ein.</p>
+<p>Ein weiteres Element der Suche mit Property-Funktionalität sind Buttons. Buttons können als <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ButtonBaseDesignViewModel.IsSearchButton.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ButtonBaseDesignViewModel_IsSearchButton">IsSearchButton</a> deklariert werden. In unserem Beispiel würden Sie einen Button oder ImageButton als solchen kennzeichnen. Jetzt müssen Sie dem Button noch sagen, an welcher Collection der Load ausgeführt werden soll. Dies tun Sie mit der Eigenschaft <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ButtonBaseDesignViewModel.LoadAtComponent.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ButtonBaseDesignViewModel_LoadAtComponent">LoadAtComponent</a>.</p>
+<p>In unserem Beispiel könnte das die KundenCollection sein. Als letztes müssen Sie noch bestimmen, aus welcher Component die Suchbedingung stammt. Das ist immer die Component, aus der die Properties der Suchfelder stammen, also in dem Beispiel Kunden. Tragen Sie die Component entsprechend unter <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ButtonBaseDesignViewModel.SearchValuesComponent.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ButtonBaseDesignViewModel_SearchValuesComponent">SearchValuesComponent</a> ein.</p>
+<p>Ihr Suchdialog ist fertig. Bei einem Klick auf den Such-Button wird geprüft, ob in einem als Suchfeld definierten Control ein Wert hinterlegt worden ist. Ist dies der Fall, wird das Feld entsprechend dem Operator in Ihre Suchbedingung aufgenommen. Ist ein Property einer Komponente als SearchField deklariert, steht Ihrem Form eine Methode mit dem Namen <strong>GenerateLoadConditionOnXxxXxx</strong> zur Verfügung. Diese Methode baut Ihren Select-String zusammen. Die Einstellungen an dem Such-Button bewirken, dass dieser automatisch einen Load in der Form <code>LoadAtComponent.Load( GenerateLoadConditionOnXxxXxx)</code> erzeugt.</p>
+<p>Wenn Sie die Suche lieber selber ausprogrammieren, können Sie die Suchbedingung auch modifizieren.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

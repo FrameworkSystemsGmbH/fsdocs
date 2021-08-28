@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Code file </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Code file ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="code-file">Code file</h1>
+
+<p>Framework Studio bietet die Möglichkeit freien C#-Code zu programmieren.</p>
+<h2 id="erstellen-einer-code-file">Erstellen einer Code file</h2>
+<p>Es wird der Namespace ausgewählt, in dem das neue Element angelegt werden soll.
+Anschließend wird in der Registerkarte <a href="../namespace/namespace.html#namespaces">Namespaces</a> über <strong>New</strong> / <strong>Code File</strong> ein neues Code file angelegt.</p>
+<p><img src="media/codefile.png" alt="CodeFile Editor"></p>
+<p>Anschließend muss ein Compile Step ausgewählt werden, damit der Code kompiliert wird.</p>
+<p>Das Code file muss eine Klasse, kann jedoch auch mehrere Klassen beinhalten.
+Aufgrund gängiger Konventionen sollte ein Code File jedoch nur eine Klasse beinhalten und der Name des Code files identisch mit dem Namen der Klasse sein.</p>
+<p>Namespaces können nicht definiert werden.</p>
+<h3 id="compile-step">Compile step</h3>
+<p>Der Compile step bestimmt, mit welchem Typen das Code file kompiliert wird.
+Dieser muss angegeben werden, ansonsten wird der Code nicht kompiliert.</p>
+<p>Soll der Code auch in einem anderen Namespace zur Verfügung stehen, muss auf den Namespace und den ObjectType/Compile step eine Referenz angelegt werden.
+Ein detailliertes Beispiel finden Sie unter <a href="#referenz-beispiel">Beispiel</a>.</p>
+<div class="CAUTION"><h5>Caution</h5><p>Das Ändern des Compile steps wird nicht empfohlen.
+Sollten Sie das Code file bereits in anderen Namespaces verwendet haben, werden infolge der Änderung die Referenzen ungültig und der Compile wird nicht erfolgreich durchlaufen.</p>
+</div>
+<h4 id="referenz-beispiel">Referenz Beispiel</h4>
+<p>Wird ein Code file im Namespace &quot;Company&quot; angelegt und der Compile step wird auf &quot;Component&quot; gesetzt, dann wird der Code der Code file in die Dll des Namespace &quot;Company&quot; der Component generiert und kompiliert.</p>
+<p>Für den Zugriff auf den Code außerhalb des Namespaces, muss eine Referenz auf den Namespace und den Object Type bzw. Compile Step hinterlegt werden.</p>
+<p>In folgender Abbildung wird eine Referenz vom Namespace &quot;Article&quot; auf den Namespace &quot;Company&quot; angelegt.
+So kann nun innerhalb der Components im Namespace &quot;Article&quot; die cfCompany-Klasse verwendet werden.</p>
+<p><img src="media/codefile-reference.png" alt="CodeFile Reference"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

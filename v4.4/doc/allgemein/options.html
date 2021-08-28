@@ -1,0 +1,183 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Options </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Options ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="options">Options</h1>
+
+<p>Die Options können in der IDE über den Menüeintrag <strong>Tools / Options</strong> geöffnet werden.</p>
+<h2 id="ide-registerkarte">IDE (Registerkarte)</h2>
+<p><img src="media/options-ide.png" alt="Register IDE"></p>
+<h3 id="login">Login</h3>
+<h4 id="get-dlls">Get DLLs</h4>
+<p>Mit der Checkbox <strong>Enable option &#39;Include Debug DLLs&#39; by default</strong> wird im Login dafür gesorgt, dass beim Get DLLs die vom Framework Compiler erzeugten Debug-Informationen gezogen werden. Das beinhaltet (soweit vorhanden) die Debug-Informationen der Basis-Packages.</p>
+<h3 id="appearance">Appearance</h3>
+<h4 id="error-display">Error Display</h4>
+<p>Wird die Checkbox <strong>Legacy Error Window</strong> gesetzt, kann erzwungen werden, dass die Errors in derselben Art und Weise ausgegeben werden, wie es bis Framework Studio 2.6 der Fall war.</p>
+<h4 id="background-image">Background Image</h4>
+<p>Wird die Checkbox <strong>Disable</strong> gesetzt, wird in der Framework Studio Umgebung kein Hintergrundbild mehr angezeigt. Dies kann zu einer Performancesteigerung bei Remote Sessions beitragen (z.B. VNC).</p>
+<h4 id="documentation-indicators">Documentation Indicators</h4>
+<p>Zeigt an den Controls im Form-Designer an, ob eine Dokumentation gepflegt ist, bzw vererbt wurde.</p>
+<p>Siehe <a href="../documentation/indicators.html">Dokumentationsstatus von Steuerelementen</a></p>
+<h4 id="form-control-doubleclick">Form Control DoubleClick</h4>
+<p>Gibt an, was im Form-Designer passieren soll, wenn auf ein Control Strg + Doppelklick ausgeführt wird.</p>
+<ul>
+<li><p>RadioButton <strong>Show Control Events</strong>: Zeigt den Events-Dialog für das Control an. Diese Option ist sinnvoll für normale Entwickler. Der Documentation-Editor kann über das Context-Menü des Controls geöffnet werden.</p>
+</li>
+<li><p>RadionButton <strong>Show Documentation</strong>: Zeigt den Documentation-Editor für das Control an. Diese Option ist sinnvoll für Benutzer, die viel an Dokumentationen arbeiten. Die Control-Events können über das Context-Menü des Controls geöffnet werden.</p>
+</li>
+</ul>
+<h4 id="show-form-designer-grid">Show form designer grid</h4>
+<p>Gibt an, ob im Form-Designer das Raster-Grid angezeigt werden soll. Bei der Arbeit über Remote Desktop kann dieses Grid die Performance sehr stark verschlechtern.</p>
+<h4 id="languages-in-designer">Languages in designer</h4>
+<p>Hier können die Sprachen eingestellt werden, die in den <a href="../mlkey/mlstring.html">MLStrings</a> und im <a href="../mlkey/woerterbuch.html">Wörterbuch</a> angeboten werden sollen. Die Reihenfolge wird - sofern dies möglich ist - von den Designer-Fenstern berücksichtigt.</p>
+<p>Es werden kommasepariert die Iso-Codes der Sprachen angegeben - z.B. <code>de,en,fr</code>.</p>
+<p>Wird keine Angabe gemacht, werden in allen Designer-Fenstern immer alle verfügbaren Sprachen angeboten.</p>
+<h3 id="code-editor">Code Editor</h3>
+<h4 id="font-family">Font Family</h4>
+<p>Hier können Schriftart und -größe für den Code-Editor angepasst werden.</p>
+<h4 id="go-to-definition-with-ctrldoubleclick">Go to Definition with Ctrl+DoubleClick</h4>
+<p>Schaltet im Code-Editor die Funktion <strong>Go to Definition</strong> (F12) mit Strg + Doppelklick ein. Es kann sinnvoll sein, diese Funktion zu deaktivieren, wenn man diese Funktion öfters aus Versehen auslöst. Dann bleibt immer noch die F12-Taste oder das Context-Menü zum Aufruf dieser Funktion.</p>
+<h4 id="context-tooltip">Context Tooltip</h4>
+<p>Gibt an, ob im Code-Editor Informationen zu Elementen angezeigt werden sollen, wenn mit der Maus auf Code-Teile gezeigt wird.</p>
+<h2 id="compile--debug-registerkarte">Compile / Debug (Registerkarte)</h2>
+<p><img src="media/options-compile.png" alt="Register Compile"></p>
+<h4 id="broker-port">Broker Port</h4>
+<p>Standard Broker Port. Wird <code>0</code> eingetragen, wird automatisch ein freier Port genutzt.</p>
+<h4 id="host-port">Host Port</h4>
+<p>Standard Broker Port. Wird <code>0</code> eingetragen, wird automatisch ein freier Port genutzt.</p>
+<h4 id="compile-rootdirectory">Compile Rootdirectory</h4>
+<p>Gibt an, unter welchem Ordner Framework Studio die Compile-Verzeichnisse erzeugen soll. Diese Einstellung muss manuell in der Datei <code>FrameworkStudio.exe.config</code> angepasst werden.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-xml">&lt;configuration&gt;
+    &lt;appSettings&gt;
+        &lt;add key=&quot;CompileBaseDirectory&quot; value=&quot;C:\FS\Compile42&quot; /&gt;
+        [...]
+</code></pre><h4 id="visual-studio-path">Visual Studio Path</h4>
+<p>Hier kann angegeben werden, wo Visual Studio installiert ist. Die aktuell von Framework Studio unterstützten Versionen von Visual Studio werden automatisch erkannt. Wenn eine andere Version oder Edition (z.B. Visual Studio Express) verwendet werden soll, kann das entsprechende Programm angegeben werden.</p>
+<p>Mit dem Button <strong>Reset</strong> wird der Wert auf die Original-Einstellung zurückgesetzt. Diese Einstellung wird für das Menu <strong>View /  Compiled Code in Visual Studio</strong> in den Designer-Fenstern verwendet.</p>
+<p>Außerdem wird der Ordner aus dieser Einstellung verwendet, um für die Arbeit mit Services das Programm WcfTestClient.exe zu finden.</p>
+<h4 id="visual-studio-arguments">Visual Studio Arguments</h4>
+<p>Hier können die Kommandozeilen-Argumente für das Öffnen der Quellcode-Dateien angegeben werden. Beim Einsatz von Visual Studio können die Standard-Einstellungen <code>%file% /Edit</code> beibehalten werden.</p>
+<p>Der Platzhalter <code>%file%</code> steht für die zu öffnenden Dateien. Dieser werden in dem Format <code>&quot;Datei1.cs&quot; &quot;Datei2.cs&quot;…</code> übergeben. Wenn dieser Platzhalter nicht angegeben ist, dann werden die Dateien an der Parameter gestellt.</p>
+<h2 id="utilities-registerkarte">Utilities (Registerkarte)</h2>
+<p><img src="media/options-utilities.png" alt="Register Utilities"></p>
+<p>Mit dem Button [...]  kann jeweils ein Dateiauswahldialog geöffnet werden.</p>
+<h4 id="svcutil">SvcUtil</h4>
+<p>Gibt den Pfad zur SvcUtil.exe des Windows SDK an. Diese wird für die Generierung des Services verwendet.</p>
+<h4 id="installutil">InstallUtil</h4>
+<p>Gibt den Pfad zur InstallUtil.exe des .NET-Frameworks an.</p>
+<h4 id="crystal-report-designer">Crystal Report Designer</h4>
+<p>Gibt den Pfad zum Crystal Report Designer an.</p>
+<h4 id="diff-tool">Diff Tool</h4>
+<p>Hier kann die ausführbare Datei für das Diff Tool angegeben werden.</p>
+<h4 id="diff-tool-data-dir">Diff Tool Data Dir</h4>
+<p>Hier kann das Datenverzeichnis für das Diff Tool angegeben werden.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

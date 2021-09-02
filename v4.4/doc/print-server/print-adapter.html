@@ -84,8 +84,22 @@
 <p>Auf der Register-Karte Print-Adapter können diese bearbeitet und konfiguriert werden.</p>
 <p><img src="media/register-print-adapter.png" alt="adapter"></p>
 <p>Es folgt eine Aufstellung der standardmäßig zur Verfügung stehenden Print-Adapter.</p>
+<h2 id="devexpress">DEVEXPRESS</h2>
+<p>Mit diesem Adapter können DevExpress-Reports (.repx) gedruckt werden.</p>
+<ul>
+<li>Assembly: <code>DevExpressPrintAdapter</code></li>
+<li>Class: <code>PrintServer.DevExpressPrintAdapter</code></li>
+</ul>
+<p>Settings:</p>
+<ul>
+<li><p><strong>ExportFolder</strong>:</p>
+<p>Diese Einstellung kann optional zu Test- oder Debug-Zwecken angegeben werden.
+Es werden alle Reports nach dem Druck als PRNX-Datei (Report-Datei inkl. Daten) in diesem Ordner abgelegt.</p>
+<p>Beispiel: <code>ExportFolder = C:\temp\PRNX-Files</code></p>
+</li>
+</ul>
 <h2 id="crystal">CRYSTAL</h2>
-<p>Mit diesem Adapter können mithilfe der Crystal Reports gedruckt werden.</p>
+<p>Mit diesem Adapter können Reports (.rpt) mithilfe der Crystal Reports Runtime gedruckt werden.</p>
 <ul>
 <li>Assembly: <code>CrystalPrintAdapter</code></li>
 <li>Class: <code>PrintServer.CrystalPrintAdapter</code></li>
@@ -94,7 +108,7 @@
 <ul>
 <li><p><strong>ExportFolder</strong>:</p>
 <p>Diese Einstellung kann optional zu Test- oder Debug-Zwecken angegeben werden.
-Es werden alle Crystal-Reports vor dem Druck als RPT-Datei incl. Daten in diesem Ordner abgelegt.</p>
+Es werden alle Crystal-Reports nach dem Druck als RPT-Datei inkl. Daten in diesem Ordner abgelegt.</p>
 <p>Beispiel: <code>ExportFolder = C:\temp\RPT-Files</code></p>
 </li>
 </ul>

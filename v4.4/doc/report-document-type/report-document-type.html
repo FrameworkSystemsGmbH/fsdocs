@@ -180,6 +180,44 @@ Diese Captions können zur Laufzeit ausgewertet werden, um z.B. im Druck-Dialog 
 <li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.PrintServer.html">PrintServer</a></li>
 <li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.PrintQueue.html">PrintQueue</a></li>
 </ul>
+<h2 id="report-designer-zur-laufzeit">Report Designer zur Laufzeit</h2>
+<p>Zur Laufzeit steht ein Report Designer dem Benutzer zur Verfügung, dieser muss vorher in das System integriert werden.
+Im folgenden Beispiel wird ein Report Designer geöffnet, auf eine Bestätigung des Benutzers gewartet und anschließend der geänderte Report ausgedruckt.</p>
+<pre><code class="lang-C#">// Eigenschaft um sich die Design Session zu merken
+private FrameworkSystems.FrameworkBase.Reporting.ReportDesignSession oDesignSession { get; set; }
+
+// Einsprungspunkt hier bspw. über einen Button Click
+protected virtual void btnGrdReportDesigner_OnClick(FrameworkButtonClickEventArgs e)
+{
+    rptArticles report = new rptArticles(this.Global, rptArticles.Reports.XArticleReport, ExportFormat.PDF);
+    this.oDesignSession = report.CreateDesigner();
+    this.oDesignSession.ShowDesigner();  // Öffnet den Report Designer in einem Browser Fenster
+
+    MsgBox.Show(FSGeneral.ctMessagesFactory.GetText(this.Global, 10), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, new MsgBoxEventHandler(OnMsgBoxReportDesignSessionClick));
+}
+
+// Nach dem Click auf den MessageBox Button, kann der Report gedruckt werden
+protected virtual void OnMsgBoxReportDesignSessionClick(object sender, MsgBoxEventArgs e)
+{
+    byte[] reportDesign = null;
+    if (this.oDesignSession != null &amp;&amp; this.oDesignSession.IsModified())
+    {
+        reportDesign = this.oDesignSession.GetBytes();
+    }
+    this.oDesignSession.Dispose();  // Verwerfen der Design Session nicht vergessen
+    this.oDesignSession = null;
+    if (reportDesign == null)
+    {
+        throw new Exception(&quot;Kein neuer Report vorhanden.&quot;); 
+    }
+
+    // Drucken des Reports
+    rptArticles report = new rptArticles(this.Global, rptArticles.Reports.XArticleReport, ExportFormat.PDF);
+    report.SelectedReport.ReportBytes = reportDesign;
+    report.oArticle = oArticleColl;  // Beim Drucken wird die Datenquelle benötigt
+    report.Print();
+}
+</code></pre><p>Weitere Information unter <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.ReportDesignSession.html">ReportDesignSession</a>.</p>
 </article>
           </div>
           

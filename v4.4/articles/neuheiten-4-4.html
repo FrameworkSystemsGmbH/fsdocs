@@ -82,6 +82,39 @@
 <h1 id="neuheiten-framework-studio-44">Neuheiten Framework Studio 4.4</h1>
 
 <p>Informationen zu aktuellen Versionen und korrigierten Fehlern finden Sie in den <a href="release-4-4.html">Release-Informationen</a>.</p>
+<h2 id="umbau-der-code-generierung-und-des-compiles">Umbau der Code Generierung und des Compiles</h2>
+<p>Die Code-Generierung und der FS Compile wurden grundlegend überarbeitet.
+Hieraus ergeben sich folgende Neuheiten:</p>
+<ol>
+<li>Für jeden Namespace und Typen gibt es nur noch eine DLL, welche generiert und kompiliert wird.<ul>
+<li>Die Link-Schichten sind obsolet und werden zukünftig nicht mehr generiert.</li>
+<li>Auch die Context-Versionen sind nicht mehr notwendig.</li>
+<li>Die Anzahl der Assemblies hat sich stark reduziert, womit das debuggen komfortabler und der Compile schneller ist.</li>
+<li>Der Code aller Schichten muss und kann vor Ort komplett erstellt werden.</li>
+</ul>
+</li>
+<li>Die Debug DLLs, welche mit dem FrameworkCompiler kompiliert wurden, werden nicht mehr in das Repository geschrieben.</li>
+<li>Die Optionen <strong>Debug</strong> und <strong>DebugAll</strong> sind überarbeitet worden.<ul>
+<li>Debug bedeutet, dass die Services, Components, CustomControls und Forms-Elemente des aktuellen Packages und der Base-Packages debuggable kompiliert werden.</li>
+<li>Im Gegensatz hierzu kompiliert <strong>DebugAll</strong> alle Element-Typen debuggable. Beachten Sie, dass vor allem Interfaces und DBTables aufwendig und somit mehr Zeit benötigen, um debuggable kompiliert zu werden.</li>
+</ul>
+</li>
+</ol>
+<div class="IMPORTANT"><h5>Important</h5><p>Im Zuge der Änderungen an der Code-Generierung und der Zusammenlegung der Code-Dateien in eine DLL, können zirkulären Referenzen auftreten.
+Des Weiteren kann es sein, dass nun fehlende Referenzen ergänzt werden müssen.
+Etwaige Fehler müssen in der IDE behoben werden. Nachfolgende Maintenance Routine kann gegebenenfalls beim Lösen der Fehlern unterstützen.</p>
+</div>
+<h2 id="maintenance-routine-für-referenzen-und-konstruktoren">Maintenance Routine für Referenzen und Konstruktoren</h2>
+<p>Im Maintenance-Mode steht eine neue Cleanup-Routine zur Verfügung.
+Es können unter &quot;Tools - Checks - Maintenance Routine for References and Constructors&quot; drei verschiedene Cleanups durchgeführt werden:</p>
+<ol>
+<li><p><em>Invalid external References:</em> Es wird überprüft, ob externe User-Referenzen existieren bzw. gültig sind. Sollte dies nicht der Fall sein, werden die entsprechenden Referenzen entfernt.</p>
+</li>
+<li><p><em>External $GAC references:</em> Hier werden alle externen $GAC-Referenzen (Global Assembly Cache) überprüft und falls möglich auf $DotNetDirectory umgestellt. $DotNetDirectory definiert das Verzeichnis des .NET Frameworks.</p>
+</li>
+<li><p><em>Constructor declarations:</em> Ungültige Konstruktor Deklarationen in Components werden in eine gültige Form überführt. Dies ist notwendig, da der Compile in der FS Version 4.4 ungültige Deklarationen als Error ausgibt.</p>
+</li>
+</ol>
 <h2 id="individueller-code---code-files">Individueller Code - Code files</h2>
 <p>Für die Definition von individuellem Code steht ein neues Element <a href="../doc/code-file/codefile.html#code-file">Code File</a> zur Verfügung.
 Der Code einer Code file muss eine Klasse beinhalten, in welcher Methoden, Konstruktoren, Properties etc. definiert werden können.
@@ -98,17 +131,6 @@ Ein Beispiel hierzu findet sich <a href="../doc/code-file/codefile.html#referenz
 <div class="NOTE"><h5>Note</h5><p>Der Compile step sollte zu einem späteren Zeitpunkt nicht geändert werden, da ansonsten bestehende Referenzen auf das Code file ungültig werden und der Compile Fehler generieren wird.
 Die Compile Fehler können verhindert werden, indem der ObjectType der Referenzen ebenfalls angepasst wird.</p>
 </div>
-<h2 id="maintenance-routine-für-referenzen-und-konstruktoren">Maintenance Routine für Referenzen und Konstruktoren</h2>
-<p>Im Maintenance-Mode steht eine neue Cleanup-Routine zur Verfügung.
-Es können unter &quot;Tools - Checks - Maintenance Routine for References and Constructors&quot; drei verschiedene Cleanups durchgeführt werden:</p>
-<ol>
-<li><p><em>Invalid external References:</em> Es wird überprüft, ob externe User-Referenzen existieren bzw. gültig sind. Sollte dies nicht der Fall sein, werden die entsprechenden Referenzen entfernt.</p>
-</li>
-<li><p><em>External $GAC references:</em> Hier werden alle externen $GAC-Referenzen (Global Assembly Cache) überprüft und falls möglich auf $DotNetDirectory umgestellt. $DotNetDirectory definiert das Verzeichnis des .NET Frameworks.</p>
-</li>
-<li><p><em>Constructor declarations:</em> Ungültige Konstruktor Deklarationen in Components werden in eine gültige Form überführt. Dies ist notwendig, da der Compile in der FS Version 4.4 ungültige Deklarationen als Error ausgibt.</p>
-</li>
-</ol>
 <h2 id="placeholder-für-editfields-und-comboboxen">Placeholder für Editfields und Comboboxen</h2>
 <p>Für Editfields und Comboboxen steht ein neues Property <a class="xref" href="../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.CaptionAsPlaceholder.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_CaptionAsPlaceholder">CaptionAsPlaceholder</a> zur Verfügung. Wenn dieses Property auf <code>true</code> gesetzt wird, zeigt das Editfield oder die Combobox die Caption als Placeholder an, solange das Control leer ist bzw. keinen Datensatz anzeigt. Auf diese Weise können zusammenhängende Daten ggf. übersichtlicher dargestellt werden:</p>
 <p><img src="media/placeholder.png" alt="Adresse"></p>

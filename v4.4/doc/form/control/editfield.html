@@ -118,8 +118,21 @@
 </li>
 <li><p>Zeilenumbrüche dürfen nicht mit <strong><code>&lt;br&gt;</code></strong> Tags realisiert werden, da mehrere <strong><code>&lt;br&gt;</code></strong> Tags hintereinander vom Crystal Reports nicht korrekt dargestellt werden können. Stattdessen müssen mit den Tags <strong><code>&lt;p style=&quot;margin-top: 0&quot;&gt;</code></strong> und <strong><code>&lt;/p&gt;</code></strong> Absätze umschlossen werden. <strong><code>&lt;p&gt;</code></strong> Tags können neben der Definition von margin-top im style Attribut weitere Attribute und Stilangaben enthalten sein.</p>
 </li>
+<li><p>Bilder können mithilfe eines <code>&lt;img alt=&quot;bild&quot; src=&quot;data:image/png;base64, BORw0KGgoAAAANSUhEUgA.../&gt;</code> Tags und im base64 Format eingebunden werden.
+Auch das Einfügen aus der Zwischenablage im Java-Client wird unterstützt.</p>
+</li>
 </ul>
 <p>Im Html-Modus liefert der Datasource den Inhalt eines Body-Elements. Gesetzt werden darf auch ein vollständiges Html-Dokument. In diesem Fall wird der Body automatisch extrahiert.</p>
+<div class="NOTE"><h5>Note</h5><p>Hinweise zu Bildern:</p>
+<ul>
+<li>Reports, die mit DevExpress erstellt werden, unterstützen diese Bilder.</li>
+<li>Reports, die mit Crystal Report erstellt werden, unterstützen diese Bilder nicht.</li>
+<li>Wenn Bilder aus der Zwischenablage nicht von dem Dateityp PNG oder JPEG sind, werde diese zu einem der Dateitypen konvertiert.<ul>
+<li>Bei der Konvertierung wird auf die entstehende Dateigröße geachtet und die Datei (entweder PNG oder JPEG) genommen, die am wenigsten Speicher verbraucht. Sollte die PNG Datei bis maximal 20 Prozent größer als die JPEG Datei sein, wird trotzdem wegen der besseren Qualität die PNG Datei verwendet.</li>
+</ul>
+</li>
+</ul>
+</div>
 </article>
           </div>
           

@@ -105,16 +105,16 @@ Des Weiteren kann es sein, dass nun fehlende Referenzen ergänzt werden müssen.
 Etwaige Fehler müssen in der IDE behoben werden. Nachfolgende Maintenance Routine kann gegebenenfalls beim Lösen der Fehlern unterstützen.</p>
 </div>
 <h2 id="maintenance-routine-für-referenzen-und-konstruktoren">Maintenance Routine für Referenzen und Konstruktoren</h2>
-<p>Im Maintenance-Mode steht eine neue Cleanup-Routine zur Verfügung.
-Es können unter &quot;Tools - Checks - Maintenance Routine for References and Constructors&quot; drei verschiedene Cleanups durchgeführt werden:</p>
-<ol>
-<li><p><em>Invalid external References:</em> Es wird überprüft, ob externe User-Referenzen existieren bzw. gültig sind. Sollte dies nicht der Fall sein, werden die entsprechenden Referenzen entfernt.</p>
+<p>Im <a href="../doc/ide/start.html#maintenance-mode">Maintenance-Mode</a> stehen speziell für den Update auf die Version 4.4 neue Cleanup-Routinen zur Verfügung.</p>
+<ul>
+<li><p><a href="../doc/maintenance/constructor-cleanup.html">Constructor Cleanup</a>:
+Ungültige Konstruktor Deklarationen in Components werden in eine gültige Form überführt.
+Dies ist notwendig, da der Compile in der FS Version 4.4 ungültige Deklarationen als Error ausgibt.</p>
 </li>
-<li><p><em>External $GAC references:</em> Hier werden alle externen $GAC-Referenzen (Global Assembly Cache) überprüft und falls möglich auf $DotNetDirectory umgestellt. $DotNetDirectory definiert das Verzeichnis des .NET Frameworks.</p>
+<li><p><a href="../doc/maintenance/references-cleanup.html">References Cleanup</a>:
+Entfernt nicht existente externe User-Referenzen und stellt externe <code>$GAC</code>-Referenzen auf <code>$DotNetDirectory</code> um.</p>
 </li>
-<li><p><em>Constructor declarations:</em> Ungültige Konstruktor Deklarationen in Components werden in eine gültige Form überführt. Dies ist notwendig, da der Compile in der FS Version 4.4 ungültige Deklarationen als Error ausgibt.</p>
-</li>
-</ol>
+</ul>
 <h2 id="individueller-code---code-files">Individueller Code - Code files</h2>
 <p>Für die Definition von individuellem Code steht ein neues Element <a href="../doc/code-file/codefile.html#code-file">Code File</a> zur Verfügung.
 Der Code einer Code file muss eine Klasse beinhalten, in welcher Methoden, Konstruktoren, Properties etc. definiert werden können.
@@ -140,6 +140,12 @@ Die Compile Fehler können verhindert werden, indem der ObjectType der Referenze
 <li>Die Farbe des Placeholders ist fest auf <code>RGB(180, 180, 180)</code> bzw. <code>#b4b4b4</code> gesetzt.</li>
 <li>Befindet sich das Control in einem FieldPanel, so wird kein extra Label generiert, wenn <a class="xref" href="../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.CaptionAsPlaceholder.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_CaptionAsPlaceholder">CaptionAsPlaceholder</a> auf <code>true</code> gesetzt ist.</li>
 </ul>
+<h2 id="bilder-unterstützung-für-html-editfields">Bilder Unterstützung für HTML Editfields</h2>
+<p>Editfields mit dem Editor Type HTML können nun Inline-Bilder anzeigen.
+Diese Bilder können aus der Zwischenablage im Java-Client oder mithilfe eines <code>&lt;img/&gt;</code> Tags eingefügt werden.</p>
+<p>Reports, die mit DevExpress erstellt werden, unterstützen diese Bilder.
+Crystal Reports unterstützt diese Bilder leider nicht.</p>
+<p>Genaueres unter <a href="../doc/form/control/editfield.html">Editfield</a>.</p>
 <h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
 <ul>
 <li><p>Für Comboboxen und Listboxen kann die <a class="xref" href="../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.DisabledBackColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_DisabledBackColor">DisabledBackColor</a> definiert werden.</p>
@@ -164,6 +170,10 @@ Dabei ist es nebensächlich, ob der Primary Key eine ROWID oder ein individuelle
 <li><p>Im Package Manager ist es möglich <a href="../doc/package-manager/package-version.html#warnings">Warnings</a>, welcher der Compiler ignorieren soll anzugeben.
 Des Weiteren kann auch das Level der Warnings angegeben werden.
 Die Einstellung ist ausschließlich am Default-Package (z.B. eNVenta)  möglich und wird an die Customizing-Packages vererbt.</p>
+</li>
+<li><p>Die Namespace-Referenzen arbeiten mit Compile Object Types.
+Diese entsprechen den Compile-Schritten.
+So sind z.B. die Object Types <em>Service</em>, <em>Service Proxy</em>, <em>Service Host</em> und <em>FSTransformation</em> zum Compile Object Type <em>Service</em> zusammengefasst.</p>
 </li>
 </ul>
 </article>

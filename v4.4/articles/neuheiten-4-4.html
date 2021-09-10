@@ -115,6 +115,17 @@ Dies ist notwendig, da der Compile in der FS Version 4.4 ungültige Deklaratione
 Entfernt nicht existente externe User-Referenzen und stellt externe <code>$GAC</code>-Referenzen auf <code>$DotNetDirectory</code> um.</p>
 </li>
 </ul>
+<h2 id="namespace-referenzen-überarbeitet">Namespace-Referenzen überarbeitet</h2>
+<p>Die Namespace-Referenzen arbeiten mit Compile Object Types.
+Diese entsprechen den Compile-Schritten.
+So sind z.B. die Object Types <em>Service</em>, <em>Service Proxy</em>, <em>Service Host</em> und <em>FSTransformation</em> zum Compile Object Type <em>Service</em> zusammengefasst.</p>
+<p>Der Dialog für die <a href="../doc/ide/references.html">Namespace-Referenzen</a> wurde überarbeitet:</p>
+<ul>
+<li>Es werden jetzt alle Referenzen für alle Typen in einer Liste angezeigt.</li>
+<li>Die Liste bietet eine Übersicht der wichtigsten Detail-Informationen.</li>
+<li>Die Usings werden als Freitext-Feld bearbeitet.</li>
+<li>Bei der Auswahl von <code>$GAC</code>-Referenzen werden diese, wenn möglich auf <code>$DotNetDirectory</code> korrigiert.</li>
+</ul>
 <h2 id="individueller-code---code-files">Individueller Code - Code files</h2>
 <p>Für die Definition von individuellem Code steht ein neues Element <a href="../doc/code-file/codefile.html#code-file">Code File</a> zur Verfügung.
 Der Code einer Code file muss eine Klasse beinhalten, in welcher Methoden, Konstruktoren, Properties etc. definiert werden können.
@@ -170,10 +181,6 @@ Dabei ist es nebensächlich, ob der Primary Key eine ROWID oder ein individuelle
 <li><p>Im Package Manager ist es möglich <a href="../doc/package-manager/package-version.html#warnings">Warnings</a>, welcher der Compiler ignorieren soll anzugeben.
 Des Weiteren kann auch das Level der Warnings angegeben werden.
 Die Einstellung ist ausschließlich am Default-Package (z.B. eNVenta)  möglich und wird an die Customizing-Packages vererbt.</p>
-</li>
-<li><p>Die Namespace-Referenzen arbeiten mit Compile Object Types.
-Diese entsprechen den Compile-Schritten.
-So sind z.B. die Object Types <em>Service</em>, <em>Service Proxy</em>, <em>Service Host</em> und <em>FSTransformation</em> zum Compile Object Type <em>Service</em> zusammengefasst.</p>
 </li>
 </ul>
 </article>

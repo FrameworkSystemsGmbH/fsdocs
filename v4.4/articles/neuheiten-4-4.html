@@ -142,6 +142,10 @@ Ein Beispiel hierzu findet sich <a href="../doc/code-file/codefile.html#referenz
 <div class="NOTE"><h5>Note</h5><p>Der Compile step sollte zu einem späteren Zeitpunkt nicht geändert werden, da ansonsten bestehende Referenzen auf das Code file ungültig werden und der Compile Fehler generieren wird.
 Die Compile Fehler können verhindert werden, indem der ObjectType der Referenzen ebenfalls angepasst wird.</p>
 </div>
+<h2 id="rest-endpoint-für-service-hosts">REST Endpoint für Service Hosts</h2>
+<p>Standardmäßig bietet ein Service Host den ausgewählten Service bzw. dessen Service Contract nach außen hin über WCF und damit das SOAP-Protokoll an. Moderne Applikationen und allen voran Webapplikationen in Borwsern oder auf mobilen Endgeräten unterstützen mittlerweile jedoch oft kein SOAP mehr und bevorzugen deshalb die Kommunikation über JSON.</p>
+<p>Framework Studio bietet die Möglichkeit, den Service Host so zu konfigurieren, dass vollständig automatisch ein zusätzlicher Endpoint generiert wird, mit dem die im Service Contract propagierten Methoden auch über JSON und damit über einen normalen HTTP-Request angesprochen werden können.</p>
+<p>Eine detaillierte Beschreibung dieser neuen Funktionalität befindet sich <a href="../doc/webservices/rest-endpoint.html">HIER</a>.</p>
 <h2 id="placeholder-für-editfields-und-comboboxen">Placeholder für Editfields und Comboboxen</h2>
 <p>Für Editfields und Comboboxen steht ein neues Property <a class="xref" href="../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.CaptionAsPlaceholder.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_CaptionAsPlaceholder">CaptionAsPlaceholder</a> zur Verfügung. Wenn dieses Property auf <code>true</code> gesetzt wird, zeigt das Editfield oder die Combobox die Caption als Placeholder an, solange das Control leer ist bzw. keinen Datensatz anzeigt. Auf diese Weise können zusammenhängende Daten ggf. übersichtlicher dargestellt werden:</p>
 <p><img src="media/placeholder.png" alt="Adresse"></p>
@@ -181,6 +185,8 @@ Dabei ist es nebensächlich, ob der Primary Key eine ROWID oder ein individuelle
 <li><p>Im Package Manager ist es möglich <a href="../doc/package-manager/package-version.html#warnings">Warnings</a>, welcher der Compiler ignorieren soll anzugeben.
 Des Weiteren kann auch das Level der Warnings angegeben werden.
 Die Einstellung ist ausschließlich am Default-Package (z.B. eNVenta)  möglich und wird an die Customizing-Packages vererbt.</p>
+</li>
+<li><p>Im Publish, Run und Publish2go Wizard kann nun auch das Icon für die Anwendung gesetzt werden.</p>
 </li>
 </ul>
 </article>

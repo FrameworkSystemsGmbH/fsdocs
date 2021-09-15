@@ -94,8 +94,10 @@
 <p>Wenn in einer Customization eines Service Hosts zeitweise ein anderer Service Contract ausgewählt war, kann mit dem Button <strong>Inherit Contract</strong> wieder die Einstellung des Basis-Service Hosts übernommen werden.</p>
 <h3 id="host-type">Host Type</h3>
 <p>Hier wird ausgewählt, wie der Service Host den Service anbietet. Derzeit ist nur die Veröffentlichung als Windows Service möglich.</p>
-<h3 id="net-base-class">.NET Base Class</h3>
-<p>Wählt die .NET Service Host-Klasse aus, von der der Service Host abgeleitet wird. Standard ist <strong>Service Host</strong>.</p>
+<h3 id="generate-rest-endpoint">Generate REST Endpoint</h3>
+<p>Diese Option bestimmt, ob am Service Host automatisch ein zusätzlkicher Endpoint generiert wird, welcher alle Service-Methoden als JSON-API nach außen hin anbietet. Eine detaillierte Beschreibung dieser Funktionalität befindet sich im Kapitel <a href="rest-endpoint.html">REST Endpoint für Service-Methoden</a>.</p>
+<h3 id="use-webservicehost-instead-of-servicehost">Use WebServiceHost instead of ServiceHost</h3>
+<p>Wählt die .NET Service Host-Klasse aus, von der der Service Host abgeleitet wird. Standard ist <strong>ServiceHost</strong>.</p>
 <h3 id="launch-debugger-on-startup">Launch Debugger on Startup</h3>
 <p>Wenn der Service über <strong>Framework Studio</strong> gestartet wird (siehe <a href="../ide/compile-menu.html#start--stop-current-development-fsdomain">Start/Stop current development FSDomain</a>), wird er im Development Service Host bereitgestellt. Ist <strong>Launch Debugger on StartUp</strong> aktiviert, erscheint beim Starten der FSDomain ein Fenster, in dem eine neue Instanz des VisualStudio Debugger erstellt werden kann.</p>
 <p><strong>Just-In-Time-Debugger:</strong></p>

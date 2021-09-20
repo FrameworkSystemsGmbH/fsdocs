@@ -93,8 +93,14 @@ Hieraus ergeben sich folgende Neuheiten:</p>
 <li>Der Code aller Schichten muss und kann vor Ort komplett erstellt werden.</li>
 </ul>
 </li>
-<li>Die Debug DLLs, welche mit dem FrameworkCompiler kompiliert wurden, werden nicht mehr in das Repository geschrieben.</li>
-<li>Die Optionen <strong>Debug</strong> und <strong>DebugAll</strong> sind überarbeitet worden.<ul>
+<li><p>Die Debug DLLs, welche mit dem FrameworkCompiler kompiliert wurden, werden nicht mehr in das Repository geschrieben.</p>
+<div class="NOTE"><h5>Note</h5><p>Zum Debuggen kann und muss zwingend der betroffene Code lokal debuggable kompiliert werden.</p>
+<p>Das bietet den entscheidenden Vorteil, dass Visual Studio beim Debuggen zuverlässig die richtigen cs-Dateien findet.
+Debug-Informationen, die vom FrameworkCompiler erzeugt wurden, zeigten immer auf einen absoluten Dateipfad, der auf dem eigenen Rechner nicht mehr stimmt.</p>
+</div>
+</li>
+<li><p>Die Optionen <strong>Debug</strong> und <strong>DebugAll</strong> sind überarbeitet worden.</p>
+<ul>
 <li>Debug bedeutet, dass die Services, Components, CustomControls und Forms-Elemente des aktuellen Packages und der Base-Packages debuggable kompiliert werden.</li>
 <li>Im Gegensatz hierzu kompiliert <strong>DebugAll</strong> alle Element-Typen debuggable. Beachten Sie, dass vor allem Interfaces und DBTables aufwendig und somit mehr Zeit benötigen, um debuggable kompiliert zu werden.</li>
 </ul>
@@ -187,6 +193,8 @@ Des Weiteren kann auch das Level der Warnings angegeben werden.
 Die Einstellung ist ausschließlich am Default-Package (z.B. eNVenta)  möglich und wird an die Customizing-Packages vererbt.</p>
 </li>
 <li><p>Im Publish, Run und Publish2go Wizard kann nun auch das Icon für die Anwendung gesetzt werden.</p>
+</li>
+<li><p>Es ist nun möglich, im <a href="../doc/mlkey/woerterbuch.html#dependencies-von-mlkeys-suchen">Wörterbuch</a> nach Dependencies für MLKeys zu suchen.</p>
 </li>
 </ul>
 </article>

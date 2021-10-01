@@ -5,21 +5,23 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>tblRep_ReportInstance (Runtime-Repository) </title>
+    <title>Field DevExpressLayoutFileExtension
+   </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="tblRep_ReportInstance (Runtime-Repository) ">
+    <meta name="title" content="Field DevExpressLayoutFileExtension
+   ">
     <meta name="generator" content="docfx 2.56.2.0">
     
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/fs-docfx.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
     
-    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -36,8 +38,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -78,59 +80,39 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-<h1 id="tblrepreportinstance-runtime-repository">tblRep_ReportInstance (Runtime-Repository)</h1>
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.DevExpressLayoutFileExtension">
 
-<p>Diese Tabelle beinhaltet die Druck-Jobs die per Anzeige / Vorschau direkt am Client angezeigt werden.</p>
-<table>
-<thead>
-<tr>
-<th>Spalte</th>
-<th>Beschreibung</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>RPTI_ID</td>
-<td>Eindeutige ID des Print-Jobs (Guid)</td>
-</tr>
-<tr>
-<td>RPTI_Reportname</td>
-<td>Der Name der Report-Datei</td>
-</tr>
-<tr>
-<td>RPTI_XML</td>
-<td>XML-Serialisierte Form der Datei</td>
-</tr>
-<tr>
-<td>RPTI_RPTExpF_ID</td>
-<td>Das Format in dem der Druck ausgegeben werden soll.<br>1 = CrystalReport <br> 2 = RichText <br> 3 = Word <br> 4 = Excel <br> 5 = PDF <br> 6/7 = HTML</td>
-</tr>
-<tr>
-<td>RPTI_CreateDateTime</td>
-<td>Zeitpunkt, an dem der Print-Job erzeugt wurde</td>
-</tr>
-<tr>
-<td>RPTI_XSDFileName</td>
-<td>Der Name der XSD-Schemadatei, welche den Aufbau der Datenquelle beschreibt.</td>
-</tr>
-<tr>
-<td>RPTI_Orientation</td>
-<td>Die Orientierung (Portrait/Hochkant), in welcher gedruckt werden soll</td>
-</tr>
-<tr>
-<td>RPTI_ReportFile</td>
-<td>Der Inhalt der Datei im Binär-Format.</td>
-</tr>
-</tbody>
+
+<h1 id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_DevExpressLayoutFileExtension" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.DevExpressLayoutFileExtension" class="text-break">Field DevExpressLayoutFileExtension
+</h1>
+<div class="markdown level0 summary"><p>Liefert die von <a class="xref" href="FrameworkSystems.FrameworkBase.Reporting.ReportingSoftware.html#FrameworkSystems_FrameworkBase_Reporting_ReportingSoftware_DevExpress">DevExpress</a> genutzte Dateiendung für Report-Layout-Dateien (ohne Daten).</p>
+</div>
+<div class="markdown level0 conceptual"></div>
+<h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkBase.Reporting.html">FrameworkSystems.FrameworkBase.Reporting</a></h6>
+<h6><strong>Assembly</strong>: FrameworkSystems.FrameworkBase.dll</h6>
+<h5 id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_DevExpressLayoutFileExtension_syntax">Syntax</h5>
+<div class="codewrapper">
+  <pre><code class="lang-csharp hljs">public const string DevExpressLayoutFileExtension = &quot;.repx&quot;</code></pre>
+</div>
+<h5 class="returns">Returns</h5>
+<table class="table table-bordered table-striped table-condensed">
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a></td>
+      <td></td>
+    </tr>
+  </tbody>
 </table>
-<p>Normalerweise werden die Datensätze in dieser Tabelle nach 10 Minuten automatisch gelöscht. Sollten dennoch Einträge stehen bleiben, dann können veraltete Einträge auch manuell gelöscht werden.</p>
-<pre><code class="lang-sql">-- SQL-Server:
-DELETE FROM [tblRep_ReportInstance] WHERE DATEADD(minute, 10, [RPTI_CreateDateTime]) &lt; GetDate ();
-
--- Oracle:
-DELETE FROM tblRep_ReportInstance WHERE (RPTI_CreateDateTime + (10 / 1440)) &lt; sysdate;
-</code></pre></article>
+<h5 id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_DevExpressLayoutFileExtension_remarks"><strong>Remarks</strong></h5>
+<div class="markdown level0 remarks"><p>Der Inhalt der Datei kann als xml oder C#-Code aufgebaut sein, ist aber immer in UTF-8 codiert.</p>
+</div>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -157,8 +139,8 @@ DELETE FROM tblRep_ReportInstance WHERE (RPTI_CreateDateTime + (10 / 1440)) &lt;
       </footer>
     </div>
     
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
   </body>
 </html>

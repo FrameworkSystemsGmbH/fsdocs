@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>tblRep_ReportInstance (Runtime-Repository) </title>
+    <title>Konvertierungsleitfaden Crystal -&gt; DevExpress XtraReports </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="tblRep_ReportInstance (Runtime-Repository) ">
+    <meta name="title" content="Konvertierungsleitfaden Crystal -&gt; DevExpress XtraReports ">
     <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -79,58 +79,32 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="tblrepreportinstance-runtime-repository">tblRep_ReportInstance (Runtime-Repository)</h1>
+<h1 id="konvertierungsleitfaden-crystal---devexpress-xtrareports">Konvertierungsleitfaden Crystal -&gt; DevExpress XtraReports</h1>
 
-<p>Diese Tabelle beinhaltet die Druck-Jobs die per Anzeige / Vorschau direkt am Client angezeigt werden.</p>
-<table>
-<thead>
-<tr>
-<th>Spalte</th>
-<th>Beschreibung</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>RPTI_ID</td>
-<td>Eindeutige ID des Print-Jobs (Guid)</td>
-</tr>
-<tr>
-<td>RPTI_Reportname</td>
-<td>Der Name der Report-Datei</td>
-</tr>
-<tr>
-<td>RPTI_XML</td>
-<td>XML-Serialisierte Form der Datei</td>
-</tr>
-<tr>
-<td>RPTI_RPTExpF_ID</td>
-<td>Das Format in dem der Druck ausgegeben werden soll.<br>1 = CrystalReport <br> 2 = RichText <br> 3 = Word <br> 4 = Excel <br> 5 = PDF <br> 6/7 = HTML</td>
-</tr>
-<tr>
-<td>RPTI_CreateDateTime</td>
-<td>Zeitpunkt, an dem der Print-Job erzeugt wurde</td>
-</tr>
-<tr>
-<td>RPTI_XSDFileName</td>
-<td>Der Name der XSD-Schemadatei, welche den Aufbau der Datenquelle beschreibt.</td>
-</tr>
-<tr>
-<td>RPTI_Orientation</td>
-<td>Die Orientierung (Portrait/Hochkant), in welcher gedruckt werden soll</td>
-</tr>
-<tr>
-<td>RPTI_ReportFile</td>
-<td>Der Inhalt der Datei im Binär-Format.</td>
-</tr>
-</tbody>
-</table>
-<p>Normalerweise werden die Datensätze in dieser Tabelle nach 10 Minuten automatisch gelöscht. Sollten dennoch Einträge stehen bleiben, dann können veraltete Einträge auch manuell gelöscht werden.</p>
-<pre><code class="lang-sql">-- SQL-Server:
-DELETE FROM [tblRep_ReportInstance] WHERE DATEADD(minute, 10, [RPTI_CreateDateTime]) &lt; GetDate ();
-
--- Oracle:
-DELETE FROM tblRep_ReportInstance WHERE (RPTI_CreateDateTime + (10 / 1440)) &lt; sysdate;
-</code></pre></article>
+<ol>
+<li><p>Auto-converter laufen lassen (technische Subreports wie der GlobalPageBackground müssen nicht konvertiert werden)</p>
+</li>
+<li><p>Unnötige Sections löschen</p>
+</li>
+<li><p>Data Member des Gesamt-Reports setzen / Ein Grouping oder eine Detail-Section mit einem entsprechenden Data Member versehen</p>
+</li>
+<li><p>Zwischen den Sections „verrutschte“ Subreports korrigieren (mit Crystal Report vergleichen)</p>
+</li>
+<li><p>Expressions für unterdrückte Elemente aus dem CR kopieren (lässt sich nicht automatisieren, da Crystal Reports diese nicht erreichbar macht)</p>
+</li>
+<li><p>Ggfs. Formeln neu schreiben, die auf ihrer Ebene keinen Zugriff auf die benötigten Daten haben, oder diese direkt ins Feld kopieren</p>
+</li>
+<li><p>Footer anpassen – PageInfo-Felder konfigurieren und formatieren, überflüssige Labels / PageInfos löschen</p>
+</li>
+<li><p>Bei Bedarf FoldMarks-Control hinzufügen und richtig einstellen (Zum bedingten Anzeigen Expression an Visible property binden)</p>
+</li>
+<li><p>Ungültige Feldreferenzen korrigieren</p>
+</li>
+<li><p>Größen- und Positionsfeintuning der Controls (touchup)</p>
+</li>
+</ol>
+<p>Übermäßig komplexe Reports wie z.B. eine Rechnung sollten vermutlich von Grund auf neu gebaut werden. Hierbei wurde stark Crystal-spezifische Logik genutzt, die automatisiert nicht zu greifen ist und manuell ein großer Konvertierungsaufwand wäre.</p>
+</article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

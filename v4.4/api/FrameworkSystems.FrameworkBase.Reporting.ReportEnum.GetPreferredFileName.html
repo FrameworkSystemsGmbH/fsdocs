@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Property FileName
+    <title>Method GetPreferredFileName
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Property FileName
+    <meta name="title" content="Method GetPreferredFileName
    ">
     <meta name="generator" content="docfx 2.56.2.0">
     
@@ -80,36 +80,43 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.FileName*">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.GetPreferredFileName*">
 
-<h1 id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_FileName_" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.FileName*">Property FileName
+<h1 id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_GetPreferredFileName_" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.GetPreferredFileName*">Method GetPreferredFileName
 </h1>
 <div class="markdown level0 summary"></div>
 <div class="markdown level0 conceptual"></div>
 
-<a id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_FileName_" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.FileName*"></a>
-<h4 id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_FileName" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.FileName">FileName</h4>
+<a id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_GetPreferredFileName_" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.GetPreferredFileName*"></a>
+<h4 id="FrameworkSystems_FrameworkBase_Reporting_ReportEnum_GetPreferredFileName_FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_" data-uid="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.GetPreferredFileName(FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects)">GetPreferredFileName(IGlobalObjects)</h4>
 <section>
-  <div class="markdown level1 summary"><p>Der Datei-Name des Reports ohne Pfad und Endung.
-Für die Software-Spezifischen Dateinamen kann <a class="xref" href="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.CrystalFileName.html#FrameworkSystems_FrameworkBase_Reporting_ReportEnum_CrystalFileName">CrystalFileName</a> oder <a class="xref" href="FrameworkSystems.FrameworkBase.Reporting.ReportEnum.DevExpressFileName.html#FrameworkSystems_FrameworkBase_Reporting_ReportEnum_DevExpressFileName">DevExpressFileName</a> verwendet werden.</p>
+  <div class="markdown level1 summary"><p>Liefert die ReportingSoftware und den FileName abhängig von der in <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.ReportingSoftware.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_ReportingSoftware">ReportingSoftware</a> favorisierten ReportingSoftware.
+Ist die favorisierte ReportingSoftware nicht verfügbar, dann wird jeweils die andere zurückgegeben.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">public string FileName { get; }</code></pre>
+      <pre><code class="lang-csharp hljs">public (ReportingSoftware software, string fileName) GetPreferredFileName(IGlobalObjects global)</code></pre>
+    </div>
+  </section>
+  <h5 class="parameters">Parameters</h5>
+  <section>
+    <div class="propertyInfo">
+      <span class="parametername"><code>global</code></span> <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.html">IGlobalObjects</a>
+      <div class="markdown level1 summary"></div>
     </div>
   </section>
 
-
-  <h5 class="propertyValue">Property Value</h5>
-  <section>
+    <h5 class="returns">Returns</h5>
+    <section>
       <div class="propertyInfo">
-        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
+        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple-2">ValueTuple</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkBase.Reporting.ReportingSoftware.html">ReportingSoftware</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>&gt;
         <div class="markdown level1 summary"></div>
-      </div>  
-  </section>
+      </div>
+    </section>
+
 </section>
 </article>
           </div>

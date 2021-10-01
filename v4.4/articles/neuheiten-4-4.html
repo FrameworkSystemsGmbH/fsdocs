@@ -110,6 +110,27 @@ Debug-Informationen, die vom FrameworkCompiler erzeugt wurden, zeigten immer auf
 Des Weiteren kann es sein, dass nun fehlende Referenzen ergänzt werden müssen.
 Etwaige Fehler müssen in der IDE behoben werden. Nachfolgende Maintenance Routine kann gegebenenfalls beim Lösen der Fehlern unterstützen.</p>
 </div>
+<h2 id="devexpress-xtrareports">DevExpress XtraReports</h2>
+<p>Mit der Version 4.4 bietet Framework Studio experimentelle Unterstützung für <strong>DevExpress XtraReports 21.1</strong> an.
+Hierbei handelt es sich um eine alternative Reporting-Lösung, die zunächst parallel mit Crystal Reports eingesetzt werden kann, diese langfristig allerdings ersetzen soll.
+Einige Vorteile der neuen Lösung sind z.B.:</p>
+<ul>
+<li>Erhöhte Performance, sowohl im Druck als auch beim Design</li>
+<li>Keine Installation einer separaten Runtime notwendig</li>
+<li>Kein Erwerb von Nutzer-Lizenzen notwendig</li>
+<li>Datenquellen müssen nicht über xsd-Dateien abgewickelt werden, sondern werden direkt auf Basis der Objekte selbst gebildet</li>
+<li>Langfristig Support für von Windows losgelöste Entwicklung (.NET Core)</li>
+<li>Technisch zugänglichere Plattform (Custom Controls, Custom Designer u.Ä.)</li>
+<li>Dadurch die Möglichkeit, Reports direkt im Browser anzupassen</li>
+</ul>
+<div class="WARNING"><h5>Warning</h5><p>Dieses Release beinhaltet noch <em>keine vollwertige Funktionalität.</em> Sie können sich bereits mit der neuen Lösung auseinandersetzen und Nutzungserfahrungen sammeln, ein produktiver Einsatz ist allerdings <em>ausdrücklich</em> noch nicht vorgesehen. Eine Beibehaltung der aktuellen Dateiformate und API in Versionen vor dem vollständigen Release wird angestrebt, aber nicht garantiert.</p>
+</div>
+<p>Im <a href="../doc/report-document-type/report-document-type.html">Report Document Type</a> wurden Anpassungen vorgenommen, die gleichzeitiges Führen von Crystal- und DevExpress-Dateien für den selben logischen Report erlauben.
+Jeder Report kann jetzt gleichzeitig einen Crystal Report und einen DevExpress Report besitzen. Die beiden Dateien sind unabhängig voneinander editier-, lösch- und ersetzbar.</p>
+<p>Falls ein Report Document Type gedruckt werden soll, der gleichzeitig einen Crystal- und einen DevExpress-Report beinhaltet, wird auf Basis des Flags Global.ReportingSoftware entschieden, welcher der beiden genutzt werden soll. Das Flag lässt sich im Use-Code überschreiben.</p>
+<p>Zur Unterstützung bei der Umstellung auf DevExpress wird eine <a href="../doc/report-document-type/convert-crystal-to-devexpress.html">Konvertierungsfunktionalität</a> angeboten, die die grundlegende Struktur des Crystal Reports übernimmt und bei weniger komplexen Reports große Teile dessen von selbst konvertiert.</p>
+<p>Falzmarken und in den Report eingebettete Subreports wurden mit eigenen Custom Controls gelöst.</p>
+<p>Um bei der Konvertierung mit dem originalen Crystal Report vergleichen zu können, wurde ein Button im Designer geschaffen, welcher diesen schreibgeschützt öffnet.</p>
 <h2 id="maintenance-routine-für-referenzen-und-konstruktoren">Maintenance Routine für Referenzen und Konstruktoren</h2>
 <p>Im <a href="../doc/ide/start.html#maintenance-mode">Maintenance-Mode</a> stehen speziell für den Update auf die Version 4.4 neue Cleanup-Routinen zur Verfügung.</p>
 <ul>
@@ -195,6 +216,8 @@ Die Einstellung ist ausschließlich am Default-Package (z.B. eNVenta)  möglich 
 <li><p>Im Publish, Run und Publish2go Wizard kann nun auch das Icon für die Anwendung gesetzt werden.</p>
 </li>
 <li><p>Es ist nun möglich, im <a href="../doc/mlkey/woerterbuch.html#dependencies-von-mlkeys-suchen">Wörterbuch</a> nach Dependencies für MLKeys zu suchen.</p>
+</li>
+<li><p>Es ist nun möglich, auf der <a href="../doc/fsclientlauncher/fsclientlauncher-common.html">Client Start Page</a> die Client-Option <strong>Java Web Start</strong> während des <a href="../doc/publish-wizards/publish-wizard.html#applications">Publish Vorganges</a> ein oder aus zu blenden. Standardmäßig ist der <strong>Java Web Start</strong> nun deaktiviert.</p>
 </li>
 </ul>
 </article>

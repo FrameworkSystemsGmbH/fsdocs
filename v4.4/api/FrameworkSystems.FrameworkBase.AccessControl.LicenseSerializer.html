@@ -139,21 +139,10 @@ license.AccessUnits.Set(allowedAccessUnitId, AUPermission.Allowed);
 <p>// PackageName / PrivateKey Repository, die PrivateKeys werden für die Signierung benötigt.
 Dictionary&lt;string, RSAKeyPair&gt; packageNamePrivateKeyRelation = new Dictionary&lt;string, RSAKeyPair&gt;();
 packageNamePrivateKeyRelation.Add(&quot;FSDemo&quot;, new RSAKeyPair());</p>
-<p>// Hier wird in einen StringBuilder geschrieben, möglich sind aber auch Stream oder XDocument Objekte.
-StringBuilder builder = new StringBuilder(2 * 1024);
-using (TextWriter writer = new StringWriter(builder))
-{
-LicenseSerializer serializer = new LicenseSerializer();
-serializer.License = license;
-serializer.Serialize(writer, name =&gt; packageNamePrivateKeyRelation[name]);
-}</p>
+<p>// Hier wird in einen string geschrieben, möglich ist aber auch ein XDocument Objekt.
+string xmlText = LicenseSerializer.ToText(license, packageID =&gt; packageNamePrivateKeyRelation[packageID]);</p>
 <p>// Deserialisierung (ohne Verifikation)
-using (TextReader reader = new StringReader(builder.ToString()))
-{
-LicenseSerializer serializer = new LicenseSerializer();
-serializer.Deserialize(reader);
-ILicense license = serializer.License;
-}</p>
+ILicense license = LicenseSerializer.FromText(xmlText);</p>
 
 </article>
           </div>

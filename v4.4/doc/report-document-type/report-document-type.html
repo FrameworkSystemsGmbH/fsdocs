@@ -106,24 +106,28 @@ Im Feld <strong>Name</strong> können Sie dem Eintrag einen Namen geben.
 Dieser wird anhand des ausgewählten Datentyps mit einem Standard-Namen vorbelegt.</p>
 <p>Diese Einträge sind sozusagen die Properties des Reports.
 Diese Properties müssen später beim Druck mit Werten gefüllt werden.</p>
-<p>Wenn Sie Components oder Collections eingebunden haben, können Sie die Properties aufklappen und die Properties der Component / Collection werden angeboten.
-Sind dies wiederum Components, können diese wiederum aufgeklappt werden.</p>
-<p>In diesem Baum können Sie angeben, welche Properties an den Report übergeben werden sollen.
+<p>Wenn Sie Components oder Collections eingebunden haben, können Sie diese aufklappen und die Properties der Component / Collection werden angeboten.
+Sind diese Properties ebenfalls Components, können diese erneut aufgeklappt werden, etc.</p>
+<h4 id="xsd-datei">XSD-Datei</h4>
+<div class="WARNING"><h5>Warning</h5><p>Dieses Kapitel ist nur für Crystal Reports relevant. DevExpress XtraReports bindet direkt an die Objekte der Datenquelle, weshalb keine Umwege über die XSD gefahren werden.</p>
+</div>
+<p>Am nun aufgeklappten Baum können sie angeben, welche Properties und Komponenten in die XSD-Datei aufgenommen werden sollen.
 Dazu müssen Sie die Checkbox an dem entsprechenden Eintrag setzen.</p>
+<div class="NOTE"><h5>Note</h5><p>Ein DevExpress Report hat <strong>immer</strong> Zugriff auf <strong>alle</strong> Komponenten am Report Document Type und dessen Properties, ob die Checkbox im Einzelfall aktiviert ist oder nicht. Hierzu wird in jede verwendete Component ein &#39;<em>KomponentenName</em>_Rptx&#39;-Interface generiert.</p>
+</div>
 <p>Aus diesen Daten wird eine XSD-Datei (XML-Definition) erstellt.
 Diese XSD-Datei kann einem Crystal-Report zugewiesen werden.
 So versteht der Report die Daten, die ihm übergeben werden.
 Mit jedem Klick im Baum wird die XSD-Datei neu erzeugt.
 Sie wird im Report-Pfad der aktuellen Applikation abgelegt.
-Und bekommt folgenden Namen: Namespaces.rptXXX.xsd.</p>
+Der Name setzt sich folgendermaßen zusammen: Namespaces.rptXXX.xsd.</p>
 <p>Zum Einstellen des Pfades siehe Kapitel <strong>Code-Builder / Applications</strong> (<a href="../ide/application.html">Application</a>).</p>
-<p>Beim Druck werden die kompletten Components / Collections an den ReportDocmentType übergeben.
-Es werden aber nur die ausgewählten Daten weitergegeben.
-Umso größer die Listen, desto wichtiger ist es, dass nur die Daten übergeben werden, die wirklich benötigt werden.</p>
-<p>Aus den Daten wird XML erzeugt.
-Dieses wird dann Crystal Reports übergeben, wo die Daten entsprechend aufbereitet und ausgegeben werden.</p>
-<h2 id="crystal-reports">Crystal Reports</h2>
-<p>Auf der Registerkarte Crystal Reports können dem Report Document Type mehrere Reports zugewiesen werden.</p>
+<p>Beim Druck werden die kompletten Components / Collections an den Report Document Type übergeben.
+Es werden aber nur die ausgewählten Daten in die XSD weitergegeben.
+Umso größer die Listen, desto wichtiger für die performance ist es, dass nur die Daten übergeben werden, die wirklich benötigt werden.</p>
+<p>Crystal Reports nutzt die übergebene XSD-Datei eigenständig, um den Report mit Daten zu füllen.</p>
+<h2 id="report-files">Report Files</h2>
+<p>Auf der Registerkarte Report Files können dem Report Document Type mehrere Reports zugewiesen werden. Diese beinhalten die tatsächlichen Dokumente (jeweils 0 bis 1 Crystal und 0 bis 1 DevExpress).</p>
 <p><img src="media/report-document-type-crystal-reports.png" alt="Report Document Type – Crystal Reports"></p>
 <p>Einen neuen Report fügen Sie beispielsweise über das Kontextmenü der Tabelle hinzu, in der die Reports angezeigt werden.</p>
 <p>Mit der Checkbox <strong>Include Base Reports</strong> legen Sie fest, ob vererbte, nicht geänderte Basisreports später in der Applikation zur Auswahl stehen sollen.
@@ -135,10 +139,12 @@ Sie hat Einfluss darauf, was die Methode ReportDocument.<a class="xref" href="..
 <p>Im Feld <strong>File</strong> kann ein vorhandener Report geöffnet und eingebunden werden.
 Dieser Report muss als Datenquelle das erzeugte XSD-File besitzen.</p>
 <p>Mit dem Button <strong>Edit Report</strong> wird der Report über ein externes Tool bearbeitet.</p>
-<div class="WARNING"><h5>Warning</h5><p>Zum Erstellen und Editieren von Reports benötigen Sie Crystal Reports oder Visual Studio.</p>
+<div class="WARNING"><h5>Warning</h5><p>Zum Erstellen und Editieren von Crystal Reports benötigen Sie einen Crystal Reports Designer oder Visual Studio.</p>
 </div>
-<p>Mit dem Button <strong>New Report</strong> wird ein neuer Report zugewiesen.</p>
-<p>Der Button <strong>Choose Report</strong> öffnet einen Dateiauswahl Dialog, in dem Sie einen neuen, bereits existierenden Report zuweisen können.</p>
+<p>Mit dem Button <strong>New Report</strong> wird ein neuer, leerer Report erstellt und zugewiesen.</p>
+<p>Der Button <strong>Choose Report</strong> öffnet einen Dateiauswahl-Dialog, in dem Sie eine bestehende Report-Datei zuweisen können.</p>
+<p>Mit dem Button <strong>Reset File</strong> wird eine einzelne Report-Datei aus einem Report gelöscht. Der Eintrag im Report Document Type und die etwaige andere Report-Datei im selben Eintrag bleiben hierbei unverändert bestehen.</p>
+<p>Mit dem Button <strong>Convert to DevExpress</strong> wird die <a href="convert-crystal-to-devexpress.html">Konvertierungsroutine</a> gestartet.</p>
 <h4 id="caption">Caption</h4>
 <p>Im Report Document Type können Sie für Crystal Reports lokalisierte Bezeichnungen (Captions) hinterlegen, also die Bezeichnung mehrsprachig pflegen.
 Diese Captions können zur Laufzeit ausgewertet werden, um z.B. im Druck-Dialog bei der Auswahl der unterschiedlichen Report-Varianten einen sprechenden Text auszugeben.</p>
@@ -168,40 +174,43 @@ Diese Captions können zur Laufzeit ausgewertet werden, um z.B. im Druck-Dialog 
 <div class="WARNING"><h5>Warning</h5><p>Achtung: als Dateityp geben Sie Crystal Reports an.</p>
 </div>
 <p>Rufen Sie im Field-Explorer bei Database Fields Verify Database auf.</p>
-<p><strong>Project2 – Microsoft Visual C#.NET [design] – Customer1.rpt</strong>*
+<p><strong>Project2 – Microsoft Visual C#.NET [design] – Customer1.rpt</strong>
 <img src="media/report-document-type-rptcusto-vs-design.png" alt="rpt-design"></p>
 <p>Wenn die XSD-Dateien nicht gefunden werden, fragt <strong>Visual Studio</strong> nach, wo diese zu finden sind.</p>
 <p>Es werden jetzt die neuen Felder hinzugefügt und die entfernten Felder gelöscht. Das Löschen kann ggf. zu Fehlermeldungen führen.</p>
 <p>Wenn Sie neue Components eingebunden haben, können diese mit dem Befehl <strong>Add/Remove Database</strong> manuell hinzugefügt werden.</p>
-<h2 id="für-den-druck-relevente-klassen">Für den Druck relevente Klassen</h2>
+<h2 id="für-den-druck-relevante-klassen">Für den Druck relevante Klassen</h2>
 <ul>
 <li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.ReportDocument.html">ReportDocument</a></li>
 <li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.ReportEnum.html">ReportEnum</a></li>
 <li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.PrintServer.html">PrintServer</a></li>
 <li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.PrintQueue.html">PrintQueue</a></li>
 </ul>
-<h2 id="report-designer-zur-laufzeit">Report Designer zur Laufzeit</h2>
-<p>Zur Laufzeit steht ein Report Designer dem Benutzer zur Verfügung, dieser muss vorher in das System integriert werden.
+<h2 id="browserbasierter-report-designer-zur-laufzeit">Browserbasierter Report-Designer zur Laufzeit</h2>
+<p>Zur Laufzeit steht ein Report Designer dem Benutzer zur Verfügung. Dieser muss vorher in das System integriert und aufgerufen werden.
 Im folgenden Beispiel wird ein Report Designer geöffnet, auf eine Bestätigung des Benutzers gewartet und anschließend der geänderte Report ausgedruckt.</p>
-<pre><code class="lang-C#">// Eigenschaft um sich die Design Session zu merken
+<div class="WARNING"><h5>Warning</h5><p>Diese Funktionalität ist während der Beta nicht verfügbar.</p>
+</div>
+<pre><code class="lang-C#">// Eigenschaft, um sich die Design Session zu merken
 private FrameworkSystems.FrameworkBase.Reporting.ReportDesignSession oDesignSession { get; set; }
 
-// Einsprungspunkt hier bspw. über einen Button Click
+// Einstiegspunkt; hier bspw. über einen Button Click
 protected virtual void btnGrdReportDesigner_OnClick(FrameworkButtonClickEventArgs e)
 {
     rptArticles report = new rptArticles(this.Global, rptArticles.Reports.XArticleReport, ExportFormat.PDF);
     this.oDesignSession = report.CreateDesigner();
-    this.oDesignSession.ShowDesigner();  // Öffnet den Report Designer in einem Browser Fenster
+    this.oDesignSession.ShowDesigner();  // Öffnet den Report Designer in einem Browser-Fenster
 
     MsgBox.Show(FSGeneral.ctMessagesFactory.GetText(this.Global, 10), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, new MsgBoxEventHandler(OnMsgBoxReportDesignSessionClick));
 }
 
-// Nach dem Click auf den MessageBox Button, kann der Report gedruckt werden
+// Ein Klick auf den MessageBox-Button signalisiert, dass die Bearbeitung abgeschlossen ist
 protected virtual void OnMsgBoxReportDesignSessionClick(object sender, MsgBoxEventArgs e)
 {
     byte[] reportDesign = null;
     if (this.oDesignSession != null &amp;&amp; this.oDesignSession.IsModified())
     {
+        // Veränderten Report aus der Session herunterladen
         reportDesign = this.oDesignSession.GetBytes();
     }
     this.oDesignSession.Dispose();  // Verwerfen der Design Session nicht vergessen
@@ -211,13 +220,13 @@ protected virtual void OnMsgBoxReportDesignSessionClick(object sender, MsgBoxEve
         throw new Exception(&quot;Kein neuer Report vorhanden.&quot;); 
     }
 
-    // Drucken des Reports
+    // Drucken des geänderten Reports
     rptArticles report = new rptArticles(this.Global, rptArticles.Reports.XArticleReport, ExportFormat.PDF);
     report.SelectedReport.ReportBytes = reportDesign;
     report.oArticle = oArticleColl;  // Beim Drucken wird die Datenquelle benötigt
     report.Print();
 }
-</code></pre><p>Weitere Information unter <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.ReportDesignSession.html">ReportDesignSession</a>.</p>
+</code></pre><p>Weitere Information zum Web-Designer finden Sie unter <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.ReportDesignSession.html">ReportDesignSession</a>.</p>
 </article>
           </div>
           

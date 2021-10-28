@@ -86,8 +86,9 @@ Es wird folgender Dialog angezeigt:</p>
 <p><img src="media/export-package-version-dialog.png" alt="export-package-version-dialog.png"></p>
 <h4 id="package-file">Package File</h4>
 <p>hier wird die Datei angegeben, in welche die Package-Version exportiert werden soll. Der Datei-Name wird automatisch mit dem Format <strong>&lt;Datum_Package_Version&gt;</strong> vorbelegt. Dieser sollte nach Möglichkeit nicht geändert werden.</p>
-<h4 id="export-code-methods-and-debug-information">Export Code, Methods and Debug-Information</h4>
-<p>mit dieser Checkbox wird angegeben, ob die Export-Datei den Code und die Debug-Informationen enthalten sollen. Der Code beinhaltet dabei sämtlichen Methoden-Code und auch den vom FrameworkCompiler generierten Code. Bei den Debug-Informationen handelt es sich um die im Debug-Modus kompilierten Assemblies mit ihren PDB-Dateien und den CS-Dateien.</p>
+<h4 id="export-code">Export Code</h4>
+<p>Es wird standardmäßig der Code exportiert.
+Der Code beinhaltet dabei sämtlichen Methoden-Code und auch den vom FrameworkCompiler generierten Code.</p>
 <h4 id="include-base-packages">Include Base Packages</h4>
 <p>Wenn diese Checkbox gesetzt wird, dann wird ein Bereich eingeblendet, in dem angegeben werden kann, welche Basis-Packages mit in die Export-Datei gepackt werden sollen. Dies funktioniert auch bei importierten Basis-Packages.
 Im Vergleich zum Export der einzelnen Package-Versionen hat dieses Vorgehen den Vorteil, dass auf jeden Fall der passende Compile-Stand des Basis-Packages verwendet wird – auch wenn das Basis-Package später neu kompiliert wurde und dafür ein aktuellerer FrameworkCompiler-Stand zur Verfügung steht.</p>

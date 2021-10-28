@@ -157,12 +157,10 @@ So sind z.B. die Object Types <em>Service</em>, <em>Service Proxy</em>, <em>Serv
 <p>Für die Definition von individuellem Code steht ein neues Element <a href="../doc/code-file/codefile.html#code-file">Code File</a> zur Verfügung.
 Der Code einer Code file muss eine Klasse beinhalten, in welcher Methoden, Konstruktoren, Properties etc. definiert werden können.
 Es können mehrere Klassen, jedoch keine Namespaces, in eine Code file definiert werden.
-Aufgrund gängiger Konventionen sollte ein Code File jedoch nur eine Klasse beinhalten und der Name des Code Files identisch mit dem Namen der Klasse sein.</p>
+Aufgrund gängiger Konventionen sollte ein Code File jedoch nur eine Klasse beinhalten und der Name des Code Files identisch mit dem Namen der Klasse sein.
+Ferner ist der identische Namen für die Intellisense notwendig.</p>
 <p>Für ein Code file muss ein Compile Step festgelegt werden.
 Dieser bestimmt mit welchem Object Typ der Code kompiliert wird und somit in welchem Namespace sich das Code file befindet.</p>
-<div class="IMPORTANT"><h5>Important</h5><p>Intellisense wird aktuell nicht unterstützt.
-Bis zum Release soll dies aber implementiert sein.</p>
-</div>
 <p>Soll der individuelle Code auch in einem anderen Namespace zur Verfügung stehen, muss hierfür eine Referenz angelegt werden.
 Diese muss auf den Namespace des Code files und auf dessen Compile step verweisen.
 Ein Beispiel hierzu findet sich <a href="../doc/code-file/codefile.html#referenz-beispiel">hier</a>.</p>
@@ -209,7 +207,7 @@ Dabei ist es nebensächlich, ob der Primary Key eine ROWID oder ein individuelle
 </li>
 <li><p>Für Checkboxen wurde der <a href="../doc/form/control/grid.html#grid-filter">Tabellenfilter</a> auf Checked/Unchecked (bzw. Aktiviert/Deaktiviert) geändert. Gibt es Datensätze mit Null-Werten, werden diese bei der Checkbox-Filterung als Unchecked gewertet.</p>
 </li>
-<li><p>Im Package Manager ist es möglich <a href="../doc/package-manager/package-version.html#warnings">Warnings</a>, welcher der Compiler ignorieren soll anzugeben.
+<li><p>Im Package Manager ist es möglich <a href="../doc/package-manager/package-version.html#warnings">Warnings</a>, welcher der Compiler ignorieren soll, anzugeben.
 Des Weiteren kann auch das Level der Warnings angegeben werden.
 Die Einstellung ist ausschließlich am Default-Package (z.B. eNVenta)  möglich und wird an die Customizing-Packages vererbt.</p>
 </li>
@@ -218,6 +216,10 @@ Die Einstellung ist ausschließlich am Default-Package (z.B. eNVenta)  möglich 
 <li><p>Es ist nun möglich, im <a href="../doc/mlkey/woerterbuch.html#dependencies-von-mlkeys-suchen">Wörterbuch</a> nach Dependencies für MLKeys zu suchen.</p>
 </li>
 <li><p>Es ist nun möglich, auf der <a href="../doc/fsclientlauncher/fsclientlauncher-common.html">Client Start Page</a> die Client-Option <strong>Java Web Start</strong> während des <a href="../doc/publish-wizards/publish-wizard.html#applications">Publish Vorganges</a> ein oder aus zu blenden. Standardmäßig ist der <strong>Java Web Start</strong> nun deaktiviert.</p>
+</li>
+<li><p>Es ist nun möglich an dem <a href="../doc/ide/application.html#disable-form-navigation-html-client">Application-Element</a> die Form-Navigation im HTML Client zu deaktivieren.</p>
+</li>
+<li><p>Bei den Relation-Properties (Components) steht in der Registerkarte <a href="../doc/comp/tab_properties.html#registerkarte-load-command">Load Command</a> nun ein CodeEditor mit entsprechender Intellisense zur Verfügung.</p>
 </li>
 </ul>
 </article>

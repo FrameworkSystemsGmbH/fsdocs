@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Method GlobalGetStaticCacheMode
+    <title>Method LoadCount
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Method GlobalGetStaticCacheMode
+    <meta name="title" content="Method LoadCount
    ">
     <meta name="generator" content="docfx 2.56.2.0">
     
@@ -80,56 +80,41 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalGetStaticCacheMode*">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.IDevFrameworkDataObject.LoadCount*">
 
-<h1 id="FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_GlobalGetStaticCacheMode_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalGetStaticCacheMode*">Method GlobalGetStaticCacheMode
+<h1 id="FrameworkSystems_FrameworkBase_IDevFrameworkDataObject_LoadCount_" data-uid="FrameworkSystems.FrameworkBase.IDevFrameworkDataObject.LoadCount*">Method LoadCount
 </h1>
 <div class="markdown level0 summary"></div>
 <div class="markdown level0 conceptual"></div>
 
-<a id="FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_GlobalGetStaticCacheMode_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalGetStaticCacheMode*"></a>
-<h4 id="FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_GlobalGetStaticCacheMode_FrameworkSystems_FrameworkBase_IDevFrameworkDataObject_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalGetStaticCacheMode(FrameworkSystems.FrameworkBase.IDevFrameworkDataObject)">GlobalGetStaticCacheMode(IDevFrameworkDataObject)</h4>
+<a id="FrameworkSystems_FrameworkBase_IDevFrameworkDataObject_LoadCount_" data-uid="FrameworkSystems.FrameworkBase.IDevFrameworkDataObject.LoadCount*"></a>
+<h4 id="FrameworkSystems_FrameworkBase_IDevFrameworkDataObject_LoadCount_System_String_" data-uid="FrameworkSystems.FrameworkBase.IDevFrameworkDataObject.LoadCount(System.String)">LoadCount(String)</h4>
 <section>
-  <div class="markdown level1 summary"><p>Diese Methode wird pro Component-Typ einmalig mit einer Instanz der Component bei der ersten Benutzung
-des statischen Caches aufgerufen, um den gewünschten Arbeitsmodus des statischen Caches zu ermitteln.
-Standardwert ist <a class="xref" href="FrameworkSystems.FrameworkBase.StaticCacheMode.html#FrameworkSystems_FrameworkBase_StaticCacheMode_Broker">Broker</a>.</p>
-</div>
+  <div class="markdown level1 summary"></div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">protected virtual StaticCacheMode GlobalGetStaticCacheMode(IDevFrameworkDataObject oDevFrameworkDataObjectP)</code></pre>
+      <pre><code class="lang-csharp hljs">int LoadCount(string condition)</code></pre>
     </div>
   </section>
   <h5 class="parameters">Parameters</h5>
   <section>
     <div class="propertyInfo">
-      <span class="parametername"><code>oDevFrameworkDataObjectP</code></span> <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkDataObject.html">IDevFrameworkDataObject</a>
-      <div class="markdown level1 summary"><p>Eine Instanz des Component-Typs, für welchen der gewünschte Arbeitsmodus des statischen Caches ermittelt werden soll.</p>
-</div>
+      <span class="parametername"><code>condition</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
+      <div class="markdown level1 summary"></div>
     </div>
   </section>
 
     <h5 class="returns">Returns</h5>
     <section>
       <div class="propertyInfo">
-        <a class="xref" href="FrameworkSystems.FrameworkBase.StaticCacheMode.html">StaticCacheMode</a>
-        <div class="markdown level1 summary"><p>Gibt den Arbeitsmodus zurück, in dem der statische Cache arbeiten soll.</p>
-</div>
+        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>
+        <div class="markdown level1 summary"></div>
       </div>
     </section>
 
-    <h5 id="FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_GlobalGetStaticCacheMode_FrameworkSystems_FrameworkBase_IDevFrameworkDataObject__remarks">Remarks</h5>
-    <section>
-      <div class="markdown level1 remarks"><p>Hilfreich ist dies z.B., wenn für bestimmte Typen (z.B. weil Tabellen-Filter definiert sind) das durchlaufen
-der Einsprungspunkte <span class="xref">FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalOnBeforeLoad(FrameworkSystems.FrameworkBase.DevFrameworkObject,System.String@,System.String@,System.String@)</span>
-und <span class="xref">FrameworkSystems.FrameworkBase.FrameworkDataObject`2.OnBeforeLoad(System.String@,System.String@,System.String@,System.Boolean)</span> dringend nötig ist
-und daher der Arbeitsmodus <a class="xref" href="FrameworkSystems.FrameworkBase.StaticCacheMode.html#FrameworkSystems_FrameworkBase_StaticCacheMode_Session">Session</a> gewünscht ist.
-Der Arbeitsmodus <a class="xref" href="FrameworkSystems.FrameworkBase.StaticCacheMode.html#FrameworkSystems_FrameworkBase_StaticCacheMode_Session">Session</a> ist außerdem dann relevant, wenn Einschränkungen auf Eigenschaften erfolgen sollen,
-die zwar als Datenbankspalte existieren, jedoch an der Component nicht als Property hinzugefügt wurden (z.B. bei <a class="xref" href="../doc/comp/static-cache.html#distinct-und-groupby">distinct und groupBy</a> Components).</p>
-</div>
-    </section>
 </section>
 </article>
           </div>

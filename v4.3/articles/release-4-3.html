@@ -81,13 +81,52 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-43">Release-Information Framework Studio 4.3</h1>
 
+<h2 id="4310-26112021">4.3.10 (26.11.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.10_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021108192 - <strong>IDE</strong>: Wird im ListView als DataSource eine TextCollection
+  verwendet, dann ist nach dem Neustart der IDE in der Template-Variable die
+  Zuordnung auf das Text-Property verloren. In der Folge kommt es auch zu
+  Compile-Fehlern.</p>
+</li>
+<li><p>2021108258 - <strong>IDE</strong>: Verkleinert man das Framework Studio Haupt-Fenster, dann
+  kann es passieren, dass im Namespace-Baum die untere Hälfte nicht mehr
+  greifbar ist. Ist dann der Monitor zu klein - z.B. über Remote Desktop -
+  dann kann man das Haupt-Fenster nicht weit genug vergrößern und der
+  Namespace-Baum lässt sich nicht mehr bedienen.</p>
+</li>
+<li><p>2021118333 - <strong>IDE</strong>: Im Form-Designer werden beim Wechsel zwischen
+  verschiedenen Form-AccessUnits die &#39;Parents&#39; nicht korrekt angezeigt bzw.
+  aktualisiert.</p>
+</li>
+<li><p>2021118513 - <strong>IDE</strong>: Beim Ändern eines Query-JoinTypes in der Customization
+  kommt es zu einer Exception.</p>
+</li>
+<li><p>2021118297 - <strong>Framework</strong>: Werden einem ReportDocument AdditionalReports
+  hinzugefügt, dann liefert die Methode <code>GetReportEnums()</code> Ergebinsse mit
+  mehrdeutigen Report-Namen zurück. Bis zur Version 4.2 war die Ergebnismenge
+  eindeutig.</p>
+</li>
+<li><p>2021118425 - <strong>FS-Framework</strong>: Enthält ein TreeView sehr viele Ebenen, dann
+  dauert der Dispose beim Schließen des Forms sehr lange. Die Laufzeit wächst
+  dabei exponentiell mit der Anzahl der Ebenen.</p>
+</li>
+<li><p>2021118300 - <strong>HTML Client</strong>: OnAfterRequest() wird am Broker nur für das
+  derzeit aktive Form des Clients aufgerufen.</p>
+</li>
+</ul>
 <h2 id="439-29102021">4.3.9 (29.10.2021)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.3.9_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021087483 - <strong>Java Client</strong>: Werden in einem Request die
   MultiSelect-Eigenschaft eines Grids und zusätzlich Rows selektiert, greift
@@ -135,7 +174,7 @@ gespeichert wurden.</p>
 <li>FS_4.3.8_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021097624 - <strong>IDE</strong>: Ruft man in einer customized Form die Control Events auf
   einem Custom Control auf, werden dort die Event-Methoden-Zuweisungen aus der
@@ -164,7 +203,7 @@ Dieser ersetzt die bisherige Version 4.0.16.</p>
 <p>Die neue Version behebt einen Fehler in der Windows-Authentication (siehe unten).</p>
 <div class="NOTE"><h5>Note</h5><p>Der neue Authentication-Service ist kompatibel mit älteren Versionen von Applikationen (FS 4.0 und älter).</p>
 </div>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021087434 - <strong>Broker</strong>: Grids und ListViews besitzen in FieldPanels kein
   generiertes Label, wenn die Caption aus dem DataSource-Property gezogen
@@ -193,7 +232,7 @@ Dieser ersetzt die bisherige Version 4.0.16.</p>
 <li>FS_4.3.6_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021077133 - <strong>Reporting</strong>: Wird am ReportDocument über die Methode
   SetDatasource() ein Wert gesetzt, dann wird das bei einem vorherigen Druck
@@ -262,7 +301,7 @@ Modus betrieben werden.</p>
 <p>Das <a href="requirements-package.html">Requirements-Paket</a> beinhaltet vorerst weiterhin die Version 13.0.18</p>
 <div class="NOTE"><h5>Note</h5><p>Bitte beachten sie unbedingt die Hinweise in den aktualisierten <a href="requirements.html#crystal-reports-runtime">Systemvoraussetzungen</a>!</p>
 </div>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021066859 - <strong>Print-Service</strong>: Treten beim Verarbeiten von Druckaufträgen
   wiederholt Fehler auf, dann führt der Print-Service einen Restart durch.
@@ -337,7 +376,7 @@ Windows-Funktion und kann durch den Print-Service nicht unterbunden werden.</p>
 Es werden nun neben den Parents auch die AccessUnit-Children angezeigt.
 Zudem können die AccessUnit-Parents bearbeitet werden.</li>
 </ul>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021036188 - <strong>Oracle</strong>: Werden in einem Grid Spalten mit Langtext gefiltert
   oder sortiert, dann kommt zu einer Sql-Exception, wenn die Texte auf der
@@ -391,7 +430,7 @@ Zudem können die AccessUnit-Parents bearbeitet werden.</li>
 <li><p>Im FS Client-Launcher kann über eine Umgebungs-Variable eine abweichende <a href="../doc/fsclientlauncher/fsclientlauncher-configuration.html#java-laufzeitumgebung">Java Runtime</a> definiert werden.</p>
 </li>
 </ul>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021025789 - <strong>Java-Client</strong>: In den Fenstern des Haupt-Arbeitsbereiches ist
   es nicht mehr möglich, mit den Pfeil-Tasten durch die Menüs zu navigieren.
@@ -444,7 +483,7 @@ Dependency-Suche ausgeführt.</p>
 <p>Eine detailierte Beschreibung gibt es <a href="../doc/html-client/funktionsumfang.html#szenarien-beim-schließen-des-letzten-forms">hier</a></p>
 <h5 id="html-client-actions">HTML Client Actions</h5>
 <p>Der HTML Client unterstutzt nun die Actions <code>SetTitle</code> und <code>SetCaption</code>. Mehr Informationen zu den unterstützten Action finden Sie <a href="../doc/html-client/funktionsumfang.html#actions">hier</a></p>
-<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021025560 - <strong>Java-Client</strong>: In einem TreeView wird durch den Benutzer ein
   TreeNode selektiert. Das löst ein OnAfterSelect-Event aus. Dann wird durch
@@ -490,7 +529,7 @@ Dependency-Suche ausgeführt.</p>
 <ul>
 <li>Die <a href="../doc/ide/allgemeine-funktionatitaeten.html#vorwärts--und-rückwärtsnavigation">Vorwärts- und Rückwärtsnavigation</a> zwischen Einträgen ist nun auch mit den beiden zusätzlichen Navigationstasten an der Seite der Maus möglich.</li>
 </ul>
-<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
 <ul>
 <li><p>2020125151 - <strong>Oracle</strong>: An einigen Stellen wird für das Ermitteln von
   Datenstrukturen der Datenbank auf die ALL_-Views zugegriffen. Besser ist es,
@@ -552,7 +591,7 @@ In diesem Fall ist ein Restart von Framework Studio nötig um die Situation zu b
 <p><strong>Workaround</strong>: Zuerst mit der Maus in die Get-Method des Properties klicken. Dadurch wird eine Initialisierung ausgeführt, die die Exception verhindert.</p>
 </li>
 </ul>
-<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
 <p>In der Version 4.3 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-2.html#4213-18122020">Framework Studio 4.2.13</a> enthalten.</p>
 <p>Zusätzlich wurden die folgenden Bugs behoben:</p>
 <ul>

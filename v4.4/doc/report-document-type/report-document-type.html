@@ -87,7 +87,7 @@ Diese <strong>Report Document Types</strong> können später in Forms verwendet 
 <p><strong>Report-Document Types</strong> sind an dem <img src="media/report-icon.png" alt="rpt-icon">– Icon zu erkennen.</p>
 <h2 id="erstellen-bearbeiten-und-löschen-von-report-document-types">Erstellen, bearbeiten und löschen von Report Document Types</h2>
 <p>Sie erstellen einen neuen Report Document Type, indem Sie in der Registerkarte <strong>Namespaces</strong> den Namespace auswählen, in dem der Report Document Type abgelegt werden soll.</p>
-<p>Mit dem Button <img src="../media/button-new.png" alt="new-button">(<strong>New</strong>) und dem Eintrag <strong>ReportDocuemtType</strong> aus dem Menü wird im markierten Namespace ein neuer Report Document Type angelegt.
+<p>Mit dem Button <img src="../media/button-new.png" alt="new-button">(<strong>New</strong>) und dem Eintrag <strong>ReportDocumentType</strong> aus dem Menü wird im markierten Namespace ein neuer Report Document Type angelegt.
 Dieser wird auch gleich geöffnet.
 Direkt nach dem Anlegen des Report Document Types steht der Cursor in dem sich öffnenden Designer auf dem Feld <strong>Name</strong>, wo Sie gleich den Namen eingeben können.</p>
 <p>Es wird empfohlen, den Namen mit <strong>rpt</strong> zu beginnen.</p>
@@ -136,18 +136,26 @@ Sie hat Einfluss darauf, was die Methode ReportDocument.<a class="xref" href="..
 <p>Im Feld <strong>Name</strong> kann dem Report ein Name gegeben werden.</p>
 <div class="WARNING"><h5>Warning</h5><p>Dieser Name darf keine Leer- und Sonderzeichen enthalten, weil dieser später im Code zum Einsatz kommt.</p>
 </div>
-<p>Im Feld <strong>File</strong> kann ein vorhandener Report geöffnet und eingebunden werden.
-Dieser Report muss als Datenquelle das erzeugte XSD-File besitzen.</p>
 <p>Mit dem Button <strong>Edit Report</strong> wird der Report über ein externes Tool bearbeitet.</p>
 <div class="WARNING"><h5>Warning</h5><p>Zum Erstellen und Editieren von Crystal Reports benötigen Sie einen Crystal Reports Designer oder Visual Studio.</p>
 </div>
+<p>Der Button <strong>Choose File</strong> öffnet einen Dateiauswahl-Dialog, in dem Sie eine bestehende Report-Datei zuweisen können.</p>
 <p>Mit dem Button <strong>New Report</strong> wird ein neuer, leerer Report erstellt und zugewiesen.</p>
-<p>Der Button <strong>Choose Report</strong> öffnet einen Dateiauswahl-Dialog, in dem Sie eine bestehende Report-Datei zuweisen können.</p>
 <p>Mit dem Button <strong>Reset File</strong> wird eine einzelne Report-Datei aus einem Report gelöscht. Der Eintrag im Report Document Type und die etwaige andere Report-Datei im selben Eintrag bleiben hierbei unverändert bestehen.</p>
 <p>Mit dem Button <strong>Convert to DevExpress</strong> wird die <a href="convert-crystal-to-devexpress.html">Konvertierungsroutine</a> gestartet.</p>
 <h4 id="caption">Caption</h4>
 <p>Im Report Document Type können Sie für Crystal Reports lokalisierte Bezeichnungen (Captions) hinterlegen, also die Bezeichnung mehrsprachig pflegen.
 Diese Captions können zur Laufzeit ausgewertet werden, um z.B. im Druck-Dialog bei der Auswahl der unterschiedlichen Report-Varianten einen sprechenden Text auszugeben.</p>
+<h2 id="report-verzeichnis">Report-Verzeichnis</h2>
+<p>Auf dem Dateisystem werden die Crystal Report-Dateien mit ihren .xsd-Dateien zusammen vom Compile-Verzeichnis ausgehend im Ordner /Report/ gespeichert.
+DevExpress Reports erhalten einen weiteren Unterordner, nach dem übergeordneten Report Document Type benannt. Der Report CustomerList aus rptCustomerList wäre also unter /Report/NV.ERP.Base.Customer.rptCustomerList/CustomerList.repx zu finden.
+Da DevExpress Reports keine .xsd-Dateien benötigen, befinden sich in den Unterordnern ausschließlich die .repx-Dateien.</p>
+<p>Bei jedem Compile-Vorgang werden Crystal und DevExpress Report-Dateien aus dem Repository in das Dateisystem herausgeschrieben, nach folgenden Regeln:</p>
+<h4 id="crystal">Crystal</h4>
+<p>Alle Crystal Reports aller Report Document Types werden in den /Report/-Ordner geschrieben, inklusive Basis-Reports.</p>
+<h4 id="devexpress">DevExpress</h4>
+<p>Alle DevExpress Reports eines Report Document Types im aktuellen Package werden in den entsprechenden Unterordner unter /Report/ herausgeschrieben.</p>
+<p>Basis-Reports werden nur aus der Basis gesucht und ins Verzeichnis geschrieben, solange am Report Document Type die Checkbox &quot;Include Base Reports&quot; gesetzt ist.</p>
 <h2 id="crystal-report-mit-visual-studio-erstellen">Crystal Report mit Visual Studio erstellen</h2>
 <p>Öffnen Sie Visual Studio.</p>
 <p>Legen Sie jetzt ein neues Projekt an (Visual C# Project / leeres Projekt oder empty Project) oder öffnen Sie ein bereits vorhandenes Projekt.</p>
@@ -189,7 +197,7 @@ Diese Captions können zur Laufzeit ausgewertet werden, um z.B. im Druck-Dialog 
 <h2 id="browserbasierter-report-designer-zur-laufzeit">Browserbasierter Report-Designer zur Laufzeit</h2>
 <p>Zur Laufzeit steht ein Report Designer dem Benutzer zur Verfügung. Dieser muss vorher in das System integriert und aufgerufen werden.
 Im folgenden Beispiel wird ein Report Designer geöffnet, auf eine Bestätigung des Benutzers gewartet und anschließend der geänderte Report ausgedruckt.</p>
-<div class="WARNING"><h5>Warning</h5><p>Diese Funktionalität ist während der Beta nicht verfügbar.</p>
+<div class="WARNING"><h5>Warning</h5><p>Diese Funktionalität steht noch nicht vollständig zur Verfügung.</p>
 </div>
 <pre><code class="lang-C#">// Eigenschaft, um sich die Design Session zu merken
 private FrameworkSystems.FrameworkBase.Reporting.ReportDesignSession oDesignSession { get; set; }

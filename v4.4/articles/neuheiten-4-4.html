@@ -82,6 +82,15 @@
 <h1 id="neuheiten-framework-studio-44">Neuheiten Framework Studio 4.4</h1>
 
 <p>Informationen zu aktuellen Versionen und korrigierten Fehlern finden Sie in den <a href="release-4-4.html">Release-Informationen</a>.</p>
+<h2 id="neue-requirements">Neue Requirements</h2>
+<h4 id="windows-client-betriebssysteme">Windows Client-Betriebssysteme</h4>
+<p>Am <a href="requirements.html#client-rechner">Client-</a> und <a href="requirements.html#entwicklungs-rechner">Entwicklungs-Rechner</a> wird nur noch <strong>Windows 10</strong> unterstützt.
+Ältere Windows-Versionen werden nicht mehr unterstützt.</p>
+<h4 id="client-launcher">Client Launcher</h4>
+<p>Mit der Version 4.4 gibt es einen neuen <a href="../doc/fsclientlauncher/fsclientlauncher-common.html">Client-Launcher</a>. Dieser bietet eine <a href="../doc/fsclientlauncher/fsclientlauncher-configuration.html#java-settings">experimentelle Unterstützung für Java 11 (64 Bit)</a>.</p>
+<p>Darüber hinaus gibt es ein paar kleinere <a href="#fs-client-launcher">Neuerungen</a>.
+Ein Update auf diese Version ist aber nicht zwingend nötig.
+Bei Bedarf kann weiterhin der Client-Launcher mit der Version 4.2.16 verwendet werden.</p>
 <h2 id="umbau-der-code-generierung-und-des-compiles">Umbau der Code Generierung und des Compiles</h2>
 <p>Die Code-Generierung und der FS Compile wurden grundlegend überarbeitet.
 Hieraus ergeben sich folgende Neuheiten:</p>
@@ -98,6 +107,7 @@ Hieraus ergeben sich folgende Neuheiten:</p>
 <p>Das bietet den entscheidenden Vorteil, dass Visual Studio beim Debuggen zuverlässig die richtigen cs-Dateien findet.
 Debug-Informationen, die vom FrameworkCompiler erzeugt wurden, zeigten immer auf einen absoluten Dateipfad, der auf dem eigenen Rechner nicht mehr stimmt.</p>
 </div>
+<p>Es gibt bei den <a href="../doc/allgemein/options.html#ide-registerkarte">Options</a> die Möglichkeit einen automatischen Debug Compile zu aktivieren. Des Weiteren wurde der <a href="../doc/ide/start.html#login">Login</a>-Dialog, sowie der <a href="../doc/ide/compile-menu.html#get-dlls">GetDLLs</a> Dialog um die gleiche Option &quot;AutoDebug DLLs&quot; erweitert. Wird beispielsweise beim Login die AutoDebug-Option auf &quot;All&quot; gesetzt, werden alle Compile Object Types beim Login automatisch debuggable kompiliert. Nähere Informationen finden Sie in den entsprechenden Dialog-Dokumentationen.</p>
 </li>
 <li><p>Die Optionen <strong>Debug</strong> und <strong>DebugAll</strong> sind überarbeitet worden.</p>
 <ul>
@@ -123,7 +133,9 @@ Einige Vorteile der neuen Lösung sind z.B.:</p>
 <li>Technisch zugänglichere Plattform (Custom Controls, Custom Designer u.Ä.)</li>
 <li>Dadurch die Möglichkeit, Reports direkt im Browser anzupassen</li>
 </ul>
-<div class="WARNING"><h5>Warning</h5><p>Dieses Release beinhaltet noch <em>keine vollwertige Funktionalität.</em> Sie können sich bereits mit der neuen Lösung auseinandersetzen und Nutzungserfahrungen sammeln, ein produktiver Einsatz ist allerdings <em>ausdrücklich</em> noch nicht vorgesehen. Eine Beibehaltung der aktuellen Dateiformate und API in Versionen vor dem vollständigen Release wird angestrebt, aber nicht garantiert.</p>
+<div class="WARNING"><h5>Warning</h5><p>Dieses Release beinhaltet noch <em>keine vollwertige Funktionalität.</em>
+Sie können sich bereits mit der neuen Lösung auseinandersetzen und Nutzungserfahrungen sammeln, ein produktiver Einsatz ist allerdings <em>ausdrücklich</em> noch nicht vorgesehen.
+Eine Beibehaltung der aktuellen Dateiformate und API in Versionen vor dem vollständigen Release wird angestrebt, aber nicht garantiert.</p>
 </div>
 <p>Im <a href="../doc/report-document-type/report-document-type.html">Report Document Type</a> wurden Anpassungen vorgenommen, die gleichzeitiges Führen von Crystal- und DevExpress-Dateien für den selben logischen Report erlauben.
 Jeder Report kann jetzt gleichzeitig einen Crystal Report und einen DevExpress Report besitzen. Die beiden Dateien sind unabhängig voneinander editier-, lösch- und ersetzbar.</p>
@@ -186,6 +198,13 @@ Diese Bilder können aus der Zwischenablage im Java-Client oder mithilfe eines <
 <p>Reports, die mit DevExpress erstellt werden, unterstützen diese Bilder.
 Crystal Reports unterstützt diese Bilder leider nicht.</p>
 <p>Genaueres unter <a href="../doc/form/control/editfield.html">Editfield</a>.</p>
+<h2 id="fs-client-launcher">FS Client Launcher</h2>
+<p>Im Client-Launcher gibt es folgende Neuerungen:</p>
+<ul>
+<li>Die <a href="../doc/fsclientlauncher/fsclientlauncher-common.html">Online-Hilfe</a> kann aus dem Konfigurations-Dialog mit F1 aufgerufen werden.</li>
+<li>Anzeige des Splash Screen der Application</li>
+<li>Für Version 4.4 Anwendungen gibt es eine <a href="../doc/fsclientlauncher/fsclientlauncher-configuration.html#java-settings">Experimentelle Unterstützung für Java 11 (64 Bit)</a></li>
+</ul>
 <h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
 <ul>
 <li><p>Für Comboboxen und Listboxen kann die <a class="xref" href="../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.DisabledBackColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_DisabledBackColor">DisabledBackColor</a> definiert werden.</p>
@@ -220,6 +239,12 @@ Die Einstellung ist ausschließlich am Default-Package (z.B. eNVenta)  möglich 
 <li><p>Es ist nun möglich an dem <a href="../doc/ide/application.html#disable-form-navigation-html-client">Application-Element</a> die Form-Navigation im HTML Client zu deaktivieren.</p>
 </li>
 <li><p>Bei den Relation-Properties (Components) steht in der Registerkarte <a href="../doc/comp/tab_properties.html#registerkarte-load-command">Load Command</a> nun ein CodeEditor mit entsprechender Intellisense zur Verfügung.</p>
+</li>
+<li><p>Es ist nun möglich, den Code im <a href="../doc/code-editor/index.html">C#-Code Editor</a>, mit dem Button <a href="../doc/ide/allgemeine-funktionalitaeten.html#c-code-editor">Format Code</a> zu formatieren.</p>
+</li>
+<li><p>Es ist nun möglich, Grid-Columns per Action zu verschieben.
+Dafür gibt es zwei neue Methoden(<strong>MoveBefore</strong> / <strong>MoveAfter</strong>) an der <a class="xref" href="../api/FrameworkSystems.FrameworkControls.Actions.GridColumnControlAction.html">GridColumnControlAction</a>
+und zwei neue Methoden(<strong>InsertBefore</strong> / <strong>InsertAfter</strong>) an der <a class="xref" href="../api/FrameworkSystems.FrameworkControls.Actions.GridControlAction.html">GridControlAction</a>.</p>
 </li>
 </ul>
 </article>

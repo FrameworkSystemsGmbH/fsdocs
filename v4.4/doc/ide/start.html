@@ -159,6 +159,12 @@
 <p>Diese Option kann nur in Verbindung mit <strong>Get DLLs</strong> verwendet werden.</p>
 <p>Wenn Sie sich als FrameworkCompiler anmelden, steht diese Option nicht zur Verfügung.</p>
 <p>Wenn der letzte FrameworkCompiler erfolgreich war und der eigene Workspace veraltet ist (älter als der vom FrameworkCompiler), dann werden bei der Auswahl einer Version oder beim Wechseln des Benutzers die Checkboxen <strong>Refresh Workspace</strong> mit der FrameworkCompiler-Option, <strong>Get DLLs</strong> und <strong>Compile CheckedOut</strong> automatisch vorbelegt.</p>
+<h3 id="option-autodebug-dlls">Option AutoDebug DLLs</h3>
+<p>Diese Option ist aktiv, sobald die Checkbox <a href="#checkbox-compile-changes">Compile Changes</a> aktiviert wird.
+Die initiale Vorbelegung stammt aus dem <a href="../allgemein/options.html#login">Options</a>-Dialog, kann jedoch temporär im <a href="start.html#login">Login</a>-Dialog geändert werden.</p>
+<p>Wird <strong>All</strong> bei der AutoDebug-Option angegeben, werden alle Namespaces jedes Typen debuggable kompiliert.
+Bei der Option <strong>Service, Component</strong> werden alle vorgenommenen Änderungen (Compile Changes) und Services und Components debuggable kompiliert.
+Mit <strong>None</strong> wird die AutoDebug-Option entsprechend &quot;deaktiviert&quot; und nur die vorgenommen Änderungen (Compile Changes) werden normal/nicht debuggable kompiliert.</p>
 <h3 id="informationen">Informationen</h3>
 <p>Bei der Auswahl einer Version werden unter den Checkboxen einige Informationen ausgegeben. Diese können je nach Anwendungs-Fall variieren.</p>
 <h3 id="last-frameworkcompiler-succeeded">Last FrameworkCompiler succeeded</h3>

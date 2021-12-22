@@ -81,16 +81,35 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-42">Release-Information Framework Studio 4.2</h1>
 
-<h2 id="4223-fix-1-02122021">4.2.23 Fix 1 (02.12.2021)</h2>
+<h2 id="4224-23122021">4.2.24 (23.12.2021)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.2.23_Fix_1_Setup_x64</li>
+<li>FS_4.2.24_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
-<li>2021128590 - <strong>FS-IDE</strong>: Die Browser-Variante des HTML Clients funktioniert
-  weder im Development Broker noch in einer gepublishten Umgebung.</li>
+<li><p>2021118513 - <strong>IDE</strong>: Beim Ändern eines Query-JoinTypes in der Customization
+  kommt es zu einer Exception.</p>
+</li>
+<li><p>2021118541 - <strong>IDE</strong>: Wird ein zu langer Datenbank-Servername oder
+  Repository-Name verwendet, dann bricht der Start der IDE mit einer Exception
+  ab.</p>
+</li>
+<li><p>2021128590 - <strong>IDE</strong>: Die Browser-Variante des HTML Clients funktioniert weder
+  im Development Broker noch in einer gepublishten Umgebung.</p>
+</li>
+<li><p>2021128584 - <strong>Code-Generierung</strong>: Wird im Metadatentyp als Format-Pattern ein
+  Regulärer Ausdruck verwendet, dann wird dieser im generierten Code nicht
+  sauber escaped. In der Folge kann es zu Compile-Fehlern kommen.</p>
+</li>
+<li><p>2021128747 - <strong>HTML Client</strong>: Die ComboBox (ListValuesInput) reagiert nicht
+  auf Eingaben von Buchstaben zur Auswahl des Eintrags.</p>
+</li>
+<li><p>2021128773 - <strong>HTML Client</strong>: Editfields mit einer DataSource vom Typ
+  &quot;FSDateTime&quot; werfen beim Senden des Wertes zum Broker in gewissen Fällen
+  eine Exception.</p>
+</li>
 </ul>
 <h2 id="4223-26112021">4.2.23 (26.11.2021)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>

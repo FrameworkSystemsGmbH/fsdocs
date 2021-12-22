@@ -81,6 +81,72 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-44">Release-Information Framework Studio 4.4</h1>
 
+<h2 id="441-23122021">4.4.1 (23.12.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.4.1_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="kein-internet-explorer-11-mehr">Kein Internet Explorer 11 mehr</h4>
+<p>Der Internet Explorer 11 wird nicht mehr unterstützt.</p>
+<p>Folgende Features können nur noch mit aktuellen Browsern wie z.B. Edge, Chrome oder Firefox genutzt werden:</p>
+<ul>
+<li>Client Start Page</li>
+<li>Mit Framework Studio generierte Online-Hilfe</li>
+<li>Mobile Client</li>
+</ul>
+<h4 id="neuerungen">Neuerungen</h4>
+<h5 id="erweiterungen-im-dokumentations-editordocdocumentationeditormd">Erweiterungen im <a href="../doc/documentation/editor.html">Dokumentations-Editor</a></h5>
+<ul>
+<li><a href="../doc/documentation/editor.html#rechtschreibprüfung">Rechtschreibprüfung</a></li>
+<li>Das Einfügen von <a href="../doc/documentation/editor.html#link">Links</a> wurde überarbeitet</li>
+<li>Einfügen von <a href="../doc/documentation/editor.html#link">Url-Links</a> aus der Zwischenablage</li>
+<li>Einfügen von <a href="../doc/documentation/editor.html#bild-einbinden">Bildern</a> aus der Zwischenablage</li>
+<li>Der Tooltip kann direkt im <a href="../doc/documentation/editor.html#panel-tooltip">Editor</a> bearbeitet werden.</li>
+</ul>
+<h5 id="html-client-actions">HTML Client Actions</h5>
+<p>Folgende Actions werden nun vom HTML Client unterstützt:</p>
+<ul>
+<li>Beep</li>
+<li>BeepDouble</li>
+<li>BeepMultiple</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021128654 - <strong>Broker</strong>: Wird im Customizing-Package eine Developer-Lizenz
+  verwendet, dann werden die Lizenzen der Basis-Packages nicht ausgewertet.
+  Folglich werden alle Features freigeschaltet.</p>
+</li>
+<li><p>2021118528 - <strong>IDE</strong>: Im Login-Dialog kann man mit TAB nicht in die Combobox
+  <em>Auto Debug DLLs</em> springen.</p>
+</li>
+<li><p>2021118541 - <strong>IDE</strong>: Wird ein zu langer Datenbank-Servername oder
+  Repository-Name verwendet, dann bricht der Start der IDE mit einer Exception
+  ab.</p>
+</li>
+<li><p>2021128575 - <strong>IDE</strong>: Wenn versucht wird, in einer Dokumentation ein Hyperlink
+  einzufügen, muss dieser mit http:// beginnen und verbietet somit https://
+  Hyperlinks.</p>
+</li>
+<li><p>2021128588 - <strong>IDE</strong>: Beim Kopieren eines Component Properties wird die
+  Eigenschaft &quot;Autogenerate Membervariable&quot; nicht kopiert.</p>
+</li>
+<li><p>2021128680 - <strong>IDE</strong>: Wurden nach dem FrameworkCompiler Elemente eingecheckt,
+  dann werden diese anderen Benutzern bei Get Latest CheckIns ggf. nicht
+  angezeigt.</p>
+</li>
+<li><p>2021128584 - <strong>Code-Generierung</strong>: Wird im Metadatentyp als Format-Pattern ein
+  Regulärer Ausdruck verwendet, dann wird dieser im generierten Code nicht
+  sauber escaped. In der Folge kann es zu Compile-Fehlern kommen.</p>
+</li>
+<li><p>2021128747 - <strong>HTML Client</strong>: Die ComboBox (ListValuesInput) reagiert nicht
+  auf Eingaben von Buchstaben zur Auswahl des Eintrags.</p>
+</li>
+<li><p>2021128773 - <strong>HTML Client</strong>: Editfields mit einer DataSource vom Typ
+  &quot;FSDateTime&quot; werfen beim Senden des Wertes zum Broker in gewissen Fällen
+  eine Exception.</p>
+</li>
+</ul>
 <h2 id="440-10122021">4.4.0 (10.12.2021)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -93,9 +159,9 @@
 <li>FSCL_4.4.0_Setup_Msi_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <p>Die Neuerungen finden Sie unter <a href="neuheiten-4-4.html">Neuheiten 4.4</a></p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <p>In der Version 4.4 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-3.html#4310-26112021">Framework Studio 4.3.10</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

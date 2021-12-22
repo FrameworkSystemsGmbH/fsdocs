@@ -111,6 +111,17 @@
 <img src="media/documentation-mdt.png" alt="documentation-mdt.png"></p>
 <h2 id="arbeiten-mit-dem-editor">Arbeiten mit dem Editor</h2>
 <p>Der Dokumentationseditor ist ähnlich intuitiv bedienbar wie z.B. ein normaler Texteditor in Microsoft Word oder anderen Textverarbeitungsprogrammen. Es wird der Text markiert, auf den eine Formatierung angewendet werden soll und das jeweilige Icon in der Werkzeugleiste geklickt, um die Formatierung an- oder auszuschalten. Bei Textbausteinen wie Tabellen oder Listen wird der Cursor an die Stelle gesetzt, an der das gewünschte Element eingefügt werden soll.</p>
+<h3 id="rechtschreibprüfung">Rechtschreibprüfung</h3>
+<p>Beim bearbeiten eines Textes erfolgt eine automatische Rechtschreibprüfung.
+Als fehlerhaft erkannte Worte werden rot unterstrichen.</p>
+<p>Die Prüfung erfolgt an der angegebenen <strong>Language</strong>.
+Folgende Sprachen werden unterstützt:</p>
+<ul>
+<li>Deutsch (de)</li>
+<li>Englisch (en)</li>
+<li>Französisch (fr)</li>
+<li>Italienisch (it)</li>
+</ul>
 <h3 id="info-panel">Info Panel</h3>
 <p>Info Panel und Link zum Chapter Tree im Editor:
 <img src="media/editor_info_panel.png" alt="editor_info_panel.png"></p>
@@ -119,6 +130,8 @@
 <li>None: Zeigt nur den DocML-Editor für die ausgewählte Sprache.</li>
 <li>Preview: Zeigt zusätzlich zum DocML-Editor das Vorschaufenster an (wird automatisch aktiviert, wenn in der Werkzeugleiste geklickt wird).</li>
 <li>Other: Zeigt zusätzlich zum DocML-Editor einen zweiten DocML-Editor im Lesemodus an, um zeitgleich eine andere Sprache oder eine andere Dokumentation aus einem anderen Package bereitzustellen.</li>
+<li>Tooltip: Wenn eine Dokumentation an einem Control bearbeitet wird, gibt es mit diesem Radiobutton die Möglichkeit ein Panel anzuzeigen, in dem der Tooltip des aktuellen Controls bearbeitet werden kann.
+Wird keine Dokumentation eines Controls bearbeitet, ist dieser Radiobutton nicht sichtbar.</li>
 </ul>
 <p>Über den Link <strong>Open Documentation Tree</strong> kann aus jedem Editor heraus der Kapitel-Baum aufgerufen werden. Siehe <a href="chapter-tree.html">Chapter Tree</a>.</p>
 <h3 id="werkzeugleiste">Werkzeugleiste</h3>
@@ -187,11 +200,14 @@
 <h3 id="bild-einbinden">Bild einbinden</h3>
 <p>Sie erkennen <em>Bild einbinden</em> an einem <img src="../media/icon-bild.png" alt="icon-bild.png">-Icon.</p>
 <p>Öffnet einen Dialog zum Einbinden eines Bildes in die Dokumentation. Es können nur Bildressourcen aus Framework Studio in die Dokumentation eingebunden werden. Für Bilder von der Festplatte oder aus dem Internet wird eine entsprechende Bildressource angelegt.</p>
+<p>Sollte sich beim Öffnen des Dialoges ein Bild in der Zwischenablage befinden, wird automatisch die Option <strong>From Clipboard</strong> ausgewählt.</p>
 <p>Einfügen eines Bildes in die Dokumentation:</p>
 <p><img src="media/editor-bild-dialog.png" alt="editor-bild-dialog.png"></p>
 <p>Im Bereich <strong>Image Source</strong> muss zuerst ausgewählt werden, woher das einzubindende Bild stammt. Wenn das Bild schon als Ressource im Framework Studio verfügbar ist, kann diese aus der Baumansicht (<strong>Existing Resource</strong>) ausgewählt werden. Eine Vorschau des Bildes erscheint auf der rechten Seite.</p>
 <p>Es kann auch direkt ein Bild aus dem Internet eingebunden werden (<strong>From Url</strong>). Damit das Bild in der Dokumentation angezeigt wird, wenn beim Betrachten keine Internetverbindung besteht, muss dieses mit dem Button <strong>Load</strong> geladen werden. Danach erscheint das Bild in der Vorschau. Die Url des Bildes muss mit <strong>Fehler! Linkreferenz ungültig</strong> beginnen.</p>
 <p>Soll ein Bild von der Festplatte eingebunden werden, muss zuerst der Radiobutton <strong>From File</strong> aktiviert werden. Danach kann über den Button <strong>[…]</strong> ein Bild von der Festplatte gewählt werden.</p>
+<p>Bilder können auch direkt aus der Zwischenablage(<strong>From Clipboard</strong>) eingebunden werden.
+Im Feld <strong>Name</strong> wird der Name der neu anzulegenden Ressource angegeben.</p>
 <p>Im Bereich <strong>Attributes</strong> können die Anzeigeeigenschaften des einzubindenden Bildes verändert werden:</p>
 <h5 id="original-size"><strong>Original Size</strong></h5>
 <p>Verwendet in der Dokumentation die ursprüngliche Größe des Bildes in cm.</p>
@@ -229,9 +245,11 @@ Bild angelegt wird.</p>
 <h3 id="link">Link</h3>
 <p>Sie erkennen <em>Link</em> an einem <img src="../media/icon-link.png" alt="icon-link.png">-Icon.</p>
 <p>Öffnet einen Dialog zum Einfügen eines Querverweises oder eines Hyperlinks.</p>
+<p>Sollte sich beim Öffnen des Dialoges ein Link in der Zwischenablage befinden, wird dieser automatisch in das Textfeld <strong>Url</strong> eingefügt.</p>
 <p><img src="media/editor-link-dialog.png" alt="editor-link-dialog.png"></p>
 <p>Es kann im DocML sehr einfach auf ein anderes Kapitel (Formular oder Documentation-Element) verwiesen werden oder ein Hyperlink ins Internet bereitgestellt werden.</p>
-<p>Bei einem Querverweis auf ein Kapitel muss das entsprechende Form oder Documentation-Element aus der Baumansicht ausgewählt werden.</p>
+<p>Bei einem Querverweis auf ein Kapitel muss das entsprechende Form oder Documentation-Element in dem Textfeld <strong>Existing Documentation</strong> mithilfe von Autocomplete gesucht werden.
+Nach der Auswahl einer Dokumentation, wird die Caption(falls verfügbar) der ausgewählten Dokumentation, in der Sprache der Dokumentation, in die der Link eingefügt werden soll, eingefügt.</p>
 <p>Für einen Hyperlink ins Internet kann eine beliebige URL beginnend mit <strong>Fehler! Linkreferenz ungültig</strong> eingegeben werden.</p>
 <p>In der Textbox <strong>Text</strong> wird festgelegt, wie der Link in der Dokumentation angezeigt werden soll.</p>
 <h3 id="indexeintrag">Indexeintrag</h3>
@@ -280,6 +298,15 @@ Bild angelegt wird.</p>
 <h5 id="package"><strong>Package</strong></h5>
 <p>Mit dieser Combobox kann zwischen den Dokumentationen des Elementes in unterschiedlichen Packages gewählt werden.</p>
 <p>Mehr Informationen über Package-übergreifende Dokumentation und das Customizing befindet sich in den Kapiteln <a href="vererbung.html">Vererbung</a> und <a href="customizing.html">Customizing</a>.</p>
+<h2 id="panel-tooltip">Panel Tooltip</h2>
+<p>Wenn eine Dokumentation eines Controls bearbeitet wird, bietet der Editor die Möglichkeit, ein zusätzlichen Fenster-Bereich einzublenden, welches das Bearbeiten des Tooltips erleichtert.</p>
+<p><img src="media/editor-panel-tooltip.png" alt="editor-panel-other"></p>
+<p>Der Tooltip Text kann direkt im Tooltip Panel bearbeitet werden.</p>
+<p>Wird der Inhalt des Textfeldes bearbeitet, dann wird er <strong>fett</strong> gedruckt und der Tooltip direkt am Control überschrieben.
+Der Text des MLKey wird dadruch nicht verändert.
+Wenn man den kompletten Inhalt des Textfeldes löscht, dann wird wieder Text wieder aus dem MLKey bzw. der Basis gezogen.</p>
+<p>Mit dem Button <strong>[…]</strong> kann ein anderer MLKey ausgewählt werden.</p>
+<p>Mit einem Klick auf den blauen Link kann der momentan ausgewählte MLKey bearbeitet werden.</p>
 </article>
           </div>
           

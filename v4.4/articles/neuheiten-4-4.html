@@ -83,6 +83,14 @@
 
 <p>Informationen zu aktuellen Versionen und korrigierten Fehlern finden Sie in den <a href="release-4-4.html">Release-Informationen</a>.</p>
 <h2 id="neue-requirements">Neue Requirements</h2>
+<h4 id="kein-internet-explorer-11-mehr">Kein Internet Explorer 11 mehr</h4>
+<p>Der Internet Explorer 11 wird nicht mehr unterstützt.</p>
+<p>Folgende Features können nur noch mit aktuellen Browsern wie z.B. Edge, Chrome oder Firefox genutzt werden:</p>
+<ul>
+<li>Client Start Page</li>
+<li>Mit Framework Studio generierte Online-Hilfe</li>
+<li>Mobile Client</li>
+</ul>
 <h4 id="windows-client-betriebssysteme">Windows Client-Betriebssysteme</h4>
 <p>Am <a href="requirements.html#client-rechner">Client-</a> und <a href="requirements.html#entwicklungs-rechner">Entwicklungs-Rechner</a> wird nur noch <strong>Windows 10</strong> unterstützt.
 Ältere Windows-Versionen werden nicht mehr unterstützt.</p>
@@ -228,7 +236,8 @@ Dabei ist es nebensächlich, ob der Primary Key eine ROWID oder ein individuelle
 </li>
 <li><p>Im Package Manager ist es möglich <a href="../doc/package-manager/package-version.html#warnings">Warnings</a>, welcher der Compiler ignorieren soll, anzugeben.
 Des Weiteren kann auch das Level der Warnings angegeben werden.
-Die Einstellung ist ausschließlich am Default-Package (z.B. eNVenta)  möglich und wird an die Customizing-Packages vererbt.</p>
+Die Einstellung wird an die Customizing-Packages vererbt.
+Sie kann ausschließlich durch <em>Nissen &amp; Velten</em> am <em>eNVenta</em> Package (bzw. einem anderen Default-Package) geändert werden.</p>
 </li>
 <li><p>Im Publish, Run und Publish2go Wizard kann nun auch das Icon für die Anwendung gesetzt werden.</p>
 </li>
@@ -245,6 +254,22 @@ Die Einstellung ist ausschließlich am Default-Package (z.B. eNVenta)  möglich 
 <li><p>Es ist nun möglich, Grid-Columns per Action zu verschieben.
 Dafür gibt es zwei neue Methoden(<strong>MoveBefore</strong> / <strong>MoveAfter</strong>) an der <a class="xref" href="../api/FrameworkSystems.FrameworkControls.Actions.GridColumnControlAction.html">GridColumnControlAction</a>
 und zwei neue Methoden(<strong>InsertBefore</strong> / <strong>InsertAfter</strong>) an der <a class="xref" href="../api/FrameworkSystems.FrameworkControls.Actions.GridControlAction.html">GridControlAction</a>.</p>
+</li>
+<li><p>Der Text in einem <a href="../doc/documentation/editor.html">Dokumentations-Editor</a> wird jetzt auf Rechtschreibfehler überprüft.
+Gefundene Rechtschreibfehler werden rot unterstrichen.
+Es werden die Sprachen Deutsch (de), Englisch (en), Französisch (fr) und Italienisch (it) unterstützt.</p>
+</li>
+<li><p>Es ist nun möglich, Dokumentationen abhängig von den Lizenzeinstellungen zu exportieren.
+Dafür wurden neue Checkboxen im <a href="../doc/documentation/export-wizards.html#wizard-optionen">Export Wizard</a> hinzugefügt und die Parameter der <a href="../doc/fsconsole/fsconsole.html#uselicense">FSConsole</a> erweitert.</p>
+</li>
+<li><p>Das Einfügen von <a href="../doc/documentation/editor.html#link">Links</a> im <a href="../doc/documentation/editor.html">Dokumentations-Editor</a> wurde überarbeitet.
+Es kann nun mithilfe von Autocomplete nach existierenden Dokumentationen gesucht werden.</p>
+</li>
+<li><p>Es ist nun möglich, Url-Links aus der Zwischenablage mit STRG+V, Rechte-Maustaste-&gt;Edit-&gt;Paste oder dem <a href="../doc/documentation/editor.html#link">Link einbinden Dialog</a> im <a href="../doc/documentation/editor.html">Dokumentations-Editor</a> einzufügen.</p>
+</li>
+<li><p>Es ist nun möglich, Bilder aus der Zwischenablage mit STRG+V, Rechte-Maustaste-&gt;Edit-&gt;Paste oder dem <a href="../doc/documentation/editor.html#bild-einbinden">Bild einbinden Dialog</a> im <a href="../doc/documentation/editor.html">Dokumentations-Editor</a> einzufügen.</p>
+</li>
+<li><p>Es ist nun möglich, Tooltips im <a href="../doc/documentation/editor.html#panel-tooltip">Dokumentationsfenster</a> zu bearbeiten.</p>
 </li>
 </ul>
 </article>

@@ -309,6 +309,12 @@ Dieser darf für den Publish2Go keinen Inhalt haben.</p>
 </li>
 <li><p><strong>ExportDBTables</strong>: optional - sollen die Tabellen-Beschreibungen exportiert werden, dann muss <code>ExportDBTables=&quot;1&quot;</code> angegeben werden.</p>
 </li>
+<li><p><strong>UseLicense</strong>: optional - wenn dieser Parameter(<code>UseLicense=&quot;1&quot;</code>) gesetzt ist, wird die Runtime-Lizenz aus dem Setting verwendet, welches via <code>Setting=&quot;SETTING_NAME&quot;</code> übergeben wird.
+In der Folge wird nur der Teil der Dokumentation exportiert, der mit der Runtime-Lizenz sichtbar ist.</p>
+</li>
+<li><p><strong>Setting</strong>: erforderlich, wenn <code>UseLicense=&quot;1&quot;</code> gesetzt ist - Name des Settings.
+Dieses muss im Run-Wizard vorbereitet und abgespeichert werden.</p>
+</li>
 <li><p><strong>Args</strong>: optional - Weitere Kommandozeilen-Argumente, die zusätzlich übergeben werden sollen.
 So können zukünftige Features integriert werden.</p>
 <p>Wie beim <a href="#konten-batch">Konten <code>&lt;Batch&gt;</code></a> können auch Args in Form eines XML-Knoten angegeben werden.</p>

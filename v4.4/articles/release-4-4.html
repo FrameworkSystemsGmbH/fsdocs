@@ -81,6 +81,73 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-44">Release-Information Framework Studio 4.4</h1>
 
+<h2 id="442-28012022">4.4.2 (28.01.2022)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.4.2_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Am <a class="xref" href="../api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.html"><strong>cGlobal</strong></a> wurde ein neuer EntryPoint geschaffen, mit dem man Lizenz-Freigabe programmatisch einschränken kann, obwohl die Lizenz-Datei dies erlaubt.</li>
+<li>Es ist nun möglich, <a href="../doc/documentation/docml.html#headline">Headlines</a> im <a href="../doc/documentation/editor.html">Dokumentationsfenster</a> zu nutzen.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2022018908 - <strong>JavaClient</strong>: Wird per Action ein TabbedWindow (oder sein
+  Parent) ausgeblendet, dann feuert das OnSelectedTabPageChange Event. Findet
+  das beim Öffnen eines Forms statt, dann kann das zur Folge haben, dass das
+  Form sich nicht im Vordergrund öffnet.</p>
+</li>
+<li><p>2022018909 - <strong>Java-Client</strong>: Beim Öffnen eines Forms wird in der Java-Console
+  ggf. eine Meldung
+  &quot;<em>FrameworkSystems.FSJavaClient.DevControl.LayoutComponentDefault cannot be
+  cast to FrameworkSystems.FSJavaClient.DevControl.DevControlTabPage</em>&quot;
+  ausgegeben.</p>
+</li>
+<li><p>2022018927 - <strong>Java-Client</strong>: Beim Ausführen der Action LoadGridLayout kann es
+  bei großen Grids vorkommen, dass nicht alle Daten verarbeitet werden.</p>
+</li>
+<li><p>2018043231 - <strong>IDE</strong>: Beim Paste eines Metadatentyps zeigt die Prüfung keine
+  Konflikte an, wenn der Basis-Metadatentyp nicht existiert. Beim Einfügen
+  wird dann eine Exception ausgelöst.</p>
+</li>
+<li><p>2021128765 - <strong>IDE</strong>: Beim Import einer TMX-Datei ins Wörterbuch werden
+  ISO-Sprach-Codes in Großbuchstaben nicht erkannt.</p>
+</li>
+<li><p>2021128775 - <strong>IDE</strong>: Wird im Code-Editor vor einer geschweiften Klammer in
+  einem SingleLine-Kommentar ein &quot;.&quot; gesetzt, aktiviert sich die Intellisense.</p>
+</li>
+<li><p>2022018943 - <strong>IDE</strong>: Nach dem Kopieren und Einfügen eines CustomControls kann
+  das Zielform nicht mehr compiliert werden.</p>
+</li>
+<li><p>2022018947 - <strong>IDE</strong>: Wenn im Dokumentations-Editor sehr große Dokumentationen
+  bearbeitet werden, kann es zum zeitweisen Einfrieren des Editors kommen.</p>
+</li>
+<li><p>2022018949 - <strong>IDE</strong>: GAC-Referenzen werden nicht zu der zu kompilierenden
+  Klasse hinzugefügt, wodurch der Compile mit Errors abbricht.</p>
+</li>
+<li><p>2022018881 - <strong>Doku-System</strong>: Die Checkbox &quot;Include DB-Tables&quot; beim
+  HTML-Export hat keinen Effekt. Die Tabellenbeschreibungen werden nicht
+  exportiert.</p>
+</li>
+<li><p>2022018882 - <strong>Doku-System</strong>: Die Tabellenbeschreibungen beim HTML-Export
+  werden unsortiert ausgegeben.</p>
+</li>
+<li><p>2022018856 - <strong>Framework</strong>: AUHelper.GetAccessUnitInfos() verursacht
+  NullReferenceException.</p>
+</li>
+<li><p>2021128815 - <strong>HTML Client</strong>: Das Picture Control wird nicht upgedated, wenn
+  die DataSource auf &quot;null&quot; gesetzt wird.</p>
+</li>
+<li><p>2021128823 - <strong>HTML Client</strong>: Die Frequenz der Beep-Action ist hart auf 1000Hz
+  festgelegt und ignoriert damit den übergebenen Wert.</p>
+</li>
+<li><p>2022018973 - <strong>PackageManager</strong>: Muss ein importiertes Package aufgrund eines
+  Service Release kompiliert werden, dann kann es vorkommen, dass die MLKeys
+  dieses Packages nicht berücksichtigt werden.</p>
+</li>
+</ul>
 <h2 id="441-23122021">4.4.1 (23.12.2021)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -95,7 +162,7 @@
 <li>Mit Framework Studio generierte Online-Hilfe</li>
 <li>Mobile Client</li>
 </ul>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <h5 id="erweiterungen-im-dokumentations-editordocdocumentationeditormd">Erweiterungen im <a href="../doc/documentation/editor.html">Dokumentations-Editor</a></h5>
 <ul>
 <li><a href="../doc/documentation/editor.html#rechtschreibprüfung">Rechtschreibprüfung</a></li>
@@ -111,7 +178,7 @@
 <li>BeepDouble</li>
 <li>BeepMultiple</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021128654 - <strong>Broker</strong>: Wird im Customizing-Package eine Developer-Lizenz
   verwendet, dann werden die Lizenzen der Basis-Packages nicht ausgewertet.
@@ -159,9 +226,9 @@
 <li>FSCL_4.4.0_Setup_Msi_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-1">Neuerungen</h4>
+<h4 id="neuerungen-2">Neuerungen</h4>
 <p>Die Neuerungen finden Sie unter <a href="neuheiten-4-4.html">Neuheiten 4.4</a></p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <p>In der Version 4.4 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-3.html#4310-26112021">Framework Studio 4.3.10</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

@@ -142,7 +142,7 @@ Gibt an, auf welchen Server das Repository abgelegt ist bzw. abgelegt werden sol
 <p>In diesen Feldern kann das Passwort des Benutzers festgelegt oder geändert werden.</p>
 <p>Um die Änderungen zu speichern, drücken Sie den Button <img src="../media/icon-save.png" alt="save"> Save.</p>
 <h4 id="frameworkcompiler-mode">FrameworkCompiler Mode</h4>
-<p>Ist die Checkbox gesetzt, arbeitet der angegebene Benutzer wie der <strong>FrameworkCompiler</strong> mit dem Unterschied, dass dieser Benutzer auch auschecken darf. Das bedeutet, dass dieser Benutzer beim Kompilieren den <strong>Saved Code</strong> und die <strong>Assemblies</strong> für den <strong>FrameworkCompiler</strong> in das Repository zurück schreiben darf.</p>
+<p>Ist die Checkbox gesetzt, arbeitet der angegebene Benutzer wie der <strong>FrameworkCompiler</strong> mit dem Unterschied, dass dieser Benutzer auch auschecken darf. Das bedeutet, dass dieser Benutzer beim Kompilieren den <strong>Saved Code</strong> und die <strong>Assemblies</strong> für den <strong>FrameworkCompiler</strong> in das Repository zurückschreiben darf.</p>
 <p>Der <strong>FrameworkCompiler Mode</strong> wurde für folgende Anwendungsfälle konzipiert:</p>
 <ol>
 <li>Durchführen eines Kompiliervorgangs als FrameworkCompiler mit der direkten Möglichkeit, Korrekturen durchführen zu können – auch in Kombination mit dem Compile Manager (<a href="../ide/compile-menu.html#compile-manager">Compile Manager</a>). Das ist z.B. bei einem Package-Update sehr vorteilhaft.</li>
@@ -153,8 +153,11 @@ Gibt an, auf welchen Server das Repository abgelegt ist bzw. abgelegt werden sol
 <li>Es sollte nur einen FCUser geben. Mit diesem können Sie sich aber durchaus zur selben Zeit an verschiedenen Package-Versionen anmelden.</li>
 <li>Wenn mit einem FCUser an einer Package-Version gearbeitet wird, dann sollte dies der einzige Benutzer sein, der an dieser Package-Version arbeitet. Weil der FCUser generierten Code zurückschreibt, der sich ggf. auch auf von ihm ausgecheckte Elemente bezieht, kann das für andere Benutzer zu Fehlern führen.</li>
 <li>In der Zeit, in der mit einem FCUser gearbeitet wird, darf kein FrameworkCompiler laufen. Andernfalls kann es dazu führen, dass sich FCUser und FrameworkCompiler die generierten Codes und Assemblies gegenseitig zerstören.</li>
-<li>Am Ende der Arbeit sollten wieder alle Elemente eingecheckt werden. FrameworkStudio gibt beim Beenden eine entsprechende Warnmeldung aus.</li>
+<li>Am Ende der Arbeit sollten wieder alle Elemente eingecheckt und der FrameworkCompiler-Vorgang abgeschlossen werden. FrameworkStudio gibt beim Beenden eine entsprechende Warnmeldung aus.</li>
 </ol>
+<p>Beenden Sie FrameworkStudio als angemeldeter FCUser ohne &quot;Complete FrameworkCompiler&quot;, wird folgende Warnung angezeigt.</p>
+<p><img src="media/fcuser-close-dialog.png" alt="fcuser-close-dialog"></p>
+<p>Diese Meldung soll darauf hinweisen, dass der FCUser entgegen unserer Anwendungsfälle verwendet wird. (Diese Warnung gibt <strong>keine</strong> Auskunft über etwaige Fehler beim Complete FrameworkCompiler.)</p>
 <h3 id="benutzer-löschen">Benutzer löschen</h3>
 <p>Um einen Benutzer zu löschen, wird dieser markiert und anschließend der Button   (Delete) gedrückt. Das Löschen müssen Sie jetzt noch mit dem Button <img src="../media/icon-save-all.png" alt="save-all"> (Save All) bestätigen.</p>
 <div class="WARNING"><h5>Warning</h5><p>Ein Benutzer kann nur dann gelöscht werden, wenn er noch keine Elemente bearbeitet hat. Sollten Sie versuchen einen Benutzer zu löschen, der bereits gearbeitet hat, erscheint eine Fehlermeldung.</p>

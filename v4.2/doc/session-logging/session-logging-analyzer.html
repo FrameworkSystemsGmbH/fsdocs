@@ -120,7 +120,22 @@ Das betrifft z.B.</p>
 <li>Name des Benutzers (UserName, ClientUser)</li>
 <li>Name und IP des Client-Rechners (ClientMachine)</li>
 </ul>
-</article>
+<h2 id="löschen-der-daten">Löschen der Daten</h2>
+<p>Im Laufe der Zeit sammeln sich in der Tabelle <a href="../tables/tblrep_sessionlogging.html">tblRep_SessionLogging</a> sehr viele Datensätze an.</p>
+<div class="TIP"><h5>Tip</h5><p>Grundsätzlich können auch ältere Daten interessante Informationen enthalten, wenn z.B. beurteilt werden soll, wie sich die Performance des Systems im Laufe der Zeit entwickelt hat.
+Vor dem endgültigen Löschen aus der Datenbank sollte daher ein Export vorgenommen werden (siehe oben).</p>
+</div>
+<p>Alte Datensätze müssen direkt per SQL auf der Datenbank gelöscht werden.</p>
+<p>Das folgende SQL-Statement löscht Sätze, die älter sind als 6 Monate.
+Es werden auf einen Schlag nur 1.000 Zeilen gelöscht, weil ansonsten die Transaktion zu groß und die Tabelle zu lange für laufende Sessions blockiert werden könnte.
+Das Statement muss so oft ausgeführt werden, bis keine Sätze mehr gelöscht wurden.</p>
+<p>Die Anzahl der Monate und die Anzahl der zu löschenden Zeilen kann bei Bedarf angepasst werden.</p>
+<pre><code class="lang-SQL">-- SQL-Server:
+DELETE TOP (1000) FROM tblRep_SessionLogging WHERE SL_SessionStart &lt; DATEADD(month, DATEDIFF(month, 0, getdate()) - 6, 0);
+
+-- Oracle:
+DELETE FROM tblRep_SessionLogging WHERE SL_SessionStart &lt; ADD_MONTHS(TRUNC(SYSDATE,&#39;MM&#39;), -6) AND ROWNUM &lt;= 1000;
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">

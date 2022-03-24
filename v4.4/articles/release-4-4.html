@@ -81,6 +81,64 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-44">Release-Information Framework Studio 4.4</h1>
 
+<h2 id="444-25032022">4.4.4 (25.03.2022)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.4.4_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Der SpellChecker für das Dokumentationssystem kann nun im Options-Dialog deaktiviert werden.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2022029183 - <strong>Broker</strong>: Die Properties MainMemorySortingThreshold,
+  TransferStartupRowCount, TransferStartupNodeRowCount und ListSortOrder
+  verhalten sich unterschiedlich, je nachdem ob ihr Wert aus der Basis stammt.</p>
+</li>
+<li><p>2022029176 - <strong>Package-Manager</strong>: Wird im Package-Manager mit der Version 4.4
+  eine Package-Version mit einer älteren Version (z.B. FS 4.2) gelöscht, dann
+  werden Context-Versionen nicht berücksichtigt. Dadurch wird die
+  Package-Hierarchie zerstört. Weil sich das nicht mehr lösen lässt, muss das
+  Repository-Backup zurück gespielt werden.</p>
+</li>
+<li><p>2022029237 - <strong>Package-Manager</strong>: Nach dem ersten Import eines
+  Customizing-Packages fehlt die Beziehung zu den Basis-Workspaces. In der
+  Folge treten Exceptions auf. Das Package muss ein weiteres mal importiert
+  werden.</p>
+</li>
+<li><p>2022039432 - <strong>Package-Manager</strong>: Wird ein importiertes Package compiliert,
+  weil sich der Service-Release-Stand eines Basis-Packages geändert hat, dann
+  werden in diesem Package die Ressourcen nicht compiliert. Dadurch werden
+  MLKeys, welche im Basis-Package im Service-Release hinzugefügt wurden nicht
+  erkannt. Die Folge sind ggf. Compile-Fehler in diesem Package.</p>
+</li>
+<li><p>2022039447 - <strong>Package-Manager</strong>: Wird aus dem Package-Manager heraus der
+  Runtime-License-Manager geöffnet, dann werden bei einer
+  &quot;Context&quot;-Package-Hierarchie nicht alle Packages angezeigt.</p>
+</li>
+<li><p>2022029238 - <strong>IDE</strong>: Bei einem neuen Customizing-Package, bei dem noch keine
+  eigenen Components existieren, gibt es Compile-Errors, wenn man die
+  Interfaces mit DebugAll compiliert.</p>
+</li>
+<li><p>2022039298 - <strong>IDE</strong>: Beim Schreiben im Dokumentations-Editor kann ein
+  Deadlock entstehen.</p>
+<div class="NOTE"><h5>Note</h5><p>Der Fehler ist korrigiert. Dennoch wurde vorsorglich die Rechtschreibprüfung
+im Dokumentations-Editor per Default deaktiviert. Bei Bedarf kann sie über
+die Options aktiviert werden.<br>
+Wenn der Deadlock nach weiteren Tests nicht mehr auftritt, dann wird die
+Rechtschreibprüfung in der kommenden Version wieder aktiviert.</p>
+</div>
+</li>
+<li><p>2022039391 - <strong>IDE</strong>: Wird in der Dokumentation eines Controls eine Headline
+  hinzugefügt, kommt es beim Rendern des Chapters zu einer Unhandled
+  Exception.</p>
+</li>
+<li><p>2022039452 - <strong>RuntimeAdministration</strong>: User Passwort wird bei Änderung der
+  Role-Zuweisung auf einen falschen Wert gesetzt.</p>
+</li>
+</ul>
 <h2 id="443-25022022">4.4.3 (25.02.2022)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -100,12 +158,12 @@ dem nächsten Patchday eine Korrektur geben.</p>
 </div>
 </li>
 </ul>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <ul>
 <li>Die Anmeldung mit dem <code>FrameworkAdministrator</code> an der IDE zur User-Verwaltung wurde entfernt. Die User-Verwaltung kann nun ausschließlich über den Package Manager im Menü <code>Tools -&gt; Manage Users</code> aufgerufen werden.</li>
 <li>In der IDE werden noch nicht abgespeicherte Tabs mit einem Stern <code>*</code> gekennzeichnet.</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022029190 - <strong>Java-Client</strong>: Alle Jar-Dateien müssen neu signiert werden,
   weil das Java-Zertifikat widerrufen wurde.</p>
@@ -154,12 +212,12 @@ hat. Er war seit 05.2020 aktiv.</p>
 <li>FS_4.4.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-1">Neuerungen</h4>
+<h4 id="neuerungen-2">Neuerungen</h4>
 <ul>
 <li>Am <a class="xref" href="../api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.html"><strong>cGlobal</strong></a> wurde ein neuer EntryPoint geschaffen, mit dem man Lizenz-Freigabe programmatisch einschränken kann, obwohl die Lizenz-Datei dies erlaubt.</li>
 <li>Es ist nun möglich, <a href="../doc/documentation/docml.html#headline">Headlines</a> im <a href="../doc/documentation/editor.html">Dokumentationsfenster</a> zu nutzen.</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022018908 - <strong>JavaClient</strong>: Wird per Action ein TabbedWindow (oder sein
   Parent) ausgeblendet, dann feuert das OnSelectedTabPageChange Event. Findet
@@ -229,7 +287,7 @@ hat. Er war seit 05.2020 aktiv.</p>
 <li>Mit Framework Studio generierte Online-Hilfe</li>
 <li>Mobile Client</li>
 </ul>
-<h4 id="neuerungen-2">Neuerungen</h4>
+<h4 id="neuerungen-3">Neuerungen</h4>
 <h5 id="erweiterungen-im-dokumentations-editordocdocumentationeditormd">Erweiterungen im <a href="../doc/documentation/editor.html">Dokumentations-Editor</a></h5>
 <ul>
 <li><a href="../doc/documentation/editor.html#rechtschreibprüfung">Rechtschreibprüfung</a></li>
@@ -245,7 +303,7 @@ hat. Er war seit 05.2020 aktiv.</p>
 <li>BeepDouble</li>
 <li>BeepMultiple</li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021128654 - <strong>Broker</strong>: Wird im Customizing-Package eine Developer-Lizenz
   verwendet, dann werden die Lizenzen der Basis-Packages nicht ausgewertet.
@@ -293,9 +351,9 @@ hat. Er war seit 05.2020 aktiv.</p>
 <li>FSCL_4.4.0_Setup_Msi_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-3">Neuerungen</h4>
+<h4 id="neuerungen-4">Neuerungen</h4>
 <p>Die Neuerungen finden Sie unter <a href="neuheiten-4-4.html">Neuheiten 4.4</a></p>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <p>In der Version 4.4 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-3.html#4310-26112021">Framework Studio 4.3.10</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

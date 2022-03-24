@@ -124,6 +124,13 @@
 des statischen Caches aufgerufen, um den gewünschten Arbeitsmodus des statischen Caches zu ermitteln.
 Standardwert ist <a class="xref" href="FrameworkSystems.FrameworkBase.StaticCacheMode.html#FrameworkSystems_FrameworkBase_StaticCacheMode_Broker">Broker</a>.</p>
 </p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalGetSubreportDirectory.html#FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_GlobalGetSubreportDirectory">GlobalGetSubreportDirectory()</a></h4>
+    <section><p><p>Diese Methode wird beim Druck eines externen, verlinkten Subreports aufgerufen, falls es sich um einen DevExpress-Report handelt.
+Hierbei wird davon ausgegangen, dass der fragliche Subreport über einen relativen Pfad referenziert ist.</p>
+<p>Dies ist nützlich, um z.B. im Customizing eine Umleitung auf die eigenen Subreports zu erzwingen.</p>
+<p>Falls keine passende Datei im angegebenen Pfad zu finden ist, wird auf <see cref="!:DevExpress.XtraReports.Configuration.Settings.Default.StorageOptions.RootDirectory"></see> zurückgegriffen.
+Diese Einstellung verweist standardmäßig auf das in der Anwendungskonfiguration angegebene Reportverzeichnis: <see cref="!:FrameworkSystems.FrameworkBase.Configuration.Application.ApplicationConfig.Get.ReportDirectory"></see>.</p>
+</p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.GlobalWhereStaticCache.html#FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_GlobalWhereStaticCache_FrameworkSystems_FrameworkBase_IStaticCacheObject_">GlobalWhereStaticCache(IStaticCacheObject)</a></h4>
     <section><p><p>Diese Methode wird von den Statischen Caches aufgerufen,
 um abhängig vom Global Datensätze generell filtern zu können.
@@ -132,7 +139,10 @@ Dieser Einsprungpunkt wird nur durchlaufen, wenn die Methode
 den Wert <a class="xref" href="FrameworkSystems.FrameworkBase.StaticCacheMode.html#FrameworkSystems_FrameworkBase_StaticCacheMode_Broker">Broker</a> zurück gegeben hat.&quot;/&gt;</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.OnLicenseGranted.html#FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_OnLicenseGranted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit_FrameworkSystems_FrameworkBase_AUPermissionType_">OnLicenseGranted(AccessUnit, AUPermissionType)</a></h4>
-    <section><p></section>
+    <section><p><p>Mit diesem EntryPoint kann eine Lizenz-Freigabe programmatisch eingeschränkt werden.
+Diese Methode wird aufgerufen, wenn <a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.LicenseGranted.html#FrameworkSystems_FrameworkBase_AccessControl_AUHelper_LicenseGranted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit_">LicenseGranted(AccessUnit)</a> aufgerufen
+wird und die verwendete Lizenz-Datei den Zugriff auf die AccessUnit erlaubt.</p>
+</p></section>
   
 </article>
           </div>

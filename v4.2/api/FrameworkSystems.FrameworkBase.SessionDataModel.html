@@ -5,9 +5,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Aktuelle Installations-Pakete </title>
+    <title>Namespace FrameworkSystems.FrameworkBase.SessionDataModel
+   </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Aktuelle Installations-Pakete ">
+    <meta name="title" content="Namespace FrameworkSystems.FrameworkBase.SessionDataModel
+   ">
     <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -78,76 +80,24 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-<h1 id="aktuelle-installations-pakete">Aktuelle Installations-Pakete</h1>
-
-<p>In dieser Liste sind alle aktuellen verfügbaren Installations-Pakete aufgeführt.</p>
-<table>
-<thead>
-<tr>
-<th>Paket</th>
-<th>Version</th>
-<th>Name der Zip-Datei</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Framework Studio IDE</td>
-<td><strong>4.2</strong>.27</td>
-<td>FS_4.2.27_Setup_x64</td>
-</tr>
-<tr>
-<td><a href="requirements-package.html">Requirements-Paket</a> 32 Bit</td>
-<td><strong>4.2</strong>.16</td>
-<td>FS_4.2.16_Requirements_x86</td>
-</tr>
-<tr>
-<td><a href="requirements-package.html">Requirements-Paket</a> 64 Bit</td>
-<td><strong>4.2</strong>.16</td>
-<td>FS_4.2.16_Requirements_x64</td>
-</tr>
-<tr>
-<td>Runtime Administration</td>
-<td><strong>4.2</strong>.0</td>
-<td>FS_4.2.0_RuntimeAdministration</td>
-</tr>
-<tr>
-<td>Authentication-Service</td>
-<td><strong>4.2</strong>.20</td>
-<td>FS4.2.20_AuthService</td>
-</tr>
-<tr>
-<td><a href="../doc/print-server/installation.html">Print-Service</a></td>
-<td><strong>4.2</strong>.18</td>
-<td>FS4.2.18_PrintService</td>
-</tr>
-<tr>
-<td>FSClient Launcher 32 Bit</td>
-<td><strong>4.2</strong>.16</td>
-<td>FSCL_4.2.16_Setup_x86</td>
-</tr>
-<tr>
-<td>FSClient Launcher 64 Bit</td>
-<td><strong>4.2</strong>.16</td>
-<td>FSCL_4.2.16_Setup_x64</td>
-</tr>
-<tr>
-<td>FSClient Launcher 32 Bit MSI-Installer</td>
-<td><strong>4.2</strong>.16</td>
-<td>FSCL_4.2.16_Setup_Msi_x86</td>
-</tr>
-<tr>
-<td>FSClient Launcher 64 Bit MSI-Installer</td>
-<td><strong>4.2</strong>.16</td>
-<td>FSCL_4.2.16_Setup_Msi_x64</td>
-</tr>
-<tr>
-<td>Runtime Supervisor</td>
-<td><strong>4.0</strong>.14</td>
-<td>RS_4.0.14_Setup_x64</td>
-</tr>
-</tbody>
-</table>
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.SessionDataModel">
+  
+  <h1 id="FrameworkSystems_FrameworkBase_SessionDataModel" data-uid="FrameworkSystems.FrameworkBase.SessionDataModel" class="text-break">Namespace FrameworkSystems.FrameworkBase.SessionDataModel
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="markdown level0 remarks"></div>
+    <h3 id="interfaces">Interfaces
+  </h3>
+      <h4><a class="xref" href="FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData.html">ISessionData</a></h4>
+      <section><p>Mithilfe dieser Schnittstelle können über <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.html">IGlobalObjects</a> am Broker verschlüsselte Daten gespeichert werden.
+Die Speicherung der Daten erfolgt im Runtime-Repository in der Tabelle <a href="../doc/tables/tblrep_sessiondata.html">tblRep_SessionData</a>.</p>
+<p>Der Kontext dieser Daten ist der Client, unabhängig vom Benutzer.
+So können z.B. Login-Informationen gespeichert werden, sodass sich der Benutzer bei einem wiederholten Start der Anwendung nicht erneut anmelden muss.</p>
+<p>Der Schlüssel für die Verschlüsselung wird mit einer ID versehen und an den Client geschickt.
+Der Broker/Server ist damit nicht in der Lage, die gespeicherten Daten ohne Hilfe eines Clients zu entschlüsseln.</p>
+<p>Der Zugriff auf diese Schnittstelle erfolgt über das GlobalObject Property <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SessionData.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SessionData">SessionData</a>.</p>
+</section>
 </article>
           </div>
           

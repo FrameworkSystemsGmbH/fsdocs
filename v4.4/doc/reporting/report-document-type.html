@@ -84,26 +84,26 @@
 <p><strong>Report Document Types</strong> stellen die Verbindung zwischen den Components und den Reports dar.
 Sie definieren, was für Daten in welchem Report ausgegeben werden. Ein Report Document Type enthält eine Angabe, welche Components ausgedruckt werden sollen und welche Reports dafür zur Verfügung stehen.
 Diese <strong>Report Document Types</strong> können später in Forms verwendet werden.</p>
-<p><strong>Report-Document Types</strong> sind an dem <img src="media/report-icon.png" alt="rpt-icon">– Icon zu erkennen.</p>
+<p><strong>Report Document Types</strong> sind an dem <img src="media/report-icon.png" alt="rpt-icon">– Icon zu erkennen.</p>
 <h2 id="erstellen-bearbeiten-und-löschen-von-report-document-types">Erstellen, bearbeiten und löschen von Report Document Types</h2>
-<p>Sie erstellen einen neuen Report Document Type, indem Sie in der Registerkarte <strong>Namespaces</strong> den Namespace auswählen, in dem der Report Document Type abgelegt werden soll.</p>
+<p>Sie erstellen einen neuen Report Document Type, indem Sie in der Registerkarte <strong>Namespaces</strong> den Namespace auswählen, in welchem der Report Document Type abgelegt werden soll.</p>
 <p>Mit dem Button <img src="../media/button-new.png" alt="new-button">(<strong>New</strong>) und dem Eintrag <strong>ReportDocumentType</strong> aus dem Menü wird im markierten Namespace ein neuer Report Document Type angelegt.
-Dieser wird auch gleich geöffnet.
-Direkt nach dem Anlegen des Report Document Types steht der Cursor in dem sich öffnenden Designer auf dem Feld <strong>Name</strong>, wo Sie gleich den Namen eingeben können.</p>
-<p>Es wird empfohlen, den Namen mit <strong>rpt</strong> zu beginnen.</p>
+Dieser wird auch gleichzeitig geöffnet.
+Direkt nach dem Anlegen des Report Document Types steht der Cursor in dem sich öffnenden Designer auf dem Feld <strong>Name</strong>, wo Sie den Namen eingeben können.</p>
+<p>Es wird empfohlen den Namen mit <strong>rpt</strong> zu beginnen.</p>
 <p>Löschen können Sie einen Report Document Type mit dem Button <img src="../media/button-delete.png" alt="delete-button"> (<strong>Delete</strong>).
 Sie müssen dazu den gewünschten Report Document Type im Namespace-Baum markiert haben.
 Es gibt auch im Kontext-Menü den Eintrag <strong>Delete</strong>.
 Der Löschvorgang wird erst im Repository wirksam, wenn Sie den Button <img src="../media/button-save-all.png" alt="saveall-button"> (<strong>Save All</strong>) drücken.</p>
 <h2 id="datasource">DataSource</h2>
 <p>Unter Datasource werden die Components angegeben, die in einem Report ausgegeben werden sollen.
-Es ist möglich, mehrere Components (Collections) aus unterschiedlichen Namespaces einzubinden.</p>
+Es können mehrere Components (Collections) aus unterschiedlichen Namespaces eingebunden werden.</p>
 <p>Jede Component wiederum kann für mehrere Reports als Datasource angegeben werden.</p>
 <p><img src="media/report-document-type-data-source.png" alt="Report Document Type – Registerkarte DataSource"></p>
 <p>Mit dem Button <strong>Add</strong> wird ein neuer Eintrag in der Liste erstellt.
 In der Combobox <strong>Datatype</strong> können Sie angeben, welche Component / Collection verwendet werden soll.
 Im Feld <strong>Name</strong> können Sie dem Eintrag einen Namen geben.
-Dieser wird anhand des ausgewählten Datentyps mit einem Standard-Namen vorbelegt.</p>
+Dieser wird anhand des ausgewählten Datentyps mit einem Standardnamen vorbelegt.</p>
 <p>Diese Einträge sind sozusagen die Properties des Reports.
 Diese Properties müssen später beim Druck mit Werten gefüllt werden.</p>
 <p>Wenn Sie Components oder Collections eingebunden haben, können Sie diese aufklappen und die Properties der Component / Collection werden angeboten.
@@ -111,7 +111,7 @@ Sind diese Properties ebenfalls Components, können diese erneut aufgeklappt wer
 <h4 id="xsd-datei">XSD-Datei</h4>
 <div class="WARNING"><h5>Warning</h5><p>Dieses Kapitel ist nur für Crystal Reports relevant. DevExpress XtraReports bindet direkt an die Objekte der Datenquelle, weshalb keine Umwege über die XSD gefahren werden.</p>
 </div>
-<p>Am nun aufgeklappten Baum können sie angeben, welche Properties und Komponenten in die XSD-Datei aufgenommen werden sollen.
+<p>Am nun aufgeklappten Baum kann angegeben werden, welche Properties und Komponenten in die XSD-Datei aufgenommen werden sollen.
 Dazu müssen Sie die Checkbox an dem entsprechenden Eintrag setzen.</p>
 <div class="NOTE"><h5>Note</h5><p>Ein DevExpress Report hat <strong>immer</strong> Zugriff auf <strong>alle</strong> Komponenten am Report Document Type und dessen Properties, ob die Checkbox im Einzelfall aktiviert ist oder nicht. Hierzu wird in jede verwendete Component ein &#39;<em>KomponentenName</em>_Rptx&#39;-Interface generiert.</p>
 </div>
@@ -124,7 +124,7 @@ Der Name setzt sich folgendermaßen zusammen: Namespaces.rptXXX.xsd.</p>
 <p>Zum Einstellen des Pfades siehe Kapitel <strong>Code-Builder / Applications</strong> (<a href="../ide/application.html">Application</a>).</p>
 <p>Beim Druck werden die kompletten Components / Collections an den Report Document Type übergeben.
 Es werden aber nur die ausgewählten Daten in die XSD weitergegeben.
-Umso größer die Listen, desto wichtiger für die performance ist es, dass nur die Daten übergeben werden, die wirklich benötigt werden.</p>
+Umso größer die Listen, desto wichtiger für die Performance ist es, dass nur die Daten übergeben werden, die wirklich benötigt werden.</p>
 <p>Crystal Reports nutzt die übergebene XSD-Datei eigenständig, um den Report mit Daten zu füllen.</p>
 <h2 id="report-files">Report Files</h2>
 <p>Auf der Registerkarte Report Files können dem Report Document Type mehrere Reports zugewiesen werden. Diese beinhalten die tatsächlichen Dokumente (jeweils 0 bis 1 Crystal und 0 bis 1 DevExpress).</p>
@@ -142,7 +142,6 @@ Sie hat Einfluss darauf, was die Methode ReportDocument.<a class="xref" href="..
 <p>Der Button <strong>Choose File</strong> öffnet einen Dateiauswahl-Dialog, in dem Sie eine bestehende Report-Datei zuweisen können.</p>
 <p>Mit dem Button <strong>New Report</strong> wird ein neuer, leerer Report erstellt und zugewiesen.</p>
 <p>Mit dem Button <strong>Reset File</strong> wird eine einzelne Report-Datei aus einem Report gelöscht. Der Eintrag im Report Document Type und die etwaige andere Report-Datei im selben Eintrag bleiben hierbei unverändert bestehen.</p>
-<p>Mit dem Button <strong>Convert to DevExpress</strong> wird die Konvertierungsroutine gestartet.</p>
 <h4 id="caption">Caption</h4>
 <p>Im Report Document Type können Sie für Crystal Reports lokalisierte Bezeichnungen (Captions) hinterlegen, also die Bezeichnung mehrsprachig pflegen.
 Diese Captions können zur Laufzeit ausgewertet werden, um z.B. im Druck-Dialog bei der Auswahl der unterschiedlichen Report-Varianten einen sprechenden Text auszugeben.</p>

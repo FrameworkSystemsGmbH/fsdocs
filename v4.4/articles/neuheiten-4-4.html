@@ -128,6 +128,17 @@ Debug-Informationen, die vom FrameworkCompiler erzeugt wurden, zeigten immer auf
 Des Weiteren kann es sein, dass nun fehlende Referenzen ergänzt werden müssen.
 Etwaige Fehler müssen in der IDE behoben werden. Nachfolgende Maintenance Routine kann gegebenenfalls beim Lösen der Fehlern unterstützen.</p>
 </div>
+<h3 id="maintenance-routine-für-referenzen-und-konstruktoren">Maintenance Routine für Referenzen und Konstruktoren</h3>
+<p>Im <a href="../doc/ide/start.html#maintenance-mode">Maintenance-Mode</a> stehen speziell für den Update auf die Version 4.4 neue Cleanup-Routinen zur Verfügung.</p>
+<ul>
+<li><p><a href="../doc/maintenance/constructor-cleanup.html">Constructor Cleanup</a>:
+Ungültige Konstruktor Deklarationen in Components werden in eine gültige Form überführt.
+Dies ist notwendig, da der Compile in der FS Version 4.4 ungültige Deklarationen als Error ausgibt.</p>
+</li>
+<li><p><a href="../doc/maintenance/references-cleanup.html">References Cleanup</a>:
+Entfernt nicht existente externe User-Referenzen und stellt externe <code>$GAC</code>-Referenzen auf <code>$DotNetDirectory</code> um.</p>
+</li>
+</ul>
 <h2 id="devexpress-xtrareports">DevExpress XtraReports</h2>
 <p>Mit der Version 4.4 bietet Framework Studio experimentelle Unterstützung für <strong>DevExpress XtraReports 21.1</strong> an.
 Hierbei handelt es sich um eine alternative Reporting-Lösung, die zunächst parallel mit Crystal Reports eingesetzt werden kann, diese langfristig allerdings ersetzen soll.
@@ -150,17 +161,10 @@ Jeder Report kann jetzt gleichzeitig einen Crystal Report und einen DevExpress R
 <p>Falls ein Report Document Type gedruckt werden soll, der gleichzeitig einen Crystal- und einen DevExpress-Report beinhaltet, wird auf Basis des Flags Global.ReportingSoftware entschieden, welcher der beiden genutzt werden soll. Das Flag lässt sich im Use-Code überschreiben.</p>
 <p>Falzmarken und in den Report eingebettete Subreports wurden mit eigenen Custom Controls gelöst.</p>
 <p>Um bei der Konvertierung mit dem originalen Crystal Report vergleichen zu können, wurde ein Button im Designer geschaffen, welcher diesen schreibgeschützt öffnet.</p>
-<h2 id="maintenance-routine-für-referenzen-und-konstruktoren">Maintenance Routine für Referenzen und Konstruktoren</h2>
-<p>Im <a href="../doc/ide/start.html#maintenance-mode">Maintenance-Mode</a> stehen speziell für den Update auf die Version 4.4 neue Cleanup-Routinen zur Verfügung.</p>
-<ul>
-<li><p><a href="../doc/maintenance/constructor-cleanup.html">Constructor Cleanup</a>:
-Ungültige Konstruktor Deklarationen in Components werden in eine gültige Form überführt.
-Dies ist notwendig, da der Compile in der FS Version 4.4 ungültige Deklarationen als Error ausgibt.</p>
-</li>
-<li><p><a href="../doc/maintenance/references-cleanup.html">References Cleanup</a>:
-Entfernt nicht existente externe User-Referenzen und stellt externe <code>$GAC</code>-Referenzen auf <code>$DotNetDirectory</code> um.</p>
-</li>
-</ul>
+<h3 id="report-migration-summary">Report Migration Summary</h3>
+<p>Für die Migration der Crystal Reports zu DevExpress muss der zu erwartende Aufwand bewertet und die noch ausstehenden Reports gelistet werden können.
+Diese Übersicht kann über das Kontextmenü eines Namespaces oder für einen Report Document Type angezeigt werden.</p>
+<p>Nähere Informationen zur &quot;Report Migration Summary&quot; finden sich <a href="../doc/reporting/report-migration.html#report-migration-summary">hier</a></p>
 <h2 id="namespace-referenzen-überarbeitet">Namespace-Referenzen überarbeitet</h2>
 <p>Die Namespace-Referenzen arbeiten mit Compile Object Types.
 Diese entsprechen den Compile-Schritten.

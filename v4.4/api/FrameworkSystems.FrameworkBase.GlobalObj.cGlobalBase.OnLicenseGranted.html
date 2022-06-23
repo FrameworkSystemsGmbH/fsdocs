@@ -90,7 +90,10 @@
 <a id="FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_OnLicenseGranted_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.OnLicenseGranted*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_OnLicenseGranted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit_FrameworkSystems_FrameworkBase_AUPermissionType_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.cGlobalBase.OnLicenseGranted(FrameworkSystems.FrameworkBase.AccessControl.AccessUnit,FrameworkSystems.FrameworkBase.AUPermissionType)">OnLicenseGranted(AccessUnit, AUPermissionType)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Mit diesem EntryPoint kann eine Lizenz-Freigabe programmatisch eingeschränkt werden.
+Diese Methode wird aufgerufen, wenn <a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.LicenseGranted.html#FrameworkSystems_FrameworkBase_AccessControl_AUHelper_LicenseGranted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit_">LicenseGranted(AccessUnit)</a> aufgerufen
+wird und die verwendete Lizenz-Datei den Zugriff auf die AccessUnit erlaubt.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -121,6 +124,15 @@
 
   <h5 class="implements">Implements</h5>
       <div><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.OnLicenseGranted.html#FrameworkSystems_FrameworkBase_GlobalObj_IcGlobalBase_OnLicenseGranted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit_FrameworkSystems_FrameworkBase_AUPermissionType_">IcGlobalBase.OnLicenseGranted(AccessUnit, AUPermissionType)</a></div>
+    <h5 id="FrameworkSystems_FrameworkBase_GlobalObj_cGlobalBase_OnLicenseGranted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit_FrameworkSystems_FrameworkBase_AUPermissionType__remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Die Methode wird nur aufgerufen, wenn die Lizenz den Zugriff erlaubt.
+Freischalten einer verbotenen Lizenz ist nicht möglich.</p>
+<p><a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.Granted.html#FrameworkSystems_FrameworkBase_AccessControl_AUHelper_Granted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit_">Granted(AccessUnit)</a> für die Rollen-Berechtigung mündet ebenfalls durch
+<a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.AUHelper.LicenseGranted.html#FrameworkSystems_FrameworkBase_AccessControl_AUHelper_LicenseGranted_FrameworkSystems_FrameworkBase_AccessControl_AccessUnit_">LicenseGranted(AccessUnit)</a> in dieser Methode.</p>
+<p>Die Methode wird sehr oft aufgerufen. Eine Überschreibung sollte daher möglichst performant implementiert werden.</p>
+</div>
+    </section>
 </section>
 </article>
           </div>

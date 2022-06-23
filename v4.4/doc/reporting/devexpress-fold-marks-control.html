@@ -5,21 +5,21 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Aktuelle Installations-Pakete </title>
+    <title>Fold Marks </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Aktuelle Installations-Pakete ">
+    <meta name="title" content="Fold Marks ">
     <meta name="generator" content="docfx 2.56.2.0">
     
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/fs-docfx.css">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
     
-    <meta property="docfx:rel" content="../">
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -36,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -79,70 +79,36 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="aktuelle-installations-pakete">Aktuelle Installations-Pakete</h1>
+<h1 id="fold-marks">Fold Marks</h1>
 
-<p>In dieser Liste sind alle aktuellen verfügbaren Installations-Pakete aufgeführt.</p>
-<table>
-<thead>
-<tr>
-<th>Paket</th>
-<th>Version</th>
-<th>Name der Zip-Datei</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Framework Studio IDE</td>
-<td><strong>4.4</strong>.7</td>
-<td>FS_4.4.7_Setup_x64</td>
-</tr>
-<tr>
-<td><a href="requirements-package.html">Requirements-Paket</a> 64 Bit</td>
-<td><strong>4.4</strong>.0</td>
-<td>FS_4.4.0_Requirements_x64</td>
-</tr>
-<tr>
-<td>Runtime Administration</td>
-<td><strong>4.2</strong>.0</td>
-<td>FS_4.2.0_RuntimeAdministration</td>
-</tr>
-<tr>
-<td>Authentication-Service</td>
-<td><strong>4.2</strong>.20</td>
-<td>FS4.2.20_AuthService</td>
-</tr>
-<tr>
-<td><a href="../doc/print-server/installation.html">Print-Service</a></td>
-<td><strong>4.4</strong>.6</td>
-<td>FS4.4.6_PrintService</td>
-</tr>
-<tr>
-<td>FSClient Launcher 32 Bit</td>
-<td><strong>4.4</strong>.0</td>
-<td>FSCL_4.4.0_Setup_x86</td>
-</tr>
-<tr>
-<td>FSClient Launcher 64 Bit</td>
-<td><strong>4.4</strong>.0</td>
-<td>FSCL_4.4.0_Setup_x64</td>
-</tr>
-<tr>
-<td>FSClient Launcher 32 Bit MSI-Installer</td>
-<td><strong>4.4</strong>.0</td>
-<td>FSCL_4.4.0_Setup_Msi_x86</td>
-</tr>
-<tr>
-<td>FSClient Launcher 64 Bit MSI-Installer</td>
-<td><strong>4.4</strong>.0</td>
-<td>FSCL_4.4.0_Setup_Msi_x64</td>
-</tr>
-<tr>
-<td>Runtime Supervisor</td>
-<td><strong>4.0</strong>.14</td>
-<td>RS_4.0.14_Setup_x64</td>
-</tr>
-</tbody>
-</table>
+<p><img src="media/fold-mark.svg" alt="Fold mark"></p>
+<p>Um Falzlinien darstellen zu können, wurde das FoldMarks-Control geschaffen. Dieses ist unter dem Namen &quot;Fold Mark Settings&quot; in der Toolbox zu erreichen.</p>
+<p><img src="media/devexpress-custom-controls-foldmarks.png" alt="Fold mark"></p>
+<p>Auf der Report-Oberfläche nimmt das Control die Form einer grauen Box an:</p>
+<div class="NOTE"><h5>Note</h5><p>Hierbei handelt es sich lediglich um einen Placeholder, um das Control leichter greifbar zu machen.
+Die Box wird beim Druck nicht erscheinen.</p>
+</div>
+<h3 id="einstellungen">Einstellungen</h3>
+<p>Das Control bringt einige Properties mit, welche die Eigenschaften der Falzmarken bestimmen.</p>
+<h4 id="din-norm">DIN Norm</h4>
+<p>Bestimmt, <em>welche</em> Art Falzmarken angedruckt werden. Zur Verfügung stehen Falzmarken nach <a href="https://de.wikipedia.org/wiki/Falzmarke">Formen A und B</a> der DIN-Norm für Briefe.</p>
+<h4 id="halfheightmark">HalfHeightMark</h4>
+<p>Bestimmt, ob eine zusätzliche Marke an der Randmitte des Blattes angedruckt werden soll.</p>
+<h4 id="visible">Visible</h4>
+<p>Definiert, ob die Falzmarken angedruckt werden.
+Das im Report Designer angezeigte Settings-Control wird nie gedruckt.</p>
+<h4 id="mark-size">Mark Size</h4>
+<p>Bestimmt die Größe der Falzmarken. Diese werden als Rechteck gedruckt; definiert werden also erst Breite und dann Höhe.</p>
+<h4 id="orientation">Orientation</h4>
+<p>Bestimmt, ob die Marken links oder rechts gedruckt werden sollen.</p>
+<h4 id="padding">Padding</h4>
+<p>Bestimmt den Abstand der Marken vom Rand.</p>
+<h4 id="forecolor--backcolor">ForeColor / BackColor</h4>
+<p>Bestimmt die Farbe der Marken.</p>
+<h4 id="halfheightmarkforecolor--halfheightmarkbackcolor">HalfHeightMarkForeColor / HalfHeightMarkBackColor</h4>
+<p>Bestimmt die Farbe der zusätzlichen Marke.</p>
+<h4 id="halfheightmarksize">HalfHeightMarkSize</h4>
+<p>Bestimmt die Größe der zusätzlichen Marke.</p>
 </article>
           </div>
           
@@ -170,8 +136,8 @@
       </footer>
     </div>
     
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
   </body>
 </html>

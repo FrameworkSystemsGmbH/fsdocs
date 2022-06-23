@@ -108,7 +108,7 @@ Forms und Controls, die nicht die nötigen Berechtigungen besitzen, werden nicht
 <h3 id="webapplikation">Webapplikation</h3>
 <p>Nach dem Export-Vorgang befindet sich die Webapplikation im zuvor ausgewählten Ausgabeordner.</p>
 <p><img src="media/ewiz-webapp.png" alt="ewiz-webapp"></p>
-<p>Die Webapplikation ist eine HTML 5 Anwendung, die ausschließlich auf den Technologien HTML, JavaScript und CSS basiert. Damit ist sie kompatibel zu nahezu allen Endgeräten mit einem Browser (<a href="#webapplikation-vorraussetzungen">Webapplikation Vorraussetzungen</a> beachten).</p>
+<p>Die Webapplikation ist eine HTML 5 Anwendung, die ausschließlich auf den Technologien HTML, JavaScript und CSS basiert. Damit ist sie kompatibel zu nahezu allen Endgeräten mit einem Browser (<a href="#webapplikation-voraussetzungen">Webapplikation Voraussetzungen</a> beachten).</p>
 <h3 id="inhalt">Inhalt</h3>
 <p><img src="media/ewiz-webapp-inhalt.png" alt="ewiz-webapp-inhalt"></p>
 <p>Nach dem Öffnen der Webapplikation im Browser ist standardmäßig der Bereich <strong>Contents</strong> selektiert. Hier kann im Baum auf der linken Seite das gewünschte Kapitel ausgewählt werden, welches dann rechts im Viewer angezeigt wird. Bei einem Klick auf einen Link wird der Baum automatisch aktualisiert und zum neuen Kapitel gesprungen.</p>
@@ -122,8 +122,8 @@ Sind einem Index-Eintrag mehrere Kapitel zugeordnet, kann das gewünschte Kapite
 <h3 id="drucken">Drucken</h3>
 <p><img src="media/ewiz-webapp-drucken.png" alt="ewiz-webapp-drucken"></p>
 <p>Um den Inhalt des gerade angezeigten Kapitels zu drucken, steht der Button <strong>Print</strong> zur Verfügung. Anders als die Druckfunktion des Browsers, welche die gesamte Webapplikation inkl. Baum drucken würde, wir über den Button <strong>Print</strong> nur der Inhalt des Viewers berücksichtigt.</p>
-<h3 id="webapplikation-vorraussetzungen">Webapplikation Vorraussetzungen</h3>
-<p>Um die von Framework Studio generierte Webapplikation zu hosten, wird einer der folgenden Webserver vorrausgesetzt:</p>
+<h3 id="webapplikation-voraussetzungen">Webapplikation Voraussetzungen</h3>
+<p>Um die von Framework Studio generierte Webapplikation zu hosten, wird einer der folgenden Webserver vorausgesetzt:</p>
 <ul>
 <li>IIS 7 oder höher</li>
 <li>Apache 2.2.x oder höher</li>
@@ -139,7 +139,7 @@ Sind einem Index-Eintrag mehrere Kapitel zugeordnet, kann das gewünschte Kapite
 <div class="WARNING"><h5>Warning</h5><p>Internet Explorer 10 und niedriger werden NICHT unterstützt.</p>
 </div>
 <h3 id="export-mit-fsconsole">Export mit FSConsole</h3>
-<p>Neben dem Export-Wizard kann die Webapplikation auch über die FSConsole.exe (<a href="#fsconsole">FSConsole</a>) generiert werden. Hierzu gibt es die neuen Parameter \DOCUMENTATION, \ISO und \OUTPUT.</p>
+<p>Neben dem Export-Wizard kann die Webapplikation auch über die FSConsole.exe generiert werden. Hierzu gibt es die Parameter \DOCUMENTATION, \ISO und \OUTPUT.</p>
 <h5 id="documentation"><strong>\DOCUMENTATION</strong></h5>
 <p>Dieser Parameter ist nur ein Marker für die FSConsole, dass die Dokumentation gerendert werden soll.</p>
 <h5 id="iso"><strong>\ISO</strong></h5>
@@ -178,7 +178,7 @@ Forms und Controls, die nicht die nötigen Berechtigungen besitzen, werden nicht
 <p><img src="media/ewiz-word-toc-index.png" alt="ewiz-word-toc-index"></p>
 <p>Im Ausgabefenster des Export-Vorgangs ist zu erkennen, dass seitens Framework Studio geprüft wird, ob Word installiert ist. Sollte dies nicht der Fall sein, werden im exportierten Dokument zwar ein Inhaltsverzeichnis und ein Index enthalten sein, die jedoch aufgrund der fehlenden Aktualisierung keine Einträge enthalten. In diesem Fall muss die Aktualisierung der Kataloge manuell mit Word durchgeführt werden.</p>
 <h2 id="html-properties">HTML (Properties)</h2>
-<p>Zusätzlich zu den anderen Modi steht ein weiterer Export-Modus zur Verfügung. Dieser ist in der Lage, ausschließlich Dokumentationen von Component-Properties in einzelne HTML-Dateien zu rendern. Er renderd also nicht wie der HTML- oder Word-Exporter die gesamte zur Verfügung stehende Dokumentation, sondern nur ausgewählte Component-Properties.</p>
+<p>Zusätzlich zu den anderen Modi steht ein weiterer Export-Modus zur Verfügung. Dieser ist in der Lage, ausschließlich Dokumentationen von Component-Properties in einzelne HTML-Dateien zu rendern. Er rendert also nicht wie der HTML- oder Word-Exporter die gesamte zur Verfügung stehende Dokumentation, sondern nur ausgewählte Component-Properties.</p>
 <p>Soll die Dokumentation eines Component-Properties z.B. an der Oberfläche der Endanwendung angezeigt werden, ist dies nun mit Hilfe des Browser-Controls möglich. Der neue Export-Modus befindet sich wie nun auch der bisherige Word-Export-Modus im Menü</p>
 <p><strong>Tools</strong> &gt; <strong>Documentation</strong> &gt; <strong>Export</strong> &gt; <strong>HTML (Properties)</strong>.</p>
 <p><img src="media/ewiz-html-prop.png" alt="ewiz-html-prop"></p>
@@ -251,9 +251,6 @@ Wird der Export-Ordner nun an einem im Netzwerk zugänglichen Pfad abgelegt (vor
 <p><img src="media/ewiz-theme1.png" alt="ewiz-theme1"></p>
 <p>Dokumentation exportiert mit Theme 2:</p>
 <p><img src="media/ewiz-theme2.png" alt="ewiz-theme2"></p>
-<h2 id="fsconsole">fsconsole!</h2>
-<div class="WARNING"><h5>Warning</h5><p>TODO fsconsole link!</p>
-</div>
 </article>
           </div>
           

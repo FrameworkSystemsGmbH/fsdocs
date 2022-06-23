@@ -81,6 +81,48 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-44">Release-Information Framework Studio 4.4</h1>
 
+<h2 id="447-24062022">4.4.7 (24.06.2022)</h2>
+<h4 id="neuerungen-für-devexpress-reporting">Neuerungen für DevExpress® Reporting</h4>
+<ul>
+<li><a href="../doc/reporting/report-migration.html#report-migration-summary">Report Migration Summary</a> inklusive einer XML-Aufbereitung der Crystal-Reports.</li>
+</ul>
+<p>Änderungen im <a href="../doc/reporting/report-designer.html">FS Report Designer</a>:</p>
+<ul>
+<li>Das <a href="../doc/reporting/report-designer.html#besonderheiten-beim-umgang-mit-dateien">Datei-Handling</a> wurde grundlegend überarbeitet<ul>
+<li>Readonly Reports sind nicht mehr eingeschränkt. Änderungen können bei Bedarf mit &quot;Save As...&quot; gespeichert werden.</li>
+<li>Speichern von <a href="../doc/reporting/devexpress-subreport-control.html">Embedded SubReports</a> überarbeitet.</li>
+<li>Wird aus einem Linked Subreport heraus ein Embedded Subreport geöffnet, ist dieser Readonly.</li>
+</ul>
+</li>
+<li>Die <a href="../doc/reporting/report-designer.html#controls">FS-spezifischen Report Controls</a> haben Icons erhalten</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2022059879 - <strong>JavaClient</strong>: Beim Öffnen eines Forms werden vom WrapPanel
+  Layout-Exceptions geworfen, wenn der Frame extrem schmal ist.</p>
+</li>
+<li><p>2022050010 - <strong>Java-Client</strong>: Wird in einem HTML-Textfeld ein Bild eingefügt,
+  dann wird im HTML-Code das img-Tag nicht mit einem MIME-Type versehen. Der
+  Client zeigt das Bild korrekt an, aber bei der Weiterverarbeitung des HTML
+  (z.B. dem Senden einer Email über Outlook) kann es sein, dass das Bild nicht
+  korrekt verarbeitet wird.</p>
+</li>
+<li><p>2022060088 - <strong>Broker</strong>: Wird auf einem Grid, das eine GroupBy-Query anzeigt,
+  über den Client ein Filter eingestellt, dann wird ein SQL-Error angezeigt.
+  Der Fehler tritt auf, wenn aufgrund sehr vieler Datensätze der
+  Reload-Mechanismus greift und der Filter deshalb über die Datenbank
+  angewendet wird.</p>
+</li>
+<li><p>2022060124 - <strong>Code-Generierung</strong>: Wird ein Customizing-Package compiliert,
+  dann wird in die Package-Info für die Basis-Packages nicht das richtige
+  Compile-Datum generiert. Alle Packages erhalten dieselben Werte wie das
+  Customzing-Package. In der Folge werden in eNVenta in der Versions-Info
+  falsche Datums-Werte und ein falscher Wert bei Service-Release angezeigt.</p>
+</li>
+<li><p>2022050005 - <strong>Runtime Supervisor</strong>: Observables können auf Grund von
+  inkompatiblen API-Versionen nicht mit dem Runtime Supervisor kommunizieren.</p>
+</li>
+</ul>
 <h2 id="446-27052022">4.4.6 (27.05.2022)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -90,7 +132,7 @@
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="neuer-print-service">Neuer Print-Service</h4>
 <p>Im PrintService wurde die DevExpress Reporting Runtime aktualisiert.</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022059888 - <strong>JavaClient</strong>: Wird eine Grid-Zelle mit Enter verlassen, dann
   kann es passieren, dass eine im OnColumnChanged-Event aufgerufene
@@ -150,7 +192,7 @@ korrekt aufgebaut.</p>
 <ul>
 <li>Neue Maintenance-Routine <a href="../doc/maintenance/textcollection-mlkey-replace.html">Replace TextCollection with MLKeys</a> zum Ersetzen von TextCollection-Aufrufen durch MLKeys im Methoden-Code.</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022039471 - <strong>Package-Manager</strong>: Bei einem importierten Package wird die
   Meldung &quot;Please import...&quot; angezeigt, wenn für das Basis-Package ein neues
@@ -201,7 +243,7 @@ korrekt aufgebaut.</p>
 <li>Der SpellChecker für das Dokumentationssystem kann nun im Options-Dialog deaktiviert werden.</li>
 <li>Im <a href="../doc/ide/allgemeine-funktionalitaeten.html#method-history-browser">Method History Browser</a> und im <a href="../doc/ide/allgemeine-funktionalitaeten.html#element-history-browser">Element History Browser</a> werden Context-Package Versionen ausgeblendet.</li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022029183 - <strong>Broker</strong>: Die Properties MainMemorySortingThreshold,
   TransferStartupRowCount, TransferStartupNodeRowCount und ListSortOrder
@@ -273,7 +315,7 @@ dem nächsten Patchday eine Korrektur geben.</p>
 <li>Die Anmeldung mit dem <code>FrameworkAdministrator</code> an der IDE zur User-Verwaltung wurde entfernt. Die User-Verwaltung kann nun ausschließlich über den Package Manager im Menü <code>Tools -&gt; Manage Users</code> aufgerufen werden.</li>
 <li>In der IDE werden noch nicht abgespeicherte Tabs mit einem Stern <code>*</code> gekennzeichnet.</li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022029190 - <strong>Java-Client</strong>: Alle Jar-Dateien müssen neu signiert werden,
   weil das Java-Zertifikat widerrufen wurde.</p>
@@ -327,7 +369,7 @@ hat. Er war seit 05.2020 aktiv.</p>
 <li>Am <a class="xref" href="../api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.html"><strong>cGlobal</strong></a> wurde ein neuer EntryPoint geschaffen, mit dem man Lizenz-Freigabe programmatisch einschränken kann, obwohl die Lizenz-Datei dies erlaubt.</li>
 <li>Es ist nun möglich, <a href="../doc/documentation/docml.html#headline">Headlines</a> im <a href="../doc/documentation/editor.html">Dokumentationsfenster</a> zu nutzen.</li>
 </ul>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022018908 - <strong>JavaClient</strong>: Wird per Action ein TabbedWindow (oder sein
   Parent) ausgeblendet, dann feuert das OnSelectedTabPageChange Event. Findet
@@ -413,7 +455,7 @@ hat. Er war seit 05.2020 aktiv.</p>
 <li>BeepDouble</li>
 <li>BeepMultiple</li>
 </ul>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021128654 - <strong>Broker</strong>: Wird im Customizing-Package eine Developer-Lizenz
   verwendet, dann werden die Lizenzen der Basis-Packages nicht ausgewertet.
@@ -463,7 +505,7 @@ hat. Er war seit 05.2020 aktiv.</p>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="neuerungen-5">Neuerungen</h4>
 <p>Die Neuerungen finden Sie unter <a href="neuheiten-4-4.html">Neuheiten 4.4</a></p>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
 <p>In der Version 4.4 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-3.html#4310-26112021">Framework Studio 4.3.10</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

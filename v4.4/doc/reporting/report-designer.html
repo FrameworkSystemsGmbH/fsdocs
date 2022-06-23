@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Designer Customizations </title>
+    <title>FS Report Designer </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Designer Customizations ">
+    <meta name="title" content="FS Report Designer ">
     <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -79,18 +79,48 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="designer-customizations">Designer Customizations</h1>
+<h1 id="fs-report-designer">FS Report Designer</h1>
 
-<p>In diesem Kapitel werden die vorgenommenen Customizations am WinForms DevExpress Report-Designer beschrieben. Standardmäßige Funktionalitäten sind in dieser Doku <em>nicht</em> eingeschlossen - hierzu sollte die <a href="https://docs.devexpress.com/XtraReports/8546/winforms-reporting/end-user-report-designer-for-winforms/gui/end-user-report-designer-with-a-ribbon-toolbar">offizielle DevExpress-Dokumentation</a> beansprucht werden.</p>
-<p>Einige der durchgeführten Customizings betrifft Custom Controls. Diese sind allerdings größtenteils unabhängig des Report-Designers relevant und werden vollständig in ihrem <a href="devexpress-custom-controls.html">eigenen Kapitel</a> beleuchtet. </p>
-<p>In diesem Kapitel wird lediglich das Speicherverhalten der <strong>Embedded Subreports</strong> angesprochen, da es sich hierbei um custom Logik ausschließlich für den WinForms-Designer handelt.</p>
+<p>Der <strong>FS Report Designer</strong> ist für den Einsatz mit Framework Studio konzipiert.
+Es handelt sich um den DevExpress® Report Designer welcher für diesen Zweck entsprechend optimiert und angepasst wurde.</p>
+<p>Standardmäßige Funktionalitäten sind in dieser Doku <em>nicht</em> eingeschlossen - hierzu sollte die <a href="https://docs.devexpress.com/XtraReports/1763/winforms-reporting/end-user-report-designer-for-winforms/gui/end-user-report-designer-with-a-standard-toolbar">offizielle Dokumentation von DevExpress®</a> beansprucht werden.</p>
+<h2 id="controls">Controls</h2>
+<p>Zusätzlich zum sehr umfangreichen Angebot von DevExpress® werden im FS Report Designer zusätzliche Controls angeboten:</p>
+<ul>
+<li><a href="devexpress-fold-marks-control.html">Fold Mark Settings</a> - Falz-Marken für Briefe</li>
+<li><a href="devexpress-carry-forward-control.html">Carry Forward</a> - Übertrag von vorheriger Seite</li>
+<li><a href="devexpress-subreport-control.html">Embedded / Linked Subreports</a></li>
+</ul>
+<h2 id="besonderheiten-beim-umgang-mit-dateien">Besonderheiten beim Umgang mit Dateien</h2>
+<p>Regulär wird eine Report-Datei aus Framework-Studio heraus bearbeitet.
+Dabei startet Framework-Studio den Report-Designer für die entsprechende Datei und stellt sicher, dass die im <a href="report-document-type.html">Report DocumentType</a> definierten Datasources korrekt und vollständig angeboten werden.
+Wird der Report-Designer nach der Bearbeitung geschlossen, überträgt Framework Studio diese eine geänderte .repx-Datei (inklusive der darin enthaltenen Embedded Subreports) wieder zurück in den Report Document Type und in das Repository.</p>
+<p>Dadurch ergeben sich einige Besonderheiten beim Umgang mit Dateien.</p>
+<ul>
+<li><p>Die Registerkarte des initial durch Framework Studio geöffneten Haupt-Reports kann nicht geschlossen werden.
+Es muss der komplette Report Designer beendet werden.</p>
+</li>
+<li><p>Werden zusätzlich Dateien aus dem Datei-System geöffnet, dann werden diese als Readonly angezeigt.
+Gleiches gilt beim Öffnen eines Linked Subreports.</p>
+</li>
+<li><p>Werden Dateien als <strong>Readonly</strong> geöffnet, dann wird dies in der Registerkarte durch ein kleines Schloss gekennzeichnet und eine Meldung mit einem Hinweis angezeigt.
+Um möglichst viel Bedienkomfort zu gewährleisten ist die Bearbeitung nicht eingeschränkt.
+Bei Bedarf müssen vorgenommene Änderungen mit <em>Save As...</em> in eine neue Datei gespeichert werden.</p>
+</li>
+<li><p>Mit <strong>Save As...</strong> kann ein Embedded Subreport aus dem Haupt-Report &quot;herausgelöst&quot; und eine Kopie als eigenständige Datei gespeichert werden.
+Das Embedded Subreport Control des Haupt-Reports und der darin gespeicherte Subreport bleiben davon unberührt.</p>
+</li>
+<li><p>Eine <strong>New File</strong> Operation steht nicht zur Verfügung.
+Neue Dateien müssen aus Framework Studio heraus erzeugt werden.</p>
+</li>
+</ul>
 <h2 id="standalone-ausführung-der-fsreportdesignerexe">Standalone-Ausführung der FSReportDesigner.exe</h2>
 <p>Die FS-Customizations werden via eines Launchers (<em>FSReportDesigner.exe</em>) auf den standardmäßigen Report-Designer angewandt. Aus diesem Grund müssen DevExpress Reports über diesen Launcher editiert werden.</p>
 <p>Die entsprechende .exe ist auf oberster Ebene im Installationsverzeichnis zu finden, also &quot;\Framework Studio X.Y.0.0\FSReportDesigner.exe&quot;.</p>
 <p>Diese .exe lässt sich auf beliebige Weise öffnen (unten genauer erläutert). Wenn die geöffnete Datei sich nicht in einem Report-Verzeichnis befindet und der Pfad zu diesem nicht als Argument angegeben wurde, erscheint folgende Meldung:</p>
 <p><img src="media/devexpress-designer-customizations-no-report-directory.png" alt="No report Directory"></p>
 <p><em>&quot;Yes&quot;</em> öffnet einen Verzeichnis-Auswahldialog, in dem sich ein Report-Verzeichnis auswählen lässt. Falls es sich um eine valide Auswahl handelt, wird der Report so gehandhabt, als ob er sich in diesem Verzeichnis befinden würde. Alle vom Report-Verzeichnis abhängigen Features stehen dann zur Verfügung.</p>
-<p><em>&quot;No&quot;</em> oder ein Abbruch der Auswahl startet den Designer völlig standalone. Custom Controls stehen noch zur Verfügung, aber Features, die von Interoperabilität mit anderen Report-Dateien abhängen (z.B. <a href="devexpress-designer-customizations.html#open-crystal-report">Open Crystal Report</a>) sind nicht nutzbar.</p>
+<p><em>&quot;No&quot;</em> oder ein Abbruch der Auswahl startet den Designer völlig standalone. Custom Controls stehen noch zur Verfügung, aber Features, die von Interoperabilität mit anderen Report-Dateien abhängen (z.B. <a href="report-migration.html#open-crystal-report">Open Crystal Report</a>) sind nicht nutzbar.</p>
 <h3 id="direkter-aufruf">Direkter Aufruf</h3>
 <p>Bei einem direkten Aufruf der FSReportDesigner.exe, z.B. per Doppelklick, oder beim Aufruf mit einer ungültigen .repx-Datei, wird ein Auswahldialog für eine .repx geöffnet.</p>
 <p>Ein Öffnen einer .repx-Datei per Windows file association oder durch drag &amp; drop einer .repx-Datei auf die .exe öffnet die besagte Datei und verhält sich ansonsten identisch.</p>
@@ -100,49 +130,13 @@
 <p>Der FSReportDesigner ist von der Kommandozeile aus granularer aufrufbar. Die folgenden Argumente stehen zur Verfügung:</p>
 <ul>
 <li><code>--report</code>: Muss in der Kommandozeile angegeben werden. Definiert den voll qualifizierten Pfad zu der zu editierenden .repx-Datei.</li>
-<li><code>--crystal</code> (optional): Voll qualifizierter Pfad der Crystal Reports Datei, um features wie &quot;<a href="devexpress-designer-customizations.html#open-crystal-report">Open Crystal Report</a>&quot; zu ermöglichen.</li>
-<li><code>--designer</code> (optional): Bestimmt den voll qualifizierten Pfad zur .exe des Crystal Designers, um features wie &quot;<a href="devexpress-designer-customizations.html#open-crystal-report">Open Crystal Report</a>&quot; zu ermöglichen.</li>
+<li><code>--crystal</code> (optional): Voll qualifizierter Pfad der Crystal Reports Datei, um features wie &quot;<a href="report-migration.html#open-crystal-report">Open Crystal Report</a>&quot; zu ermöglichen.</li>
+<li><code>--designer</code> (optional): Bestimmt den voll qualifizierten Pfad zur .exe des Crystal Designers, um features wie &quot;<a href="report-migration.html#open-crystal-report">Open Crystal Report</a>&quot; zu ermöglichen.</li>
 <li><code>--type</code>: Der voll qualifizierte type name der Datenquelle, z.B. &#39;NV.ERP.MM.Sales.rptSalesDocument_Rptx&#39;</li>
 <li><code>--assembly</code>: Der Name der assembly-Datei, die den bereits angegebenen Typen beinhaltet, in diesem Beispiel also &#39;NV.ERP.MM.Sales_RDT.dll&#39;.</li>
 <li><code>--folder</code>: Das Verzeichnis, welches die benötigten Assembly-Dateien beinhaltet - üblicherweise &#39;\bin\&#39; im Compile-Verzeichnis.</li>
 <li><code>-l</code>/<code>--locked</code> (optional): Setzt den Report in einen readonly-modus, welcher Änderungen und das Speichern verhindert.</li>
 </ul>
-<h2 id="open-crystal-report">Open Crystal Report</h2>
-<p>Wenn beim Öffnen des Designers bekannt ist, dass ein ihm zugeordneter Crystal-Report existiert und ein Crystal-Designer konfiguriert ist, wird ein zusätzlicher Button &quot;Open Crystal Report&quot; im DevExpress Report-Designer generiert.</p>
-<p><img src="media/devexpress-designer-customizations-open-crystal-button.png" alt="Open Crystal Button"></p>
-<p>Bei dessen Betätigung wird im Hintergrund der zugeordnete Report im readonly-Modus im Crystal-Editor geöffnet.</p>
-<p>Hierfür wird der in den Einstellungen hinterlegte Pfad des Crystal Editors genutzt.</p>
-<h2 id="formula-converter">Formula Converter</h2>
-<p>Es wird ein zusätzlicher Button &quot;Formula Converter&quot; im DevExpress Report-Designer generiert.</p>
-<p><img src="media/devexpress-designer-customizations-formula-converter-button.png" alt="Formula Converter Button"></p>
-<p>Eine Betätigung dessen öffnet ein separates Fenster, welches eine automatische Konvertierungsroutine für Crystal-Formeln beinhaltet.</p>
-<p><img src="media/devexpress-designer-customizations-formula-converter-layout.png" alt="Formula Converter Layout"></p>
-<ul>
-<li><p>Textbox <strong>Input</strong>: In die obere Textbox lässt sich eine Crystal Reports-Formel eintragen, die konvertiert werden soll.</p>
-</li>
-<li><p><strong>Splitter</strong>: Zwischen den beiden Textboxen liegt ein Splitter, um leeren Platz zwischen den Textboxen ausnutzen zu können.</p>
-</li>
-<li><p><strong>DataMember</strong>-Feld: Datenquellen-Felder in Crystal-Formeln sind oft mit langen Qualifizierungsketten im Namen versehen. Der hier angegebene DataMember wird im Ergebnis vor den einzelnen Feldern weggekürzt. Das Feld wird mit dem am Report selbst definierten DataMember vorbelegt.</p>
-</li>
-</ul>
-<div class="WARNING"><h5>Warning</h5><p>Es wird empfohlen, den DataMember so spezifisch wie möglich pro zu übersetzender Formel zu definieren. Unnötig ausholend qualifizierte Felder stören nicht nur beim Lesen der Formel, sie können auch ihre Funktionalität beeinträchtigen.</p>
-</div>
-<ul>
-<li>Textbox <strong>Output</strong>: In der unteren Textbox werden die Ergebnisse des Formel-Konvertierers ausgegeben. In einem Fehlerfall wird stattdessen die Zeilennummer des Syntaxfehlers angezeigt:</li>
-</ul>
-<p><img src="media/devexpress-designer-customization-formula-converter-error.png" alt="Formula Converter Error"></p>
-<ul>
-<li>Textbox <strong>Warnung/Fehler</strong>: Hier werden genauere Fehlermeldungen und auch Warnungen ausgegeben. Es wird jeweils nur die erste Meldung ausgegeben, falls es mehrere gibt. Warnungen werden folgendermaßen angezeigt:</li>
-</ul>
-<p><img src="media/devexpress-designer-customization-formula-converter-warning.png" alt="Formula Converter Warning"></p>
-<ul>
-<li>Button <strong>&quot;Show all&quot;</strong>: Wenn mehrere Warnungen existieren oder eine Fehlermeldung mit Call-stack, werden diese hiermit in einer Message Box angezeigt:</li>
-</ul>
-<p><img src="media/devexpress-designer-customization-formula-converter-show-warnings.png" alt="Formula Converter Show Warnings"></p>
-<h2 id="embedded-subreports">Embedded Subreports</h2>
-<p>Embedded Subreports sind Status-synchronisiert mit ihrem Quellreport.</p>
-<p>Das bedeutet konkret, dass jede Änderung an einem Embedded Subreport im Status des Hauptreports widergespiegelt wird.</p>
-<p>Zusätzlich werden beim Speichern Haupt- und Subreport immer gemeinsam gespeichert, unabhängig von der Anzahl der geöffneten Subreports - ein Save auf einem der Tabs führt auch automatisch einen Save für alle anderen aus.</p>
 </article>
           </div>
           

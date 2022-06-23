@@ -94,9 +94,6 @@
 <p>Ein Request des Clients ruft im IIS eine ASP.net Seite auf. Der IIS kopiert dann automatisch alle benötigten Assemblies aus dem Brokerverzeichnis in ein temporäres Verzeichnis und verwendet dann diese temporären Kopien, um den Request zu verarbeiten. Der Vorteil des Kopierens liegt darin, dass die original Assemblies nicht direkt vom IIS verwendet werden und dadurch auch nicht blockiert werden.</p>
 <p><img src="media/application-broker-flow.png" alt="application-broker-flow.png"></p>
 <p>Auf diese Weise wird gewöhnlich der Echtbetrieb einer Anwendung realisiert.</p>
-<h3 id="development-broker">Development-Broker</h3>
-<div class="WARNING"><h5>Warning</h5><p>TODO! FSBrokerHost beschreiben</p>
-</div>
 <h3 id="compile-verzeichnis">Compile-Verzeichnis</h3>
 <p>Beim Kompilieren der Anwendung werden alle Dateien in dieses Verzeichnis geschrieben. Das aktuell verwendete Compile-Verzeichnis kann über den Menüpunkt <strong>Compile / Open Compile Directory in Explorer</strong> geöffnet werden.</p>
 <p>Auf einem Rechner wird pro Framework Studio Entwickler, pro Package und pro Package-Version je ein eigenes Compile-Verzeichnis verwendet. Falls das aktuell zu verwendende Verzeichnis beim Start von Framework Studio noch nicht existiert, wird es automatisch angelegt.</p>
@@ -106,7 +103,7 @@
 <li><strong>src:</strong> Enthält alle Source Dateien, die von Framework Studio generiert wurden. Durch das Kompilieren dieser Dateien werden die Assemblies der Anwendung (im Verzeichnis bin) erzeugt.</li>
 </ul>
 <h2 id="anwendung-zum-testen-starten">Anwendung zum Testen starten</h2>
-<p>Wenn Sie Ihre Anwendung während der Entwicklung zum Testen starten wollen, verwenden Sie dazu den <a href="#development-broker">Development-Broker</a>.</p>
+<p>Wenn Sie Ihre Anwendung während der Entwicklung zum Testen starten wollen, verwenden Sie dazu den Development-Broker.</p>
 <p>Dieser wird mit den Menüpunkt <strong>Compile / Run</strong> (oder mit der Taste <strong>F5</strong>) mit den zuletzt im <a href="../publish-wizards/run-wizard.html">Run-Wizard</a> vorgenommenen Einstellungen gestartet.</p>
 <p>Wenn Sie die Einstellungen für den Start der Applikation (z.B. andere Business Datenbank verwenden) ändern möchten, öffnen Sie mit dem Menüpunkt <strong>Compile / Run…</strong> (oder der Tastenkombination <strong>Umschalt + F5</strong>) den <a href="../publish-wizards/run-wizard.html">Run-Wizard</a>. Dort können alle Einstellungen vorgenommen werden. Wenn Sie den Wizard anschließend mit <strong>Run</strong> beenden, wird die ausgewählte Applikation mit den vorgenommenen Einstellungen gestartet.</p>
 <h2 id="debugging">Debugging</h2>

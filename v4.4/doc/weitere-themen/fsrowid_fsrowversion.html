@@ -86,12 +86,24 @@
 <h2 id="fsrowid">FSROWID</h2>
 <p>Eine Guid-Spalte. Diese Spalte wird von Framework Studio beim Insert eines neuen Datensatzes generiert.</p>
 <p>Die Datenbank-Spalten werden mit einem Default-Constraint angelegt. Dadurch werden sie automatisch befüllt, wenn Datensätze durch ein anderes Programm angelegt und kein Wert für diese Spalte angegeben wurde.</p>
-<ul>
-<li><p>SQLServer  <img src="../media/arrow_right.png" alt="seta"> Datatyp: uniqueidentifier</p>
-</li>
-<li><p>Oracle  <img src="../media/arrow_right.png" alt="seta"> Datatyp: RAW(16)</p>
-</li>
-</ul>
+<table>
+<thead>
+<tr>
+<th>Datenbank</th>
+<th>Datentyp</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQL-Server</td>
+<td>uniqueidentifier</td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td>RAW(16)</td>
+</tr>
+</tbody>
+</table>
 <p>Diese Spalte wird von Framework Studio als PrimaryKey-Spalte verwendet und dient beim Update und beim Nachlesen der eindeutigen Identifikation von Datensätzen.</p>
 <p>Darüber hinaus in der DBTable definierte PK-Spalten sind dafür unerheblich. Diese haben lediglich den Effekt, dass Framework Studio ein Update auf diese Spalten unterbindet.</p>
 <h2 id="fsrowversion">FSROWVERSION</h2>
@@ -118,16 +130,20 @@ So kann die RowVersion sowohl mit einer RowID als auch mit einem individuellen P
 CREATE UNIQUE INDEX IXROWID_&lt;table&gt; ON &lt;table&gt; (FSROWID) TABLESPACE INDEX1;
 </code></pre><p>Für die Spalten FSROWID und FSROWVERSION generiert FrameworkStudio in den Components entsprechende Properties. Diese sehen wie folgt aus:</p>
 <ul>
-<li>FSSystemGuid ROWID</li>
-<li>FSlong ROWVERSION</li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSSystemGuid.html">FSSystemGuid</a> ROWID</li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSlong.html">FSlong</a> ROWVERSION</li>
 </ul>
 <p>Das Property ROWID erhält seinen Wert unmittelbar beim Insert in die Datenbank. Der Wert steht also erst nach dem Insert zur Verfügung. Im OnBeforeSave() hat somit das Property ROWID bei einem neuen Datensatz noch den Wert FSSystemGuid.Null.</p>
-<p>Die Component prüft beim Save automatisch, ob der Datensatz auf der Datenbank zwischenzeitlich von einer anderen Instanz geändert wurde – sprich, ob sich der Wert in der Spalte FSROWVERSION geändert hat. Wenn das der Fall ist, dann wird eine <strong>RowVersionInvalidException</strong> geworfen.</p>
+<p>Die Component prüft beim Save automatisch, ob der Datensatz auf der Datenbank zwischenzeitlich von einer anderen Instanz geändert wurde – sprich, ob sich der Wert in der Spalte FSROWVERSION geändert hat.
+Wenn das der Fall ist, dann wird eine <a class="xref" href="../../api/FrameworkSystems.FrameworkExceptions.RowVersionInvalidException.html"><code>RowVersionInvalidException</code></a> geworfen.</p>
 <p>An der Component gibt es folgende Methoden, mit denen dieser Exception vorgebeugt werden kann:</p>
 <ul>
-<li><code>HasDbChanged()</code></li>
-<li><code>ReloadData()</code></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.IDevFrameworkDataObject.HasDbChanged.html#FrameworkSystems_FrameworkBase_IDevFrameworkDataObject_HasDbChanged"><code>HasDBChanged()</code></a></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.IDevFrameworkDataObject.ReloadData.html#FrameworkSystems_FrameworkBase_IDevFrameworkDataObject_ReloadData"><code>ReloadData()</code></a></li>
 </ul>
+<div class="TIP"><h5>Tip</h5><p>Die Spalten können bei Bedarf auch nachträglich angelegt werden.
+Der Update-Assistent wendet die notwendigen Änderungen inklusive dem Primary-Key automatisch auf der Datenbank an.</p>
+</div>
 </article>
           </div>
           

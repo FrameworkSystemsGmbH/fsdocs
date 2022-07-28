@@ -85,7 +85,7 @@
   
   <h1 id="FrameworkSystems_FrameworkBase_DevFrameworkObject" data-uid="FrameworkSystems.FrameworkBase.DevFrameworkObject" class="text-break">Class DevFrameworkObject
   </h1>
-  <div class="markdown level0 summary"><p>TODO! Basisklasse für alle Components die über das FrameworkStudio erzeugt werden.</p>
+  <div class="markdown level0 summary"><p>Basisklasse für alle Components, die über FrameworkStudio erzeugt werden.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
@@ -111,7 +111,7 @@ public abstract class DevFrameworkObject : DevFrameworkBaseObject, ICloneable, I
   </h3>
   
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.DevFrameworkObject.State.html#FrameworkSystems_FrameworkBase_DevFrameworkObject_State">State</a></h4>
-    <section><p><p>Siehe <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.State.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_State">State</a> in <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.html">IDevFrameworkObject</a>.</p>
+    <section><p><p>Aktueller Status des IDevFrameworkObjects.</p>
 </p></section>
   
   <h3 id="methods">Methods
@@ -123,7 +123,16 @@ die während eines laufenden Save-Aufrufs an dieser Instanz erfolgen,
 direkt abgebrochen werden sollen und stattdessen nach dem initialen Save-Aufruf
 (innerhalb der Transaktion) ein weiterer Save-Aufruf erfolgen soll.
 Standardmäßig gibt die Methode &quot;false&quot; zurück. Der Mechanismus kann aktiviert werden,
-in dem die Methode mit &quot;return true;&quot; überschrieben wird.</p>
+in dem die Methode mit &quot;return true&quot; überschrieben wird.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.DevFrameworkObject.Save.html#FrameworkSystems_FrameworkBase_DevFrameworkObject_Save_FrameworkSystems_FrameworkBase_SaveEntryPoints_">Save(SaveEntryPoints)</a></h4>
+    <section><p><p>Speichert diese Component in der Datenbank ab. Das entsprechende SqlStatement
+muss in der SaveAction zusammengebaut und ausgeführt werden.
+Falls keine gestartete Transaktion existiert,
+wird automatisch eine Transaktion aufgebaut. In diesem Fall wird
+anschliessend ein Commit ausgeführt.
+Zuerst wird <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkObject.OnBeforeSave</span>, anschließend die SaveAction
+und abschließend <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkObject.OnAfterSave</span> aufgerufen.</p>
 </p></section>
   
 </article>

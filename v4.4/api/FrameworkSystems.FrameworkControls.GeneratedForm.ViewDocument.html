@@ -111,18 +111,18 @@
 
     <h5 id="FrameworkSystems_FrameworkControls_GeneratedForm_ViewDocument_System_String__remarks">Remarks</h5>
     <section>
-      <div class="markdown level1 remarks"><p>Bei Web-Adressen sollte in jedem Fall <code>http://</code> bzw. <code>https://</code> vorangestellt werden, 
+      <div class="markdown level1 remarks"><p>Bei Web-Adressen sollte in jedem Fall <code>http://</code> bzw. <code>https://</code> vorangestellt werden,
 ansonsten ist bei einem Java-Client unter Windows die Länge der URL auf ca. 260 Zeichen begrenzt.</p>
 <p>Auch muss es eine korrekt formatierte URL ohne Sonderzeichen und Leerzeichen sein.
 Wird die URL programmatisch erstellt, dann empfiehlt es sich, die Klasse <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.uribuilder">UriBuilder</a> zu verwenden.
 Einzelne Argumente können auch mit <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.web.httputility.urlencode#system-web-httputility-urlencode(system-string)">UrlEncode(String)</a> korrekt codiert werden.</p>
-<p>Erkennt der Java-Client keine gültige URL, dann wird der Aufruf an das Betriebssystem weitergeleitet. 
+<p>Erkennt der Java-Client keine gültige URL, dann wird der Aufruf an das Betriebssystem weitergeleitet.
 So können auch lokale Dateien geöffnet werden.
 Die Arbeitsweise ist dann analog zum Befehl <em>Ausführen</em> unter Windows (Windows-Taste + R)</p>
 <p>
 Mit Hilfe des Schemas <code>fsbroker://</code> kann die Broker eigene URL referenziert werden. Und damit bspw. Dateien über
-den Broker zur Verfügung stellen. Beispielweise könnte die folgende URL <code>fsbroker://documents/legal.pdf</code> in 
-<code><a href="http://fsbroker/HOSTNAME_DEMO_user1/FSDemoApplication/documents/legal.pdf">http://fsbroker/HOSTNAME_DEMO_user1/FSDemoApplication/documents/legal.pdf</a></code> übersetzt werden. 
+den Broker zur Verfügung stellen. Beispielweise könnte die folgende URL <code>fsbroker://documents/legal.pdf</code> in
+<code><a href="http://fsbroker/HOSTNAME_DEMO_user1/FSDemoApplication/documents/legal.pdf">http://fsbroker/HOSTNAME_DEMO_user1/FSDemoApplication/documents/legal.pdf</a></code> übersetzt werden.
 </p>
 </div>
     </section>

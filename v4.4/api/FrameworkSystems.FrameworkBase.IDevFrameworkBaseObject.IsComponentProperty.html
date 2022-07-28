@@ -90,7 +90,7 @@
 <a id="FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_IsComponentProperty_" data-uid="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.IsComponentProperty*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_IsComponentProperty_System_String_" data-uid="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.IsComponentProperty(System.String)">IsComponentProperty(String)</h4>
 <section>
-  <div class="markdown level1 summary"><p>Prüft, ob der übergebene PropertyName in <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.ComponentProperties.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_ComponentProperties">ComponentProperties</a> enthalten ist.</p>
+  <div class="markdown level1 summary"><p>Prüft, ob der übergebene <code data-dev-comment-type="paramref" class="paramref">propertyName</code> in <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.ComponentProperties.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_ComponentProperties">ComponentProperties</a> enthalten ist.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -104,7 +104,7 @@
   <section>
     <div class="propertyInfo">
       <span class="parametername"><code>propertyName</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string">String</a>
-      <div class="markdown level1 summary"><p>Name des Properties</p>
+      <div class="markdown level1 summary"><p>Name des Properties.</p>
 </div>
     </div>
   </section>
@@ -119,7 +119,7 @@
 
     <h5 id="FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_IsComponentProperty_System_String__remarks">Remarks</h5>
     <section>
-      <div class="markdown level1 remarks"><p>So kann man z.B. bei der Behandlung des Events <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged.propertychanged">PropertyChanged</a> prüfen, ob das Property vom Entwickler angelgt wurde.
+      <div class="markdown level1 remarks"><p>So kann man z.B. bei der Behandlung des Events <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged.propertychanged">PropertyChanged</a> prüfen, ob das Property vom Entwickler angelegt wurde.
 Andernfalls handelt es sich ggf. um ein von Framework Studio bereitgestelltes Property wie z.B. <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.State.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_State">State</a>.</p>
 <p>Die Methode liefert <code>true</code> bei public oder internal Properties.
 Bei RowID und RowVersion wird <code>false</code> zurückgegeben.</p>

@@ -106,17 +106,27 @@ RowID und RowVersion sind nicht enthalten.</p>
   <h3 id="methods">Methods
   </h3>
   
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.AcceptChanges.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_AcceptChanges">AcceptChanges()</a></h4>
+    <section><p><p>Übernimmt alle Änderungen. Sollte in allen Subclasses überschrieben werden,
+sodass die aktuellen Werte in die Membervariablen mit den Orginalwerten
+übernommen werden, damit ein späterer Rollback wieder den aktuellen Zustand
+herstellen kann.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.GetDefaultLabel.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_GetDefaultLabel_System_String_">GetDefaultLabel(String)</a></h4>
+    <section><p><p>Gibt des Default-Label eines bestimmten Properties zurück. Falls es das Property nicht gibt,
+wird <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string.empty">Empty</a> zurückgegeben.</p>
+</p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.GetProperty.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_GetProperty_System_String_">GetProperty(String)</a></h4>
-    <section><p><p>Gibt den Wert des Properties mit dem übergebenen <code>propertyName</code> zurück.</p>
+    <section><p><p>Gibt den Wert des Properties mit dem übergebenen <code data-dev-comment-type="paramref" class="paramref">propertyName</code> zurück.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.GetPropertyMdt.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_GetPropertyMdt_System_String_">GetPropertyMdt(String)</a></h4>
-    <section><p><p>Gibt den Metadatentyp des übergebenen Properties zurück</p>
+    <section><p><p>Ermittelt den Metadatentypen eines properties.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.IsComponentProperty.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_IsComponentProperty_System_String_">IsComponentProperty(String)</a></h4>
-    <section><p><p>Prüft, ob der übergebene PropertyName in <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.ComponentProperties.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_ComponentProperties">ComponentProperties</a> enthalten ist.</p>
+    <section><p><p>Prüft, ob der übergebene <code data-dev-comment-type="paramref" class="paramref">propertyName</code> in <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.ComponentProperties.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_ComponentProperties">ComponentProperties</a> enthalten ist.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.SetProperty.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_SetProperty_System_String_System_Object_">SetProperty(String, Object)</a></h4>
-    <section><p><p>Setzt das Properties mit dem übergebenen <code>propertyName</code> auf den Wert <code>value</code>.</p>
+    <section><p><p>Setzt das Property mit dem übergebenen <code data-dev-comment-type="paramref" class="paramref">propertyName</code> auf den Wert <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
 </p></section>
   
 </article>

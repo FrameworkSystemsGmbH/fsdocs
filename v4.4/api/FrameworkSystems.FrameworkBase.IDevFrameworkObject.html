@@ -90,7 +90,13 @@
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
+      <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.GetDefaultLabel.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_GetDefaultLabel_System_String_">IDevFrameworkBaseObject.GetDefaultLabel(String)</a>
+    </div>
+    <div>
       <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.GetPropertyMdt.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_GetPropertyMdt_System_String_">IDevFrameworkBaseObject.GetPropertyMdt(String)</a>
+    </div>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.AcceptChanges.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_AcceptChanges">IDevFrameworkBaseObject.AcceptChanges()</a>
     </div>
     <div>
       <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.GetProperty.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_GetProperty_System_String_">IDevFrameworkBaseObject.GetProperty(String)</a>
@@ -119,20 +125,99 @@ werden sollen, müssen dieses Interface einbinden.</p>
   <h3 id="properties">Properties
   </h3>
   
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.IsDeleted.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_IsDeleted">IsDeleted</a></h4>
+    <section><p><p>Gibt an, ob das Objekt gelöscht wurde.</p>
+</p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.IsMarkedForDeletion.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_IsMarkedForDeletion">IsMarkedForDeletion</a></h4>
-    <section><p><p>Wenn true, ist das Objekt zum Löschen vorgemerkt. Vor einem Save wird an der Collection <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkObjectColl.DeleteMarkedObjects</span>
+    <section><p><p>Wenn true, ist das Objekt zum Löschen vorgemerkt. Vor einem Save wird an der Collection <span class="xref">FrameworkSystems.FrameworkBase.IDevFrameworkObjectColl.DeleteMarkedObjects</span>
 aufgerufen und so dann an allen markierten Objekten Delete aufgerufen.
-Wenn <span class="xref">FrameworkSystems.FrameworkBase.IDevFrameworkObject.Save</span> direkt am Objekt aufgerufen wird, wird <span class="xref">FrameworkSystems.FrameworkBase.IDevFrameworkObject.DeleteMarkedObject</span>
+Wenn <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.Save.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_Save">Save()</a> direkt am Objekt aufgerufen wird, wird <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.DeleteMarkedObject.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_DeleteMarkedObject">DeleteMarkedObject()</a>
 am Objekt aufgerufen.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.IsModified.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_IsModified">IsModified</a></h4>
+    <section><p><p>Gibt an, ob das Objekt geändert wurde.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.ObjectRowID.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_ObjectRowID">ObjectRowID</a></h4>
     <section><p><p>Eindeutige ID vom Typ guid des Objektes.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.State.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_State">State</a></h4>
-    <section><p><p>Status des IDevFrameworkObjects vom Typ FrameworkComponentState</p>
+    <section><p><p>Aktueller Status des IDevFrameworkObjects.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.StateBeforeFirstSaveEntryInTransaction.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_StateBeforeFirstSaveEntryInTransaction">StateBeforeFirstSaveEntryInTransaction</a></h4>
+    <section><p><p>Der Wert von <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.State.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_State">State</a> vor dem ersten Save.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.StateBeforeUpdate.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_StateBeforeUpdate">StateBeforeUpdate</a></h4>
-    <section><p><p>!TODO</p>
+    <section><p><p>Der Wert von <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.State.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_State">State</a> vor dem letzten Update.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.TrackVersion.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_TrackVersion">TrackVersion</a></h4>
+    <section><p><p>Bei der Änderung eines generated Properties wird dieser Wert hochgezählt.</p>
+</p></section>
+  
+  <h3 id="methods">Methods
+  </h3>
+  
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.Delete.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_Delete">Delete()</a></h4>
+    <section><p><p>Löscht den verknüpften Datensatz aus der Datenbank.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.DeleteMarkedObject.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_DeleteMarkedObject">DeleteMarkedObject()</a></h4>
+    <section><p><p>Führt die Löschung eines per <span class="xref">FrameworkSystems.FrameworkBase.IDevFrameworkObject.MarkForDeletion</span> markierten Objekts durch.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.GetPropertyOrgValue.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_GetPropertyOrgValue_System_String_">GetPropertyOrgValue(String)</a></h4>
+    <section><p><p>Ermittelt den OrgValue des Properties <code data-dev-comment-type="paramref" class="paramref">propertyName</code>.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.GetTableName.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_GetTableName">GetTableName()</a></h4>
+    <section><p><p>Gibt den Tabellennamen zurück.
+Dabei wird nur die erste Tabelle berücksichtigt.
+Im Falle einer Join-Component muss <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.GetTableName.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_GetTableName_System_String_">GetTableName(String)</a> verwendet werden.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.GetTableName.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_GetTableName_System_String_">GetTableName(String)</a></h4>
+    <section><p><p>Gibt den Tabellennamen eines bestimmten Properties zurück. Falls es das Property nicht
+gibt bzw. das Property nicht mit einer Datenbankspalte verknüpft ist,
+wird <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string.empty">Empty</a> zurückgegeben.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.Load.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_Load">Load()</a></h4>
+    <section><p><p>Lädt Daten in das Objekt anhand der übergebenen <code data-dev-comment-type="paramref" class="paramref">loadCondition</code>. Falls mehr als
+ein Datensatz gelesen wird, wird der Erste verwendet.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.Load.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_Load_System_String_">Load(String)</a></h4>
+    <section><p><p>Lädt Daten in das Objekt anhand der übergebenen <code data-dev-comment-type="paramref" class="paramref">loadCondition</code>. Falls mehr als
+ein Datensatz gelesen wird, wird der Erste verwendet.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.Load.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_Load_System_String_System_String_">Load(String, String)</a></h4>
+    <section><p><p>Lädt Daten in das Objekt anhand der übergebenen <code data-dev-comment-type="paramref" class="paramref">loadCondition</code>. Falls mehr als
+ein Datensatz gelesen wird, wird der Erste verwendet.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.Load.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_Load_System_String_System_String_System_String_">Load(String, String, String)</a></h4>
+    <section><p><p>Lädt Daten in das Objekt anhand der übergebenen <code data-dev-comment-type="paramref" class="paramref">loadCondition</code>. Falls mehr als
+ein Datensatz gelesen wird, wird der Erste verwendet.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.RollbackChanges.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_RollbackChanges">RollbackChanges()</a></h4>
+    <section><p><p>Überschreibt alle aktuellen Werte mit den Werten, die durch den Loadbefehl bzw.
+einen Aufruf von AcceptChanges festgehalten worden sind.
+Sollte in allen Subclasses überschrieben werden!</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.Save.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_Save">Save()</a></h4>
+    <section><p><p>Speichert diese Component in der Datenbank ab. Das entsprechende SqlStatement
+muss in der SaveAction zusammengebaut und ausgeführt werden.
+Falls keine gestartete Transaktion existiert,
+wird automatisch eine Transaktion aufgebaut. In diesem Fall wird
+anschliessend ein Commit ausgeführt.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.Save.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_Save_FrameworkSystems_FrameworkBase_SaveEntryPoints_">Save(SaveEntryPoints)</a></h4>
+    <section><p><p>Speichert diese Component in der Datenbank ab. Das entsprechende SqlStatement
+muss in der SaveAction zusammengebaut und ausgeführt werden.
+Falls keine gestartete Transaktion existiert,
+wird automatisch eine Transaktion aufgebaut. In diesem Fall wird
+anschliessend ein Commit ausgeführt.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.SaveCallEntryPointsAllways.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_SaveCallEntryPointsAllways">SaveCallEntryPointsAllways()</a></h4>
+    <section><p><p>Ruft <a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.Save.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_Save">Save()</a> auf und stellt dabei sicher, dass alle EntryPoints aufgerufen werden.</p>
 </p></section>
   
 </article>

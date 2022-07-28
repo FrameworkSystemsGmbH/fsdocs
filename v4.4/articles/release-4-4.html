@@ -132,6 +132,12 @@ In Textfeldern wird zur besseren Lesbarkeit im Designer bei segmentierten Expres
   In der Folge zeigen der Package-Manager und die eNVenta Versions-Info
   veraltete Datumswerte an.</p>
 </li>
+<li><p>2022070530 - <strong>Package-Manager</strong>: Bei Customzing-Packages kann es vorkommen,
+  dass im Compile-Lauf zu viele - in diesem Package nicht gecustomizte
+  Namespaces - compiliert werden. In der Folge kann es bei komplizierten
+  Package-Hierarchien in seltenen Fällen vorkommen, dass Logik eines
+  Basis-Packages &quot;ausgeblendet&quot; wird.</p>
+</li>
 <li><p>2022070434 - <strong>IDE</strong>: Wird im Customizing oder in einer Ableitung an einem
   TreeNode z.B. ein DisplayMember geändert, dann werden im Repository falsche
   Informationen gespeichert. Nach einem Neustart der IDE bzw. im Compile-Lauf

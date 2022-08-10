@@ -1,0 +1,152 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Vererbung </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Vererbung ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="vererbung">Vererbung</h1>
+
+<p>Ähnlich wie bei den Tooltips für Steuerelemente bietet auch die Dokumentation eine Vererbung bis auf Metadatentyp-Ebene an. Diese Vererbung soll dazu beitragen, Dokumentationen für Steuerelemente mit derselben Funktion nicht mehrmals verfassen oder kopieren zu müssen.</p>
+<p>Vererbung einer Dokumentation:
+<img src="media/vererbung-dokumentation.png" alt="vererbung-dokumentation"></p>
+<p>Die Abbildung zeigt die Möglichkeit der Vererbung vom Steuerelement auf dem Form bis zum Metadatentyp ggf. auch über mehrere Packages hinweg, gesetzt den Fall, dass dem jeweiligen Steuerelement eine DataSource zugewiesen wurde.</p>
+<p>Eingebunden werden kann eine Dokumentation aus einem darunter liegenden Element mit Hilfe des base-Tags (siehe <a href="docml.html#base">Base</a>).</p>
+<h2 id="vererbung-in-einem-einzigen-package">Vererbung in einem einzigen Package</h2>
+<p>Im folgenden Beispiel wird gezeigt, wie mit Hilfe der Vererbung in der Dokumentation des Textfelds <strong><em>T</em></strong> die Dokumentationen aus dessen Component Properties (DataSource), der dazu gehörigen DBColumn und des wiederum damit verbundenen Metadatentyps eingebunden werden kann. Betrachtet wird das Szenario eines einzelnen Packages <strong>P1</strong> (blaue Pfeile).</p>
+<p><img src="media/vererbung-einzigen-package.png" alt="vererbung-einzigen-package"></p>
+<p>Die Dokumentation des Metadatentyps <strong><em>M</em></strong> sieht wie folgt aus:</p>
+<p><img src="media/vererbung-info-metadatentyp.png" alt="vererbung-info-metadatentyp.png"></p>
+<p>Die Dokumentation der DBColumn <strong><em>D</em></strong> bindet mit Hilfe des base-Tags die Dokumentation des Metadatentyps ein. Beim Rendern wird an die Stelle des base-Tags somit die Dokumentation des Metadatentyps eingebunden:</p>
+<p><img src="media/vererbung-Info-dbcolumn.png" alt="vererbung-Info-dbcolumn.png"></p>
+<p>Am Component Property <strong><em>C</em></strong> ist dasselbe Verhalten zu erkennen:</p>
+<p><img src="media/vererbung-Info-component-property.png" alt="vererbung-Info-component-property.png"></p>
+<p>Letztlich bindet auch das Textfeld <strong><em>T</em></strong> die Basis-Dokumentation ein, was folgende Ausgabe ergibt:</p>
+<p><img src="media/vererbung-Info-control.png" alt="vererbung-Info-control.png"></p>
+<p>An der Dokumentation des Controls ist nun zu erkennen, dass die Information über das Drücken der <strong>F2</strong>-Taste am Control auf dem Formular dokumentiert wurde. Dies könnte auf einem anderen Formular z.B. ein anderer Shortcut sein. Die restliche Dokumentation inklusive des rot markierten Beispiels würde aber automatisch übernommen werden.</p>
+<p>Diese Art der Vererbung ist also immer dann sinnvoll, wenn auf unterschiedlichen Formularen in der Anwendung Steuerelemente existieren, die genau dieselben DataSources verwenden.</p>
+<h5 id="beispiel"><strong>Beispiel</strong></h5>
+<p>In einer Anwendung gibt es auf 6 verschiedenen Formularen immer wieder ein Textfeld, welches eine Auftragsnummer anzeigt. Die Funktion des Textfeldes ist auf jedem Form dieselbe und beinhaltet auch immer die Daten desselben Component Properties (die Textfelder haben immer die gleiche DataSource), baut somit immer auf derselben DBColumn auf und ist damit auch vom selben Metadatentyp abhängig. Es wäre nun sehr umständlich, jedes Mal am Steuerelement selbst dieselbe Dokumentation zu hinterlegen. Sollte sich diese ändern, müssten alle 6 Stellen angepasst und erneut auf Fehler überprüft werden. Um dies zu vermeiden, kann die Vererbung genutzt werden. Da die 6 Textfelder immer auf demselben Component Property aufsetzen, kann die gesamte Dokumentation an diesem verfasst werden.</p>
+<p>Der große Vorteil dieses Vorgehens ist, wenn sich an der Dokumentation etwas ändert, muss nur die Dokumentation des Component Properties angepasst werden und beim nächsten Rendern haben alle abhängigen Textfelder die aktualisierte Dokumentation des Component Properties übernommen.</p>
+<p>Insgesamt gilt also: Die Dokumentation sollte so tief wie möglich im Framework Studio verfasst und auf möglichst viele Elemente vererbt werden.</p>
+<p>Entstehen in der Datasource Hierarchy an einer Stelle <strong>Lücken</strong> in der Dokumentation, wird die Dokumentation aus der nächst tieferen Ebene eingebunden. Befindet sich z.B. in der Dokumentation eines Textfelds <strong><em>T</em></strong> ein base-Tag, wird beim Rendern die Dokumentation aus dem Component Property verwendet. Ist jedoch keine Dokumentation an selbigem verfasst, wird automatisch in der tieferen Ebene nach einer Dokumentation geprüft. In diesem Fall würde die Dokumentation der DBColumn verwendet werden. Ist an selbiger auch keine Dokumentation verfasst, wird die des Metadatentyps eingebunden.</p>
+<h5 id="beispiel-1"><strong>Beispiel</strong></h5>
+<p>Eine leere Dokumentation verhält sich wie ein base-Tag:</p>
+<p><img src="media/vererbung-beispiel1.png" alt="vererbung-beispiel1"></p>
+<p>An einem Textfeld ist nicht explizit eine Dokumentation hinterlegt. Das per DataSource zugewiesene Component Property beinhaltet jedoch eine Dokumentation. Wie zu sehen ist, wird automatisch die Dokumentation des Component Properties für das Textfeld gerendert, wenn die Preview angezeigt wird.</p>
+<p>Eine nicht vohandene Dokumentation in einem Control, einem Property, einer DBColumn oder einem Metadatentyp verhält sich also genauso wie ein base-Tag ohne weiteres DocML.</p>
+<p>base-Tag ohne weiteres DocML:</p>
+<p><img src="media/vererbung-beispiel2.png" alt="vererbung-beispiel2"></p>
+<p>Das gezeigte base-Tag kann also entfernt werden, da sich die leere Dokumentation äquivalent verhält.</p>
+<h2 id="vererbung-bei-mehreren-packages">Vererbung bei mehreren Packages</h2>
+<p>Liegen mehrere Packages übereinander (grüne und orangene Pfeile), wird immer erst die höchste Customization des jeweiligen Elements betrachtet.</p>
+<p>Vererbung über mehrere Packages hinweg:</p>
+<p><img src="media/vererbung-mehreren-packages.png" alt="vererbung-mehreren-packages"></p>
+<h5 id="beispiel-grüne-pfeile"><strong>Beispiel (grüne Pfeile):</strong></h5>
+<p>Wird die Dokumentation für die Customization vom Textfeld <strong><em>T</em></strong> im Package <strong>P2</strong> gerendert, wird für ein base-Tag in <strong>P1</strong> nach einer Dokumentation gesucht. Wird dort nichts gefunden oder erfolgt dort ein weiterer Base-Aufruf, wird an der Customization des Component Properties <strong><em>C</em></strong> in <strong>P2</strong> gesucht usw.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

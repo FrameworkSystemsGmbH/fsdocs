@@ -1,0 +1,642 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Release-Information Framework Studio 4.4 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Release-Information Framework Studio 4.4 ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="release-information-framework-studio-44">Release-Information Framework Studio 4.4</h1>
+
+<h2 id="449-26082022">4.4.9 (26.08.2022)</h2>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li><p>An der TextCollection <code>IDevFrameworkObjectTextColl</code> steht eine neue Methode bereit. Die Drop-Methode <code>bool IDevFrameworkObjectTextColl.Drop(FSlong id)</code> ermöglicht einen Eintrag mit einer bestimmten ID zu löschen. Detailliertere Infos siehe <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IDevFrameworkObjectTextColl.html">API-Dokumentation</a>.</p>
+</li>
+<li><p>DevExpress: Bei EmbeddedSubReport wird der DataMember nicht mehr geändert. Es wird weiterhin der DataMember des Haupt-Reports vorbelegt. Wird der DataMember anschließend vom Benutzer geändert, dann bleibt diese Einstellung jetzt erhalten.</p>
+</li>
+</ul>
+<h2 id="448-29072022">4.4.8 (29.07.2022)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.4.8_Setup_x64</li>
+<li>FS4.4.8_PrintService</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="fsrowid-und-fsrowversion-können-nachträglich-angelegt-werden">FSROWID und FSROWVERSION können nachträglich angelegt werden</h4>
+<p>In einer <a href="../doc/database/dbtable.html">DBTable</a> können die Spalten <a href="../doc/weitere-themen/fsrowid_fsrowversion.html"><code>FSROWID</code> und <code>FSROWVERSION</code></a> nachträglich angelegt werden.
+Der Update-Assistent wendet die notwendigen Änderungen inklusive der Anpassung des Primary Key korrekt auf der Datenbank an.</p>
+<p>Bisher wurde eine neue FSROWID-Spalte als unlösbare Änderung gewertet.</p>
+<h4 id="neuerungen-für-devexpress-reporting">Neuerungen für DevExpress® Reporting</h4>
+<p>Änderungen im <a href="../doc/reporting/report-designer.html">FS Report Designer</a>:</p>
+<ul>
+<li>Default-Name für neue Controls<ul>
+<li>Label / TableCell = <code>lbl_</code></li>
+<li>RichText: <code>rtf_</code></li>
+<li>BarCode: <code>bar_</code></li>
+<li>Picture: <code>pic_</code></li>
+<li>CheckBox: <code>cbx_</code></li>
+</ul>
+</li>
+<li>Wird aus der Field-List per Drag&amp;Drop ein Feld in den Designer gezogen, dann wird der Name des Controls an die Field-Expression angepasst (<code>[oArticle].[decPrice]</code> =&gt; <code>lbl_oArticle_decPrice</code>).
+In Textfeldern wird zur besseren Lesbarkeit im Designer bei segmentierten Expressions ein Comment vorangestellt (<code>[oSalesOrderDetail].[decPrice]</code> =&gt; <code>/*decPrice*/ [oSalesOrderDetail].[decPrice]</code>).</li>
+<li>High DPI Skalierung wird unterstützt.</li>
+</ul>
+<h4 id="neuerungen-im-umgang-mit-readonly-package-versionen">Neuerungen im Umgang mit ReadOnly Package-Versionen</h4>
+<p>Damit auch für importierten Packages Debug-Stände erzeugt werden können, wurde das Verhalten von importierten oder geschlossenen Package-Versionen angepasst:</p>
+<ul>
+<li>Normale user und FCUser können sich jetzt an importierten und an geschlossenen packages anmelden.</li>
+<li>Compile:<ul>
+<li>Normale user dürfen importierte oder geschlossene packages kompilieren.</li>
+<li>Der FrameworkCompiler und jegliche FCUser dürfen importierte oder geschlossene packages ansehen, aber nicht kompilieren.</li>
+</ul>
+</li>
+<li>Die Optionen im Login-screen wurden entsprechend angepasst.</li>
+<li>FCUser werden beim Verlassen der Anwendung nicht mehr über einen ausstehenden Abschluss des workspaces gewarnt, falls es sich um ein importiertes oder geschlossenes package handelt.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2022070299 - <strong>Broker</strong>: Fehler im Data-Binding - Wenn in einem Grid eine
+  Combobox-Spalte mit DependsDataSourceOnRowData angelegt ist, dann kann es
+  passieren, dass am Client geänderte Werte nicht zurück in das gebundene
+  Property geschrieben werden.</p>
+</li>
+<li><p>2022070358 - <strong>Package-Manager</strong>: Wird ein Service-Release-Stand über ein
+  Full-Package importiert, dann erhält der Workspace der importierten
+  Package-Version nicht das Service-Release-Datum, sondern das Release-Datum.
+  In der Folge zeigen der Package-Manager und die eNVenta Versions-Info
+  veraltete Datumswerte an.</p>
+</li>
+<li><p>2022070530 - <strong>Package-Manager</strong>: Bei Customzing-Packages kann es vorkommen,
+  dass im Compile-Lauf zu viele - in diesem Package nicht gecustomizte
+  Namespaces - compiliert werden. In der Folge kann es bei komplizierten
+  Package-Hierarchien in seltenen Fällen vorkommen, dass Logik eines
+  Basis-Packages &quot;ausgeblendet&quot; wird.</p>
+</li>
+<li><p>2022070434 - <strong>IDE</strong>: Wird im Customizing oder in einer Ableitung an einem
+  TreeNode z.B. ein DisplayMember geändert, dann werden im Repository falsche
+  Informationen gespeichert. Nach einem Neustart der IDE bzw. im Compile-Lauf
+  wird dadurch der komplette NodeDataSource - also die zugewiesene Collection -
+  als geändert betrachtet. In der Folge kann eine falsche Code-Generierung
+  dazu führen, dass der TreeView zur Laufzeit nicht alle Daten anzeigt.</p>
+<div class="NOTE"><h5>Note</h5><p>Die betroffenen Stellen müssen mit der aktuellen Version manuell korrigiert
+werden. Dafür bitte am TreeNode die Eigenschaft NodeDataSource mit &quot;Reset&quot;
+zurücksetzen (sodass diese nicht mehr fett gedruckt erscheint) und
+anschließend die DisplayMember erneut setzen.</p>
+</div>
+</li>
+<li><p>2022070415 - <strong>Framework</strong>: Die Methode IsComponentProperty(string) liefert
+  möglichweise false zurück, obwohl das Property existiert.</p>
+</li>
+<li><p>Wenn man im Login-screen der IDE den Dropdown-button der Combobox verwendet und dann
+den Namen eines Benutzers eintippt, überlappen sich die beiden Dropdown-Fenster.</p>
+</li>
+<li><p>Wenn man im Package-Manager den AssemblyPrefix bearbeiten möchte, dann kann es vorkommen,
+dass der Package-Manager einfriert.</p>
+</li>
+</ul>
+<h2 id="447-24062022">4.4.7 (24.06.2022)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.4.7_Setup_x64</li>
+<li>RS_4.4.7_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen-für-devexpress-reporting-1">Neuerungen für DevExpress® Reporting</h4>
+<ul>
+<li><a href="../doc/reporting/report-migration.html#report-migration-summary">Report Migration Summary</a> inklusive einer XML-Aufbereitung der Crystal-Reports.</li>
+</ul>
+<p>Änderungen im <a href="../doc/reporting/report-designer.html">FS Report Designer</a>:</p>
+<ul>
+<li>Das <a href="../doc/reporting/report-designer.html#besonderheiten-beim-umgang-mit-dateien">Datei-Handling</a> wurde grundlegend überarbeitet<ul>
+<li>Readonly Reports sind nicht mehr eingeschränkt. Änderungen können bei Bedarf mit &quot;Save As...&quot; gespeichert werden.</li>
+<li>Speichern von <a href="../doc/reporting/devexpress-subreport-control.html">Embedded SubReports</a> überarbeitet.</li>
+<li>Wird aus einem Linked Subreport heraus ein Embedded Subreport geöffnet, ist dieser Readonly.</li>
+</ul>
+</li>
+<li>Die <a href="../doc/reporting/report-designer.html#controls">FS-spezifischen Report Controls</a> haben Icons erhalten</li>
+</ul>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<ul>
+<li><p>2022059879 - <strong>JavaClient</strong>: Beim Öffnen eines Forms werden vom WrapPanel
+  Layout-Exceptions geworfen, wenn der Frame extrem schmal ist.</p>
+</li>
+<li><p>2022050010 - <strong>Java-Client</strong>: Wird in einem HTML-Textfeld ein Bild eingefügt,
+  dann wird im HTML-Code das img-Tag nicht mit einem MIME-Type versehen. Der
+  Client zeigt das Bild korrekt an, aber bei der Weiterverarbeitung des HTML
+  (z.B. dem Senden einer Email über Outlook) kann es sein, dass das Bild nicht
+  korrekt verarbeitet wird.</p>
+</li>
+<li><p>2022060088 - <strong>Broker</strong>: Wird auf einem Grid, das eine GroupBy-Query anzeigt,
+  über den Client ein Filter eingestellt, dann wird ein SQL-Error angezeigt.
+  Der Fehler tritt auf, wenn aufgrund sehr vieler Datensätze der
+  Reload-Mechanismus greift und der Filter deshalb über die Datenbank
+  angewendet wird.</p>
+</li>
+<li><p>2022060124 - <strong>Code-Generierung</strong>: Wird ein Customizing-Package compiliert,
+  dann wird in die Package-Info für die Basis-Packages nicht das richtige
+  Compile-Datum generiert. Alle Packages erhalten dieselben Werte wie das
+  Customzing-Package. In der Folge werden in eNVenta in der Versions-Info
+  falsche Datums-Werte und ein falscher Wert bei Service-Release angezeigt.</p>
+</li>
+<li><p>2022050005 - <strong>Runtime Supervisor</strong>: Observables können auf Grund von
+  inkompatiblen API-Versionen nicht mit dem Runtime Supervisor kommunizieren.</p>
+</li>
+</ul>
+<h2 id="446-27052022">4.4.6 (27.05.2022)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.4.6_Setup_x64</li>
+<li>FS4.4.6_PrintService</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuer-print-service">Neuer Print-Service</h4>
+<p>Im PrintService wurde die DevExpress Reporting Runtime aktualisiert.</p>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<ul>
+<li><p>2022059888 - <strong>JavaClient</strong>: Wird eine Grid-Zelle mit Enter verlassen, dann
+  kann es passieren, dass eine im OnColumnChanged-Event aufgerufene
+  SetCell-Action ignoriert wird. Der Fokus landet dann nicht in der
+  gewünschten Grid-Zelle. Auftreten kann der Fehler, wenn z.B. im
+  OnColumnChanged ein modaler Dialog geöffnet wird.</p>
+</li>
+<li><p>2022059912 - <strong>Java-Client</strong>: Sind in einem Menü mehrere Separatoren
+  enthalten, dann kann es beim Öffnen des Forms im Java-Client zu einer
+  StackOverflowException kommen. Der Fehler tritt auf, wenn viele Menu-Items
+  ausgeblendet werden. In der Folge wird das Form nicht angezeigt oder die
+  Anwendung startet nicht korrekt.</p>
+</li>
+<li><p>2022059952 - <strong>Publish2Go</strong>: Die Einstellungen für das Load Balancing sind
+  nicht sichtbar.</p>
+</li>
+<li><p>2022059938 - <strong>Package-Manager</strong>: Beim Compile eines Service-Release wird für
+  bearbeitete DBTables kein neuer Code generiert.<br>
+  In der Folge wird dieser Code beim Package-Export nicht berücksichtigt. Nach
+  dem Import im Ziel-Repository können dann Compile-Fehler auftreten.</p>
+<div class="NOTE"><h5>Note</h5><p>Damit die Korrektur greift muss die betroffene DBTable einmal aus- und
+eingecheckt werden. Beim anschließenden Compile-Lauf wird der Code dann
+korrekt aufgebaut.</p>
+</div>
+</li>
+<li><p>2022049752 - <strong>IDE</strong>: Wird im Basis-Package ein Element in einen neuen
+  Namespace verschoben und der alte Namespace gelöscht, dann findet im
+  Customizing-Package die Routine &quot;Adjust moved Customizations&quot; betroffene
+  Elemente nicht. Dadurch hängen die customizten Elemente in der Luft und
+  verursachen ggf. Fehler beim Compile.</p>
+</li>
+<li><p>2022049758 - <strong>IDE</strong>: Hat der CSharp-Compiler ein Problem, das den Compile
+  komplett verhindert (weil z.B. das Programm-Verzeichnis beschädigt ist),
+  dann meldet Framework Studio keinen entsprechenden Fehler. Bei der Arbeit
+  als normaler Benutzer werden keine DLLs erzeugt, wodurch der Start des
+  Brokers nicht möglich ist. Beim Ausführen eines FrameworkCompiler treten
+  Fehler auf, weil DLLs nach dem Compile nicht gefunden werden.</p>
+</li>
+<li><p>2022059769 - <strong>IDE</strong>: Beim Einfügen eines Links in einen customizten Workflow
+  erscheint in seltenen Fällen eine Fehlermeldung. <em>System.ArgumentException:
+  An item with the same key has already been added.</em></p>
+</li>
+<li><p>2022059945 - <strong>IDE</strong>: Erweiterungen an einem gecustomized Basis-Workflow
+  werden nicht in die Code-Generierung des von der Basis erbenden (nicht
+  gecustomized) Workflows übernommen.</p>
+</li>
+<li><p>2022059953 - <strong>HTML Client</strong>: GetGeoLocation liefert falsche Werte.</p>
+</li>
+</ul>
+<h2 id="445-29042022">4.4.5 (29.04.2022)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.4.5_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen-1">Neuerungen</h4>
+<ul>
+<li>Neue Maintenance-Routine <a href="../doc/maintenance/textcollection-mlkey-replace.html">Replace TextCollection with MLKeys</a> zum Ersetzen von TextCollection-Aufrufen durch MLKeys im Methoden-Code.</li>
+</ul>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<ul>
+<li><p>2022039471 - <strong>Package-Manager</strong>: Bei einem importierten Package wird die
+  Meldung &quot;Please import...&quot; angezeigt, wenn für das Basis-Package ein neues
+  Service-Release importiert wird. Diese Situation kann durch Compile des
+  importierten Packages behoben werden. Die Meldung muss entsprechend
+  angepasst werden.</p>
+</li>
+<li><p>2022049663 - <strong>Package-Manager</strong>: Wird ein importiertes Package kompiliert,
+  dann geht das ursprüngliche Compile-Datum verloren. Sowohl im
+  Package-Manager als auch in der Versions-Info von eNVenta ist dadurch der
+  Programm-Stand nicht mehr ersichtlich.</p>
+<div class="NOTE"><h5>Note</h5><p>Die Korrektur greift erst, wenn das Package erneut compiliert wird.</p>
+</div>
+</li>
+<li><p>2022018960 - <strong>IDE</strong>: Im Multilanguage Text Editor findet die Suche bei
+  mehrzeiligen Texten nur Wörter, die in der ersten Zeile stehen. Der Text ab
+  der 2. Zeile wird nicht berücksichtigt.</p>
+</li>
+<li><p>2022039402 - <strong>IDE</strong>: Die Intellisense funktioniert im Exception-Editor im
+  Feld &quot;String.Format&quot; nicht.</p>
+</li>
+<li><p>2022039417 - <strong>IDE</strong>: Beim Einfügen eines Format-Tags (z.b. <code>[b]</code>, <code>[i]</code>,
+  <code>[h1]</code> usw.) werden ggf. zu viele Tags zusammengefasst. So können
+  versehentlich z.B. Image-Tags in die Headline rutschen, was im Anschluss zu
+  Fehlern führt.</p>
+</li>
+<li><p>2022039443 - <strong>IDE</strong>: Headline-Tags (<code>[h1]</code>, <code>[h2]</code> , <code>[h3]</code>) können
+  fälschlicherweise in Control-Dokumentationen verwendet werden.</p>
+</li>
+<li><p>2022049597 - <strong>Data-Provider</strong>: Oracle - Wird in einem SQL-Command ein
+  Identifier mit Sonderzeichen oder eine Ziffer am Anfang verwendet, dann wird
+  das für Oracle nicht korrekt umgesetzt. Beispiel: <code>DELETE FROM [30_TEST]</code></p>
+</li>
+<li><p>2022049553 - <strong>Framework</strong>: Die Update-Analyse greift bei Oracle ggf.
+  verzögert auf die Data-Connection zu. Das führt bei deaktiviertem FSPooling
+  zu einer <code>ObjectDisposedException</code>. Bei aktivem FSPooling wird die
+  Connection nicht mehr freigegeben.</p>
+</li>
+</ul>
+<h2 id="444-25032022">4.4.4 (25.03.2022)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.4.4_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen-2">Neuerungen</h4>
+<ul>
+<li>Der SpellChecker für das Dokumentationssystem kann nun im Options-Dialog deaktiviert werden.</li>
+<li>Im <a href="../doc/ide/allgemeine-funktionalitaeten.html#method-history-browser">Method History Browser</a> und im <a href="../doc/ide/allgemeine-funktionalitaeten.html#element-history-browser">Element History Browser</a> werden Context-Package Versionen ausgeblendet.</li>
+</ul>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<ul>
+<li><p>2022029183 - <strong>Broker</strong>: Die Properties MainMemorySortingThreshold,
+  TransferStartupRowCount, TransferStartupNodeRowCount und ListSortOrder
+  verhalten sich unterschiedlich, je nachdem ob ihr Wert aus der Basis stammt.</p>
+</li>
+<li><p>2022029176 - <strong>Package-Manager</strong>: Wird im Package-Manager mit der Version 4.4
+  eine Package-Version mit einer älteren Version (z.B. FS 4.2) gelöscht, dann
+  werden Context-Versionen nicht berücksichtigt. Dadurch wird die
+  Package-Hierarchie zerstört. Weil sich das nicht mehr lösen lässt, muss das
+  Repository-Backup zurück gespielt werden.</p>
+</li>
+<li><p>2022029237 - <strong>Package-Manager</strong>: Nach dem ersten Import eines
+  Customizing-Packages fehlt die Beziehung zu den Basis-Workspaces. In der
+  Folge treten Exceptions auf. Das Package muss ein weiteres mal importiert
+  werden.</p>
+</li>
+<li><p>2022039432 - <strong>Package-Manager</strong>: Wird ein importiertes Package compiliert,
+  weil sich der Service-Release-Stand eines Basis-Packages geändert hat, dann
+  werden in diesem Package die Ressourcen nicht compiliert. Dadurch werden
+  MLKeys, welche im Basis-Package im Service-Release hinzugefügt wurden nicht
+  erkannt. Die Folge sind ggf. Compile-Fehler in diesem Package.</p>
+</li>
+<li><p>2022039447 - <strong>Package-Manager</strong>: Wird aus dem Package-Manager heraus der
+  Runtime-License-Manager geöffnet, dann werden bei einer
+  &quot;Context&quot;-Package-Hierarchie nicht alle Packages angezeigt.</p>
+</li>
+<li><p>2022029238 - <strong>IDE</strong>: Bei einem neuen Customizing-Package, bei dem noch keine
+  eigenen Components existieren, gibt es Compile-Errors, wenn man die
+  Interfaces mit DebugAll compiliert.</p>
+</li>
+<li><p>2022039298 - <strong>IDE</strong>: Beim Schreiben im Dokumentations-Editor kann ein
+  Deadlock entstehen.</p>
+<div class="NOTE"><h5>Note</h5><p>Der Fehler ist korrigiert. Dennoch wurde vorsorglich die Rechtschreibprüfung
+im Dokumentations-Editor per Default deaktiviert. Bei Bedarf kann sie über
+die Options aktiviert werden.<br>
+Wenn der Deadlock nach weiteren Tests nicht mehr auftritt, dann wird die
+Rechtschreibprüfung in der kommenden Version wieder aktiviert.</p>
+</div>
+</li>
+<li><p>2022039391 - <strong>IDE</strong>: Wird in der Dokumentation eines Controls eine Headline
+  hinzugefügt, kommt es beim Rendern des Chapters zu einer Unhandled
+  Exception.</p>
+</li>
+<li><p>2022039452 - <strong>RuntimeAdministration</strong>: User Passwort wird bei Änderung der
+  Role-Zuweisung auf einen falschen Wert gesetzt.</p>
+</li>
+</ul>
+<h2 id="443-25022022">4.4.3 (25.02.2022)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.4.3_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="bekannte-probleme">Bekannte Probleme</h4>
+<ul>
+<li><p>2022029176 - <strong>Package-Manager</strong>: Wird im Package-Manager mit der Version 4.4
+  eine Package-Version mit einer älteren Version (z.B. FS 4.2) gelöscht, dann
+  werden Context-Versionen nicht berücksichtigt. Dadurch wird die
+  Package-Hierarchie zerstört. Weil sich das nicht mehr lösen lässt, muss das
+  Repository-Backup zurück gespielt werden.</p>
+<div class="NOTE"><h5>Note</h5><p>Das Löschen von älteren Package-Versionen wurde vorübergehend deaktiviert,
+um Beschädigungen an Repositories zu verhindern. Es wird voraussichtlich mit
+dem nächsten Patchday eine Korrektur geben.</p>
+</div>
+</li>
+</ul>
+<h4 id="neuerungen-3">Neuerungen</h4>
+<ul>
+<li>Die Anmeldung mit dem <code>FrameworkAdministrator</code> an der IDE zur User-Verwaltung wurde entfernt. Die User-Verwaltung kann nun ausschließlich über den Package Manager im Menü <code>Tools -&gt; Manage Users</code> aufgerufen werden.</li>
+<li>In der IDE werden noch nicht abgespeicherte Tabs mit einem Stern <code>*</code> gekennzeichnet.</li>
+</ul>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<ul>
+<li><p>2022029190 - <strong>Java-Client</strong>: Alle Jar-Dateien müssen neu signiert werden,
+  weil das Java-Zertifikat widerrufen wurde.</p>
+</li>
+<li><p>2022029110 - <strong>Reporting</strong>: Ein ReportEnum-Konstruktor setzt keinen
+  Dateinamen, wodurch z.B. der Druck von per Client Side Customizing
+  erstellten Reports fehlschlägt.</p>
+</li>
+<li><p>2022019075 - <strong>IDE</strong>: Beim Anmelden mit dem FrameworkAdministrator an der IDE
+  kommt es zu einer Exception.</p>
+<div class="NOTE"><h5>Note</h5><p>Die Anmeldung mit dem <code>FrameworkAdministrator</code> an der IDE zur
+User-Verwaltung wurde entfernt.<br>
+Die User-Verwaltung kann nun ausschließlich über den Package Manager im Menü
+<code>Tools -&gt; Manage Users</code> aufgerufen werden.</p>
+</div>
+</li>
+<li><p>2022029093 - <strong>IDE</strong>: Customize aus dem Context-Menü einer Basis-Methode
+  funktioniert nicht.</p>
+</li>
+<li><p>2022029094 - <strong>IDE</strong>: In der laufenden Session werden Änderungen an Components
+  im Intellisense-Store nicht aktualisiert. Dadurch sind z.B. neu angelegte
+  Properties erst nach einem Neustart zu sehen.</p>
+</li>
+<li><p>2022029126 - <strong>IDE</strong>: Nach dem bearbeiten eines Global Events kann es
+  passieren, dass im Workflow-Link auf dieses Global Event keine Init-Methode
+  mehr angeboten wird.</p>
+</li>
+<li><p>2022029194 - <strong>IDE</strong>: Wird auf einem ControlType ein Undo Checkout ausgeführt,
+  dann werden Form-Controls mit diesem ControlStyle und der zu verwerfenden
+  Control-Version auf gelöscht gesetzt.</p>
+<div class="NOTE"><h5>Note</h5><p>Dieser Fehler kann eine Erklärung für Fälle sein, in denen aus heiterem
+Himmel Controls verschwunden sind - ohne dass jemand das Form ausgecheckt
+hat. Er war seit 05.2020 aktiv.</p>
+</div>
+</li>
+<li><p>2022029147 - <strong>Doku</strong>: Informationen zum Aufräumen von
+  <a href="https://frameworksystemsgmbh.github.io/fsdocs/v4.4/doc/session-logging/session-logging-analyzer.html">tblRep_SessionLogging</a>.</p>
+</li>
+<li><p>2022029101 - <strong>Framework</strong>: AccessUnitHierarchy.CreateHierarchy wirft eine
+  NullReferenceException.</p>
+</li>
+</ul>
+<h2 id="442-28012022">4.4.2 (28.01.2022)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.4.2_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen-4">Neuerungen</h4>
+<ul>
+<li>Am <a class="xref" href="../api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.html"><strong>cGlobal</strong></a> wurde ein neuer EntryPoint geschaffen, mit dem man Lizenz-Freigabe programmatisch einschränken kann, obwohl die Lizenz-Datei dies erlaubt.</li>
+<li>Es ist nun möglich, <a href="../doc/documentation/docml.html#headline">Headlines</a> im <a href="../doc/documentation/editor.html">Dokumentationsfenster</a> zu nutzen.</li>
+</ul>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<ul>
+<li><p>2022018908 - <strong>JavaClient</strong>: Wird per Action ein TabbedWindow (oder sein
+  Parent) ausgeblendet, dann feuert das OnSelectedTabPageChange Event. Findet
+  das beim Öffnen eines Forms statt, dann kann das zur Folge haben, dass das
+  Form sich nicht im Vordergrund öffnet.</p>
+</li>
+<li><p>2022018909 - <strong>Java-Client</strong>: Beim Öffnen eines Forms wird in der Java-Console
+  ggf. eine Meldung
+  &quot;<em>FrameworkSystems.FSJavaClient.DevControl.LayoutComponentDefault cannot be
+  cast to FrameworkSystems.FSJavaClient.DevControl.DevControlTabPage</em>&quot;
+  ausgegeben.</p>
+</li>
+<li><p>2022018927 - <strong>Java-Client</strong>: Beim Ausführen der Action LoadGridLayout kann es
+  bei großen Grids vorkommen, dass nicht alle Daten verarbeitet werden.</p>
+</li>
+<li><p>2018043231 - <strong>IDE</strong>: Beim Paste eines Metadatentyps zeigt die Prüfung keine
+  Konflikte an, wenn der Basis-Metadatentyp nicht existiert. Beim Einfügen
+  wird dann eine Exception ausgelöst.</p>
+</li>
+<li><p>2021128765 - <strong>IDE</strong>: Beim Import einer TMX-Datei ins Wörterbuch werden
+  ISO-Sprach-Codes in Großbuchstaben nicht erkannt.</p>
+</li>
+<li><p>2021128775 - <strong>IDE</strong>: Wird im Code-Editor vor einer geschweiften Klammer in
+  einem SingleLine-Kommentar ein &quot;.&quot; gesetzt, aktiviert sich die Intellisense.</p>
+</li>
+<li><p>2022018943 - <strong>IDE</strong>: Nach dem Kopieren und Einfügen eines CustomControls kann
+  das Zielform nicht mehr compiliert werden.</p>
+</li>
+<li><p>2022018947 - <strong>IDE</strong>: Wenn im Dokumentations-Editor sehr große Dokumentationen
+  bearbeitet werden, kann es zum zeitweisen Einfrieren des Editors kommen.</p>
+</li>
+<li><p>2022018949 - <strong>IDE</strong>: GAC-Referenzen werden nicht zu der zu kompilierenden
+  Klasse hinzugefügt, wodurch der Compile mit Errors abbricht.</p>
+</li>
+<li><p>2022018881 - <strong>Doku-System</strong>: Die Checkbox &quot;Include DB-Tables&quot; beim
+  HTML-Export hat keinen Effekt. Die Tabellenbeschreibungen werden nicht
+  exportiert.</p>
+</li>
+<li><p>2022018882 - <strong>Doku-System</strong>: Die Tabellenbeschreibungen beim HTML-Export
+  werden unsortiert ausgegeben.</p>
+</li>
+<li><p>2022018856 - <strong>Framework</strong>: AUHelper.GetAccessUnitInfos() verursacht
+  NullReferenceException.</p>
+</li>
+<li><p>2021128815 - <strong>HTML Client</strong>: Das Picture Control wird nicht upgedated, wenn
+  die DataSource auf &quot;null&quot; gesetzt wird.</p>
+</li>
+<li><p>2021128823 - <strong>HTML Client</strong>: Die Frequenz der Beep-Action ist hart auf 1000Hz
+  festgelegt und ignoriert damit den übergebenen Wert.</p>
+</li>
+<li><p>2022018973 - <strong>PackageManager</strong>: Muss ein importiertes Package aufgrund eines
+  Service Release kompiliert werden, dann kann es vorkommen, dass die MLKeys
+  dieses Packages nicht berücksichtigt werden.</p>
+</li>
+</ul>
+<h2 id="441-23122021">4.4.1 (23.12.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.4.1_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="kein-internet-explorer-11-mehr">Kein Internet Explorer 11 mehr</h4>
+<p>Der Internet Explorer 11 wird nicht mehr unterstützt.</p>
+<p>Folgende Features können nur noch mit aktuellen Browsern wie z.B. Edge, Chrome oder Firefox genutzt werden:</p>
+<ul>
+<li>Client Start Page</li>
+<li>Mit Framework Studio generierte Online-Hilfe</li>
+<li>Mobile Client</li>
+</ul>
+<h4 id="neuerungen-5">Neuerungen</h4>
+<h5 id="erweiterungen-im-dokumentations-editordocdocumentationeditormd">Erweiterungen im <a href="../doc/documentation/editor.html">Dokumentations-Editor</a></h5>
+<ul>
+<li><a href="../doc/documentation/editor.html#rechtschreibprüfung">Rechtschreibprüfung</a></li>
+<li>Das Einfügen von <a href="../doc/documentation/editor.html#link">Links</a> wurde überarbeitet</li>
+<li>Einfügen von <a href="../doc/documentation/editor.html#link">Url-Links</a> aus der Zwischenablage</li>
+<li>Einfügen von <a href="../doc/documentation/editor.html#bild-einbinden">Bildern</a> aus der Zwischenablage</li>
+<li>Der Tooltip kann direkt im <a href="../doc/documentation/editor.html#panel-tooltip">Editor</a> bearbeitet werden.</li>
+</ul>
+<h5 id="html-client-actions">HTML Client Actions</h5>
+<p>Folgende Actions werden nun vom HTML Client unterstützt:</p>
+<ul>
+<li>Beep</li>
+<li>BeepDouble</li>
+<li>BeepMultiple</li>
+</ul>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021128654 - <strong>Broker</strong>: Wird im Customizing-Package eine Developer-Lizenz
+  verwendet, dann werden die Lizenzen der Basis-Packages nicht ausgewertet.
+  Folglich werden alle Features freigeschaltet.</p>
+</li>
+<li><p>2021118528 - <strong>IDE</strong>: Im Login-Dialog kann man mit TAB nicht in die Combobox
+  <em>Auto Debug DLLs</em> springen.</p>
+</li>
+<li><p>2021118541 - <strong>IDE</strong>: Wird ein zu langer Datenbank-Servername oder
+  Repository-Name verwendet, dann bricht der Start der IDE mit einer Exception
+  ab.</p>
+</li>
+<li><p>2021128575 - <strong>IDE</strong>: Wenn versucht wird, in einer Dokumentation ein Hyperlink
+  einzufügen, muss dieser mit http:// beginnen und verbietet somit https://
+  Hyperlinks.</p>
+</li>
+<li><p>2021128588 - <strong>IDE</strong>: Beim Kopieren eines Component Properties wird die
+  Eigenschaft &quot;Autogenerate Membervariable&quot; nicht kopiert.</p>
+</li>
+<li><p>2021128680 - <strong>IDE</strong>: Wurden nach dem FrameworkCompiler Elemente eingecheckt,
+  dann werden diese anderen Benutzern bei Get Latest CheckIns ggf. nicht
+  angezeigt.</p>
+</li>
+<li><p>2021128584 - <strong>Code-Generierung</strong>: Wird im Metadatentyp als Format-Pattern ein
+  Regulärer Ausdruck verwendet, dann wird dieser im generierten Code nicht
+  sauber escaped. In der Folge kann es zu Compile-Fehlern kommen.</p>
+</li>
+<li><p>2021128747 - <strong>HTML Client</strong>: Die ComboBox (ListValuesInput) reagiert nicht
+  auf Eingaben von Buchstaben zur Auswahl des Eintrags.</p>
+</li>
+<li><p>2021128773 - <strong>HTML Client</strong>: Editfields mit einer DataSource vom Typ
+  &quot;FSDateTime&quot; werfen beim Senden des Wertes zum Broker in gewissen Fällen
+  eine Exception.</p>
+</li>
+</ul>
+<h2 id="440-10122021">4.4.0 (10.12.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.4.0_Setup_x64</li>
+<li>FS_4.4.0_PrintService</li>
+<li>FS_4.4.0_Requirements_x64 (<a href="requirements-package.html">Requirements-Paket</a>)</li>
+<li>FSCL_4.4.0_Setup_x86</li>
+<li>FSCL_4.4.0_Setup_x64</li>
+<li>FSCL_4.4.0_Setup_Msi_x86</li>
+<li>FSCL_4.4.0_Setup_Msi_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen-6">Neuerungen</h4>
+<p>Die Neuerungen finden Sie unter <a href="neuheiten-4-4.html">Neuheiten 4.4</a></p>
+<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
+<p>In der Version 4.4 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-3.html#4310-26112021">Framework Studio 4.3.10</a> enthalten.
+Zusätzlich wurden die folgenden Bugs behoben.</p>
+<ul>
+<li>2021118369 - <strong>Framework</strong>: Wird an einer Grid-Combobox im Customizing an
+  abweichender Display-Member definiert, dann ziehen ggf. weiterhin
+  Eigenschaften des in der Basis angegebenen Display-Members. So wird z.B.
+  weiterhin ein &quot;Uppercase&quot; gezogen, wenn im neuen Display-Member kein Format
+  definiert ist.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

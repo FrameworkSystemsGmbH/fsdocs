@@ -1,0 +1,136 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ContextMenu </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="ContextMenu ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="stylesheet" href="../../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="contextmenu">ContextMenu</h1>
+
+<ul>
+<li><p><a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ContextMenuDesignViewModel.html">Properties/Events</a></p>
+</li>
+<li><p><a class="xref" href="../../../api/FrameworkSystems.FrameworkControls.Actions.MainMenuControlAction.html">Actions</a></p>
+</li>
+</ul>
+<p><br></p>
+<p><img src="../media/context-menu-example.png" alt="context-menu-example.png"></p>
+<p><a href="button.html">Buttons</a> und <a href="image-button.html">ImageButtons</a> können bei Betätigung ein Kontextmenü öffnen. Dazu muss dem Button  über das Property <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ButtonBaseDesignViewModel.ContextMenu.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ButtonBaseDesignViewModel_ContextMenu">ContextMenu</a> ein <strong>ContextMenu</strong> zugeordnet werden.</p>
+<p>Das Control ContextMenu stellt lediglich eine Hülle dar, in der alle Menüeinträge gesammelt werden, die angezeigt werden sollen, wenn das Kontextmenü geöffnet wird.</p>
+<p>Ein neues ContextMenu lässt sich im Form-Designer (<a href="../designer.html#allgemeiner-überblick">Allgemeiner Überblick</a>) auf zwei Arten per Drag&amp;Drop anlegen:</p>
+<ol>
+<li><p>Aus der Toolbox (<a href="../../ide/registerkarten.html#registerkarte-toolbox">Registerkarte Toolbox</a>) heraus auf die DefaultVariant des Forms (also auf den Hintergrund des Forms) im Designer-Fenster: Das Kontextmenü wird  angelegt und ist keinem Button zugeordnet.</p>
+</li>
+<li><p>Aus der Toolbox heraus direkt auf einen <a href="button.html">Button</a> (oder <a href="image-button.html">ImageButton</a>): Das Kontextmenü wird angelegt und dem Button zugeordnet. Der Name wird dabei mit men, gefolgt von dem Namen des Buttons, vorbelegt.</p>
+</li>
+</ol>
+<p>Kontextmenüs werden im ClassView (<a href="../../ide/registerkarten.html#registerkarte-class">Registerkarte Class</a>) immer im Teilbaum unterhalb der <strong>DefaultVariant</strong> ggf. parallel zum Hauptmenü (<strong>MainMenu</strong>) angezeigt.</p>
+<p>Am Kontextmenü können im ClassView (wie bei anderen Menüs) neue Menüeinträge über den Eintrag <strong>New MenuItem</strong> im Kontextmenü des Treeviews angelegt werden.</p>
+<div class="WARNING"><h5>Warning</h5><p>Beim Löschen eines Kontextmenüs wird nicht überprüft, ob das Kontextmenü bereits einem Button zugeordnet ist.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

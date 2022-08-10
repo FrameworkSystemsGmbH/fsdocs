@@ -1,0 +1,195 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Requirements-Paket </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Requirements-Paket ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="requirements-paket">Requirements-Paket</h1>
+
+<p>Die Requirements für Framework Studio stehen in einem separaten Download zur Verfügung.</p>
+<ul>
+<li>FS4.4.0_Requirements_64Bit.zip</li>
+</ul>
+<p>Die Requirements werden benötigt, wenn Sie das erste mal eine Installation von Framework Studio durchführen.</p>
+<p>Damit die Installation der Requirements direkt von der Setup.exe angestoßen werden kann, kopieren Sie den Ordner <code>Requirements</code> (samt Inhalt) aus dem entsprechenden Paket direkt in den Ordner mit der Setup.exe.</p>
+<p>Die Struktur der Ordner muss dann folgendermaßen aussehen:</p>
+<ul>
+<li>FS_4.4.x_Setup_x64\<ul>
+<li><strong>FS_4.4.x_Setup_x64.exe</strong></li>
+<li>Neuheiten.pdf</li>
+<li>Requirements_Readme.txt</li>
+<li><strong>Requirements\</strong><ul>
+<li>CRRuntime_64bit_13_0_29.msi</li>
+<li>...</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="enthaltene-bestandteile">Enthaltene Bestandteile</h2>
+<h3 id="net-framework-48">.net Framework 4.8</h3>
+<ul>
+<li><p><code>ndp48-web.exe</code></p>
+<p>  Es wird empfohlen, diesen Web-Installer auszuführen.
+  Damit erhalten sie automatisch die aktuellste Version und das passende Sprachpaket.</p>
+</li>
+<li><p><code>ndp48-x86-x64-allos-enu.exe</code></p>
+<p>  Der Offline-Installer spart den Download der Runtime.
+  Er beinhaltet das .net Framework in englischer Sprache und die Version ist ggf. nicht mehr die aktuellste.</p>
+</li>
+<li><p>Bei Bedarf gibt weitere Pakete direkt von Microsoft unter <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48">https://dotnet.microsoft.com/download/dotnet-framework/net48</a></p>
+</li>
+</ul>
+<p>Das .net Framework 4.8 muss installiert werden, <strong>bevor</strong> die Setup.exe ausgeführt wird.</p>
+<p>Es muss auf den folgenden Rechnern installiert werden:</p>
+<ul>
+<li>Anwendungs-Server</li>
+<li>Authentication-Server</li>
+<li>Print-Server</li>
+<li>Entwicklungs-Rechner</li>
+</ul>
+<h3 id="asp-net-core-runtime-31">ASP .NET Core Runtime 3.1</h3>
+<ul>
+<li><code>dotnet-hosting-3.1.19-win.exe</code></li>
+</ul>
+<p>Die ASP .NET Core Runtime wird für den Web-Designer von DevExpress Reporting benötigt.</p>
+<p>Die aktuellste Version der Runtime gibt es unter <a href="https://dotnet.microsoft.com/download/dotnet/3.1">https://dotnet.microsoft.com/download/dotnet/3.1</a>.
+Dort im Abschnitt <strong>ASP .NET Core Runtime</strong> für Windows das <strong>Hosting Bundle</strong> herunterladen.</p>
+<div class="NOTE"><h5>Note</h5><p>In <strong>eNVenta ERP</strong> gibt es aktuell noch <strong>keine Freigabe</strong> für die Verwendung des Web-Designers.
+Aus diesem Grund prüft der Installer von Framework Studio noch nicht auf diese Runtime.</p>
+</div>
+<p>Die Runtime muss (sofern der Web-Designer dennoch zum Einsatz kommt) auf den folgenden Rechnern installiert werden:</p>
+<ul>
+<li>Anwendungs-Server</li>
+<li>Entwicklungs-Rechner</li>
+</ul>
+<h3 id="crystal-reports-runtime">Crystal Reports Runtime</h3>
+<ul>
+<li>64Bit: <code>CRRuntime_64bit_13_0_29.msi</code></li>
+</ul>
+<div class="CAUTION"><h5>Caution</h5><p>Bitte beachten sie unbedingt die Hinweise in den <a href="requirements.html#crystal-reports-runtime">Requirements</a>.</p>
+</div>
+<p>Die SAP Crystal Reports Runtime dient zur Aufbereitung der Druck-Belege. Sie muss auf den folgenden Rechnern installiert werden:</p>
+<ul>
+<li>Anwendungs-Server</li>
+<li>Print-Server</li>
+<li>Entwicklungs-Rechner</li>
+</ul>
+<h3 id="fs-client-launcher">FS Client Launcher</h3>
+<ul>
+<li>64-Bit: <code>FSCL_4.4.0_Setup_x64.exe</code></li>
+<li>Die 32-Bit-Version <code>FSCL_4.4.0_Setup_x86.exe</code> steht als separater Download zur Verfügung</li>
+</ul>
+<p>Der <a href="../doc/fsclientlauncher/fsclientlauncher-common.html">Framework Studio Client-Launcher</a> beinhaltet eine Java-Runtime zum Ausführen des Java-Clients. Er muss auf folgenden Rechnern installiert werden:</p>
+<ul>
+<li>Alle Rechner, auf denen die eNVenta-Anwendung ausgeführt wird</li>
+<li>Entwickler-Rechner zum Ausführen der Anwendung</li>
+<li>ggf. Anwendungs-Server, sofern auf ihnen die Anwendung ausgeführt werden soll</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

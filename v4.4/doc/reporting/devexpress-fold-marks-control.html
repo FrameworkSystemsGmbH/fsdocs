@@ -82,7 +82,8 @@
 <h1 id="fold-marks">Fold Marks</h1>
 
 <p><img src="media/fold-mark.svg" alt="Fold mark"></p>
-<p>Um Falzlinien darstellen zu können, wurde das FoldMarks-Control geschaffen. Dieses ist unter dem Namen &quot;Fold Mark Settings&quot; in der Toolbox zu erreichen.</p>
+<p>Belege in Briefform benötigen oft Falzmarken am Rand der Seite, um das Falten zu erleichtern.
+Um Falzlinien darstellen zu können, wurde das FoldMarks-Control geschaffen. Dieses ist unter dem Namen &quot;Fold Mark Settings&quot; in der Toolbox zu erreichen.</p>
 <p><img src="media/devexpress-custom-controls-foldmarks.png" alt="Fold mark"></p>
 <p>Auf der Report-Oberfläche nimmt das Control die Form einer grauen Box an:</p>
 <div class="NOTE"><h5>Note</h5><p>Hierbei handelt es sich lediglich um einen Placeholder, um das Control leichter greifbar zu machen.
@@ -109,6 +110,19 @@ Das im Report Designer angezeigte Settings-Control wird nie gedruckt.</p>
 <p>Bestimmt die Farbe der zusätzlichen Marke.</p>
 <h4 id="halfheightmarksize">HalfHeightMarkSize</h4>
 <p>Bestimmt die Größe der zusätzlichen Marke.</p>
+<h3 id="verwendung-des-controls">Verwendung des Controls</h3>
+<p>Um die Funktionalität nachzustellen, wurde das Custom Control „Fold Mark Settings“ erstellt, welches im Designer zu finden ist:</p>
+<p><img src="media/foldmark-icon.png" alt="Foldmark icon"></p>
+<p>Das Platzieren des Controls auf dem Report erstellt ein Dummy-Control zur Selektion. Dieses wird beim späteren Druck nicht zu sehen sein.</p>
+<p><img src="media/foldmark-element.png" alt="Foldmark element"></p>
+<p>Im neuen Control lässt sich jetzt die DIN-Norm selektieren, welche bestimmt, welche Form der Falzmarken angezeigt wird:</p>
+<p><img src="media/foldmark-settings.png" alt="Foldmark settings"></p>
+<p>„A“ und „B“ beziehen sich hierbei auf die beiden DIN-Standards für Briefpapier. A beschreibt einen üblichen Briefkopf, während B mehr Platz oben auf dem Papier für Adresszeile etc. vorsieht.
+Nach der Konfiguration werden die Falzmarken nicht im Designer angezeigt – die genaue Position ist erst nach Erstellung des Report-Documents (unmittelbar vor dem physischen Druck) bekannt, da zu diesem Zeitpunkt die Platzberechnung durchgeführt wird.</p>
+<p>Im Preview sind sie allerdings schon sichtbar:</p>
+<p><img src="media/foldmark-devexpress-preview.png" alt="Foldmark DevExpress Preview"></p>
+<p>Änderungen an den Einstellungen werden hier reflektiert. Wenn wir z.B. jetzt die ForeColor &amp; BackColor auf ein subtileres DarkGrey umstellen, ändert sich das Preview wie folgt:</p>
+<p><img src="media/foldmark-devexpress-preview-gray.png" alt="Foldmark DevExpress Preview Gray"></p>
 </article>
           </div>
           

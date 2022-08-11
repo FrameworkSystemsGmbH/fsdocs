@@ -94,6 +94,14 @@
 <p>Ein Request des Clients ruft im IIS eine ASP.net Seite auf. Der IIS kopiert dann automatisch alle benötigten Assemblies aus dem Brokerverzeichnis in ein temporäres Verzeichnis und verwendet dann diese temporären Kopien, um den Request zu verarbeiten. Der Vorteil des Kopierens liegt darin, dass die original Assemblies nicht direkt vom IIS verwendet werden und dadurch auch nicht blockiert werden.</p>
 <p><img src="media/application-broker-flow.png" alt="application-broker-flow.png"></p>
 <p>Auf diese Weise wird gewöhnlich der Echtbetrieb einer Anwendung realisiert.</p>
+<h3 id="development-broker">Development-Broker</h3>
+<p>Der Development-Broker benötig im Gegensatz zum produktiven Broker keinen IIS für die Ausführung der Anwendung.
+Er ist ein leichtgewichtiger Katana (OWIN) Webserver, der direkt aus Framework-Studio heraus gestartet wird.
+Über die darin integrierte WebAPI-Schnittstelle werden alle nötigen Informationen zum Ausführen der Anwendung angeboten.
+Der Host arbeitet direkt auf dem Compile-Verzeichnis der jeweiligen Anwendung.
+Wird aus Framework Studio heraus eine Applikation gestartet, wird der Broker automatisch gestartet.
+Wird ein Compile gestartet, wird der Broker automatisch beendet und neu gestartet. Das ist notwendig, da er im Gegensatz zum IIS die Assemblies sperrt.
+Man erkennt an einem Symbol in der Task-Leiste, ob der Broker gerade läuft.</p>
 <h3 id="compile-verzeichnis">Compile-Verzeichnis</h3>
 <p>Beim Kompilieren der Anwendung werden alle Dateien in dieses Verzeichnis geschrieben. Das aktuell verwendete Compile-Verzeichnis kann über den Menüpunkt <strong>Compile / Open Compile Directory in Explorer</strong> geöffnet werden.</p>
 <p>Auf einem Rechner wird pro Framework Studio Entwickler, pro Package und pro Package-Version je ein eigenes Compile-Verzeichnis verwendet. Falls das aktuell zu verwendende Verzeichnis beim Start von Framework Studio noch nicht existiert, wird es automatisch angelegt.</p>

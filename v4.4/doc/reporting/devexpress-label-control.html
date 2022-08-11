@@ -1,0 +1,153 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Labels </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Labels ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="labels">Labels</h1>
+
+<h3 id="wichtige-einstellungen-für-labels-und-text-shrinking">Wichtige Einstellungen für Labels und Text-Shrinking</h3>
+<p>Labels (und Tabellenzellen) bieten viele verschiedenen Kontrollschrauben für das Verhalten von Text und der Größe des Labels selbst auf Basis dessen an. Die wichtigsten Grundregeln werden hier beschrieben.</p>
+<h3 id="canshrink">CanShrink</h3>
+<p>CanShrink ist eines der zentralen Properties im control resizing. Wenn es aktiviert ist, passt sich die Größe des Controls beim Druck der Größe des Textes innerhalb des Controls an.
+Wenn alle Controls über und unter dem schrumpfenden Control ebenfalls CanShrink aktiviert haben, kann ein gesamtes Band drastisch verkleinert werden:</p>
+<p>Design:
+<img src="media/can-shrink-design.png" alt="Can Shrink Design"></p>
+<p><br></p>
+<p>Preview:
+<img src="media/can-shrink-preview.png" alt="Can Shrink Preview"></p>
+<p>Das funktioniert allerdings nur, solange auch alle betroffenen Controls in die Platzberechnungen des Drucks miteinbezogen werden.</p>
+<p><b style="color: red">Visible = false entfernt ein Control aber aus dieser Berechnung!</b></p>
+<p>Der im Designer beanspruchte Platz des unsichtbaren Controls wird somit als leerer Platz gewertet und kann Lücken zur Folge haben:</p>
+<p>Design:
+<img src="media/can-shrink-design-invisible.png" alt="Can Shrink With Invisible Design"></p>
+<p>Preview:
+<img src="media/can-shrink-preview-invisible.png" alt="Can Shrink With Invisible Preview"></p>
+<p>(Die blauen Tabellenzellen schrumpfen immer noch ordnungsgemäß, weshalb nur der Designer-Platz der grauen Zellen mit Visible = false übrig bleibt)
+Sobald der Platz wieder in Berechnungen einfließt, wird er auch wieder geschrumpft – zum Beispiel, wenn nur eine Zelle in der Zeile unsichtbar ist:</p>
+<p>Design:
+<img src="media/can-shrink-design-emptytext.png" alt="Can Shrink With Empty Text Design "></p>
+<p>Preview:
+<img src="media/can-shrink-preview-emptytext.png" alt="Can Shrink With Empty Text Preview"></p>
+<p>Aus diesem Grund ist es empfehlenswert, bei Feldern, die unter bestimmten Bedingungen nicht angezeigt werden sollen, per Expression den Text zu leeren, statt das Visible-Property zu steuern.</p>
+<h3 id="cangrow">CanGrow</h3>
+<p>CanGrow funktioniert, wie zu erwarten, als Gegenstück zu CanShrink. Wenn ein Text nicht vollständig ins Control passt, aus Gründen der Textlänge oder Schriftgröße, wächst es <strong>vertikal</strong>. Controls unter dem Label werden weiter nach unten geschoben.</p>
+<h3 id="processnullvalues">ProcessNullValues</h3>
+<p>ProcessNullValues bestimmt, wie ein Label mit null als Textwert umgeht. Standardmäßig steht dies auf „Leave“, was das Control einfach leer stehen lässt, welches dann als Lücke auf dem Report erscheint.
+Wenn man leere Labels verstecken möchte, muss ProcessNullValues.SuppressAndShrink eingestellt sein, oder über CanShrink und expression-abhängiges Text-Leeren gearbeitet werden.</p>
+<h3 id="multiline">Multiline</h3>
+<p>Bestimmt, ob Zeilenumbrüche im Text auch als Zeilenumbrüche interpretiert und angezeigt werden. Bestimmt außerdem, ob WordWrap überhaupt umbrechen darf.</p>
+<h3 id="wordwrap">WordWrap</h3>
+<p>WordWrap setzt automatische Zeilenumbrüche, sobald Text den Rand des Controls erreicht.
+Es garantiert nicht, dass auch der gesamte Text dargestellt wird – dafür muss die Höhe des Controls zur Darstellung ausreichen.</p>
+<h3 id="autowidth">AutoWidth</h3>
+<p>Analog zu CanGrow, allerdings für die Breite des Controls. Wenn Text den Rand des Controls erreicht, wird der Text über den Seitenrand des Controls hinaus weitergeschrieben.
+Andere Controls werden ignoriert und übermalt.
+Falls AutoWidth und WordWrap gleichzeitig aktiviert sind, gewinnt WordWrap. Ein aktiviertes WordWrap verhindert seitliches Wachsen des Controls.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

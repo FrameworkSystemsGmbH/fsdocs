@@ -176,11 +176,20 @@ gibt bzw. das Property nicht mit einer Datenbankspalte verknüpft ist,
 wird <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string.empty">Empty</a> zurückgegeben.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.Load.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_Load">Load()</a></h4>
-    <section><p></section>
+    <section><p><p>Lädt Daten in das Objekt anhand der übergebenen <code data-dev-comment-type="paramref" class="paramref">loadCondition</code>. Falls mehr als
+ein Datensatz gelesen wird, wird der Erste verwendet.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.Load.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_Load_System_String_">Load(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Lädt Daten in das Objekt anhand der übergebenen <code data-dev-comment-type="paramref" class="paramref">loadCondition</code>. Falls mehr als
+ein Datensatz gelesen wird, wird der Erste verwendet.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.Load.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_Load_System_String_System_String_">Load(String, String)</a></h4>
-    <section><p></section>
+    <section><p><p>Lädt Daten in das Objekt anhand der übergebenen <code data-dev-comment-type="paramref" class="paramref">loadCondition</code>. Falls mehr als
+ein Datensatz gelesen wird, wird der Erste verwendet.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.Load.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_Load_System_String_System_String_System_String_">Load(String, String, String)</a></h4>
     <section><p><p>Lädt Daten in das Objekt anhand der übergebenen <code data-dev-comment-type="paramref" class="paramref">loadCondition</code>. Falls mehr als
 ein Datensatz gelesen wird, wird der Erste verwendet.
@@ -192,7 +201,13 @@ einen Aufruf von AcceptChanges festgehalten worden sind.
 Sollte in allen Subclasses überschrieben werden!</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.Save.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_Save">Save()</a></h4>
-    <section><p></section>
+    <section><p><p>Speichert diese Component in der Datenbank ab. Das entsprechende SqlStatement
+muss in der SaveAction zusammengebaut und ausgeführt werden.
+Falls keine gestartete Transaktion existiert,
+wird automatisch eine Transaktion aufgebaut. In diesem Fall wird
+anschliessend ein Commit ausgeführt.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.Save.html#FrameworkSystems_FrameworkBase_IDevFrameworkObject_Save_FrameworkSystems_FrameworkBase_SaveEntryPoints_">Save(SaveEntryPoints)</a></h4>
     <section><p><p>Speichert diese Component in der Datenbank ab. Das entsprechende SqlStatement
 muss in der SaveAction zusammengebaut und ausgeführt werden.

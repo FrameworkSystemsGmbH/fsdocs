@@ -95,7 +95,7 @@ Direkt nach dem Anlegen des Report Document Types steht der Cursor in dem sich �
 Sie müssen dazu den gewünschten Report Document Type im Namespace-Baum markiert haben.
 Es gibt auch im Kontext-Menü den Eintrag <strong>Delete</strong>.
 Der Löschvorgang wird erst im Repository wirksam, wenn Sie den Button <img src="../media/button-save-all.png" alt="saveall-button"> (<strong>Save All</strong>) drücken.</p>
-<h2 id="datasource">DataSource</h2>
+<h2 id="registerkarte-datasource">Registerkarte DataSource</h2>
 <p>Unter Datasource werden die Components angegeben, die in einem Report ausgegeben werden sollen.
 Es können mehrere Components (Collections) aus unterschiedlichen Namespaces eingebunden werden.</p>
 <p>Jede Component wiederum kann für mehrere Reports als Datasource angegeben werden.</p>
@@ -126,12 +126,21 @@ Der Name setzt sich folgendermaßen zusammen: Namespaces.rptXXX.xsd.</p>
 Es werden aber nur die ausgewählten Daten in die XSD weitergegeben.
 Umso größer die Listen, desto wichtiger für die Performance ist es, dass nur die Daten übergeben werden, die wirklich benötigt werden.</p>
 <p>Crystal Reports nutzt die übergebene XSD-Datei eigenständig, um den Report mit Daten zu füllen.</p>
-<h2 id="report-files">Report Files</h2>
-<p>Auf der Registerkarte Report Files können dem Report Document Type mehrere Reports zugewiesen werden. Diese beinhalten die tatsächlichen Dokumente (jeweils 0 bis 1 Crystal und 0 bis 1 DevExpress).</p>
+<h2 id="registerkarte-report-files">Registerkarte Report Files</h2>
+<p>Auf der Registerkarte Report Files können dem Report Document Type die eigentlichen Reports zugewiesen werden.
+Jeder Report kann entweder als CrystalReport, als DevExpress oder auf beide Arten angelegt werden.
+Da also ein Parallelbetrieb von Crystal und DevExpress Reports möglich ist, existieren zwei Sets von Buttons, um mit den Dateien umzugehen.</p>
 <p><img src="media/report-document-type-crystal-reports.png" alt="Report Document Type – Crystal Reports"></p>
+<h3 id="hinzufügen-und-öffnen-eines-neuen-reports">Hinzufügen und Öffnen eines neuen Reports</h3>
 <p>Einen neuen Report fügen Sie beispielsweise über das Kontextmenü der Tabelle hinzu, in der die Reports angezeigt werden.</p>
+<p><img src="media/reportdocumenttype-overview.png" alt="Overview"></p>
+<p>Um z.B. die DevExpress-Version der Rechnung zu bearbeiten, markieren Sie den Eintrag 
+‚Invoice‘ und betätigen den Button <code>Edit Report</code> in der Kategorie DevExpress.</p>
+<p>Für weitere Erklärungen bezüglich der Bearbeitung von DevExpress Reports siehe <a href="report-designer.html">FS Report Designer</a></p>
+<h3 id="include-base-reports">Include Base Reports</h3>
 <p>Mit der Checkbox <strong>Include Base Reports</strong> legen Sie fest, ob vererbte, nicht geänderte Basisreports später in der Applikation zur Auswahl stehen sollen.
-Sie hat Einfluss darauf, was die Methode ReportDocument.<a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.ReportDocument.GetReportEnums.html#FrameworkSystems_FrameworkBase_Reporting_ReportDocument_GetReportEnums">GetReportEnums()</a> zurückgibt.</p>
+Sie hat Einfluss darauf, was die Methode ReportDocument.<a href="xref:FrameworkSystems.FrameworkBase.Reporting.ReportDocument.GetReportEnums">GetReportEnums()</a> zurückgibt.</p>
+<h3 id="allgemeine-einstellungen">Allgemeine Einstellungen</h3>
 <p>Die folgenden Einstellungen beziehen sich auf den in der Tabelle ausgewählten Report:</p>
 <p>Im Feld <strong>Name</strong> kann dem Report ein Name gegeben werden.</p>
 <div class="WARNING"><h5>Warning</h5><p>Dieser Name darf keine Leer- und Sonderzeichen enthalten, weil dieser später im Code zum Einsatz kommt.</p>
@@ -188,10 +197,10 @@ Da DevExpress Reports keine .xsd-Dateien benötigen, befinden sich in den Untero
 <p>Wenn Sie neue Components eingebunden haben, können diese mit dem Befehl <strong>Add/Remove Database</strong> manuell hinzugefügt werden.</p>
 <h2 id="für-den-druck-relevante-klassen">Für den Druck relevante Klassen</h2>
 <ul>
-<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.ReportDocument.html">ReportDocument</a></li>
-<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.ReportEnum.html">ReportEnum</a></li>
-<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.PrintServer.html">PrintServer</a></li>
-<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.PrintQueue.html">PrintQueue</a></li>
+<li><a href="xref:FrameworkSystems.FrameworkBase.Reporting.ReportDocument">ReportDocument</a></li>
+<li><a href="xref:FrameworkSystems.FrameworkBase.Reporting.ReportEnum">ReportEnum</a></li>
+<li><a href="xref:FrameworkSystems.FrameworkBase.Reporting.PrintServer">PrintServer</a></li>
+<li><a href="xref:FrameworkSystems.FrameworkBase.Reporting.PrintQueue">PrintQueue</a></li>
 </ul>
 <h2 id="browserbasierter-report-designer-zur-laufzeit">Browserbasierter Report-Designer zur Laufzeit</h2>
 <p>Zur Laufzeit steht ein Report Designer dem Benutzer zur Verfügung. Dieser muss vorher in das System integriert und aufgerufen werden.
@@ -233,7 +242,7 @@ protected virtual void OnMsgBoxReportDesignSessionClick(object sender, MsgBoxEve
     report.oArticle = oArticleColl;  // Beim Drucken wird die Datenquelle benötigt
     report.Print();
 }
-</code></pre><p>Weitere Information zum Web-Designer finden Sie unter <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.ReportDesignSession.html">ReportDesignSession</a>.</p>
+</code></pre><p>Weitere Information zum Web-Designer finden Sie unter <a href="xref:FrameworkSystems.FrameworkBase.Reporting.ReportDesignSession">ReportDesignSession</a>.</p>
 </article>
           </div>
           

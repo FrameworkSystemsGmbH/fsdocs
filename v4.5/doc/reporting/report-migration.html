@@ -82,6 +82,19 @@
 <h1 id="report-migration">Report Migration</h1>
 
 <p>Zur Unterstützung der Migration stehen im Framework Studio und im FS Report Designer einige spezielle Funktionen zur Verfügung.</p>
+<h2 id="unterschiede-zwischen-crystal-reports-und-devexpress">Unterschiede zwischen Crystal Reports und DevExpress</h2>
+<h2 id="begrifflichkeiten">Begrifflichkeiten</h2>
+<ul>
+<li>Bands sind vergleichbar mit Sektionen in Crystal Reports.</li>
+<li>Expressions sind das Formel-Äquivalent von DevExpress. Sie werden allerdings nicht, wie in Crystal Reports, zentral verwaltet, sondern sind immer Teil eines Properties.</li>
+<li>Durch Expressions an Properties lassen sich die Unterdrückungsformeln von Crystal nachbilden.</li>
+</ul>
+<h2 id="fold-marks">Fold Marks</h2>
+<p>In Crystal Reports wurden Falzmarken mit dem Subreport „GlobalPageBackground“ gelöst, welcher sich hinter den Rest des Beleges gelegt hat: </p>
+<p><img src="media/foldmark-crystal.png" alt="Foldmark Crystal"></p>
+<p>In DevExpress wurde hierfür das Custom Control <a href="devexpress-fold-marks-control.html">Fold Mark Settings</a> angeboten.</p>
+<h3 id="datasource">Datasource</h3>
+<p>Während in Crystal nur angehakte DataSource Eigenschaften im Report auftauchen, werden alle im Tab vorkommenden Daten an DevExpress übergeben.</p>
 <h2 id="report-migration-summary">Report Migration Summary</h2>
 <p>Für die Migration der Crystal Reports zu DevExpress® muss der zu erwartende Aufwand bewertet werden können.</p>
 <p>Diese Aufwandsübersicht kann folgendermaßen aufgerufen werden:</p>
@@ -111,7 +124,7 @@
 <li>Datei-Link in der Spalte &quot;Report File&quot; - Öffnet den RDT und fokussiert das File</li>
 </ul>
 <div class="NOTE"><h5>Note</h5><p>Über die Icons können parallel mehrere Report Files <strong>zur Ansicht</strong> geöffnet werden.
-Eine Bearbeitung der Report Files muss über das <a href="report-document-type.html#report-files">Designer-Fenster</a> erfolgen.</p>
+Eine Bearbeitung der Report Files muss über das <a href="report-document-type.html#registerkarte-report-files">Designer-Fenster</a> erfolgen.</p>
 </div>
 <h3 id="weitere-eigenschaften">Weitere Eigenschaften</h3>
 <p>Die Spalten &quot;Report Document Type&quot;, &quot;Report File&quot; und &quot;Complexity&quot; können sortiert werden.</p>

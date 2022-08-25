@@ -141,8 +141,8 @@
 </tbody>
 </table>
 <h3 id="action-scanbarcode">Action <code>ScanBarcode()</code></h3>
-<p>Der Scan-Vorgang wird am Form über die Action <a class="xref" href="../../../api/FrameworkSystems.FrameworkControls.GeneratedForm.ScanBarcode.html#FrameworkSystems_FrameworkControls_GeneratedForm_ScanBarcode_System_Action_FrameworkSystems_FrameworkBase_IFrameworkBarcodeScanInfo__FrameworkSystems_FrameworkBase_BarcodeFormat_">ScanBarcode()</a> gestartet.</p>
-<div class="NOTE"><h5>Note</h5><p>Es wird dringend empfohlen, nur diejenigen <a class="xref" href="../../../api/FrameworkSystems.FrameworkBase.BarcodeFormat.html">Barcode-Formate</a> zu übergeben, die auch tatsächlich beim Scan-Vorgang unterstützt werden sollen, um Fehler beim Scannen zu vermeiden. Je geringer die Anzahl der unterstützten Formate ist, desto unwahrscheinlicher ist es, dass der Scan fehlschlägt.</p>
+<p>Der Scan-Vorgang wird am Form über die Action <a href="xref:FrameworkSystems.FrameworkControls.GeneratedForm.ScanBarcode(System.Action{FrameworkSystems.FrameworkBase.IFrameworkBarcodeScanInfo},FrameworkSystems.FrameworkBase.BarcodeFormat)">ScanBarcode()</a> gestartet.</p>
+<div class="NOTE"><h5>Note</h5><p>Es wird dringend empfohlen, nur diejenigen <a href="xref:FrameworkSystems.FrameworkBase.BarcodeFormat">Barcode-Formate</a> zu übergeben, die auch tatsächlich beim Scan-Vorgang unterstützt werden sollen, um Fehler beim Scannen zu vermeiden. Je geringer die Anzahl der unterstützten Formate ist, desto unwahrscheinlicher ist es, dass der Scan fehlschlägt.</p>
 </div>
 <pre><code class="lang-csharp">// Aufruf der Action beim Click des Scan-Buttons
 protected virtual void FE_btnScanArticle_OnClick(FrameworkButtonClickEventArgs e)
@@ -153,7 +153,7 @@ protected virtual void FE_btnScanArticle_OnClick(FrameworkButtonClickEventArgs e
         &quot;Article&quot;
     );
 }
-</code></pre><p>Wenn der Scan-Vorgang am Client abgeschlossen ist, wird die übergebene Callback-Methode aufgerufen. In ihr können die gescannten Daten weiterverarbeitet werden. Der Callback-Methode wird dafür ein Objekt mit dem Typ <a class="xref" href="../../../api/FrameworkSystems.FrameworkBase.IFrameworkBarcodeScanInfo.html">IFrameworkBarcodeScanInfo</a> übergeben.</p>
+</code></pre><p>Wenn der Scan-Vorgang am Client abgeschlossen ist, wird die übergebene Callback-Methode aufgerufen. In ihr können die gescannten Daten weiterverarbeitet werden. Der Callback-Methode wird dafür ein Objekt mit dem Typ <a href="xref:FrameworkSystems.FrameworkBase.IFrameworkBarcodeScanInfo">IFrameworkBarcodeScanInfo</a> übergeben.</p>
 <pre><code class="lang-csharp">// Callback-Methode
 protected virtual void ScanBarcodeCallback(IFrameworkBarcodeScanInfo e)
 {

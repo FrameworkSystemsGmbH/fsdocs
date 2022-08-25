@@ -1,0 +1,296 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IStaticCache&lt;TObj, TPK&gt;
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IStaticCache&lt;TObj, TPK&gt;
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.IStaticCache`2">
+  
+  
+  <h1 id="FrameworkSystems_FrameworkBase_IStaticCache_2" data-uid="FrameworkSystems.FrameworkBase.IStaticCache`2" class="text-break">Interface IStaticCache&lt;TObj, TPK&gt;
+  </h1>
+  <div class="markdown level0 summary"><p>Schnittstelle eines statischen Caches für Elemente vom Typ TObj,
+die über den Primärschlüssel vom Typ TPK eindeutig identifiziert werden können.
+Der Cache implementiert IEnumerable&lt;TObj&gt;.
+Der Cache ist NICHT Thread-Save.
+Methoden dürfen nur aus dem Thread des übergebenen GlobalObjects heraus aufgerufen werden.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkBase.html">FrameworkSystems.FrameworkBase</a></h6>
+  <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkBase.dll</h6>
+  <h5 id="FrameworkSystems_FrameworkBase_IStaticCache_2_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public interface IStaticCache&lt;TObj, TPK&gt; : IEnumerable&lt;TObj&gt;, IEnumerable where TObj : IDevFrameworkObject</code></pre>
+  </div>
+  <h5 class="typeParameters">Type Parameters</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="parametername">TObj</span></td>
+        <td><p>Interface-Typ der Components, welche vom Cache verwaltet werden.</p>
+</td>
+      </tr>
+      <tr>
+        <td><span class="parametername">TPK</span></td>
+        <td><p>Typ des/der Primärschlüssel-Properties. Bei mehreren Properties <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple">ValueTuple</a> der Properties in alphabetischer Reihenfolge.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+  <h3 id="properties">Properties
+  </h3>
+  
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.Global.html#FrameworkSystems_FrameworkBase_IStaticCache_2_Global">Global</a></h4>
+    <section><p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.Item.html#FrameworkSystems_FrameworkBase_IStaticCache_2_Item__1_">Item[TPK]</a></h4>
+    <section><p><p>Wenn der Cache zum angegebenen Primärschlüssel (pk) einen Datensatz enthält,
+wird aus diesem ein Objekt erzeugt, daran die Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen
+und das Objekt zurückgegeben, sonst null.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.lngMaxAgeSeconds.html#FrameworkSystems_FrameworkBase_IStaticCache_2_lngMaxAgeSeconds">lngMaxAgeSeconds</a></h4>
+    <section><p><p>Zeitraum seit dem letzten befüllen des Caches aus der Datenbank in Sekunden,
+nach deren Verstreichen der Cache als veraltet gilt
+und daher bei lesenden Anfragen zunächst seine Daten erneut aus der Datenbank befüllt.</p>
+</p></section>
+  
+  <h3 id="methods">Methods
+  </h3>
+  
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.ContainsKey.html#FrameworkSystems_FrameworkBase_IStaticCache_2_ContainsKey__1_">ContainsKey(TPK)</a></h4>
+    <section><p><p>Liefert true, wenn der übergebene Schlüssel in dem Cache bereits existiert; andernfalls false.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.FillCollection.html#FrameworkSystems_FrameworkBase_IStaticCache_2_FillCollection__1___0_">FillCollection&lt;TColl&gt;(TColl)</a></h4>
+    <section><p><p>Leert und befüllt die übergebene Collection mit allen Datensätzen aus dem Cache.
+Dabei wird an der Collection und an allen Objekten die Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen.
+Die Collection muss für Objekte vom Typ TObj definiert sein.
+Die Methode gibt die Anzahl der Datensätze zurück.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.FillCollection.html#FrameworkSystems_FrameworkBase_IStaticCache_2_FillCollection__1___0_System_Func__0_System_Boolean__">FillCollection&lt;TColl&gt;(TColl, Func&lt;TObj, Boolean&gt;)</a></h4>
+    <section><p><p>Leert und befüllt die übergebene Collection mit allen Datensätzen aus dem Cache,
+die der angegebenen Where-Bedingung entsprechen.
+Dabei wird an der Collection und an allen Objekten die Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen.
+Die Where-Bedingung wird vor dem Aufruf der Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> der Objekte ausgewertet.
+Die Collection muss für Objekte vom Typ TObj definiert sein.
+Die Methode gibt die Anzahl der Datensätze zurück.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.FillCollection.html#FrameworkSystems_FrameworkBase_IStaticCache_2_FillCollection__1___0_System_Func__0_System_Boolean__System_Func_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IEnumerable__0___">FillCollection&lt;TColl&gt;(TColl, Func&lt;TObj, Boolean&gt;, Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&gt;&gt;)</a></h4>
+    <section><p><p>Leert und befüllt die übergebene Collection unter Berücksichtigung der angegebenen Sortierung,
+mit allen Datensätzen aus dem Cache, die der angegebenen Where-Bedingung entsprechen.
+Dabei wird an der Collection und an allen Objekten die Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen.
+Die Where-Bedingung und die Sortierung werden vor dem Aufruf der Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> der Objekte ausgewertet.
+Die Collection muss für Objekte vom Typ TObj definiert sein.
+Die Methode gibt die Anzahl der Datensätze zurück.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.FillCollection.html#FrameworkSystems_FrameworkBase_IStaticCache_2_FillCollection__1___0_System_Func_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IEnumerable__0___">FillCollection&lt;TColl&gt;(TColl, Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&gt;&gt;)</a></h4>
+    <section><p><p>Leert und befüllt die übergebene Collection mit allen Datensätzen aus dem Cache
+unter Berücksichtigung der angegebenen Sortierung.
+Dabei wird an der Collection und an allen Objekten die Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen.
+Die Sortierung wird vor dem Aufruf der Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> der Objekte durchgeführt.
+Die Collection muss für Objekte vom Typ TObj definiert sein.
+Die Methode gibt die Anzahl der Datensätze zurück.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.FillObject.html#FrameworkSystems_FrameworkBase_IStaticCache_2_FillObject__0__1_">FillObject(TObj, TPK)</a></h4>
+    <section><p><p>Füllt das Objekt mit dem per Primärschlüssel referenzierten Datensatz,
+wenn dieser existiert, sonst mit einem leeren Objekt.
+Die Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> wird nur im ersten Fall aufgerufen.
+Die Methode gibt 1 zurück, wenn der Datensatz gefunden wurde, sonst 0.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.FillObject.html#FrameworkSystems_FrameworkBase_IStaticCache_2_FillObject__0__1_System_Func__0_System_Boolean__">FillObject(TObj, TPK, Func&lt;TObj, Boolean&gt;)</a></h4>
+    <section><p><p>Füllt das Objekt mit dem per Primärschlüssel referenzierten Datensatz,
+wenn dieser existiert und die übergebene Where-Einschränkung erfüllt, sonst mit einem leeren Objekt.
+Die Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> wird nur im ersten Fall aufgerufen.
+Die Methode gibt 1 zurück, wenn der Datensatz gefunden wurde, sonst 0.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.FillObject.html#FrameworkSystems_FrameworkBase_IStaticCache_2_FillObject__0_System_Func__0_System_Boolean__">FillObject(TObj, Func&lt;TObj, Boolean&gt;)</a></h4>
+    <section><p><p>Füllt das Objekt mit dem ersten Datensatz, welcher die übergebene Where-Einschränkung erfüllt,
+soweit einer existiert, sonst mit einem leeren Objekt.
+Die Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> wird nur im ersten Fall aufgerufen.
+Die Methode gibt 1 zurück, wenn ein Datensatz gefunden wurde, sonst 0.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.FillObject.html#FrameworkSystems_FrameworkBase_IStaticCache_2_FillObject__0_System_Func__0_System_Boolean__System_Func_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IEnumerable__0___">FillObject(TObj, Func&lt;TObj, Boolean&gt;, Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&gt;&gt;)</a></h4>
+    <section><p><p>Füllt das Objekt mit dem ersten Datensatz, welcher die übergebene Where-Einschränkung erfüllt
+(unter Berücksichtigung der angegebenen Sortierung),
+soweit einer existiert, sonst mit einem leeren Objekt.
+Die Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> wird nur im ersten Fall aufgerufen.
+Die Methode gibt 1 zurück, wenn ein Datensatz gefunden wurde, sonst 0.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.FillObject.html#FrameworkSystems_FrameworkBase_IStaticCache_2_FillObject__0_System_Func_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IEnumerable__0___">FillObject(TObj, Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&gt;&gt;)</a></h4>
+    <section><p><p>Füllt das Objekt mit dem ersten Datensatz in der angegebenen Sortierung, soweit einer existiert,
+sonst mit einem leeren Objekt.
+Die Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> wird nur im ersten Fall aufgerufen.
+Die Methode gibt 1 zurück, wenn ein Datensatz gefunden wurde, sonst 0.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.Invalidate.html#FrameworkSystems_FrameworkBase_IStaticCache_2_Invalidate">Invalidate()</a></h4>
+    <section><p><p>Markiert alle Daten des Caches als veraltet, sodass diese beim nächsten Zugriff neu von der Datenbank gelesen werden müssen.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.ToCollection.html#FrameworkSystems_FrameworkBase_IStaticCache_2_ToCollection__1">ToCollection&lt;TColl&gt;()</a></h4>
+    <section><p><p>Erzeugt eine Collection vom angegebenen Typ TColl und befüllt diese mit allen Datensätzen aus dem Cache.
+Dabei wird an der Collection und an allen Objekten die Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen.
+Der Typ TColl muss für Objekte vom Typ TObj definiert sein.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.ToCollection.html#FrameworkSystems_FrameworkBase_IStaticCache_2_ToCollection__1_System_Func__0_System_Boolean__">ToCollection&lt;TColl&gt;(Func&lt;TObj, Boolean&gt;)</a></h4>
+    <section><p><p>Erzeugt eine Collection vom angegebenen Typ TColl und befüllt diese mit allen Datensätzen aus dem Cache,
+die der angegebenen Where-Bedingung entsprechen.
+Dabei wird an der Collection und an allen Objekten die Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen.
+Der Typ TColl muss für Objekte vom Typ TObj definiert sein.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.ToCollection.html#FrameworkSystems_FrameworkBase_IStaticCache_2_ToCollection__1_System_Func__0_System_Boolean__System_Func_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IEnumerable__0___">ToCollection&lt;TColl&gt;(Func&lt;TObj, Boolean&gt;, Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&gt;&gt;)</a></h4>
+    <section><p><p>Erzeugt eine Collection vom angegebenen Typ TColl und befüllt diese,
+unter Berücksichtigung der angegebenen Sortierung, mit allen Datensätzen aus dem Cache,
+die der angegebenen Where-Bedingung entsprechen.
+Dabei wird an der Collection und an allen Objekten die Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen.
+Der Typ TColl muss für Objekte vom Typ TObj definiert sein.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.ToCollection.html#FrameworkSystems_FrameworkBase_IStaticCache_2_ToCollection__1_System_Func_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IEnumerable__0___">ToCollection&lt;TColl&gt;(Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&gt;&gt;)</a></h4>
+    <section><p><p>Erzeugt eine Collection vom angegebenen Typ TColl und befüllt diese,
+unter Berücksichtigung der angegebenen Sortierung, mit allen Datensätzen aus dem Cache.
+Dabei wird an der Collection und an allen Objekten die Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen.
+Der Typ TColl muss für Objekte vom Typ TObj definiert sein.</p>
+</p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.IStaticCache-2.TryGet.html#FrameworkSystems_FrameworkBase_IStaticCache_2_TryGet__1__0__">TryGet(TPK, out TObj)</a></h4>
+    <section><p><p>Wenn der Cache zum angegebenen Primärschlüssel (pk) einen Datensatz enthält,
+wird dazu ein Objekt erzeugt, daran die Methode <span class="xref">FrameworkSystems.FrameworkBase.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen,
+das Objekt der out-Variable &quot;value&quot; zugeordnet und &quot;true&quot; zurück gegeben.
+Andernfalls ist &quot;value&quot; null und es wird &quot;false&quot; zurück gegeben.</p>
+</p></section>
+  
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkExceptions.EnumarableExtensions.Chunk.html#FrameworkSystems_FrameworkExceptions_EnumarableExtensions_Chunk__1_System_Collections_Generic_IEnumerable___0__System_Int32_">EnumarableExtensions.Chunk&lt;T&gt;(IEnumerable&lt;T&gt;, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkExceptions.EnumarableExtensions.DistinctBy.html#FrameworkSystems_FrameworkExceptions_EnumarableExtensions_DistinctBy__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__">EnumarableExtensions.DistinctBy&lt;TSource, TKey&gt;(IEnumerable&lt;TSource&gt;, Func&lt;TSource, TKey&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkExceptions.EnumarableExtensions.ToDictionaryChecked.html#FrameworkSystems_FrameworkExceptions_EnumarableExtensions_ToDictionaryChecked__3_System_Collections_Generic_IEnumerable___0__System_Func___0___1__System_Func___0___2__System_Collections_Generic_IEqualityComparer___1__">EnumarableExtensions.ToDictionaryChecked&lt;TSource, TKey, TElement&gt;(IEnumerable&lt;TSource&gt;, Func&lt;TSource, TKey&gt;, Func&lt;TSource, TElement&gt;, IEqualityComparer&lt;TKey&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkExceptions.EnumarableExtensions.ToDictionaryChecked.html#FrameworkSystems_FrameworkExceptions_EnumarableExtensions_ToDictionaryChecked__3_System_Collections_Generic_IEnumerable___0__System_Func___0___1__System_Func___0___2__">EnumarableExtensions.ToDictionaryChecked&lt;TSource, TKey, TElement&gt;(IEnumerable&lt;TSource&gt;, Func&lt;TSource, TKey&gt;, Func&lt;TSource, TElement&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkExceptions.EnumarableExtensions.OrderBySample.html#FrameworkSystems_FrameworkExceptions_EnumarableExtensions_OrderBySample__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__System_Boolean_">EnumarableExtensions.OrderBySample&lt;TSource&gt;(IEnumerable&lt;TSource&gt;, IEnumerable&lt;TSource&gt;, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkExceptions.EnumarableExtensions.OrderBySample.html#FrameworkSystems_FrameworkExceptions_EnumarableExtensions_OrderBySample__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEqualityComparer___0__System_Boolean_">EnumarableExtensions.OrderBySample&lt;TSource&gt;(IEnumerable&lt;TSource&gt;, IEnumerable&lt;TSource&gt;, IEqualityComparer&lt;TSource&gt;, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkExceptions.EnumarableExtensions.OrderBySample.html#FrameworkSystems_FrameworkExceptions_EnumarableExtensions_OrderBySample__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__System_Collections_Generic_IEnumerable___1__System_Boolean_">EnumarableExtensions.OrderBySample&lt;TSource, TKey&gt;(IEnumerable&lt;TSource&gt;, Func&lt;TSource, TKey&gt;, IEnumerable&lt;TKey&gt;, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkExceptions.EnumarableExtensions.OrderBySample.html#FrameworkSystems_FrameworkExceptions_EnumarableExtensions_OrderBySample__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__System_Collections_Generic_IEnumerable___1__System_Collections_Generic_IEqualityComparer___1__System_Boolean_">EnumarableExtensions.OrderBySample&lt;TSource, TKey&gt;(IEnumerable&lt;TSource&gt;, Func&lt;TSource, TKey&gt;, IEnumerable&lt;TKey&gt;, IEqualityComparer&lt;TKey&gt;, Boolean)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

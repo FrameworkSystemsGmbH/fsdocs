@@ -96,11 +96,69 @@
 <li>Bei Individual Component-Properties können die Get- und die Set-Methode bearbeitet werden.</li>
 <li>An Custom Control Data Sources können die Methoden GetXML und SetXml bearbeitet werden.</li>
 <li>In Text-Collections können neue Einträge angelegt werden. So können in Methoden neue Meldungen mit dem Exception- oder MessageBox-Wizard erzeugt werden.</li>
-<li>In ReportDocumentTypes können vorhandene Crsytal-Reports bearbeitet werden. Eine Änderung der Schnittstelle (XSD-Datei) ist nicht möglich.</li>
+<li>In ReportDocumentTypes können vorhandene Report-Dateien bearbeitet werden. Eine Änderung der Schnittstelle (XSD-Datei) ist nicht möglich.</li>
+<li>Beschriftungen / MLKeys können durchgängig geändert werden.</li>
+<li>Eigenschaften von Form-Controls können geändert werden.</li>
+</ul>
+<h2 id="strukturelle-erweiterungen">Strukturelle Erweiterungen</h2>
+<div class="IMPORTANT"><h5>Important</h5><p>Im Service-Release sollten grundsätzlich nur Fehler behoben werden.
+Die hier aufgezeigten Möglichkeiten sind ausdrücklich <strong>nicht</strong> dafür gedacht, neue Funktionalitäten zu realisieren.</p>
+</div>
+<p>Im Service-Release-Modus sind <strong>alle existierenden Strukturen</strong> vor Änderungen <strong>geschützt</strong>.
+Das stellt sicher, dass sich die Schnittstellen nicht ändern und es so in abhängigen Package-Versionen nicht zu Compile-Fehlern kommt.</p>
+<p>Das umfasst z.B. die folgenden Regeln:</p>
+<ul>
+<li>Datenbank-Strukturen dürfen nicht geändert werden.</li>
+<li>Es dürfen keine Elemente (Metadatentypen, Components, Forms, ...) umbenannt oder gelöscht werden.</li>
+<li>Innerhalb dieser Elemente dürfen Properties und Methoden nicht umbenannt oder gelöscht werden.</li>
+<li>Die Deklaration von Methoden darf nicht geändert werden.</li>
+</ul>
+<p>In einem begrenzten Umfang können auch im Service-Release <strong>neue Strukturen</strong> angelegt werden.
+Diese werden <strong>nicht geschützt</strong> und können <strong>bis zur nächsten Auslieferung</strong> geändert oder gelöscht werden.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Findet am Ende des Service-Release-Zyklus eine <strong>Auslieferung</strong> statt, dann muss im Package-Manager an der Package-Version mit Button <a href="../package-manager/package-version.html#last-deployment"><strong>Start new Service Release cycle</strong></a> das Auslieferungs-Datum (<strong>Last Deployment</strong>) gesetzt werden.
+Nur so werden die bis jetzt neu angelegten Strukturen ebenfalls geschützt.</p>
+</div>
+<p>Folgende strukturelle Erweiterungen sind möglich:</p>
+<ul>
+<li><p>Components</p>
+<ul>
+<li>Neue Methoden</li>
+</ul>
+</li>
+<li><p>Forms</p>
+<ul>
+<li>Neue Methoden</li>
+</ul>
+</li>
+<li><p>Service Contract</p>
+<ul>
+<li>Neue Methoden</li>
+</ul>
+</li>
+<li><p>Service</p>
+<ul>
+<li>Neue Methoden</li>
+</ul>
+</li>
+<li><p>Service Host</p>
+<ul>
+<li>Neue Methoden</li>
+</ul>
+</li>
+<li><p>Service Proxy</p>
+<ul>
+<li>Neue Methoden</li>
+</ul>
+</li>
+<li><p>Resourcen </p>
+<ul>
+<li>Neue Resourcen hinzufügen</li>
+<li>Resourcen importieren</li>
+</ul>
+</li>
 </ul>
 <h2 id="methoden-im-service-release-modus">Methoden im Service-Release-Modus</h2>
 <p>Von Methoden kann nur der Inhalt bearbeitet werden. Die Deklaration der Methode wird nicht im Code-Editor angezeigt, damit keine versehentlichen Änderungen durchgeführt werden können.</p>
-<p>Überschreibungen von Methoden (override) können im Service Release Modus <strong>nicht</strong> neu angelegt werden. Existierende Überschreibungen können aber inhaltlich geändert werden.</p>
 </article>
           </div>
           

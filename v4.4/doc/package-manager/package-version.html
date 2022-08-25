@@ -101,7 +101,10 @@
 </li>
 <li><p><strong>Sealed:</strong> Die Package-Version ist versiegelt. Es können keine Änderungen vorgenommen werden. Es kann sich kein Entwickler mehr an dieser Package-Version anmelden. Damit eine Package-Version in den Status <strong>Sealed</strong> versetzt werden kann, darf nichts mehr ausgecheckt sein und alle Änderungen müssen mit dem FrameworkCompiler / Compile-Wizard kompiliert sein.</p>
 </li>
-<li><p><strong>Service Release:</strong> An der Package-Version können nur Änderungen an Methoden-Inhalten vorgenommen werden – es darf keine Schnittstellen-Änderungen mehr geben. Bei einem FrameworkCompiler / Compile-Wizard bleibt der Compile-Stempel erhalten. Dadurch brauchen abhängige Package-Versionen nicht neu kompiliert werden und es ist ein sehr schneller Update möglich.</p>
+<li><p><strong>Service Release:</strong> An der Package-Version können nur Änderungen an Methoden-Inhalten vorgenommen werden – es darf keine Schnittstellen-Änderungen mehr geben.
+Bei einem FrameworkCompiler / Compile-Wizard bleibt der Compile-Stempel erhalten.
+Dadurch brauchen abhängige Package-Versionen nicht neu kompiliert werden und es ist ein sehr schneller Update möglich.
+Siehe auch <a href="../weitere-themen/service-release-modus.html">Service-Release-Modus</a>.</p>
 </li>
 </ul>
 <p>Der Version State kann jederzeit geändert werden. Dabei werden entsprechende Plausibilitäten geprüft, um eine Fehl-Bedienung zu unterbinden.</p>
@@ -142,6 +145,16 @@
 <p>Bei Status <b style="background-color: #cd5c5c; padding: 2px 5px 2px 5px">Rot</b> muss im Check-In Dialog zusätzlich eine Begründung eingegeben werden, bevor der Check-In möglich ist. Diese Begründung wird mit dem Zusatz <strong>#warning State Red</strong> in den Check-In-Kommentar eingefügt.</p>
 <p>Über den Menüpunkt <strong>Tools / Package Versions States</strong> im Package Manager wird dieser Dialog geöffnet. Hier können mehrere Package Version Status gepflegt werden. Wenn mehrere Status den selben Namen haben, werden sie dem Datum entsprechend nacheinander aktiv, sofern der Name an einem Package hinterlegt ist.</p>
 <p><img src="media/package-version-states.png" alt="package-version-states.png"></p>
+<h4 id="last-deployment">Last Deployment</h4>
+<p>Dieses Datum markiert die letzte Auslieferung der Package-Version.
+Das ist entscheidend für Änderungen im <a href="../weitere-themen/service-release-modus.html">Service-Release-Modus</a>.
+Alle Strukturen, die <strong>vor</strong> diesem Datum angelegt wurden, werden in der IDE vor Änderungen geschützt, damit abhängige Package-Versionen nicht in breaking Changes laufen.
+Strukturen, die <strong>nach</strong> diesem Datum neu angelegt wurden, können noch bis zur nächsten Auslieferung geändert werden.</p>
+<p>Wird der <strong>Version State</strong> auf Service Release gesetzt, dann markiert dieses Datum automatisch den Start des Service-Release.
+In der Regel geht das mit der finalen Auslieferung des Releases einher.</p>
+<p>Findet eine weitere Auslieferung der Package-Version statt (z.B. am Ende eines Service-Release-Zyklus), dann muss das Datum aktualisiert werden.
+Mit dem Button <strong>Start new Service Release cycle</strong> wird das Datum auf den letzten erfolgreich abgeschlossenen Compile-Lauf gesetzt.
+Damit sind dann auch die im aktuellen Zyklus hinzugefügten Strukturen vor zukünftigen Änderungen geschützt.</p>
 <h4 id="fs-version">FS Version</h4>
 <p>Framework Studio Version, mit der die Package Version bearbeitet werden kann. (<strong>nicht editierbar</strong>)</p>
 <h4 id="button-upgrade">Button <strong>Upgrade</strong></h4>

@@ -226,7 +226,7 @@ Sie verfügen über die Eigenschaft <strong>Print On</strong>, die es erlaubt be
 <h4 id="detail-report-band">Detail Report Band</h4>
 <p>Ein Detail Report Band erlaubt es, ein weiteres Detail unter einem bestehenden Detail band zu iterieren. Da DevExpress Reports dazu konzipiert sind, nur ein Detail band zu haben, fungiert es quasi als aufgelöster Subreport, der nur in einem Report zum Einsatz kommt.</p>
 <p>Subreports sollten hingegen eingesetzt werden, falls er in mehreren Reports zum Einsatz kommen soll.</p>
-<p>Dem Detail Report Band muss ein DataMember zugewiesen werden:</p>
+<p>Dem Detail Report Band muss ein Data Member zugewiesen werden:</p>
 <p><img src="media/detail-report-band.png" alt="Detail Report Band"></p>
 <p>Die Limitation eines Detail Report Bands ist es, dass die Data Source dessen immer unter der des Detail Reports liegt.
 Falls über eine separate Collection außerhalb dessen iteriert werden muss, sollte ein <strong>Embedded Subreport</strong> eingesetzt werden.</p>
@@ -273,8 +273,8 @@ Um eine Expression zu editieren, kann der <code>f</code>-Button in dem entsprech
 <p><a href="https://docs.devexpress.com/XtraReports/4813/detailed-guide-to-devexpress-reporting/shape-report-data/use-calculated-fields/calculated-fields-overview">Calculated Fields</a> sind &quot;künstliche Felder&quot; mit einem Expression-Property, welches es erlaubt, einen Wert per Expression zu erhalten.
 Künstliches Feld bedeutet, dass kein Datenbankfelder (z.B. sName) diesem zugrunde liegt.
 Sie werden wie normale Datenbankfelder behandelt und lassen sich in allen Situationen verwenden, in welchen auch Datenbankfelder zum Einsatz kommen.
-In der Field List lassen sie sich erstellen und einer Datenquelle unterordnen.
-Über das Kontextmenü in der Field List kann man eine Übersicht über alle Calculated Fields öffnen.</p>
+Im Fenster <em>Field List</em> lassen sie sich erstellen und einer Datenquelle unterordnen.
+Über das Kontextmenü in der <em>Field List</em> kann man eine Übersicht über alle Calculated Fields öffnen.</p>
 <p><img src="media/edit-calculated-fields.png" alt="Edit Calculated Fields"></p>
 <p>Diese beinhaltet alle Calculated Fields und erlaubt es, diese zu verwalten.</p>
 <p><img src="media/calculated-fields-collection-editor.png" alt="Calculated Fields Collection Editor"></p>
@@ -303,34 +303,38 @@ Dieses Calculated Field kann dann beliebig genutzt werden, um die errechnete Sum
 <p>Am Global wurde die Methode <a href="https://frameworksystemsgmbh.github.io/fsdocs/v4.4/api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.GlobalOnBeforePrintSubreport.html#FrameworkSystems_FrameworkBase_GlobalObj_IcGlobalBase_GlobalOnBeforePrintSubreport_System_String_">GlobalOnBeforePrintSubreport</a> hinzugefügt.
 Diese Methode ermöglicht das Umlenken eines Subreports auf eine eigene Customization.</p>
 <h3 id="ausrichtung-vieler-labels">Ausrichtung vieler Labels</h3>
-<p>Beim Hinzufügen vieler Labels kann die Ausrichtung der Elemente aufwändig sein. Hierfür bietet DevExpress eine extra <a href="https://docs.devexpress.com/XtraReports/402370/detailed-guide-to-devexpress-reporting/use-report-controls/manipulate-report-controls/convert-labels-to-table">Funktion &quot;Convert to Table&quot;</a> an.</p>
+<p>Werden mehrere Labels hinzugefügt, kann die Ausrichtung der Elemente aufwändig sein.
+DevExpress bietet die <a href="https://docs.devexpress.com/XtraReports/402370/detailed-guide-to-devexpress-reporting/use-report-controls/manipulate-report-controls/convert-labels-to-table">Funktion &quot;Convert to Table&quot;</a> an, welche für eine Anordnung verwendet werden kann.</p>
 <ol>
 <li>Markieren Sie die entsprechenden Labels. Diese dürfen sich horizontal nicht überschneiden.</li>
 <li>Über das Kontextmenü (Rechtsklick) können Sie die Funktion &quot;Convert to Table&quot; ausführen. </li>
 </ol>
 <p>Nun sind alle Labels auf einer Höhe ausgerichtet.
 Sollten Sie keine Tabelle benötigen, kann auf gleichem Weg die Tabelle wieder in einzelne Labels umgewandelt werden.
-Das Alignment bleibt bestehen.</p>
-<p>Dies lässt sich auf gleichem Weg wieder rückgängig machen:</p>
+Die Anordnung und Ausrichtung bleiben bestehen.</p>
+<p>Vorgehensweise für die Konvertierung einer Tabelle in einzelne Labels:</p>
 <ol>
 <li>Markieren Sie die Tabelle über das &quot;Vier-Pfeile&quot;-Icon am oberen linken Rand der Tabelle.</li>
 <li>Über das Kontextmenü (Rechtsklick) können Sie die Funktion &quot;Convert to Labels&quot; ausführen.</li>
 </ol>
 <h3 id="minimale-höhe-in-einer-band">Minimale Höhe in einer Band</h3>
-<div class="NOTE"><h5>Note</h5><p>Ziehen Sie den unteren Rand eines Bands über die Controls verkleinert DevExpress das Band auf die minimale Höhe, welche die Felder im Band benötigen.</p>
-</div>
+<p>Ziehen Sie den unteren Rand eines Bands über die darin enthaltenen Controls.
+DevExpress verkleinert das Band auf die minimale Höhe, welche die Felder im Band benötigen.</p>
 <ol>
 <li>Größe des Bands über das letzte Control ziehen:
 <img src="media/detail-band-resize-example.png" alt="Detail Band Resize Example"></li>
-<li>Ergebnis: die Höhe des Detail Bands ist nun direkt unter dem letzten Label &quot;sColor&quot;.
+<li>Die Höhe des Detail Bands ist nun direkt unter dem letzten Label &quot;sColor&quot;.
 <img src="media/detail-band-resize-example2.png" alt="Detail Band Resize Example"></li>
 </ol>
 <h2 id="how-to-use-detail-band-reports---embedded-subreports">How to use: Detail Band Reports - Embedded Subreports</h2>
-<p>In diesem Kapitel geht es um detaillierte Beispiele, wie Detail Reports und Subreport eingesetzt werden können.
-Die Beispiele basieren auf FSDemo und können somit nachgestellt werden.</p>
+<p>In diesem Kapitel werden detaillierte Anwendungsfälle der Detail Reports und Subreports vorgestellt und ausführlich beschrieben.
+Die Beispiele basieren auf dem Repository FSDemo und können mithilfe dessen nachgestellt werden.</p>
 <h3 id="vorbereitung">Vorbereitung</h3>
+<p>Das Beispiel basiert auf FSDemo, weshalb zunächst ein neues FSDemo-Repository angelegt werden muss.
+Anschließend muss dieses FSDemo mit dem User &quot;user1&quot; gestartet werden.
+Es genügt die Anmeldung am Default-Package.</p>
 <ol>
-<li><p>frmCompany ein Event zum Print-Button &quot;OnClick&quot;-Event hinzufügen:</p>
+<li><p>An der Form <code>frmCompany</code> ein Event zum Print-Button &quot;OnClick&quot;-Event hinzufügen und folgenden Code in die Methode einfügen.</p>
 <pre><code class="lang-csharp">protected virtual void FE_btnPrint_OnClick(FrameworkButtonClickEventArgs e)
 {
  var rpt = new rptCompanyList(this.Global, rptCompanyList.Reports.SideBySide, ExportFormat.PDF);
@@ -343,144 +347,164 @@ Die Beispiele basieren auf FSDemo und können somit nachgestellt werden.</p>
  rpt.Print();
 }
 </code></pre></li>
-<li>Das Property &quot;Visibility&quot; des Print-Buttons auf &quot;Visible&quot; setzen.</li>
-<li>Den Report &quot;rptCompanyList&quot; im Namespace &quot;Company&quot; anlegen.</li>
-<li>Dem Report in der Registerkarte DataSource die DataSources &quot;oArticleColl&quot; und &quot;oCompanyColl&quot; zuweisen.</li>
-<li>Anschließend in der Registerkarte Report Files einen neuen DevExpress Report anlegen.</li>
+<li>Das Property <em>Visibility</em> des Print-Buttons auf <em>Visible</em> setzen.</li>
+<li>Einen Report <code>rptCompanyList</code> im Namespace <em>Company</em> anlegen.</li>
+<li>Dem Report in der Registerkarte <em>DataSource</em> die DataSources oArticleColl und oCompanyColl zuweisen.</li>
+<li>Anschließend in der Registerkarte <em>Report Files</em> einen neuen DevExpress Report anlegen. Im Beispiel wurde dieser &quot;SideBySide&quot; genannt. Möchten Sie den Report anders benennen, müssen Sie im Methoden Code der <code>FE_btnPrint_OnClick</code> den Namen entsprechend anpassen.</li>
 </ol>
-<h3 id="detail-report">Detail Report</h3>
-<p>Dieses Tutorial soll veranschaulichen, wie hierarchische Daten in einem Report mit verschachtelten Detail Report bands angezeigt werden können.</p>
+<p><strong>Anzeige des Reports:</strong></p>
+<ol>
+<li>Starten Sie die Applikation mit F5.</li>
+<li>Navigieren Sie in der gestarteten FSDemo-Applikation zum Kunden.</li>
+<li>Klicken Sie auf die Lupe, um entsprechende Datensätze zu laden.</li>
+<li>Über das Print-Icon können Sie sich nun den fertigen Report ansehen.</li>
+</ol>
+<h3 id="detail-report-anlegen">Detail Report anlegen</h3>
+<p>Dieses Tutorial soll veranschaulichen, wie hierarchische Daten in einem Report mit verschachtelten Detail Report Bands angezeigt werden können.</p>
 <ol>
 <li>Einen Report mit Hilfe des FSReportDesigners öffnen.</li>
-<li>Falls kein Detail Band vorhanden ist, dies mit Rechtsklick auf den Report über &quot;Insert Band&quot; - &quot;Detail&quot; hinzufügen.</li>
-<li>Anschließend Rechtsklick auf das Detail Band im Report.</li>
-<li>Im daraufhin geöffneten Kontextmenü kann über &quot;Insert Detail Report&quot; eine Datenquelle ausgewählt werden.</li>
+<li>Im Fenster <em>Report Explorer</em> den report auswählen und das Property <em>Data Member</em> auf oCompanyColl setzen.</li>
+<li>Anschließend, falls kein Detail Band vorhanden ist, dies mit Rechtsklick auf dem Report über &quot;Insert Band&quot; - &quot;Detail&quot; hinzufügen.</li>
+<li>Im nächsten Schritt Rechtsklick auf das Detail Band im Report. Im daraufhin geöffneten Kontextmenü kann über &quot;Insert Detail Report&quot; eine Datenquelle ausgewählt werden (siehe Abbildung).</li>
 </ol>
 <p><img src="media/detail-band-insert-detail-report.png" alt="Kontextmenü Insert Detail Report"></p>
-<div class="NOTE"><h5>Note</h5><p>Die angebotenen Datenquellen befinden sich eine Ebene <strong>unter</strong> dem DataMember des Haupt Reports.
-Über den &quot;Report Explorer&quot; kann der Haupt Report (hier <code>report</code>) ausgewählt werden und anschließend in den Properties der DataMember eingesehen werden (siehe folgenden Screenshot).</p>
-</div>
-<p><img src="media/report-datamember-example.png" alt="DataMember des Reports"></p>
-<p>Sobald eine Datenquelle ausgewählt wurde, wird im Report im oberen Teil des DetailReports der komplette &quot;Datenpfad&quot; angezeigt.</p>
-<div class="WARNING"><h5>Warning</h5><p>Es kann im Haupt Report, falls dem Report über die DataSource zwei Collections übergeben wurden, der DataMember auf eine andere Collection geändert werden.
-Dies wird jedoch nicht empfohlen, da hierdurch bestehende DetailReports auf falsche Datenfelder verweisen können.
-Sind die Datenfelder in der neu zugewiesenen Collection nicht vorhanden, führt dies zu Problemen.</p>
+<p>Die angebotenen Datenquellen im Kontextmenü beim letzten Schritt befinden sich eine Ebene <strong>unter</strong> dem Data Member des Haupt-Reports.
+Über das Fenster <em>Report Explorer</em> kann der Haupt-Report (hier <code>report</code>) ausgewählt werden und anschließend in den Properties der Data Member eingesehen werden (siehe folgenden Screenshot).</p>
+<p><img src="media/report-datamember-example.png" alt="Data Member des Reports"></p>
+<p>Sobald eine Datenquelle ausgewählt wurde, wird im Report im oberen Teil des Detail Reports der komplette Datenpfad angezeigt.</p>
+<div class="WARNING"><h5>Warning</h5><p>Falls dem Report über die DataSource zwei Collections übergeben wurden, kann im Haupt-Report der Data Member auf eine andere Collection geändert werden.
+Dies wird jedoch <strong>nicht empfohlen</strong>, da hierdurch bestehende DetailReports auf falsche Datenfelder verweisen können.
+Sind die Datenfelder in der neu zugewiesenen Collection nicht vorhanden, führt dies zu Fehlern.</p>
 </div>
 <h3 id="detail-report-strukturieren-und-felder-hinzufügen">Detail Report strukturieren und Felder hinzufügen</h3>
-<p>Klickt man auf ein Detail Report wird automatisch im Window &quot;Field List&quot; die zugehörige Datenquelle ausgewählt.
+<p>Klickt man auf ein Detail Report wird automatisch im Fenster <em>Field List</em> die zugehörige Datenquelle ausgewählt.
 Dies ist im folgenden Screenshot dargestellt.</p>
-<p><img src="media/detail-report-example.png" alt="DetailReport DataMember"></p>
-<p>Diese &quot;oContactColl&quot; kann nun aufgeklappt und einzelne Felder auf das Detail1 Band gezogen werden.</p>
+<p><img src="media/detail-report-example.png" alt="DetailReport Data Member"></p>
+<p>Im Baum der <em>Field List</em> kann nun der Eintrag oContactColl aufgeklappt und einzelne Felder auf das Detail Report Band gezogen werden.</p>
 <p>Wie im Bild ebenfalls zu sehen, wurde mit einem ReportHeader und einem ReportFooter gearbeitet.
-Diese können über Rechtsklick auf dem DetailReport hinzugefügt werden.</p>
+Diese können über Rechtsklick auf dem DetailReport hinzugefügt werden.
+Sie werden einmalig am Anfang bzw. am Ende des Detail Reports gedruckt.
+Im Beispiel dient dies zur besseren Übersicht im gedruckten Report.
+Im folgenden Screenshot sehen Sie, welche weiteren Auswahlmöglichkeiten zur Verfügung stehen.</p>
 <p><img src="media/detail-report-insert-header.png" alt="Header im Detail Band"></p>
-<p>Das Report Ergebnis sieht wie folgt aus:</p>
+<p>Der fertige Report sieht wie folgt aus:</p>
 <p><img src="media/devexpress-detailband-ergebnis.png" alt="Ansicht gedruckter Report - Ansprechpartner"></p>
 <h3 id="iterieren-über-collections-außerhalb-des-detail-bands">Iterieren über Collections außerhalb des Detail Bands</h3>
 <p>Ist das Ziel über Daten zu iterieren, welche im ReportHeader, PageHeader, ReportFooter, oder PageFooter angezeigt werden sollen, muss dies über einen Subreport realisiert werden.</p>
+<p>Als Beispiel sollen die ID, der Name und die Farbe aller Artikel ausgegeben werden.
+Auf dem nachfolgenden Screenshot sehen Sie das fertige Ergebnis des Reports im FSReportDesigner.
+Auf der linken Seite befindet sich der Haupt-Report &quot;SideBySide&quot;.
+Auf der rechten  Seite ist der Embedded Subreport mit den Daten zu den einzelnen Artikeln.</p>
 <p><img src="media/embedded-subreport-example.png" alt="Embedded Subreport im Header anlegen"></p>
+<p>Die Vorgehensweise ist wie folgt:</p>
 <ol>
 <li>Zunächst muss ein <strong>Embedded Subreport Control</strong> auf den Report gezogen werden. Im Beispiel wird dies auf den ReportHeader gezogen.</li>
 <li>Ggf. kann zunächst der Namen des Controls geändert werden.</li>
-<li>Anschließend muss der Embedded Subreport mit Doppelklick geöffnet werden. Dieser befindet sich nun auf der rechten Seite im Bild. Die Fenster auf der rechten Seite zeigen die Details des EmbeddedReports an.</li>
-<li>Nach Öffnen des Subreports müssen Sie in das Fenster &quot;Report Explorer&quot; wechseln und dort, wie bei Schritt 2 im Bild, den Subreport auswählen.</li>
-<li>Anschließend kann im Properties Fenster der DataMember ausgewählt werden (Schritt 3 im Bild). Im Beispiel wurde hier die zweite Collection ausgewählt, welche per DataSource dem Haupt-Report zugewiesen wurde.</li>
-<li>Als letzten Schritt können Sie nun über das Fenster &quot;Field List&quot; verschiedene DatenFelder auf den Report ziehen. Im Bild sind sID, sName und sColor hinzugefügt worden.</li>
+<li>Anschließend muss der Embedded Subreport mit Doppelklick geöffnet werden. Dieser befindet sich im Bild auf der rechten Seite. Die Fenster auf der rechten Seite zeigen die Details des Embedded Subreports an.</li>
+<li>Nach dem Öffnen des Subreports müssen Sie in das Fenster <em>Report Explorer</em> wechseln und dort, wie bei Schritt 2 im Bild, den Subreport auswählen.</li>
+<li>Anschließend kann im Properties Fenster der Data Member ausgewählt werden (Schritt 3 im Bild). Im Beispiel wurde hier die zweite Collection oArticleColl ausgewählt, welche per DataSource dem Haupt-Report zugewiesen wurde.</li>
+<li>Als letzten Schritt können Sie nun über das Fenster <em>Field List</em> verschiedene Datenfelder auf den Report ziehen. Im Bild sind sID, sName und sColor hinzugefügt worden.</li>
 <li>Speichern und fertig.</li>
 </ol>
 <p><strong>Ergebnis:</strong> Einmalig auf der ersten Seite im Report wird nun die Liste der Artikel mit den Daten ID, Name und Farbe ausgegeben.</p>
-<h3 id="kombiniation-der-verschiedenen-möglichkeiten">Kombiniation der verschiedenen Möglichkeiten</h3>
-<p>Im Folgenden wurden die bereits erklärten Anwendungsfälle zusammengefasst und farblich aufbereitet, um eine bessere Übersicht zu ermöglichen. Zusätzlich kam ein DetailReport hinzu, welcher über die Bestellungen der Firma iteriert.</p>
+<h3 id="kombination-der-verschiedenen-möglichkeiten">Kombination der verschiedenen Möglichkeiten</h3>
+<p>Auf dem nachfolgenden Screenshot sehen Sie die Zusammenfassung der bereits erklärten Beispiele, welche zusätzlich farblich aufbereitet wurden.
+Dies dient einer besseren Übersichtlichkeit.
+Des Weiteren wurde ein DetailReport hinzugefügt, welcher über die Bestellungen der Firma iteriert.
+Die zugehörige Überschrift lautet &quot;Bestellungen&quot; und ist gelb.
+Diesen DetailReport können Sie als Übung selbst hinzufügen und sich am bereits erstellten Ansprechpartner-DetailReport orientieren.</p>
+<p>Auf dem Report werden folgende Informationen angezeigt:</p>
 <ul>
 <li>Embedded Subreport im ReportHeader: Iteration über die verschiedenen Artikel</li>
-<li>DetailReport oCompanyColl.oSalesOrderMasterColl: Iteration über die verschiedenen Bestellungen</li>
 <li>DetailReport oCompanyColl.oContactColl: Iteration über die Ansprechpartner</li>
+<li>DetailReport oCompanyColl.oSalesOrderMasterColl: Iteration über die verschiedenen Bestellungen</li>
 </ul>
-<p><strong>Report im FSReportDesigner:</strong></p>
-<p><img src="media/devexpress-report-example.png" alt="Ergebnis Report im Designer"></p>
+<p><strong>Report im FSReportDesigner:</strong>
+<img src="media/devexpress-report-example.png" alt="Ergebnis Report im Designer"> </p>
 <p><strong>Ergebnis:</strong></p>
 <p><img src="media/devexpress-report-finish.png" alt="Ergebnis kombinierter Report"></p>
-<h3 id="anzeige-von-daten-im-detail-band">Anzeige von Daten im Detail Band</h3>
-<p>Auch im Detail können Daten bspw. der Firma ausgegeben werden. Diese wurden nachträglich zum Detail Band, welches über die Bestellungen iteriert hinzugefügt.</p>
+<h3 id="datenanzeige-direkt-im-detail-band">Datenanzeige direkt im Detail Band</h3>
+<p>Auch im Detail können Daten bspw. der Firma ausgegeben werden. Diese wurden nachträglich zum Detail Band, welches über die Bestellungen iteriert, hinzugefügt.
+Die Firmendaten haben einen grauen Hintergrund.</p>
 <p><strong>Report im FSReportDesigner:</strong></p>
 <p><img src="media/devexpress-daten-im-detail.png" alt="Firmendaten im Detail"></p>
 <p><strong>Ergebnis:</strong></p>
 <p><img src="media/devexpress-firma-in-detail-band.png" alt="Ergebnis"></p>
-<h3 id="daten-in-spalten-anzeigen">Daten in Spalten anzeigen</h3>
-<p>Innerhalb des DetailReports mit dem DataMember &quot;oCompanyColl.oSalesOrderMasterColl&quot;, in welcher bereits die Bestellungen durchlaufen werden, legen wir einen weiteren DetailReport an.</p>
+<h3 id="daten-in-mehreren-spalten-anzeigen">Daten in mehreren Spalten anzeigen</h3>
+<p>Innerhalb des DetailReports mit dem Data Member &quot;oCompanyColl.oSalesOrderMasterColl&quot;, in welcher bereits die Bestellungen durchlaufen werden, legen wir nun einen weiteren DetailReport an.</p>
 <ol>
 <li>Über das Detail Band der &quot;Bestellungen&quot; kann über das Contextmenü &quot;Insert Detail Report&quot; - &quot;oSalesOrderDetailColl&quot; ausgewählt werden.</li>
-<li>Nachdem man einen ReportHeader und das Label &quot;Positionen&quot; hinzugefügt hat, sieht der Report wie im folgenden Screenshot aus. Rot umrandet ist der neu angelegte Detail Report</li>
-</ol>
-<p><img src="media/devexpress-multi-column.png" alt="Multi Column"></p>
-<ol>
+<li>Nachdem man einen ReportHeader und das Label &quot;Positionen&quot; hinzugefügt hat, sieht der Report wie im folgenden Screenshot aus. Rot umrandet ist der neu angelegte Detail Report.
+<img src="media/devexpress-multi-column.png" alt="Multi Column"></li>
 <li>In diesem Screenshot kann man des Weiteren sehen, wie ein Report in Spalten aufgeteilt werden kann.
-Im Fenster Properties ist dies markiert.
-Zusätzlich sollte die Option &quot;Layout&quot; bei den &quot;Multi-Column-Options&quot; auf <strong>&quot;First Accross, then down&quot;</strong> gesetzt werden.
+Im Fenster <em>Properties</em> ist dies markiert.
+Zusätzlich sollte die Einstellung <em>Layout</em> bei den <em>Multi-Column-Options</em> auf <strong>&quot;First Accross, then down&quot;</strong> gesetzt werden.
 Ansonsten werden die Positionen nur nebeneinander angezeigt, wenn beispielsweise am Ende der Seite kein Platz mehr für alle Positionen untereinander vorhanden ist.</li>
-<li>Anschließend kann das Control &quot;Panel&quot; auf das Detail gezogen werden.</li>
-<li>Als letzter Schritt müssen die gewünschten Datenfelder auf das Panel gezogen werden.</li>
+<li>Anschließend das Control &quot;Panel&quot; auf das Detail ziehen und die gewünschten Datenfelder zum Panel per Drag&amp;Drop hinzufügen.</li>
 </ol>
-<p><strong>Report mit Panel und Multi Column im FSReportDesigner:</strong></p>
+<p><strong>Der fertige Report mit Panel und Multi Column im FSReportDesigner:</strong></p>
 <p><img src="media/devexpress-report-multicolumn.png" alt="Report  mit MultiColumns Ergebnis im FSReport Designer"></p>
 <p><strong>Ergebnis:</strong></p>
 <p><img src="media/devexpress-report-final.png" alt="Report mit MultiColumns Ergebnis"></p>
-<h2 id="ansprechpartner-und-bestellungen-im-embedded-subreport">Ansprechpartner und Bestellungen im Embedded Subreport</h2>
-<h3 id="ansprechpartner">Ansprechpartner</h3>
-<p>Es gibt die Möglichkeiten die Anzeige der Bestellungen und Ansprechpartner nicht über Detail Reports, sondern mittels Embedded Subreports zu lösen.</p>
-<div class="NOTE"><h5>Note</h5><p>Die nachfolgende Vorgehensweise ist auf Basis des obigen Reports.</p>
+<h3 id="ansprechpartner-im-embedded-subreport">Ansprechpartner im Embedded Subreport</h3>
+<p>Es gibt die Möglichkeiten die Anzeige der Bestellungen und Ansprechpartner nicht über Detail Reports, sondern mittels Embedded Subreports zu lösen.
+Ziel ist, dass die Ansprechpartner neben den Bestellungen und Positionen angezeigt werden.</p>
+<div class="NOTE"><h5>Note</h5><p>Die nachfolgende Vorgehensweise ist auf Basis des obigen Reports. Die Überschriften sind im Embedded Subreport mit grünem Hintergrund versehen.</p>
 </div>
 <ol>
 <li>Im Detail Band unterhalb der Firmen Infos (grauer Hintergrund) zwei Embedded Subreports hinzufügen.</li>
 <li>Diese nebeneinander anordnen.</li>
-<li>Den linken Report umbenennen in embeddedSubreportControl_Contact.</li>
-<li>Den rechten Report umbenennen in embeddedSubreportControl_Orders.</li>
+<li>Den linken Report in <code>embeddedSubreportControl_Contact</code> umbenennen.</li>
+<li>Den rechten Report umbenennen in <code>embeddedSubreportControl_Orders</code>.</li>
 <li>Den linken Report öffnen, ein Detail Report über das Kontextmenü &quot;Insert Detail Report&quot; - &quot;oContactColl&quot; hinzufügen und wie im Screenshot mit Daten aus der &quot;oCompanyColl.oContactColl&quot; füllen:
 <img src="media/devexpress-embedded-contact.png" alt="Embedded Report Contact"></li>
-<li>Anschließend im Fenster &quot;Field List&quot; bei &quot;Parameters&quot; Rechtsklick und einen neuen Parameter hinzufügen.</li>
+<li>Anschließend im Fenster <em>Field List</em> die &quot;Parameters&quot; auswählen und über Rechtsklick einen neuen Parameter hinzufügen.</li>
 <li>Diesen wie im folgenden Screenshot anlegen (Type: Guid; Name &quot;Company_ROWID&quot;).
 <img src="media/devexpress-company-parameter.png" alt="Embedded Report Contact Parameter"></li>
-<li>Als letzten Schritt muss im Embedded Subreport im Fenster Report Explorer der oberste Report ausgewählt werden. Im Bild heißt dieser &quot;Report2&quot;. Über die Properties in der Registerkarte &quot;data&quot; bei den &quot;Filter Strings&quot; folgende Formel angeben: 
-<code>csharp
-[ROWID] = ?Company_ROWID</code>
+<li>Als letzten Schritt muss im Embedded Subreport im Fenster <em>Report Explorer</em> der oberste Report ausgewählt werden. Im Bild heißt dieser &quot;Report2&quot;. Im Fenster <em>Properties</em> in der Registerkarte <em>data</em> beim Property &quot;Filter Strings&quot; folgende Formel angeben: <code>[ROWID] = ?Company_ROWID</code>
 <img src="media/devexpress-embedded-filter-string-editor.png" alt="Filter String Editor"></li>
-</ol>
-<div class="NOTE"><h5>Note</h5><p>Nur wenn sie zusätzlich zum Parameter auch den <strong>Filter String</strong> anlegen wird nach der ROWID gefiltert. Ansonsten werden für alle Firmen alle Ansprechpartner untereinander angezeigt.</p>
-</div>
-<ol>
 <li>Anschließend den Embedded Report speichern und schließen.</li>
-<li>Am embeddedSubreportControl_Contact im Haupt Report auf das Zahnrad-Icon klicken und anschließend &quot;Edit Parameter Bindings...&quot; auswählen (siehe Screenshot).
+<li>Am <code>embeddedSubreportControl_Contact</code> im Haupt-Report auf das Zahnrad-Icon klicken und anschließend <em>Edit Parameter Bindings...</em> auswählen (siehe Screenshot).
 <img src="media/devexpress-edit-parameter-bindings.png" alt="Parameter Bindings hinzufügen"></li>
-<li>Im nun geöffneten &quot;Parameter Binding Collection Editor&quot; auf den Button &quot;Sync&quot; klicken. Daraufhin wurde der im Subreport angelegte Parameter automatisch hinzugefügt. Im rechten PropertyGrid muss nun unter &quot;Binding&quot; auf die ROWID der oCompanyColl verwiesen werden.
+<li>Im nun geöffneten <em>Parameter Binding Collection Editor</em> auf den Button <em>Sync</em> klicken.
+Hiermit wird der im Subreport angelegte Parameter automatisch hinzugefügt.
+Im rechten PropertyGrid muss nun bei <em>Binding</em> auf die ROWID der oCompanyColl verwiesen werden.
 <img src="media/devexpress-parameter-binding-editor.png" alt="Parameter Binding Collection Editor"></li>
 <li>Das Fenster mit Ok schließen.</li>
 </ol>
+<div class="NOTE"><h5>Note</h5><p>Nur wenn sie zusätzlich zum Parameter auch den <strong>Filter String</strong> anlegen, wird nach der ROWID gefiltert. Ansonsten werden bspw. für alle Firmen alle Ansprechpartner untereinander angezeigt.</p>
+</div>
 <p>Auf diesem Screenshot ist zu sehen, wie nun der embedded Subreport auf dem finalen Report aussieht:</p>
 <p><img src="media/devexpress-final-embedded-contact.png" alt="Finaler Report mit Embedded Subreport contact"></p>
-<h2 id="bestellungen-und-positionen-im-embedded-subreport">Bestellungen und Positionen im Embedded Subreport</h2>
-<p>Um die Bestellungen und die Positionen ebenfalls mit Embedded Subreports abbilden zu können, ist keine neue Funktion, welche noch nicht eklärt wurde, notwendig.
-Nur eine zusätzliche Ebene muss eingefügt werden.
-Die Vorgehensweise ist wie folgt:</p>
+<h3 id="bestellungen-und-positionen-im-embedded-subreport">Bestellungen und Positionen im Embedded Subreport</h3>
+<p>Um auch die Bestellungen und die Positionen ebenfalls mit Embedded Subreports abbilden zu können, ist keine neue Funktion notwendig.
+Mit den bisherigen Beispielen können Sie sich nun selbst ausprobieren oder der Anleitung weiter folgen.</p>
+<p>Die Vorgehensweise ist wie folgt:</p>
 <ol>
-<li>Falls noch kein entsprechender Embedded Subreport unterhalb der Firma Infos hinzugefügt wurde, muss dies nun getan werden. Der Embedded Subreport sollte in keinem Detail Report, sondern direkt im Detail Band eingebunden werden.</li>
-<li>Den Subreport in &quot;embeddedSubreportControl_Orders&quot; umbenennen.</li>
+<li>Falls noch kein entsprechender Embedded Subreport unterhalb der Firmeninfos hinzugefügt wurde, muss dies nun getan werden. Der Embedded Subreport sollte in keinem Detail Report, sondern direkt im Detail Band eingebunden werden.</li>
+<li>Den Subreport in <code>embeddedSubreportControl_Orders</code> umbenennen.</li>
 <li>Subreport embeddedSubreportControl_Orders öffnen.</li>
 <li>Anschließend den Report mit folgenden Controls befüllen:
 <img src="media/devexpress-embedded-orders.png" alt="Embedded Subreport Orders"></li>
 <li>Zusätzlich muss noch ein Parameter <code>Company_ROWID</code> hinzugefügt werden.</li>
 <li>Nennen Sie den hier hinzugefügten Embedded Subreport bitte ebenfalls <code>embeddedSubreportControl_OrderPos</code>, da dieser im Folgenden so genannt wird.</li>
-<li>Anschließend müssen im Report <code>embeddedSubreportControl_Orders</code> auf das oberste Report Element im &quot;Report Explorer&quot; klicken und den Filter String auf &quot;[ROWID] = ?Company_ROWID&quot; setzen.</li>
-<li>Als letzten Schritt müssen Sie zurück in den Haupt Report und beim Control <code>embeddedSubreportControl_Orders</code> auf das Zahnrad-Icon klicken und &quot;Edit Parameter Bindings&quot; auswählen. Im nun geöffneten Fenster können Sie wieder über den Button &quot;Sync&quot; den Parameter aus dem Embedded Report ziehen und müssen nur das &quot;Binding&quot; auf &quot;oCompanyColl.ROWID&quot; setzen.</li>
+<li>Anschließend müssen im Report <code>embeddedSubreportControl_Orders</code> auf das oberste Report Element im <em>Report Explorer</em> klicken und den Filter String auf 
+<code>[ROWID] = ?Company_ROWID</code>
+setzen.</li>
+<li>Als letzten Schritt müssen Sie zurück in den Haupt-Report und beim Control <code>embeddedSubreportControl_Orders</code> auf das Zahnrad-Icon klicken und <em>Edit Parameter Bindings</em> auswählen.
+Im nun geöffneten Fenster können Sie wieder über den Button <em>Sync</em> den Parameter aus dem Embedded Report ziehen und müssen nur das Binding auf &quot;oCompanyColl.ROWID&quot; setzen.</li>
 <li>Die erste Ebene ist nun vollständig.</li>
 </ol>
-<h3 id="embedded-subreport-positions-anlegen">Embedded Subreport Positions anlegen</h3>
+<p>Als nächstes wird erklärt, wie Sie die Positionen anzeigen können.</p>
 <ol>
-<li>Navigieren Sie in den <code>embeddedSubreportControl_Orders</code> Report und von dort in den <code>embeddedSubreportControl_OrdersPos</code> Subreport.</li>
+<li>Navigieren Sie in den <code>embeddedSubreportControl_Orders</code> Report und von dort in den <code>embeddedSubreportControl_OrderPos</code> Subreport.</li>
 <li>In diesem müssen Sie zwei Detail Reports hinzufügen. Diese müssen wie im folgenden Bild angeordnet sein:
 <img src="media/devexpress-embedded-orderpos.png" alt="Embedded Subreport OrderPos"></li>
-<li>Des Weiteren müssen diesmal zwei Parameter angelegt werden. Diese sind beide wieder vom Type: GUID und lauten: Company_ROWID und Order_ROWID</li>
-<li>Als nächstes muss erneut ein Filter String beim obersten Report Element hinzugefügt werden. Dieser lautet wie folgt: [ROWID] = ?Company_ROWID</li>
-<li>Nun navigieren Sie zum <code>embeddedSubreportControl_Orders</code> und legen am <code>embeddedSubreportControl_OrderPos</code> Control die beiden Parameter Bindings an. Das Binding bei der Company_ROWID lautet wie bei den Beispiele zuvor. Das Binding bei Order_ROWID lautet: oCompanyColl.oSalesOrderMasterColl.ROWID
+<li>Des Weiteren müssen diesmal zwei Parameter angelegt werden. Diese sind beide wieder vom <em>Type: GUID</em> und lauten: <em>Company_ROWID</em> und <em>Order_ROWID</em></li>
+<li>Als nächstes muss erneut ein Filter String zum obersten Report Element hinzugefügt werden. Dieser lautet wie folgt: <code>[ROWID] = ?Company_ROWID</code></li>
+<li>Nun navigieren Sie zum <code>embeddedSubreportControl_Orders</code> und legen am <code>embeddedSubreportControl_OrderPos</code> Control die beiden Parameter Bindings an.
+Das Binding der Company_ROWID ist identisch zu den Beispiele zuvor.
+Das Binding der Order_ROWID lautet: oCompanyColl.oSalesOrderMasterColl.ROWID 
 <img src="media/devexpress-embedded-orderpos-parameters.png" alt="Parameter Binding im embeddedSubreportControl_OrderPos"></li>
 </ol>
 <p><strong>Der finale Report sieht nun wie folgt aus:</strong>

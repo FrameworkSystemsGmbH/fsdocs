@@ -81,7 +81,6 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="resources">Resources</h1>
 
-<h2 id="allgemeines">Allgemeines</h2>
 <p>Ressourcen ermöglichen dem Entwickler, der Anwendung beliebige Dateien zur Verfügung zu stellen. Typische Beispiele für Ressourcen sind:</p>
 <ul>
 <li>von der Anwendung benötigte Bilder</li>
@@ -89,8 +88,11 @@
 <li>externe Bibliotheken (dlls), die von der Anwendung benutzt werden</li>
 </ul>
 <h2 id="bedeutung-von-namespaces-für-ressourcen">Bedeutung von Namespaces für Ressourcen</h2>
-<p>Ressourcen können im Objekt-Baum (<a href="../ide/registerkarten.html#registerkarte-namespaces">Registerkarte Namespaces</a>) im Namespace <strong>FSGeneral / Resources</strong> angelegt werden. Beim Kompilieren von Ressourcen werden diese dann direkt ins Brokerverzeichnis kopiert.</p>
-<p>Außerdem können im Namespace <strong>FSGeneral / Resources</strong> weitere Namespaces angelegt werden. Diese Namespaces werden beim Kompilieren von Ressourcen automatisch als Unterverzeichnisse im Brokerverzeichnis angelegt, sobald sie eine Ressource enthalten. Die Ressourcen eines Unter-Namespaces werden dann ins entsprechende Unterverzeichnis des Brokers kopiert.</p>
+<p>Ressourcen können im Objekt-Baum (<a href="../ide/registerkarten.html#registerkarte-namespaces">Registerkarte Namespaces</a>) im Namespace <strong>FSGeneral / Resources</strong> angelegt werden.
+Beim Kompilieren von Ressourcen werden diese dann direkt in das Brokerverzeichnis kopiert.</p>
+<p>Außerdem können im Namespace <strong>FSGeneral / Resources</strong> weitere Namespaces angelegt werden.
+Diese Namespaces werden beim Kompilieren von Ressourcen automatisch als Unterverzeichnisse im Brokerverzeichnis angelegt, sobald sie eine Ressource enthalten.
+Die Ressourcen eines Unter-Namespaces werden dann in das entsprechende Unterverzeichnis des Brokers kopiert.</p>
 <h2 id="erstellen-und-löschen-von-ressourcen">Erstellen und Löschen von Ressourcen</h2>
 <p>Für das Erstellen und Löschen ist zu beachten, in welchem Namespace die Ressource angelegt werden muss (<a href="#bedeutung-von-namespaces-für-ressourcen">Bedeutung von Namespaces für Ressourcen</a>). Ansonsten werden Ressourcen wie alle anderen Elemente angelegt.</p>
 <ul>
@@ -103,7 +105,12 @@
 <p>Durch einen Doppelklick auf eine Ressource im Objekt-Baum wird das Designer-Fenster geöffnet.</p>
 <h3 id="resource">Resource</h3>
 <p><img src="media/bearbeiten-von-ressourcen.png" alt="bearbeiten-von-ressourcen.png"></p>
-<p>Dort können Sie mit dem Button <strong>Import File</strong> einen Dateiauswahldialog öffnen. Dort wählen Sie die Datei aus, die ins Brokerverzeichnis kopiert werden soll. Nach dem Import wird der Name der Ressource mit dem Namen der ausgewählten Datei initialisiert. Sie können diesen Namen im Textfeld <strong>Name</strong> ändern. Im nicht editierbaren Textfeld <strong>Relative Path</strong> wird der Pfad relativ zum Brokerverzeichnis angezeigt, unter dem die Datei letztendlich angelegt wird. Der Pfad ergibt sich aus dem Namespace, in dem die Ressource angelegt wurde (<a href="#bedeutung-von-namespaces-für-ressourcen">Bedeutung von Namespaces für Ressourcen</a>) und dem Namen der Ressource.</p>
+<p>Dort können Sie mit dem Button <strong>Import File</strong> einen Dateiauswahldialog öffnen.
+Dort wählen Sie die Datei aus, die in das Brokerverzeichnis kopiert werden soll.
+Nach dem Import wird der Name der Ressource mit dem Namen der ausgewählten Datei initialisiert.
+Sie können diesen Namen im Textfeld <strong>Name</strong> ändern.
+Im nicht editierbaren Textfeld <strong>Relative Path</strong> wird der Pfad relativ zum Brokerverzeichnis angezeigt, unter dem die Datei letztendlich angelegt wird.
+Der Pfad ergibt sich aus dem Namespace, in dem die Ressource angelegt wurde (<a href="#bedeutung-von-namespaces-für-ressourcen">Bedeutung von Namespaces für Ressourcen</a>) und dem Namen der Ressource.</p>
 <p>Erläuterungen zu den Standardfunktionen, die im Designer-Fenster für Ressourcen angeboten werden, finden Sie unter <a href="../ide/allgemeine-funktionalitaeten.html">Allgemeine Funktionalitäten</a>.</p>
 </article>
           </div>

@@ -91,7 +91,7 @@ Dieser kann auch komplette Websites übersetzen.</p>
 <p>Der FS Report Designer kann über &quot;Edit Report&quot; im Report Document Type geöffnet werden.
 Durch die Integration in FS sind keine weiteren Einstellungen notwendig.</p>
 <p>Die Daten, welche im FS Report Designer verwendet werden können, werden durch die DataSource definiert.
-Hier müssen keine Haken gesetzt werden, da DevExpress auf alle Daten zugreift und selbst nur die verwendeten Daten zieht.</p>
+Hier müssen keine Haken gesetzt werden, da DevExpress® auf alle Daten zugreift und selbst nur die verwendeten Daten zieht.</p>
 <div class="NOTE"><h5>Note</h5><p>Falls sich die Datenquellen oder die Komponenten ändern, die als Datenquelle genutzt werden, muss das Report Document und die betroffenen Interfaces der Datenquellen neu kompiliert werden. Dies zeigt Framework Studio an.</p>
 <p><img src="media/compile-message-box.PNG" alt="MessageBox Report Compile"></p>
 </div>
@@ -119,7 +119,7 @@ Neue Dateien müssen aus Framework Studio heraus erzeugt werden.</p>
 </li>
 </ul>
 <h2 id="standalone-ausführung-der-fsreportdesignerexe">Standalone-Ausführung der FSReportDesigner.exe</h2>
-<p>Die FS-Customizations werden via eines Launchers (<em>FSReportDesigner.exe</em>) auf den standardmäßigen Report-Designer angewandt. Aus diesem Grund müssen DevExpress Reports über diesen Launcher editiert werden.</p>
+<p>Die FS-Customizations werden via eines Launchers (<em>FSReportDesigner.exe</em>) auf den standardmäßigen Report-Designer angewandt. Aus diesem Grund müssen DevExpress® Reports über diesen Launcher editiert werden.</p>
 <p>Die entsprechende .exe ist auf oberster Ebene im Installationsverzeichnis zu finden, also &quot;\Framework Studio X.Y.0.0\FSReportDesigner.exe&quot;.</p>
 <p>Diese .exe lässt sich auf beliebige Weise öffnen (unten genauer erläutert). Wenn die geöffnete Datei sich nicht in einem Report-Verzeichnis befindet und der Pfad zu diesem nicht als Argument angegeben wurde, erscheint folgende Meldung:</p>
 <p><img src="media/devexpress-designer-customizations-no-report-directory.png" alt="No report Directory"></p>
@@ -224,7 +224,7 @@ Sie verfügen über die Eigenschaft <strong>Print On</strong>, die es erlaubt be
 <p>Falls über eine dem Detail band untergeordnete Collection iteriert werden soll, muss ein Detail Report Band oder ein Subreport eingesetzt werden.
 <a href="https://docs.devexpress.com/XtraReports/DevExpress.XtraReports.UI.DetailBand.FillEmptySpace">FillEmptySpace</a> in Kombination mit GroupFooter.PrintAtBottom erlaubt es, Platzhalter zwischen Gruppen zu drucken, auch, wenn Gruppen auf einer neuen Seite anfangen sollen.</p>
 <h4 id="detail-report-band">Detail Report Band</h4>
-<p>Ein Detail Report Band erlaubt es, ein weiteres Detail unter einem bestehenden Detail band zu iterieren. Da DevExpress Reports dazu konzipiert sind, nur ein Detail band zu haben, fungiert es quasi als aufgelöster Subreport, der nur in einem Report zum Einsatz kommt.</p>
+<p>Ein Detail Report Band erlaubt es, ein weiteres Detail unter einem bestehenden Detail band zu iterieren. Da DevExpress® Reports dazu konzipiert sind, nur ein Detail band zu haben, fungiert es quasi als aufgelöster Subreport, der nur in einem Report zum Einsatz kommt.</p>
 <p>Subreports sollten hingegen eingesetzt werden, falls er in mehreren Reports zum Einsatz kommen soll.</p>
 <p>Dem Detail Report Band muss ein Data Member zugewiesen werden:</p>
 <p><img src="media/detail-report-band.png" alt="Detail Report Band"></p>
@@ -258,10 +258,10 @@ Die folgende Konfiguration, beispielsweise, sortiert die Datensätze der Gruppe 
 <li>Für den Übertrag von Daten auf die vorherige Seite kann das <a href="devexpress-carry-forward-control.html">Carry Forward</a> genutzt werden.</li>
 </ul>
 <h2 id="expressions-calculated-fields-und-filterstrings">Expressions, Calculated Fields und FilterStrings</h2>
-<p><a href="https://docs.devexpress.com/XtraReports/403357/detailed-guide-to-devexpress-reporting/use-expressions/expressions-overview">DevExpress Expressions</a> sind das Formel-Äquivalent von DevExpress.
+<p><a href="https://docs.devexpress.com/XtraReports/403357/detailed-guide-to-devexpress-reporting/use-expressions/expressions-overview">DevExpress® Expressions</a> sind das Formel-Äquivalent von DevExpress®.
 Sie werden allerdings nicht zentral verwaltet, sondern sind immer Teil eines Properties.
 Expressions bestimmen entweder ein Property eines Calculated Fields, oder direkt den Wert eines Properties an einem Control.</p>
-<p>Für die spezielle Expression Language hat DevExpress eine ausführliche <a href="https://docs.devexpress.com/XtraReports/120104/detailed-guide-to-devexpress-reporting/use-expressions/expression-language">Dokumentation</a>.</p>
+<p>Für die spezielle Expression Language hat DevExpress® eine ausführliche <a href="https://docs.devexpress.com/XtraReports/120104/detailed-guide-to-devexpress-reporting/use-expressions/expression-language">Dokumentation</a>.</p>
 <h3 id="expressions-bei-properties">Expressions bei Properties</h3>
 <p>Ausgewählte Properties können ihren Wert direkt durch Expressions berechnet bekommen.
 Durch diese Funktionalität lassen sich bspw. dynamisch Schriftgrößen ändern oder die Unterdrückungsformeln von Crystal nachbilden.
@@ -282,15 +282,15 @@ Im Fenster <em>Field List</em> lassen sie sich erstellen und einer Datenquelle u
 <p><a href="https://docs.devexpress.com/XtraReports/403357/detailed-guide-to-devexpress-reporting/use-expressions/expressions-overview#filterstring-editor">FilterStrings</a> erlauben es, die Datenquelle auf Basis einer Expression einzuschränken, wenn man einzelne Daten nicht nutzen möchte (z.B. um nur einen bestimmten Kunden unter Betracht zu ziehen).
 Da Detail Report Bands die Funktionalität von Subreports für Positionsdrucke ersetzen sollen und eine eigene Datenquelle besitzen, haben auch sie einen eigenen Filter String.</p>
 <p><img src="media/detail-report-tasks-menu.png" alt="Detail Report Tasks Menu"></p>
-<p>Die genaue Syntax von Filter Strings findet sich, wie die Syntax von Criteria, auf der <a href="https://docs.devexpress.com/XtraReports/403357/detailed-guide-to-devexpress-reporting/use-expressions/expressions-overview#filterstring-editor">offiziellen DevExpress-Website</a>.</p>
+<p>Die genaue Syntax von Filter Strings findet sich, wie die Syntax von Criteria, auf der <a href="https://docs.devexpress.com/XtraReports/403357/detailed-guide-to-devexpress-reporting/use-expressions/expressions-overview#filterstring-editor">offiziellen DevExpress®-Website</a>.</p>
 <h2 id="summen">Summen</h2>
-<p>DevExpress bietet eine ausführliche Doku zu <a href="https://docs.devexpress.com/XtraReports/119436/detailed-guide-to-devexpress-reporting/shape-report-data/calculate-summaries/calculate-a-summary">Summen</a>. Im Folgenden wird auf die einzelnen Möglichkeiten kurz eingegangen.</p>
+<p>DevExpress® bietet eine ausführliche Doku zu <a href="https://docs.devexpress.com/XtraReports/119436/detailed-guide-to-devexpress-reporting/shape-report-data/calculate-summaries/calculate-a-summary">Summen</a>. Im Folgenden wird auf die einzelnen Möglichkeiten kurz eingegangen.</p>
 <ul>
 <li>Innerhalb Groups kann summiert werden. Eine kurze Zusammenfassung hierzu findet sich <a href="report-designer.html#groupheader-groupheaderfooter">hier</a></li>
 </ul>
 <h3 id="zwischensummen">Zwischensummen</h3>
 <p>Besonders Zwischensummen aus mehreren verschiedenen Feldern setzen in Crystal viele Umstände voraus – es werden Funktionen für die Zwischenstände benötigt, welche am Ende manuell aufaddiert werden müssen.
-Diese Möglichkeit besteht auch in DevExpress (<a href="report-designer.html#calculated-field-summen">Ansatz mit Hilfe eines Calculated Fields</a>), aber es bestehen weitere und <strong>bessere</strong> Optionen.</p>
+Diese Möglichkeit besteht auch in DevExpress® (<a href="report-designer.html#calculated-field-summen">Ansatz mit Hilfe eines Calculated Fields</a>), aber es bestehen weitere und <strong>bessere</strong> Optionen.</p>
 <p>Statt ein separates Calculated Field zu erstellen, kann man stattdessen ein eigenes Label erstellen, dessen Expression eines der nativen Summen-Expressions nutzt.
 Diese akzeptieren mehrere Datenbankfelder und Calculated Fields, was eine laufende Summe über mehrere Felder über eine Formel ermöglicht.</p>
 <h3 id="calculated-field-summen">Calculated Field-Summen</h3>
@@ -298,13 +298,13 @@ Diese akzeptieren mehrere Datenbankfelder und Calculated Fields, was eine laufen
 Hierfür muss einfach ein neues Calculated Field angelegt werden, in wessen Expression die gewünschte Summe manuell berechnet wird.
 Dieses Calculated Field kann dann beliebig genutzt werden, um die errechnete Summe anzuzeigen.</p>
 <h2 id="tipps-und-tricks">Tipps und Tricks</h2>
-<p>In diesem Kapitel sind Tipps und Tricks aufgeführt, die den Umgang mit Reports in DevExpress erleichtern können.</p>
+<p>In diesem Kapitel sind Tipps und Tricks aufgeführt, die den Umgang mit Reports in DevExpress® erleichtern können.</p>
 <h3 id="methode-globalonbeforeprintsubreport">Methode <code>GlobalOnBeforePrintSubreport</code></h3>
 <p>Am Global wurde die Methode <a href="https://frameworksystemsgmbh.github.io/fsdocs/v4.4/api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.GlobalOnBeforePrintSubreport.html#FrameworkSystems_FrameworkBase_GlobalObj_IcGlobalBase_GlobalOnBeforePrintSubreport_System_String_">GlobalOnBeforePrintSubreport</a> hinzugefügt.
 Diese Methode ermöglicht das Umlenken eines Subreports auf eine eigene Customization.</p>
 <h3 id="ausrichtung-vieler-labels">Ausrichtung vieler Labels</h3>
 <p>Werden mehrere Labels hinzugefügt, kann die Ausrichtung der Elemente aufwändig sein.
-DevExpress bietet die <a href="https://docs.devexpress.com/XtraReports/402370/detailed-guide-to-devexpress-reporting/use-report-controls/manipulate-report-controls/convert-labels-to-table">Funktion &quot;Convert to Table&quot;</a> an, welche für eine Anordnung verwendet werden kann.</p>
+DevExpress® bietet die <a href="https://docs.devexpress.com/XtraReports/402370/detailed-guide-to-devexpress-reporting/use-report-controls/manipulate-report-controls/convert-labels-to-table">Funktion &quot;Convert to Table&quot;</a> an, welche für eine Anordnung verwendet werden kann.</p>
 <ol>
 <li>Markieren Sie die entsprechenden Labels. Diese dürfen sich horizontal nicht überschneiden.</li>
 <li>Über das Kontextmenü (Rechtsklick) können Sie die Funktion &quot;Convert to Table&quot; ausführen. </li>
@@ -319,7 +319,7 @@ Die Anordnung und Ausrichtung bleiben bestehen.</p>
 </ol>
 <h3 id="minimale-höhe-in-einer-band">Minimale Höhe in einer Band</h3>
 <p>Ziehen Sie den unteren Rand eines Bands über die darin enthaltenen Controls.
-DevExpress verkleinert das Band auf die minimale Höhe, welche die Felder im Band benötigen.</p>
+DevExpress® verkleinert das Band auf die minimale Höhe, welche die Felder im Band benötigen.</p>
 <ol>
 <li>Größe des Bands über das letzte Control ziehen:
 <img src="media/detail-band-resize-example.png" alt="Detail Band Resize Example"></li>
@@ -350,7 +350,7 @@ Es genügt die Anmeldung am Default-Package.</p>
 <li>Das Property <em>Visibility</em> des Print-Buttons auf <em>Visible</em> setzen.</li>
 <li>Einen Report <code>rptCompanyList</code> im Namespace <em>Company</em> anlegen.</li>
 <li>Dem Report in der Registerkarte <em>DataSource</em> die DataSources oArticleColl und oCompanyColl zuweisen.</li>
-<li>Anschließend in der Registerkarte <em>Report Files</em> einen neuen DevExpress Report anlegen. Im Beispiel wurde dieser &quot;SideBySide&quot; genannt. Möchten Sie den Report anders benennen, müssen Sie im Methoden Code der <code>FE_btnPrint_OnClick</code> den Namen entsprechend anpassen.</li>
+<li>Anschließend in der Registerkarte <em>Report Files</em> einen neuen DevExpress® Report anlegen. Im Beispiel wurde dieser &quot;SideBySide&quot; genannt. Möchten Sie den Report anders benennen, müssen Sie im Methoden Code der <code>FE_btnPrint_OnClick</code> den Namen entsprechend anpassen.</li>
 </ol>
 <p><strong>Anzeige des Reports:</strong></p>
 <ol>

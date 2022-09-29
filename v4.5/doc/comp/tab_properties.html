@@ -83,30 +83,32 @@
 
 <p><img src="media/registerkarte-properties.png" alt="Component Registerkarte Property"></p>
 <h2 id="neue-properties-anlegen">Neue Properties anlegen</h2>
-<p>Die Properties werden in der Class-Registerkarte angezeigt. 
+<p>Die Properties werden in der ClassView-Registerkarte angezeigt. 
 Hier können neue Properties angelegt werden. 
 Das können Sie über den Button (<strong>New</strong>) mit dem Eintrag <strong>Property</strong> bzw. <strong>Membervariable</strong> oder über das Kontext-Menü der Component (<strong>New / Property</strong> bzw. <strong>New / Membervariable</strong>) machen. 
 Eine dritte Möglichkeit besteht darin, eine Component direkt per Drag &amp; Drop aus dem <strong>Namespace Treeview</strong> auf die Property Tabelle zu ziehen.</p>
-<p>Drag&amp;Drop von Components</p>
+<h3 id="dragdrop-von-components">Drag&amp;Drop von Components</h3>
+<p>Ziehen Sie ein Element aus dem Namespace-TreeView auf die Property-Registerkarte. So wird ein Property angelegt und zugleich im Component-Fenster angezeigt.</p>
 <p><img src="media/registerkarte-properties-dragondrop.png" alt="Component Registerkarte Property"></p>
-<p>Das Property wird angelegt und zugleich im Component-Fenster angezeigt.</p>
 <h2 id="properties-löschen">Properties löschen</h2>
-<p>Properties werden ebenfalls über die Registerkarte <strong>Class</strong> gelöscht. Wählen Sie das zu löschende Property aus und anschließend aus dem Kontext-Menü den Eintrag <strong>Delete</strong>.</p>
+<p>Properties werden ebenfalls über die Registerkarte <strong>ClassView</strong> gelöscht. Wählen Sie zunächst das zu löschende Property und anschließend aus dem Kontext-Menü den Eintrag <strong>Delete</strong> aus.</p>
 <h2 id="properties-kopieren">Properties kopieren</h2>
 <p>Sie können ein Property in eine andere Komponente, in ein anderes Form kopieren oder innerhalb der Komponente duplizieren. Dazu wählen Sie das gewünschte Property in der Property-Liste aus. Anschließend verwenden Sie entweder die Standardtastenkürzel Strg+C, Strg+V und Strg+X oder das Kontextmenü, um den gewünschten Kopiervorgang durchzuführen.</p>
 <h2 id="properties-bearbeiten">Properties bearbeiten</h2>
-<p>Sie können ein Property öffnen, indem Sie einen Doppelklick auf den Eintrag in der Class-Registerkarte machen. Alternativ können Sie auch im Component-Fenster auf der Registerkarte Property in der Tabelle das gewünschte <strong>Property</strong> auswählen.</p>
+<p>Sie können ein Property öffnen, indem Sie einen Doppelklick auf den Eintrag in der ClassView-Registerkarte machen. Alternativ können Sie auch im Component-Fenster auf der Registerkarte Property in der Tabelle das gewünschte <strong>Property</strong> auswählen.</p>
 <p>Die Properties werden in der Tabelle sortiert, wenn Sie auf die Spaltenüberschrift des gewünschten Sortierkriteriums anklicken.</p>
-<h4 id="name">Name</h4>
+<h2 id="allgemeine-properties-am-property">Allgemeine Properties am Property</h2>
+<p>Im Folgenden werden die allgemeinen Schaltflächen für ein Property, welche sich oberhalb der Property-Registerkarten befinden, erläutert.</p>
+<h3 id="name">Name</h3>
 <p>Bezeichnung des Properties. Über diesen Namen wird das Property im Code angesprochen.</p>
-<h4 id="access-level">Access Level</h4>
+<h3 id="access-level">Access Level</h3>
 <p>Legen Sie hier das Access-Level des Properties fest. Die Angabe ist analog zum .NET-Standard.</p>
-<h4 id="datatype">Datatype</h4>
+<h3 id="datatype">Datatype</h3>
 <p>Siehe <a href="#datentyp-bearbeiten">Datentyp bearbeiten</a></p>
-<h4 id="useinterface">UseInterface</h4>
+<h3 id="useinterface">UseInterface</h3>
 <p>Es besteht die Möglichkeit, ein Property, welches als Datatype eine Component eingestellt hat, als Interface einzubinden, um zirkulare Referenzen zu umgehen.</p>
 <p>Wenn man an einer Component ein Property anlegt und dabei als Typ eine Component aus einem anderen Namespace verwendet, dann wird bei diesem Property automatisch die Eigenschaft <strong>UseInterface</strong> gesetzt.</p>
-<h4 id="property-type">Property Type</h4>
+<h3 id="property-type">Property Type</h3>
 <p>Folgende Typen stehen zur Auswahl:</p>
 <p>• Membervariable
 • Generated
@@ -114,43 +116,81 @@ Eine dritte Möglichkeit besteht darin, eine Component direkt per Drag &amp; Dro
 • Individual
 • Individual (readonly)
 • und Relation.</p>
-<p>Diese Typen werden weiter unten genauer beschrieben.</p>
-<h4 id="mapping">Mapping</h4>
-<p>Diese Spalte gibt das Mapping (die Verbindung) des Properties zur Query an. In der Combobox stehen hier alle Spalten (Alias) der Query zur Auswahl.</p>
-<h4 id="registerkarte-description">Registerkarte Description</h4>
-<p>Hier kann eine Beschreibung zum Property angegeben werden.</p>
-<h4 id="registerkarten-get-method--set-method">Registerkarten Get Method / Set Method</h4>
-<p>Siehe Individual / Individual (readonly) Properties</p>
-<h4 id="registerkarten-depends-on--loadcommand">Registerkarten Depends On / LoadCommand</h4>
-<p>Siehe <a href="#relation-properties">Relation Properties</a></p>
-<p><img src="media/registerkarte-loadCommand.png" alt="registerkarte-loadCommand"></p>
-<h3 id="registerkarte-default-label">Registerkarte Default Label</h3>
-<p>Hier suchen Sie die Bezeichnung des Felds im Form aus. Sie können wählen, ob Sie die Bezeichnung aus der Database-Table bzw. dem Metadatentypen oder eine eigene Bezeichnung nehmen möchten. Die Bezeichnungen sind hierarchisch aufgebaut und können in den aufeinander aufbauenden Ebenen überschrieben werden.</p>
-<p>Metadatatype-Labels können durch die Database-Labels überschrieben werden, Database-Labels durch die Component-Labels, Component-Labels durch die Form-Labels. Ist in einer tieferen Ebene ein Label vergeben worden, wird dieses angezeigt.</p>
-<h3 id="registerkarte-control-types">Registerkarte Control Types</h3>
-<p>Sie haben die Möglichkeit, ein Standard-Control zu definieren bzw. ein zusätzliches Control hinzuzufügen. Soll es ein Editfield, eine Combobox etc. sein?</p>
-<h2 id="datentyp-bearbeiten">Datentyp bearbeiten</h2>
+<p>Diese Typen werden weiter <a href="#arten-von-properties">unten</a> genauer beschrieben.</p>
+<h3 id="datentyp-bearbeiten">Datentyp bearbeiten</h3>
 <p>Die Eingabe des Datentyps erfolgt über ein Textfeld mit Auto-Vervollständigung. Beim Anlegen neuer Properties wird der zuletzt ausgewählte Datentyp vorbelegt.</p>
 <p>Diese Angabe kann nicht geändert werden, wenn dieses Property ein Mapping hat. Dann wird der Metadatentyp aus der entsprechenden Database-Column gezogen.</p>
-<p>:::image type=&quot;content&quot; source=&quot;media/registerkarte-properties-datentyp.png&quot; alt-text=&quot;datatype&quot;:::</p>
+<p><img src="media/registerkarte-properties-datentyp.png" alt="Datentyp Registerkarte"></p>
 <p>Tippen Sie einfach den Namen des gewünschten Datentyps ein. Elemente, die mit dem eingegebenen Text beginnen, werden in der Auto-Vervollständigungsliste angezeigt und können über die Pfeiltasten oder per Maus ausgewählt werden.</p>
 <p>Wenn Sie den Namen eines Namespaces angeben und anschließend einen Punkt eingeben, wird die Auswahl der Vorschläge auf diesen Namespace eingeschränkt. Beispiel: „Sales.cd“ liefert alle Elemente aus dem Sales Namespace, die mit cd beginnen.</p>
-<p>Durch Verwendung des Platzhalters „%“ können Sie angeben, dass die Ergebnisse nicht mit dem danach folgenden Text anfangen müssen, sondern der Text lediglich enthalten sein muss. Beispiel: „sales.%ordertype“ liefert alle Elemente aus dem Sales Namespace, deren Name ordertype enthält, also z.B. cdOrderType.</p>
+<div class="NOTE"><h5>Note</h5><p>Durch Verwendung des Platzhalters „%“ können Sie angeben, dass die Ergebnisse nicht mit dem danach folgenden Text anfangen müssen, sondern der Text lediglich enthalten sein muss. Beispiel: „sales.%ordertype“ liefert alle Elemente aus dem Sales Namespace, deren Name ordertype enthält, also z.B. cdOrderType.</p>
+</div>
 <p>Wird die TextBox verlassen, wird der Name des ausgewählten Elements durch den vollständig referenzierenden Namen ersetzt.</p>
 <div class="WARNING"><h5>Warning</h5><ul>
-<li><p>Beim ersten Verwenden der Textbox kann es einige Sekunden dauern, bis der interne Speicher mit allen Elementen gefüllt ist.</p>
-</li>
-<li><p>Es werden maximal 100 Vorschläge angeboten.</p>
-</li>
+<li>Beim ersten Verwenden der Textbox kann es einige Sekunden dauern, bis der interne Speicher mit allen Elementen gefüllt ist.</li>
+<li>Es werden maximal 100 Vorschläge angeboten.</li>
 </ul>
 </div>
-<h2 id="externe-typen">Externe Typen</h2>
+<h3 id="externe-typen">Externe Typen</h3>
 <p><img src="media/registerkarte-properties-externtyp.png" alt="registerkarte-properties-externtyp"></p>
 <p>Properties von Components und Data Contracts sowie Membervariablen von Forms können externe Datentypen zugewiesen werden. Wird die CheckBox „External Type“ gesetzt, wird die Autovervollständigung des Datatype-Textfeldes deaktiviert und ein beliebiger Typ kann angegeben werden (im Beispiel <code>List&lt;List&lt;int&gt;&gt;</code> ).</p>
 <p>Dies bietet sich z.B. an, wenn in einem Namespace mit externen Assemblies gearbeitet wird, deren Klassen als Datentypen von Properties verwendet werden sollen.</p>
 <p>Im IntelliSense wird beim Aufruf eines solchen Properties „object“ angezeigt, da im Hintergrund mit „object“ gearbeitet wird. Das Property „lstTest“ aus dem Beispiel kann aber z.B. trotzdem so verwendet werden:</p>
 <pre><code class="lang-csharp">int i = this.lstTest[0][1]; // Der Wert von i ist danach 2
-</code></pre><h2 id="arten-von-properties">Arten von Properties</h2>
+</code></pre><h2 id="registerkarte-general">Registerkarte General</h2>
+<p>In der Registerkarte <strong>General</strong> können Sie die Checkbox <strong>Autogenerate Membervariable</strong> bei Individual/Individual (readonly) Properties setzen.
+Wird die Checkbox aktiviert, wird automatisch eine Membervariable generiert und das entsprechende <strong>Depends on Property</strong> gesetzt.</p>
+<p>Die Textfelder <strong>Display MinLength</strong>, <strong>Display MaxLength</strong>, <strong>Display MinLines</strong> und <strong>Display MaxLines</strong> und die Comboboxen <strong>Mapping</strong> und <strong>Drag Source</strong> befinden sich ebenfalls hier.
+Des Weiteren können Sie im Textfeld <strong>Description</strong> eine Beschreibung hinzufügen.</p>
+<p>Das Control <strong>Mapping</strong> gibt das Mapping (die Verbindung) des Properties zur Query an. In der Combobox stehen hier alle Spalten (Alias) der Query zur Auswahl.</p>
+<h2 id="registerkarten-get-method--set-method">Registerkarten Get Method / Set Method</h2>
+<p>Für die Properties mit dem Type <em>Generated</em>, <em>Generated (readonly)</em>, <em>Individual</em>, <em>Individual (readonly)</em> kann bei Bedarf individueller Code, der beim Setzen und Auslesen des Properties durchlaufen werden soll, programmiert werden.</p>
+<p>Siehe hierzu <a href="#individual--individual-readonly-properties">Individual / Individual (readonly) Properties</a> und <a href="#generated--generated-readonly-properties">Generated / Generated (readonly) Properties</a>  </p>
+<h2 id="registerkarte-depends-on">Registerkarte Depends On</h2>
+<p>Auf dieser Registerkarte können Sie angeben, welches Property bspw. aus dem Auftrag mit welchem Property aus dem Kunden verbunden werden soll.
+Sie geben also eine <strong>Schlüsselbeziehung</strong> an, ähnlich wie Sie das auf einer relationalen Datenbank tun würden.
+Sie können auch mehrere Properties miteinander verknüpfen, wenn sich der Schlüssel aus mehreren Properties zusammensetzt.</p>
+<p><strong>Button Add:</strong>
+Fügt ein weiteres Property in die Relation ein. In der Tabelle wird eine neue Zeile angelegt und Sie definieren, welches Property mit welchem wie verknüpft werden soll.</p>
+<p><strong>Button Remove:</strong>
+Löscht die markierte Zeile aus der Relation.</p>
+<p>Spalte <strong>Depends on Property:</strong>
+Hier wird das Property auf der Seite Component, in der Sie sich gerade befinden, angegeben. Im Beispiel wäre das ein Property des Auftrags, z.B. die „Kundennnr“.</p>
+<p>Spalte <strong>Compare Operator:</strong>
+Gibt an, mit welchem Operator die Properties verknüpft werden sollen.</p>
+<p>Spalte <strong>oXXX.Property:</strong>
+Gibt an, mit welchem Property der eingebundenen Component das eigene Property verknüpft werden soll. Im Beispiel wäre das evtl. „Kunde.Kundennr“.</p>
+<p>Spalte <strong>Generated Load Condition:</strong>
+Zeigt die aus den anderen Spalten entstandene Suchbedingung an.</p>
+<h3 id="dependson-und-individual-properties">DependsOn und Individual Properties</h3>
+<p>Individual Properties hängen (meist) von anderen Properties ab und besitzen selber keinen eigenen Wert, der getracked werden kann.
+Dennoch müssen Individual Properties dem Form-DataBinding Bescheid geben, dass sie sich geändert haben.
+Hierfür gibt es zwei Möglichkeiten:</p>
+<ol>
+<li>Das Propertiy wir permanent als geändert betrachtet - das passiert, wenn keinerlei DependsOn definiert ist. Die Folge ist, dass dieses Property bei JEDEM Broker Request geprüft und das Property abgefragt wird.</li>
+<li>Man pflegt die DependsOn-Informationen. Damit führen Änderungen an einem der &quot;DependsOn&quot;-Properties dazu, dass auch das Individual Property geprüft wird - aber eben nur dann und nicht mehr bei jedem Request.</li>
+</ol>
+<p>Wir empfehlen dringend das DependsOn zu pflegen, wann immer dies möglich ist.
+Je nach Art und Weise des Individual Properties kann das <strong>erhebliche Performance-Vorteile</strong> bringen.</p>
+<p>Im einfachsten Fall ist es nur eine einfache Berechnung.
+Sollte es sich jedoch um ein Objekt handelt, welches aus der Datenbank gelesen werden muss. Und es wurde zusätzlich auch kein Caching implementiert, dann ist die Bremse perfekt.</p>
+<p>Da das DependsOn immer wieder vergessen wird - vor allem bei einem einfachen Individual Property mit Membervariable - gibt es folgenden Mechanismus:</p>
+<div class="NOTE"><h5>Note</h5><p>In der Registerkarte General können Sie die Checkbox Autogenerate Membervariable bei Individual/Individual (readonly) Properties setzen.
+Wird die Checkbox aktiviert, wird automatisch eine Membervariable generiert und das entsprechende DependsOn-Property gesetzt.</p>
+</div>
+<h2 id="registerkarte-load-command">Registerkarte Load Command</h2>
+<p><img src="media/registerkarte-loadCommand.png" alt="registerkarte-loadCommand"></p>
+<p>Das Load Command ist nur in Verbindung mit einem Property mit dem Type <a href="#relation-properties">Relation Properties</a> aktiv.</p>
+<p>Mit den Angaben auf der Registerkarte <strong>Depends On</strong> wird Code generiert, der für das Nachlesen der Daten zuständig ist. Diesen Code können Sie überschreiben, wenn Sie eine eigene Logik wünschen.</p>
+<p>Sind alle Angaben gemacht, wird die Relation erst beim ersten Zugriff nachgelesen. Dabei werden die gemachten Angaben berücksichtigt. Ändern sich die Inhalte der verbundenen Properties, wird erneut ein Load ausgeführt.</p>
+<div class="WARNING"><h5>Warning</h5><p>Derzeit können nur 1:1 Relationen abgebildet werden. D.h. es ist nicht möglich eine Collection als Relation einzubinden.</p>
+</div>
+<h2 id="registerkarte-control-types">Registerkarte Control Types</h2>
+<p>Sie haben die Möglichkeit ein Standard-Control zu definieren bzw. ein zusätzliches Control hinzuzufügen.</p>
+<h2 id="registerkarte-texts">Registerkarte Texts</h2>
+<p>Hier suchen Sie die Bezeichnung des Felds im Form aus. Sie können wählen, ob Sie die Bezeichnung aus der Database-Table bzw. dem Metadatentypen oder eine eigene Bezeichnung nehmen möchten. Die Bezeichnungen sind hierarchisch aufgebaut und können in den aufeinander aufbauenden Ebenen überschrieben werden.</p>
+<p>Metadatatype-Labels können durch die Database-Labels überschrieben werden, Database-Labels durch die Component-Labels, Component-Labels durch die Form-Labels. Ist in einer tieferen Ebene ein Label vergeben worden, wird dieses angezeigt.</p>
+<h2 id="arten-von-properties">Arten von Properties</h2>
 <h3 id="membervariablen">Membervariablen</h3>
 <p>Bei diesem Typ wird kein Property, sondern eine Membervariable erzeugt. Membervariablen haben keine get- und keine set-Methode.</p>
 <p>Sie sollten nur mit dem Access-Level <strong>private</strong> versehen werden, um eine externe Manipulation zu unterbinden, da keinerlei Sicherungsmöglichkeiten nach außen definiert werden können.</p>
@@ -197,36 +237,18 @@ else return “”;
     oCompMember.Load ( );
 }
 return oCompMember
-</code></pre><h3 id="relation-properties">Relation Properties</h3>
-<p>Die Relations dienen dazu, Ihre Komponenten miteinander zu verbinden. Wenn Sie z.B. einen Auftrag und einen Kunden haben, ist es in der Regel so, dass der Auftrag eine Kundennummer hat, die angibt, welcher Kunde den Auftrag erteilt hat.</p>
-<p>Relations stellen eine Möglichkeit dar, diese beiden Komponenten miteinander zu verbinden. Dazu wird im Auftrag ein Property Kunde angelegt. Dieses Property muss dem Typ Relation entsprechen. Anschließend müssen noch Angaben darüber gemacht werden, wie die beiden Komponenten miteinander verbunden sind.</p>
+</code></pre><p>Die Individual Properties müssen dem Form-DataBinding ja irgendwann mal Bescheid geben, dass sie sich geändert haben. Da sie (meist) von anderen Properties abhängen und seilber keinen eigenen Wert besitzen, der getracked werden kann, gibt es 2 Möglichkeiten:
+1.) Es wir permanent als geändert betrachtet - das passiert, wenn keinerlei DependsOn definiert ist. Die Folge ist, dass dieses Property bei JEDEM Broker Request geprüft und das Property abgefragt wird.
+2.) Man pflegt die DependsOn-Informationen. Damit führen dann Änderungen an einem der &quot;DependsOn&quot;-Properties dazu, dass auch das Individual Property grprüft wird - aber ebend nur dann und nicht mehr bei jedem Request.</p>
+<p>Intern halten wir unsere Programmierer immer dazu an, DependsOn zu pflegen, wann immer das möglich ist.
+Ja nach Art und Weise des Individual Properties kann das erhebliche Performance-Vorteile bringen. Im einfachsten Fall ist es nur eine einfache Berechnung - da ist das nicht so tragisch. Wenn es sich aber um ein Objekt handelt, was aus der Datenbank gelesen werden muss und dann vielleicht auch noch kein Caching implementiert ist, dann ist die Bremse perfekt.</p>
+<p>Gerade weil die DependsOn immer wieder vergessen werden - vor allem wenn Programmierer ein einfaches Individual Property mit Membervariable anlegen, haben wir in FS 4.3 folgende Erweiterung vorgenommen:</p>
+<p>Registerkarte General 
+In der Registerkarte General können Sie die Checkbox Autogenerate Membervariable bei Individual/Individual (readonly) Properties setzen. Wird die Checkbox aktiviert, wird automatisch eine Membervariable generiert und das entsprechende Depends on Property gesetzt.</p>
+<h3 id="relation-properties">Relation Properties</h3>
+<p>Die Relations dienen dazu, Ihre Komponenten miteinander zu verbinden. (Wenn Sie z.B. einen Auftrag und einen Kunden haben, ist es in der Regel so, dass der Auftrag eine Kundennummer hat, die angibt, welcher Kunde den Auftrag erteilt hat.)</p>
+<p>Relations stellen eine Möglichkeit dar, diese beiden Komponenten miteinander zu verbinden. Dazu wird im Auftrag beispielsweise ein Property Kunde angelegt. Dieses Property muss dem Typ Relation entsprechen. Anschließend müssen noch Angaben darüber gemacht werden, wie die beiden Komponenten miteinander verbunden sind.</p>
 <div class="WARNING"><h5>Warning</h5><p>Achten Sie darauf, dass als Datatype eine Component ausgewählt ist, da Sie andernfalls Relation nicht als Property Type auswählen können.</p>
-</div>
-<h4 id="registerkarte-general">Registerkarte General</h4>
-<p>In der Registerkarte <strong>General</strong> können Sie die Checkbox <strong>Autogenerate Membervariable</strong> bei Individual/Individual (readonly) Properties setzen.
-Wird die Checkbox aktiviert, wird automatisch eine Membervariable generiert und das entsprechende <strong>Depends on Property</strong> gesetzt.
-Die Textfelder <strong>Display MinLength</strong>, <strong>Display MaxLength</strong>, <strong>Display MinLines</strong> und <strong>Display MaxLines</strong> und die Comboboxen <strong>Mapping</strong> und <strong>Drag Source</strong> befinden sich ebenfalls hier.
-Des Weiteren können Sie im Textfeld <strong>Description</strong> eine Beschreibung hinzufügen.</p>
-<h4 id="registerkarten-get-method-und-set-method">Registerkarten Get Method und Set Method</h4>
-<p><strong>Analog zu Generated Properties <a href="#generated--generated-readonly-properties">Generated / Generated (readonly) Properties</a>  kann bei Bedarf zusätzlich individueller Code, der beim Setzen und Auslesen des Properties durchlaufen werden soll, programmiert werden.</strong></p>
-<h4 id="registerkarte-depends-on">Registerkarte Depends On</h4>
-<p>Auf dieser Registerkarte können Sie angeben, welches Property aus dem Auftrag mit welchem Property aus dem Kunden verbunden werden soll. Sie geben also eine Schlüsselbeziehung an, ähnlich wie Sie das auf einer relationalen Datenbank tun würden. Sie können auch mehrere Properties miteinander verknüpfen, wenn sich der Schlüssel aus mehreren Properties zusammensetzt.</p>
-<h4 id="button-add">Button Add</h4>
-<p>Fügt ein weiteres Property in die Relation ein. In der Tabelle wird eine neue Zeile angelegt und Sie definieren, welches Property mit welchem wie verknüpft werden soll.</p>
-<h4 id="button-remove">Button Remove</h4>
-<p>Löscht die markierte Zeile aus der Relation.</p>
-<h4 id="spalte-depends-on-property">Spalte Depends on Property</h4>
-<p>Hier wird das Property auf der Seite Component, in der Sie sich gerade befinden, angegeben. Im Beispiel wäre das ein Property des Auftrags, z.B. die „Kundennnr“.</p>
-<h4 id="spalte-compare-operator">Spalte Compare Operator</h4>
-<p>Gibt an, mit welchem Operator die Properties verknüpft werden sollen.</p>
-<h4 id="spalte-oxxxproperty">Spalte oXXX.Property</h4>
-<p>Gibt an, mit welchem Property der eingebundenen Component das eigene Property verknüpft werden soll. Im Beispiel wäre das evtl. „Kunde.Kundennr“.</p>
-<h4 id="spalte-generated-load-condition">Spalte Generated Load Condition</h4>
-<p>Zeigt die aus den anderen Spalten entstandene Suchbedingung an.</p>
-<h4 id="registerkarte-load-command">Registerkarte Load Command</h4>
-<p>Mit den Angaben auf der Registerkarte <strong>Depends On</strong> wird Code generiert, der für das Nachlesen der Daten (hier der Kundendaten) zuständig ist. Diesen Code können Sie überschreiben, wenn Sie eine eigene Logik wünschen.</p>
-<p>Sind alle Angaben gemacht, wird die Relation erst beim ersten Zugriff nachgelesen. Dabei werden die gemachten Angaben berücksichtigt. Ändern sich die Inhalte der verbundenen Properties, wird erneut ein Load ausgeführt.</p>
-<div class="WARNING"><h5>Warning</h5><p>Derzeit können nur 1:1 Relationen abgebildet werden. D.h. es ist nicht möglich eine Collection als Relation einzubinden.</p>
 </div>
 </article>
           </div>

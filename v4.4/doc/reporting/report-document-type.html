@@ -109,11 +109,11 @@ Diese Properties müssen später beim Druck mit Werten gefüllt werden.</p>
 <p>Wenn Sie Components oder Collections eingebunden haben, können Sie diese aufklappen und die Properties der Component / Collection werden angeboten.
 Sind diese Properties ebenfalls Components, können diese erneut aufgeklappt werden, etc.</p>
 <h4 id="xsd-datei">XSD-Datei</h4>
-<div class="WARNING"><h5>Warning</h5><p>Dieses Kapitel ist nur für Crystal Reports relevant. DevExpress XtraReports bindet direkt an die Objekte der Datenquelle, weshalb keine Umwege über die XSD gefahren werden.</p>
+<div class="WARNING"><h5>Warning</h5><p>Dieses Kapitel ist nur für Crystal Reports relevant. DevExpress® XtraReports™ bindet direkt an die Objekte der Datenquelle, weshalb keine Umwege über die XSD gefahren werden.</p>
 </div>
 <p>Am nun aufgeklappten Baum kann angegeben werden, welche Properties und Komponenten in die XSD-Datei aufgenommen werden sollen.
 Dazu müssen Sie die Checkbox an dem entsprechenden Eintrag setzen.</p>
-<div class="NOTE"><h5>Note</h5><p>Ein DevExpress Report hat <strong>immer</strong> Zugriff auf <strong>alle</strong> Komponenten am Report Document Type und dessen Properties, ob die Checkbox im Einzelfall aktiviert ist oder nicht. Hierzu wird in jede verwendete Component ein &#39;<em>KomponentenName</em>_Rptx&#39;-Interface generiert.</p>
+<div class="NOTE"><h5>Note</h5><p>Ein DevExpress® Report hat <strong>immer</strong> Zugriff auf <strong>alle</strong> Komponenten am Report Document Type und dessen Properties, ob die Checkbox im Einzelfall aktiviert ist oder nicht. Hierzu wird in jede verwendete Component ein &#39;<em>KomponentenName</em>_Rptx&#39;-Interface generiert.</p>
 </div>
 <p>Aus diesen Daten wird eine XSD-Datei (XML-Definition) erstellt.
 Diese XSD-Datei kann einem Crystal-Report zugewiesen werden.
@@ -128,15 +128,15 @@ Umso größer die Listen, desto wichtiger für die Performance ist es, dass nur 
 <p>Crystal Reports nutzt die übergebene XSD-Datei eigenständig, um den Report mit Daten zu füllen.</p>
 <h2 id="registerkarte-report-files">Registerkarte Report Files</h2>
 <p>Auf der Registerkarte Report Files können dem Report Document Type die eigentlichen Reports zugewiesen werden.
-Jeder Report kann entweder als CrystalReport, als DevExpress oder auf beide Arten angelegt werden.
-Da also ein Parallelbetrieb von Crystal und DevExpress Reports möglich ist, existieren zwei Sets von Buttons, um mit den Dateien umzugehen.</p>
+Jeder Report kann entweder als CrystalReport, als DevExpress® oder auf beide Arten angelegt werden.
+Da also ein Parallelbetrieb von Crystal und DevExpress® Reports möglich ist, existieren zwei Sets von Buttons, um mit den Dateien umzugehen.</p>
 <p><img src="media/report-document-type-crystal-reports.png" alt="Report Document Type – Crystal Reports"></p>
 <h3 id="hinzufügen-und-öffnen-eines-neuen-reports">Hinzufügen und Öffnen eines neuen Reports</h3>
 <p>Einen neuen Report fügen Sie beispielsweise über das Kontextmenü der Tabelle hinzu, in der die Reports angezeigt werden.</p>
 <p><img src="media/reportdocumenttype-overview.png" alt="Overview"></p>
-<p>Um z.B. die DevExpress-Version der Rechnung zu bearbeiten, markieren Sie den Eintrag 
-‚Invoice‘ und betätigen den Button <code>Edit Report</code> in der Kategorie DevExpress.</p>
-<p>Für weitere Erklärungen bezüglich der Bearbeitung von DevExpress Reports siehe <a href="report-designer.html">FS Report Designer</a></p>
+<p>Um z.B. die DevExpress®-Version der Rechnung zu bearbeiten, markieren Sie den Eintrag 
+‚Invoice‘ und betätigen den Button <code>Edit Report</code> in der Kategorie DevExpress®.</p>
+<p>Für weitere Erklärungen bezüglich der Bearbeitung von DevExpress® Reports siehe <a href="report-designer.html">FS Report Designer</a></p>
 <h3 id="include-base-reports">Include Base Reports</h3>
 <p>Mit der Checkbox <strong>Include Base Reports</strong> legen Sie fest, ob vererbte, nicht geänderte Basisreports später in der Applikation zur Auswahl stehen sollen.
 Sie hat Einfluss darauf, was die Methode ReportDocument.<a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Reporting.ReportDocument.GetReportEnums.html#FrameworkSystems_FrameworkBase_Reporting_ReportDocument_GetReportEnums">GetReportEnums()</a> zurückgibt.</p>
@@ -156,13 +156,13 @@ Sie hat Einfluss darauf, was die Methode ReportDocument.<a class="xref" href="..
 Diese Captions können zur Laufzeit ausgewertet werden, um z.B. im Druck-Dialog bei der Auswahl der unterschiedlichen Report-Varianten einen sprechenden Text auszugeben.</p>
 <h2 id="report-verzeichnis">Report-Verzeichnis</h2>
 <p>Auf dem Dateisystem werden die Crystal Report-Dateien mit ihren .xsd-Dateien zusammen vom Compile-Verzeichnis ausgehend im Ordner /Report/ gespeichert.
-DevExpress Reports erhalten einen weiteren Unterordner, nach dem übergeordneten Report Document Type benannt. Der Report CustomerList aus rptCustomerList wäre also unter /Report/NV.ERP.Base.Customer.rptCustomerList/CustomerList.repx zu finden.
-Da DevExpress Reports keine .xsd-Dateien benötigen, befinden sich in den Unterordnern ausschließlich die .repx-Dateien.</p>
-<p>Bei jedem Compile-Vorgang werden Crystal und DevExpress Report-Dateien aus dem Repository in das Dateisystem herausgeschrieben, nach folgenden Regeln:</p>
+DevExpress® Reports erhalten einen weiteren Unterordner, nach dem übergeordneten Report Document Type benannt. Der Report CustomerList aus rptCustomerList wäre also unter /Report/NV.ERP.Base.Customer.rptCustomerList/CustomerList.repx zu finden.
+Da DevExpress® Reports keine .xsd-Dateien benötigen, befinden sich in den Unterordnern ausschließlich die .repx-Dateien.</p>
+<p>Bei jedem Compile-Vorgang werden Crystal und DevExpress® Report-Dateien aus dem Repository in das Dateisystem herausgeschrieben, nach folgenden Regeln:</p>
 <h4 id="crystal">Crystal</h4>
 <p>Alle Crystal Reports aller Report Document Types werden in den /Report/-Ordner geschrieben, inklusive Basis-Reports.</p>
-<h4 id="devexpress">DevExpress</h4>
-<p>Alle DevExpress Reports eines Report Document Types im aktuellen Package werden in den entsprechenden Unterordner unter /Report/ herausgeschrieben.</p>
+<h4 id="devexpress">DevExpress®</h4>
+<p>Alle DevExpress® Reports eines Report Document Types im aktuellen Package werden in den entsprechenden Unterordner unter /Report/ herausgeschrieben.</p>
 <p>Basis-Reports werden nur aus der Basis gesucht und ins Verzeichnis geschrieben, solange am Report Document Type die Checkbox &quot;Include Base Reports&quot; gesetzt ist.</p>
 <h2 id="crystal-report-mit-visual-studio-erstellen">Crystal Report mit Visual Studio erstellen</h2>
 <p>Öffnen Sie Visual Studio.</p>

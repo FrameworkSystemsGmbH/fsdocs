@@ -94,6 +94,14 @@ Der Start erfolgt über einen Link, der alle in der Startseite getroffenen Einst
 <p>Dieser Link kann auch in eine eigene Verknüpfung – z.B. auf den Desktop kopiert werden. Mit dem eigenen Protokoll <code>fsclientlaucher</code> erfolgt der Start des Client Launchers direkt ohne einen extra Umweg über den Server.</p>
 <p>Manche Umgebungen – z.B. Content-Management-Systeme wie SharePoint – haben ggf. Probleme mit diesem Link. In diesem Fall kann als Workaround der Download-Link verwendet werden und am Ende das <code>dl=1</code> durch ein <code>dl=0</code> ersetzt werden. In diesem Fall wird über den Browser der Server kontaktiert, der dann auf den korrekten Start-Link umleitet.</p>
 <p>Der jeweilige Link kann im Browser über &quot;Verknüpfung / Link-Adresse kopieren&quot; kopiert werden.</p>
+<h4 id="kommandozeile">Kommandozeile</h4>
+<p>Der Client-Launcher kann auch über die Kommandozeile gestartet werden.
+Dort nimmt er als erstes Argument den <code>fsclientlauncher:...</code> Link oder den Pfad einer .fsclient-Datei.
+Sowohl der Link als auch die .fsclient-Datei kann über die Client Start Page ermittelt werden.</p>
+<p>Wenn kein Link und keine .fsclient-Datei als Argument angegeben wird, startet der Client-Launcher in das <a href="fsclientlauncher-configuration.html">Konfigurations-Fenster</a>.</p>
+<h4 id="jar-file-caching">Jar File Caching</h4>
+<p>Beim Starten des Client-Launchers wird überprüft, ob sich ein <code>.jarcache</code> Ordner unter dem Pfad <code>%userprofile%\FSClientLauncher\</code> befindet.
+Sollte dem so sein, wird dieser einmalig nach <code>%localappdata%\FSClientLauncher\</code> verschoben, sofern unter diesem Pfad noch kein <code>.jarcache</code> Ordner vorhanden ist.</p>
 <h3 id="download-start-file">Download Start File</h3>
 <p>Über diesen Link wird eine Datei mit der Endung <code>.fsclient</code> heruntergeladen. Diese beinhaltet ebenfalls die auf der Client Start Page getroffenen Einstellungen.</p>
 <p>Der Link hat das folgende Format:

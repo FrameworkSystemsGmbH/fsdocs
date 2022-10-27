@@ -216,6 +216,9 @@ Crystal Reports unterstützt diese Bilder leider nicht.</p>
 <li>Die <a href="../doc/fsclientlauncher/fsclientlauncher-common.html">Online-Hilfe</a> kann aus dem Konfigurations-Dialog mit F1 aufgerufen werden.</li>
 <li>Anzeige des Splash Screen der Application</li>
 <li>Für Version 4.4 Anwendungen gibt es eine <a href="../doc/fsclientlauncher/fsclientlauncher-configuration.html#java-settings">Experimentelle Unterstützung für Java 11 (64 Bit)</a></li>
+<li>Der Pfad des <code>.jarcache</code> Ordners hat sich von <code>%userprofile%\FSClientLauncher\.jarcache\</code> zu <code>%localappdata%\FSClientLauncher\.jarcache\</code> geändert.
+Durch die Verwendung von <code>%localappdata%</code> wird bei serverbasierten Benuzter-Profilen der Jar-Cache nicht mehr zum Server synchronisiert.
+Beim ersten Start nach dem Update wird der alte <code>.jarcache</code> Ordner einmalig an die neue Stelle verschoben.</li>
 </ul>
 <h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
 <ul>

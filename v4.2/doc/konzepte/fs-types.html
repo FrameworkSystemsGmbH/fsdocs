@@ -135,59 +135,59 @@ FSdecimal decVar2 = FSdecimal.Null;
 <tbody>
 <tr>
 <td style="text-align:left">bool</td>
-<td style="text-align:left"><a href="xref:FrameworkSystems.FrameworkBase.Metadatatype.FSbool">FSBool</a></td>
+<td style="text-align:left"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSbool.html">FSBool</a></td>
 <td style="text-align:left">false</td>
 </tr>
 <tr>
 <td style="text-align:left">byte</td>
-<td style="text-align:left"><a href="xref:FrameworkSystems.FrameworkBase.Metadatatype.FSbyte">FSbyte</a></td>
+<td style="text-align:left"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSbyte.html">FSbyte</a></td>
 <td style="text-align:left">0</td>
 </tr>
 <tr>
 <td style="text-align:left">DateTime</td>
-<td style="text-align:left"><a href="xref:FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime">FSDateTime</a></td>
+<td style="text-align:left"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.html">FSDateTime</a></td>
 <td style="text-align:left">DateTime.MinValue</td>
 </tr>
 <tr>
 <td style="text-align:left">decimal</td>
-<td style="text-align:left"><a href="xref:FrameworkSystems.FrameworkBase.Metadatatype.FSdecimal">FSdecimal</a></td>
+<td style="text-align:left"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSdecimal.html">FSdecimal</a></td>
 <td style="text-align:left">0</td>
 </tr>
 <tr>
 <td style="text-align:left">double</td>
-<td style="text-align:left"><a href="xref:FrameworkSystems.FrameworkBase.Metadatatype.FSdouble">FSdouble</a></td>
+<td style="text-align:left"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSdouble.html">FSdouble</a></td>
 <td style="text-align:left">0</td>
 </tr>
 <tr>
 <td style="text-align:left">float</td>
-<td style="text-align:left"><a href="xref:FrameworkSystems.FrameworkBase.Metadatatype.FSfloat">FSfloat</a></td>
+<td style="text-align:left"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSfloat.html">FSfloat</a></td>
 <td style="text-align:left">0</td>
 </tr>
 <tr>
 <td style="text-align:left">int</td>
-<td style="text-align:left"><a href="xref:FrameworkSystems.FrameworkBase.Metadatatype.FSint">FSint</a></td>
+<td style="text-align:left"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSint.html">FSint</a></td>
 <td style="text-align:left">0</td>
 </tr>
 <tr>
 <td style="text-align:left">long</td>
-<td style="text-align:left"><a href="xref:FrameworkSystems.FrameworkBase.Metadatatype.FSlong">FSlong</a></td>
+<td style="text-align:left"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSlong.html">FSlong</a></td>
 <td style="text-align:left">0</td>
 </tr>
 <tr>
 <td style="text-align:left">short</td>
-<td style="text-align:left"><a href="xref:FrameworkSystems.FrameworkBase.Metadatatype.FSshort">FSshort</a></td>
+<td style="text-align:left"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSshort.html">FSshort</a></td>
 <td style="text-align:left">0</td>
 </tr>
 <tr>
 <td style="text-align:left">string</td>
-<td style="text-align:left"><a href="xref:FrameworkSystems.FrameworkBase.Metadatatype.FSstring">FSstring</a></td>
+<td style="text-align:left"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSstring.html">FSstring</a></td>
 <td style="text-align:left"><code>String.Empty</code></td>
 </tr>
 </tbody>
 </table>
 <h3 id="hasvalue-property">HasValue (Property)</h3>
 <p>Ist vom Typ <code>bool</code>.</p>
-<p>Man kann mit <a href="#isnull-property">IsNull</a> prüfen, ob ein FSType (<a href="xref:FrameworkSystems.FrameworkBase.Metadatatype.FSstring">FSstring</a>, <a href="xref:FrameworkSystems.FrameworkBase.Metadatatype.FSdecimal">FSdecimal</a>, …) <code>null</code> ist. Wenn das Gegenteil geprüft werden soll, kann das Property <a href="#hasvalue-property">HasValue</a> verwendet werden. So wird der Code deutlich lesbarer, vor allem dann, wenn das zu prüfende Property tief verschachtelt ist.</p>
+<p>Man kann mit <a href="#isnull-property">IsNull</a> prüfen, ob ein FSType (<a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSstring.html">FSstring</a>, <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSdecimal.html">FSdecimal</a>, …) <code>null</code> ist. Wenn das Gegenteil geprüft werden soll, kann das Property <a href="#hasvalue-property">HasValue</a> verwendet werden. So wird der Code deutlich lesbarer, vor allem dann, wenn das zu prüfende Property tief verschachtelt ist.</p>
 <p><u>Beispiel:</u></p>
 <pre><code class="lang-csharp">// herkömmlicher Weg (Das Ausrufezeichen wird schnell überlesen):
 if (!this.oOrder.oCustomer.sCompany1.IsNull)
@@ -195,9 +195,9 @@ if (!this.oOrder.oCustomer.sCompany1.IsNull)
 // neuer Weg:
 if (this.oOrder.oCustomer.sCompany1.HasValue)
 </code></pre><h3 id="fsdatetimenow">FSDateTime.Now</h3>
-<p>Statisches Property am Typ <a href="xref:FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime">FSDateTime</a>, welches das aktuelle System-Datum sekundengenau zurückgibt.</p>
+<p>Statisches Property am Typ <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.html">FSDateTime</a>, welches das aktuelle System-Datum sekundengenau zurückgibt.</p>
 <p>Wenn man mit der Datenbank oder auch mit Benutzer-Eingaben arbeitet, werden in der Regel sekundengenaue Werte verarbeitet. Wenn man mit dem <code>System.DateTime.Now</code> arbeitet, erhält man einen um mehrere Zehnerpotenzen genaueren Wert. Bei Vergleichen mit Benutzereingaben weichen diese dann von <code>System.DateTime.Now</code> ab.</p>
-<p>Es wird daher empfohlen, alle Daten, die mit dem aktuellen Datum initialisiert werden sollen, mit <a href="xref:FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.Now">FSDateTime.Now</a> zu initialisieren.</p>
+<p>Es wird daher empfohlen, alle Daten, die mit dem aktuellen Datum initialisiert werden sollen, mit <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.Now.html#FrameworkSystems_FrameworkBase_Metadatatype_FSDateTime_Now">FSDateTime.Now</a> zu initialisieren.</p>
 <p><u>Beispiel:</u></p>
 <pre><code class="lang-csharp">// Variable mit sekundengenauem Wert der aktuellen Zeit initialisieren
 FSDateTime dtMyDate = FSDateTime.Now;

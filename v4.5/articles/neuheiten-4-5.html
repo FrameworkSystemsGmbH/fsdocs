@@ -91,9 +91,29 @@ Der SQL-Server 2012 läuft laut Microsoft zum 12.07.2022 aus.</p>
 <div class="IMPORTANT"><h5>Important</h5><p>Ein Betrieb mit einer älteren Datenbank-Version ist nicht möglich.
 Ein Connect auf so einen Datenbank-Server führt unmittelbar zu einer entsprechenden Fehlermeldung.</p>
 </div>
+<h2 id="neues-browser-control---austausch-des-javafx-browsers">Neues Browser-Control - Austausch des JavaFX Browsers</h2>
+<p>Für die Anzeige von HTML-Inhalten im Java-Client kam bisher für das Browser-Control die <a href="https://docs.oracle.com/javase/8/javafx/embedded-browser-tutorial/overview.htm">JavaFX WebView Component</a> zum Einsatz.</p>
+<p>Dieses Control hat mehrere Probleme:</p>
+<ul>
+<li>auf einigen Webseiten gibt es Abstürze des Java-Clients</li>
+<li>die Browser-Controls laufen im Java-Prozess und benötigen teilweise zu viel Speicher</li>
+</ul>
+<p>Aus diesem Grund wurde die JavaFX WebView Component durch den <a href="https://www.teamdev.com/jxbrowser">JxBrowser</a> ersetzt, welcher auf Chromium basiert.</p>
+<p><strong>Dies bringt einige Verbesserungen mit sich:</strong></p>
+<ul>
+<li>Performance / Stabilität / Sicherheit (eigene Prozesse im Hintergrund)</li>
+<li>Java Speicher wird nicht so stark belastet -&gt; weniger OutOfMemory Exceptions</li>
+<li>HiDPI</li>
+<li>Regelmäßige (Sicherheits)-Updates</li>
+<li>Developer tools für Entwickler können aktiviert werden (siehe <a href="../doc/form/control/browser.html#developer-tools-aktivieren">hier</a>)</li>
+</ul>
 <h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
 <ul>
 <li>Für Resourcen kann eine Beschreibung angegeben werden.</li>
+<li>Es gibt nun die beiden Optionen alle Tabs links bzw. rechts vom aktuellen Tab zu schließen. Diese Funktionen sind über das Kontextmenü erreichbar.</li>
+<li>In der ClassView können mit der Enter-Taste die Properties und Methods des aktuell angezeigten Records geöffnet werden.</li>
+<li>In der Search gibt es die neue Funktion &quot;Copy List as Text&quot;. Diese erscheint, sobald neben den Suchergebnissen das Kontextmenü geöffnet wird.
+Wird in die Listen-Ansicht gewechselt, können nun auch hier alle Ergebnisse kopiert werden.</li>
 </ul>
 </article>
           </div>

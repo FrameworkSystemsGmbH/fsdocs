@@ -81,6 +81,42 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-44">Release-Information Framework Studio 4.4</h1>
 
+<h2 id="4412-25112022">4.4.12 (25.11.2022)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.4.12_Setup_x64</li>
+<li>FS_4.4.12_PrintService</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuer-print-service">Neuer Print-Service</h4>
+<ul>
+<li>Siehe korrigierte Fehler</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021118404 - <strong>Java-Client</strong>: Im Tooltip-Text einer Drop-Action werden keine
+  Zeilenumbrüche dargestellt, wodurch lange Texte in einer einzelnen langen
+  Zeile über den ganzen Bildschirm dargestellt werden.</p>
+</li>
+<li><p>2022111520 - <strong>Print-Service</strong>: Die Newtonsoft.Json.dll fehlt im
+  Programmverzeichnis. In der Folge wird bei aktiviertem Runtime Supervisor
+  oder beim Testen der Verbindung im Config-Editor eine Exception geworfen.</p>
+</li>
+<li><p>2022111445 - <strong>Publish</strong>: Beim Publish eines Service-Hosts gewinnen die
+  Assemblies von Framework Studio über die bin-Ressourcen. Dadurch passen die
+  Assemblies nicht zu den Binding-Redirects in der app.config, was in der
+  Folge zu Fehlermeldungen führt.<br>
+  <em>Werden im bin-Ordner Assemblies als Ressourcen eingebunden, dann sollen
+  diese ggf. bereits existierende Assemblies von Framework Studio
+  überschreiben. In der app.config werden dafür entsprechende
+  Binding-Redirects erzeugt.</em></p>
+</li>
+<li><p>2021097889 - <strong>FS-IDE</strong>: Ungespeicherte ML-Keys werden vom Compiler ohne
+  Fehler verarbeitet. Werden die ML-Keys letztenendes nicht gespeichert, kann
+  dies zu Folgefehlern führen.<br>
+  <em>Vor einem Compile werden jetzt automatisch alle ML-Keys gespeichert.</em></p>
+</li>
+</ul>
 <h2 id="4411-28102022">4.4.11 (28.10.2022)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -101,7 +137,7 @@ Beim ersten Start nach dem Update wird der alte <code>.jarcache</code> Ordner ei
 <li>Bessere Performance in der Konsole bei der Ausgabe sehr vieler Informationen.</li>
 <li>In der gespeicherten Log-Datei werden die Client-Launcher-Version und Zeit-Angaben protokolliert.</li>
 </ul>
-<h4 id="neuer-print-service">Neuer Print-Service</h4>
+<h4 id="neuer-print-service-1">Neuer Print-Service</h4>
 <ul>
 <li>Siehe korrigierte Fehler</li>
 </ul>
@@ -115,7 +151,7 @@ Beim ersten Start nach dem Update wird der alte <code>.jarcache</code> Ordner ei
 <li>Die Barcode Scanner Library wurde aktualisiert</li>
 <li>Das Frontend wurde auf Angular 14 aktualisiert</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022101251 - <strong>Java-Client</strong>: Wenn bei einem Drag&amp;Drop-Vorgang ein modaler
   Dialog geöffnet wird, dann kann es in seltenen Fällen vorkommen, dass im
@@ -180,7 +216,7 @@ Beim ersten Start nach dem Update wird der alte <code>.jarcache</code> Ordner ei
 <li>Im Service Release könnnen nun auch neue Properties in Components, Forms und Data Contracts hinzugefügt werden. Detailliertere Informationen finden sich im Kapitel: <a href="../doc/weitere-themen/service-release-modus.html#strukturelle-erweiterungen">strukturelle Erweiterungen im Service Release</a></li>
 <li>Sobald sich der Status an einem Record durch einen CheckIn oder CheckOut ändert, wird die SearchView und die Source Control History aktualisiert.</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li>2022080812 - <strong>IDE</strong>: Wird im Multilanguage Text Editor die Dependency-Suche
   ausgeführt, dann kann es zu folgender Exception kommen:
@@ -220,7 +256,7 @@ Es wird weiterhin der DataMember des Haupt-Reports vorbelegt.
 Wird der DataMember anschließend vom Benutzer geändert, dann bleibt diese Einstellung jetzt erhalten.</p>
 </li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022070513 - <strong>Java-Client</strong>: Bewegt man den Mauszeiger während einer
   DragDrop-Aktion so schnell, dass er sich beim Loslassen schon wieder
@@ -288,7 +324,7 @@ In Textfeldern wird zur besseren Lesbarkeit im Designer bei segmentierten Expres
 <li>Die Optionen im Login-screen wurden entsprechend angepasst.</li>
 <li>FCUser werden beim Verlassen der Anwendung nicht mehr über einen ausstehenden Abschluss des workspaces gewarnt, falls es sich um ein importiertes oder geschlossenes package handelt.</li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022070299 - <strong>Broker</strong>: Fehler im Data-Binding - Wenn in einem Grid eine
   Combobox-Spalte mit DependsDataSourceOnRowData angelegt ist, dann kann es
@@ -350,7 +386,7 @@ dass der Package-Manager einfriert.</p>
 </li>
 <li>Die <a href="../doc/reporting/report-designer.html#controls-und-custom-controls">FS-spezifischen Report Controls</a> haben Icons erhalten</li>
 </ul>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022059879 - <strong>JavaClient</strong>: Beim Öffnen eines Forms werden vom WrapPanel
   Layout-Exceptions geworfen, wenn der Frame extrem schmal ist.</p>
@@ -384,9 +420,9 @@ dass der Package-Manager einfriert.</p>
 <li>FS4.4.6_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuer-print-service-1">Neuer Print-Service</h4>
+<h4 id="neuer-print-service-2">Neuer Print-Service</h4>
 <p>Im PrintService wurde die DevExpress® Reporting Runtime aktualisiert.</p>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022059888 - <strong>JavaClient</strong>: Wird eine Grid-Zelle mit Enter verlassen, dann
   kann es passieren, dass eine im OnColumnChanged-Event aufgerufene
@@ -446,7 +482,7 @@ korrekt aufgebaut.</p>
 <ul>
 <li>Neue Maintenance-Routine <a href="../doc/maintenance/textcollection-mlkey-replace.html">Replace TextCollection with MLKeys</a> zum Ersetzen von TextCollection-Aufrufen durch MLKeys im Methoden-Code.</li>
 </ul>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022039471 - <strong>Package-Manager</strong>: Bei einem importierten Package wird die
   Meldung &quot;Please import...&quot; angezeigt, wenn für das Basis-Package ein neues
@@ -497,7 +533,7 @@ korrekt aufgebaut.</p>
 <li>Der SpellChecker für das Dokumentationssystem kann nun im Options-Dialog deaktiviert werden.</li>
 <li>Im <a href="../doc/ide/allgemeine-funktionalitaeten.html#method-history-browser">Method History Browser</a> und im <a href="../doc/ide/allgemeine-funktionalitaeten.html#element-history-browser">Element History Browser</a> werden Context-Package Versionen ausgeblendet.</li>
 </ul>
-<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022029183 - <strong>Broker</strong>: Die Properties MainMemorySortingThreshold,
   TransferStartupRowCount, TransferStartupNodeRowCount und ListSortOrder
@@ -569,7 +605,7 @@ dem nächsten Patchday eine Korrektur geben.</p>
 <li>Die Anmeldung mit dem <code>FrameworkAdministrator</code> an der IDE zur User-Verwaltung wurde entfernt. Die User-Verwaltung kann nun ausschließlich über den Package Manager im Menü <code>Tools -&gt; Manage Users</code> aufgerufen werden.</li>
 <li>In der IDE werden noch nicht abgespeicherte Tabs mit einem Stern <code>*</code> gekennzeichnet.</li>
 </ul>
-<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022029190 - <strong>Java-Client</strong>: Alle Jar-Dateien müssen neu signiert werden,
   weil das Java-Zertifikat widerrufen wurde.</p>
@@ -623,7 +659,7 @@ hat. Er war seit 05.2020 aktiv.</p>
 <li>Am <a class="xref" href="../api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.html"><strong>cGlobal</strong></a> wurde ein neuer EntryPoint geschaffen, mit dem man Lizenz-Freigabe programmatisch einschränken kann, obwohl die Lizenz-Datei dies erlaubt.</li>
 <li>Es ist nun möglich, <a href="../doc/documentation/docml.html#headline">Headlines</a> im <a href="../doc/documentation/editor.html">Dokumentationsfenster</a> zu nutzen.</li>
 </ul>
-<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022018908 - <strong>JavaClient</strong>: Wird per Action ein TabbedWindow (oder sein
   Parent) ausgeblendet, dann feuert das OnSelectedTabPageChange Event. Findet
@@ -709,7 +745,7 @@ hat. Er war seit 05.2020 aktiv.</p>
 <li>BeepDouble</li>
 <li>BeepMultiple</li>
 </ul>
-<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021128654 - <strong>Broker</strong>: Wird im Customizing-Package eine Developer-Lizenz
   verwendet, dann werden die Lizenzen der Basis-Packages nicht ausgewertet.
@@ -759,7 +795,7 @@ hat. Er war seit 05.2020 aktiv.</p>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="neuerungen-7">Neuerungen</h4>
 <p>Die Neuerungen finden Sie unter <a href="neuheiten-4-4.html">Neuheiten 4.4</a></p>
-<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
 <p>In der Version 4.4 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-3.html#4310-26112021">Framework Studio 4.3.10</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

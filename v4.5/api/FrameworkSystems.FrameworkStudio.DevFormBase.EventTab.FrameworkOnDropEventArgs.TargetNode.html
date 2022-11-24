@@ -5,9 +5,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Neuheiten Framework Studio 4.5 </title>
+    <title>Property TargetNode
+   </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Neuheiten Framework Studio 4.5 ">
+    <meta name="title" content="Property TargetNode
+   ">
     <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -78,43 +80,37 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-<h1 id="neuheiten-framework-studio-45">Neuheiten Framework Studio 4.5</h1>
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkOnDropEventArgs.TargetNode*">
 
-<p>Informationen zu aktuellen Versionen und korrigierten Fehlern finden Sie in den <a href="release-4-5.html">Release-Informationen</a>.</p>
-<h2 id="neue-systemvoraussetzungen">Neue Systemvoraussetzungen</h2>
-<p>In dieser Version gibt es Anpassungen bei den <a href="requirements.html">Systemvoraussetzungen</a>.</p>
-<h4 id="datenbank-server">Datenbank-Server</h4>
-<p>Es wird der <strong>SQL-Server 2014</strong> oder höher unterstützt.
-Ältere Version (z.B. SQL-Server 2012) werden nicht mehr unterstützt.
-Der SQL-Server 2012 läuft laut Microsoft zum 12.07.2022 aus.</p>
-<div class="IMPORTANT"><h5>Important</h5><p>Ein Betrieb mit einer älteren Datenbank-Version ist nicht möglich.
-Ein Connect auf so einen Datenbank-Server führt unmittelbar zu einer entsprechenden Fehlermeldung.</p>
+<h1 id="FrameworkSystems_FrameworkStudio_DevFormBase_EventTab_FrameworkOnDropEventArgs_TargetNode_" data-uid="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkOnDropEventArgs.TargetNode*">Property TargetNode
+</h1>
+<div class="markdown level0 summary"></div>
+<div class="markdown level0 conceptual"></div>
+
+<a id="FrameworkSystems_FrameworkStudio_DevFormBase_EventTab_FrameworkOnDropEventArgs_TargetNode_" data-uid="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkOnDropEventArgs.TargetNode*"></a>
+<h4 id="FrameworkSystems_FrameworkStudio_DevFormBase_EventTab_FrameworkOnDropEventArgs_TargetNode" data-uid="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkOnDropEventArgs.TargetNode">TargetNode</h4>
+<section>
+  <div class="markdown level1 summary"><p>Gibt das Ziel-Knotenobjekt zurück, falls es sich bei dem SourceControl um einen TreeView handelt.</p>
 </div>
-<h2 id="neues-browser-control---austausch-des-javafx-browsers">Neues Browser-Control - Austausch des JavaFX Browsers</h2>
-<p>Für die Anzeige von HTML-Inhalten im Java-Client kam bisher für das Browser-Control die <a href="https://docs.oracle.com/javase/8/javafx/embedded-browser-tutorial/overview.htm">JavaFX WebView Component</a> zum Einsatz.</p>
-<p>Dieses Control hat mehrere Probleme:</p>
-<ul>
-<li>auf einigen Webseiten gibt es Abstürze des Java-Clients</li>
-<li>die Browser-Controls laufen im Java-Prozess und benötigen teilweise zu viel Speicher</li>
-</ul>
-<p>Aus diesem Grund wurde die JavaFX WebView Component durch den <a href="https://www.teamdev.com/jxbrowser">JxBrowser</a> ersetzt, welcher auf Chromium basiert.</p>
-<p><strong>Dies bringt einige Verbesserungen mit sich:</strong></p>
-<ul>
-<li>Performance / Stabilität / Sicherheit (eigene Prozesse im Hintergrund)</li>
-<li>Java Speicher wird nicht so stark belastet -&gt; weniger OutOfMemory Exceptions</li>
-<li>Hi-DPI Unterstützung</li>
-<li>Regelmäßige (Sicherheits)-Updates</li>
-<li>Developer tools für Entwickler können aktiviert werden (siehe <a href="../doc/form/control/browser.html#developer-tools-aktivieren">hier</a>)</li>
-</ul>
-<h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
-<ul>
-<li>Für Ressourcen kann eine Beschreibung angegeben werden.</li>
-<li>Es gibt nun die beiden Optionen alle Tabs links bzw. rechts vom aktuellen Tab zu schließen. Diese Funktionen sind über das Kontextmenü erreichbar.</li>
-<li>In der ClassView können mit der Enter-Taste die Properties und Methods des aktuell angezeigten Records geöffnet werden.</li>
-<li>In der Search gibt es die neue Funktion &quot;Copy List as Text&quot;. Diese erscheint, sobald neben den Suchergebnissen das Kontextmenü geöffnet wird.
-Wird in die Listen-Ansicht gewechselt, können nun auch hier alle Ergebnisse kopiert werden.</li>
-</ul>
+  <div class="markdown level1 conceptual"></div>
+
+  <h5 class="decalaration">Declaration</h5>
+  <section>
+    <div class="codewrapper">
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public DevFrameworkObject TargetNode { get; }</code></pre>
+    </div>
+  </section>
+
+
+  <h5 class="propertyValue">Property Value</h5>
+  <section>
+      <div class="propertyInfo">
+        <a class="xref" href="FrameworkSystems.FrameworkBase.DevFrameworkObject.html">DevFrameworkObject</a>
+        <div class="markdown level1 summary"></div>
+      </div>  
+  </section>
+</section>
 </article>
           </div>
           

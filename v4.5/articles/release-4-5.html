@@ -81,12 +81,27 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-45">Release-Information Framework Studio 4.5</h1>
 
-<h2 id="450-beta-4-25112022">4.5.0 Beta 4 (25.11.2022)</h2>
+<h2 id="450-23122022">4.5.0 (23.12.2022)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.5.0_Beta_4_Setup_x64</li>
+<li>FS_4.5.0_Setup_x64</li>
+<li>FSCL_4.4.13_Setup_x86</li>
+<li>FSCL_4.4.13_Setup_x64</li>
+<li>FS_4.4.13_Requirements_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuer-fs-client-launcher">Neuer FS Client Launcher</h4>
+<p>Es gibt einen neuen Client-Launcher.</p>
+<p>Der mit Version <a href="#4411-28102022">4.4.11</a> ausgelieferte Client-Launcher enthielt eine aktuellere Java-Runtime (8 Update 282).
+Diese hat dazu geführt, dass eNVenta ERP bei Drag&amp;Drop Vorgängen einfrieren konnte und über den Task-Manager beendet werden musste.
+Jetzt enthält der Client-Launcher wieder die bewährte Version 8 Update 202.</p>
+<h4 id="client-launcher-kein-msi-installer-mehr">Client-Launcher kein MSI-Installer mehr</h4>
+<p>Der MSI-Installer wird nicht mehr angeboten.
+Weitere Informationen finden sie <a href="release-4-4.html#client-launcher-kein-msi-installer-mehr">hier</a>.</p>
+<h4 id="neues-requirements-paket">Neues Requirements-Paket</h4>
+<ul>
+<li>enthält den neuen FS Client Launcher 4.4.13</li>
+</ul>
 <h4 id="fremd-bibliotheken-aktualisiert">Fremd-Bibliotheken aktualisiert</h4>
 <p>Die folgenden Bibliotheken, die auch im Application-Broker zum Einsatz kommen, wurden auf eine neue Version aktualisiert.</p>
 <ul>
@@ -95,52 +110,17 @@
 <li>HtmlAgilityPack 1.11.4 -&gt; 1.11.46</li>
 </ul>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
-<p>In der Version 4.5 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-4.html">Framework Studio 4.4.12</a> <!-- hier noch das richtige Service Release verlinken --> enthalten.
+<p>In der Version 4.5 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-4.html#4413-23122022">Framework Studio 4.4.13</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>
-<li>2022080621 - <strong>Reporting</strong>: Bei DevExpress Reports wird ein <code>FSstring.Null</code>
+<li><p>2022080621 - <strong>Reporting</strong>: Bei DevExpress Reports wird ein <code>FSstring.Null</code>
   als <code>String.Empty</code> an den Report-Datasource übergeben. Analog zu den anderen
-  Datentypen sollte in so einem Fall <code>null</code> übergeben werden.</li>
-</ul>
-<h2 id="450-beta-3-28102022">4.5.0 Beta 3 (28.10.2022)</h2>
-<p>Die Auslieferung umfasst die folgenden Pakete:</p>
-<ul>
-<li>FS_4.5.0_Beta_3_Setup_x64</li>
-</ul>
-<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
-<p>In der Version 4.5 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-4.html">Framework Studio 4.4.11</a> <!-- hier noch das richtige Service Release verlinken --> enthalten.
-Zusätzlich wurden die folgenden Bugs behoben.</p>
-<ul>
-<li>keine weiteren</li>
-</ul>
-<h2 id="450-beta-2-30092022">4.5.0 Beta 2 (30.09.2022)</h2>
-<p>Die Auslieferung umfasst die folgenden Pakete:</p>
-<ul>
-<li>FS_4.5.0_Beta_2_Setup_x64</li>
-</ul>
-<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<div class="CAUTION"><h5>Caution</h5><p>Mit der Beta 2 gibt es eine Erweiterung im Repository.
-Wenn Sie bereits mit der Beta 1 ein Repository auf die Version 4.5 upgedatet haben, dann müssen Sie erneut ein Upddate durchführen.
-Starten Sie hierfür im Programmverzeichnis die <code>FrameworkStudioUpgradeDatabase.exe</code>.</p>
-</div>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
-<p>In der Version 4.5 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-4.html">Framework Studio 4.4.10</a> <!-- hier noch das richtige Service Release verlinken --> enthalten.
-Zusätzlich wurden die folgenden Bugs behoben.</p>
-<ul>
-<li>keine weiteren</li>
-</ul>
-<h2 id="450-beta-1-26082022">4.5.0 Beta 1 (26.08.2022)</h2>
-<p>Die Auslieferung umfasst die folgenden Pakete:</p>
-<ul>
-<li>FS_4.5.0_Beta_1_Setup_x64</li>
-</ul>
-<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
-<p>In der Version 4.5 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-4.html">Framework Studio 4.4.9</a> <!-- hier noch das richtige Service Release verlinken --> enthalten.
-Zusätzlich wurden die folgenden Bugs behoben.</p>
-<ul>
-<li>keine weiteren</li>
+  Datentypen sollte in so einem Fall <code>null</code> übergeben werden.</p>
+</li>
+<li><p>2022049581 - <strong>IDE</strong>: Wird ein Dev-Broker gestartet und der Port ist bereits
+  von einem anderen Prozess blockiert, dann wird eine unspezifische
+  <code>System.Net.HttpListenerException</code> ausgegeben.</p>
+</li>
 </ul>
 </article>
           </div>

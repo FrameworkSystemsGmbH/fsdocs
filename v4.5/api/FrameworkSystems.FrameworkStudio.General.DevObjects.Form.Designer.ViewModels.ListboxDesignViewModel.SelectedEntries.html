@@ -91,8 +91,7 @@
 <h4 id="FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ListboxDesignViewModel_SelectedEntries" data-uid="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ListboxDesignViewModel.SelectedEntries">SelectedEntries</h4>
 <section>
   <div class="markdown level1 summary"><p>Hier kann ein Form Property zugeordnet werden, das sich merkt, welche Einträge in der Listbox
-markiert sind. Dieses Property muss vom Typ <a class="xref" href="FrameworkSystems.FrameworkBase.SelectedRowsCollection.html">SelectedRowsCollection</a> sein.
-Diese Collection enthält guids.</p>
+selektiert sind. Dieses Property muss vom Typ <span class="xref">FrameworkSystems.FrameworkBase.FSArrayList</span> sein.</p>
 </div>
   <div class="markdown level1 conceptual"></div>
 
@@ -115,31 +114,27 @@ public IDatasource SelectedEntries { get; set; }</code></pre>
   </section>
     <h5 id="FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ListboxDesignViewModel_SelectedEntries_remarks">Remarks</h5>
     <section>
-      <div class="markdown level1 remarks"><p>Eine Collection ist eine Sammlung von mehreren Objekten. Um Objekte in dieser Collection
-anzusprechen, gibt es verschiedene Möglichkeiten. Sie können einerseits über die ID an ein
-Objekt herankommen ( Collection[ID] ), andererseits können Sie auch über die guid Objekte
-ansprechen (Collection[guid]). So können Sie direkt mit den guids aus der
-SelectedRowsCollection die entsprechenden Objekte aus dem Datasource ansprechen:</p>
+      <div class="markdown level1 remarks"><p>Um die selektierten Objekte auszuwerten, kann ganz einfach über die FSArrayList iteriert werden.</p>
 <p><strong>Beispiel:</strong></p>
-<pre><code>// SelectedRowsCollection im Form-Event auswerten (oMyColl ist Datasource der Listbox)
+<pre><code>// SelectedEntries im Form-Event auswerten
 
-foreach ( guid guidrow in oSelectedRowsColl )
+foreach(var oMyObj in oSelectedEntries)
 {
-    oMyColl[guidrow].MyFunction( );
+    oMyObj.MyFunction();
 }</code></pre>
 
 <p>Es ist auch ganz einfach selbst dafür zu sorgen, welche Einträge ausgewählt werden:</p>
 <p><strong>Beispiel:</strong></p>
 <pre><code>// Manuell Einträge in einer Listbox markieren (oMyColl ist Datasource der Listbox)
 
-// SelectedRowsCollection leeren (keine Einträge ausgewählt)
-oSelectedRowsColl.Clear( );
+// SelectedEntries leeren (keine Einträge ausgewählt)
+oSelecteEntries.Clear( );
 
 // Wenn eine bestimmte Bedingung erfüllt ist, entsprechende Einträge selektieren
 foreach (cMyComponent oMyObjectTemp in oMyColl)
 {
     if MyObjectTemp.MyProperty > 10
-        oSelectedRowsColl.Add( MyObjectTemp );
+        oSelecteEntries.Add(MyObjectTemp);
 }</code></pre>
 
 </div>

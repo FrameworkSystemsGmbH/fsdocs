@@ -95,12 +95,9 @@
 <ul>
 <li>Microsoft .NET Framework Version 4.5 oder höher</li>
 </ul>
-<h2 id="hinweis">Hinweis</h2>
-<p>Der Client Launcher kann mittels des Standard- oder MSI-Installers installiert werden. Dabei ist zu beachten, dass die beiden Optionen nach Möglichkeit nicht vermischt werden sollten, um volle Upgrade-Fähigkeit zu garantieren.</p>
-<div class="CAUTION"><h5>Caution</h5><p>Ist der Client Launcher auf einem System mittels des Standard-Installers installiert worden, sollte dieser nicht durch eine MSI-Installation aktualisiert werden! In diesem Fall muss zuerst die alte Version deinstalliert werden!</p>
-</div>
 <h2 id="standard-installer">Standard-Installer</h2>
-<p>Der Standard-Installer liefert eine einfache Benutzeroberfläche zur Installation des Programms und kann ggf. auch per Kommandozeile im Silent-Modus ausgeführt werden.</p>
+<p>Der Standard-Installer liefert eine einfache Benutzeroberfläche zur Installation des Programms.
+Für eine automatische Softwareverteilung kann der Installer auch per Kommandozeile im Silent-Modus ausgeführt werden.</p>
 <p>Der Standard-Installer ist im <a href="../../articles/requirements-package.html">Requirements-Paket</a> enthalten und steht auch als separater Download zur Verfügung.</p>
 <h3 id="standard-installation-ausführen">Standard Installation ausführen</h3>
 <p><code>FSCL_4.4.X_Setup_x64.exe</code> ausführen und der Installations-Routine folgen.
@@ -136,7 +133,14 @@ Die <code>FSCL_4.4.X_Setup_x86.exe</code> ist ausschließlich für 32 Bit Betrie
 </tbody>
 </table>
 <h2 id="msi-installer">MSI-Installer</h2>
-<p>Der Client Launcher wird zusätzlich auch als MSI-Installer angeboten, um die Installation über GPO zu ermöglichen. Dieser Installer bietet bis auf Progress-Anzeigen keinerlei Benutzeroberfläche an und arbeitet somit vollständig automatisch.</p>
+<div class="CAUTION"><h5>Caution</h5><p>Der MSI-Insaller wird nicht mehr angeboten.
+Bitte verwenden Sie den Standard-Installer.
+(Siehe auch <a href="../../articles/release-4-4.html#client-launcher-kein-msi-installer-mehr">Client-Launcher kein MSI-Installer mehr</a>)</p>
+</div>
+<p>Dieser Installer bietet bis auf Progress-Anzeigen keinerlei Benutzeroberfläche an und arbeitet somit vollständig automatisch.</p>
+<div class="CAUTION"><h5>Caution</h5><p>Ist der Client Launcher auf einem System mittels des Standard-Installers installiert worden, sollte dieser nicht durch eine MSI-Installation aktualisiert werden!
+In diesem Fall muss zuerst die alte Version deinstalliert werden!</p>
+</div>
 <h3 id="msi-installation-ausführen">MSI Installation ausführen</h3>
 <p><code>FSCL_4.0.X_Setup_x64.msi</code> direkt oder per Kommandozeile ausführen.
 Diese Installations-Routine beinhaltet die 32-Bit Version der Java-Runtime.</p>

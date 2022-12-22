@@ -91,25 +91,27 @@
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="neuer-fs-client-launcher">Neuer FS Client Launcher</h4>
-<p>Es gibt einen neuen Client-Launcher.</p>
-<p>Der mit Version <a href="#4411-28102022">4.4.11</a> ausgelieferte Client-Launcher enthielt eine aktuellere Java-Runtime (8 Update 282).
-Diese hat dazu geführt, dass eNVenta ERP bei Drag&amp;Drop Vorgängen einfrieren konnte und über den Task-Manager beendet werden musste.
-Jetzt enthält der Client-Launcher wieder die bewährte Version 8 Update 202.</p>
-<h4 id="client-launcher-kein-msi-installer-mehr">Client-Launcher kein MSI-Installer mehr</h4>
-<p>In der letzten Zeit wurden vermehrt Probleme bei der Installation des FS Client Launchers gemeldet. In den meisten Fällen war der Einsatz des MSI-Installers die Ursache.</p>
-<p>Darüber hinaus sind der MSI-Installer und der Standard-Installer nicht miteinander kompatibel. Der MSI-Installer darf nicht für den Update verwendet werden, wenn der Installation mit dem Standard-Installer erfolgt ist.
-Das birgt eine Gefahr für Fehlbedienungen.</p>
-<p>Der Standard-Installer enthält zudem einige vorgelagerte Prüfungen und Absicherungen, die im MSI-Installer nicht enthalten sind. Der MSI-Installer ist deshalb fehleranfälliger.</p>
-<div class="NOTE"><h5>Note</h5><p>Aus diesen Gründen wird der MSI-Installer nicht mehr angeboten.
+<p>Es gibt einen neuen Client Launcher.</p>
+<p>Der mit Version <a href="#4411-28102022">4.4.11</a> ausgelieferte FS Client Launcher enthielt eine aktuellere Java-Runtime (8 Update 282).
+Diese hat in einigen Fällen Fehler bei Drag&amp;Drop Vorgängen ausgelöst, welche zu einem vollständigen einfrieren von eNVenta ERP geführt haben. Über den Task Manager musste anschließend eNVenta ERP beendet werden.
+Im neu ausgelieferten FS Client Launcher ist deshalb wieder die bewährte Java Runtime Version 8 Update 202 enthalten.</p>
+<h4 id="abkündigung-des-msi-installers-für-den-fs-client-launcher">Abkündigung des MSI-Installers für den FS Client Launcher</h4>
+<p>In letzter Zeit wurden uns vermehrt Probleme bei der Installation des FS Client Launchers gemeldet.
+In den meisten Fällen war dies auf den Einsatz des MSI-Installers zurückzuführen.
+Aus diesem Grund wird der MSI-Installer zukünftig nicht mehr bereitgestellt.</p>
+<p>Zum einen führte die fehlende Kompatibilität der beiden Installer zu Fehlbedienungen.
+So darf der MSI-Installer nicht für ein Update verwendet werden, wenn die Installation mit dem Standard-Installer (.exe) vorgenommen wurde.</p>
+<p>Zum anderen enthält der Standard-Installer einige vorgelagerte Prüfungen und Absicherungen, die im MSI-Installer nicht enthalten sind. Der MSI-Installer ist deshalb fehleranfälliger.</p>
+<div class="NOTE"><h5>Note</h5><p>Der MSI-Installer wird nicht mehr angeboten.
 Verwenden Sie stattdessen den <a href="../doc/fsclientlauncher/fsclientlauncher-installation.html#standard-installer">Standard-Installer (exe-Datei)</a>.</p>
 </div>
-<p>Der Standard-Installer bietet schon längere Zeit eine Möglichkeit, über Kommandozeilen-Parameter eine &quot;Silent&quot; Installation durchzuführen.
-Damit kann der Standard-Installer auch in automatisierten Software-Verteilungen eingesetzt werden.</p>
-<div class="TIP"><h5>Tip</h5><p>Der Standard-Installer kann für den Update einer MSI-Installation verwendet werden.
-Dadurch ist der Wechsel sehr einfach möglich.</p>
+<p>Der Standard-Installer bietet die Möglichkeit über Kommandozeilen-Parameter eine &quot;Silent&quot; Installation durchzuführen.
+Somit kann der Standard-Installer auch in automatisierten Software-Verteilungen eingesetzt werden.</p>
+<div class="TIP"><h5>Tip</h5><p>Der Standard-Installer kann für das Update einer MSI-Installation verwendet werden.
+Dadurch ist ein Wechsel sehr einfach möglich.</p>
 </div>
-<p>Ist ein Wechsel nicht möglich und sie benötigen unbedingt weiterhin den MSI-Installer, dann wenden Sie sich bitte mit einer plausiblen Begründung an den Support.
-Wir stellen ihnen dann auf Anfrage den MSI-Installer zur Verfügung.</p>
+<p>Ist ein Wechsel nicht möglich und Sie benötigen unbedingt weiterhin den MSI-Installer, dann wenden Sie sich bitte mit einer plausiblen Begründung an den Support.
+Wir stellen Ihnen dann auf Anfrage den MSI-Installer zur Verfügung.</p>
 <h4 id="neues-requirements-paket">Neues Requirements-Paket</h4>
 <ul>
 <li>enthält den neuen FS Client Launcher 4.4.13</li>

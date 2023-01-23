@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Resources </title>
+    <title>Shortcuts in Framework Studio </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Resources ">
+    <meta name="title" content="Shortcuts in Framework Studio ">
     <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -79,32 +79,198 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="resources">Resources</h1>
+<h1 id="shortcuts-in-framework-studio">Shortcuts in Framework Studio</h1>
 
-<h2 id="allgemeines">Allgemeines</h2>
-<p>Ressourcen ermöglichen dem Entwickler, der Anwendung beliebige Dateien zur Verfügung zu stellen. Typische Beispiele für Ressourcen sind:</p>
-<ul>
-<li>von der Anwendung benötigte Bilder</li>
-<li>Custom Control Erweiterungen auf der Seite der Clients</li>
-<li>externe Bibliotheken (dlls), die von der Anwendung benutzt werden</li>
-</ul>
-<h2 id="bedeutung-von-namespaces-für-ressourcen">Bedeutung von Namespaces für Ressourcen</h2>
-<p>Ressourcen können im Objekt-Baum (<a href="../ide/registerkarten.html#registerkarte-namespaces">Registerkarte Namespaces</a>) im Namespace <strong>FSGeneral / Resources</strong> angelegt werden. Beim Kompilieren von Ressourcen werden diese dann direkt ins Brokerverzeichnis kopiert.</p>
-<p>Außerdem können im Namespace <strong>FSGeneral / Resources</strong> weitere Namespaces angelegt werden. Diese Namespaces werden beim Kompilieren von Ressourcen automatisch als Unterverzeichnisse im Brokerverzeichnis angelegt, sobald sie eine Ressource enthalten. Die Ressourcen eines Unter-Namespaces werden dann ins entsprechende Unterverzeichnis des Brokers kopiert.</p>
-<h2 id="erstellen-und-löschen-von-ressourcen">Erstellen und Löschen von Ressourcen</h2>
-<p>Für das Erstellen und Löschen ist zu beachten, in welchem Namespace die Ressource angelegt werden muss (<a href="#bedeutung-von-namespaces-für-ressourcen">Bedeutung von Namespaces für Ressourcen</a>). Ansonsten werden Ressourcen wie alle anderen Elemente angelegt.</p>
-<ul>
-<li><p><a href="../ide/bearbeiten-von-elementen.html#elemente-erstellen">Erstellen einer Ressource</a></p>
-</li>
-<li><p><a href="../ide/bearbeiten-von-elementen.html#elemente-löschen">Löschen einer Ressource</a></p>
-</li>
-</ul>
-<h2 id="bearbeiten-von-ressourcen">Bearbeiten von Ressourcen</h2>
-<p>Durch einen Doppelklick auf eine Ressource im Objekt-Baum wird das Designer-Fenster geöffnet.</p>
-<h3 id="resource">Resource</h3>
-<p><img src="media/bearbeiten-von-ressourcen.png" alt="bearbeiten-von-ressourcen.png"></p>
-<p>Dort können Sie mit dem Button <strong>Import File</strong> einen Dateiauswahldialog öffnen. Dort wählen Sie die Datei aus, die ins Brokerverzeichnis kopiert werden soll. Nach dem Import wird der Name der Ressource mit dem Namen der ausgewählten Datei initialisiert. Sie können diesen Namen im Textfeld <strong>Name</strong> ändern. Im nicht editierbaren Textfeld <strong>Relative Path</strong> wird der Pfad relativ zum Brokerverzeichnis angezeigt, unter dem die Datei letztendlich angelegt wird. Der Pfad ergibt sich aus dem Namespace, in dem die Ressource angelegt wurde (<a href="#bedeutung-von-namespaces-für-ressourcen">Bedeutung von Namespaces für Ressourcen</a>) und dem Namen der Ressource.</p>
-<p>Erläuterungen zu den Standardfunktionen, die im Designer-Fenster für Ressourcen angeboten werden, finden Sie unter <a href="../ide/allgemeine-funktionalitaeten.html">Allgemeine Funktionalitäten</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Beschreibung</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Öffnet DropDown-Menü &quot;New&quot;</td>
+<td><code>Ctrl</code> + <code>N</code></td>
+</tr>
+<tr>
+<td>Navigate Backward</td>
+<td><code>Alt</code> + <code>Left</code></td>
+</tr>
+<tr>
+<td>Navigate Forward</td>
+<td><code>Alt</code> + <code>Right</code></td>
+</tr>
+<tr>
+<td>Namespaces</td>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>N</code></td>
+</tr>
+<tr>
+<td>Namespaces</td>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>L</code></td>
+</tr>
+<tr>
+<td>Namespaces</td>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>O</code></td>
+</tr>
+<tr>
+<td>ClassView</td>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>C</code></td>
+</tr>
+<tr>
+<td>Inheritance</td>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>I</code></td>
+</tr>
+<tr>
+<td>Properties</td>
+<td><code>F4</code></td>
+</tr>
+<tr>
+<td>Toolbox</td>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>X</code></td>
+</tr>
+<tr>
+<td>Search</td>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>F</code></td>
+</tr>
+<tr>
+<td>Run</td>
+<td><code>F5</code></td>
+</tr>
+<tr>
+<td>Run Without Compile</td>
+<td><code>Ctrl</code> + <code>F5</code></td>
+</tr>
+<tr>
+<td>RunWizard</td>
+<td><code>Shift</code> + <code>F5</code></td>
+</tr>
+<tr>
+<td>Start current development FSDomain</td>
+<td><code>Alt</code> + <code>F5</code></td>
+</tr>
+<tr>
+<td>Stop development FSDomain</td>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>F5</code></td>
+</tr>
+<tr>
+<td>Open Client Start Page</td>
+<td><code>F6</code></td>
+</tr>
+<tr>
+<td>Open Compile Directory in Explorer</td>
+<td><code>Ctrl</code> + <code>E</code></td>
+</tr>
+<tr>
+<td>Application</td>
+<td><code>Alt</code> + <code>A</code></td>
+</tr>
+<tr>
+<td>Online Hilfe</td>
+<td><code>F1</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="namespace-view">Namespace View</h2>
+<table>
+<thead>
+<tr>
+<th>Beschreibung</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compile Namespace</td>
+<td><code>Alt</code> + <code>B</code></td>
+</tr>
+<tr>
+<td>Compile Namespace Recursively</td>
+<td><code>Alt</code> + <code>B</code></td>
+</tr>
+<tr>
+<td>Open References</td>
+<td><code>Ctrl</code> + <code>R</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="labeledrecord-form-component-">LabeledRecord (Form, Component, ...)</h2>
+<table>
+<thead>
+<tr>
+<th>Beschreibung</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Synchronize ClassView</td>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>Shift</code> + <code>C</code></td>
+</tr>
+<tr>
+<td>View compiled code in Visual Studio</td>
+<td><code>Ctrl</code> + <code>O</code></td>
+</tr>
+<tr>
+<td>Compile Namespace</td>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>B</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="component">Component</h3>
+<table>
+<thead>
+<tr>
+<th>Beschreibung</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Generate wrapper for selected property</td>
+<td><code>Ctrl</code> + <code>F8</code></td>
+</tr>
+<tr>
+<td>Generate wrappers for all wrapper candidates</td>
+<td><code>Ctrl</code> + <code>Alt</code> + <code>Shift</code> + <code>F8</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="csharp-editor">CSharp-Editor</h3>
+<table>
+<thead>
+<tr>
+<th>Beschreibung</th>
+<th>Shortcut</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Method History Browser</td>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>M</code></td>
+</tr>
+<tr>
+<td>Code Snippets Editor</td>
+<td><code>Ctrl</code> + <code>Shift</code> + <code>J</code></td>
+</tr>
+<tr>
+<td>Format Code</td>
+<td><code>Shift</code>+ <code>Alt</code> + <code>F</code></td>
+</tr>
+<tr>
+<td>Go to Definition</td>
+<td><code>F12</code></td>
+</tr>
+<tr>
+<td>Go to Base</td>
+<td><code>Alt</code> + <code>Arrow Down</code></td>
+</tr>
+<tr>
+<td>Go to Customization</td>
+<td><code>Alt</code> + <code>Arrow Up</code></td>
+</tr>
+</tbody>
+</table>
 </article>
           </div>
           

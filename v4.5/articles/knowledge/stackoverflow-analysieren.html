@@ -136,19 +136,23 @@ Es kann auch der Name des Prozesses - z.B. w3wp.exe oder NV.ERP.Base.JobServer.H
 Wenn jetzt eine StackOverflowException auftritt, erzeugt dieses Programm einen Dump, bevor das Programm im Anschluss endgültig crashed.</p>
 <p>Die Dump-Datei wird in den Temp-Ordner gepackt.
 Sie heißt <code>NameDesProcesses_Datum_Uhrzeit.dmp</code>.
-Diese Datei kann im nächsten Schritt mit <strong>windbg</strong> analysiert werden.</p>
+Diese Datei kann im nächsten Schritt mit <strong>WinDbg</strong> analysiert werden.</p>
 <p>Die Datei kann ggf. mehrere GB groß sein, denn sie enthält ein komplettes Hauptspeicher-Abbild des Prozesses.
 Erfolgt eine Analyse bei N&amp;V, dann sollte die Datei als 7-Zip gepackt und per ftp bereitgestellt werden.</p>
 <h2 id="analyse-mit-windbgexe">Analyse mit windbg.exe</h2>
 <h4 id="vorbereitungen-1">Vorbereitungen</h4>
-<div class="NOTE"><h5>Note</h5><p>Ist auf dem Rechner Visual Studio installiert, dann ist windbg evtl. bereits verfügbar. Die Installation ist in diesem Fall nicht nötig.</p>
+<div class="NOTE"><h5>Note</h5><p>Ist auf dem Rechner Visual Studio installiert, dann ist WinDbg evtl. bereits verfügbar. Die Installation ist in diesem Fall nicht nötig.</p>
 </div>
-<p>Das Windows 10 SDK herunterladen</p>
-<p><a href="https://developer.microsoft.com/de-de/windows/downloads/windows-10-sdk">https://developer.microsoft.com/de-de/windows/downloads/windows-10-sdk</a></p>
-<p>Button &quot;INSTALLER HERUNTERLADEN&quot;</p>
-<p>Die Installations-Routine <code>winsdksetup.exe</code> starten.<br>
-Alles Haken außer &quot;Debugging Tools for Windows&quot; entfernen.<br>
-Installieren.</p>
+<p>Das Tool WinDbg bietet Microsoft als <strong>Store-App</strong> an: <a href="https://apps.microsoft.com/store/detail/windbg-preview/9PGJGD53TN86">https://apps.microsoft.com/store/detail/windbg-preview/9PGJGD53TN86</a>.</p>
+<p>Alternativ kann die Installation dieses Tools auch über das <strong>Windows SDK</strong> erfolgen.
+Dazu das Windows SDK von der folgenden Seite herunterladen:</p>
+<p><a href="https://developer.microsoft.com/windows/downloads/windows-sdk/">https://developer.microsoft.com/windows/downloads/windows-sdk/</a></p>
+<ul>
+<li>Button &quot;<strong>Laden Sie das Installationsprogramm herunter&gt;</strong>&quot;</li>
+<li>Die Installations-Routine <code>winsdksetup.exe</code> starten.</li>
+<li>Alles Haken außer &quot;Debugging Tools for Windows&quot; entfernen.&lt;</li>
+<li>Installieren.</li>
+</ul>
 <h4 id="analyse">Analyse</h4>
 <p>Die windbg.exe (x64-Variante) starten.<br>
 Einfach im Startmenü &quot;windbg&quot; eintippen.</p>

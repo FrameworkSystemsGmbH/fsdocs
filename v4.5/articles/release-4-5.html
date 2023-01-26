@@ -81,6 +81,40 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-45">Release-Information Framework Studio 4.5</h1>
 
+<h2 id="451-26012023">4.5.1 (26.01.2023)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.5.1_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2023011937 - <strong>JavaClient</strong>: Die Jar-Dateien für das neue Browser-Control sind
+  nicht signiert. Deshalb ist ein Start der Anwendung über Java-Webstart nicht
+  möglich.</p>
+</li>
+<li><p>2023012014 - <strong>Publish2Go</strong>: Publish2Go kann nicht ausgeführt werden, wenn der
+  IIS nicht installiert ist (z.B. zur Installation von ServiceHosts).</p>
+</li>
+<li><p>2021118441 - <strong>IDE</strong>: Bei Workflow-Links, deren Quelle ein
+  Global-Event-Handler ist, kann keine Instance-ID angegeben werden. Die
+  Auswahl-Combobox zeigt keine Einträge an.</p>
+</li>
+<li><p>2022121811 - <strong>IDE</strong>: Die in der IDE im Form-Designer eingestellte Sortierung
+  an Grid-Spalten funktioniert nicht.</p>
+<div class="NOTE"><h5>Note</h5><p>Die Einbau dieses Features umfasst auch eine Anpassung in der
+Code-Generierung. Damit die Einstellungen korrekt ziehen muss der Quellcode
+des Forms neu aufgebaut werden. Im Service-Release Modus reicht es, das
+betroffene Form einmal aus- und wieder einzuchecken.</p>
+</div>
+</li>
+<li><p>2022121833 - <strong>IDE</strong>: In einer grafischen Transformation kann bei
+  FSstring-Properties die Checkbox &quot;Ignore nulls&quot; nicht gesetzt werden.</p>
+</li>
+<li><p>2022121864 - <strong>IDE</strong>: Das Intellisense erkennt Component-Typen nicht und zeigt
+  diese als Fehler an.</p>
+</li>
+</ul>
 <h2 id="450-23122022">4.5.0 (23.12.2022)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -109,7 +143,7 @@ Weitere Informationen finden sie <a href="release-4-4.html#abkündigung-des-msi-
 <li>Oracle.ManagedDataAccess 19.13 -&gt; 21.8</li>
 <li>HtmlAgilityPack 1.11.4 -&gt; 1.11.46</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <p>In der Version 4.5 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-4.html#4413-23122022">Framework Studio 4.4.13</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

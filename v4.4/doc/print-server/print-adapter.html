@@ -90,7 +90,13 @@
 <li>Assembly: <code>DevExpressPrintAdapter</code></li>
 <li>Class: <code>PrintServer.DevExpressPrintAdapter</code></li>
 </ul>
-<p>Settings:</p>
+<p>In der Drucker-Warteschlange erhalten die Ausdrucke einen Namen mit dem im folgenden Format: <br>
+<code>DevExpress - &lt;owner&gt; - &lt;JobID&gt; - &lt;Report-Name&gt;</code></p>
+<ul>
+<li><code>&lt;owner&gt;</code> entspricht der Spalte <code>PRTR_Owner</code> in der Tabelle <a href="../tables/rptRun_PrintTransaction.html">rptRun_PrintTransaction</a></li>
+<li><code>&lt;Report-Name&gt;</code> entspricht der Spalte <code>RPQRPT_NAME</code> in der Tabelle <a href="../tables/rptRun_RPQReportFile.html">rptRun_RPQReportFile</a></li>
+</ul>
+<h4 id="settings">Settings</h4>
 <ul>
 <li><p><strong>ExportFolder</strong>:</p>
 <p>Diese Einstellung kann optional zu Test- oder Debug-Zwecken angegeben werden.
@@ -104,7 +110,13 @@ Es werden alle Reports nach dem Druck als PRNX-Datei (Report-Datei inkl. Daten) 
 <li>Assembly: <code>CrystalPrintAdapter</code></li>
 <li>Class: <code>PrintServer.CrystalPrintAdapter</code></li>
 </ul>
-<p>Settings:</p>
+<p>In der Drucker-Warteschlange erhalten die Ausdrucke einen Namen mit dem im folgenden Format: <br>
+<code>Crystal Reports - &lt;owner&gt; - &lt;JobID&gt; - &lt;Report-Name&gt;</code></p>
+<ul>
+<li><code>&lt;owner&gt;</code> entspricht der Spalte <code>PRTR_Owner</code> in der Tabelle <a href="../tables/rptRun_PrintTransaction.html">rptRun_PrintTransaction</a></li>
+<li><code>&lt;Report-Name&gt;</code> entspricht der Spalte <code>RPQRPT_NAME</code> in der Tabelle <a href="../tables/rptRun_RPQReportFile.html">rptRun_RPQReportFile</a></li>
+</ul>
+<h4 id="settings-1">Settings</h4>
 <ul>
 <li><p><strong>ExportFolder</strong>:</p>
 <p>Diese Einstellung kann optional zu Test- oder Debug-Zwecken angegeben werden.
@@ -118,7 +130,7 @@ Es werden alle Crystal-Reports nach dem Druck als RPT-Datei inkl. Daten in diese
 <li>Assembly: <code>ImagePrintAdapter</code></li>
 <li>Class: <code>PrintServer.ImagePrintAdapter</code></li>
 </ul>
-<p>Settings:</p>
+<h4 id="settings-2">Settings:</h4>
 <ul>
 <li>-keine-</li>
 </ul>
@@ -129,7 +141,7 @@ Es werden alle Crystal-Reports nach dem Druck als RPT-Datei inkl. Daten in diese
 <li>Assembly: <code>PdfPrintAdapter</code></li>
 <li>Class: <code>PrintServer.PdfPrintAdapter</code></li>
 </ul>
-<p>Settings:</p>
+<h4 id="settings-3">Settings</h4>
 <ul>
 <li><p><strong>ReaderPath</strong>:</p>
 <p>  Dateipfad des PDF-Programms. Diese Einstellung muss angegeben werden.</p>
@@ -147,7 +159,7 @@ Es werden alle Crystal-Reports nach dem Druck als RPT-Datei inkl. Daten in diese
 <li>Assembly: <code>PdfPrintAdapter</code></li>
 <li>Class: <code>PrintServer.PdfPrintAdapter_SumatraPDF</code></li>
 </ul>
-<p>Settings</p>
+<h4 id="settings-4">Settings</h4>
 <ul>
 <li><p><strong>ReaderPath</strong>:</p>
 <p>  Die SumatraPDF.exe der portablen Version kann direkt in das Print-Service-Verzeichnis gepackt werden. In diesem Fall braucht kein Reader-Path angegeben werden.</p>
@@ -166,7 +178,7 @@ Es werden alle Crystal-Reports nach dem Druck als RPT-Datei inkl. Daten in diese
 <li>Assembly: <code>PdfPrintAdapter</code></li>
 <li>Class: <code>PrintServer.PdfPrintAdapter_FoxitReader</code></li>
 </ul>
-<p>Settings</p>
+<h4 id="settings-5">Settings</h4>
 <ul>
 <li><p><strong>ReaderPath</strong>:</p>
 <p>  Dateipfad des Foxit Reader. Diese Einstellung muss angegeben werden.</p>
@@ -190,7 +202,7 @@ Es werden alle Crystal-Reports nach dem Druck als RPT-Datei inkl. Daten in diese
 <li>Assembly: <code>PdfPrintAdapter</code></li>
 <li>Class: <code>PrintServer.PdfPrintAdapter_AcrobatReader</code></li>
 </ul>
-<p>Settings</p>
+<h4 id="settings-6">Settings</h4>
 <ul>
 <li><p><strong>ReaderPath</strong>:</p>
 <p>  Dateipfad des Acrobat Reader. Diese Einstellung muss angegeben werden.</p>
@@ -209,7 +221,7 @@ Es werden alle Crystal-Reports nach dem Druck als RPT-Datei inkl. Daten in diese
 </ul>
 <div class="WARNING"><h5>Warning</h5><p>Word hat die Einschränkung, dass es nicht von einem Dienst-Programm gesteuert werden kann / darf. Aus diesem Grund ist der WORD-Adapter standardmäßig deaktiviert. Wird der Word-Adapter aktiviert, dann sollte der Print-Service nur im Console-Modus ausgeführt werden.</p>
 </div>
-<p>Settings</p>
+<h4 id="settings-7">Settings</h4>
 <ul>
 <li><p><strong>StaticApp</strong>:</p>
 <p>  Optional - mögliche Werte 0 oder 1</p>
@@ -226,7 +238,7 @@ Es werden alle Crystal-Reports nach dem Druck als RPT-Datei inkl. Daten in diese
 </ul>
 <div class="WARNING"><h5>Warning</h5><p>Der EXCEL-Adapter ist standardmäßig deaktiviert. Wird der EXCEL-Adapter aktiviert, dann sollte der Print-Service nur im Console-Modus ausgeführt werden.</p>
 </div>
-<p>Settings</p>
+<h4 id="settings-8">Settings</h4>
 <ul>
 <li>-keine-</li>
 </ul>

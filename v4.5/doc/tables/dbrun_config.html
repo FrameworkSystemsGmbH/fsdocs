@@ -130,10 +130,19 @@ Dies bedeutet ggf. einen erheblichen Zeitaufwand und verursacht ein großes Volu
 <p>Neue Spalten werden mit LOB-Typen angelegt.</p>
 </li>
 <li><p><strong><code>Adjust</code></strong></p>
-<p>Bestehende Spalten werden auf LOB-Typen umgestellt. Dies erfolgt im Schritt 4 des Update-Assistenten.</p>
+<p>Bestehende Spalten werden auf LOB-Typen umgestellt. Dies erfolgt im Schritt 4 des Update-Assistenten.
+Entscheidend ist dabei, dass bei Zeichenketten die Definition der Tabellen-Spalte im Framework Studio eine Länge von 0 (keine Begrenzung) oder eine Länge größer als 4000 (Ansi) bzw. 2000 (Unicode) hat.</p>
 <ul>
-<li>SQL-Server: text =&gt; varchar(max) / image =&gt; varbinary(max)</li>
-<li>Oracle: varchar2(2000) =&gt; CLOB</li>
+<li>SQL-Server:<ul>
+<li>text =&gt; varchar(max) / ntext =&gt; nvarchar(max)</li>
+<li>image =&gt; varbinary(max)</li>
+</ul>
+</li>
+<li>Oracle:<ul>
+<li>varchar2(2000) =&gt; CLOB / nvarchar2(2000) =&gt; NCLOB</li>
+<li>LONG =&gt; CLOB</li>
+</ul>
+</li>
 </ul>
 <div class="IMPORTANT"><h5>Important</h5><p>ACHTUNG! Diese Einstellung hat zur Folge, dass große Teile der Datenbank angefasst werden.
 Dies bedeutet ggf. einen erheblichen Zeitaufwand und verursacht ein großes Volumen an Transaktion-Protokollen.</p>

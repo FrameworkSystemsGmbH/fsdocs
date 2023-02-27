@@ -87,10 +87,12 @@
 <li>FS_4.4.15_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="update-des-runtime-repository-nötig">Update des Runtime Repository nötig</h4>
+<p>Auf Grund von Bug 2023022188 muss beim Publish2Go das Runtime Repository für nochmals upgedated werden.</p>
+<p>Beim Publishen einer Applikation erscheint dann ggf. die Warnung <code>&quot;The selected runtime repository is not prepared for this version of Publish2Go. You have to prepare the runtime repository before you can publish.&quot;</code>.</p>
+<p>Um diese Situation zu lösen, muss im Publish2Go Wizard unter <code>Connection Groups</code> die <code>RuntimeConnection</code> ausgewählt werden und mit dem Button <code>Prepare Runtime Repository</code> die fehlenden Scripte ausgeführt werden.</p>
 <h4 id="neuer-html-client">Neuer HTML Client</h4>
-<ul>
-<li>Der HTML Client wurde auf Angular 15.1 upgedated. Neue Features oder Bugfixes gibt es nicht.</li>
-</ul>
+<p>Der HTML Client wurde auf Angular 15.1 upgedated. Neue Features oder Bugfixes gibt es nicht.</p>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023022188 - <strong>Broker</strong>: Clientside Report Customizing (DevExpress)

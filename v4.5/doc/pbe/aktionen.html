@@ -101,6 +101,8 @@ Das ist praktisch bei komplexeren Listen von Kommandozeilen-Argumenten.
 PBE kümmert sich dabei um die korrekte Behandlung von Leerzeichen und Anführungszeichen.</p>
 </li>
 </ul>
+<p>Liefert die aufgerufene Routine einen Exit-Code != 0, dann wird der Vorgang als Fehlerhaft beendet.</p>
+<p>Wird als <code>Cmd=&quot;robocopy&quot;</code> aufgrufen, dann führen die Exit-Codes 1-7 nicht zu einem Fehler (vergleiche auch <a href="https://learn.microsoft.com/troubleshoot/windows-server/backup-and-storage/return-codes-used-robocopy-utility">https://learn.microsoft.com/troubleshoot/windows-server/backup-and-storage/return-codes-used-robocopy-utility</a>)</p>
 <p>Beispiele:</p>
 <pre><code class="lang-xml">&lt;Batch Name=&quot;IIS neu starten&quot; Cmd=&quot;iisreset&quot;/&gt;
 &lt;Batch Name=&quot;IIS beenden&quot; Cmd=&quot;NET&quot; Args=&quot;STOP W3SVC&quot;/&gt;
@@ -191,6 +193,10 @@ Der Name der Datei setzt sich aus dem Namen des Packages und der Version zusamme
 <li><p><strong>Queue</strong>: optional - Der Name der Import-Queue, mit der dieser Export wieder importiert werden soll. Siehe auch Knoten <code>&lt;ImportQueue&gt;</code></p>
 </li>
 <li><p><strong>Dir</strong>: optional - der Ordner, in dem die Export-Dateien abgelegt werden sollen, falls dieser vom Parameter <strong>{ExportDir}</strong> abweicht.</p>
+</li>
+<li><p><strong>ExportFileName</strong>: optional - der Dateiname ohne Dateiendung, der für die Export-Datei verwendet werden soll.
+Wird dieses Attribut nicht angegeben, dann wird ein Dateiname nach folgendem Schema erzeugt: <code>{ExportFilePrefix}&lt;Package&gt;_&lt;Version&gt; (FS &lt;fs-version&gt;)</code>.
+Der Dateiname kann Parameter beinhalten.</p>
 </li>
 <li><p><strong>IncludeBasePackages</strong>: optional - gibt an ob Basis-Package in den Export eingeschlossen werden sollen.
 Mögliche Werte:</p>

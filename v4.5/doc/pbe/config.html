@@ -144,6 +144,8 @@ Dieser Parameter wird bei der Aktion <code>&lt;ApprovedExport&gt;</code> automat
 </ul>
 <p>Darüber hinaus können auch eigene Parameter definiert werden. So können z.B. die verwendeten Repository-Connections an zentraler Stelle definiert werden.</p>
 <p>Bei Parametern kann auch auf vorher definierte Parameter verwiesen werden – wie z.B. bei dem vordefinierten Parameter <code>Title</code>.</p>
+<div class="TIP"><h5>Tip</h5><p>Alle bekannten Parameter können der PBE.exe mit dem <a href="commandline-parameter.html#-p----param">Kommandozeilen-Parameter <code>-p</code> / <code>--param</code></a> übergeben und so &quot;überschrieben&quot; werden.</p>
+</div>
 <h2 id="organisation">Organisation</h2>
 <p>Die Aktionen werden in der XML-Datei als Sequenzen oder Parallel-Verarbeitungen organisiert. Die unterschiedlichen Knoten können beliebig ineinander verschachtelt werden. Einzige Ausnahme ist der oberste Knoten – dieser muss immer <code>&lt;Sequence&gt;</code> sein.</p>
 <p>Jeder Knoten kann Optional ein Attribut &quot;Name&quot; erhalten. Dieser Name wird in der Protokoll-Datei ausgegeben.</p>
@@ -175,12 +177,28 @@ Dieser Parameter wird bei der Aktion <code>&lt;ApprovedExport&gt;</code> automat
 <li><p><strong>Equals</strong>: erforderlich – gibt den Wert an, mit dem verglichen werden soll – z.B. <code>&quot;So&quot;</code>.</p>
 </li>
 </ul>
-<p>Im Value kann eine Funktion <code>&quot;#EXISTS(&lt;dateipfad&gt;)&quot;</code> verwendet werden. Diese liefert den Wert <code>&quot;True&quot;</code> oder <code>&quot;False&quot;</code>. Der Dateipfad kann auch Parameter beinhalten.</p>
+<p>Im <strong>Value</strong> können verschiedene Funktionen verwendet werden:</p>
+<ul>
+<li><p><code>&quot;#EXISTS(&lt;dateipfad&gt;)&quot;</code></p>
+<p>Prüft, ob eine Datei oder ein Ordner existiert.
+Diese Funktion liefert den Wert <code>&quot;True&quot;</code> oder <code>&quot;False&quot;</code>.
+Der Dateipfad kann auch Parameter beinhalten.</p>
 <p>Beispiel:</p>
 <pre><code class="lang-xml">&lt;Condition Name=&quot;Prüfen ob Publish2Go existiert&quot;
         Value=&quot;#Exists({InputDir}\sqlitedb.p2go)&quot;
         Equals=&quot;True&quot;&gt;
-</code></pre><h3 id="knoten-importqueue">Knoten <code>&lt;ImportQueue&gt;</code></h3>
+</code></pre></li>
+<li><p><code>&quot;#CONTAINS_FILES(&lt;verzeichnispfad&gt;)&quot;</code></p>
+<p>Prüft, ob das Verzeichnis einen Inhalt hat.
+Diese Funktion liefert <code>&quot;True&quot;</code>, wenn das Verzeichnis einen Inhalt (Datei / Verzeichnis) hat und <code>&quot;False&quot;</code> wenn es leer ist.
+Der Verzeichnispfad kann auch Parameter beinhalten.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-xml">&lt;Condition Name=&quot;Prüfen ob das Export-Verzeichnis leer ist&quot;
+        Value=&quot;#CONTAINS_FILES({ExportDir}\Package2)&quot;
+        Equals=&quot;False&quot;&gt;
+</code></pre></li>
+</ul>
+<h3 id="knoten-importqueue">Knoten <code>&lt;ImportQueue&gt;</code></h3>
 <p>Damit können die Package-Importe so organisiert werden, dass diese parallel zu anderen Aktionen durchgeführt werden können. Die Export-Aktionen packen, wenn sie fertig sind, entsprechende Import-Aktionen in diese Queue. Diese wird dann sofort mit der Abarbeitung beginnen. Dabei werden aber alle Importe nacheinander verarbeitet, weil parallele Importe auf einem Repository nicht möglich sind.</p>
 <p>Attribute:</p>
 <ul>

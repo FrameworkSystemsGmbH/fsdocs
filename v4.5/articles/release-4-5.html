@@ -81,12 +81,21 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-45">Release-Information Framework Studio 4.5</h1>
 
+<h2 id="453-31032023">4.5.3 (31.03.2023)</h2>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Am GridView gibt es ein neues Event <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IGridView.EntriesSortedOrFiltered.html">EntriesSortedOrFiltered</a>.</li>
+</ul>
 <h2 id="452-24022023">4.5.2 (24.02.2023)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.5.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="update-des-runtime-repository-nötig">Update des Runtime Repository nötig</h4>
+<p>Auf Grund von Bug 2023022188 muss beim Publish2Go das Runtime Repository für nochmals upgedated werden.</p>
+<p>Beim Publishen einer Applikation erscheint dann ggf. die Warnung <code>&quot;The selected runtime repository is not prepared for this version of Publish2Go. You have to prepare the runtime repository before you can publish.&quot;</code>.</p>
+<p>Um diese Situation zu lösen, muss im Publish2Go Wizard unter <code>Connection Groups</code> die <code>RuntimeConnection</code> ausgewählt werden und mit dem Button <code>Prepare Runtime Repository</code> die fehlenden Scripte ausgeführt werden.</p>
 <h4 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.27 auf Version 7.30.2 aktualisiert.
 Das entspricht Chromium 108.</p>
@@ -94,9 +103,7 @@ Das entspricht Chromium 108.</p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
 <h4 id="neuer-html-client">Neuer HTML Client</h4>
-<ul>
-<li>Der HTML Client wurde auf Angular 15.1 upgedated. Neue Features oder Bugfixes gibt es nicht.</li>
-</ul>
+<p>Der HTML Client wurde auf Angular 15.1 upgedated. Neue Features oder Bugfixes gibt es nicht.</p>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023022188 - <strong>Broker</strong>: Clientside Report Customizing (DevExpress)
@@ -159,7 +166,7 @@ betroffene Form einmal aus- und wieder einzuchecken.</p>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="neuer-fs-client-launcher">Neuer FS Client Launcher</h4>
 <p>Es gibt einen neuen FS Client Launcher.</p>
-<p>Der mit Version <a href="#4411-28102022">4.4.11</a> ausgelieferte Client Launcher enthielt eine aktuellere Java-Runtime (8 Update 282).
+<p>Der mit Version <a href="release-4-4.html#4411-28102022">4.4.11</a> ausgelieferte Client Launcher enthielt eine aktuellere Java-Runtime (8 Update 282).
 Diese hat teilweise dazu geführt, dass eNVenta ERP bei Drag&amp;Drop Vorgängen eingefroren ist und über den Task-Manager beendet werden musste.
 Im neu ausgelieferten FS Client Launcher ist deshalb wieder die bewährte Java Runtime Version 8 Update 202 enthalten.</p>
 <h4 id="abkündigung-des-msi-installers-für-den-fs-client-launcher">Abkündigung des MSI-Installers für den FS Client Launcher</h4>

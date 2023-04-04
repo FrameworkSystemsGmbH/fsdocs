@@ -91,10 +91,14 @@ Die Properties und Events dieser Klasse werden im Form-Designer angeboten.</p>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ControlTreeNode.html">ControlTreeNode</a></div>
     <div class="level2"><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.html">ControlDesignViewModel</a></div>
     <div class="level3"><span class="xref">DashBoardContainerViewModel</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -196,47 +200,47 @@ Die Properties und Events dieser Klasse werden im Form-Designer angeboten.</p>
   <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkStudio.General.dll</h6>
   <h5 id="FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DashBoardContainerViewModel : ControlDesignViewModel, INotifyPropertyChanged, IDisposable, INamedRecord</code></pre>
+    <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public class DashBoardContainerViewModel : ControlDesignViewModel, INotifyPropertyChanged, IDisposable, INamedRecord</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
   
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.BorderThickness.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_BorderThickness">BorderThickness</a></h4>
-    <section><p><p>Dieses Property weicht zu den allgemeinen Properties ab. 
-Die Border wird, wie beim TabbedWindow, um die Tab-Pages 
-des Dash-Boards gezeichnet. 
+    <section><p><p>Dieses Property weicht zu den allgemeinen Properties ab.
+Die Border wird, wie beim TabbedWindow, um die Tab-Pages
+des Dash-Boards gezeichnet.
 (Siehe <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.BorderThickness.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_BorderThickness">BorderThickness</a>)</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.Columns.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_Columns">Columns</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.ContentBackColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_ContentBackColor">ContentBackColor</a></h4>
-    <section><p><p>Die Hintergrund-Farbe in den Tab-Pages des Dash-Boards. 
-Das Property <strong>BackColor</strong> hingegen zieht außerhalb der 
+    <section><p><p>Die Hintergrund-Farbe in den Tab-Pages des Dash-Boards.
+Das Property <strong>BackColor</strong> hingegen zieht außerhalb der
 Tab-Pages - u.a. in dem Bereich um die Registerkarte-Karten.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.ContentPadding.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_ContentPadding">ContentPadding</a></h4>
-    <section><p><p>Der Abstand der Dash-Items zum Rand der Tab-Page. 
+    <section><p><p>Der Abstand der Dash-Items zum Rand der Tab-Page.
 Dieser Abstand versteht sich zuzüglich zum <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.ItemBorderMargin.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_ItemBorderMargin">ItemBorderMargin</a>.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.ItemBorderColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_ItemBorderColor">ItemBorderColor</a></h4>
-    <section><p><p>Gibt die Farbe des Rahmens um die Dash-Items an. 
-Diese Eigenschaft kann im Default-Control-Style 
+    <section><p><p>Gibt die Farbe des Rahmens um die Dash-Items an.
+Diese Eigenschaft kann im Default-Control-Style
 theme-spezifisch angegeben werden.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.ItemBorderMargin.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_ItemBorderMargin">ItemBorderMargin</a></h4>
-    <section><p><p>Gibt die Dicke des (transparenten) Randes für jedes Dash-Item an. 
-Dieser wird außerhalb des colorierten Rahmen angezeigt. 
+    <section><p><p>Gibt die Dicke des (transparenten) Randes für jedes Dash-Item an.
+Dieser wird außerhalb des colorierten Rahmen angezeigt.
 Der Standard-Wert ist <strong>2</strong>.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.ItemBorderThickness.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_ItemBorderThickness">ItemBorderThickness</a></h4>
-    <section><p><p>Gibt die Dicke des farbigen Rahmens um jedes Dash-Item an. 
-Zum Ausblenden des Rahmens kann der Wert <strong>0</strong> angegeben werden. 
+    <section><p><p>Gibt die Dicke des farbigen Rahmens um jedes Dash-Item an.
+Zum Ausblenden des Rahmens kann der Wert <strong>0</strong> angegeben werden.
 Der Standard-Wert ist <strong>3</strong>.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.ItemGap.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_ItemGap">ItemGap</a></h4>
-    <section><p><p>Gibt den horizontalen und vertikalen Abstand zwischen den Dash-Items an. 
-Dieser Abstand versteht sich zuzüglich zum <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.ItemBorderMargin.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_ItemBorderMargin">ItemBorderMargin</a>. 
+    <section><p><p>Gibt den horizontalen und vertikalen Abstand zwischen den Dash-Items an.
+Dieser Abstand versteht sich zuzüglich zum <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.ItemBorderMargin.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_ItemBorderMargin">ItemBorderMargin</a>.
 Standard-Wert und bisheriges Verhalten ist <strong>0</strong></p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.TabTemplateActive.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_TabTemplateActive">TabTemplateActive</a></h4>
@@ -246,42 +250,31 @@ Standard-Wert und bisheriges Verhalten ist <strong>0</strong></p>
     <section><p><p>Hier werden die Layout-Einstellungen der inaktiven Registerkarte vorgenommen.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.TooltipAddColumn.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_TooltipAddColumn">TooltipAddColumn</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.TooltipAddPage.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_TooltipAddPage">TooltipAddPage</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.TooltipCloseDashItem.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_TooltipCloseDashItem">TooltipCloseDashItem</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.TooltipClosePage.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_TooltipClosePage">TooltipClosePage</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.TooltipCollapseDashItem.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_TooltipCollapseDashItem">TooltipCollapseDashItem</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.TooltipExpandDashItem.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_TooltipExpandDashItem">TooltipExpandDashItem</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.TooltipMaximzeDashItem.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_TooltipMaximzeDashItem">TooltipMaximzeDashItem</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.TooltipMoveDashItem.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_TooltipMoveDashItem">TooltipMoveDashItem</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.TooltipRemoveColumn.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_TooltipRemoveColumn">TooltipRemoveColumn</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.TooltipRestoreDashItem.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_DashBoardContainerViewModel_TooltipRestoreDashItem">TooltipRestoreDashItem</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
   
   <h3 id="events">Events
   </h3>
   
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.DashBoardContainerViewModel.OnLayoutChanged.html">OnLayoutChanged</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
   
   <h3 id="seealso">See Also</h3>
   <div class="seealso">

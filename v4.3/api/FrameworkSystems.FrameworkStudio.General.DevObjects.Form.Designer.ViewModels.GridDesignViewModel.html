@@ -91,11 +91,15 @@ Die Properties und Events dieser Klasse werden im Form-Designer angeboten.</p>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ControlTreeNode.html">ControlTreeNode</a></div>
     <div class="level2"><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.html">ControlDesignViewModel</a></div>
     <div class="level3"><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ContainerDesignViewModel.html">ContainerDesignViewModel</a></div>
     <div class="level4"><span class="xref">GridDesignViewModel</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -197,7 +201,8 @@ Die Properties und Events dieser Klasse werden im Form-Designer angeboten.</p>
   <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkStudio.General.dll</h6>
   <h5 id="FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class GridDesignViewModel : ContainerDesignViewModel, INotifyPropertyChanged, IDisposable, INamedRecord</code></pre>
+    <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public class GridDesignViewModel : ContainerDesignViewModel, INotifyPropertyChanged, IDisposable, INamedRecord</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -212,15 +217,14 @@ angegeben ist, dann wird für alle Grid-Zeilen die BackColor verwendet</p>
 Es ist wichtig, dass Sie hier eine Collection angeben.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.GridColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_GridColor">GridColor</a></h4>
-    <section><p><p>!TODO Farbe der Tabellenteiler</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.GridRowHeight.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_GridRowHeight">GridRowHeight</a></h4>
     <section><p><p>Definiert die Höhe einer Zeile. Die Angabe erfolgt in Pixeln.
 Wenn kein Wert angegeben ist, dann berechnet der Client die
 Höhe der Zeile anhand der Schriftart.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.HeaderColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_HeaderColor">HeaderColor</a></h4>
-    <section><p><p>!TODO Gibt an, die Hintergrundfarbe der Tabellenüberschrift.</p>
+    <section><p><p>Gibt die Hintergrundfarbe der Tabellenüberschrift an.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.IsEditable.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_IsEditable">IsEditable</a></h4>
     <section><p><p>Gibt an, ob am Grid Daten geändert werden dürfen. Ist <strong>IsEditable</strong>
@@ -286,17 +290,17 @@ und bei Bedarf die Daten dynamisch nachlesen zu lassen.</p>
   </h3>
   
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnAppendNewRow.html">OnAppendNewRow</a></h4>
-    <section><p><p>Dieser Vorgang wird ausgelöst, wenn in der letzten Zeile im 
+    <section><p><p>Dieser Vorgang wird ausgelöst, wenn in der letzten Zeile im
 letzten editierbaren Feld die Tab-Taste gedrückt wird.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnCellDoubleClick.html">OnCellDoubleClick</a></h4>
     <section><p><p>Tritt auf, wenn doppelt in eine Gridzelle (nicht RowHeader und nicht ColumnHeader) geklickt
-wurde. Das Event Argument stellt Spaltennummer (<a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkCellDoubleClickEventArgs.ColNum.html#FrameworkSystems_FrameworkStudio_DevFormBase_EventTab_FrameworkCellDoubleClickEventArgs_ColNum">ColNum</a>) 
+wurde. Das Event Argument stellt Spaltennummer (<a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkCellDoubleClickEventArgs.ColNum.html#FrameworkSystems_FrameworkStudio_DevFormBase_EventTab_FrameworkCellDoubleClickEventArgs_ColNum">ColNum</a>)
 und Datensatznummer (<a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkDoubleClickEventArgs.RowID.html#FrameworkSystems_FrameworkStudio_DevFormBase_EventTab_FrameworkDoubleClickEventArgs_RowID">RowID</a>) zur Verfügung.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnColumnChanged.html">OnColumnChanged</a></h4>
-    <section><p><p>Wird ausgelöst, wenn sich der Inhalt einer Spalte geändert hat. 
-Sie können über das EventArg e.RowID das Objekt ermitteln, 
+    <section><p><p>Wird ausgelöst, wenn sich der Inhalt einer Spalte geändert hat.
+Sie können über das EventArg e.RowID das Objekt ermitteln,
 bei dem das Event aufgetreten ist.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnGridCornerClick.html">OnGridCornerClick</a></h4>
@@ -317,12 +321,11 @@ bei dem das Event aufgetreten ist.</p>
 aktualisiert.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnRowsReloadEntry.html">OnRowsReloadEntry</a></h4>
-    <section><p><p>Tritt auf, wenn Grid-Zeilen erstmalig an den Client übertragen werden, 
+    <section><p><p>Tritt auf, wenn Grid-Zeilen erstmalig an den Client übertragen werden,
 sowohl bei der initialien Übertragung als auch beim Nachladen von Zeilen.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnTableValidate.html">OnTableValidate</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
   
   <h3 id="seealso">See Also</h3>
   <div class="seealso">

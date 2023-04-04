@@ -90,14 +90,15 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><span class="xref">LicenseSerializer</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkBase.AccessControl.html">FrameworkSystems.FrameworkBase.AccessControl</a></h6>
   <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkBase.dll</h6>
   <h5 id="FrameworkSystems_FrameworkBase_AccessControl_LicenseSerializer_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class LicenseSerializer</code></pre>
+    <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public class LicenseSerializer</code></pre>
   </div>
   <h5 id="FrameworkSystems_FrameworkBase_AccessControl_LicenseSerializer_examples"><strong>Examples</strong></h5>
   <p>// Allgemeine Lizenz Informationen reinschreiben
@@ -122,8 +123,8 @@ VersionFrom = null,
 VersionTo = new Version(4, 3),
 CustomInfos = new Dictionary&lt;string, string&gt;
 {
-   { &quot;Key&quot;, &quot;Value&quot; },
-   { &quot;Base64Data&quot;, &quot;SGFsbG8gV2VsdA==&quot; },
+{ &quot;Key&quot;, &quot;Value&quot; },
+{ &quot;Base64Data&quot;, &quot;SGFsbG8gV2VsdA==&quot; },
 }
 });</p>
 <p>// Alle exklusiven AccessUnits mit ihren Ids hinzufügen

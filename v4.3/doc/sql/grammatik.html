@@ -90,6 +90,8 @@ FROM { &lt;singleSource&gt; | &lt;joinSource&gt; }
 [ GROUP BY &lt;value&gt;[,…n] [HAVING &lt;condition&gt;]]
 [ {UNION [ALL] | INTERSECT | EXCEPT} &lt;select(ohne orderby)&gt; ]
 [ ORDER BY &lt;orderColumn&gt;[,…n] ]
+[ OFFSET &lt;integerValue&gt; ]
+[ LIMIT &lt;integerValue&gt; ]
 </code></pre><h4 id="insert"><code>&lt;insert&gt;</code></h4>
 <pre><code class="lang-sql">INSERT INTO &lt;identifierChain&gt; ( &lt;identifier&gt;[,…n] )
 {

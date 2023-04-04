@@ -91,7 +91,7 @@
 <h4 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLKeyText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLKeyText(FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKey,System.Object[])">FormatMLKeyText(MLKey, Object[])</h4>
 <section>
   <div class="markdown level1 summary"><p>Gibt ein <a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.html">MLKeyText</a>-Objekt mit dem formatierten Text und dem MLKey zurück.
-Dabei wird ein <code>String.<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string.format#system-string-format(system-string-system-object())">Format(String, Object[])</a></code>
+Dabei wird ein <code>String.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string.format#system-string-format(system-string-system-object())">Format(String, Object[])</a></code>
 mit den übergebenen Argumenten ausgeführt.
 Für die Fomatierung der übergebenen Argumente wird die Client-Culture verwendet.</p>
 </div>
@@ -100,7 +100,8 @@ Für die Fomatierung der übergebenen Argumente wird die Client-Culture verwende
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">MLKeyText FormatMLKeyText(MLKey mlkey, params object[] args)</code></pre>
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+MLKeyText FormatMLKeyText(MLKey mlkey, params object[] args)</code></pre>
     </div>
   </section>
   <h5 class="parameters">Parameters</h5>
@@ -111,7 +112,7 @@ Für die Fomatierung der übergebenen Argumente wird die Client-Culture verwende
 </div>
     </div>
     <div class="propertyInfo">
-      <span class="parametername"><code>args</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>[]
+      <span class="parametername"><code>args</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a>[]
       <div class="markdown level1 summary"></div>
     </div>
   </section>
@@ -138,7 +139,7 @@ throw new FrameworkApplicationException(this.Global.FormatMLKeyText(MLKeys.MSG_2
 <h4 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLKeyText_System_IFormatProvider_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLKeyText(System.IFormatProvider,FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKey,System.Object[])">FormatMLKeyText(IFormatProvider, MLKey, Object[])</h4>
 <section>
   <div class="markdown level1 summary"><p>Gibt ein <a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.html">MLKeyText</a>-Objekt mit dem formatierten Text und dem MLKey zurück.
-Dabei wird ein <code>String.<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.string.format#system-string-format(system-string-system-object())">Format(String, Object[])</a></code>
+Dabei wird ein <code>String.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string.format#system-string-format(system-string-system-object())">Format(String, Object[])</a></code>
 mit den übergebenen Argumenten ausgeführt.
 Für die Fomatierung der übergebenen Argumente wird die übergebene Culture verwendet.</p>
 </div>
@@ -147,13 +148,14 @@ Für die Fomatierung der übergebenen Argumente wird die übergebene Culture ver
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">MLKeyText FormatMLKeyText(IFormatProvider culture, MLKey mlkey, params object[] args)</code></pre>
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+MLKeyText FormatMLKeyText(IFormatProvider culture, MLKey mlkey, params object[] args)</code></pre>
     </div>
   </section>
   <h5 class="parameters">Parameters</h5>
   <section>
     <div class="propertyInfo">
-      <span class="parametername"><code>culture</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a>
+      <span class="parametername"><code>culture</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a>
       <div class="markdown level1 summary"><p>Die zu verwendende Culture. Bei <code>null</code> erfolgt ein Fallback auf die Client-Culture</p>
 </div>
     </div>
@@ -163,7 +165,7 @@ Für die Fomatierung der übergebenen Argumente wird die übergebene Culture ver
 </div>
     </div>
     <div class="propertyInfo">
-      <span class="parametername"><code>args</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a>[]
+      <span class="parametername"><code>args</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a>[]
       <div class="markdown level1 summary"></div>
     </div>
   </section>

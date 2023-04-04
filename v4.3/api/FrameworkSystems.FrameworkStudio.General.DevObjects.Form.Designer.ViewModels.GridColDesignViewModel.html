@@ -91,10 +91,14 @@ Die Properties und Events dieser Klasse werden im Form-Designer angeboten.</p>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ControlTreeNode.html">ControlTreeNode</a></div>
     <div class="level2"><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.html">ControlDesignViewModel</a></div>
     <div class="level3"><span class="xref">GridColDesignViewModel</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -193,13 +197,14 @@ Die Properties und Events dieser Klasse werden im Form-Designer angeboten.</p>
   <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkStudio.General.dll</h6>
   <h5 id="FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridColDesignViewModel_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class GridColDesignViewModel : ControlDesignViewModel, INotifyPropertyChanged, IDisposable, INamedRecord</code></pre>
+    <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public class GridColDesignViewModel : ControlDesignViewModel, INotifyPropertyChanged, IDisposable, INamedRecord</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
   
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridColDesignViewModel.Caption.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridColDesignViewModel_Caption">Caption</a></h4>
-    <section><p><p>Gibt das Label der Spalte in den definierten Sprachen an. 
+    <section><p><p>Gibt das Label der Spalte in den definierten Sprachen an.
 Die Caption wird über das Property ermittelt und kann überschrieben werden.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridColDesignViewModel.DependsDataSourceOnRowData.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridColDesignViewModel_DependsDataSourceOnRowData">DependsDataSourceOnRowData</a></h4>
@@ -219,21 +224,18 @@ Einstellungen bei den Properties <a class="xref" href="FrameworkSystems.Framewor
 werden.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridColDesignViewModel.EditStyle.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridColDesignViewModel_EditStyle">EditStyle</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridColDesignViewModel.Format.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridColDesignViewModel_Format">Format</a></h4>
     <section><p><p>Eingabedatentyp. Wird hier ein Format angegeben, lassen die Felder nur die Eingabe von Zeichen zu, die diesem Format entsprechen.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridColDesignViewModel.FormatPattern.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridColDesignViewModel_FormatPattern">FormatPattern</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridColDesignViewModel.List.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridColDesignViewModel_List">List</a></h4>
-    <section><p><p>Macht nur Sinn, wenn als EditorStyle Combobox ausgewählt ist. Gibt den Datasource an, aus 
+    <section><p><p>Macht nur Sinn, wenn als EditorStyle Combobox ausgewählt ist. Gibt den Datasource an, aus
 welchem die Daten für die Liste gezogen werden sollen (analog zur <a href="../doc/form/control/combobox.html">Combobox</a>).</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridColDesignViewModel.MaxDropDownSize.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridColDesignViewModel_MaxDropDownSize">MaxDropDownSize</a></h4>
-    <section><p><p>!TODO
-Gibt an, die maximale Höre der DropDown-Listes.</p>
+    <section><p><p>Gibt die maximale Höre der DropDown-Listes an.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridColDesignViewModel.MaxWidth.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridColDesignViewModel_MaxWidth">MaxWidth</a></h4>
     <section><p><p>Maximale Breite der Column in Pixel.</p>
@@ -248,10 +250,9 @@ repräsentiert, verbunden durch einen Unterstrich <strong>_</strong>. Heißt das
 Column lngCustomerID z.B. grdCustomer_lngCustomerID heißen. (<strong>schreibgeschützt</strong>)</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridColDesignViewModel.Property.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridColDesignViewModel_Property">Property</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridColDesignViewModel.TextAlign.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridColDesignViewModel_TextAlign">TextAlign</a></h4>
-    <section><p><p>Gibt an, wie der Text in der Column ausgerichtet werden soll (links, rechts oder zentriert). 
+    <section><p><p>Gibt an, wie der Text in der Column ausgerichtet werden soll (links, rechts oder zentriert).
 Ist DatatypeDefault angegeben, werden Zahlen und Daten rechts und Text links ausgerichtet.</p>
 </p></section>
   
@@ -259,15 +260,14 @@ Ist DatatypeDefault angegeben, werden Zahlen und Daten rechts und Text links aus
   </h3>
   
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridColDesignViewModel.OnCellValidate.html">OnCellValidate</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridColDesignViewModel.OnEditingStarting.html">OnEditingStarting</a></h4>
-    <section><p><p>Dieses Ereignis wird ausgelöst, sobald eine Zelle vom Nutzer bearbeitet wird. 
+    <section><p><p>Dieses Ereignis wird ausgelöst, sobald eine Zelle vom Nutzer bearbeitet wird.
 Bei der Verarbeitung dieses Events dürfen keine Dialoge geöffnet werden.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridColDesignViewModel.OnEditingStopped.html">OnEditingStopped</a></h4>
-    <section><p><p>Dieses Ereignis ist das Gegenstück zu OnEditingStarting. Es tritt auf, 
-wenn der Benutzer die Bearbeitung einer Zelle beendet. Auch hier sollten 
+    <section><p><p>Dieses Ereignis ist das Gegenstück zu OnEditingStarting. Es tritt auf,
+wenn der Benutzer die Bearbeitung einer Zelle beendet. Auch hier sollten
 keine Dialoge geöffnet werden.</p>
 </p></section>
   

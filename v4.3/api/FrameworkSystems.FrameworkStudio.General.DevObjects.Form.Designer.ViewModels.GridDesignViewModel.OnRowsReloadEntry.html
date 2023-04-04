@@ -85,7 +85,7 @@
 
 <h1 id="FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_OnRowsReloadEntry" data-uid="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnRowsReloadEntry" class="text-break">Event OnRowsReloadEntry
 </h1>
-<div class="markdown level0 summary"><p>Tritt auf, wenn Grid-Zeilen erstmalig an den Client übertragen werden, 
+<div class="markdown level0 summary"><p>Tritt auf, wenn Grid-Zeilen erstmalig an den Client übertragen werden,
 sowohl bei der initialien Übertragung als auch beim Nachladen von Zeilen.</p>
 </div>
 <div class="markdown level0 conceptual"></div>
@@ -93,7 +93,8 @@ sowohl bei der initialien Übertragung als auch beim Nachladen von Zeilen.</p>
 <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkStudio.General.dll</h6>
 <h5 id="FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_OnRowsReloadEntry_syntax">Syntax</h5>
 <div class="codewrapper">
-  <pre><code class="lang-csharp hljs">public event EventHandler&lt;FrameworkOnReloadEventArgs&gt; OnRowsReloadEntry</code></pre>
+  <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public event EventHandler&lt;FrameworkOnReloadEventArgs&gt; OnRowsReloadEntry</code></pre>
 </div>
 <h5 class="returns">Returns</h5>
 <table class="table table-bordered table-striped table-condensed">
@@ -105,7 +106,7 @@ sowohl bei der initialien Übertragung als auch beim Nachladen von Zeilen.</p>
   </thead>
   <tbody>
     <tr>
-      <td><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkOnReloadEventArgs.html">FrameworkOnReloadEventArgs</a>&gt;</td>
+      <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventhandler-1">EventHandler</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkOnReloadEventArgs.html">FrameworkOnReloadEventArgs</a>&gt;</td>
       <td></td>
     </tr>
   </tbody>
@@ -114,10 +115,10 @@ sowohl bei der initialien Übertragung als auch beim Nachladen von Zeilen.</p>
 <div class="markdown level0 remarks"><p>Das Event Argument stellt zwei Listen zur Verfügung:</p>
 <ol>
 <li><strong><a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkOnReloadEventArgs.RowList.html#FrameworkSystems_FrameworkStudio_DevFormBase_EventTab_FrameworkOnReloadEventArgs_RowList">RowList</a>:</strong> Diese Liste enthält die Zeilennummern der betroffenen Datensätze.</li>
-<li><strong><a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkOnReloadEventArgs.RowIDList.html#FrameworkSystems_FrameworkStudio_DevFormBase_EventTab_FrameworkOnReloadEventArgs_RowIDList">RowIDList</a>:</strong> Diese Liste enthält die ObjectRowIDs der betroffenen Datensätze. Mit diesen 
+<li><strong><a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkOnReloadEventArgs.RowIDList.html#FrameworkSystems_FrameworkStudio_DevFormBase_EventTab_FrameworkOnReloadEventArgs_RowIDList">RowIDList</a>:</strong> Diese Liste enthält die ObjectRowIDs der betroffenen Datensätze. Mit diesen
 kann der Datensatz direkt aus der Collection ermittelt werden (oMyColl[rowID]).</li>
 </ol>
-<div class="WARNING"><h5>Warning</h5><p>In diesem Event dürfen keine Daten manipuliert werden! Es eignet sich insbesondere 
+<div class="WARNING"><h5>Warning</h5><p>In diesem Event dürfen keine Daten manipuliert werden! Es eignet sich insbesondere
 für die Färbung oder das Deaktivieren von Gridzellen, abhängig von den dargestellten Daten.</p>
 </div>
 </div>

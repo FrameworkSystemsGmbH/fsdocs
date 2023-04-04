@@ -99,7 +99,9 @@ Der Typ TColl muss für Objekte vom Typ TObj definiert sein.</p>
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">TColl ToCollection&lt;TColl&gt;()
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+TColl ToCollection&lt;TColl&gt;()
+
     where TColl : IDevFrameworkObjectColl, IDevFrameworkDataColl</code></pre>
     </div>
   </section>
@@ -141,14 +143,16 @@ Der Typ TColl muss für Objekte vom Typ TObj definiert sein.</p>
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">TColl ToCollection&lt;TColl&gt;(Func&lt;IDevFrameworkObject, bool&gt; where)
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+TColl ToCollection&lt;TColl&gt;(Func&lt;IDevFrameworkObject, bool&gt; where)
+
     where TColl : IDevFrameworkObjectColl, IDevFrameworkDataColl</code></pre>
     </div>
   </section>
   <h5 class="parameters">Parameters</h5>
   <section>
     <div class="propertyInfo">
-      <span class="parametername"><code>where</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.html">IDevFrameworkObject</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;
+      <span class="parametername"><code>where</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.html">IDevFrameworkObject</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;
       <div class="markdown level1 summary"></div>
     </div>
   </section>
@@ -190,14 +194,16 @@ Der Typ TColl muss für Objekte vom Typ TObj definiert sein.</p>
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">TColl ToCollection&lt;TColl&gt;(Func&lt;IEnumerable&lt;IDevFrameworkObject&gt;, IEnumerable&lt;IDevFrameworkObject&gt;&gt; orderBy)
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+TColl ToCollection&lt;TColl&gt;(Func&lt;IEnumerable&lt;IDevFrameworkObject&gt;, IEnumerable&lt;IDevFrameworkObject&gt;&gt; orderBy)
+
     where TColl : IDevFrameworkObjectColl, IDevFrameworkDataColl</code></pre>
     </div>
   </section>
   <h5 class="parameters">Parameters</h5>
   <section>
     <div class="propertyInfo">
-      <span class="parametername"><code>orderBy</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.html">IDevFrameworkObject</a>&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.html">IDevFrameworkObject</a>&gt;&gt;
+      <span class="parametername"><code>orderBy</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.html">IDevFrameworkObject</a>&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.html">IDevFrameworkObject</a>&gt;&gt;
       <div class="markdown level1 summary"></div>
     </div>
   </section>
@@ -240,18 +246,20 @@ Der Typ TColl muss für Objekte vom Typ TObj definiert sein.</p>
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">TColl ToCollection&lt;TColl&gt;(Func&lt;IDevFrameworkObject, bool&gt; where, Func&lt;IEnumerable&lt;IDevFrameworkObject&gt;, IEnumerable&lt;IDevFrameworkObject&gt;&gt; orderBy)
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+TColl ToCollection&lt;TColl&gt;(Func&lt;IDevFrameworkObject, bool&gt; where, Func&lt;IEnumerable&lt;IDevFrameworkObject&gt;, IEnumerable&lt;IDevFrameworkObject&gt;&gt; orderBy)
+
     where TColl : IDevFrameworkObjectColl, IDevFrameworkDataColl</code></pre>
     </div>
   </section>
   <h5 class="parameters">Parameters</h5>
   <section>
     <div class="propertyInfo">
-      <span class="parametername"><code>where</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.html">IDevFrameworkObject</a>, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;
+      <span class="parametername"><code>where</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.html">IDevFrameworkObject</a>, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;
       <div class="markdown level1 summary"></div>
     </div>
     <div class="propertyInfo">
-      <span class="parametername"><code>orderBy</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.html">IDevFrameworkObject</a>&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.html">IDevFrameworkObject</a>&gt;&gt;
+      <span class="parametername"><code>orderBy</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.html">IDevFrameworkObject</a>&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;<a class="xref" href="FrameworkSystems.FrameworkBase.IDevFrameworkObject.html">IDevFrameworkObject</a>&gt;&gt;
       <div class="markdown level1 summary"></div>
     </div>
   </section>

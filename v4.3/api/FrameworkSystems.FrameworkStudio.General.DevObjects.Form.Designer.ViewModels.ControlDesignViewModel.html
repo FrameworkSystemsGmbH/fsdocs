@@ -85,12 +85,11 @@
   
   <h1 id="FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel" data-uid="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel" class="text-break">Class ControlDesignViewModel
   </h1>
-  <div class="markdown level0 summary"><p>TODO</p>
-</div>
+  <div class="markdown level0 summary"></div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ControlTreeNode.html">ControlTreeNode</a></div>
     <div class="level2"><span class="xref">ControlDesignViewModel</span></div>
       <div class="level3"><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.BrowserDesignViewModel.html">BrowserDesignViewModel</a></div>
@@ -108,6 +107,10 @@
       <div class="level3"><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.RadioButtonDesignViewModel.html">RadioButtonDesignViewModel</a></div>
       <div class="level3"><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.TemplateControlDesignViewModel.html">TemplateControlDesignViewModel</a></div>
   </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
+  </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
     <div>
@@ -118,7 +121,8 @@
   <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkStudio.General.dll</h6>
   <h5 id="FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public abstract class ControlDesignViewModel : ControlTreeNode, INotifyPropertyChanged, IDisposable, INamedRecord</code></pre>
+    <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public abstract class ControlDesignViewModel : ControlTreeNode, INotifyPropertyChanged, IDisposable, INamedRecord</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -128,7 +132,7 @@
 Standardwerte sind <a class="xref" href="FrameworkSystems.FrameworkBase.HorizontalAlignment.html#FrameworkSystems_FrameworkBase_HorizontalAlignment_Stretch">Stretch</a> und <a class="xref" href="FrameworkSystems.FrameworkBase.VerticalAlignment.html#FrameworkSystems_FrameworkBase_VerticalAlignment_Stretch">Stretch</a></p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.BackColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_BackColor">BackColor</a></h4>
-    <section><p><p>Gibt die Hintergrund-Farbe des Controls an. Über den Alpha-Kanal 
+    <section><p><p>Gibt die Hintergrund-Farbe des Controls an. Über den Alpha-Kanal
 (Transparenz-Wert) der Farbe kann die Transparenz des Controls gesteuert werden.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.BorderColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_BorderColor">BorderColor</a></h4>
@@ -141,14 +145,14 @@ werden.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.BorderThickness.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_BorderThickness">BorderThickness</a></h4>
     <section><p><p>Gibt die Dicke des Rands um das Control herum an.Der Rand wird in die Größe des Controls
-hineingerechnet.Die Unter-Eigenschaften <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Left.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Left">Left</a>, <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Top.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Top">Top</a>, 
+hineingerechnet.Die Unter-Eigenschaften <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Left.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Left">Left</a>, <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Top.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Top">Top</a>,
 <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Right.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Right">Right</a> und <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Bottom.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Bottom">Bottom</a> können getrennt
 voneinander angegeben oder überschrieben werden.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.Caption.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_Caption">Caption</a></h4>
-    <section><p><p>Gibt eine mehrsprachige Beschriftung des Controls an. Je nach Control wird diese entweder 
-selber vom Control angezeigt (z.B. Button, ImageButton, Label) oder es wird durch das 
-[FieldPanel](!TODO LINK) ein Label mit dieser Beschriftung generiert (z.B. Editfield, Combobox).</p>
+    <section><p><p>Gibt eine mehrsprachige Beschriftung des Controls an. Je nach Control wird diese entweder
+selber vom Control angezeigt (z.B. Button, ImageButton, Label) oder es wird durch das
+FieldPanel ein Label mit dieser Beschriftung generiert (z.B. Editfield, Combobox).</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.ControlEvents.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_ControlEvents">ControlEvents</a></h4>
     <section><p><p>Dieses Property dient dazu, den Editor für die Events anzuzeigen.
@@ -163,10 +167,10 @@ Es selber selber keinen relevanten Wert. (siehe <a href="../doc/form/control/eve
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.Font.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_Font">Font</a></h4>
     <section><p><p>Hier kann die Schrift des Controls eingestellt werden. Die Unter-Properties
-<strong>Family</strong>, <strong>Size</strong>, <strong>Bold</strong>, <strong>Italic</strong> und <strong>Underline</strong> können jeweils 
+<strong>Family</strong>, <strong>Size</strong>, <strong>Bold</strong>, <strong>Italic</strong> und <strong>Underline</strong> können jeweils
 getrennt voneinander überschrieben werden.</p>
-<p>Die <strong>Size</strong> definiert, wieviel Pixel Platz die Schrift insgesamt bei einer 
-Skalierung von 100% verbraucht.Somit ergibt sich aus Summe der Size und den 
+<p>Die <strong>Size</strong> definiert, wieviel Pixel Platz die Schrift insgesamt bei einer
+Skalierung von 100% verbraucht.Somit ergibt sich aus Summe der Size und den
 Properties Padding, BorderThickness und Margin die tatsächliche Höhe des Controls.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.ForeColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_ForeColor">ForeColor</a></h4>
@@ -174,7 +178,7 @@ Properties Padding, BorderThickness und Margin die tatsächliche Höhe des Contr
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.FullTextSearch.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_FullTextSearch">FullTextSearch</a></h4>
     <section><p><p>Unter den folgenden Bedingungen: FullTextSearch und IsSearchField aktiviert und SearchOperator ist &apos;Like&apos;
-wird für das Control in die automatisch generierte Load-Condition ein zusätzlicher %-Wildcard vor das Control hinzugefügt 
+wird für das Control in die automatisch generierte Load-Condition ein zusätzlicher %-Wildcard vor das Control hinzugefügt
 und somit eine FullText Suche aktiviert. Generierter Code Beispiel: ((&quot;like&quot;, &quot;%&quot; + form.Control + &quot;%&quot;)</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.HideInDocumentation.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_HideInDocumentation">HideInDocumentation</a></h4>
@@ -189,26 +193,26 @@ und somit eine FullText Suche aktiviert. Generierter Code Beispiel: ((&quot;like
 (siehe <a href="../doc/form/control/is-visible-editable-au.html">IsVisibleAU/IsEditableAU</a>)</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.IsSearchField.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_IsSearchField">IsSearchField</a></h4>
-    <section><p><p>Soll sich das Control in die automatisch generierte Load-Condition eintragen, 
-muss dieses Property auf True gesetzt werden. 
+    <section><p><p>Soll sich das Control in die automatisch generierte Load-Condition eintragen,
+muss dieses Property auf True gesetzt werden.
 (Siehe <a href="../doc/form/control/erzeugen-suchdialogs-property.html">Erzeugen eines Suchdialogs durch Property-Funktionalität</a>.)</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.IsVisibleAU.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_IsVisibleAU">IsVisibleAU</a></h4>
-    <section><p><p>Das IsVisible Property wird je nach AccessUnits eingeschränkt. 
+    <section><p><p>Das IsVisible Property wird je nach AccessUnits eingeschränkt.
 (siehe <a href="../doc/form/control/is-visible-editable-au.html">IsVisibleAU/IsEditableAU</a>)</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.LabelTemplate.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_LabelTemplate">LabelTemplate</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.Margin.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_Margin">Margin</a></h4>
     <section><p><p>Gibt den äußeren Rand um das Control herum an. Der Margin wird nicht in die Größe des Controls
-hineingerechnet. Die Unter-Eigenschaften <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Left.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Left">Left</a>, <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Top.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Top">Top</a>, 
+hineingerechnet. Die Unter-Eigenschaften <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Left.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Left">Left</a>, <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Top.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Top">Top</a>,
 <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Right.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Right">Right</a> und <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Bottom.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Bottom">Bottom</a> können getrennt
 voneinander angegeben oder überschrieben werden.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.MaxSize.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_MaxSize">MaxSize</a></h4>
-    <section><p><p>Gibt die maximale Größe des Controls an. Die Größe des Controls zählt 
-immer inklusive Padding und Border aber exklusive Margin. Die beiden 
-Unter-Eigenschaften <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.NonableSize.Width.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_NonableSize_Width">Width</a> und <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.NonableSize.Height.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_NonableSize_Height">Height</a> können getrennt voneinander 
+    <section><p><p>Gibt die maximale Größe des Controls an. Die Größe des Controls zählt
+immer inklusive Padding und Border aber exklusive Margin. Die beiden
+Unter-Eigenschaften <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.NonableSize.Width.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_NonableSize_Width">Width</a> und <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.NonableSize.Height.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_NonableSize_Height">Height</a> können getrennt voneinander
 angegeben oder überschrieben werden.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.MinSize.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_MinSize">MinSize</a></h4>
@@ -218,7 +222,7 @@ getrennt voneinander angegeben oder überschrieben werden.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.Padding.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_Padding">Padding</a></h4>
     <section><p><p>Gibt den inneren Rand des Controls – also den Abstand des Control-Inhalts zur Border an.Die
-Unter-Eigenschaften <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Left.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Left">Left</a>, <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Top.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Top">Top</a>, 
+Unter-Eigenschaften <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Left.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Left">Left</a>, <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Top.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Top">Top</a>,
 <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Right.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Right">Right</a> und <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Controls.Bounds.Bottom.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Controls_Bounds_Bottom">Bottom</a> können getrennt voneinander angegeben
 oder überschrieben werden.</p>
 </p></section>
@@ -228,12 +232,12 @@ oder überschrieben werden.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.TabStop.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_TabStop">TabStop</a></h4>
     <section><p><p>Wenn dieses Property den Wert <code>true</code> besitzt, wird das Steuerelement bei der
-Fokustraversierung mittels Tastatur erfasst. Ist es auf <code>false</code>, so wird 
+Fokustraversierung mittels Tastatur erfasst. Ist es auf <code>false</code>, so wird
 das Steuerelement bei der Tab-Reihenfolge überspringen.</p>
 <p>Der Standardwert für die Eigenschaft ist <code>true</code>.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.TooltipText.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_TooltipText">TooltipText</a></h4>
-    <section><p><p>Verweilt ein Benutzer eine kurze Zeit mit dem Mauszeiger auf dem Control, 
+    <section><p><p>Verweilt ein Benutzer eine kurze Zeit mit dem Mauszeiger auf dem Control,
 wird der Tooltip angezeigt. Der Tooltip kann mehrsprachig hinterlegt werden.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.Visibility.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_Visibility">Visibility</a></h4>
@@ -245,16 +249,14 @@ wird der Tooltip angezeigt. Der Tooltip kann mehrsprachig hinterlegt werden.</p>
   </h3>
   
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.OnCanDrop.html">OnCanDrop</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.OnDrag.html">OnDrag</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.OnEnter.html">OnEnter</a></h4>
     <section><p><p>Wird beim setzen des Fokus auf ein Control ausgelöst.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.OnLeave.html">OnLeave</a></h4>
-    <section><p><p>Wird beim Entfernen des Fokus von einem Control ausgelöst. Wenn sich der Wert des Controls 
+    <section><p><p>Wird beim Entfernen des Fokus von einem Control ausgelöst. Wenn sich der Wert des Controls
 geändert hat, wird vor diesem Event das Event <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.EditboxDesignViewModel.OnValidated.html">OnValidated</a> ausgelöst.</p>
 </p></section>
   

@@ -96,7 +96,8 @@ Methoden dürfen nur aus dem Thread des übergebenen GlobalObjects heraus aufger
   <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkBase.dll</h6>
   <h5 id="FrameworkSystems_FrameworkBase_IStaticCache_2_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public interface IStaticCache&lt;TObj, TPK&gt; : IEnumerable&lt;TObj&gt;, IEnumerable where TObj : IDevFrameworkObject</code></pre>
+    <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public interface IStaticCache&lt;TObj, TPK&gt; : IEnumerable&lt;TObj&gt;, IEnumerable where TObj : IDevFrameworkObject</code></pre>
   </div>
   <h5 class="typeParameters">Type Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -114,7 +115,7 @@ Methoden dürfen nur aus dem Thread des übergebenen GlobalObjects heraus aufger
       </tr>
       <tr>
         <td><span class="parametername">TPK</span></td>
-        <td><p>Typ des/der Primärschlüssel-Properties. Bei mehreren Properties <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.valuetuple">ValueTuple</a> der Properties in alphabetischer Reihenfolge.</p>
+        <td><p>Typ des/der Primärschlüssel-Properties. Bei mehreren Properties <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.valuetuple">ValueTuple</a> der Properties in alphabetischer Reihenfolge.</p>
 </td>
       </tr>
     </tbody>

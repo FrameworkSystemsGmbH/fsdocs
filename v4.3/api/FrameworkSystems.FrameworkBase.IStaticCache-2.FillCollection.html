@@ -100,7 +100,9 @@ Die Methode gibt die Anzahl der Datensätze zurück.</p>
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">int FillCollection&lt;TColl&gt;(TColl value)
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+int FillCollection&lt;TColl&gt;(TColl value)
+
     where TColl : IDevFrameworkObjectColl, IDevFrameworkDataColl</code></pre>
     </div>
   </section>
@@ -115,7 +117,7 @@ Die Methode gibt die Anzahl der Datensätze zurück.</p>
     <h5 class="returns">Returns</h5>
     <section>
       <div class="propertyInfo">
-        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>
         <div class="markdown level1 summary"></div>
       </div>
     </section>
@@ -151,7 +153,9 @@ Die Methode gibt die Anzahl der Datensätze zurück.</p>
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">int FillCollection&lt;TColl&gt;(TColl value, Func&lt;TObj, bool&gt; where)
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+int FillCollection&lt;TColl&gt;(TColl value, Func&lt;TObj, bool&gt; where)
+
     where TColl : IDevFrameworkObjectColl, IDevFrameworkDataColl</code></pre>
     </div>
   </section>
@@ -162,7 +166,7 @@ Die Methode gibt die Anzahl der Datensätze zurück.</p>
       <div class="markdown level1 summary"></div>
     </div>
     <div class="propertyInfo">
-      <span class="parametername"><code>where</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TObj, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;
+      <span class="parametername"><code>where</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TObj, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;
       <div class="markdown level1 summary"></div>
     </div>
   </section>
@@ -170,7 +174,7 @@ Die Methode gibt die Anzahl der Datensätze zurück.</p>
     <h5 class="returns">Returns</h5>
     <section>
       <div class="propertyInfo">
-        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>
         <div class="markdown level1 summary"></div>
       </div>
     </section>
@@ -206,7 +210,9 @@ Die Methode gibt die Anzahl der Datensätze zurück.</p>
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">int FillCollection&lt;TColl&gt;(TColl value, Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&gt;&gt; orderBy)
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+int FillCollection&lt;TColl&gt;(TColl value, Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&gt;&gt; orderBy)
+
     where TColl : IDevFrameworkObjectColl, IDevFrameworkDataColl</code></pre>
     </div>
   </section>
@@ -217,7 +223,7 @@ Die Methode gibt die Anzahl der Datensätze zurück.</p>
       <div class="markdown level1 summary"></div>
     </div>
     <div class="propertyInfo">
-      <span class="parametername"><code>orderBy</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TObj&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TObj&gt;&gt;
+      <span class="parametername"><code>orderBy</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TObj&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TObj&gt;&gt;
       <div class="markdown level1 summary"></div>
     </div>
   </section>
@@ -225,7 +231,7 @@ Die Methode gibt die Anzahl der Datensätze zurück.</p>
     <h5 class="returns">Returns</h5>
     <section>
       <div class="propertyInfo">
-        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>
         <div class="markdown level1 summary"></div>
       </div>
     </section>
@@ -264,7 +270,9 @@ Die Methode gibt die Anzahl der Datensätze zurück.</p>
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">int FillCollection&lt;TColl&gt;(TColl value, Func&lt;TObj, bool&gt; where, Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&gt;&gt; orderBy)
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+int FillCollection&lt;TColl&gt;(TColl value, Func&lt;TObj, bool&gt; where, Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&gt;&gt; orderBy)
+
     where TColl : IDevFrameworkObjectColl, IDevFrameworkDataColl</code></pre>
     </div>
   </section>
@@ -275,11 +283,11 @@ Die Methode gibt die Anzahl der Datensätze zurück.</p>
       <div class="markdown level1 summary"></div>
     </div>
     <div class="propertyInfo">
-      <span class="parametername"><code>where</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TObj, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;
+      <span class="parametername"><code>where</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;TObj, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>&gt;
       <div class="markdown level1 summary"></div>
     </div>
     <div class="propertyInfo">
-      <span class="parametername"><code>orderBy</code></span> <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TObj&gt;, <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TObj&gt;&gt;
+      <span class="parametername"><code>orderBy</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.func-2">Func</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TObj&gt;, <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1">IEnumerable</a>&lt;TObj&gt;&gt;
       <div class="markdown level1 summary"></div>
     </div>
   </section>
@@ -287,7 +295,7 @@ Die Methode gibt die Anzahl der Datensätze zurück.</p>
     <h5 class="returns">Returns</h5>
     <section>
       <div class="propertyInfo">
-        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>
         <div class="markdown level1 summary"></div>
       </div>
     </section>

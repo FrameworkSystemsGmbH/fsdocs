@@ -91,10 +91,14 @@ Die Properties und Events dieser Klasse werden im Form-Designer angeboten.</p>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://docs.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
     <div class="level1"><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ControlTreeNode.html">ControlTreeNode</a></div>
     <div class="level2"><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.html">ControlDesignViewModel</a></div>
     <div class="level3"><span class="xref">EditboxDesignViewModel</span></div>
+  </div>
+  <div classs="implements">
+    <h5>Implements</h5>
+    <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
   </div>
   <div class="inheritedMembers">
     <h5>Inherited Members</h5>
@@ -196,7 +200,8 @@ Die Properties und Events dieser Klasse werden im Form-Designer angeboten.</p>
   <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkStudio.General.dll</h6>
   <h5 id="FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_EditboxDesignViewModel_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class EditboxDesignViewModel : ControlDesignViewModel, INotifyPropertyChanged, IDisposable, INamedRecord</code></pre>
+    <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public class EditboxDesignViewModel : ControlDesignViewModel, INotifyPropertyChanged, IDisposable, INamedRecord</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
@@ -208,23 +213,19 @@ Handelt es sich beim Datasource um ein schreibgeschütztes Property, wird das Pr
 Properties vom Typ String, Number (int, short, long...), Date, Boolean möglich.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.EditboxDesignViewModel.DisabledBackColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_EditboxDesignViewModel_DisabledBackColor">DisabledBackColor</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.EditboxDesignViewModel.Editor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_EditboxDesignViewModel_Editor">Editor</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.EditboxDesignViewModel.Format.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_EditboxDesignViewModel_Format">Format</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.EditboxDesignViewModel.FormatPattern.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_EditboxDesignViewModel_FormatPattern">FormatPattern</a></h4>
-    <section><p><p>!TODO</p>
-</p></section>
+    <section><p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.EditboxDesignViewModel.Multiline.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_EditboxDesignViewModel_Multiline">Multiline</a></h4>
-    <section><p><p>Gibt an, ob es sich bei dem Editfield um ein Multiline-Field handelt. 
+    <section><p><p>Gibt an, ob es sich bei dem Editfield um ein Multiline-Field handelt.
 Wenn ja, sind mehrzeilige Texteingaben und -anzeigen möglich.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.EditboxDesignViewModel.PasswordChar.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_EditboxDesignViewModel_PasswordChar">PasswordChar</a></h4>
-    <section><p><p>Hier kann ein Zeichen angegeben werden, das bei einer 
+    <section><p><p>Hier kann ein Zeichen angegeben werden, das bei einer
 Passworteingabe als Platzhalter angezeigt werden soll, z.B. *.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.EditboxDesignViewModel.ScrollBars.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_EditboxDesignViewModel_ScrollBars">ScrollBars</a></h4>
@@ -235,16 +236,16 @@ Diese Angabe macht nur Sinn, wenn es sich um ein Multiline-Field handelt.</p>
     <section><p><p>Die Endposition der Textauswahl</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.EditboxDesignViewModel.SelectionStart.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_EditboxDesignViewModel_SelectionStart">SelectionStart</a></h4>
-    <section><p><p>Die Startposition der Textauswahl </p>
+    <section><p><p>Die Startposition der Textauswahl</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.EditboxDesignViewModel.TextAlign.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_EditboxDesignViewModel_TextAlign">TextAlign</a></h4>
     <section><p><p>Gibt an, wie der Text im Editfield ausgerichtet sein soll.
 Bei <strong>Inherit</strong> wird die Angabe aus dem Default-Style gezogen.
-Bei DatatypeDefault werden Strings links und Datum und 
+Bei DatatypeDefault werden Strings links und Datum und
 Nummern rechts ausgerichtet.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.EditboxDesignViewModel.WordWrap.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_EditboxDesignViewModel_WordWrap">WordWrap</a></h4>
-    <section><p><p>Gibt an, ob der automatische Zeilenumbruch aktiviert werden soll. 
+    <section><p><p>Gibt an, ob der automatische Zeilenumbruch aktiviert werden soll.
 Diese Angabe macht nur Sinn, wenn es sich um ein Multiline-Field handelt.</p>
 </p></section>
   
@@ -252,8 +253,8 @@ Diese Angabe macht nur Sinn, wenn es sich um ein Multiline-Field handelt.</p>
   </h3>
   
     <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.EditboxDesignViewModel.OnValidated.html">OnValidated</a></h4>
-    <section><p><p>Tritt ein, wenn der Fokus von dem Editfeld genommen wird und der Wert geändert wurde. 
-Nach diesem Event wird das OnLeave Event mit Parameter 
+    <section><p><p>Tritt ein, wenn der Fokus von dem Editfeld genommen wird und der Wert geändert wurde.
+Nach diesem Event wird das OnLeave Event mit Parameter
 <strong><a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkOnLeaveEventArgs.HasValueChanged.html#FrameworkSystems_FrameworkStudio_DevFormBase_EventTab_FrameworkOnLeaveEventArgs_HasValueChanged">HasValueChanged</a></strong> = <code>true</code> ausgelöst.</p>
 </p></section>
   

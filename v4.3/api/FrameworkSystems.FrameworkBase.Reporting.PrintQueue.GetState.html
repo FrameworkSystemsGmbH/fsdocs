@@ -97,7 +97,8 @@
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">public static int GetState(IGlobalObjects global, guid printJobId)</code></pre>
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public static int GetState(IGlobalObjects global, guid printJobId)</code></pre>
     </div>
   </section>
   <h5 class="parameters">Parameters</h5>
@@ -116,7 +117,7 @@
     <h5 class="returns">Returns</h5>
     <section>
       <div class="propertyInfo">
-        <a class="xref" href="https://docs.microsoft.com/dotnet/api/system.int32">Int32</a>
+        <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>
         <div class="markdown level1 summary"><ul>
 <li>-1 = PrintJob not found</li>
 <li>0 = Transaktion ist offen. Es können weitere Druckaufträge zur Transaktion hinzugefügt werden.</li>

@@ -81,6 +81,48 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-45">Release-Information Framework Studio 4.5</h1>
 
+<h2 id="454-28042023">4.5.4 (28.04.2023)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.5.4_Setup_x64</li>
+<li>FS4.5.4_PrintService</li>
+<li>FS_4.5.4_Requirements_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="updates">Updates</h4>
+<ul>
+<li>DevExpress wurde auf Version 22.2.4 upgedated</li>
+</ul>
+<h4 id="requirements-anpassungen">Requirements Anpassungen</h4>
+<p>Der DevExpress Report Web-Designer benötigt keine ASP .NET Core Runtime 3.1 mehr.
+Von der Installations-Routine wird diese Runtime nicht mehr geprüft und sie wurde aus dem Requirements-Paket entfernt.
+Mit dem Update von DevExpress Web-Designers auf .net 6 haben wir diesen so umgestellt, dass die benötige Runtime bereits enhalten ist (Self Contained).</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2023022324 - <strong>JavaClient / Broker</strong>: Wird beim Anlegen einer Dynamischen
+  Grid-Spalte - z.B. über das Client Side Customizing - eine Combobox-Liste
+  definiert, dann führt das zu Exceptions und das Form öffnet sich nicht mehr.</p>
+</li>
+<li><p>2023032398 - <strong>Print-Service</strong>: Wird ein DevExpress-Report in einen Ordner
+  &quot;gedruckt&quot;, dann wird die PDF-Datei in einen Unterordner gepackt. Zudem wird
+  aus dem Dateinamen die Endung &quot;.repx&quot; nicht entfernt.<br>
+  Beispiel:
+  <em>152939_NV.ERP.MM.Sales.rptSalesDocument\DeliveryNote.repx_293bb716065a42d59e08b5eaf50a30be.pdf</em><br>
+  Richtig wäre: <em>152939_DeliveryNote_293bb716065a42d59e08b5eaf50a30be.pdf</em>.</p>
+</li>
+<li><p>2023032535 - <strong>Code-Generierung</strong>: Es wird die FSWarn1004-Error-Message
+  ausgegeben, nach welcher Primary-Key Spalten nicht länger als 28 Zeichen
+  sein dürfen. Die DB-Spalte selbst ist jedoch nicht als Primary-Key
+  gekennzeichnet.</p>
+</li>
+<li><p>2023032619 - <strong>DevExpress</strong>: Der Word Druck eines Reports wirft eine
+  Exception, wenn Felder sich überschneiden. Auch im RichText Format kann es
+  zu Darstellungsfehlern kommen.</p>
+</li>
+<li><p>2023042680 - <strong>DevExpress</strong>: Im Designer wird beim Copy&amp;Paste eines
+  bestehenden Labels der Textinhalt nicht übertragen.</p>
+</li>
+</ul>
 <h2 id="453-31032023">4.5.3 (31.03.2023)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -91,7 +133,7 @@
 <ul>
 <li>Am GridView gibt es ein neues Event <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IGridView.EntriesSortedOrFiltered.html">EntriesSortedOrFiltered</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023032382 - <strong>Broker</strong>: Wird eine Gridspalte mit &quot;LIKE&quot; gefiltert, werden
   ggf. keine Treffer gefunden, wenn sich der gesuchte Begriff in einem
@@ -132,7 +174,7 @@ Das entspricht Chromium 108.</p>
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
 <h4 id="neuer-html-client">Neuer HTML Client</h4>
 <p>Der HTML Client wurde auf Angular 15.1 upgedated. Neue Features oder Bugfixes gibt es nicht.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023022188 - <strong>Broker</strong>: Clientside Report Customizing (DevExpress)
   funktioniert nicht mit Applikationen, die mit einem Runtime-Repository
@@ -155,7 +197,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>FS_4.5.1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023011937 - <strong>JavaClient</strong>: Die Jar-Dateien für das neue Browser-Control sind
   nicht signiert. Deshalb ist ein Start der Anwendung über Java-Webstart nicht
@@ -211,7 +253,7 @@ Weitere Informationen finden sie <a href="release-4-4.html#abkündigung-des-msi-
 <li>Oracle.ManagedDataAccess 19.13 -&gt; 21.8</li>
 <li>HtmlAgilityPack 1.11.4 -&gt; 1.11.46</li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <p>In der Version 4.5 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-4.html#4413-23122022">Framework Studio 4.4.13</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

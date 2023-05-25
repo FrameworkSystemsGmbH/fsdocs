@@ -112,6 +112,38 @@ Sie können diesen Namen im Textfeld <strong>Name</strong> ändern.
 Im nicht editierbaren Textfeld <strong>Relative Path</strong> wird der Pfad relativ zum Brokerverzeichnis angezeigt, unter dem die Datei letztendlich angelegt wird.
 Der Pfad ergibt sich aus dem Namespace, in dem die Ressource angelegt wurde (<a href="#bedeutung-von-namespaces-für-ressourcen">Bedeutung von Namespaces für Ressourcen</a>) und dem Namen der Ressource.</p>
 <p>Erläuterungen zu den Standardfunktionen, die im Designer-Fenster für Ressourcen angeboten werden, finden Sie unter <a href="../ide/allgemeine-funktionalitaeten.html">Allgemeine Funktionalitäten</a>.</p>
+<h2 id="encoding">Encoding</h2>
+<p>Text-Resourcen können mit einem Encoding versehen werden. </p>
+<p>Folgende Encodings stehen zur Auswahl bereit:</p>
+<ul>
+<li>UTF8</li>
+<li>UTF8 BOM</li>
+<li>UTF16 BE BOM</li>
+<li>UTF16 LE BOM</li>
+<li>Windows (ISO-8859-1)</li>
+<li>&quot;Leer&quot;</li>
+</ul>
+<p>Das Standard-Encoding für neue leere Text-Resourcen ist UTF8.
+Das &quot;leere&quot; Encoding bedeutet, dass das Encoding zurückgesetzt und neu ermittelt wird.</p>
+<p>Die bereits bestehenden Text-Resourcen bleiben in Framework Studio unberührt.
+Sobald Sie Änderungen vornehmen, wird das Encoding abgespeichert.</p>
+<p>Am Fettdruck des Encodings kann erkennt werden, dass der Wert neu gesetzt wurde.</p>
+<p>Wir empfeheln Ihnen keine Änderungen in Framework Studio an Resourcen vorzunehmen, bei welchen bspw. Sonderzeichen oder <code>äöü</code> nicht korrekt angezeigt werden.
+Sollte Sie eine neue Resource mit einem nicht unterstützten Encoding hinzufügen und anschließend in Framework Studio bearbeiten wollen, empfehlen wir Ihnen die Datei in einem entsprechenden Editor zu konvertieren und erst danach in Framework Studio zu importieren.</p>
+<h3 id="erkennung-des-encodings-und-konvertierung">Erkennung des Encodings und Konvertierung</h3>
+<p><img src="media/encoding.PNG" alt="Encoding Oberfläche"></p>
+<p>Beim Öffnen einer Text-Resource wird das Encoding ermittelt.
+Mit diesem Encoding wird die Datei angezeigt, bearbeitet und anschließend auch in der Datenbank gespeichert. </p>
+<p>Mit der Encoding-Combobox können Sie das Encoding ändern.
+Die Datei wird dann automatisch in das ausgewählte Encoding konvertiert.</p>
+<h3 id="byte-order-mark">Byte order mark</h3>
+<p>Als Byte Order Mark wird eine charakteristische Bytefolge am Anfang eines Datenstroms bezeichnet, die ein spezielles Unicode-Zeichen kodiert.
+Diese Bytefolge dient als Kennung zur Definition der Byte-Reihenfolge und Kodierungsform in Textdateien. </p>
+<div class="NOTE"><h5>Note</h5><p>Die UTF-8-Kodierung des BOM besteht bspw. aus der Bytesequenz <code>EF BB BF</code>, die in nicht UTF-8-fähigen Texteditoren und Browsern meist als ISO-8859-1-Zeichen <code>ï»¿</code> erscheinen.
+Sollten Sie ein solches oder ein anderes invalides (z.B. �) Zeichen in einer Textdatei sehen, deutet dies auf eine Bearbeitung mit falschem Encoding hin.
+Wir empfehlen in einem solchen Fall Dateien nicht in FS zu bearbeiten, sondern in einem speziellen Hex-Editor.</p>
+</div>
+<p>Werden unbekannte Zeichen angezeigt, kann es ggf. helfen das byte order mark in einem Hex-Editor zu entfernen und die Datei anschließend wieder in Framework Studio zu importieren.</p>
 </article>
           </div>
           

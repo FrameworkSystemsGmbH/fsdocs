@@ -81,6 +81,91 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-45">Release-Information Framework Studio 4.5</h1>
 
+<h2 id="455-26052023">4.5.5 (26.05.2023)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.5.5_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Für Text-Resourcen steht die Auswahl eines Encoding bereit.
+Das Encoding wird bei neu hinzugefügten Resourcen und auch bei bereits bestehenden automatisch ermittelt.
+Bei bestehenden Resourcen wird jedoch erst bei einer Bearbeitung das Encoding abgespeichert.
+Eine Konvertierung in ein anderes Encoding kann in beiden Fällen vorgenommen werden.
+Mehr Informationen zum Funktionsumfang findet sich <a href="../doc/resources/resources.html#encoding">hier</a>.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2023042824 - <strong>Broker</strong>: Eine Listbox oder Combobox verwendet als
+  Listen-Datasource eine Collection. Werden aus dieser Collection Records
+  entfernt, dann werden die entsprechenden Einträge nicht aus dem Controls
+  entfernt.</p>
+</li>
+<li><p>2023042844 - <strong>IDE</strong>: In einem customizten Report Document Type kann für einen
+  Basis-Report eine neue Datei importiert werden. Wählt man in der
+  Dateiauswahl eine Datei mit abweichendem Namen aus, dann wird eine Rückfrage
+  angezeigt, ob der Report-Name geändert werden soll. Das Ändern des Namens
+  ist im Customizing jedoch gar nicht möglich.</p>
+</li>
+<li><p>2023052888 - <strong>IDE</strong>: Die Rename-Aktion für Namespaces ist aktiv, auch wenn
+  ein Rename nicht ausgeführt werden darf.</p>
+</li>
+<li><p>2023052947 - <strong>IDE</strong>: Für eine Component werden bei der Dependency-Suche
+  Component-Properties ermittelt, obwohl diese aufgrund eines
+  Datenbank-Mapping einen ganz anderen Datentyp als die Component besitzen.
+  Grund dafür sind ungültige Repository-Daten. Diese haben ansonsten bei der
+  normalen Arbeit keine Auswirkung.</p>
+</li>
+<li><p>2023052863 - <strong>DevExpress</strong>: Bei einem neu angelgeten
+  SQL-Server-Entwicklungs-Repository erhält die Sql-Server-Rolle
+  FrameworkBrokerRole keinen Zugriff auf die Tabelle tblRep_ReportDesign.
+  Dadurch kann es in der Anwendung bei Verwendung des DevExpress
+  Report-Web-Designers zu folgendem SQL-Fehler kommen:<br>
+  <em>The INSERT permission was denied on the object &#39;tblRep_ReportDesign&#39;</em></p>
+<div class="NOTE"><h5>Note</h5><p>Neue Repositories werden in Zukunft richtig angelegt. Bestehende
+Repositories werden nicht automtisch korrigiert. Mit dem folgenden Script
+können fehlerhafte Repositories bei Bedarf manuell korrigiert werden.<br>
+<code>GRANT SELECT, UPDATE, INSERT, DELETE ON tblRep_ReportDesign TO
+FrameworkBrokerRole;</code></p>
+</div>
+</li>
+<li><p>2023052900 - <strong>DevExpress</strong>: Werden im Report-Designer mehrere Felder auf
+  einmal in den Report gezogen, dann erstellt der Designer automatisch eine
+  Tabelle. Zieht man diese Felder mit der rechten Maustaste in den Report,
+  dann sollte er dieselbe Tabelle allerdings mit Beschriftungen der jeweiligen
+  Felder anlegen. Die Tabelle ist jedoch komplett leer.<br>
+  Vergleiche auch
+  <a href="https://docs.devexpress.com/XtraReports/120025/detailed-guide-to-devexpress-reporting/use-report-controls/use-tables/bind-table-cells-to-data">https://docs.devexpress.com/XtraReports/120025/detailed-guide-to-devexpress-reporting/use-report-controls/use-tables/bind-table-cells-to-data</a></p>
+</li>
+<li><p>2023052932 - <strong>DevExpress</strong>: (Verbesserung) Ein Foldmark-Control kann jetzt
+  auch in einem Sub-Report platziert werden. Die Falzmarken werden dabei auf
+  allen Seiten des Haupt-Reports platziert - unabhängig davon, an welcher
+  Position der Sub-Report platziert ist.</p>
+</li>
+<li><p>2023052942 - <strong>DevExpress</strong>: Calculated Fields und Expressions mit
+  Aggregate-Funktionen greifen nicht über unser Rptx-Interface auf die
+  Instanzen zu sondern über die Klasse. Dadurch arbeitet der Report mit
+  falschen Typen und es kann zu inhaltlichen Fehlern kommen. So werden z.B.
+  Bilder nicht angezeigt, weil DevExpress mit dem FS-Typ FSbyteArray nichts
+  anfangen kann.</p>
+<p>  Ticket bei Dev-Express:<br>
+  <a href="https://supportcenter.devexpress.com/ticket/details/t1165586/aggregate-expression-uses-class-properties-instead-of-explicit-interface-implementation">https://supportcenter.devexpress.com/ticket/details/t1165586/aggregate-expression-uses-class-properties-instead-of-explicit-interface-implementation</a></p>
+<div class="NOTE"><h5>Note</h5><p>Da es keine Korrektur von DevExpress geben wird (siehe Ticket) haben wir
+einen anderen Weg gefunden und legen eine &quot;Hülle&quot; um unsere Objekte.<br>
+Sollte es dabei wieder Erwarten zu Problemen beim Druck von Reports kommen,
+dann kann diese mit einem Comfig-Schalter deaktiviert weden. Dazu ergänzen
+Sie im Broker in der web.config bitte den folgenden Key:</p>
+<p><code>&lt;add key=&quot;RptxDatasourceWrapper&quot; value=&quot;disable&quot; /&gt;</code></p>
+<p>Dabei beachten Sie bitte folgendes:</p>
+<ul>
+<li>Das Ändern der web.config setzt den kompletten Broker zurück.</li>
+<li>Nach einem Publish geht die Anpassung verloren.</li>
+<li>Melden Sie das bitte unbedingt beim Support.</li>
+</ul>
+</div>
+</li>
+</ul>
 <h2 id="454-28042023">4.5.4 (28.04.2023)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -97,7 +182,7 @@
 <p>Der DevExpress Report Web-Designer benötigt keine ASP .NET Core Runtime 3.1 mehr.
 Von der Installations-Routine wird diese Runtime nicht mehr geprüft und sie wurde aus dem Requirements-Paket entfernt.
 Mit dem Update von DevExpress Web-Designers auf .net 6 haben wir diesen so umgestellt, dass die benötige Runtime bereits enhalten ist (Self Contained).</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023022324 - <strong>JavaClient / Broker</strong>: Wird beim Anlegen einer Dynamischen
   Grid-Spalte - z.B. über das Client Side Customizing - eine Combobox-Liste
@@ -129,11 +214,11 @@ Mit dem Update von DevExpress Web-Designers auf .net 6 haben wir diesen so umges
 <li>FS_4.5.3_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <ul>
 <li>Am GridView gibt es ein neues Event <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IGridView.EntriesSortedOrFiltered.html">EntriesSortedOrFiltered</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023032382 - <strong>Broker</strong>: Wird eine Gridspalte mit &quot;LIKE&quot; gefiltert, werden
   ggf. keine Treffer gefunden, wenn sich der gesuchte Begriff in einem
@@ -174,7 +259,7 @@ Das entspricht Chromium 108.</p>
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
 <h4 id="neuer-html-client">Neuer HTML Client</h4>
 <p>Der HTML Client wurde auf Angular 15.1 upgedated. Neue Features oder Bugfixes gibt es nicht.</p>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023022188 - <strong>Broker</strong>: Clientside Report Customizing (DevExpress)
   funktioniert nicht mit Applikationen, die mit einem Runtime-Repository
@@ -197,7 +282,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>FS_4.5.1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023011937 - <strong>JavaClient</strong>: Die Jar-Dateien für das neue Browser-Control sind
   nicht signiert. Deshalb ist ein Start der Anwendung über Java-Webstart nicht
@@ -253,7 +338,7 @@ Weitere Informationen finden sie <a href="release-4-4.html#abkündigung-des-msi-
 <li>Oracle.ManagedDataAccess 19.13 -&gt; 21.8</li>
 <li>HtmlAgilityPack 1.11.4 -&gt; 1.11.46</li>
 </ul>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <p>In der Version 4.5 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-4.html#4413-23122022">Framework Studio 4.4.13</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

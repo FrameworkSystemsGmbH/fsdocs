@@ -174,28 +174,6 @@ FrameworkBrokerRole;</code></p>
   allen Seiten des Haupt-Reports platziert - unabhängig davon, an welcher
   Position der Sub-Report platziert ist.</p>
 </li>
-<li><p>2023052942 - <strong>DevExpress</strong>: Calculated Fields und Expressions mit
-  Aggregate-Funktionen greifen nicht über unser Rptx-Interface auf die
-  Instanzen zu sondern über die Klasse. Dadurch arbeitet der Report mit
-  falschen Typen und es kann zu inhaltlichen Fehlern kommen. So werden z.B.
-  Bilder nicht angezeigt, weil DevExpress mit dem FS-Typ FSbyteArray nichts
-  anfangen kann.</p>
-<p>  Ticket bei Dev-Express:<br>
-  <a href="https://supportcenter.devexpress.com/ticket/details/t1165586/aggregate-expression-uses-class-properties-instead-of-explicit-interface-implementation">https://supportcenter.devexpress.com/ticket/details/t1165586/aggregate-expression-uses-class-properties-instead-of-explicit-interface-implementation</a></p>
-<div class="NOTE"><h5>Note</h5><p>Da es keine Korrektur von DevExpress geben wird (siehe Ticket) haben wir
-einen anderen Weg gefunden und legen eine &quot;Hülle&quot; um unsere Objekte.<br>
-Sollte es dabei wieder Erwarten zu Problemen beim Druck von Reports kommen,
-dann kann diese mit einem Comfig-Schalter deaktiviert weden. Dazu ergänzen
-Sie im Broker in der web.config bitte den folgenden Key:</p>
-<p><code>&lt;add key=&quot;RptxDatasourceWrapper&quot; value=&quot;disable&quot; /&gt;</code></p>
-<p>Dabei beachten Sie bitte folgendes:</p>
-<ul>
-<li>Das Ändern der web.config setzt den kompletten Broker zurück.</li>
-<li>Nach einem Publish geht die Anpassung verloren.</li>
-<li>Melden Sie das bitte unbedingt beim Support.</li>
-</ul>
-</div>
-</li>
 </ul>
 <h2 id="454-28042023">4.5.4 (28.04.2023)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>

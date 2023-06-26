@@ -101,6 +101,7 @@ Der Typ TColl muss für Objekte vom Typ TObj definiert sein.</p>
     <div class="codewrapper">
       <pre><code class="lang-csharp hljs">[DocfxBrowsable]
 TColl ToCollection&lt;TColl&gt;()
+
     where TColl : IDevFrameworkObjectColl, IDevFrameworkDataColl</code></pre>
     </div>
   </section>
@@ -144,6 +145,7 @@ Der Typ TColl muss für Objekte vom Typ TObj definiert sein.</p>
     <div class="codewrapper">
       <pre><code class="lang-csharp hljs">[DocfxBrowsable]
 TColl ToCollection&lt;TColl&gt;(Func&lt;TObj, bool&gt; where)
+
     where TColl : IDevFrameworkObjectColl, IDevFrameworkDataColl</code></pre>
     </div>
   </section>
@@ -194,6 +196,7 @@ Der Typ TColl muss für Objekte vom Typ TObj definiert sein.</p>
     <div class="codewrapper">
       <pre><code class="lang-csharp hljs">[DocfxBrowsable]
 TColl ToCollection&lt;TColl&gt;(Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&gt;&gt; orderBy)
+
     where TColl : IDevFrameworkObjectColl, IDevFrameworkDataColl</code></pre>
     </div>
   </section>
@@ -245,6 +248,7 @@ Der Typ TColl muss für Objekte vom Typ TObj definiert sein.</p>
     <div class="codewrapper">
       <pre><code class="lang-csharp hljs">[DocfxBrowsable]
 TColl ToCollection&lt;TColl&gt;(Func&lt;TObj, bool&gt; where, Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&gt;&gt; orderBy)
+
     where TColl : IDevFrameworkObjectColl, IDevFrameworkDataColl</code></pre>
     </div>
   </section>

@@ -160,8 +160,8 @@ Der Einsatz dieses Features ist in Framework-Studio empfehlenswert:</p>
 <h2 id="fremdsprachen-im-customizing-package">Fremdsprachen im Customizing-Package</h2>
 <p>Sprachen werden jetzt an der <a href="../doc/package-manager/package-version.html#register-languages">Package-Version</a> organisiert und können somit in Customizing-Packages ergänzt werden.</p>
 <h2 id="code-messages-überarbeitet">Code-Messages überarbeitet</h2>
-<p>Die vom Exception- und MessageBox-Wizard generierten <a href="../doc/code-editor/code-messages.html">Code-Messages</a> wurden überarbeitet.</p>
-<p><img src="../doc/code-editor/media/code-messages-example.png" alt="Code-Messages"></p>
+<p>Die vom Exception- und MessageBox-Wizard generierten <a href="../doc/editors/editor-cs-code-messages.html">Code-Messages</a> wurden überarbeitet.</p>
+<p><img src="../doc/editors/media/code-messages-example.png" alt="Code-Messages"></p>
 <p>Das bisherige Konstrukt mit <code>#region</code> wurde durch eine Variante mit einem einfachen eingefärbten Kommentar <code>// FSCodeMessage:</code> ersetzt. Das macht den Quellcode kompakter und leserlicher – ohne extra aufklappen zu müssen.</p>
 <p>Der XML-Teil, welcher bisher die Informationen für die Wizard-Dialoge beinhaltet hat, entfällt. In der Vergangenheit konnte es sein, dass die XML-Informationen vom Code abwichen. Der Wizard hat dann den Code ignoriert und einfach ersetzt. Dadurch konnten wichtige Infos – wie z.B. ein MessageBox EventHandler – verloren gehen. Die Informationen werden jetzt aus dem Code geparsed. Kann (z.B. aufgrund von manuellen Anpassungen) der Code nicht geparsed werden, kann er nicht mehr durch den Wizard bearbeitet werden.</p>
 <p>Die Code-Messages können einen <a href="../doc/mlkey/woerterbuch.html">MLKey aus dem Wörterbuch</a> verwenden. Die bisherige Variante mit TextCollection-Einträgen soll nach und nach durch die MLKeys ersetzt werden und so die ctMessage-TextCollections auslaufen.</p>

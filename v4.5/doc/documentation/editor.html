@@ -271,8 +271,11 @@ Nach der Auswahl einer Dokumentation, wird die Caption(falls verfügbar) der aus
 <p>Erstellt an der Curser-Position im Editor ein line-Tag. Dieses generiert in der Dokumentation eine schwarze Linie über die gesamte Seitenbreite mit anschließendem Zeilenumbruch.</p>
 <h2 id="zeilenumbruch">Zeilenumbruch</h2>
 <p>Das br-Tag ist sicherlich das am häufigsten verwendete Tag in einer Dokumentation in DocML. Es wäre sehr umständlich, wenn jedes Mal, wenn ein Zeilenumbruch in der Dokumentation eingefügt werden soll, ein Button in der Werkzeugleiste geklickt werden müsste. Dies würde den Schreibfluss mit der Tastatur erheblich behindern.</p>
-<p>Um ein br-Tag (<code>[br/]</code>) an der Cursorposition einzufügen, muss im Editor nur &lt;STRG + Enter&gt; gedrückt werden. Es wird ein br-Tag eingefügt und automatisch in die nächste Zeile gesprungen.</p>
+<p>Um ein br-Tag (<code>[br/]</code>) an der Cursorposition einzufügen, muss im Editor nur &lt;ALT + Enter&gt; gedrückt werden. Es wird ein br-Tag eingefügt und automatisch in die nächste Zeile gesprungen.</p>
 <p><img src="media/editor-zeilenumbruch.png" alt="editor-zeilenumbruch"></p>
+<h2 id="einfügen-mit-zeilenumbruch">Einfügen mit Zeilenumbruch</h2>
+<p>Teilweise wird mehrzeiliger Text von außerhalb des Editors eingefügt. Wenn dies über das normale Einfügen mit &lt;STRG + V&gt; stattfindet, so werden die Zeilenumbruche anschließend im DocML ignoriert, da diese dort durch <code>[br/]</code>-Tags repräsentiert werden.</p>
+<p>Über das Kontextmenü kann jedoch die Aktion <code>Paste &amp; Format</code> ausgelöst werden. Eine Alternative bietet der Shortcut <code>SHIFT + STRG + V</code>. Dies hat zur Folge, dass für jeden Zeilenumbruch im eingefügten Text automatisch ein <code>[br/]</code>-Tag hinzugefügt wird.</p>
 <h2 id="text-markieren">Text markieren</h2>
 <p>Alle Formatierungsfunktionen des Editors wie z.B. Fettschrift oder Ausrichtung des Textes funktionieren ähnlich wie in einem WYSIWYG-Editor. Es wird Text markiert und dann die gewünschte Formatierungsoption aufgerufen. Der Unterschied des DocML-Editors ist allerdings, dass sich im markierten Text auch DocML-Tags befinden können, wie folgendes Beispiel zeigt:</p>
 <p><img src="media/editor-text-markieren.png" alt="editor-text-markieren"></p>

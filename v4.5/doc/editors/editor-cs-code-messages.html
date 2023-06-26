@@ -81,11 +81,11 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="code-messages">Code-Messages</h1>
 
-<p>Wenn Sie eine Methode eines Forms bearbeiten, stehen Ihnen Editoren zum komfortablen Erstellen und Bearbeiten von mehrsprachigen Ausnahmen (Exceptions) und Meldungen (Message-Boxen) zur Verfügung. Diese können Sie über die Buttons <img src="media/button-exception-editor.png" alt="btn Exception">  <strong>Exception Editor Wizard</strong> und  <img src="media/button-messagebox-editor.png" alt="btn MessageBox"> <strong>Message Box Editor Wizard</strong> aufrufen.</p>
-<p>Wenn Sie eine Textcollection ändern, indem Sie beispielsweise einen neuen Eintrag erzeugen oder einen bestehenden Eintrag ändern, dann muss die Textcollection dazu in der aktuellen Version für Sie ausgecheckt werden. Benutzen Sie dazu den Button <strong>Edit Message</strong>. Andere Benutzer können nun die Textcollection nicht bearbeiten. Beim Verlassen des <strong>Message Box Editors</strong> bzw. <strong>Exception Editors</strong> wird die Textcollection automatisch wieder eingecheckt, so dass auch andere Benutzer wieder auf die Textcollection zugreifen können.</p>
-<p>Beide Editoren weisen nur sehr geringfügige Unterschiede auf.</p>
-<p><img src="media/messagebox-editor.png" alt="MessageBox Editor">
-<img src="media/exception-editor.png" alt="Exception Editor"></p>
+<p>Wenn Sie eine Methode eines Forms bearbeiten, stehen Ihnen Editoren zum komfortablen Erstellen und Bearbeiten von mehrsprachigen Ausnahmen (Exceptions) und Meldungen (Message-Boxen) zur Verfügung. Diese können Sie über die Buttons <img src="media/button-exception-editor.png" alt="btn Exception"> <strong>Exception Editor Wizard</strong> und <img src="media/button-messagebox-editor.png" alt="btn MessageBox"> <strong>Message Box Editor Wizard</strong> aufrufen.</p>
+<p>Wenn Sie eine Textcollection ändern, indem Sie beispielsweise einen neuen Eintrag erzeugen oder einen bestehenden Eintrag ändern, dann muss die Textcollection dazu in der aktuellen Version für Sie ausgecheckt werden. Benutzen Sie dazu den Button <strong>Edit Message</strong>. Andere Benutzer können nun die Textcollection nicht bearbeiten. Beim Verlassen des <strong>Message Box Editors</strong> bzw. <strong>Exception Editors</strong> wird die Textcollection automatisch eingecheckt, so dass auch andere Benutzer wieder auf die Textcollection zugreifen können.</p>
+<p>Beide Editoren weisen bezogen auf die Oberfläche nur sehr geringfügige Unterschiede auf.</p>
+<p><img src="media/messagebox-editor.png" alt="MessageBox Editor"></p>
+<p><img src="media/exception-editor.png" alt="Exception Editor"></p>
 <h4 id="radiobutton-ml-key">Radiobutton <strong>ML Key</strong></h4>
 <p>Hier können sie einen <a href="../mlkey/woerterbuch.html">MLKey</a> angeben. Mit dem Auswahl-Button neben dem Textfeld öffnet sich der Dialog <a href="../mlkey/woerterbuch.html">Select ML Key</a>.</p>
 <p>Dies ist die Standard-Option. Neue Meldungen sollten immer über das Wörterbuch gezogen werden.</p>
@@ -171,7 +171,7 @@ MsgBox.Show(this.Global.FormatMLKeyText(MLKeys.MSG_9188180c5ac64a5384141b553eef8
 <p><img src="media/code-messages-example.png" alt="Examples"></p>
 <p>Um die Code-Message nachträglich zu ändern, setzen Sie den Fokus irgendwo in den generierten Code-Block und drücken erneut den entsprechenden Wizard-Button. Es öffnet sich wieder der Editor wie oben und die Daten der Code-Message werden angezeigt und können geändert werden.</p>
 <p>Bei Bedarf können auch einzelne Bestandteile wie z.B. der MLKey oder ein Enum-Wert direkt im Code geändert werden.</p>
-<div class="CAUTION"><h5>Caution</h5><p>Die Struktur des Code darf jedoch nicht geändert werden, weil dieser sonst für eine spätere Bearbeitung mit dem Editor nicht geparsed werden kann. Der Code darf nicht mehrzeilig sein.</p>
+<div class="CAUTION"><h5>Caution</h5><p>Die Struktur des Codes darf jedoch nicht geändert werden, weil dieser bei einer späteren Bearbeitung mit dem Editor nicht mehr geparsed werden kann. Der Code darf nicht mehrzeilig sein.</p>
 </div>
 </article>
           </div>

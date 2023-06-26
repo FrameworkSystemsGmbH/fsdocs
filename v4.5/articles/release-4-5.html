@@ -81,24 +81,90 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-45">Release-Information Framework Studio 4.5</h1>
 
-<h2 id="455-fix-1-01062023">4.5.5 Fix 1 (01.06.2023)</h2>
+<h2 id="456-30062023">4.5.6 (30.06.2023)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.5.5_Fix_1_Setup_x64</li>
+<li>FS_4.5.6_Fix_1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h3 id="updates">Updates</h3>
+<ul>
+<li><p>DevExpress wurde auf Version 22.2.6 upgedated</p>
+<p>Korrigierte Fehler von DevExpress:</p>
+<ul>
+<li><a href="https://supportcenter.devexpress.com/ticket/details/T1158851/end-user-report-designer-group-field-name-editor-does-not-use">DevExpress reagiert nicht bei Suche im Group Field Collection Editor bei Datenrekusion</a></li>
+</ul>
+</li>
+</ul>
+<h3 id="lange-identifier-unter-oracle">Lange Identifier unter Oracle</h3>
+<p>Die Prüfung der Länge von Identifiern wurde von 30 auf 128 Zeichen erweitert.
+Diese werden von Oracle ab Version 12.2 unterstützt.
+Die Compile-Warnung <a href="../doc/weitere-themen/fehlercodes-warnungen.html#fswarn2001">FSWarn[2001]</a> schlägt jetzt erst ab 129 Zeichen an.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Wenn die Oracle-Datenbank mit einem alten Kompatibilität-Modus kleiner als &quot;12.2&quot; betrieben wird, dann sind auch weiterhin nur 30 Zeichen zulässig.
+Das wird von Framework Studio aber <strong>nicht</strong> geprüft.
+Nähere Details dazu gibt es direkt bei <a href="https://docs.oracle.com/en/database/oracle/oracle-database/12.2/sqlrf/Database-Object-Names-and-Qualifiers.html">Oracle</a>.</p>
+</div>
+<h3 id="neue-code-editoren-auf-basis-von-monaco">Neue Code-Editoren auf Basis von Monaco</h3>
+<p><img src="media/code-editor.png" alt="Code Editor"></p>
+<p>Alle Code-Editoren in Framework Studio wurden technologisch auf den neuesten Stand gebracht. Alle C#-, DocML-, HTML-, CSS- und XML-Editoren basieren nun auf dem aus Visual Studio Code bekannten Monaco Editor. Ein Überblick über die neue Technologie befindet sich <a href="../doc/editors/index.html">hier</a>.</p>
+<p>Die wichtigste Neuerung ist hierbei der <a href="../doc/editors/index.html#editor-status">Editor-Status</a>, der durch verschiedene Hintergrundfarben unterschieden werden kann. Die vollständige Dokumentation dazu befindet sich <a href="../doc/editors/index.html#editor-status">hier</a>.</p>
+<h4 id="features">Features</h4>
+<p>Es gibt viele neue Features, die sprachunabhängig sind und somit alle Code-Editoren betreffen. Zusätzlich hat jede Programmiersprache ein eigenes Featureset im Editor.</p>
+<p>Wir empfehlen wärmstens, die neuen Features einmal zu sichten:</p>
+<ul>
+<li><a href="../doc/editors/features.html">Sprachunabhängige Features</a></li>
+<li><a href="../doc/editors/editor-cs.html">C# Editor</a></li>
+<li><a href="../doc/editors/editor-html.html">HTML Editor</a></li>
+<li><a href="../doc/editors/editor-css.html">CSS Editor</a></li>
+<li><a href="../doc/editors/editor-docml.html">DocML Editor</a></li>
+</ul>
+<h4 id="breaking-changes">Breaking Changes</h4>
+<p>Nachfolgend werden diejenigen Änderungen aufgelistet, die eine Verhaltensänderung zum bisherigen Vorgehen darstellen, oder auf Grund der neuen Technologie der Editoren nicht mehr möglich sind.</p>
+<p><strong>CheckOut</strong></p>
+<p>Es ist nicht mehr möglich, durch Tippen im Editor das zugehörige Element (Form, Component, usw.) auszuchecken. Aus diesem Grund wurde der <a href="#quick-checkout">Quick-CheckOut</a> implementiert.</p>
+<p><strong>Shortcuts</strong></p>
+<p>Der neue Editor bringt unzählige neue Shortcuts mit sich. Einige davon haben sich mit bestehenden Shortcuts im Framework Studio überschnitten. Dabei wurde die Priorität auf den Editor gelegt, sodass jemand, der sich im Visual Studio auskennt, sich auch sofort im Editor in Framework Studio zurecht findet.</p>
+<p>Eine Übersicht über alle Shortcuts befindet sich <a href="../doc/ide/shortcuts.html">hier</a>.</p>
+<p><strong>Keine Diagnostic in schreibgeschützten Editoren</strong></p>
+<p>In schreibgeschützten C#-Editoren mit dem Status <a href="../doc/editors/index.html#readonly">Readonly</a> oder <a href="../doc/editors/index.html#checkedin">CheckedIn</a> werden keine <a href="../doc/editors/editor-cs.html#diagnostics">Diagnostics</a> mehr angezeigt.</p>
+<p><strong>Go To Definition</strong></p>
+<p>Der Shortcut für <a href="../doc/editors/editor-cs.html#go-to-definition">Go To Definition</a> im C#-Editor wurde von <code>CTRL + DoubleClick</code> auf <code>CTRL + Click</code> geändert, um den Standard von Visual Studio und Visual Studio Code aufzugreifen.</p>
+<p><strong>Drag &amp; Drop von Code Snippets</strong></p>
+<p><a href="../doc/ide/tools-menu.html#code-snippets-editor">Code Snippets</a> sind nicht mehr über die ToolBox verfügbar und können ab jetzt ausschließlich über die IntelliSense mit <code>CTRL + J</code> in den Code eingefügt werden.</p>
+<p><strong>IntelliSense Icons</strong></p>
+<p>Die IntelliSense von Monaco bietet leider kein Icon für eine <code>C# Extension Method</code> an. Für Extension Methods wird demnach dasselbe Icon verwendet wie für normale Methoden.</p>
+<p><strong>Print</strong></p>
+<p>Die Möglichkeit, in einem Editor zu drucken wurde entfernt.</p>
+<h3 id="quick-checkout">Quick-CheckOut</h3>
+<p>Auf Grund der neuen Technologie für die Code-Editoren ist es nicht mehr möglich, ein Element (Form, Component, usw.) durch Tippen in einem Editor auszuchecken.
+Aus diesem Grund wurde das CheckOut-System für geöffnete Elemente angepasst.</p>
+<p>Es ist nun möglich, ein geöffnetes Element <strong>rückfragefrei</strong> auszuchecken.
+Dies geschieht wie üblich über das Menü <code>Source Control</code>, die Toolbar des Elements, oder jetzt auch mit den Shortcuts <code>CTRL + F10</code> und <code>CTRL + F11</code>.</p>
+<p><img src="media/quick-checkout.png" alt="Quick CheckOut"></p>
+<p>Beim CheckIn wird, wie bisher auch, jedesmal eine Rückfrage gestellt, ob das Element eingecheckt werden soll.</p>
+<p>Auch in modalen Dialogen wie z.B. dem <a href="../doc/form/control/listview.html#listview-template-editor">ListView Template Editor</a> oder dem <a href="../doc/documentation/editor.html#editor">DocML Editor</a> von Controls kann mit <code>CTRL + F10</code> <strong>rückfragefrei</strong> ausgecheckt werden.
+Dadurch wird vermieden, dass der Dialog zum Auschecken geschlossen werden muss.</p>
+<p>Beim Auschecken von Elementen über den Namespace Tree ist, wie bisher auch, eine Bestätigung des Vorgangs nötig.</p>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
+<li><p>2023053007 - <strong>Help-System</strong>: Durch Browser-Caching kann es vorkommen, dass
+  das angezeigte Kapitel nicht zur Auswahl im Kapitelbaum passt.</p>
+</li>
+<li><p>2023063205 - <strong>Code-Generierung</strong>: Component-Methoden mit optionalen
+  Parametern können bei der Generierung des Interface-Codes Exceptions
+  verursachen. Ein Compile ist dann nicht möglich.</p>
+</li>
 <li><p>2023053077 - <strong>DevExpress</strong>: Die zum letzten Patchday eingabaute &quot;Hülle&quot; um
   die DataSource-Objekte (Bug 2023052942) verursacht Probleme beim Einsatz von
   Scripting. Durch diese Hülle haben die Objekte nicht mehr den ursprünglichen
-  Typ. Darüber hinaus liefert in einem Calculated Field
-  OnGetValue-Script die Methode GetColumnValue() keine Werte mehr.</p>
+  Typ. Darüber hinaus liefert in einem Calculated Field OnGetValue-Script die
+  Methode GetColumnValue() keine Werte mehr.</p>
 <div class="NOTE"><h5>Note</h5><p>Die Anpassung wurde zurückgebaut und die Reporting-Schnittstelle verhält
 sich jetzt wieder wie zuvor. Die im Bug 2023052942 beschriebenen Probleme
 treten dadurch jetzt wieder auf.</p>
-<p>Wir arbeiten an einer Lösung für die Version 4.5, die vorraussichtlich zum nächsten Patchday
-ausgeliefert wird.</p>
+<p>Wir arbeiten an einer Lösung für die Version 4.5, die vorraussichtlich zum
+nächsten Patchday ausgeliefert wird. In der Version 4.4 wird es keine
+Korrektur mehr geben.</p>
 </div>
 <p>  <strong>Der ursprünglich mit Version 4.4.18 korrigiert Bug:</strong></p>
 <p>  <em>2023052942 - <strong>DevExpress</strong>:
@@ -176,14 +242,7 @@ FrameworkBrokerRole;</code></p>
 </li>
 </ul>
 <h2 id="454-28042023">4.5.4 (28.04.2023)</h2>
-<p>Die Auslieferung umfasst die folgenden Pakete:</p>
-<ul>
-<li>FS_4.5.4_Setup_x64</li>
-<li>FS4.5.4_PrintService</li>
-<li>FS_4.5.4_Requirements_x64</li>
-</ul>
-<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates">Updates</h4>
+<h4 id="updates-1">Updates</h4>
 <ul>
 <li>DevExpress wurde auf Version 22.2.4 upgedated</li>
 </ul>
@@ -191,32 +250,6 @@ FrameworkBrokerRole;</code></p>
 <p>Der DevExpress Report Web-Designer benötigt keine ASP .NET Core Runtime 3.1 mehr.
 Von der Installations-Routine wird diese Runtime nicht mehr geprüft und sie wurde aus dem Requirements-Paket entfernt.
 Mit dem Update von DevExpress Web-Designers auf .net 6 haben wir diesen so umgestellt, dass die benötige Runtime bereits enhalten ist (Self Contained).</p>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
-<ul>
-<li><p>2023022324 - <strong>JavaClient / Broker</strong>: Wird beim Anlegen einer Dynamischen
-  Grid-Spalte - z.B. über das Client Side Customizing - eine Combobox-Liste
-  definiert, dann führt das zu Exceptions und das Form öffnet sich nicht mehr.</p>
-</li>
-<li><p>2023032398 - <strong>Print-Service</strong>: Wird ein DevExpress-Report in einen Ordner
-  &quot;gedruckt&quot;, dann wird die PDF-Datei in einen Unterordner gepackt. Zudem wird
-  aus dem Dateinamen die Endung &quot;.repx&quot; nicht entfernt.<br>
-  Beispiel:
-  <em>152939_NV.ERP.MM.Sales.rptSalesDocument\DeliveryNote.repx_293bb716065a42d59e08b5eaf50a30be.pdf</em><br>
-  Richtig wäre: <em>152939_DeliveryNote_293bb716065a42d59e08b5eaf50a30be.pdf</em>.</p>
-</li>
-<li><p>2023032535 - <strong>Code-Generierung</strong>: Es wird die FSWarn1004-Error-Message
-  ausgegeben, nach welcher Primary-Key Spalten nicht länger als 28 Zeichen
-  sein dürfen. Die DB-Spalte selbst ist jedoch nicht als Primary-Key
-  gekennzeichnet.</p>
-</li>
-<li><p>2023032619 - <strong>DevExpress</strong>: Der Word Druck eines Reports wirft eine
-  Exception, wenn Felder sich überschneiden. Auch im RichText Format kann es
-  zu Darstellungsfehlern kommen.</p>
-</li>
-<li><p>2023042680 - <strong>DevExpress</strong>: Im Designer wird beim Copy&amp;Paste eines
-  bestehenden Labels der Textinhalt nicht übertragen.</p>
-</li>
-</ul>
 <h2 id="453-31032023">4.5.3 (31.03.2023)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -227,7 +260,7 @@ Mit dem Update von DevExpress Web-Designers auf .net 6 haben wir diesen so umges
 <ul>
 <li>Am GridView gibt es ein neues Event <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IGridView.EntriesSortedOrFiltered.html">EntriesSortedOrFiltered</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023032382 - <strong>Broker</strong>: Wird eine Gridspalte mit &quot;LIKE&quot; gefiltert, werden
   ggf. keine Treffer gefunden, wenn sich der gesuchte Begriff in einem
@@ -268,7 +301,7 @@ Das entspricht Chromium 108.</p>
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
 <h4 id="neuer-html-client">Neuer HTML Client</h4>
 <p>Der HTML Client wurde auf Angular 15.1 upgedated. Neue Features oder Bugfixes gibt es nicht.</p>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023022188 - <strong>Broker</strong>: Clientside Report Customizing (DevExpress)
   funktioniert nicht mit Applikationen, die mit einem Runtime-Repository
@@ -291,7 +324,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>FS_4.5.1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023011937 - <strong>JavaClient</strong>: Die Jar-Dateien für das neue Browser-Control sind
   nicht signiert. Deshalb ist ein Start der Anwendung über Java-Webstart nicht
@@ -347,7 +380,7 @@ Weitere Informationen finden sie <a href="release-4-4.html#abkündigung-des-msi-
 <li>Oracle.ManagedDataAccess 19.13 -&gt; 21.8</li>
 <li>HtmlAgilityPack 1.11.4 -&gt; 1.11.46</li>
 </ul>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <p>In der Version 4.5 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-4.html#4413-23122022">Framework Studio 4.4.13</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

@@ -94,14 +94,38 @@
 <h2 id="access-unit-treeview">Access Unit Treeview</h2>
 <p>Über den Menüpunkt <strong>Tools / Access Unit Treeview...</strong> kann das Fenster zum Bearbeiten der Access Unit Hierarchie aufgerufen werden. Siehe dazu <a href="../access-units/access-unit-hierarchie.html">Access Unit Hierarchie</a>.</p>
 <h2 id="code-snippets-editor">Code Snippets Editor</h2>
-<p>Der <strong>Code Snippets Editor</strong> ist ein hilfreiches Werkzeug, wenn Sie einen Code haben, der immer wieder auftaucht. Was für einen Code Sie im Endeffekt hinterlegen, bleibt dabei Ihnen überlassen. Es könnten z.B. Templates für die Dokumentation sein, Code-Strukturen oder Schleifenkonstrukte. Auch Methoden, die Sie laufend bei Vererbung benötigen, könnten hilfreich sein.</p>
-<p>Sie können die hinterlegten Code-Snippets im <strong>Code-Editor</strong> über die Tastenkombination <strong>&lt;Strg+J&gt;</strong> aufrufen. Es öffnet sich eine Listbox, über die Sie das gewünschte Snippet auswählen können. Auch über die Toolbox können die Snippets per Drag und Drop in den Code-Editor oder dem Comment-Editor gezogen werden.</p>
-<p>Die Code-Snippets werden im Repository an der aktuellen Package-Version gespeichert. Sie werden zusammen mit der Package-Version exportiert und so in das Ziel-Repository übertragen. Das ursprüngliche manuelle Exportieren und Importieren der Code-Snippets entfällt.</p>
-<p>Im Code-Snippet-Editor können die Code-Snippets für die aktuelle Package-Version bearbeitet werden.</p>
-<p>Zusätzlich werden die Code-Snippets aus den Basis-Packages zusammen mit dem Package-Namen angezeigt – sie sind readonly. Überschreiben können Sie ein Code-Snippet indem Sie im aktuellen Package ein weiteres Code-Snippet mit identischem Namen erstellen. In der Liste sind die Code-Snippets nach der Package-Hierarchie angeordnet, sodass Überschreibungen gut zu erkennen sind.</p>
+<p>Der <strong>Code Snippets Editor</strong> ist ein hilfreiches Werkzeug, wenn Sie wiederkehrenden Code haben.
+Welchen Code Sie hinterlegen, bleibt dabei Ihnen überlassen.
+Es können C#-Code-Strukturen oder Schleifenkonstrukte gespeichert werden.
+Auch Methoden, die Sie laufend bei Vererbung benötigen, könnten hilfreich sein.</p>
 <p><img src="media/edit-code-snippet.png" alt="edit-code-snippet.png"></p>
-<p><strong>Beispiel:</strong></p>
-<p>Das aktuelle Package hat FSDemoCustomize und FSDemo als Basis und dementsprechend werden auch die Code-Snippets dieser Packages angezeigt. In dem Code-Snippet Editor werden die Snippets folgendermaßen dargestellt:</p>
+<p>Sie können die hinterlegten Code Snippets im <strong>Code Editor</strong> über die Tastenkombination <strong>CTRL + J</strong> aufrufen.
+Es öffnet sich eine Listbox mit einer Preview (siehe Abbildung). </p>
+<p><img src="media/toolbox_codesnippet.png" alt="Code Snippet im Code Editor"></p>
+<p>Die Code Snippets werden im Repository an der aktuellen Package-Version gespeichert. Sie werden zusammen mit der Package-Version exportiert und so in das Ziel-Repository übertragen.</p>
+<p>Im Code Snippet-Editor können die Code Snippets für die aktuelle Package-Version bearbeitet werden.</p>
+<h3 id="code-snippets-editor-öffnen">Code Snippets Editor öffnen</h3>
+<p>Sie können den Editor über das Hauptmenü <em>Tools - Code Snippets Editor</em> öffnen, oder indem Sie im Code Editor den Shortcut <strong>CTRL + Shift + J</strong> ausführen. Auch über das Kontextmenü des CSharp-Code Editors können Sie den Snippet Editor öffnen.</p>
+<h3 id="code-snippets-anlegen">Code Snippets anlegen</h3>
+<p>Ein neues Code Snippet kann über den File-Button im Code Snippet Editor angelegt werden. In der Textbox <em>Name</em> kann der entsprechende Name für das Code Snippet eingetragen werden.</p>
+<p>Die Snippets können mit Parameter-Platzhaltern angelegt werden. Dies ermöglicht nach dem Einfügen des Code Snippets im C#-Editor das Springen mit der TAB-Taste durch die Parameter.</p>
+<p>Ein Parameter ist wie folgt zu definieren:</p>
+<pre><code class="lang-csharp">${1:name}
+</code></pre><div class="NOTE"><h5>Note</h5><p>Der erste Parameter muss mit einer <strong>1</strong> beginnen. Die Bezeichnung nach dem Doppelpunkt ist nicht zwingend notwendig, verbessert jedoch die Verständlichkeit. </p>
+</div>
+<h4 id="code-snippet-beispiel-foreach-schleife">Code Snippet Beispiel foreach-Schleife</h4>
+<p><img src="media/code-snippet.png" alt="Code Snippet"></p>
+<p>Sobald Sie das Code Snippet im Editor hinzufügen, werden die Parameter grau markiert. Die blaue Markierung zeigt die derzeitge Bearbeitung an. Mit der TAB-Taste können Sie zum nächsten Parameter springen.</p>
+<p><img src="media/placeholder-code-snippet-editor.PNG" alt="Code Snippet Platzhalter Parameter"></p>
+<h4 id="beispiel-für-mehrere-gleiche-parameter">Beispiel für mehrere gleiche Parameter</h4>
+<p>Sind an mehreren Stellen gleiche Variablen oder gleiche Werte einzutragen, so können Sie diese Parameter mit der gleichen Zahl definieren. Sobald Sie den ersten Parameter bearbeiten, wird mittels Multicursor der Wert an allen Stellen eingetragen.</p>
+<pre><code class="lang-csharp">if(${1:value} != null &amp;&amp; ${1:value}.Count &gt; 0){ 
+
+}
+</code></pre><h3 id="code-snippets-überschreiben">Code Snippets überschreiben</h3>
+<p>Es werden die Code Snippets aus den Basis-Packages zusammen mit dem Package-Namen angezeigt – sie sind readonly. Überschreiben können Sie ein Code Snippet indem Sie im aktuellen Package ein weiteres Code Snippet mit identischem Namen erstellen. In der Liste sind die Code Snippets nach der Package-Hierarchie angeordnet, sodass Überschreibungen gut zu erkennen sind.</p>
+<h3 id="beispiel-package-hierarchie-bei-code-snippets">Beispiel Package Hierarchie bei Code Snippets</h3>
+<p>Das aktuelle Package hat FSDemoCustomize und FSDemo als Basis. Deshalb werden auch die Code Snippets dieser beiden Packages angezeigt. Im Code Snippet Editor werden die Snippets in folgender Reihenfolge dargestellt:</p>
 <ul>
 <li><strong>Snippet1</strong></li>
 <li><strong><span style="color:gray">Snippet1  [FSDemoCustomize]</span></strong></li>
@@ -112,7 +136,7 @@
 <li><strong>Snippet4</strong></li>
 <li><strong><span style="color:gray">Snippet4  [FSDemo]</span></strong></li>
 </ul>
-<p>Von den im Code-Snippet-Editor angezeigten Einträgen <strong>gewinnt</strong> jeweils der erste. Die <strong><span style="color:gray">grauen</span></strong> Einträge werden im Intellisense und der Toolbox nicht angezeigt.</p>
+<p>Von den im CodeSnippet-Editor angezeigten CodeSnippets <strong>gewinnt</strong> jeweils das erste. Die <strong><span style="color:gray">grauen</span></strong> Einträge werden im Intellisense und der Toolbox nicht angezeigt.</p>
 <h2 id="checked-out-report">Checked Out Report</h2>
 <p>Im Menu <strong>Tools / Checked Out Report</strong> öffnet sich ein Report-Fenster.</p>
 <p><strong>Checked Out Records:</strong></p>

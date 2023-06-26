@@ -86,9 +86,9 @@ Diese Konflikte werden als Warnungen in den Quellcode generiert und beim Kompili
 <h2 id="warnings">Warnings</h2>
 <p>Die von Framework Studio erzeugten Warnungen sind mit Codes versehen. Diese Codes können Sie in den folgenden Abschnitten nachlesen.</p>
 <h3 id="fswarn2001">FSWarn[2001]</h3>
-<p>FSWarn[2003] The identifier &#39;{0}&#39; is too long for Oracle Database (maximum 30 characters)</p>
+<p>FSWarn[2003] The identifier &#39;{0}&#39; is too long for Oracle Database (maximum 128 characters)</p>
 <p>Es wurde ein Bezeichner verwendet, der zu lang für Oracle ist.</p>
-<p>In Oracle dürfen Bezeichner nicht länger als 30 Zeichen sein. Die folgenden Bezeichner werden überprüft:</p>
+<p>In Oracle dürfen Bezeichner nicht länger als 128 Zeichen sein. Die folgenden Bezeichner werden überprüft:</p>
 <ul>
 <li>Tabellen-Namen</li>
 <li>Index-Namen</li>
@@ -98,6 +98,10 @@ Diese Konflikte werden als Warnungen in den Quellcode generiert und beim Kompili
 </ul>
 <p>FS prüft bei der Code-Generierung ob es Bezeichner gibt, die länger als 30 Zeichen sind und produziert entsprechende Warnungen.</p>
 <p>Es sind keine Errors, denn es kann durchaus mal vorkommen, dass z.B. bestehende Datenstrukturen einer SQL-Datenbank verwendet werden, die längere Namen enthält.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Wenn die Oracle-Datenbank mit einem alten Kompatibilität-Modus kleiner als &quot;12.2&quot; betrieben wird, dann sind nur 30 Zeichen zulässig.
+Das wird von Framework Studio aber <strong>nicht</strong> geprüft.
+Nähere Details dazu gibt es direkt bei <a href="https://docs.oracle.com/en/database/oracle/oracle-database/12.2/sqlrf/Database-Object-Names-and-Qualifiers.html">Oracle</a>.</p>
+</div>
 <h3 id="fswarn2002">FSWarn[2002]</h3>
 <p>FSWarn[2002] The identitifier &#39;{0}&#39; is an keyword in Oracle Database</p>
 <p>Es wurde ein Bezeichner verwendet, der ein Schlüsselwort in Oracle ist.</p>

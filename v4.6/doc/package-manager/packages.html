@@ -1,0 +1,144 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Packages </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Packages ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="packages">Packages</h1>
+
+<p>Ein <strong>Package</strong> kapselt funktionale Erweiterungen und Veränderungen der Anwendung.</p>
+<p>Eine mit <strong>Framework Studio</strong> erstellte Anwendung setzt sich immer aus mehreren Packages zusammen. Aus welchen Packages letztendlich eine Anwendung zusammengesetzt ist, steht zur Entwicklungszeit eines Packages nicht fest. Klar definiert ist nur, welche Packages vorausgesetzt werden.</p>
+<p>Einzelne Packages einer Anwendung können von unterschiedlichen Herstellern entwickelt werden und mit Packages anderer Hersteller kombiniert werden.</p>
+<p>Hauptvorteil des Package-Konzepts von <strong>Framework Studio</strong> sind die Customizing Möglichkeiten. Kunden und Partnerunternehmen können durch das Hinzufügen eines zusätzlichen Packages die Anwendung nahezu ohne Einschränkungen funktional erweitern und verändern. Dabei sind sogar Erweiterungen an zentralen Datenstrukturen, Datenbanktabellen und Prozessabläufen möglich.</p>
+<h2 id="systempackage">SystemPackage</h2>
+<p>Wenn Sie ein leeres Repository anlegen, enthält dieses Repository immer automatisch ein Package mit dem Namen <strong>SystemPackage</strong>. An diesem Package können Sie sich beim Start von <strong>Framework Studio</strong> nicht anmelden, da am <strong>SystemPackage</strong> keine Veränderungen vorgenommen werden können.</p>
+<p>Das <strong>SystemPackage</strong> enthält einige grundlegende Namespaces und Elemente, die von jeder Anwendung benötigt werden.</p>
+<h2 id="default-package">Default Package</h2>
+<p>Mit Default Package wird das Package bezeichnet, welches in der Verwendungsreihenfolge der Packages direkt oberhalb des SystemPackages angeordnet ist. Dieses Package hat einige Besonderheiten:</p>
+<ul>
+<li><p>Am Default Package werden die Sprachen definiert, die grundsätzlich von der Anwendung unterstützt werden sollen.</p>
+</li>
+<li><p>Verschiedene Default Packages lassen sich mit der aktuellen <strong>Framework Studio</strong> Version nicht zusammen führen.</p>
+</li>
+<li><p>Im Default Package werden alle Standard Controls (<a href="../form/default-control-styles.html">Default Control Styles</a>) angezeigt.</p>
+</li>
+</ul>
+<p>Ein Default Package muss mit dem Package Manager (<a href="package-manager.html">Package Manager</a>) angelegt werden, bevor es genutzt werden kann.</p>
+<h2 id="weitere-packages">Weitere Packages</h2>
+<p>Mit Hilfe des Package Managers (<a href="package-manager.html">Package Manager</a>) können weitere Packages zu einem Repository hinzugefügt werden. Dort wird auch definiert, in welcher Reihenfolge die Packages benutzt werden sollen und welche anderen Packages Voraussetzung für die Verwendung eines Packages sind.</p>
+<h2 id="aktives-package">Aktives Package</h2>
+<p>Mit <strong>aktivem Package</strong> wird das Package bezeichnet, an dem sich der Benutzer beim Start von <strong>Framework Studio</strong> angemeldet hat. Nur an diesem Package kann der Benutzer Veränderungen durchführen.</p>
+<p>Synonym dazu wird auch der Begriff <strong>Top Package</strong> verwendet.</p>
+<h2 id="customizing">Customizing</h2>
+<p>Mit <strong>Customizing</strong> wird der Vorgang bezeichnet, bei dem man Änderungen an einem Element aus einem Package vornimmt, das nicht das aktive Package ist. Da Änderungen immer nur im aktiven Package durchgeführt werden können, wird dazu von dem gewünschten Element eine <strong>Customization</strong> im aktiven Package angelegt. An dieser Customization können die gewünschten Änderungen dann vorgenommen werden.</p>
+<p>Technisch gesehen ist eine Customization eine Ableitung vom originalen Element. Diese Ableitung wird dann in der gesamten Anwendung statt des Originalen Elements verwendet.
+Das Anlegen einer Customization erfolgt über den Button <img src="../media/button-customizing.png" alt="button-customizing.png"> Customize (<a href="../ide/allgemeine-funktionalitaeten.html#buttons">Buttons</a>).</p>
+<div class="WARNING"><h5>Warning</h5><p>Wenn ein Element über das Kontextmenü mit der Funktion <strong>Change Namespace…</strong> in einem anderen Package in einen anderen Namespace verschoben wurde, so muss das Element, wenn eine Customization im aktiven Package existiert, über das Kontextmenü seines Namespaces mit der Funktion <strong>Adjust moved customizations …</strong> auch im aktiven Package in den neuen Namespace verschoben werden.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

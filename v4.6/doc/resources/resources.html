@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Resources </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Resources ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="resources">Resources</h1>
+
+<p>Ressourcen ermöglichen dem Entwickler, der Anwendung beliebige Dateien zur Verfügung zu stellen. Typische Beispiele für Ressourcen sind:</p>
+<ul>
+<li>von der Anwendung benötigte Bilder</li>
+<li>Custom Control Erweiterungen auf der Seite der Clients</li>
+<li>externe Bibliotheken (dlls), die von der Anwendung benutzt werden</li>
+</ul>
+<h2 id="bedeutung-von-namespaces-für-ressourcen">Bedeutung von Namespaces für Ressourcen</h2>
+<p>Ressourcen können im Objekt-Baum (<a href="../ide/registerkarten.html#registerkarte-namespaces">Registerkarte Namespaces</a>) im Namespace <strong>FSGeneral / Resources</strong> angelegt werden.
+Beim Kompilieren von Ressourcen werden diese dann direkt in das Brokerverzeichnis kopiert.</p>
+<p>Außerdem können im Namespace <strong>FSGeneral / Resources</strong> weitere Namespaces angelegt werden.
+Diese Namespaces werden beim Kompilieren von Ressourcen automatisch als Unterverzeichnisse im Brokerverzeichnis angelegt, sobald sie eine Ressource enthalten.
+Die Ressourcen eines Unter-Namespaces werden dann in das entsprechende Unterverzeichnis des Brokers kopiert.</p>
+<h2 id="erstellen-und-löschen-von-ressourcen">Erstellen und Löschen von Ressourcen</h2>
+<p>Für das Erstellen und Löschen ist zu beachten, in welchem Namespace die Ressource angelegt werden muss (<a href="#bedeutung-von-namespaces-für-ressourcen">Bedeutung von Namespaces für Ressourcen</a>). Ansonsten werden Ressourcen wie alle anderen Elemente angelegt.</p>
+<ul>
+<li><p><a href="../ide/bearbeiten-von-elementen.html#elemente-erstellen">Erstellen einer Ressource</a></p>
+</li>
+<li><p><a href="../ide/bearbeiten-von-elementen.html#elemente-löschen">Löschen einer Ressource</a></p>
+</li>
+</ul>
+<h2 id="bearbeiten-von-ressourcen">Bearbeiten von Ressourcen</h2>
+<p>Durch einen Doppelklick auf eine Ressource im Objekt-Baum wird das Designer-Fenster geöffnet.</p>
+<h3 id="resource">Resource</h3>
+<p><img src="media/bearbeiten-von-ressourcen.png" alt="bearbeiten-von-ressourcen.png"></p>
+<p>Dort können Sie mit dem Button <strong>Import File</strong> einen Dateiauswahldialog öffnen.
+Dort wählen Sie die Datei aus, die in das Brokerverzeichnis kopiert werden soll.
+Nach dem Import wird der Name der Ressource mit dem Namen der ausgewählten Datei initialisiert.
+Sie können diesen Namen im Textfeld <strong>Name</strong> ändern.
+Im nicht editierbaren Textfeld <strong>Relative Path</strong> wird der Pfad relativ zum Brokerverzeichnis angezeigt, unter dem die Datei letztendlich angelegt wird.
+Der Pfad ergibt sich aus dem Namespace, in dem die Ressource angelegt wurde (<a href="#bedeutung-von-namespaces-für-ressourcen">Bedeutung von Namespaces für Ressourcen</a>) und dem Namen der Ressource.</p>
+<p>Erläuterungen zu den Standardfunktionen, die im Designer-Fenster für Ressourcen angeboten werden, finden Sie unter <a href="../ide/allgemeine-funktionalitaeten.html">Allgemeine Funktionalitäten</a>.</p>
+<h2 id="encoding">Encoding</h2>
+<p>Text-Resourcen können mit einem Encoding versehen werden. </p>
+<p>Folgende Encodings stehen zur Auswahl bereit:</p>
+<ul>
+<li>UTF8</li>
+<li>UTF8 BOM</li>
+<li>UTF16 BE BOM</li>
+<li>UTF16 LE BOM</li>
+<li>Windows (ISO-8859-1)</li>
+<li>&quot;Leer&quot;</li>
+</ul>
+<p>Das Standard-Encoding für neue leere Text-Resourcen ist UTF8.
+Das &quot;leere&quot; Encoding bedeutet, dass das Encoding zurückgesetzt und neu ermittelt wird.</p>
+<p>Die bereits bestehenden Text-Resourcen bleiben in Framework Studio unberührt.
+Sobald Sie Änderungen vornehmen, wird das Encoding abgespeichert.</p>
+<p>Am Fettdruck des Encodings kann erkennt werden, dass der Wert neu gesetzt wurde.</p>
+<p>Wir empfeheln Ihnen keine Änderungen in Framework Studio an Resourcen vorzunehmen, bei welchen bspw. Sonderzeichen oder <code>äöü</code> nicht korrekt angezeigt werden.
+Sollte Sie eine neue Resource mit einem nicht unterstützten Encoding hinzufügen und anschließend in Framework Studio bearbeiten wollen, empfehlen wir Ihnen die Datei in einem entsprechenden Editor zu konvertieren und erst danach in Framework Studio zu importieren.</p>
+<h3 id="erkennung-des-encodings-und-konvertierung">Erkennung des Encodings und Konvertierung</h3>
+<p><img src="media/encoding.PNG" alt="Encoding Oberfläche"></p>
+<p>Beim Öffnen einer Text-Resource wird das Encoding ermittelt.
+Mit diesem Encoding wird die Datei angezeigt, bearbeitet und anschließend auch in der Datenbank gespeichert. </p>
+<p>Mit der Encoding-Combobox können Sie das Encoding ändern.
+Die Datei wird dann automatisch in das ausgewählte Encoding konvertiert.</p>
+<h3 id="byte-order-mark">Byte order mark</h3>
+<p>Als Byte Order Mark wird eine charakteristische Bytefolge am Anfang eines Datenstroms bezeichnet, die ein spezielles Unicode-Zeichen kodiert.
+Diese Bytefolge dient als Kennung zur Definition der Byte-Reihenfolge und Kodierungsform in Textdateien. </p>
+<div class="NOTE"><h5>Note</h5><p>Die UTF-8-Kodierung des BOM besteht bspw. aus der Bytesequenz <code>EF BB BF</code>, die in nicht UTF-8-fähigen Texteditoren und Browsern meist als ISO-8859-1-Zeichen <code>ï»¿</code> erscheinen.
+Sollten Sie ein solches oder ein anderes invalides (z.B. �) Zeichen in einer Textdatei sehen, deutet dies auf eine Bearbeitung mit falschem Encoding hin.
+Wir empfehlen in einem solchen Fall Dateien nicht in FS zu bearbeiten, sondern in einem speziellen Hex-Editor.</p>
+</div>
+<p>Werden unbekannte Zeichen angezeigt, kann es ggf. helfen das byte order mark in einem Hex-Editor zu entfernen und die Datei anschließend wieder in Framework Studio zu importieren.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

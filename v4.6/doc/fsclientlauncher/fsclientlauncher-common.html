@@ -1,0 +1,140 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Framework Studio Client Launcher </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Framework Studio Client Launcher ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="framework-studio-client-launcher">Framework Studio Client Launcher</h1>
+
+<h2 id="allgemeine-informationen">Allgemeine Informationen</h2>
+<p>Für das Ausführen einer Framework-Studio-Anwendung wird auf dem Client-Rechner eine Laufzeit-Umgebung benötigt. Diese wird durch das Programm &quot;Framework Studio Client Launcher&quot; bereit gestellt.</p>
+<p>Der Client-Launcher wird immer mit der aktuellsten Version installiert. Diese ermöglicht auch die Arbeit mit älteren Programm-Versionen (z.B. Framework Studio 3.11 / eNVenta 3.6)</p>
+<p>Der Aufruf der Anwendung erfolgt über die Client Start Page, welche vom Anwendungs-Server bereitgestellt wird.</p>
+<p>Die von der Start Page erzeugten Links können auch kopiert und auf andere Weise zugänglich gemacht werden. Bei der Aktualisierung auf eine neue Version kann es jedoch Änderungen an den Links geben, sodass diese ggf. aktualisiert werden müssen.</p>
+<p><img src="media/fsclientlauncher-startscreen.png" alt="Start Webseite"></p>
+<h3 id="starten-der-anwendung">Starten der Anwendung</h3>
+<p>Der Client-Launcher wird direkt gestartet. Ggf. muss im Browser einmalig die Verwendung der Anwendung <strong>FSClientLauncher</strong> akzeptiert werden.
+Der Start erfolgt über einen Link, der alle in der Startseite getroffenen Einstellungen beinhaltet. Er hat bspw. das folgende Format:</p>
+<p><a href="fsclientlauncher:launch?title=eNVenta%20ERP&amp;broker=http://nvapp01/eNVenta_40/&amp;language=en,de">fsclientlauncher:launch?title=eNVenta%20ERP&amp;broker=http://nvapp01/eNVenta_40/&amp;language=en,de</a></p>
+<p>Dieser Link kann auch in eine eigene Verknüpfung – z.B. auf den Desktop kopiert werden. Mit dem eigenen Protokoll <code>fsclientlaucher</code> erfolgt der Start des Client Launchers direkt ohne einen extra Umweg über den Server.</p>
+<p>Manche Umgebungen – z.B. Content-Management-Systeme wie SharePoint – haben ggf. Probleme mit diesem Link. In diesem Fall kann als Workaround der Download-Link verwendet werden und am Ende das <code>dl=1</code> durch ein <code>dl=0</code> ersetzt werden. In diesem Fall wird über den Browser der Server kontaktiert, der dann auf den korrekten Start-Link umleitet.</p>
+<p>Der jeweilige Link kann im Browser über &quot;Verknüpfung / Link-Adresse kopieren&quot; kopiert werden.</p>
+<h4 id="kommandozeile">Kommandozeile</h4>
+<p>Der Client-Launcher kann auch über die Kommandozeile gestartet werden.
+Dort nimmt er als erstes Argument den <code>fsclientlauncher:...</code> Link oder den Pfad einer .fsclient-Datei.
+Sowohl der Link als auch die .fsclient-Datei kann über die Client Start Page ermittelt werden.</p>
+<p>Wenn kein Link und keine .fsclient-Datei als Argument angegeben wird, startet der Client-Launcher in das <a href="fsclientlauncher-configuration.html">Konfigurations-Fenster</a>.</p>
+<h4 id="jar-file-caching">Jar File Caching</h4>
+<p>Beim Starten des Client-Launchers wird überprüft, ob sich ein <code>.jarcache</code> Ordner unter dem Pfad <code>%userprofile%\FSClientLauncher\</code> befindet.
+Sollte dem so sein, wird dieser einmalig nach <code>%localappdata%\FSClientLauncher\</code> verschoben, sofern unter diesem Pfad noch kein <code>.jarcache</code> Ordner vorhanden ist.</p>
+<h3 id="download-start-file">Download Start File</h3>
+<p>Über diesen Link wird eine Datei mit der Endung <code>.fsclient</code> heruntergeladen. Diese beinhaltet ebenfalls die auf der Client Start Page getroffenen Einstellungen.</p>
+<p>Der Link hat das folgende Format:
+<a href="http://nvapp01/eNVenta_40/api/fsclient?lang=en,de&amp;themeid=DefaultID&amp;metal=1&amp;nodomainauth=false&amp;dl=1">http://nvapp01/eNVenta_40/api/fsclient?lang=en,de&amp;themeid=DefaultID&amp;metal=1&amp;nodomainauth=false&amp;dl=1</a></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

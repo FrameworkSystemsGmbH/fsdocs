@@ -1,0 +1,269 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ListView </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="ListView ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="stylesheet" href="../../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="listview">ListView</h1>
+
+<ul>
+<li><p><a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ListViewDesignViewModel.html">Properties/Events</a></p>
+</li>
+<li><p><a class="xref" href="../../../api/FrameworkSystems.FrameworkControls.Actions.ListViewControlAction.html">Actions</a></p>
+</li>
+</ul>
+<div class="NOTE"><h5>Note</h5><p>Dieses Control funktioniert nur im <a href="../../html-client/index.html">Mobile-Client</a>. Im Java-Client wird das Control nicht angezeigt.</p>
+</div>
+<p><img src="../media/listview-wrap.png" alt="ListView"></p>
+<h2 id="listview-template-editor">ListView Template Editor</h2>
+<p>Der ListView Template Editor bietet die Möglichkeit, das HTML/CSS Template für ListItems sprachabhängig zu definieren. Dabei können Template DataSources definiert werden, auf welche aus dem HTML heraus mittels Template Variablen verwiesen wird. So können sehr einfach Businessdaten ins HTML eingebettet und formatiert werden.</p>
+<p>Der Editor kann im Property-Grid über das Property <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ListViewDesignViewModel.Template.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ListViewDesignViewModel_Template">Template</a> geöffnet werden.</p>
+<p><img src="../media/listview-template-editor.png" alt="Template Editor"></p>
+<h3 id="allgemein">Allgemein</h3>
+<h4 id="dropdown-für-sprachauswahl">Dropdown für Sprachauswahl</h4>
+<p>Das HTML und CSS eines ListItems kann, wenn gewünscht, für jede Sprache einzeln definiert werden. Ist für eine Sprache kein Template definiert, wird auf Deutsch zurückgegriffen.</p>
+<h4 id="button-validate">Button <strong>Validate</strong></h4>
+<p>Über diesen Button können die im HTML eingebetteten Template Variablen  und Template MLKeys überprüft werden. Es werden folgende Fälle geprüft:</p>
+<ul>
+<li>Ist der Template MLKey parsebar und ist der MLKey-Name gültig?</li>
+<li>Ist die Template Variable parsebar?</li>
+<li>Passt das angegebene Format zum Datentyp?</li>
+<li>Zeigt die Template Variable auf eine existierende Template DataSource?</li>
+<li>Ist jeder Template DataSource eine valide DataSource zugeordnet</li>
+</ul>
+<h3 id="template-datasources">Template DataSources</h3>
+<p>Auf der rechten Seite der Registerkarte <strong>HTML</strong> befindet sich die Liste der definierten Template DataSources. Jede Template DataSource zeigt auf ein Property der der ListView zugeordneten DataSource Collection.</p>
+<p>Im Beispiel ist der ListView die <code>cdArticleColl</code> aus dem FSDemo als DataSource zugewiesen. Somit stehen einer Template DataSource alle Properties des <code>cdArticle</code>-Objekts zur Verfügung. Wie im Bild zu sehen, verweist die Template DataSource Price auf das Property <code>decPrice</code> von <code>cdArticle</code>.</p>
+<p>Der Name einer Template DataSource muss eindeutig sein. Aus dem HTML kann nun mittels einer <a href="#template-variablen">Template Variable</a> auf die Template DataSource zugegriffen und der Wert wie gewünscht im HTML formatiert werden.</p>
+<h3 id="html">HTML</h3>
+<p>Auf der linken Seite der Registerkarte <strong>HTML</strong> befindet sich der HTML-Codeeditor, in dem das HTML für das ListItem definiert werden kann.</p>
+<div class="NOTE"><h5>Note</h5><p>Das benutzerdefinierte HTML wird zur Laufzeit vom HTML Client (Angular) compiliert und optimiert. Grobe Fehler wie z.B. nicht geschlossene Tags oder invalides HTML können zu Anzeigefehlern führen, die unter Umständen auch andere Bereiche des HTML Clients betreffen. ListView Templates sollten vor dem produktiven Einsatz in allen verfügbaren Browsern ausgiebig getestet werden.</p>
+</div>
+<h4 id="button-use-base">Button <strong>Use Base</strong></h4>
+<p>Mit dem Button Use Base kann das HTML Template z.B. nach einem Customizing wieder auf die Basis zurückgesetzt werden.</p>
+<h4 id="button-template-variable">Button <strong>Template Variable</strong></h4>
+<p>Mit dem Button Template Variable kann eine neue <a href="#template-variablen">Template Variable</a> erstellt, oder eine bestehende geändert werden.</p>
+<h4 id="button-mlkey">Button <strong>MLKey</strong></h4>
+<p>Mit dem Button MLKey wird das <a href="../../mlkey/woerterbuch.html">MLKey-Wörterbuch</a> geöffnet. Dort kann ein neuer <a href="#template-mlkey">Template MLKey</a> erstellt, oder ein bestehender geändert werden.</p>
+<h4 id="html-aufbau">HTML Aufbau</h4>
+<p>Der benutzerdefinierte HTML Code wird im HTML Client in ein <code>&lt;div&gt;</code>-Tag mit der CSS-Klasse <strong><code>lvItem</code></strong> verpackt. Es ist also nicht unbedingt nötig, um den eigenen HTML Code ein <code>&lt;div&gt;</code>-Tag als Container zu implementieren.</p>
+<p>Der Code aus dem Beispiel sieht im HTML Client z.B. so aus:</p>
+<pre><code class="lang-html">&lt;hc-listitem-content _nghost-wvt-c19 class=&quot;ng-star-inserted&quot;&gt;
+    &lt;div _ngcontent-wvt-c19 class=&quot;lvItem&quot;&gt;
+        &lt;img _ngcontent-wvt-c19 src=&quot;http://localhost:8080/Dev/NV286_1_ListView40_FSDemo_4.0_user1/FSDempApplication//images/NVNew1.png&quot;&gt;
+        &lt;span _ngcontent-wvt-c19&gt;Laptop SILBER kostet 1,899.00€&lt;/span&gt;
+    &lt;/div&gt;
+&lt;/hc-listitem-content&gt;
+</code></pre><p>Das <code>&lt;div&gt;</code>-Tag mit der CSS-Klasse <code>lvItem</code> kann im <a href="#css">CSS</a> wie gewünscht angepasst werden, ohne einen eigenen Container oder eine eigene CSS-Klasse verwenden zu müssen.</p>
+<h4 id="placeholder">Placeholder</h4>
+<p>Die Konstante <code>%FILESURL%</code> kann im HTML verwendet werden, um zur Laufzeit die Broker-Url zu erhalten. Dadurch können z.B. in <code>&lt;img&gt;</code>-Tags auf Bilder, welche als Ressourcen im Framework Studio hinterlegt wurden, zugegriffen werden.</p>
+<p>Dynamische Bilder können über eine binäre Template-Variable realisiert werden. (siehe Abschnitt <a href="#images-im-listviewitem">Images im ListViewItem</a>)</p>
+<h3 id="template-variablen">Template Variablen</h3>
+<p>Über den Button Template Variable öffnet sich der <strong>Template Variable Editor</strong>. Befindet sich der Cursor im Codeeditor auf einer bestehenden Template Variable, wird diese im Editor vorselektiert.</p>
+<p><img src="../media/listview-template-variables.png" alt="Template Variable"></p>
+<p>Auf der linken Seite werden alle zur Verfügung stehenden Template DataSources aufgelistet. Auf der rechten Seite kann für die Template Variable ein passendes Format und/oder FormatPattern definiert werden.</p>
+<p>Durch die Aufteilung in Template DataSources und Template Variablen werden die Daten und deren Formatierung im HTML strikt voneinander getrennt. Beispielsweise könnte der Wert einer Template DataSource im englischen HTML anders formatiert werden als im deutschen HTML.</p>
+<p>Template Variablen werden im HTML-Code wie folgt angezeigt:</p>
+<p><code>{{ ds:[Name]|f:[Format]|fp:[FormatPattern] }}</code></p>
+<p>Dabei verweist <code>[Name]</code> auf den Namen der zugehörigen Template DataSource, <code>[Format]</code> und <code>[FormatPattern]</code> definieren das im Template Variable Editor ausgewählte Format und FormatPattern.</p>
+<p><code>PreviewValue</code> ist derjenige Wert, der für die Template Variable angezeigt wird, wenn das Template auf der Registerkarte <code>Preview</code> zur Vorschau gerendert wird. Der Wert wird zur Laufzeit ignoriert.</p>
+<div class="NOTE"><h5>Note</h5><p>Es wird empfohlen, Template Variablen und Template MLKeys immer über den jeweiligen Editor zu ändern, um Syntaxfehler zu vermeiden.</p>
+</div>
+<h3 id="template-mlkey">Template MLKey</h3>
+<p>Template MLKeys werden im HTML-Code wie folgt angezeigt:</p>
+<p><code>{{ mlkey:[MLKey-Name] }}</code></p>
+<p>Dabei verweist <code>[MLKey-Name]</code> auf den Namen des zugehörigen MLKeys. Zum Beispiel &quot;SYS_OK&quot;.</p>
+<h3 id="css">CSS</h3>
+<p>Das benutzerdefinierte HTML kann mittels CSS im CSS-Codeeditor auf der Registerkarte <strong>CSS</strong> beliebig angepasst werden.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-css">.lvltem {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: azure;
+    border-radius: 0.3rem;
+    border: 0.1rem solid gray;
+    padding: 0.3rem;
+    padding-right: 2.8rem;
+}
+.lvItem[lvdisabled] {
+    background-color: #cccccc;
+}
+img {
+    display: inline;
+}
+</code></pre><p>Wie im Kapitel HTML beschrieben, wird ein ListItem mit einem <code>&lt;div&gt;</code>-Tag der CSS-Klasse <code>lvItem</code> umgeben. Im CSS-Code kann somit über den CSS-Selector <code>.lvItem</code> auf das Element zugegriffen werden.</p>
+<h3 id="globales-css-für-listviewitems">Globales CSS für ListViewItems</h3>
+<p>Es ergiebt durchaus Sinn, grundelegende Styles von ListViewItems global zu definieren. ListViewItems könnten z.B. eine einheitliche Border oder Hintergrundfarbe besitzen. Für diesen Zweck existiert der globale CSS Editor für ListViewItems am <code>FSGeneral.Controls.BaseControl</code>.</p>
+<p><img src="../media/basecontrol-global-css.png" alt="BaseControl"></p>
+<p>Über das Property <code>ListVIewItem</code> unter der Kategorie <code>Global CSS</code> öffnet sich der CSS Editor.</p>
+<p><img src="../media/listviewitem-global-css-editor.png" alt="GlobalCssEditor"></p>
+<p>Die globalen Styles können je Sprache definiert werden. Ist für eine Sprache kein CSS definiert, wird auf Deutsch zurückgegriffen. Alle globalen Styles werden vom individuellen CSS am Control überschrieben, wie das folgende Beispiel zeigt:</p>
+<p><strong>Globales CSS:</strong></p>
+<pre><code class="lang-css">.lvItem {
+    color: white;
+    background-color: green;
+}
+</code></pre><p><strong>CSS an ListView <code>LV1</code>:</strong></p>
+<pre><code class="lang-css">.lvItem {
+    background-color: blue;
+}
+</code></pre><p>Die global definierte grüne Hintergrundfarbe wird im CSS von ListView <code>LV1</code> überschrieben. So haben alle ListViewItems von <code>LV1</code> eine blaue Hintergrundfarbe und weißen Text.</p>
+<h3 id="rem-anstatt-pixel">REM anstatt Pixel</h3>
+<p>Im CSS sollten Größenangaben ausschließlich mit <code>rem</code> angegeben werden. Der HTML Client skaliert die gesamte Anzeige anhand der vom Browser vorgegebenen Schriftgröße. Im HTML Client wird global für das HTML- und das BODY-Tag folgendes definiert:</p>
+<pre><code class="lang-CSS">html {
+    font-size: 62.5%;
+}
+
+body { 
+    font-size: 1.4rem;
+}
+</code></pre><p>In Desktop-Browsern wie z.B. Chrome, Firefox oder Edge ist der Standardwert der Schriftgröße <code>16px</code>. <code>1rem</code> ist per Definition genauso groß wie die Schriftgröße des HTML-Tags, also im Standardfall erst einmal <code>16px</code>. Setzt man nun die <code>font-size</code> des HTML-Tags auf <code>62.5%</code>, ergibt sich eine Schriftgröße von <code>10px</code>, womit <code>1rem</code> nun ebenfalls <code>10px</code> groß ist.</p>
+<p>Da meist in Desktop-Browsern entwickelt und getestet wird, ergibt diese Anpassung Sinn, da es viel einfacher zu verstehen ist, mit Faktor 10, als mit Faktor 16 zu arbeiten. <code>0.5rem</code> sind <code>5px</code>, <code>5rem</code> sind <code>50px</code> usw.</p>
+<p>Deshalb wird im BODY-Tag auch die Schriftgröße auf <code>1.4rem</code> gesetzt, was letztenendes <code>14px</code> sind. Dies spiegelt die Standardschriftgröße des HTML Clients wieder.</p>
+<p>Probleme können nun enstehen, wenn REM- und Pixelwerte gemischt werden!</p>
+<p>Ein Beispiel:</p>
+<pre><code class="lang-CSS">.tpl .remClass {
+    width: 10rem;
+}
+
+.tpl .pxClass {
+    width: 100px;
+}
+</code></pre><p>Nehmen wir an, es gibt zwei HTML-Elemente im Template mit den Klassen <code>remClass</code> und <code>pxClass</code>. Liefert der Browser eine Standardgröße von <code>16px</code>, besteht kein Problem, die beiden Elemente sind exakt gleich groß, da <code>65.5% von 16px = 10px</code>. Damit sind <code>10rem</code> exakt <code>100px</code>.</p>
+<p>Anders sieht es aber aus, wenn z.B. ein mobiler Browser eine Standardschriftgröße von <code>14px</code> liefert. <code>62.5% von 14px = 8.75px</code>, damit sind <code>10rem</code> exakt <code>87.5px</code> und die beiden HTML-Elemente sind plötzlich unterschiedlich groß. Dies kann je nach Gerät und verwendetem Browser zu unvorhersehbaren Skalierungsfehlern führen.</p>
+<div class="TIP"><h5>Tip</h5><p>Es wird ausdrücklich empfohlen, im HTML/CSS des ListItems <code>rem</code> als Größeneinheit zu verwenden.</p>
+</div>
+<h3 id="iseditable">IsEditable</h3>
+<p>Im CSS kann auch ein Style für deaktivierte ListItems in einem nicht editierbaren ListView hinterlegt werden. Wird ein ListView im Designer oder per Action auf isEditable = false gesetzt, so wird am <code>&lt;div&gt;</code>-Tag lvItem das HTML-Attribut <code>lvdisabled</code> hinzugefügt:</p>
+<pre><code class="lang-html">&lt;hc-listitem-content _nghost-wvt-c19 class=&quot;ng-star-inserted&quot;&gt;
+    &lt;div _ngcontent-wvt-c19 class=&quot;lvItem&quot; lvdisabled=&quot;true&quot;&gt;
+        [...]
+    &lt;/div&gt;
+&lt;/hc-listitem-content&gt;
+</code></pre><p>Im CSS-Code kann über den Attribute-Selector <code>.lvItem[lvdisabled]</code> genau dieser Fall abgefragt werden. Im Beispiel wird der Hintergrund des ListItems auf grau (<code>#cccccc</code>) gesetzt.</p>
+<h3 id="preview">Preview</h3>
+<p><img src="../media/listview-template-preview.png" alt="Template Editor"></p>
+<p>Wenn der HTML-Code gültig ist, wird auf der Registerkarte &quot;Preview&quot; eine gerenderte Vorschau des Templates angezeigt.</p>
+<p>Für die Vorschau werden die PreviewValues für die einzelnen Template Variablen verwendet. Sollte ein PreviewValue nicht gesetzt sein, wird stattdessen der DataSource Name angezeigt. Template MLKeys zeigen den im Wörterbuch hinterlegten Text an.</p>
+<h4 id="fallback-für-die-standartsprache">Fallback für die Standartsprache</h4>
+<p>Wenn für eine Sprache eines bestimmten HTML-Codes nicht gibt, wird den HTML-Code des Standartsprache (Deutsch) verwendet. Diese Regel wird auch für den CSS-Code anwenden. Anderseits, wenn kein Code auch für die Standardsprache gibt, wird die Meldung <strong>TEMPLATE NULL</strong> angezeigt.</p>
+<h2 id="images-im-listviewitem">Images im ListViewItem</h2>
+<p><img src="../media/listview-img-list.png" alt="ListviewImages"></p>
+<p>Eine Besonderheit ist das Anzeigen von Bildern in einem ListViewItem mittels <code>&lt;img /&gt;</code>, wenn dieses über ein <code>byte[]</code> aus der Datenbank gebunden werden soll. Ein Anwendungsfall wäre z.B. das Anzeigen von Artikelbildern.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-html">&lt;img class=&quot;img&quot; src=&quot;data:{{ ds:MimeType }};base64,{{ ds:Image }}&quot; /&gt;
+</code></pre><p>Um ein Bild an ein HTML img-Tag zu binden sind zwei Template Variablen notwendig. Das <code>byte[]</code> mit den Bildinformationen alleine reicht abhängig vom genutzten Browser nicht immer aus (siehe Hinweis). Es muss zusätzlich der HTML Mime-Type spezifiziert werden, sodass der Browser weiß, um welches Bildformat es sich handelt.</p>
+<p><strong><code>{{ ds:MimeType }}</code></strong> ist eine Template Variable vom typ <code>FSstring</code> oder <code>string</code> und gibt z.B. den Mime-Type <code>&quot;image/png&quot;</code> oder <code>&quot;image/jpg&quot;</code> zurück.</p>
+<p><strong><code>{{ ds:Image }}</code></strong> ist eine Template Variable vom Type <code>FSByteArray</code> oder <code>byte[]</code>. Binärdaten werden als Base64-String zum Client übertragen. Da das HTML <code>src</code>-Attribut Base64 versteht, ist keine weitere Formatierung der Daten nötig.</p>
+<div class="TIP"><h5>Tip</h5><p>Die Angabe des Mime-Types ist in den meisten Browsern wie Chrome, Firefox, Safari oder Edge (auch auf mobilen Geräten) nicht zwingend nötig. Manche proprietären Browser auf mobilen Geräten haben jedoch Schwierigkeiten, ohne die Angabe des Mime-Types, das Bild korrekt darzustellen. Sollten diese Browser keine Rolle für die Anwendung spielen, kann auch folgendes HTML genutzt werden:</p>
+<pre><code class="lang-html">&lt;img class=&quot;img&quot; src=&quot;data:;base64,{{ ds:Image }}&quot; /&gt;
+</code></pre><p>Das Semicolon vor <code>base64</code> ist ohne die Angabe des Mime-Types zwingend notwendig.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,855 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Release-Information Framework Studio 4.3 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Release-Information Framework Studio 4.3 ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="release-information-framework-studio-43">Release-Information Framework Studio 4.3</h1>
+
+<h2 id="4317-24062022">4.3.17 (24.06.2022)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.17_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li>2022060088 - <strong>Broker</strong>: Wird auf einem Grid, das eine GroupBy-Query anzeigt,
+  über den Client ein Filter eingestellt, dann wird ein SQL-Error angezeigt.
+  Der Fehler tritt auf, wenn aufgrund sehr vieler Datensätze der
+  Reload-Mechanismus greift und der Filter deshalb über die Datenbank
+  angewendet wird.</li>
+</ul>
+<h2 id="4316-27052022">4.3.16 (27.05.2022)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.16_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<ul>
+<li><p>2022059888 - <strong>JavaClient</strong>: Wird eine Grid-Zelle mit Enter verlassen, dann
+  kann es passieren, dass eine im OnColumnChanged-Event aufgerufene
+  SetCell-Action ignoriert wird. Der Fokus landet dann nicht in der
+  gewünschten Grid-Zelle. Auftreten kann der Fehler, wenn z.B. im
+  OnColumnChanged ein modaler Dialog geöffnet wird.</p>
+</li>
+<li><p>2022059912 - <strong>Java-Client</strong>: Sind in einem Menü mehrere Separatoren
+  enthalten, dann kann es beim Öffnen des Forms im Java-Client zu einer
+  StackOverflowException kommen. Der Fehler tritt auf, wenn viele Menu-Items
+  ausgeblendet werden. In der Folge wird das Form nicht angezeigt oder die
+  Anwendung startet nicht korrekt.</p>
+</li>
+<li><p>2022049758 - <strong>IDE</strong>: Hat der CSharp-Compiler ein Problem, das den Compile
+  komplett verhindert (weil z.B. das Programm-Verzeichnis beschädigt ist),
+  dann meldet Framework Studio keinen entsprechenden Fehler. Bei der Arbeit
+  als normaler Benutzer werden keine DLLs erzeugt, wodurch der Start des
+  Brokers nicht möglich ist. Beim Ausführen eines FrameworkCompiler treten
+  Fehler auf, weil DLLs nach dem Compile nicht gefunden werden.</p>
+</li>
+<li><p>2022059769 - <strong>IDE</strong>: Beim Einfügen eines Links in einen customizten Workflow
+  erscheint in seltenen Fällen eine Fehlermeldung. <em>System.ArgumentException:
+  An item with the same key has already been added.</em></p>
+</li>
+<li><p>2022059936 - <strong>IDE</strong>: Wird bei einer Code-Transformation der Parameter der
+  Methode angepasst, wird in der Folge fehlerhafter Code generiert. Dieser
+  führt zu einem Compile-Error.</p>
+<div class="NOTE"><h5>Note</h5><p>Der Fehler entsteht beim Bearbeiten der Deklaration. Um den Compile-Fehler
+zu beheben muss die Deklaration erneut bearbeitet werden, damit sich die im
+Hintergrund gespeicherten Daten aktualisieren.</p>
+</div>
+</li>
+<li><p>2022059953 - <strong>HTML Client</strong>: GetGeoLocation liefert falsche Werte.</p>
+</li>
+</ul>
+<h2 id="4315-29042022">4.3.15 (29.04.2022)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.15_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<ul>
+<li><p>2022018960 - <strong>IDE</strong>: Im Multilanguage Text Editor findet die Suche bei
+  mehrzeiligen Texten nur Wörter, die in der ersten Zeile stehen. Der Text ab
+  der 2. Zeile wird nicht berücksichtigt.</p>
+</li>
+<li><p>2022039417 - <strong>IDE</strong>: Beim Einfügen eines Format-Tags (z.b. <code>[b]</code>, <code>[i]</code>,
+  <code>[h1]</code> usw.) werden ggf. zu viele Tags zusammengefasst. So können
+  versehentlich z.B. Image-Tags in die Headline rutschen, was im Anschluss zu
+  Fehlern führt.</p>
+</li>
+<li><p>2022049597 - <strong>Data-Provider</strong>: Oracle - Wird in einem SQL-Command ein
+  Identifier mit Sonderzeichen oder eine Ziffer am Anfang verwendet, dann wird
+  das für Oracle nicht korrekt umgesetzt. Beispiel: <code>DELETE FROM [30_TEST]</code></p>
+</li>
+<li><p>2022049553 - <strong>Framework</strong>: Die Update-Analyse greift bei Oracle ggf.
+  verzögert auf die Data-Connection zu. Das führt bei deaktiviertem FSPooling
+  zu einer <code>ObjectDisposedException</code>. Bei aktivem FSPooling wird die
+  Connection nicht mehr freigegeben.</p>
+</li>
+</ul>
+<h2 id="4314-25032022">4.3.14 (25.03.2022)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.14_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<ul>
+<li>2022029183 - <strong>Broker</strong>: Die properties MainMemorySortingThreshold,
+  TransferStartupRowCount, TransferStartupNodeRowCount und ListSortOrder
+  verhalten sich unterschiedlich, je nachdem ob ihr Wert aus der Basis stammt.</li>
+</ul>
+<h2 id="4313-25022022">4.3.13 (25.02.2022)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.13_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<ul>
+<li><p>2022029190 - <strong>Java-Client</strong>: Alle Jar-Dateien müssen neu signiert werden,
+  weil das Java-Zertifikat widerrufen wurde.</p>
+</li>
+<li><p>2022029126 - <strong>IDE</strong>: Nach dem bearbeiten eines Global Events kann es
+  passieren, dass im Workflow-Link auf dieses Global Event keine Init-Methode
+  mehr angeboten wird.</p>
+</li>
+<li><p>2022029194 - <strong>IDE</strong>: Wird auf einem ControlType ein Undo Checkout ausgeführt,
+  dann werden Form-Controls mit diesem ControlStyle und der zu verwerfenden
+  Control-Version auf gelöscht gesetzt.</p>
+<div class="NOTE"><h5>Note</h5><p>Dieser Fehler kann eine Erklärung für Fälle sein, in denen aus heiterem
+Himmel Controls verschwunden sind - ohne dass jemand das Form ausgecheckt
+hat. Er war seit 05.2020 aktiv.</p>
+</div>
+</li>
+<li><p>2022029147 - <strong>Doku</strong>: Informationen zum Aufräumen von
+  <a href="https://frameworksystemsgmbh.github.io/fsdocs/v4.4/doc/session-logging/session-logging-analyzer.html">tblRep_SessionLogging</a>.</p>
+</li>
+</ul>
+<h2 id="4312-28012022">4.3.12 (28.01.2022)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.12_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<ul>
+<li><p>2022018908 - <strong>JavaClient</strong>: Wird per Action ein TabbedWindow (oder sein
+  Parent) ausgeblendet, dann feuert das OnSelectedTabPageChange Event. Findet
+  das beim Öffnen eines Forms statt, dann kann das zur Folge haben, dass das
+  Form sich nicht im Vordergrund öffnet.</p>
+</li>
+<li><p>2022018909 - <strong>Java-Client</strong>: Beim Öffnen eines Forms wird in der Java-Console
+  ggf. eine Meldung
+  &quot;<em>FrameworkSystems.FSJavaClient.DevControl.LayoutComponentDefault cannot be
+  cast to FrameworkSystems.FSJavaClient.DevControl.DevControlTabPage</em>&quot;
+  ausgegeben.</p>
+</li>
+<li><p>2022018927 - <strong>Java-Client</strong>: Beim Ausführen der Action LoadGridLayout kann es
+  bei großen Grids vorkommen, dass nicht alle Daten verarbeitet werden.</p>
+</li>
+<li><p>2021128765 - <strong>IDE</strong>: Beim Import einer TMX-Datei ins Wörterbuch werden
+  ISO-Sprach-Codes in Großbuchstaben nicht erkannt.</p>
+</li>
+<li><p>2021128775 - <strong>IDE</strong>: Wird im Code-Editor vor einer geschweiften Klammer in
+  einem SingleLine-Kommentar ein &quot;.&quot; gesetzt, aktiviert sich die Intellisense.</p>
+</li>
+<li><p>2022018882 - <strong>Doku-System</strong>: Die Tabellenbeschreibungen beim HTML-Export
+  werden unsortiert ausgegeben.</p>
+</li>
+<li><p>2021128815 - <strong>HTML Client</strong>: Das Picture Control wird nicht upgedated, wenn
+  die DataSource auf &quot;null&quot; gesetzt wird.</p>
+</li>
+<li><p>2021128823 - <strong>HTML Client</strong>: Die Frequenz der Beep-Action ist hart auf 1000Hz
+  festgelegt und ignoriert damit den übergebenen Wert.</p>
+</li>
+</ul>
+<h2 id="4311-23122021">4.3.11 (23.12.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.11_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021118541 - <strong>IDE</strong>: Wird ein zu langer Datenbank-Servername oder
+  Repository-Name verwendet, dann bricht der Start der IDE mit einer Exception
+  ab.</p>
+</li>
+<li><p>2021128588 - <strong>IDE</strong>: Beim Kopieren eines Component Properties wird die
+  Eigenschaft &quot;Autogenerate Membervariable&quot; nicht kopiert.</p>
+</li>
+<li><p>2021128590 - <strong>IDE</strong>: Die Browser-Variante des HTML Clients funktioniert weder
+  im Development Broker noch in einer gepublishten Umgebung.</p>
+</li>
+<li><p>2021128584 - <strong>Code-Generierung</strong>: Wird im Metadatentyp als Format-Pattern ein
+  Regulärer Ausdruck verwendet, dann wird dieser im generierten Code nicht
+  sauber escaped. In der Folge kann es zu Compile-Fehlern kommen.</p>
+</li>
+<li><p>2021128747 - <strong>HTML Client</strong>: Die ComboBox (ListValuesInput) reagiert nicht
+  auf Eingaben von Buchstaben zur Auswahl des Eintrags.</p>
+</li>
+<li><p>2021128773 - <strong>HTML Client</strong>: Editfields mit einer DataSource vom Typ
+  &quot;FSDateTime&quot; werfen beim Senden des Wertes zum Broker in gewissen Fällen
+  eine Exception.</p>
+</li>
+</ul>
+<h2 id="4310-26112021">4.3.10 (26.11.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.10_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021108192 - <strong>IDE</strong>: Wird im ListView als DataSource eine TextCollection
+  verwendet, dann ist nach dem Neustart der IDE in der Template-Variable die
+  Zuordnung auf das Text-Property verloren. In der Folge kommt es auch zu
+  Compile-Fehlern.</p>
+</li>
+<li><p>2021108258 - <strong>IDE</strong>: Verkleinert man das Framework Studio Haupt-Fenster, dann
+  kann es passieren, dass im Namespace-Baum die untere Hälfte nicht mehr
+  greifbar ist. Ist dann der Monitor zu klein - z.B. über Remote Desktop -
+  dann kann man das Haupt-Fenster nicht weit genug vergrößern und der
+  Namespace-Baum lässt sich nicht mehr bedienen.</p>
+</li>
+<li><p>2021118333 - <strong>IDE</strong>: Im Form-Designer werden beim Wechsel zwischen
+  verschiedenen Form-AccessUnits die &#39;Parents&#39; nicht korrekt angezeigt bzw.
+  aktualisiert.</p>
+</li>
+<li><p>2021118513 - <strong>IDE</strong>: Beim Ändern eines Query-JoinTypes in der Customization
+  kommt es zu einer Exception.</p>
+</li>
+<li><p>2021118297 - <strong>Framework</strong>: Werden einem ReportDocument AdditionalReports
+  hinzugefügt, dann liefert die Methode <code>GetReportEnums()</code> Ergebinsse mit
+  mehrdeutigen Report-Namen zurück. Bis zur Version 4.2 war die Ergebnismenge
+  eindeutig.</p>
+</li>
+<li><p>2021118425 - <strong>FS-Framework</strong>: Enthält ein TreeView sehr viele Ebenen, dann
+  dauert der Dispose beim Schließen des Forms sehr lange. Die Laufzeit wächst
+  dabei exponentiell mit der Anzahl der Ebenen.</p>
+</li>
+<li><p>2021118300 - <strong>HTML Client</strong>: OnAfterRequest() wird am Broker nur für das
+  derzeit aktive Form des Clients aufgerufen.</p>
+</li>
+</ul>
+<h2 id="439-29102021">4.3.9 (29.10.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.9_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021087483 - <strong>Java Client</strong>: Werden in einem Request die
+  MultiSelect-Eigenschaft eines Grids und zusätzlich Rows selektiert, greift
+  die Selektierung nicht. Auch bereits selektiere Zeilen gehen verloren.</p>
+</li>
+<li><p>2021108162 - <strong>Java Client</strong>: Die Actions LoadGridLayout() und
+  SaveGridLayout() arbeiten intern mit dem Titel der Spalte. Dadurch werden
+  beim LoadGridLayout() Spalten ggf. nicht korrekt erkannt, wenn der Titel
+  sich ändert oder mehrere Spalten denselben Titel haben.</p>
+<div class="NOTE"><h5>Note</h5><p>Die Actions arbeiten jetzt mit dem internen Namen der Spalte.
+LoadGridLayout() erkennt aber weiterhin die Informationen, die mit dem Titel
+gespeichert wurden.</p>
+</div>
+</li>
+<li><p>2021108103 - <strong>IDE</strong>: Werden bei der Suche nach CheckOut Treffer gefunden,
+  deren Namespace nicht mehr existiert, dann gibt es eine Exception und das
+  Ergebnis wird nicht angezeigt. Das kann vorkommen, wenn der Namespace von
+  einem anderen Benutzer gelöscht wird, während man selbst darin neue Elemente
+  angelegt hat.</p>
+<div class="NOTE"><h5>Note</h5><p>Diese Treffer werden jetzt direkt unterhalb vom Package angezeigt.</p>
+</div>
+</li>
+<li><p>2021108136 - <strong>IDE</strong>: Wenn im Form-Designer die Font eines Elementes über dem
+  Property-Grid angepasst werden soll, kann es in seltenen Fällen vorkommen,
+  dass Fonts ohne Namen in der Liste zur Auswahl stehen. Wenn eine Font ohne
+  Namen ausgewählt wird, führt dies zu einem Absturz der IDE.</p>
+</li>
+<li><p>2021108146 - <strong>IDE</strong>: Wenn nach dem Anlegen einer neuen .WTS-Ressource in den
+  eNVenta Update Script Editor gegangen wird und dort direkt auf &quot;New Table&quot;
+  geklickt wird, führt dies zu einem Absturz von FS.</p>
+</li>
+<li><p>2021108205 - <strong>IDE</strong>: Wenn beim Erstellen einer neuen Column in einer
+  Datenbanktabelle ein Metadatentype ausgewählt wird, wird der Name des neuen
+  Columns richtigerweise umbenannt. Allerdings verliert der Name dabei den
+  Package prefix (z. B. CCC_).</p>
+</li>
+<li><p>2021097867 - <strong>Framework</strong>: Wird in einem abgeleiteten oder customizten Form
+  einem Grid als DataSource eine neue Collection zugewiesen, dann kann auf
+  diesem Grid keine Sortierung ausgeführt werden.</p>
+</li>
+</ul>
+<h2 id="438-24092021">4.3.8 (24.09.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.8_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021097624 - <strong>IDE</strong>: Ruft man in einer customized Form die Control Events auf
+  einem Custom Control auf, werden dort die Event-Methoden-Zuweisungen aus der
+  Basis nicht angezeigt.</p>
+</li>
+<li><p>2021097638 - <strong>IDE</strong>: Bei einem Undo Checkout auf einem ReportDocumentType
+  wird die vorherige Version des Reports nicht auf die Festplatte geschrieben.
+  Bei einem darauffolgenden Edit wird die bereits bearbeitete Version
+  angezeigt, nicht die zurückgesetzte.</p>
+</li>
+<li><p>2021097738 - <strong>IDE</strong>: Wenn direkt nach dem Start der IDE der Fokus im leeren
+  Property Grid steht und die Taste F1 gedrückt wird, dann beendet sich die
+  IDE mit einer UnhandledException.</p>
+</li>
+</ul>
+<h2 id="437-27082021">4.3.7 (27.08.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.7_Setup_x64</li>
+<li>FS4.2.20_AuthService</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuer-authentication-service">Neuer Authentication-Service</h4>
+<p>Es gibt einen neuen Authentication-Service mit der Version 4.2.20.
+Dieser ersetzt die bisherige Version 4.0.16.</p>
+<p>Die neue Version behebt einen Fehler in der Windows-Authentication (siehe unten).</p>
+<div class="NOTE"><h5>Note</h5><p>Der neue Authentication-Service ist kompatibel mit älteren Versionen von Applikationen (FS 4.0 und älter).</p>
+</div>
+<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021087434 - <strong>Broker</strong>: Grids und ListViews besitzen in FieldPanels kein
+  generiertes Label, wenn die Caption aus dem DataSource-Property gezogen
+  wird.</p>
+</li>
+<li><p>2021087506 - <strong>Authentication Service</strong>: Die Windows-Authentifizierung
+  funktioniert nicht, wenn der Authentication Service als Windows Service
+  installiert ist und mit einem Domain-User betrieben wird.</p>
+</li>
+<li><p>2021087467 - <strong>HTML Client</strong>: Beim Öffnen des virtuellen Keyboards in Android
+  8 oder älter, wird die WebView in seltenen Fällen vertikal um die Höhe der
+  Statusbar nach oben verschoben. Die Folge ist ein grauer Streifen zwischen
+  der WebView und dem Keyboard.</p>
+</li>
+<li><p>2021087519 - <strong>HTML Client</strong>: Labels werden als fokussierbar angesehen und
+  stören die Fokusreihenfolge.</p>
+</li>
+<li><p>2021087523 - <strong>HTML Client</strong>: Controls ohne Größe (MaxWidth = 0 oder MaxHeight
+  = 0) werden fälschlicherweise in der Fokusreihenfolge berücksichtigt und
+  stören diese dadurch.</p>
+</li>
+</ul>
+<h2 id="436-29072021">4.3.6 (29.07.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.6_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021077133 - <strong>Reporting</strong>: Wird am ReportDocument über die Methode
+  SetDatasource() ein Wert gesetzt, dann wird das bei einem vorherigen Druck
+  erzeugte DataSet nicht zurückgesetzt. Das hat zur Folge, dass bei
+  Folge-Drucken in eNVenta die Daten für den Report nicht neu aufbereitet
+  werden. Das betrifft z.B. das Ändern der Checkbox Briefkopf im Druck-Dialog.</p>
+</li>
+<li><p>2021077068 - <strong>Broker</strong>: Läuft eine Application mit Authentication, dann wird
+  die Lizenz-Prüfung teilweise nicht durchgeführt. Dadurch sehen Benutzer in
+  der Oberfläche nicht lizensierte Elemente. Der Fehler tritt in der Methode
+   für die Berechtigungs-Prüfung <code>Granted()</code> auf. Die Prüfung auf funktionaler
+  Ebene durch <code>LicenseGranted()</code> ist davon nicht betroffen.</p>
+</li>
+<li><p>2021077185 - <strong>IDE</strong>: Nach dem Bearbeiten von Namespace-Referenzen kann es
+  vorkommen, dass trotz Speichern der Namespace noch immer als geändert
+  angezeigt wird. FS muss neu gestartet werden .</p>
+</li>
+<li><p>2021077150 - <strong>Framework</strong>: Mit Framework Studio 4.2.17 und 4.3.5 wurden an
+  den FS-Typen das Interface <code>IFormattable</code> implementiert (Bug 2021066957).
+  Diese Erweiterung hat negative Auswirkungen auf bestehenden Code - z.B. wenn
+  SQL-Statements mit <code>String.Format()</code> oder String-Interpolation erzeugt
+  werden.<br>
+  Bisher wurden null-Werte über Methode <code>ToString()</code> mit dem String <code>&quot;null&quot;</code>
+  abgebildet, die Format-Methoden liefern aber einen leeren String zurück.</p>
+<div class="NOTE"><h5>Note</h5><p>Die IFormattable-Implementierung wurde bis auf Weiteres wieder komplett
+entfernt.</p>
+</div>
+</li>
+<li><p>2021077114 - <strong>HTML Client</strong>: Wird ein Control mit &quot;Tab&quot; verlassen, so kann es
+  ein, dass der Fokus-Indikator (Outline oder gelbe Hintergundfarbe) immer
+  noch sichtbar ist.</p>
+</li>
+<li><p>2021077151 - <strong>HTML Client</strong>: Ein TabbedWindow kann per &quot;Tab&quot; nicht fokussiert
+  werden. Befindet sich der Fokus im letzten Control der aktiven TabPage, so
+  springt der Fokus nicht mehr heraus zum nächsten Control.</p>
+</li>
+<li><p>2021077221 - <strong>HTML Client</strong>: Die Kamera funktioniert nicht auf Android 11
+  oder höher</p>
+</li>
+<li><p>2021077223 - <strong>HTML Client</strong>: Bei der Ausführung der TakePhoto-Action am
+  Client wird nicht nur das Bild zurück an den Broker geschickt, sondern auch
+  lokal eine Kopie in der Gallery gespeichert.</p>
+</li>
+<li><p>2021077228 - <strong>HTML Client</strong>: Der Fullscreen-Modus funktioniert auf Android 11
+  nicht.</p>
+<div class="NOTE"><h5>Note</h5><p>Auf Grund eines zwar bestätigten aber bisher nicht korrigierten Bugs in
+Android 11 kann der HTML Client auf dieser Version deshalb nur im normalen
+Modus betrieben werden.</p>
+</div>
+</li>
+<li><p>2021077229 - <strong>HTML Client</strong>: Beim Pausieren der App auf Android wird ggf. die
+  aktive Session nicht korrekt gespeichert. Dadurch kann nach einem Neustart
+  der App ggf. die Session nicht fortgeführt werden.</p>
+</li>
+</ul>
+<h2 id="435-25062021">4.3.5 (25.06.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.5_Setup_x64</li>
+<li>FS_4.2.18_PrintService</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neue-crystal-reports-runtime">Neue Crystal Reports Runtime</h4>
+<p>Es wird die Crystal Reports Runtime mit Version <strong>13.0.26</strong> und höher unterstützt.</p>
+<p>Voraussetzung ist der neue Print-Service 4.2.18.</p>
+<p>Das <a href="requirements-package.html">Requirements-Paket</a> beinhaltet vorerst weiterhin die Version 13.0.18</p>
+<div class="NOTE"><h5>Note</h5><p>Bitte beachten sie unbedingt die Hinweise in den aktualisierten <a href="requirements.html#crystal-reports-runtime">Systemvoraussetzungen</a>!</p>
+</div>
+<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021066859 - <strong>Print-Service</strong>: Treten beim Verarbeiten von Druckaufträgen
+  wiederholt Fehler auf, dann führt der Print-Service einen Restart durch.
+  Wird der Print-Service aber als Console ausgeführt, dann funktioniert dieser
+  Restart nicht. In der Folge läuft der Print-Service weiter und produziert
+  weiter Fehler.</p>
+</li>
+<li><p>2021066919 - <strong>Print-Service</strong>: Wenn im Print-Service sehr viele Drucker
+  definiert sind, dann kann das den Start des Dienstes so stark verzögern,
+  dass der Start in einen Timeout läuft. Im PrintServiceConfigEditor wird ein
+  Timeout von 30 Sekunden verwendet.</p>
+<div class="NOTE"><h5>Note</h5><p>Die Analyse der Drucker wird jetzt nach dem Start des Dienstes ausgeführt.
+Anstehende Druckjobs werden erst im Anschluss verarbeitet.<br>
+Es kann also sein, dass die ersten Druckjobs erst mehrere Sekunden nach
+erfolgreichem Start des Dienstes verarbeitet werden.</p>
+</div>
+</li>
+<li><p>2021066928 - <strong>Print-Service</strong>: Läuft der Print-Service in einen Fehler - z.B.
+  bei der Verarbeitung eines Crystal Report Documents - dann erfolgt ein
+  automatischer Restart des Services. Dabei wird die letzte Transaktion auf
+  &quot;fehlerhaft&quot; gesetzt. In der Folge wird der Druck-Job nicht verarbeitet,
+  auch wenn nach dem Neustart eine Verarbeitung möglich wäre.</p>
+<div class="NOTE"><h5>Note</h5><p>Tritt so ein Fehler auf, dann wiederholt der Print-Service jetzt nach dem
+Restart einmalig den Druck-Job.</p>
+</div>
+</li>
+<li><p>2021066966 - <strong>Print-Service</strong>: Wird der Print-Service als Console ausgeführt,
+  dann blockiert eine Markierung von Text die Console und damit den kompletten
+  Print-Service.</p>
+<div class="NOTE"><h5>Note</h5><p>Bei einer Blockade läuft der Print-Service jetzt im Hintergrund weiter.
+Während der Blockade werden alle Ausgaben gepuffert und nach der Freigabe
+ausgegeben. Die Blockade der Console-Ausgabe während der Markierung ist eine
+Windows-Funktion und kann durch den Print-Service nicht unterbunden werden.</p>
+</div>
+</li>
+<li><p>2020093875 - <strong>IDE</strong>: Eine DLL-Referenz in einem Form-Namespace, welche in Sub
+  Namespaces verwendet werden kann, führt zu einem Compile-Fehler im Child
+  bzw. Sub-Namespace.</p>
+</li>
+<li><p>2021056504 - <strong>IDE</strong>: Werden an einer GridColumn die Events bearbeitet, werden
+  die Änderungen nicht autom. gespeichert und auch der Speicherbutton wird
+  nicht aktiviert.</p>
+</li>
+<li><p>2021066783 - <strong>IDE</strong>: Mit einem Oracle-Repository kommt es beim Aufruf der
+  Method History zu einem Fehler: ORA-00932: <em>Inkonsistente Datentypen: CLOB
+  erwartet, CHAR erhalten.</em></p>
+</li>
+<li><p>2021066884 - <strong>IDE</strong>: Im Paste-Dialog in der Registerkarte &quot;Summary&quot; wird bei
+  einem Replace &quot;No conflicts found!&quot; angezeigt. Hierdurch ist auf den ersten
+  Blick nicht ersichtlich, dass eine Methode mit gleicher Signatur
+  überschrieben wird.</p>
+</li>
+<li><p>2021066945 - <strong>IDE</strong>: Beim Checkin eines Records werden auch von dem Record
+  verwendete, neu angelegte Records erkannt und diese automatisch mit
+  eingecheckt. Handelt es sich bei dem verwendeten Record aber um eine
+  Customization, dann ist dessen Checkin nicht zwingend nötig, weil er ja
+  schon im Basis-Package eingecheckt wurde.</p>
+</li>
+<li><p>2021066893 - <strong>HTML Client</strong>: Das sofortige Blockieren der UI bei einem Event
+  wurde entschärft. Das Sperren erfolgt erst nach 500ms.</p>
+</li>
+</ul>
+<h2 id="434-30042021">4.3.4 (30.04.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.4_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Bei den <a href="../doc/access-units/access-units.html#description">Access Units</a> wurde die Ansicht der verbundenen AccessUnits verbessert.
+Es werden nun neben den Parents auch die AccessUnit-Children angezeigt.
+Zudem können die AccessUnit-Parents bearbeitet werden.</li>
+</ul>
+<h4 id="korrigierte-fehler-13">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021036188 - <strong>Oracle</strong>: Werden in einem Grid Spalten mit Langtext gefiltert
+  oder sortiert, dann kommt zu einer Sql-Exception, wenn die Texte auf der
+  Datenbank eine Länge von 2000 bzw. 4000 Zeichen überschreiten. Die
+  SQL-Methode LOB_COMPARABLE( ) beinhaltet keine Längenbegrenzung.<br>
+  <em>ORA-22835: Buffer too small for CLOB to CHAR or BLOB to RAW conversion.</em></p>
+</li>
+<li><p>2021036077 - <strong>IDE</strong>: Ist in einem Workflow-Link ein Target FormContainer
+  zugewiesen, dann kann es sein, dass dieser in einem abgeleiteten Workflow
+  nicht mehr zieht.</p>
+</li>
+<li><p>2021036122 - <strong>IDE</strong>: Beim Öffnen des Method History Browser für kopierte oder
+  neu erstellte Methoden, bei denen die Deklaration vor dem Speichern nicht
+  bearbeitet wurde, kann es zu einer Fehlermeldung kommen.</p>
+</li>
+<li><p>2021046301 - <strong>IDE</strong>: Im Runtime License Manager kann es im AccessUnitTree
+  durch Drücken der Leertaste zu einer Unhandled Exception und in der Folge
+  zum Absturz der IDE kommen.</p>
+</li>
+<li><p>2021046405 - <strong>IDE</strong>: Beim Anlegen oder Löschen von Template DataSources im
+  ListView- oder Template Control Designer kommt keine Rückfrage zum
+  Auschecken des Forms.</p>
+</li>
+<li><p>2021046240 - <strong>Framework</strong>: Gibt es in einem Grid mehrere Spalten, die
+  dasselbe Property anzeigen, dann führt das beim Sortieren und Filtern im
+  Client zu einer Exception.</p>
+</li>
+<li><p>2021046385 - <strong>HTML Client</strong>: Bei sehr schnellen Eingaben per Maus oder Touch
+  können versehentlich mehrere Requests aneinandergereiht werden.</p>
+</li>
+<li><p>2021046388 - <strong>HTML Client</strong>: Im ListView und Template Control werden
+  NULL-Werte als &quot;null&quot; (String) angezeigt, anstatt nichts anzuzeigen.</p>
+</li>
+<li><p>2021046253 - <strong>SqlServer</strong>: Wird am Ende einer sehr großen Transaktion ein
+  Rollback ausgeführt, dann kann das zu einem Timeout und einem Abbruch der
+  Sql-Connection führen. In der Folge kann es wegen der geschlossenen
+  Sql-Connection im laufenden Broker-Request zu weiteren Sql-Fehlern kommen.</p>
+</li>
+</ul>
+<h2 id="433-26032021">4.3.3 (26.03.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.3_Setup_x64</li>
+<li>FS_4.3.3_Requirements_x64 (neuer FSClient Launcher)</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen-1">Neuerungen</h4>
+<ul>
+<li><p>im <a href="../doc/fsclientlauncher/fsclientlauncher-configuration.html">FS Client-Launcher</a> werden die Protokolle automatisch in Dateien gespeichert.</p>
+</li>
+<li><p>Im FS Client-Launcher kann über eine Umgebungs-Variable eine abweichende <a href="../doc/fsclientlauncher/fsclientlauncher-configuration.html#java-laufzeitumgebung">Java Runtime</a> definiert werden.</p>
+</li>
+</ul>
+<h4 id="korrigierte-fehler-14">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021025789 - <strong>Java-Client</strong>: In den Fenstern des Haupt-Arbeitsbereiches ist
+  es nicht mehr möglich, mit den Pfeil-Tasten durch die Menüs zu navigieren.
+  Das erschwert die Bedienung an Blindenarbeitsplätzen.</p>
+</li>
+<li><p>2021035831 - <strong>Publish</strong>: Beim Auto-Publish mit FSConsole wird bei
+  Datenbankverbindungen mit Windows Authentication fälschlicherweise trotzdem
+  ein Username und ein Passwort erwartet.</p>
+</li>
+<li><p>2021025761 - <strong>IDE</strong>: Wird beim Export des Wörterbuches die Auswahl der
+  Sprachen eingeschränkt, dann werden trotzdem alle Sprachen exportiert.</p>
+</li>
+<li><p>2021035810 - <strong>IDE</strong>: Der Befehl &quot;New Workflow for Form&quot; legt einen neuen
+  Workflow an, auch wenn dieser bereits existiert.</p>
+<div class="NOTE"><h5>Note</h5><p>Der Befehl wurde in &quot;Open or create Workflow for Form&quot; umbenannt und öffnet
+einen bereits existierenden Workflow.<br>
+Sollten mehrere Workflows für eine Form existieren, wird die
+Dependency-Suche ausgeführt.</p>
+</div>
+</li>
+<li><p>2021025793 - <strong>Framework</strong>: Das ListView-Control löscht bei einem Aufruf von
+  Load() oder Clear() an der gebundenen Collection nicht die bisher
+  angezeigten ListViewItems.</p>
+</li>
+<li><p>2021036115 - <strong>Framework</strong>: Arbeitet eine Component mit einer importierten
+  Business-Datenbank, dann kann es beim Aufruf der Methode
+  GenerateLoadCondition() zu einer SQL-Exception kommen, wenn die
+  Datenbank-Tabelle &quot;dbRun_Config&quot; nicht existiert.</p>
+</li>
+<li><p>2021035904 - <strong>FS-Framework</strong>: In einer Component kann es in sehr seltenen
+  Fällen bei einem Aufruf von PropertyChanged zu einer NullException kommen.
+  Der Fehler tritt nur im Multi-Threading auf (z.B. im eNVenta Job-Server).</p>
+</li>
+<li><p>2021035808 - <strong>FS-Services</strong>: Nach dem Publish eines Services startet dieser
+  nicht. Es wird eine Fehlermeldung <em>System.ArgumentNullException</em> ausgegeben.</p>
+</li>
+<li><p>2021035983 - <strong>Package Merge</strong>: Beim Analysieren der betroffenen Records kann
+  im Bereich Workflow eine NullReferenceException auftreten.</p>
+</li>
+</ul>
+<h2 id="432-26022021">4.3.2 (26.02.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.2_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen-2">Neuerungen</h4>
+<h5 id="änderung-der-logik-beim-schließen-des-letzten-forms-im-html-client">Änderung der Logik beim Schließen des letzten Forms im HTML Client</h5>
+<p>Auf Grund von Bug 2021015392 wurde die Logik, die beim Schließen des letzten Forms im HTML Client greift, überarbeitet. Es gibt nun 2 Szenarien, die es zu beachten gilt.</p>
+<p>Eine detailierte Beschreibung gibt es <a href="../doc/html-client/funktionsumfang.html#szenarien-beim-schließen-des-letzten-forms">hier</a></p>
+<h5 id="html-client-actions">HTML Client Actions</h5>
+<p>Der HTML Client unterstutzt nun die Actions <code>SetTitle</code> und <code>SetCaption</code>. Mehr Informationen zu den unterstützten Action finden Sie <a href="../doc/html-client/funktionsumfang.html#actions">hier</a></p>
+<h4 id="korrigierte-fehler-15">Korrigierte Fehler</h4>
+<ul>
+<li><p>2021025560 - <strong>Java-Client</strong>: In einem TreeView wird durch den Benutzer ein
+  TreeNode selektiert. Das löst ein OnAfterSelect-Event aus. Dann wird durch
+  eine Aktion am Broker (z.B. durch setzen des TreeView-Datasources) ein
+  anderer TreeNode selektiert. Klickt der Benutzer jetzt erneut auf den zuerst
+  selektierten Eintrag, dann wird kein OnAfterSelect-Event ausgelöst.</p>
+</li>
+<li><p>2021025568 - <strong>Java-Client</strong>: Bei der Arbeit mit der
+  Accessibility-Schnitstelle kann es beim Schließen von Forms zu Exceptions
+  kommen: <em>java.lang.ClassCastException:
+  FrameworkSystems.FSJavaClient.DevControl.DevControlFieldRow cannot be cast
+  to javax.accessibility.Accessible</em></p>
+</li>
+<li><p>2021015413 - <strong>Framework</strong>: Wird einem Property, welches an ein Grid-Control
+  gebunden ist eine neue Instanz zugewiesen, dann werden die am Grid
+  eingestellten Filter und Sortierungen zurückgesetzt.</p>
+</li>
+<li><p>2021025449 - <strong>Framework</strong>: die Eigenschaft &quot;ComponentProperties&quot; hat eine
+  schlechte Performance.</p>
+</li>
+<li><p>2021025498 - <strong>Framework</strong>: Bei Template- und ListView-Controls werden die
+  Namen der Template-Variablen nicht korrekt im Response verschlüsselt. In der
+  Folge kommt es zu Fehlermeldungen im Mobile-Client: <em>Could not find
+  TemplateDataSource</em></p>
+</li>
+<li><p>2021025514 - <strong>FS-IDE</strong>: Wird in einem Namespace, der im Basis-Package keine
+  Component beinhaltet (z.B. eNVenta NV.ERP.MM), im Customizing-Package eine
+  neue Component angelegt, dann kommt es beim Compile zu einer
+  FileNotFoundException.</p>
+</li>
+<li><p>2021015392 - <strong>HTML Client</strong>: Wird das letzte Form vom Broker aus per Action
+  geschlossen, so muss am Client die Session ohne Rückfrage geschlossen
+  werden, wenn keine weiteren Forms offen sind.</p>
+</li>
+</ul>
+<h2 id="431-29012021">4.3.1 (29.01.2021)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.1_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen-3">Neuerungen</h4>
+<ul>
+<li>Die <a href="../doc/ide/allgemeine-funktionalitaeten.html#vorwärts--und-rückwärtsnavigation">Vorwärts- und Rückwärtsnavigation</a> zwischen Einträgen ist nun auch mit den beiden zusätzlichen Navigationstasten an der Seite der Maus möglich.</li>
+</ul>
+<h4 id="korrigierte-fehler-16">Korrigierte Fehler</h4>
+<ul>
+<li><p>2020125151 - <strong>Oracle</strong>: An einigen Stellen wird für das Ermitteln von
+  Datenstrukturen der Datenbank auf die ALL_-Views zugegriffen. Besser ist es,
+  die USER_-Views zu verwenden, weil dadurch Fehler vermieden werden können.</p>
+</li>
+<li><p>2016042153 - <strong>IDE</strong>: Am DBIndex gibt es eine Eigenschaft &quot;Active&quot;. Diese wird
+  über eine wenig intuitive Combobox gesteuert, welche keine Beschriftung hat
+  und allermeist nur &quot;Inherit&quot; anzeigt.</p>
+</li>
+<li><p>2020114533 - <strong>IDE</strong>: Ein leerer customized Namespace kann nicht gelöscht
+  werden.</p>
+</li>
+<li><p>2020124914 - <strong>IDE</strong>: Ruft man in der Set-Method eines Component-Properties
+  den Exception-Wizard auf, dann kann es im Anschluss zu
+  NullReferenceExceptions kommen. In diesem Fall ist ein Restart von Framework
+  Studio nötig um die Situation zu bereinigen.</p>
+</li>
+<li><p>2020125090 - <strong>IDE</strong>: Wird eine AccessUnit und deren AccessUnit Parent
+  angelegt und nur ersteres wird eingecheckt, erfolgt keine Dependency Prüfung
+  auf den AccessUnit Parent.</p>
+</li>
+<li><p>2021015220 - <strong>IDE</strong>: Werden in einem Customizing-Package Themes definiert,
+  dann werden diese nicht mehr erkannt, sobald für dieses Customizing-Package
+  eine Context-Version gebildet wird.</p>
+</li>
+<li><p>2020125181 - <strong>Code-Generierung</strong>: Wird an einem abgeleiteten Grid der
+  DataSource überschrieben, dann führt das zu einem Compile-Fehler.</p>
+</li>
+<li><p>2020125172 - <strong>Framework</strong>: Das Listen-DataBiding einer Combobox überträgt zu
+  oft Daten an den Client, wenn der Verwendete Display- oder Value-Member ein
+  Individual Property ist.<br>
+  In der Folge kann es im JavaClient bei der Eingabe von Werten in die
+  Combobox zu Fehlverhalten kommen.</p>
+</li>
+<li><p>2020125182 - <strong>Framework</strong>: Wird an einem abgeleiteten Grid der DataSource
+  überschrieben, dann zeigt das Grid in der Anwendung nur leere Zeilen an.</p>
+</li>
+<li><p>2020125183 - <strong>Framework</strong>: Wird an einer Component ohne Datenbank-Bezug die
+  Methode RollbackChanges() aufgerufen, dann wird kein PropertyChanged-Event
+  gefeuert. In der Folge wird im in einem Form das Databinding nicht
+  aktualisiert.</p>
+</li>
+</ul>
+<h2 id="43-18122020">4.3 (18.12.2020)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.3.0_Setup_x64</li>
+<li>FS_4.3.0_Requirements_x64 (<a href="requirements-package.html">Requirements-Paket</a>)</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen-4">Neuerungen</h4>
+<p>Die Neuerungen finden Sie unter <a href="neuheiten-4-3.html">Neuheiten 4.3</a></p>
+<h4 id="bekannte-probleme">Bekannte Probleme</h4>
+<div class="WARNING"><h5>Warning</h5><p>In der aktuellen Version sind die folgenden Probleme vorhanden. Diese werden mit dem nächsten Service-Release behoben.</p>
+</div>
+<ul>
+<li><p>2020124914 - <strong>IDE</strong>: Ruft man in der Set-Method eines Component-Properties den Exception-Wizard auf, dann kann es im Anschluss zu NullReferenceExceptions kommen.
+In diesem Fall ist ein Restart von Framework Studio nötig um die Situation zu bereinigen.</p>
+<p><strong>Workaround</strong>: Zuerst mit der Maus in die Get-Method des Properties klicken. Dadurch wird eine Initialisierung ausgeführt, die die Exception verhindert.</p>
+</li>
+</ul>
+<h4 id="korrigierte-fehler-17">Korrigierte Fehler</h4>
+<p>In der Version 4.3 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-2.html#4213-18122020">Framework Studio 4.2.13</a> enthalten.</p>
+<p>Zusätzlich wurden die folgenden Bugs behoben:</p>
+<ul>
+<li><p>2020052729 - <strong>Java-Client</strong>: Im Dialog für die Eingabe der Spalten-Filter
+  sollte der Fokus direkt in das Eingabe-Feld gesetzt werden. Nach Eingabe
+  eines Wertes soll der Filter direkt angewendet werden.</p>
+</li>
+<li><p>2017089506 - <strong>IDE</strong>: Wenn man in einem Code-Editor die Suche eingeschränkt
+  auf den selektierten Bereich ausführt, wird immer Case-sensitiv gesucht,
+  auch wenn die Checkbox nicht gesetzt ist. Find and Replace ist ebenfalls
+  betroffen.</p>
+</li>
+<li><p>2020042323 - <strong>IDE</strong>: Beim Erstellen einer individual Datenbank-Connection
+  wird ein neuer (leerer) Eintrag erstellt. Es sollte der vorhandene Eintrag
+  kopiert und als Individual (editable) angelegt werden.</p>
+</li>
+<li><p>2020073102 - <strong>IDE</strong>: Wird in einer DBTable die letzte Column gelöscht, dann
+  wird eine NullReferenceException angezeigt.</p>
+</li>
+<li><p>2020104512 - <strong>IDE</strong>: bei der Anlage eines neuen Crystal Report mit einer
+  neuen Report-Datei gibt es eine Exception:
+  <em>System.System.ArgumentNullException: Der Wert darf nicht NULL sein</em></p>
+</li>
+<li><p>2020104214 - <strong>Code-Generierung</strong>: Public ComponentProperties vom Typ
+  Membervariable werden z.T. in das Interface der Component generiert.
+  Databinding im Form ist damit dann trotzdem nicht möglich.</p>
+<div class="NOTE"><h5>Note</h5><p>In vergangenen Versionen wurden diese Properties bereits als Obsolete
+gekennzeichnet. Mit der aktuellen Version wurden sie komplett entfernt.<br>
+Damit gilt jetzt die ganz klare Regel: <em>Component-Properties mit dem Typ
+Membervariable stehen nicht in den Interfaces zur Verfügung.</em></p>
+</div>
+</li>
+<li><p>2020124918 - <strong>Code-Generierung</strong>: Wird ein Global Object auf ein
+  cGlobal-Property umgelenkt, welches mit einem Obsolete-Attribut versehen
+  ist, dann gilt das Global Object selber nicht als Obsolete. Dadurch treten
+  1.) Obsolete-Warnings beim Compile der Global Objects auf, und 2.) erzeugen
+  Verwendungen dieses Global Objects keine Warning.</p>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

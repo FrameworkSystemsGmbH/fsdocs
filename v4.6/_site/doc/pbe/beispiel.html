@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Beispiel PBE.xml </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Beispiel PBE.xml ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="beispiel-pbexml">Beispiel PBE.xml</h1>
+
+<p>Die folgende Konfiguration stellt beispielhaft einen etwas komplexeren Ablauf mit mehreren FS-Versionen und Repositories dar.</p>
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot; ?&gt;
+&lt;!DOCTYPE PBE SYSTEM &quot;PBE.dtd&quot;&gt;
+&lt;PBE Logfile=&quot;C:\temp\Log.html&quot; Logarchive=&quot;C:\temp\Archive\Log_{DateTime}.html&quot;&gt;
+  &lt;FSVersions&gt;
+    &lt;FSVersion FS=&quot;3.7.0.0&quot; Dir=&quot;C:\Programme\Framework Systems\FrameworkStudio 3.7.3&quot;/&gt;
+  &lt;/FSVersions&gt;
+
+  &lt;Params&gt;
+    &lt;Param Name=&quot;ExportDir&quot; Value=&quot;E:\temp\export\&quot;/&gt;
+    &lt;Param Name=&quot;rep1&quot; Value=&quot;\ConnectionType SqlServer \Server NV261 \Database FSDemo37&quot;/&gt;
+    &lt;Param Name=&quot;rep2&quot; Value=&quot;\ConnectionType SqlServer \Server NV261 \Database FSDemo37Imp&quot;/&gt;
+  &lt;/Params&gt;
+
+  &lt;Sequence&gt;
+    &lt;RD Name=&quot;letztes Export-Dir löschen&quot; Dir=&quot;{ExportDir}&quot;/&gt;
+    &lt;MD Name=&quot;Export-Dir neu anlegen&quot; Dir=&quot;{ExportDir}&quot;/&gt;
+
+    &lt;Parallel Name=&quot;Compile Repository 1&quot;&gt;
+      &lt;ImportQueue QueueName=&quot;ImportQueue&quot; Rep=&quot;{rep2}&quot;/&gt;
+
+      &lt;Sequence Name=&quot;Compile-Lauf FS 3.7&quot;&gt;
+        &lt;CompileRun FS=&quot;3.7.0.0&quot; Rep=&quot;{rep1}&quot; Run=&quot;1&quot;/&gt;
+
+        &lt;Export FS=&quot;3.7.0.0&quot; Rep=&quot;{rep1}&quot; Package=&quot;Cust1&quot; Version=&quot;3.2&quot; Queue=&quot;ImportQueue&quot;/&gt;
+        &lt;Export FS=&quot;3.7.0.0&quot; Rep=&quot;{rep1}&quot; Package=&quot;Cust2&quot; Version=&quot;3.2&quot; Queue=&quot;ImportQueue&quot;/&gt;
+      &lt;/Sequence&gt;
+
+      &lt;Sequence Name=&quot;Compile-Lauf FS 3.8&quot;&gt;
+        &lt;CompileRun FS=&quot;3.8.0.0&quot; Rep=&quot;{rep1}&quot; Run=&quot;1&quot;/&gt;
+
+        &lt;Export FS=&quot;3.8.0.0&quot; Rep=&quot;{rep1}&quot; Package=&quot;Cust1&quot; Version=&quot;3.3&quot; Queue=&quot;ImportQueue&quot;/&gt;
+        &lt;Export FS=&quot;3.8.0.0&quot; Rep=&quot;{rep1}&quot; Package=&quot;Cust2&quot; Version=&quot;3.3&quot; Queue=&quot;ImportQueue&quot;/&gt;
+      &lt;/Sequence&gt;
+    &lt;/Parallel&gt;
+
+    &lt;Parallel Name=&quot;Compile Repository 2&quot;&gt;
+      &lt;CompileRun FS=&quot;3.7.0.0&quot; Rep=&quot;{rep2}&quot; Run=&quot;1&quot;/&gt;
+      &lt;CompileRun FS=&quot;3.8.0.0&quot; Rep=&quot;{rep2}&quot; Run=&quot;1&quot;/&gt;
+
+      &lt;Condition Name=&quot;Sonntags-Compile&quot; Value=&quot;{Weekday}&quot; Equals=&quot;So&quot;&gt;
+        &lt;Parallel&gt;
+          &lt;CompileRun FS=&quot;3.7.0.0&quot; Rep=&quot;{rep2}&quot; Run=&quot;Sonntag&quot;/&gt;
+          &lt;CompileRun FS=&quot;3.8.0.0&quot; Rep=&quot;{rep2}&quot; Run=&quot;Sonntag&quot;/&gt;
+        &lt;/Parallel&gt;
+      &lt;/Condition&gt;
+    &lt;/Parallel&gt;
+
+    &lt;Sequence Name=&quot;Publish&quot;&gt;
+      &lt;Batch Name=&quot;IIS beenden&quot; Cmd=&quot;NET&quot; Args=&quot;STOP W3SVC&quot;/&gt;
+
+      &lt;Parallel Name=&quot;Publish&quot; MaxTasks=&quot;2&quot;&gt;
+        &lt;Publish FS=&quot;3.7.0.0&quot; Rep=&quot;{rep1}&quot; Package=&quot;Cust1&quot; Version=&quot;3.2&quot; Setting=&quot;Cust1_Setting1&quot;/&gt;
+        &lt;Publish FS=&quot;3.7.0.0&quot; Rep=&quot;{rep1}&quot; Package=&quot;Cust1&quot; Version=&quot;3.2&quot; Setting=&quot;Cust1_Setting2&quot;/&gt;
+        &lt;Publish FS=&quot;3.7.0.0&quot; Rep=&quot;{rep1}&quot; Package=&quot;Cust2&quot; Version=&quot;3.2&quot; Setting=&quot;Cust2_Demo&quot;/&gt;
+      &lt;/Parallel&gt;
+
+      &lt;Batch Name=&quot;IIS wieder starten&quot; Cmd=&quot;NET&quot; Args=&quot;Start W3SVC&quot;/&gt;
+    &lt;/Sequence&gt;
+  &lt;/Sequence&gt;
+&lt;/PBE&gt;
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

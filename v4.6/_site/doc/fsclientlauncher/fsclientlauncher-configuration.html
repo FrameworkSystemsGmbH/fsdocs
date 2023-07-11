@@ -1,0 +1,221 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Konfiguration </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Konfiguration ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="konfiguration">Konfiguration</h1>
+
+<h2 id="allgemeines">Allgemeines</h2>
+<p>Wird der FS Client Launcher direkt über das Start-Menü gestartet, dann öffnet sich das Konfigurations-Fenster.</p>
+<p><img src="media/fsclientlauncher-configuration.png" alt="Konfigurations-Fenster"></p>
+<p>Gespeichert werden alle Einstellungen im Benutzer-Kontext in folgender Datei:</p>
+<ul>
+<li><code>%userprofile%\FSClientLauncher\launcherconfig.json</code></li>
+</ul>
+<h3 id="console">Console</h3>
+<p>Der Client-Launcher gibt Fehler und Informationen über ein Konsole-Fenster aus.
+Dieses wird bei der ersten Ausgabe eingeblendet und am Ende zusammen mit dem Java-Client beendet.</p>
+<ul>
+<li><p><strong>Display Java Console</strong>: Die Console-Ausgaben des Java-Clients werden in einem Console-Fenster angezeigt.</p>
+</li>
+<li><p><strong>Trace-Level</strong>: Treten Errors auf, dann werden diese im Console-Fenster angezeigt.
+Durch ändern des Trace-Levels können weitere Informationen – z.B. über den Download der jar-Dateien – im  Console-Fenster angezeigt werden.</p>
+</li>
+<li><p><strong>Log Files Directory</strong>: Alle Ausgaben werden in automatisch in Log-Datei gespeichert.
+Diese werden in dem Ordner abgelegt, der mit dem Link geöffnet werden kann.
+Log-Dateien, die älter sind als 30 Tage werden automatisch gelöscht.</p>
+</li>
+</ul>
+<h3 id="jar-file-caching">Jar File Caching</h3>
+<p>Der Client Launcher speichert die vom Broker heruntergeladenen Jar-Dateien in einem Cache auf der lokalen Festplatte zwischen.
+Dieser Cache wird automatisch bereinigt.</p>
+<ul>
+<li><strong>Auto Cleanup</strong>: Gibt an, wie viele Tage nach dem letzten Aufruf eine Anwendung aus dem Cache gelöscht werden soll.</li>
+<li><strong>Directory</strong>: Hier kann der Cache-Ordner im Explorer geöffnet werden.</li>
+<li><strong>Clear Cache</strong>: Löscht den kompletten Cache.</li>
+</ul>
+<h3 id="network">Network</h3>
+<p>Siehe <a href="#proxy-einstellungen">Abschnitt Proxy-Einstellungen</a>.</p>
+<h3 id="java-settings">Java Settings</h3>
+<ul>
+<li><p><strong>Use Java Version</strong>: Über diesen Schalter kann die Java-Laufzeitumgebungs-Version eingestellt werden. Welche Java-Laufzeitumgebung verwendet werden soll kann alternativ auch über Umgebungsvariablen konfiguriert werden, siehe <a href="#java-laufzeitumgebung">Java-Laufzeitumgebung</a>.</p>
+<ul>
+<li><code>Recommended</code> verwendet aktuell die <code>JRE8</code></li>
+<li><code>Supported</code> verwendet entweder <code>JRE8</code> oder <code>JDK11</code> (64 Bit), dies entscheidet der Broker</li>
+<li><code>Experimental</code> verwendet aktuell das <code>JDK11</code> (64 Bit)</li>
+</ul>
+</li>
+<li><p><strong>VM Arguments</strong>: Hier können Argumente für die Java-Runtime angegeben werden.
+Die hier angegebenen Argumente haben die höchste Priorität.
+Sie überschreiben die Standard- Argumente des Client Launchers und die vom Broker vorgegebenen Argumente.
+Mehrere Argumente werden durch einen Zeilenumbruch getrennt.</p>
+</li>
+</ul>
+<p>Beispiele:</p>
+<ul>
+<li><code>-Xmx1024M</code> Setzt die maximale Speicher-Auslastung auf 1024 MB</li>
+<li><code>-Xms250M</code> Setzt die initiale Speicher-Auslastung auf 250 MB</li>
+</ul>
+<h2 id="proxy-einstellungen">Proxy-Einstellungen</h2>
+<h3 id="direct-connection">Direct Connection</h3>
+<p>Das ist die Standard-Einstellung.
+Im Java-Client wird die Verwendung von Proxies deaktiviert und alle Anfragen werden direkt an den Server gesendet.
+Das umfasst sowohl sie Anfragen an den Broker-Server als auch alle anderen HTTP-Anfragen z.B. durch ein Browser-Control.</p>
+<p>Der Java-VM wird dafür das folgende Argument übergeben:
+<code>-Djava.net.useSystemProxies=false</code></p>
+<p>Bei Bedarf können individuelle Proxy-Einstellungen auch über die VM Arguments im Konfigurations-Dialog vorgenommen werden.
+Details zu den Argumenten befinden sich in der Dokumention von Java:</p>
+<ul>
+<li><a href="https://docs.oracle.com/javase/8/docs/api/java/net/doc-files/net-properties.html">https://docs.oracle.com/javase/8/docs/api/java/net/doc-files/net-properties.html</a></li>
+</ul>
+<p>Es ist wichtig, ggf. auch an <code>https</code> zu denken. Eine individuelle Proxy-Einstellung sieht z.B. so aus:</p>
+<pre><code class="lang-dos">-Dhttp.proxyHost=192.168.124.37
+-Dhttp.proxyPort=3118
+-Dhttp.nonProxyHosts=srv-erp-as-test|srv-erp-as01|srv-erp-as02|localhost|127.*|[::1]
+-Dhttps.proxyHost=192.168.124.37 
+-Dhttps.proxyPort=3119
+-Dhttps.nonProxyHosts=srv-erp-as-test|srv-erp-as01|srv-erp-as02|localhost|127.*|[::1]
+</code></pre><div class="CAUTION"><h5>Caution</h5><p>Die individuellen Proxy-Einstellungen greifen nur innerhalb des eigentlichen Java-Clients.
+Beim Start-Vorgang werden durch den Client-Launcher auch Informationen vom Anwendungs-Server geladen.
+Dabei greifen immer die Windows-Einstellungen.</p>
+</div>
+<h3 id="windows-settings">Windows Settings</h3>
+<p>Der Java-Client greift auf die Proxy-Einstellungen des Client-Windows-Betriebssystems zurück.
+Es muss also sichergestellt sein, dass Windows den Anwendungs-Server erreichen kann.</p>
+<p>Der Java-VM wird dafür das folgende Argument übergeben:
+<code>-Djava.net.useSystemProxies=true</code></p>
+<p>Bei den Proxy-Ausnahmen müssen ggf.
+die lokalen Adressen <code>localhost; 127.0.0.1</code> ergänzt werden, auch wenn die CheckBox &quot;Proxyserver nicht für lokale Adressen&quot; gesetzt ist.</p>
+<h2 id="ssl">SSL</h2>
+<p>Ein Betrieb wird nur mit vertrauenswürdigen Zertifikaten unterstützt.
+Wird der Broker per SSL angesprochen, dann ist es erforderlich, dass das Client-Windows-Betriebsystem dem SSL-Zertifikat des Servers vertraut.</p>
+<p>Der Java-VM wird dafür das folgende Argument übergeben:
+<code>-Djavax.net.ssl.trustStoreType=Windows-ROOT</code></p>
+<h2 id="java-laufzeitumgebung">Java-Laufzeitumgebung</h2>
+<p>Der Client Launcher beinhaltet eine eigene Java Laufzeitumgebung, mit der der Client gestartet wird.
+Die Installation einer separaten Java Laufzeitumgebung ist für den Betrieb des Client-Launchers nicht erforderlich.</p>
+<p>Mit der Umgebungsvariablen <code>FSCL_JRE8</code> und <code>FSCL_JDK11</code> kann bei Bedarf eine abweichende selbst installierte Java Laufzeitumgebung konfiguriert werden.
+Das kann sinnvoll sein, wenn man beispielsweise eine andere Version oder eine 64-Bit Variante der Java Laufzeitumgebung genutzt werden möchte.</p>
+<p>Diese Umgebungsvariable kann in der System-Steuerung von Windows auf Benutzer- oder System-Ebene definiert werden.
+Nach der Änderung der Einstellung ist ggf. ein Neustart des Prozesses (z.B. auch der Framework Studio IDE) nötig, damit die Einstellung zieht.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Unter Umständen kann es schwierig sein alle abhängigen Prozesse zu beenden, es empfiehlt sich den Benutzer ab- und wieder anzumelden oder alternativ den Rechner neu zu starten.</p>
+</div>
+<p>Es ist aber auch möglich z.B. durch eine Batch-Datei die Umgebungsvariable nur temporär für die aktuelle Situation zu überschreiben.</p>
+<pre><code class="lang-dos">rem Zeigt auf das Verzeichnis für die JRE8 Laufzeitumgebung (Recommended)
+set FSCL_JRE8=C:\JAVA\JRE8
+rem Zeigt auf das Verzeichnis für die JDK11 Laufzeitumgebung (Experimental)
+set FSCL_JDK11=C:\JAVA\JDK11_x64
+
+rem Start des Client Launchers mit dem &quot;Start Application&quot; Link aus der Broker Start-Seite
+&quot;%ProgramFiles%\Framework Systems\FS Client Launcher\FSClientLauncher.exe&quot; &quot;fsclientlauncher:launch?broker=http://.....&quot;
+</code></pre><div class="TIP"><h5>Tip</h5><p>Wurde ein falsches Verzeichnis angegeben, beendet sich der Launcher mit einem Fehler, das der &quot;JVM Launcher&quot; nicht gefunden wurde.
+Der &quot;JVM Launcher&quot; wird in <code>bin/javaw.exe</code> gesucht, es muss also das Installationsverzeichnis der Java Laufzeitumgebung und nicht dessen <code>bin</code> Verzeichnis angegeben werden.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

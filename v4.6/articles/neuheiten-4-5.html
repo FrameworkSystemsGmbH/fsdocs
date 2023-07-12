@@ -1,0 +1,154 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Neuheiten Framework Studio 4.5 </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Neuheiten Framework Studio 4.5 ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="neuheiten-framework-studio-45">Neuheiten Framework Studio 4.5</h1>
+
+<p>Informationen zu aktuellen Versionen und korrigierten Fehlern finden Sie in den <a href="release-4-5.html">Release-Informationen</a>.</p>
+<h2 id="neue-systemvoraussetzungen">Neue Systemvoraussetzungen</h2>
+<p>In dieser Version gibt es Anpassungen bei den <a href="requirements.html">Systemvoraussetzungen</a>.</p>
+<h4 id="datenbank-server">Datenbank-Server</h4>
+<p>Es wird der <strong>SQL-Server 2014</strong> oder höher unterstützt.
+Ältere Version (z.B. SQL-Server 2012) werden nicht mehr unterstützt.
+Der SQL-Server 2012 läuft laut Microsoft zum 12.07.2022 aus.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Ein Betrieb mit einer älteren Datenbank-Version ist nicht möglich.
+Ein Connect auf so einen Datenbank-Server führt unmittelbar zu einer entsprechenden Fehlermeldung.</p>
+</div>
+<h4 id="entwicklungs-rechner">Entwicklungs-Rechner</h4>
+<p>Aufgrund der Systemvorraussetzungen von <a href="https://support.google.com/chrome/a/answer/7100626?hl=en">Chromium</a> ist für die Framework Studio IDE mind Windows 10 bzw. Windows Server 2016 erforderlich.
+Aus diesem Grund müssen wir den <strong>IDE-Support für Windows Server 2012 einstellen</strong>.</p>
+<p>Die Chromium Runtime wird von den neuen <a href="release-4-5.html#neue-code-editoren-auf-basis-von-monaco">Code-Editoren</a>, verwendet.</p>
+<p>Als Application-Server kann weiterhin der Windows Server 2012 verwendet werden. Der Publish muss aber mit einem Publish2Go-Paket erfolgen, welches auf einem anderen Rechner mit der IDE bzw. den Package-Manager erstellt wurde.</p>
+<h2 id="neues-browser-control---austausch-des-javafx-browsers">Neues Browser-Control - Austausch des JavaFX Browsers</h2>
+<p>Für die Anzeige von HTML-Inhalten im Java-Client kam bisher für das Browser-Control die <a href="https://docs.oracle.com/javase/8/javafx/embedded-browser-tutorial/overview.htm">JavaFX WebView Component</a> zum Einsatz.</p>
+<p>Dieses Control hat mehrere Probleme:</p>
+<ul>
+<li>auf einigen Webseiten gibt es Abstürze des Java-Clients</li>
+<li>die Browser-Controls laufen im Java-Prozess und benötigen teilweise zu viel Speicher</li>
+</ul>
+<p>Aus diesem Grund wurde die JavaFX WebView Component durch den <a href="https://www.teamdev.com/jxbrowser">JxBrowser</a> ersetzt, welcher auf Chromium basiert.</p>
+<p><strong>Dies bringt einige Verbesserungen mit sich:</strong></p>
+<ul>
+<li>Performance / Stabilität / Sicherheit (eigene Prozesse im Hintergrund)</li>
+<li>Java Speicher wird nicht so stark belastet -&gt; weniger OutOfMemory Exceptions</li>
+<li>Hi-DPI Unterstützung</li>
+<li>Regelmäßige (Sicherheits)-Updates</li>
+<li>Developer tools für Entwickler können aktiviert werden (siehe <a href="../doc/form/control/browser.html#developer-tools-aktivieren">hier</a>)</li>
+</ul>
+<h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
+<ul>
+<li>Für Ressourcen kann eine Beschreibung angegeben werden.</li>
+<li>Es gibt nun die beiden Optionen alle Tabs links bzw. rechts vom aktuellen Tab zu schließen. Diese Funktionen sind über das Kontextmenü erreichbar.</li>
+<li>In der ClassView können mit der Enter-Taste die Properties und Methods des aktuell angezeigten Records geöffnet werden.</li>
+<li>In der Search gibt es die neue Funktion &quot;Copy List as Text&quot;. Diese erscheint, sobald neben den Suchergebnissen das Kontextmenü geöffnet wird.
+Wird in die Listen-Ansicht gewechselt, können nun auch hier alle Ergebnisse kopiert werden.</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

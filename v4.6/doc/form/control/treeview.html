@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TreeView </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="TreeView ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="stylesheet" href="../../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="treeview">TreeView</h1>
+
+<ul>
+<li><p><a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.TreeViewDesignViewModel.html">Properties/Events</a></p>
+</li>
+<li><p><a class="xref" href="../../../api/FrameworkSystems.FrameworkControls.Actions.TreeViewControlAction.html">Actions</a></p>
+</li>
+</ul>
+<p><br></p>
+<p>Multicolumn Tree-Views werden typischerweise zum Darstellen von Baumstrukturen genutzt. Sie bestehen aus den Elementen Tree-View und Tree-Node.</p>
+<p>Zum Verwalten der Spalten und deren Properties existiert ein Dialog, welcher am TreeView über das PropertyGrid oder Kontextmenü geöffnet werden kann.</p>
+<p><img src="../media/treeview.png" alt="TreeView"></p>
+<p>Sie haben verschiedene Möglichkeiten einen Baum zu erstellen. Die Erstellung von Tree-Views unter Framework Studio ist vor allem wegen der Unterstützung der Mehrsprachigkeit komplex. Sie werden in der Regel für jeden Tree-View eine eigene Component benötigen, in denen die Properties über eine Query oder Get / Set Methoden gefüllt werden.</p>
+<p>Für eine einfache Auflistung ohne Verschachtelung und grafische Elemente können Sie auch eine einfache TextCollection nutzen.</p>
+<p>Wird ein Element aus dem Baum durch Klicken ausgewählt, wird die GUID des Elements an den DataSource des Tree-Views zurückgegeben. Deshalb muss der DataSource des Tree-Views entweder den Typ der Baumelemente besitzen, wenn dieser aus homogenen Elementen besteht, oder den allgemeinen Typ Object bzw. DevFrameworkObject haben.</p>
+<p>Sie müssen für jeden Tree-Node in den Properties eine ObjectCollection als NodeDataSource hinterlegen. Das Databinding für die einzelnen beim TreeView definierten Spalten wird an dieser NodeDataSource eingestellt. Unter Displaymembers werden alle Spalten in alphabethischer Reihenfolge aufgelistet.</p>
+<p>Aus dem in NodeDataSource ausgewählten Objekt wählen Sie Properties als Eigenschaft für den jeweiligen Display-Member der im TreeView definierten Columns, den Value-Member, das ClosedIcon, das OpenIcon und das HasSubNodes-Flag. Da es sich bei den Icons um graphische Elemente handelt, sollten die Properties einen relativen oder absoluten Pfad zu den Grafiken enthalten.</p>
+<p>Es empfiehlt sich, eine Datenbank-Tabelle anzulegen, welche alle benötigten Properties als Columns besitzt (ItemIDParent, ItemID, Image1, Image2, Pos, Type).</p>
+<p>Um die Einträge mehrsprachig zu definieren, erzeugen Sie jetzt eine TextCollection. In einer Text-Collection ist es notwendig eine ID zu definieren, die der ItemID aus der Datenbank-Tabelle entsprechen sollte. Anschließend können Sie zu jeder ID mehrsprachig die Bezeichnungen hinterlegen, die in dem Tree-View angezeigt werden sollen.</p>
+<p>Wenn Sie aus der Datenbanktabelle mit den Baum-Informationen eine Component und die dazugehörige Collection erstellt haben, öffnen Sie die Component und fügen ein IndividualReadonly-Property (sText) hinzu, das die Bezeichnung über eine Get-Methode aus der Text-Collection ermittelt. In dem Beispiel wurde zusätzlich eine private Membervariable sTextval hinzugefügt, damit die Bezeichnung aus der TextCollection nur das erste Mal ermittelt wird.</p>
+<p>Die sText Get-Methode könnte folgendermaßen aussehen:</p>
+<pre><code class="lang-csharp">// sTextVal ist eine Membervariable, die sich merkt, 
+// ob bereits ein Load ausgeführt wurde
+if (sTextVal == ““)
+{
+  // Instanziieren der TextCollection
+  ctTreeviewItemText oTreeviewItemText = new ctTreeviewItemText(this.Global);
+
+  if (oTreeviewItemText.GetOnID( lngItemID ) == null)
+  {
+    // Kein Eintrag für die ID in der TextCollection vorhanden
+    sTextVal = &quot;&lt;no entry for&quot; + lngItemID + &quot;&gt;&quot;;
+  }
+  else
+  {
+    // Zuweisung der Bezeichnung
+    sTextVal = oTreeviewItemText.GetOnID( lngItemID ).Text;
+  }
+}
+return sTextVal;
+</code></pre><p>Bei dem Zugriff auf das sText-Property, wird Ihnen automatisch die sprachspezifische Bezeichnung aus der Text-Collection zurückgegeben.</p>
+<p>Die aufgezeigte Möglichkeit zur Unterstützung von Mehrsprachigkeit bei Properties kann selbstverständlich auch in vielen anderen Fällen angewandt werden.</p>
+<p>Sie müssen nicht für jedes Treeview separate Komponenten erstellen, sondern können die vorhandenen durch Einschränkung der Load-Bedingung auf einen Typ mehrfach verwenden.</p>
+<h2 id="tree-view---rekursiver-baum">Tree-View - Rekursiver Baum</h2>
+<p>Um einen rekursiven Baum abzubilden, benötigt man eine rekursive Objekt-Struktur. Dabei ist wichtig, dass alle Objekte denselben Component-Type besitzen. Es müssen 2 Tree-Nodes angelegt werden.</p>
+<p>Der erste Tree-Node erhält als NodeDataSource eine Collection – z.B. ein Form-Property. Diesem Tree-Node können die Eigenschaften unterhalb dem NodeDataSource (Icons, DisplayMember, …) zugewiesen werden.</p>
+<p>Unterhalb wird ein zweiter TreeNode angelegt. Dem wird in den Properties bei der Eigenschaft <strong>ContinueEqiuvalent</strong> der erste Tree-Node zugewiesen. Als NodeDatasource muss eine Collection angegeben werden, die denselben Typ besitzt wie der NodeDataSource des ersten TreeNodes. Unterhalb dem NodeDataSource müssen dieselben Einstellungen vorgenommen werden, wie im ersten TreeNode.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

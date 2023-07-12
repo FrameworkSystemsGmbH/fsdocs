@@ -1,0 +1,168 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Kommandozeilen-Parameter </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Kommandozeilen-Parameter ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="kommandozeilen-parameter">Kommandozeilen-Parameter</h1>
+
+<h2 id="allgemeines">Allgemeines</h2>
+<p>Die Datei <strong>FrameworkStudio.exe</strong> kann mit Parametern gestartet werden. Die Parameter ermöglichen beispielsweise automatisiert den Kompiliervorgang für den <strong>FrameworkCompiler</strong> anzustoßen.</p>
+<p>Die Parameter können in beliebiger Reihenfolge angegeben werden. Eine Liste aller möglichen Parameter mit Beschreibung folgt im nächsten Kapitel (<a href="#tabellarische-übersicht-aller-parameter">Tabellarische Übersicht aller Parameter</a>).</p>
+<p>Beispiel:</p>
+<pre><code class="lang-dos">FrameworkStudio2_5.exe \CONNECT &quot;ConnectionString&quot; \CONNECTIONTYPE &quot;SqlServer&quot; \LOGIN &quot;demo:&quot; \PACKAGE &quot;FSDemo&quot; \VERSION &quot;1.0&quot;
+</code></pre><p>Durch diesen Aufruf wird <strong>Framework Studio</strong> auf dem durch ConnectionString spezifizierten SqlServer Repository am Package <em>FSDemo</em> in der Version <em>1.0</em> für den Benutzer demo gestartet.</p>
+<h2 id="tabellarische-übersicht-aller-parameter">Tabellarische Übersicht aller Parameter</h2>
+<h3 id="connect-connectionstring">\CONNECT &quot;ConnectionString&quot;</h3>
+<p>Repository Connections-String
+Beispiel: &quot;data source=Server;initial catalog=Repository;persist security info=true;User ID=sa;Password=sa;;Pooling=false;&quot;</p>
+<h3 id="connectiontype--type">\CONNECTIONTYPE  &quot;Type&quot;</h3>
+<p>Mögliche Werte für Type:</p>
+<ul>
+<li>Oracle</li>
+<li>SqlServer</li>
+</ul>
+<h3 id="login-username">\LOGIN &quot;UserName:&quot;</h3>
+<p>Der Benutzername mit dem sich am Repository angemeldet werden soll.
+z.B &quot;FrameworkCompiler:&quot;</p>
+<h3 id="package-packagename">\PACKAGE &quot;PackageName&quot;</h3>
+<p>Der Name des Packages</p>
+<h3 id="version-packageversion">\VERSION &quot;PackageVersion&quot;</h3>
+<p>Die Version
+z.B. &quot;1.0.1&quot;</p>
+<h3 id="application-applicationname">\APPLICATION &quot;ApplicationName&quot;</h3>
+<p>Gibt an, welche Application gesetzt werden soll. Das ist vor allem dann notwendig, wenn mit dem Parameter \REFRESHWS gearbeitet wird, damit die Assemblies auch in den richtigen Broker-Ordner geschrieben werden.</p>
+<h3 id="refreshws-true">\REFRESHWS &quot;true&quot;</h3>
+<p>Wenn dieser Parameter mit dem Wert &quot;true&quot; angegeben ist, wird ein Refresh Workspace durchgeführt. Ein Compile mit dem FrameworkCompiler macht nur Sinn, wenn dessen Workspace aktualisiert wird, und er die frisch eingecheckten Versionen kompiliert.</p>
+<h3 id="compile-0000000000000000">\COMPILE &quot;:0000000000000000&quot;</h3>
+<p>Wenn der Parameter gesetzt ist, wir der Compile automatisch gestartet.
+Die Ziffern sind eine Folge aus 0en und 1en, die die Schalter für den Compile-Vorgang angibt.
+Es folgt eine Liste der Schalter. Es müssen immer alle Ziffern entweder mit 0 oder 1 angegeben werden.</p>
+<ol>
+<li>Ziffer) Recursive</li>
+<li>Ziffer) Debugable</li>
+<li>Ziffer) XmlDoc</li>
+<li>Ziffer) Use Saved Code</li>
+<li>Ziffer) Muss immer „1“ sein.</li>
+<li>Ziffer) Ressources</li>
+<li>Ziffer) AccessUnits</li>
+<li>Ziffer) Metadatentypen</li>
+<li>Ziffer) DB-Tables</li>
+<li>Ziffer) Interfaces</li>
+<li>Ziffer) Components</li>
+<li>Ziffer) GlobalObjects</li>
+<li>Ziffer) ReportDocumentTypes</li>
+<li>Ziffer) CustomControls</li>
+<li>Ziffer) Forms</li>
+<li>Ziffer) Workflows</li>
+</ol>
+<p>Ein typischer Compile wäre z.B. &quot;:1001111111111111&quot; Dabei wird alles mit Use SavedCode kompiliert.</p>
+<div class="NOTE"><h5>Note</h5><p>Nach dem Compile wird FrameworkStudio nicht beendet, sondern bleibt am Bildschirm stehen. Wenn beim Compile ein Fehler auftritt, bleibt er an dieser Stelle stehen und der Fehler wird wie bei einem normalen Compile angezeigt.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

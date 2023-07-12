@@ -1,0 +1,143 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Global Events </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Global Events ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="global-events">Global Events</h1>
+
+<p>Global Events sind dazu da, Events zu feuern, die in der ganzen Anwendung abgefangen werden können. Sie können z.B. dazu dienen, allen offenen Workflows und Forms mitzuteilen, dass sie ihre Daten aktualisieren sollen, weil sich Stammdaten geändert haben.</p>
+<p>Ein Global Event besteht aus zwei Teilen:
+einem Sender.
+einem Event-Handler.</p>
+<p>Die Global Events können zudem auch eine beliebige Anzahl von Parametern jedes Typs erhalten. Somit können mit dem Event auch Daten an jede Stelle der Anwendung übertragen werden.</p>
+<p><img src="media/global-events-designer.png" alt="Global Event Designer"></p>
+<p>Global Events sind durch das <img src="../media/icon-event.png" alt="global-events-icon"> -Icon gekennzeichnet.</p>
+<h2 id="global-events-anlegen--löschen">Global Events anlegen / löschen</h2>
+<p>Ein neues Global Event legen Sie an, indem Sie den Namespace markieren, unter dem das neue Event angelegt werden soll. Anschließend drücken Sie den Button (New) und wählen den Eintrag Global Event aus. Das <strong>Global Event</strong> wird angelegt und geöffnet.</p>
+<p>Ein Global Event kann in jedem beliebigen Namespace angelegt werden. Es ist aber empfehlenswert, die Events alle in einen Namespace zu packen.</p>
+<p>Löschen können Sie ein Global Event, indem Sie das Event in der Namespaces-Registerkarte markieren und den Button (<strong>Delete</strong>) drücken. Das Löschen wird erst mit dem Button (<strong>Save All</strong>) wirksam.</p>
+<h2 id="global-events-bearbeiten">Global Events bearbeiten</h2>
+<p>Sie öffnen ein Global Event, indem Sie einen Doppelklick auf das Event der Namespaces-Registerkarte machen. Es öffnet sich der GlobalEvent-Designer im rechten Teil des <strong>Framework Designers</strong>.</p>
+<h4 id="name">Name</h4>
+<p>Gibt den Namen des Global Events an.</p>
+<h4 id="parameters">Parameters</h4>
+<p>In diesem Teil des Fensters werden die Parameter des Global Events verwaltet. Ein Global Event kann beliebig viele Parameter der unterschiedlichsten Datentypen besitzen.</p>
+<p>In der Listbox werden alle Parameter mit ihrem Namen aufgelistet. Rechts daneben werden die Eigenschaften des ausgewählten Parameters bearbeitet.</p>
+<h4 id="parameters-name">Parameters Name</h4>
+<p>Name des Parameters.</p>
+<h4 id="parameters-datatype">Parameters Datatype</h4>
+<p>Gibt den Datentyp des Parameters an. Zur Auswahl stehen .NET-Datentypen, FS-Datentypen, Metadatentypen und Components.</p>
+<h4 id="button-add">Button Add</h4>
+<p>Fügt einen neuen Parameter in die Liste ein.</p>
+<h4 id="button-delete">Button Delete</h4>
+<p>Löscht den momentan markierten Parameter aus der Liste.</p>
+<h2 id="global-events-verwenden">Global Events verwenden</h2>
+<p>Global Events können im Workflow verwendet werden. Nähere Informationen dazu finden Sie im Kapitel Workflows. (<a href="../workflow-designer/design.html#global-events">Global Events</a>)</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

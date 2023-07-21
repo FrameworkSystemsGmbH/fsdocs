@@ -81,21 +81,21 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="scripting-in-devexpress-reports">Scripting in DevExpress-Reports</h1>
 
-<h2 id="einschräkungen">Einschräkungen</h2>
-<p>Scripte sind C#-Code, welcher im Context der Anwendung zur Laufzeit compiliert und ausgeführt wird.
+<p>Scripte in DevExpress-Reports beinhalten C#-Code, welcher im Context der Anwendung zur Laufzeit kompiliert und ausgeführt wird.
 Dabei steht der komplette Funktionsumfang des .NET Frameworks und ggf. Funktionalitäten weiterer auf dem Anwendungsserver installierter Software zur Verfügung.</p>
-<p>Das Scripting ist damit ein mächtiges aber aus Sicherheitsaspekten sehr gefährliches Werkzeug.
+<h2 id="einschränkungen">Einschränkungen</h2>
+<p>Das Scripting ist somit ein mächtiges, aber aus Sicherheitsaspekten sehr gefährliches Werkzeug.
 Im besten Fall können nicht versierte Benutzer Fehler verursachen, die die Stabilität der kompletten Anwendung beeinträchtigen.
 Im schlimmsten Fall bietet dieses Werkzeug aber auch ein potentielles Einfallstor für Angreifer.</p>
-<div class="CAUTION"><h5>Caution</h5><p>Aus Sicherheitsgründen ist das Scripting deshalb nicht gestattet, in Reports, die vom Endbenutzer in der Anwendung bearbeitet werden.</p>
+<div class="CAUTION"><h5>Caution</h5><p>Aus Sicherheitsgründen ist deshalb das Scripting in Reports, die vom Endbenutzer in der Anwendung bearbeitet werden, nicht gestattet.</p>
 </div>
 <p>Ausschließlich mit der Framework Studio IDE vom Entwickler erstellte und mit dem Publish ausgerollte Reports dürfen Scripts enthalten.</p>
-<div class="WARNING"><h5>Warning</h5><p>Werden im <a href="report-designer.html">IDE-Report-Designer</a> Scripts verwendet, dann können diese Reports nicht über das Client Report Customizing mit dem <a href="web-report-designer.html">Web Report Designer</a> bearbeitet werden.
+<div class="WARNING"><h5>Warning</h5><p>Werden im <a href="report-designer.html">Report-Designer</a> Scripte verwendet, dann können diese Reports nicht über das Client Report Customizing mit dem <a href="web-report-designer.html">Web Report Designer</a> bearbeitet werden.
 Die Scripts führen zu Exceptions.</p>
 </div>
-<p>Das Scripting eignet sich damit praktisch nur für spezielle Situationen direkt im Kunden-Package.</p>
-<p>Als Hersteller in einem Standard-Package sollte auf Srcipting verzichtet werden, weil man damit dem Endanwender die Möglichkeiten für das Client Report Customzing nimmt.
-Aber auch das kann im Einzelfall eine bewusste Entscheidung sein.</p>
+<p>Das Scripting eignet sich somit hauptsächlich für spezielle Situationen im Kunden-Package.</p>
+<p>Als Hersteller in einem Standard-Package sollte auf Scripting verzichtet werden, weil so dem Endanwender die Möglichkeit des Client Report Customzings genommen wird.
+Dies kann natürlich im Einzelfall eine bewusste Entscheidung sein.</p>
 </article>
           </div>
           

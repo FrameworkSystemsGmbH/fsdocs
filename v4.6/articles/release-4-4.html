@@ -81,14 +81,27 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-44">Release-Information Framework Studio 4.4</h1>
 
-<h2 id="4418-fix-1-01062023">4.4.18 Fix 1 (01.06.2023)</h2>
+<h2 id="4419-28072023">4.4.19 (28.07.2023)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.4.18_Fix_1_Setup_x64</li>
+<li>FS_4.4.19_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
+<li><p>2023073469 - <strong>Publish2Go</strong>: Das Änderungsdatum von Ressourcen-Dateien wird
+  falsch gesetzt. Die Zeitzone wird nicht korrekt berücksichtigt.</p>
+</li>
+<li><p>2023063291 - <strong>IDE</strong>: Im Form-Designer wird in der Control-Eigenschaft
+  &quot;SearchOperator&quot; der Wert &quot;LikeNonCaseSensitive&quot; nicht angeboten.</p>
+</li>
+<li><p>2023073422 - <strong>IDE</strong>: Fehlerhafte Daten im Repository können dafür sorgen,
+  dass der Workflow-Branch seine Bedingung in eine falsche Version schreibt.</p>
+</li>
+<li><p>2023063205 - <strong>Code-Generierung</strong>: Component-Methoden mit optionalen
+  Parametern können bei der Generierung des Interface-Codes Exceptions
+  verursachen. Ein Compile ist dann nicht möglich.</p>
+</li>
 <li><p>2023053077 - <strong>DevExpress</strong>: Die zum letzten Patchday eingabaute &quot;Hülle&quot; um
   die DataSource-Objekte (Bug 2023052942) verursacht Probleme beim Einsatz von
   Scripting. Durch diese Hülle haben die Objekte nicht mehr den ursprünglichen
@@ -97,8 +110,8 @@
 <div class="NOTE"><h5>Note</h5><p>Die Anpassung wurde zurückgebaut und die Reporting-Schnittstelle verhält
 sich jetzt wieder wie zuvor. Die im Bug 2023052942 beschriebenen Probleme
 treten dadurch jetzt wieder auf.</p>
-<p>Wir arbeiten an einer Lösung für die Version 4.5, die vorraussichtlich zum nächsten Patchday
-ausgeliefert wird. In der Version 4.4 wird es keine Korrektur mehr geben.</p>
+<p>Mit Version 4.5.7 ist das Thema gelöst.
+In der Version 4.4 wird es keine Korrektur mehr geben.</p>
 </div>
 <p>  <strong>Der ursprünglich mit Version 4.4.18 korrigiert Bug:</strong></p>
 <p>  <em>2023052942 - <strong>DevExpress</strong>:

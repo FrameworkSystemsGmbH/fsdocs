@@ -82,8 +82,23 @@
 <h1 id="release-information-framework-studio-45">Release-Information Framework Studio 4.5</h1>
 
 <h2 id="457-28072023">4.5.7 (28.07.2023)</h2>
-<h4 id="einschräkungen-für-report-scripting">Einschräkungen für Report-Scripting</h4>
-<p>Aus Sicherheits-Gründen wurde das <a href="../doc/reporting/devexpress-scripting.html">Scripting für DevExpress-Reports</a> eingschränkt und abgesichert.</p>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.5.7_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="breaking-change-in-der-code-generierung">Breaking Change in der Code-Generierung</h4>
+<p>Die Code-Generierung für Interfaces und Components musste überarbeitet werden, damit die Objektdaten korrekt an DevExpress-Reports übergeben und dort fehlerfrei verarbeitet werden können.</p>
+<div class="CAUTION"><h5>Caution</h5><p>Ältere Framework-Studio Versionen und Package-Versionen sind nicht kompatibel.</p>
+</div>
+<p>Grundsätzlich gilt das bei jedem Service-Release, aber diesen Monat muss besonders darauf geachtet werden, dass auch wirklich <strong>alle Framework-Studio-Installationen</strong> (Arbeitsplätze, Compile-Server, ...) auf die neue Version aktualisiert werden.
+Darüber hinaus müssen <strong>alle Package-Versionen</strong> auf einen aktuellen Stand gebracht werden.</p>
+<div class="CAUTION"><h5>Caution</h5><p>In allen Packages müssen die generierten Codes mit Framwork Studio 4.5.7 neu erzeugt werden.</p>
+</div>
+<p>Package-Versionen, welche sich im Service-Release-Modus befinden, müssen wieder geöffnet, compiliert und neu ausgeliefert werden.
+Anschließend kann die Package-Version wieder in den SR-Modus versetzt werden.</p>
+<h3 id="einschränkungen-für-report-scripting">Einschränkungen für Report-Scripting</h3>
+<p>Aus Sicherheitsgründen wurde das <a href="../doc/reporting/devexpress-scripting.html">Scripting für DevExpress-Reports</a> eingeschränkt und abgesichert.</p>
 <h4 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.30.2 auf Version 7.33.2 aktualisiert.
 Das entspricht Chromium 114.</p>
@@ -94,6 +109,31 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 Aus diesem Grund müssen wir den <strong>Client-Support für Windows Server 2012 einstellen</strong>.</p>
 <p>Der Application-Broker ist von dieser Einschränkung NICHT betroffen.</p>
 </div>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2023073469 - <strong>Publish2Go</strong>: Das Änderungsdatum von Ressourcen-Dateien wird
+  falsch gesetzt. Die Zeitzone wird nicht korrekt berücksichtigt.</p>
+</li>
+<li><p>2023063291 - <strong>IDE</strong>: Im Form-Designer wird in der Control-Eigenschaft
+  &quot;SearchOperator&quot; der Wert &quot;LikeNonCaseSensitive&quot; nicht angeboten.</p>
+</li>
+<li><p>2023073362 - <strong>IDE</strong>: Das Intellisense zeigt Methoden und Properties an, die
+  nicht für die Benutzung vorgesehen sind (z.B. nicht unterstützte
+  Control-Actions). Das sorgt für Verwirrung.</p>
+</li>
+<li><p>2023073367 - <strong>IDE</strong>: neuer Code-Editor - Wenn im MessageBox-Editor ein neuer
+  Event-Handler angelegt wird, dann wird dieser im Hintergrund selektiert.
+  Beim Schließen des Editors landet der geänderte Methoden-Code in der
+  falschen Methode.</p>
+</li>
+<li><p>2023073422 - <strong>IDE</strong>: Fehlerhafte Daten im Repository können dafür sorgen,
+  dass der Workflow-Branch seine Bedingung in eine falsche Version schreibt.</p>
+</li>
+<li><p>2023073478 - <strong>FS-IDE</strong>: Eine &quot;Unhandled Exception&quot; wird beim Start von
+  Framework Studio geworfen, wenn Port 5000 auf dem Localhost durch einen
+  anderen Prozess reserviert wurde.</p>
+</li>
+</ul>
 <h2 id="456-30062023">4.5.6 (30.06.2023)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -165,7 +205,7 @@ Dies geschieht wie üblich über das Menü <code>Source Control</code>, die Tool
 <p>Auch in modalen Dialogen wie z.B. dem <a href="../doc/form/control/listview.html#listview-template-editor">ListView Template Editor</a> oder dem <a href="../doc/documentation/editor.html#editor">DocML Editor</a> von Controls kann mit <code>CTRL + F10</code> <strong>rückfragefrei</strong> ausgecheckt werden.
 Dadurch wird vermieden, dass der Dialog zum Auschecken geschlossen werden muss.</p>
 <p>Beim Auschecken von Elementen über den Namespace Tree ist, wie bisher auch, eine Bestätigung des Vorgangs nötig.</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023063292 - <strong>DevExpress</strong>: Das Speichern einer geänderten Localization im WebDesigner
   führt zu einer TypeError-Exception, wenn im Report ein CarryForward-Control vorhanden ist.</p>
@@ -215,7 +255,7 @@ Bei bestehenden Resourcen wird jedoch erst bei einer Bearbeitung das Encoding ab
 Eine Konvertierung in ein anderes Encoding kann in beiden Fällen vorgenommen werden.
 Mehr Informationen zum Funktionsumfang findet sich <a href="../doc/resources/resources.html#encoding">hier</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023042824 - <strong>Broker</strong>: Eine Listbox oder Combobox verwendet als
   Listen-Datasource eine Collection. Werden aus dieser Collection Records
@@ -283,7 +323,7 @@ Mit dem Update von DevExpress Web-Designers auf .net 6 haben wir diesen so umges
 <ul>
 <li>Am GridView gibt es ein neues Event <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IGridView.EntriesSortedOrFiltered.html">EntriesSortedOrFiltered</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023032382 - <strong>Broker</strong>: Wird eine Gridspalte mit &quot;LIKE&quot; gefiltert, werden
   ggf. keine Treffer gefunden, wenn sich der gesuchte Begriff in einem
@@ -324,7 +364,7 @@ Das entspricht Chromium 108.</p>
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
 <h4 id="neuer-html-client">Neuer HTML Client</h4>
 <p>Der HTML Client wurde auf Angular 15.1 upgedated. Neue Features oder Bugfixes gibt es nicht.</p>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023022188 - <strong>Broker</strong>: Clientside Report Customizing (DevExpress)
   funktioniert nicht mit Applikationen, die mit einem Runtime-Repository
@@ -347,7 +387,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>FS_4.5.1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023011937 - <strong>JavaClient</strong>: Die Jar-Dateien für das neue Browser-Control sind
   nicht signiert. Deshalb ist ein Start der Anwendung über Java-Webstart nicht
@@ -403,7 +443,7 @@ Weitere Informationen finden sie <a href="release-4-4.html#abkündigung-des-msi-
 <li>Oracle.ManagedDataAccess 19.13 -&gt; 21.8</li>
 <li>HtmlAgilityPack 1.11.4 -&gt; 1.11.46</li>
 </ul>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <p>In der Version 4.5 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-4.html#4413-23122022">Framework Studio 4.4.13</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

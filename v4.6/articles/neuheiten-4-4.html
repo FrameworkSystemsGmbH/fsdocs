@@ -196,13 +196,13 @@ Die Compile Fehler können verhindert werden, indem der ObjectType der Referenze
 <p>Framework Studio bietet die Möglichkeit, den Service Host so zu konfigurieren, dass vollständig automatisch ein zusätzlicher Endpoint generiert wird, mit dem die im Service Contract propagierten Methoden auch über JSON und damit über einen normalen HTTP-Request angesprochen werden können.</p>
 <p>Eine detaillierte Beschreibung dieser neuen Funktionalität befindet sich <a href="../doc/webservices/rest-endpoint.html">HIER</a>.</p>
 <h2 id="placeholder-für-editfields-und-comboboxen">Placeholder für Editfields und Comboboxen</h2>
-<p>Für Editfields und Comboboxen steht ein neues Property <a class="xref" href="../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.CaptionAsPlaceholder.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_CaptionAsPlaceholder">CaptionAsPlaceholder</a> zur Verfügung. Wenn dieses Property auf <code>true</code> gesetzt wird, zeigt das Editfield oder die Combobox die Caption als Placeholder an, solange das Control leer ist bzw. keinen Datensatz anzeigt. Auf diese Weise können zusammenhängende Daten ggf. übersichtlicher dargestellt werden:</p>
+<p>Für Editfields und Comboboxen steht ein neues Property <a href="xref:FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.CaptionAsPlaceholder">CaptionAsPlaceholder</a> zur Verfügung. Wenn dieses Property auf <code>true</code> gesetzt wird, zeigt das Editfield oder die Combobox die Caption als Placeholder an, solange das Control leer ist bzw. keinen Datensatz anzeigt. Auf diese Weise können zusammenhängende Daten ggf. übersichtlicher dargestellt werden:</p>
 <p><img src="media/placeholder.png" alt="Adresse"></p>
 <h3 id="hinweise">Hinweise</h3>
 <ul>
 <li>Placeholder funktionieren sowohl im Java Client als auch im HTML Client.</li>
 <li>Die Farbe des Placeholders ist fest auf <code>RGB(180, 180, 180)</code> bzw. <code>#b4b4b4</code> gesetzt.</li>
-<li>Befindet sich das Control in einem FieldPanel, so wird kein extra Label generiert, wenn <a class="xref" href="../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.CaptionAsPlaceholder.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_CaptionAsPlaceholder">CaptionAsPlaceholder</a> auf <code>true</code> gesetzt ist.</li>
+<li>Befindet sich das Control in einem FieldPanel, so wird kein extra Label generiert, wenn <a href="xref:FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.CaptionAsPlaceholder">CaptionAsPlaceholder</a> auf <code>true</code> gesetzt ist.</li>
 </ul>
 <h2 id="bilder-unterstützung-für-html-editfields">Bilder Unterstützung für HTML Editfields</h2>
 <p>Editfields mit dem Editor Type HTML können nun Inline-Bilder anzeigen.
@@ -222,7 +222,7 @@ Beim ersten Start nach dem Update wird der alte <code>.jarcache</code> Ordner ei
 </ul>
 <h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
 <ul>
-<li><p>Für Comboboxen und Listboxen kann die <a class="xref" href="../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.DisabledBackColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_DisabledBackColor">DisabledBackColor</a> definiert werden.</p>
+<li><p>Für Comboboxen und Listboxen kann die <a href="xref:FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.DisabledBackColor">DisabledBackColor</a> definiert werden.</p>
 </li>
 <li><p>In Methoden-Parametern und Rückgabetypen können die <a href="https://docs.microsoft.com/dotnet/csharp/language-reference/builtin-types/value-tuples">C# 7 Tuple-Types</a> verwendet werden.</p>
 </li>
@@ -235,9 +235,9 @@ Dies bedeutet, dass die FSROWID als eindeutiger und alleiniger Primary Key für 
 Die RowVersion wird weiterhin für die Concurrency-Violation Überprüfung verwendet.
 Dabei ist es nebensächlich, ob der Primary Key eine ROWID oder ein individueller PK ist.</p>
 </li>
-<li><p>Analog zur GlobalOnBeforeSaveAction() gibt es auch eine <a class="xref" href="../api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.GlobalOnAfterSaveAction.html#FrameworkSystems_FrameworkBase_GlobalObj_IcGlobalBase_GlobalOnAfterSaveAction_FrameworkSystems_FrameworkBase_DevFrameworkObject_">GlobalOnAfterSaveAction()</a>, welche jedoch nach der SaveAction aufgerufen wird.</p>
+<li><p>Analog zur GlobalOnBeforeSaveAction() gibt es auch eine <a href="xref:FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.GlobalOnAfterSaveAction(FrameworkSystems.FrameworkBase.DevFrameworkObject)">GlobalOnAfterSaveAction()</a>, welche jedoch nach der SaveAction aufgerufen wird.</p>
 </li>
-<li><p>Im <a href="../doc/comp/static-cache.html">StaticCache</a> steht eine neue Methode <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IStaticCache.ContainsKey.html#FrameworkSystems_FrameworkBase_IStaticCache_ContainsKey_System_Object_">ContainsKey(pk)</a> zur Verfügung.</p>
+<li><p>Im <a href="../doc/comp/static-cache.html">StaticCache</a> steht eine neue Methode <a href="xref:FrameworkSystems.FrameworkBase.IStaticCache.ContainsKey(System.Object)">ContainsKey(pk)</a> zur Verfügung.</p>
 </li>
 <li><p>Für Checkboxen wurde der <a href="../doc/form/control/grid.html#grid-filter">Tabellenfilter</a> auf Checked/Unchecked (bzw. Aktiviert/Deaktiviert) geändert. Gibt es Datensätze mit Null-Werten, werden diese bei der Checkbox-Filterung als Unchecked gewertet.</p>
 </li>
@@ -259,8 +259,8 @@ Sie kann ausschließlich durch <em>Nissen &amp; Velten</em> am <em>eNVenta</em> 
 <li><p>Es ist nun möglich, den Code im <a href="../doc/editors/editor-cs.html">C# Editor</a>, mit dem Shortcut <code>SHIFT + ALT + F</code> den Code zu <a href="../doc/editors/editor-cs.html#code-formatting">formattieren</a>.</p>
 </li>
 <li><p>Es ist nun möglich, Grid-Columns per Action zu verschieben.
-Dafür gibt es zwei neue Methoden(<strong>MoveBefore</strong> / <strong>MoveAfter</strong>) an der <a class="xref" href="../api/FrameworkSystems.FrameworkControls.Actions.GridColumnControlAction.html">GridColumnControlAction</a>
-und zwei neue Methoden(<strong>InsertBefore</strong> / <strong>InsertAfter</strong>) an der <a class="xref" href="../api/FrameworkSystems.FrameworkControls.Actions.GridControlAction.html">GridControlAction</a>.</p>
+Dafür gibt es zwei neue Methoden(<strong>MoveBefore</strong> / <strong>MoveAfter</strong>) an der <a href="xref:FrameworkSystems.FrameworkControls.Actions.GridColumnControlAction">GridColumnControlAction</a>
+und zwei neue Methoden(<strong>InsertBefore</strong> / <strong>InsertAfter</strong>) an der <a href="xref:FrameworkSystems.FrameworkControls.Actions.GridControlAction">GridControlAction</a>.</p>
 </li>
 <li><p>Der Text in einem <a href="../doc/documentation/editor.html">Dokumentations-Editor</a> wird jetzt auf Rechtschreibfehler überprüft.
 Gefundene Rechtschreibfehler werden rot unterstrichen.
@@ -280,8 +280,8 @@ Es kann nun mithilfe von Autocomplete nach existierenden Dokumentationen gesucht
 </li>
 <li><p>Es ist nun möglich, <a href="../doc/documentation/docml.html#headline">Headlines</a> im <a href="../doc/documentation/editor.html">Dokumentationsfenster</a> zu nutzen.</p>
 </li>
-<li><p>Am <a class="xref" href="../api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.html"><strong>cGlobal</strong></a> wurde der neuer EntryPoint <strong>OnLicenseGranted</strong> geschaffen, mit dem man Lizenz-Freigabe programmatisch einschränken kann, obwohl die Lizenz-Datei dies erlaubt.
-Parallel dazu wurde die neue Methode <strong>LicenseGrantedInFile</strong> am <a class="xref" href="../api/FrameworkSystems.FrameworkBase.AccessControl.AUHelper.html"><strong>AUHelper</strong></a> geschaffen.</p>
+<li><p>Am <a href="xref:FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase"><strong>cGlobal</strong></a> wurde der neuer EntryPoint <strong>OnLicenseGranted</strong> geschaffen, mit dem man Lizenz-Freigabe programmatisch einschränken kann, obwohl die Lizenz-Datei dies erlaubt.
+Parallel dazu wurde die neue Methode <strong>LicenseGrantedInFile</strong> am <a href="xref:FrameworkSystems.FrameworkBase.AccessControl.AUHelper"><strong>AUHelper</strong></a> geschaffen.</p>
 </li>
 <li><p>Noch nicht abgespeicherte Tabs werden nun mit einem Stern <code>*</code> gekennzeichnet. </p>
 </li>

@@ -81,13 +81,40 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-44">Release-Information Framework Studio 4.4</h1>
 
+<h2 id="4420-01092023">4.4.20 (01.09.2023)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.4.20_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuer-html-client">Neuer HTML Client</h4>
+<p>Der HTML Client wurde auf Angular 16.2 upgedated. Das Scrolling bei vielen offenen Forms wurde im Browser und auf Tablets verbessert.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2023083693 - <strong>IDE</strong>: Wird ein Individual-Property mit gesetzter Checkbox
+  Autogenerate Membervariable in ein Generated-Property geändert, bleibt die
+  Checkbox im Hintergrund gesetzt. In der Folge kommt es zu Fehlern bei der
+  Code-Generierung, weil fälschlicherweise immer noch Code für die
+  Membervariable generiert wird.</p>
+</li>
+<li><p>2023083651 - <strong>Data Provider</strong>: Werden in SQL-Bedingungen mithilfe von
+  DB.SqlString() Parameter ergänzt, dann wird für die Größe der Parameter
+  standardmäßig die tatsächliche Länge der Werte verwendet. Dadurch entstehen
+  sehr viele unterschiedliche Statements, die vom SQL-Server nicht
+  wiedererkannt werden. Das beeinträchtigt die Permormance der Datenbank.</p>
+<div class="NOTE"><h5>Note</h5><p>Wenn die Werte das erlauben, werden jetzt großzügige Standardgrößen
+verwendet. Dadurch erhöht sich in der Praxis die Wiedererkennungsrate
+signifikant.</p>
+</div>
+</li>
+</ul>
 <h2 id="4419-28072023">4.4.19 (28.07.2023)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.4.19_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023073469 - <strong>Publish2Go</strong>: Das Änderungsdatum von Ressourcen-Dateien wird
   falsch gesetzt. Die Zeitzone wird nicht korrekt berücksichtigt.</p>
@@ -131,7 +158,7 @@ In der Version 4.4 wird es keine Korrektur mehr geben.</p>
 <li>FS_4.4.18_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023042824 - <strong>Broker</strong>: Eine Listbox oder Combobox verwendet als
   Listen-Datasource eine Collection. Werden aus dieser Collection Records
@@ -186,7 +213,7 @@ FrameworkBrokerRole;</code></p>
 <li>FS_4.4.17_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023022324 - <strong>JavaClient / Broker</strong>: Wird beim Anlegen einer Dynamischen
   Grid-Spalte - z.B. über das Client Side Customizing - eine Combobox-Liste
@@ -211,7 +238,7 @@ FrameworkBrokerRole;</code></p>
 <li>FS_4.4.16_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023032382 - <strong>Broker</strong>: Wird eine Gridspalte mit &quot;LIKE&quot; gefiltert, werden
   ggf. keine Treffer gefunden, wenn sich der gesuchte Begriff in einem
@@ -235,9 +262,9 @@ FrameworkBrokerRole;</code></p>
 <p>Auf Grund von Bug 2023022188 muss beim Publish2Go das Runtime Repository nochmals upgedated werden.</p>
 <p>Beim Publishen einer Applikation erscheint dann ggf. die Warnung <code>&quot;The selected runtime repository is not prepared for this version of Publish2Go. You have to prepare the runtime repository before you can publish.&quot;</code>.</p>
 <p>Um diese Situation zu lösen, muss im Publish2Go Wizard unter <code>Connection Groups</code> die <code>RuntimeConnection</code> ausgewählt werden und mit dem Button <code>Prepare Runtime Repository</code> die fehlenden Scripte ausgeführt werden.</p>
-<h4 id="neuer-html-client">Neuer HTML Client</h4>
+<h4 id="neuer-html-client-1">Neuer HTML Client</h4>
 <p>Der HTML Client wurde auf Angular 15.1 upgedated. Neue Features oder Bugfixes gibt es nicht.</p>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023022188 - <strong>Broker</strong>: Clientside Report Customizing (DevExpress)
   funktioniert nicht mit Applikationen, die mit einem Runtime-Repository
@@ -260,7 +287,7 @@ FrameworkBrokerRole;</code></p>
 <li>FS_4.4.14_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023012014 - <strong>Publish2Go</strong>: Publish2Go kann nicht ausgeführt werden, wenn der
   IIS nicht installiert ist (z.B. zur Installation von ServiceHosts).</p>
@@ -319,7 +346,7 @@ Wir stellen Ihnen dann auf Anfrage den MSI-Installer zur Verfügung.</p>
 <ul>
 <li>enthält den neuen FS Client Launcher 4.4.13</li>
 </ul>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022121646 - <strong>FSClientLauncher</strong>: Ist in der Application kein Start-Image
   definiert, dann kann die Anwendung nicht über den Client-Launcher gestartet
@@ -361,7 +388,7 @@ Wir stellen Ihnen dann auf Anfrage den MSI-Installer zur Verfügung.</p>
 <ul>
 <li>Siehe korrigierte Fehler</li>
 </ul>
-<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021118404 - <strong>Java-Client</strong>: Im Tooltip-Text einer Drop-Action werden keine
   Zeilenumbrüche dargestellt, wodurch lange Texte in einer einzelnen langen
@@ -414,13 +441,13 @@ Beim ersten Start nach dem Update wird der alte <code>.jarcache</code> Ordner ei
 <ul>
 <li>Siehe korrigierte Fehler</li>
 </ul>
-<h4 id="neuer-html-client-1">Neuer HTML Client</h4>
+<h4 id="neuer-html-client-2">Neuer HTML Client</h4>
 <ul>
 <li>Siehe korrigierte Fehler</li>
 <li>Die Barcode Scanner Library wurde aktualisiert</li>
 <li>Das Frontend wurde auf Angular 14 aktualisiert</li>
 </ul>
-<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022101251 - <strong>Java-Client</strong>: Wenn bei einem Drag&amp;Drop-Vorgang ein modaler
   Dialog geöffnet wird, dann kann es in seltenen Fällen vorkommen, dass im
@@ -485,7 +512,7 @@ Beim ersten Start nach dem Update wird der alte <code>.jarcache</code> Ordner ei
 <li>Im Service Release könnnen nun auch neue Properties in Components, Forms und Data Contracts hinzugefügt werden. Detailliertere Informationen finden sich im Kapitel: <a href="../doc/weitere-themen/service-release-modus.html#strukturelle-erweiterungen">strukturelle Erweiterungen im Service Release</a></li>
 <li>Sobald sich der Status an einem Record durch einen CheckIn oder CheckOut ändert, wird die SearchView und die Source Control History aktualisiert.</li>
 </ul>
-<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
 <ul>
 <li>2022080812 - <strong>IDE</strong>: Wird im Multilanguage Text Editor die Dependency-Suche
   ausgeführt, dann kann es zu folgender Exception kommen:
@@ -518,14 +545,14 @@ Somit können die Beschriftungen jetzt durchgängig geändert werden.</li>
 <h4 id="neuerungen-1">Neuerungen</h4>
 <ul>
 <li><p>An der TextCollection <code>IDevFrameworkObjectTextColl</code> steht eine neue Methode bereit. Die Drop-Methode <code>bool IDevFrameworkObjectTextColl.Drop(FSlong id)</code> ermöglicht einen Eintrag mit einer bestimmten ID zu löschen.
-Detailliertere Infos siehe <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IDevFrameworkObjectTextColl.html">API-Dokumentation</a>.</p>
+Detailliertere Infos siehe <a href="xref:FrameworkSystems.FrameworkBase.IDevFrameworkObjectTextColl">API-Dokumentation</a>.</p>
 </li>
 <li><p>DevExpress: Bei EmbeddedSubReport wird der DataMember nicht mehr geändert.
 Es wird weiterhin der DataMember des Haupt-Reports vorbelegt.
 Wird der DataMember anschließend vom Benutzer geändert, dann bleibt diese Einstellung jetzt erhalten.</p>
 </li>
 </ul>
-<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022070513 - <strong>Java-Client</strong>: Bewegt man den Mauszeiger während einer
   DragDrop-Aktion so schnell, dass er sich beim Loslassen schon wieder
@@ -593,7 +620,7 @@ In Textfeldern wird zur besseren Lesbarkeit im Designer bei segmentierten Expres
 <li>Die Optionen im Login-screen wurden entsprechend angepasst.</li>
 <li>FCUser werden beim Verlassen der Anwendung nicht mehr über einen ausstehenden Abschluss des workspaces gewarnt, falls es sich um ein importiertes oder geschlossenes package handelt.</li>
 </ul>
-<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022070299 - <strong>Broker</strong>: Fehler im Data-Binding - Wenn in einem Grid eine
   Combobox-Spalte mit DependsDataSourceOnRowData angelegt ist, dann kann es
@@ -655,7 +682,7 @@ dass der Package-Manager einfriert.</p>
 </li>
 <li>Die <a href="../doc/reporting/report-designer.html#controls-und-custom-controls">FS-spezifischen Report Controls</a> haben Icons erhalten</li>
 </ul>
-<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-13">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022059879 - <strong>JavaClient</strong>: Beim Öffnen eines Forms werden vom WrapPanel
   Layout-Exceptions geworfen, wenn der Frame extrem schmal ist.</p>
@@ -691,7 +718,7 @@ dass der Package-Manager einfriert.</p>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="neuer-print-service-2">Neuer Print-Service</h4>
 <p>Im PrintService wurde die DevExpress® Reporting Runtime aktualisiert.</p>
-<h4 id="korrigierte-fehler-13">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-14">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022059888 - <strong>JavaClient</strong>: Wird eine Grid-Zelle mit Enter verlassen, dann
   kann es passieren, dass eine im OnColumnChanged-Event aufgerufene
@@ -751,7 +778,7 @@ korrekt aufgebaut.</p>
 <ul>
 <li>Neue Maintenance-Routine <a href="../doc/maintenance/textcollection-mlkey-replace.html">Replace TextCollection with MLKeys</a> zum Ersetzen von TextCollection-Aufrufen durch MLKeys im Methoden-Code.</li>
 </ul>
-<h4 id="korrigierte-fehler-14">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-15">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022039471 - <strong>Package-Manager</strong>: Bei einem importierten Package wird die
   Meldung &quot;Please import...&quot; angezeigt, wenn für das Basis-Package ein neues
@@ -802,7 +829,7 @@ korrekt aufgebaut.</p>
 <li>Der SpellChecker für das Dokumentationssystem kann nun im Options-Dialog deaktiviert werden.</li>
 <li>Im <a href="../doc/ide/allgemeine-funktionalitaeten.html#method-history-browser">Method History Browser</a> und im <a href="../doc/ide/allgemeine-funktionalitaeten.html#element-history-browser">Element History Browser</a> werden Context-Package Versionen ausgeblendet.</li>
 </ul>
-<h4 id="korrigierte-fehler-15">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-16">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022029183 - <strong>Broker</strong>: Die Properties MainMemorySortingThreshold,
   TransferStartupRowCount, TransferStartupNodeRowCount und ListSortOrder
@@ -874,7 +901,7 @@ dem nächsten Patchday eine Korrektur geben.</p>
 <li>Die Anmeldung mit dem <code>FrameworkAdministrator</code> an der IDE zur User-Verwaltung wurde entfernt. Die User-Verwaltung kann nun ausschließlich über den Package Manager im Menü <code>Tools -&gt; Manage Users</code> aufgerufen werden.</li>
 <li>In der IDE werden noch nicht abgespeicherte Tabs mit einem Stern <code>*</code> gekennzeichnet.</li>
 </ul>
-<h4 id="korrigierte-fehler-16">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-17">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022029190 - <strong>Java-Client</strong>: Alle Jar-Dateien müssen neu signiert werden,
   weil das Java-Zertifikat widerrufen wurde.</p>
@@ -925,10 +952,10 @@ hat. Er war seit 05.2020 aktiv.</p>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="neuerungen-5">Neuerungen</h4>
 <ul>
-<li>Am <a class="xref" href="../api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.html"><strong>cGlobal</strong></a> wurde ein neuer EntryPoint geschaffen, mit dem man Lizenz-Freigabe programmatisch einschränken kann, obwohl die Lizenz-Datei dies erlaubt.</li>
+<li>Am <a href="xref:FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase"><strong>cGlobal</strong></a> wurde ein neuer EntryPoint geschaffen, mit dem man Lizenz-Freigabe programmatisch einschränken kann, obwohl die Lizenz-Datei dies erlaubt.</li>
 <li>Es ist nun möglich, <a href="../doc/documentation/docml.html#headline">Headlines</a> im <a href="../doc/documentation/editor.html">Dokumentationsfenster</a> zu nutzen.</li>
 </ul>
-<h4 id="korrigierte-fehler-17">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-18">Korrigierte Fehler</h4>
 <ul>
 <li><p>2022018908 - <strong>JavaClient</strong>: Wird per Action ein TabbedWindow (oder sein
   Parent) ausgeblendet, dann feuert das OnSelectedTabPageChange Event. Findet
@@ -1014,7 +1041,7 @@ hat. Er war seit 05.2020 aktiv.</p>
 <li>BeepDouble</li>
 <li>BeepMultiple</li>
 </ul>
-<h4 id="korrigierte-fehler-18">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-19">Korrigierte Fehler</h4>
 <ul>
 <li><p>2021128654 - <strong>Broker</strong>: Wird im Customizing-Package eine Developer-Lizenz
   verwendet, dann werden die Lizenzen der Basis-Packages nicht ausgewertet.
@@ -1064,7 +1091,7 @@ hat. Er war seit 05.2020 aktiv.</p>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="neuerungen-7">Neuerungen</h4>
 <p>Die Neuerungen finden Sie unter <a href="neuheiten-4-4.html">Neuheiten 4.4</a></p>
-<h4 id="korrigierte-fehler-19">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-20">Korrigierte Fehler</h4>
 <p>In der Version 4.4 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-3.html#4310-26112021">Framework Studio 4.3.10</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

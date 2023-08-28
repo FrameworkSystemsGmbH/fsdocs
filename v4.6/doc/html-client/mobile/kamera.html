@@ -83,13 +83,13 @@
 
 <p>Über die in einem mobilen Gerät integrierte Kamera können im Mobile Client Bilder gemacht und zum Broker geschickt werden. Alternativ können schon vorhandene Bilder aus der Bildergallerie ausgewählt werden.</p>
 <h3 id="action-takephoto">Action <code>TakePhoto()</code></h3>
-<p>Der Vorgang wird am Form über die Action <a class="xref" href="../../../api/FrameworkSystems.FrameworkControls.GeneratedForm.TakePhoto.html#FrameworkSystems_FrameworkControls_GeneratedForm_TakePhoto_System_Action_FrameworkSystems_FrameworkBase_IFrameworkPhotoInfo__FrameworkSystems_FrameworkBase_CameraSource_">TakePhoto()</a> gestartet.</p>
+<p>Der Vorgang wird am Form über die Action <a href="xref:FrameworkSystems.FrameworkControls.GeneratedForm.TakePhoto(System.Action{FrameworkSystems.FrameworkBase.IFrameworkPhotoInfo},FrameworkSystems.FrameworkBase.CameraSource)">TakePhoto()</a> gestartet.</p>
 <pre><code class="lang-csharp">// Aufruf der Action beim Click eines Buttons
 protected virtual void FE_btn_OnClick(FrameworkButtonEventArgs e)
 {
     this.TakePhoto(this.TakePhotoCallback, CameraSource.CAMERA, &quot;Camera&quot;);
 }
-</code></pre><p>Wenn der Vorgang am Client abgeschlossen ist, wird die übergebene Callback-Methode aufgerufen. In ihr können die empfangenen Bilddaten weiterverarbeitet werden. Der Callback-Methode wird dafür ein Objekt mit dem Typ <a class="xref" href="../../../api/FrameworkSystems.FrameworkBase.IFrameworkPhotoInfo.html">IFrameworkPhotoInfo</a> übergeben.</p>
+</code></pre><p>Wenn der Vorgang am Client abgeschlossen ist, wird die übergebene Callback-Methode aufgerufen. In ihr können die empfangenen Bilddaten weiterverarbeitet werden. Der Callback-Methode wird dafür ein Objekt mit dem Typ <a href="xref:FrameworkSystems.FrameworkBase.IFrameworkPhotoInfo">IFrameworkPhotoInfo</a> übergeben.</p>
 <pre><code class="lang-csharp">public virtual void TakePhotoCallback(IFrameworkPhotoInfo info)
 {
     this.Reset();

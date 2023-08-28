@@ -83,13 +83,13 @@
 
 <p>Der Mobile Client unterstützt die Bestimmung des aktuellen Standorts. Abhängig vom Gerät und abhängig davon, ob GPS aktiviert ist, wird entweder der GPS-Sensor angesprochen oder eine Annäherung des Standoprtes über das Mobile Netzwerk angestoßen.</p>
 <h3 id="action-getgeolocation">Action <code>GetGeoLocation()</code></h3>
-<p>Der Vorgang wird am Form über die Action <a href="xref:FrameworkSystems.FrameworkControls.GeneratedForm.GetGeoLocation(System.Action{FrameworkSystems.FrameworkBase.IFrameworkGeoLocationInfo})">GetGeoLocation()</a> gestartet.</p>
+<p>Der Vorgang wird am Form über die Action <a class="xref" href="../../../api/FrameworkSystems.FrameworkControls.GeneratedForm.GetGeoLocation.html#FrameworkSystems_FrameworkControls_GeneratedForm_GetGeoLocation_System_Action_FrameworkSystems_FrameworkBase_IFrameworkGeoLocationInfo__">GetGeoLocation()</a> gestartet.</p>
 <pre><code class="lang-csharp">// Aufruf der Action beim Click eines Buttons
 protected virtual void FE_btn_OnClick(FrameworkButtonEventArgs e)
 {
     this.GetGeoLocation(this.GetGeoLocationCallback, &quot;Start&quot;);
 }
-</code></pre><p>Wenn der Vorgang am Client abgeschlossen ist, wird die übergebene Callback-Methode aufgerufen. In ihr können die empfangenen Standortdaten weiterverarbeitet werden. Der Callback-Methode wird dafür ein Objekt mit dem Typ <a href="xref:FrameworkSystems.FrameworkBase.IFrameworkGeoLocationInfo">IFrameworkGeoLocationInfo</a> übergeben.</p>
+</code></pre><p>Wenn der Vorgang am Client abgeschlossen ist, wird die übergebene Callback-Methode aufgerufen. In ihr können die empfangenen Standortdaten weiterverarbeitet werden. Der Callback-Methode wird dafür ein Objekt mit dem Typ <a class="xref" href="../../../api/FrameworkSystems.FrameworkBase.IFrameworkGeoLocationInfo.html">IFrameworkGeoLocationInfo</a> übergeben.</p>
 <pre><code class="lang-csharp">public virtual void GetGeoLocationCallback(IFrameworkGeoLocationInfo info)
 {
     this.Reset();

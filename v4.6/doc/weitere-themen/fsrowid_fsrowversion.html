@@ -130,16 +130,16 @@ So kann die RowVersion sowohl mit einer RowID als auch mit einem individuellen P
 CREATE UNIQUE INDEX IXROWID_&lt;table&gt; ON &lt;table&gt; (FSROWID) TABLESPACE INDEX1;
 </code></pre><p>Für die Spalten FSROWID und FSROWVERSION generiert FrameworkStudio in den Components entsprechende Properties. Diese sehen wie folgt aus:</p>
 <ul>
-<li><a href="xref:FrameworkSystems.FrameworkBase.Metadatatype.FSSystemGuid">FSSystemGuid</a> ROWID</li>
-<li><a href="xref:FrameworkSystems.FrameworkBase.Metadatatype.FSlong">FSlong</a> ROWVERSION</li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSSystemGuid.html">FSSystemGuid</a> ROWID</li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSlong.html">FSlong</a> ROWVERSION</li>
 </ul>
 <p>Das Property ROWID erhält seinen Wert unmittelbar beim Insert in die Datenbank. Der Wert steht also erst nach dem Insert zur Verfügung. Im OnBeforeSave() hat somit das Property ROWID bei einem neuen Datensatz noch den Wert FSSystemGuid.Null.</p>
 <p>Die Component prüft beim Save automatisch, ob der Datensatz auf der Datenbank zwischenzeitlich von einer anderen Instanz geändert wurde – sprich, ob sich der Wert in der Spalte FSROWVERSION geändert hat.
 Wenn das der Fall ist, dann wird eine <a href="xref:FrameworkSystems.FrameworkExceptions.RowVersionInvalidException"><code>RowVersionInvalidException</code></a> geworfen.</p>
 <p>An der Component gibt es folgende Methoden, mit denen dieser Exception vorgebeugt werden kann:</p>
 <ul>
-<li><a href="xref:FrameworkSystems.FrameworkBase.IDevFrameworkDataObject.HasDbChanged"><code>HasDBChanged()</code></a></li>
-<li><a href="xref:FrameworkSystems.FrameworkBase.IDevFrameworkDataObject.ReloadData"><code>ReloadData()</code></a></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.IDevFrameworkDataObject.HasDbChanged.html#FrameworkSystems_FrameworkBase_IDevFrameworkDataObject_HasDbChanged"><code>HasDBChanged()</code></a></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.IDevFrameworkDataObject.ReloadData.html#FrameworkSystems_FrameworkBase_IDevFrameworkDataObject_ReloadData"><code>ReloadData()</code></a></li>
 </ul>
 <div class="TIP"><h5>Tip</h5><p>Die Spalten können bei Bedarf auch nachträglich angelegt werden.
 Der Update-Assistent wendet die notwendigen Änderungen inklusive dem Primary-Key automatisch auf der Datenbank an.</p>

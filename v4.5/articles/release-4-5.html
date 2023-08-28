@@ -81,6 +81,62 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-45">Release-Information Framework Studio 4.5</h1>
 
+<h2 id="458-01092023">4.5.8 (01.09.2023)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.5.8_Setup_x64</li>
+<li>FS4.5.8_PrintService</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h3 id="updates">Updates</h3>
+<ul>
+<li>DevExpress wurde auf Version 23.1.4 upgedated.</li>
+<li>Der HTML Client wurde auf Angular 16.2 upgedated. Das Scrolling bei vielen offenen Forms wurde im Browser und auf Tablets verbessert.</li>
+</ul>
+<h3 id="neuerungen">Neuerungen</h3>
+<ul>
+<li>In der IDE werden nun vor einem Compile alle ungespeicherten Elemente automatisch gespeichert.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2023073457 - <strong>IDE</strong>: Das Output Fenster zeigt Console-Ausgaben aus der
+  Anwendung nicht mehr an.</p>
+</li>
+<li><p>2023073459 - <strong>IDE</strong>: Änderungen an Elementen sorgen dafür, dass diese in die
+  Liste der zu compilierenden Namespaces aufgenommen werden. Werden nach dem
+  Compile ohne zu speichern erneut Änderungen vorgenommen, dann landen diese
+  nicht mehr in der Compile-Liste.</p>
+</li>
+<li><p>2023073537 - <strong>IDE</strong>: Wird an einer Grid-Column der List-Datasource
+  zurückgesetzt, dann behält die List-Datasource im Hintergund Informationen
+  zum Display- und Value-Member, die bei Compile zu Warnungen führen können.</p>
+</li>
+<li><p>2023083655 - <strong>IDE</strong>: Hat eine Methode eine Description mit mehrdeutigen
+  Parameter-Namen, dann führt das im Intellisense beim Verwenden dieser
+  Methode zu einer Exception. Diese wird im Output-Panel ausgegeben und das
+  Intellisense zeigt daraufhin keine Methoden-Parameter an.</p>
+</li>
+<li><p>2023083693 - <strong>IDE</strong>: Wird ein Individual-Property mit gesetzter Checkbox
+  Autogenerate Membervariable in ein Generated-Property geändert, bleibt die
+  Checkbox im Hintergrund gesetzt. In der Folge kommt es zu Fehlern bei der
+  Code-Generierung, weil fälschlicherweise immer noch Code für die
+  Membervariable generiert wird.</p>
+</li>
+<li><p>2023083651 - <strong>Data Provider</strong>: Werden in SQL-Bedingungen mithilfe von
+  DB.SqlString() Parameter ergänzt, dann wird für die Größe der Parameter
+  standardmäßig die tatsächliche Länge der Werte verwendet. Dadurch entstehen
+  sehr viele unterschiedliche Statements, die vom SQL-Server nicht
+  wiedererkannt werden. Das beeinträchtigt die Permormance der Datenbank.</p>
+<div class="NOTE"><h5>Note</h5><p>Wenn die Werte das erlauben, werden jetzt großzügige Standardgrößen
+verwendet. Dadurch erhöht sich in der Praxis die Wiedererkennungsrate
+signifikant.</p>
+</div>
+</li>
+<li><p>2023083750 - <strong>FS-IDE</strong>: In verschiedenen Konstellationen können beim Aufruf
+  der Methoden-IntelliSense Exceptions geworfen werden, wenn Methodenaufrufe
+  verschachtelt werden.</p>
+</li>
+</ul>
 <h2 id="457-28072023">4.5.7 (28.07.2023)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -109,7 +165,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 Aus diesem Grund müssen wir den <strong>Client-Support für Windows Server 2012 einstellen</strong>.</p>
 <p>Der Application-Broker ist von dieser Einschränkung NICHT betroffen.</p>
 </div>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023073469 - <strong>Publish2Go</strong>: Das Änderungsdatum von Ressourcen-Dateien wird
   falsch gesetzt. Die Zeitzone wird nicht korrekt berücksichtigt.</p>
@@ -147,7 +203,7 @@ Aus diesem Grund müssen wir den <strong>IDE-Support für Windows Server 2012 ei
 <p>Die Chromium Runtime wird von den neuen <a href="#neue-code-editoren-auf-basis-von-monaco">Code-Editoren</a>, verwendet.</p>
 </div>
 <p>Als Application-Server kann weiterhin der Windows Server 2012 verwendet werden. Der Publish muss aber mit einem Publish2Go-Paket erfolgen, welches auf einem anderen Rechner mit der IDE bzw. den Package-Manager erstellt wurde.</p>
-<h3 id="updates">Updates</h3>
+<h3 id="updates-1">Updates</h3>
 <ul>
 <li><p>DevExpress wurde auf Version 22.2.6 upgedated</p>
 <p>Korrigierte Fehler von DevExpress:</p>
@@ -205,7 +261,7 @@ Dies geschieht wie üblich über das Menü <code>Source Control</code>, die Tool
 <p>Auch in modalen Dialogen wie z.B. dem <a href="../doc/form/control/listview.html#listview-template-editor">ListView Template Editor</a> oder dem <a href="../doc/documentation/editor.html#editor">DocML Editor</a> von Controls kann mit <code>CTRL + F10</code> <strong>rückfragefrei</strong> ausgecheckt werden.
 Dadurch wird vermieden, dass der Dialog zum Auschecken geschlossen werden muss.</p>
 <p>Beim Auschecken von Elementen über den Namespace Tree ist, wie bisher auch, eine Bestätigung des Vorgangs nötig.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023063292 - <strong>DevExpress</strong>: Das Speichern einer geänderten Localization im WebDesigner
   führt zu einer TypeError-Exception, wenn im Report ein CarryForward-Control vorhanden ist.</p>
@@ -247,7 +303,7 @@ Korrektur mehr geben.</p>
 <li>FS_4.5.5_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <ul>
 <li>Für Text-Resourcen steht die Auswahl eines Encoding bereit.
 Das Encoding wird bei neu hinzugefügten Resourcen und auch bei bereits bestehenden automatisch ermittelt.
@@ -255,7 +311,7 @@ Bei bestehenden Resourcen wird jedoch erst bei einer Bearbeitung das Encoding ab
 Eine Konvertierung in ein anderes Encoding kann in beiden Fällen vorgenommen werden.
 Mehr Informationen zum Funktionsumfang findet sich <a href="../doc/resources/resources.html#encoding">hier</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023042824 - <strong>Broker</strong>: Eine Listbox oder Combobox verwendet als
   Listen-Datasource eine Collection. Werden aus dieser Collection Records
@@ -305,7 +361,7 @@ FrameworkBrokerRole;</code></p>
 </li>
 </ul>
 <h2 id="454-28042023">4.5.4 (28.04.2023)</h2>
-<h4 id="updates-1">Updates</h4>
+<h4 id="updates-2">Updates</h4>
 <ul>
 <li>DevExpress wurde auf Version 22.2.4 upgedated</li>
 </ul>
@@ -319,11 +375,11 @@ Mit dem Update von DevExpress Web-Designers auf .net 6 haben wir diesen so umges
 <li>FS_4.5.3_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-1">Neuerungen</h4>
+<h4 id="neuerungen-2">Neuerungen</h4>
 <ul>
 <li>Am GridView gibt es ein neues Event <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IGridView.EntriesSortedOrFiltered.html">EntriesSortedOrFiltered</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023032382 - <strong>Broker</strong>: Wird eine Gridspalte mit &quot;LIKE&quot; gefiltert, werden
   ggf. keine Treffer gefunden, wenn sich der gesuchte Begriff in einem
@@ -364,7 +420,7 @@ Das entspricht Chromium 108.</p>
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
 <h4 id="neuer-html-client">Neuer HTML Client</h4>
 <p>Der HTML Client wurde auf Angular 15.1 upgedated. Neue Features oder Bugfixes gibt es nicht.</p>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023022188 - <strong>Broker</strong>: Clientside Report Customizing (DevExpress)
   funktioniert nicht mit Applikationen, die mit einem Runtime-Repository
@@ -387,7 +443,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>FS_4.5.1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023011937 - <strong>JavaClient</strong>: Die Jar-Dateien für das neue Browser-Control sind
   nicht signiert. Deshalb ist ein Start der Anwendung über Java-Webstart nicht
@@ -443,7 +499,7 @@ Weitere Informationen finden sie <a href="release-4-4.html#abkündigung-des-msi-
 <li>Oracle.ManagedDataAccess 19.13 -&gt; 21.8</li>
 <li>HtmlAgilityPack 1.11.4 -&gt; 1.11.46</li>
 </ul>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
 <p>In der Version 4.5 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-4.html#4413-23122022">Framework Studio 4.4.13</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

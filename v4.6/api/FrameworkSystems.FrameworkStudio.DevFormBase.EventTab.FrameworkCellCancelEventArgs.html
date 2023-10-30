@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Method ViewDocument
+    <title>Class FrameworkCellCancelEventArgs
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Method ViewDocument
+    <meta name="title" content="Class FrameworkCellCancelEventArgs
    ">
     <meta name="generator" content="docfx 2.56.2.0">
     
@@ -80,53 +80,42 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkControls.GeneratedForm.ViewDocument*">
-
-<h1 id="FrameworkSystems_FrameworkControls_GeneratedForm_ViewDocument_" data-uid="FrameworkSystems.FrameworkControls.GeneratedForm.ViewDocument*">Method ViewDocument
-</h1>
-<div class="markdown level0 summary"></div>
-<div class="markdown level0 conceptual"></div>
-
-<a id="FrameworkSystems_FrameworkControls_GeneratedForm_ViewDocument_" data-uid="FrameworkSystems.FrameworkControls.GeneratedForm.ViewDocument*"></a>
-<h4 id="FrameworkSystems_FrameworkControls_GeneratedForm_ViewDocument_System_String_" data-uid="FrameworkSystems.FrameworkControls.GeneratedForm.ViewDocument(System.String)">ViewDocument(String)</h4>
-<section>
-  <div class="markdown level1 summary"><p>Sendet eine Action an den Client zum Öffnen eines Dokuments über eine URL</p>
-</div>
-  <div class="markdown level1 conceptual"></div>
-
-  <h5 class="decalaration">Declaration</h5>
-  <section>
-    <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">protected void ViewDocument(string url)</code></pre>
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkCellCancelEventArgs">
+  
+  
+  <h1 id="FrameworkSystems_FrameworkStudio_DevFormBase_EventTab_FrameworkCellCancelEventArgs" data-uid="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkCellCancelEventArgs" class="text-break">Class FrameworkCellCancelEventArgs
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level1"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.eventargs">EventArgs</a></div>
+    <div class="level2"><a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkEventArgs.html">FrameworkEventArgs</a></div>
+    <div class="level3"><a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkCancelEventEventArgs.html">FrameworkCancelEventEventArgs</a></div>
+    <div class="level4"><span class="xref">FrameworkCellCancelEventArgs</span></div>
+  </div>
+  <div class="inheritedMembers">
+    <h5>Inherited Members</h5>
+    <div>
+      <a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkCancelEventEventArgs.Cancel.html#FrameworkSystems_FrameworkStudio_DevFormBase_EventTab_FrameworkCancelEventEventArgs_Cancel">FrameworkCancelEventEventArgs.Cancel</a>
     </div>
-  </section>
-  <h5 class="parameters">Parameters</h5>
-  <section>
-    <div class="propertyInfo">
-      <span class="parametername"><code>url</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>
-      <div class="markdown level1 summary"></div>
-    </div>
-  </section>
-
-
-    <h5 id="FrameworkSystems_FrameworkControls_GeneratedForm_ViewDocument_System_String__remarks">Remarks</h5>
-    <section>
-      <div class="markdown level1 remarks"><p>Bei Web-Adressen sollte in jedem Fall <code>http://</code> bzw. <code>https://</code> vorangestellt werden,
-ansonsten ist bei einem Java-Client unter Windows die Länge der URL auf ca. 260 Zeichen begrenzt.</p>
-<p>Auch muss es eine korrekt formatierte URL ohne Sonderzeichen und Leerzeichen sein.
-Wird die URL programmatisch erstellt, dann empfiehlt es sich, die Klasse <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.uribuilder">UriBuilder</a> zu verwenden.
-Einzelne Argumente können auch mit <span class="xref">System.Web.HttpUtility.UrlEncode(System.String)</span> korrekt codiert werden.</p>
-<p>Erkennt der Java-Client keine gültige URL, dann wird der Aufruf an das Betriebssystem weitergeleitet.
-So können auch lokale Dateien geöffnet werden.
-Die Arbeitsweise ist dann analog zum Befehl <em>Ausführen</em> unter Windows (Windows-Taste + R)</p>
-<p>
-Mit Hilfe des Schemas <code>fsbroker://</code> kann die Broker eigene URL referenziert werden. Und damit bspw. Dateien über
-den Broker zur Verfügung stellen. Beispielweise könnte die folgende URL <code>fsbroker://documents/legal.pdf</code> in
-<code><a href="http://fsbroker/HOSTNAME_DEMO_user1/FSDemoApplication/documents/legal.pdf">http://fsbroker/HOSTNAME_DEMO_user1/FSDemoApplication/documents/legal.pdf</a></code> übersetzt werden.
-</p>
-</div>
-    </section>
-</section>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.html">FrameworkSystems.FrameworkStudio.DevFormBase.EventTab</a></h6>
+  <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkStudio.DevFormBase.dll</h6>
+  <h5 id="FrameworkSystems_FrameworkStudio_DevFormBase_EventTab_FrameworkCellCancelEventArgs_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class FrameworkCellCancelEventArgs : FrameworkCancelEventEventArgs</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkCellCancelEventArgs.Activator.html#FrameworkSystems_FrameworkStudio_DevFormBase_EventTab_FrameworkCellCancelEventArgs_Activator">Activator</a></h4>
+    <section><p></section>
+    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkCellCancelEventArgs.RowID.html#FrameworkSystems_FrameworkStudio_DevFormBase_EventTab_FrameworkCellCancelEventArgs_RowID">RowID</a></h4>
+    <section><p><p>Die ID des betroffenen Datensatzes.</p>
+</p></section>
+  
 </article>
           </div>
           

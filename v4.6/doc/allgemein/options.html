@@ -142,13 +142,23 @@ Bedeutet, dass Änderungen am <strong>Auto Debug</strong> im Login- oder GetDLL-
     &lt;appSettings&gt;
         &lt;add key=&quot;CompileBaseDirectory&quot; value=&quot;C:\FS\Compile42&quot; /&gt;
         [...]
-</code></pre><h4 id="visual-studio-path">Visual Studio Path</h4>
-<p>Hier kann angegeben werden, wo Visual Studio installiert ist. Die aktuell von Framework Studio unterstützten Versionen von Visual Studio werden automatisch erkannt. Wenn eine andere Version oder Edition (z.B. Visual Studio Express) verwendet werden soll, kann das entsprechende Programm angegeben werden.</p>
-<p>Mit dem Button <strong>Reset</strong> wird der Wert auf die Original-Einstellung zurückgesetzt. Diese Einstellung wird für das Menu <strong>View /  Compiled Code in Visual Studio</strong> in den Designer-Fenstern verwendet.</p>
-<p>Außerdem wird der Ordner aus dieser Einstellung verwendet, um für die Arbeit mit Services das Programm WcfTestClient.exe zu finden.</p>
-<h4 id="visual-studio-arguments">Visual Studio Arguments</h4>
+</code></pre><h4 id="open-compiled-code-in">Open compiled code in</h4>
+<p>Hier können Sie externe Programme (Visual Studio, VS Code, etc.) konfigurieren, in welchen der kompilierte Code eines Elements angezeigt werden soll.
+Der Aufruf erfolgt über das Menü <strong>View / Compiled code in {Caption}</strong> in den Designer-Fenstern oder über die entsprechenden Shortcuts.</p>
+<p>Standardmäßig versucht Framework Studio die derzeit unterstützten Versionen von Visual Studio zu erkennen und diese beim <strong>Path</strong> der beiden Konfigurationen zu hinterlegen.</p>
+<h5 id="caption">Caption</h5>
+<p>Die Captions sind standardmäßig &quot;Visual Studio&quot; und &quot;Visual Studio (new instance)&quot;. Die erste Konfiguration öffnet den Code standardmäßig in einer bestehenden Visual Studio Instanz. Bei der zweiten Konfiguration wird eine neue Instanz von Visual Studio gestartet.</p>
+<p>Die Captions können bearbeitet werden und dienen als ergänzende Beschreibung für die Menü-Einträge im Designer-Fenster.</p>
+<h5 id="path">Path</h5>
+<p>Wie in der Einleitung beschrieben, versucht Framework Studio eine Visual Studio Instanz zu finden und diese als Pfad zu hinterlegen.
+Wenn eine andere Version oder Edition (z.B. Visual Studio Express) verwendet werden soll, kann das entsprechende Programm angegeben werden.</p>
+<p>Der Ordner aus der ersten &quot;Open compiled code&quot;-Konfiguration wird außerdem dafür verwendet, um für die Arbeit mit Services das Programm WcfTestClient.exe zu finden.</p>
+<p>Wird bei der zweiten Konfiguration kein Path angegeben, wird auf die erste Konfiguration zurückgegriffen, also dem Visual Studio Path oder auf ein von Ihnen bereits hinterlegtes Programm.</p>
+<h5 id="arguments">Arguments</h5>
 <p>Hier können die Kommandozeilen-Argumente für das Öffnen der Quellcode-Dateien angegeben werden. Beim Einsatz von Visual Studio können die Standard-Einstellungen <code>%file% /Edit</code> beibehalten werden.</p>
 <p>Der Platzhalter <code>%file%</code> steht für die zu öffnenden Dateien. Dieser werden in dem Format <code>&quot;Datei1.cs&quot; &quot;Datei2.cs&quot;…</code> übergeben. Wenn dieser Platzhalter nicht angegeben ist, dann werden die Dateien an der Parameter gestellt.</p>
+<h5 id="reset-buttons">Reset Buttons</h5>
+<p>Die Reset Buttons setzen die Felder auf die Default Werte zurück.</p>
 <h2 id="utilities-registerkarte">Utilities (Registerkarte)</h2>
 <p><img src="media/options-utilities.png" alt="Register Utilities"></p>
 <p>Mit dem Button [...]  kann jeweils ein Dateiauswahldialog geöffnet werden.</p>

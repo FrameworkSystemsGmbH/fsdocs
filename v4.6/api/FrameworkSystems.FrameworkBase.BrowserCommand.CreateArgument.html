@@ -124,22 +124,22 @@
     <section>
       <div class="markdown level1 remarks"><p>So können z.B. die FS-Datentypen wie in dem nachfolgenden Beispiel als Wert übergeben werden:</p>
 <example>
-<pre><code>string linkCommand = BrowserCommand.CreateCommand(&quot;TestCommand&quot;, 
-        BrowserCommand.CreateArgument(&quot;Belegnummer&quot;, new FSlong(1005342)), 
+<pre><code>string linkCommand = BrowserCommand.CreateCommand(&quot;TestCommand&quot;,
+        BrowserCommand.CreateArgument(&quot;Belegnummer&quot;, new FSlong(1005342)),
         BrowserCommand.CreateArgument(&quot;Belegart&quot;, &quot;ABC&quot;),
         BrowserCommand.CreateArgument(&quot;Datum&quot;, FSDateTime.Today));</code></pre>
 </example>
 
-<p>Die <a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkOnLinkClickEventArgs.html">FrameworkOnLinkClickEventArgs</a> 
+<p>Die <a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkOnLinkClickEventArgs.html">FrameworkOnLinkClickEventArgs</a>
 bieten Methoden <code>GetArgument</code>-Methoden (z.B. <a class="xref" href="FrameworkSystems.FrameworkStudio.DevFormBase.EventTab.FrameworkOnLinkClickEventArgs.GetArgumentFSlong.html#FrameworkSystems_FrameworkStudio_DevFormBase_EventTab_FrameworkOnLinkClickEventArgs_GetArgumentFSlong_System_String_">GetArgumentFSlong</a>)
 um mit dem richtigen Schlüssel einen Wert im entsprechenden FSTyp wieder auszulesen.</p>
 <p>Auslesen der Argumente im Browser-Event <code>OnLinkClick</code>:</p>
 <example>
 <pre><code>if (e.IsCommand &amp;&amp; e.Command == &quot;TestCommand&quot;)
-{   
+{
     FSlong lngDocumentID = e.GetArgumentFSlong(&quot;Belegnummer&quot;);
     FSstring sDocumentType = e.GetArgumentFSstring(&quot;Belegart&quot;);
-    FSDateTime dtDate = e.GetArgumentFSDateTime(&quot;Datum&quot;); 
+    FSDateTime dtDate = e.GetArgumentFSDateTime(&quot;Datum&quot;);
 }</code></pre>
 </example>
 </div>

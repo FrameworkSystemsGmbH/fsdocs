@@ -123,7 +123,7 @@ public IFrameworkControlActionBase NextControlAfterKeyboardEvent { get; set; }</
         + &quot;\r\n  DefaultNextControl: &quot; + (e.DefaultNextControl == null ?
             &quot;&lt;null>&quot; : e.DefaultNextControl.ControlName);
 
-    // vorwärts >> Focus in das nächste Control setzen  
+    // vorwärts >> Focus in das nächste Control setzen
     if (e.Activator == OnLeaveActivator.KeyboardEnter
         || e.Activator == OnLeaveActivator.KeyboardTabForward)
     {

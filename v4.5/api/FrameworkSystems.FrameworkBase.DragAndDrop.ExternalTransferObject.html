@@ -85,8 +85,8 @@
   
   <h1 id="FrameworkSystems_FrameworkBase_DragAndDrop_ExternalTransferObject" data-uid="FrameworkSystems.FrameworkBase.DragAndDrop.ExternalTransferObject" class="text-break">Class ExternalTransferObject
   </h1>
-  <div class="markdown level0 summary"><p>Ein Objekt dieser Klasse wird in den Events <code>OnCanDrop</code> und <code>OnDrop</code> (Drag&amp;Drop Events) als TransferObject 
-in den Eventparametern übergeben, wenn der Drag&amp;Drop-Vorgang von außerhalb der Applikation in die Applikation 
+  <div class="markdown level0 summary"><p>Ein Objekt dieser Klasse wird in den Events <code>OnCanDrop</code> und <code>OnDrop</code> (Drag&amp;Drop Events) als TransferObject
+in den Eventparametern übergeben, wenn der Drag&amp;Drop-Vorgang von außerhalb der Applikation in die Applikation
 hinein ausgelöst wurde.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
@@ -103,10 +103,10 @@ hinein ausgelöst wurde.</p>
 public class ExternalTransferObject</code></pre>
   </div>
   <h5 id="FrameworkSystems_FrameworkBase_DragAndDrop_ExternalTransferObject_remarks"><strong>Remarks</strong></h5>
-  <div class="markdown level0 remarks"><p>Die Klasse bietet Methoden, mit denen ermittelt werden kann, welche FlavorTypes (<a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.FlavorType.html">FlavorType</a>) 
-unterstützt werden, also in welchen Formaten Daten zur Verfügung stehen. Außerdem können zu jedem <a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.FlavorType.html">FlavorType</a> 
+  <div class="markdown level0 remarks"><p>Die Klasse bietet Methoden, mit denen ermittelt werden kann, welche FlavorTypes (<a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.FlavorType.html">FlavorType</a>)
+unterstützt werden, also in welchen Formaten Daten zur Verfügung stehen. Außerdem können zu jedem <a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.FlavorType.html">FlavorType</a>
 die entsprechenden Daten (<a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.FlavorData.html">FlavorData</a>) abgefragt werden.</p>
-<p>In den Events <code>OnCanDrop</code> und <code>OnDrop</code> kann eindeutig erkannt werden, ob es sich um einen internen oder einen externen 
+<p>In den Events <code>OnCanDrop</code> und <code>OnDrop</code> kann eindeutig erkannt werden, ob es sich um einen internen oder einen externen
 Drag&amp;Drop-Vorgang handelt, indem überprüft wird, ob das TransferObject vom Typ ExternalTransferObject ist.</p>
 </div>
   <h5 id="FrameworkSystems_FrameworkBase_DragAndDrop_ExternalTransferObject_examples"><strong>Examples</strong></h5>
@@ -124,22 +124,22 @@ else
   </h3>
   
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.ExternalTransferObject.GetBestTextFlavorData.html#FrameworkSystems_FrameworkBase_DragAndDrop_ExternalTransferObject_GetBestTextFlavorData">GetBestTextFlavorData()</a></h4>
-    <section><p><p>Gibt die Daten zu dem mit der Methode <a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.ExternalTransferObject.GetBestTextFlavorType.html#FrameworkSystems_FrameworkBase_DragAndDrop_ExternalTransferObject_GetBestTextFlavorType">GetBestTextFlavorType()</a> ermittelten Textformat (<a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.TextFlavorData.html">TextFlavorData</a>) 
+    <section><p><p>Gibt die Daten zu dem mit der Methode <a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.ExternalTransferObject.GetBestTextFlavorType.html#FrameworkSystems_FrameworkBase_DragAndDrop_ExternalTransferObject_GetBestTextFlavorType">GetBestTextFlavorType()</a> ermittelten Textformat (<a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.TextFlavorData.html">TextFlavorData</a>)
 zurück. Wenn kein Textformat unterstützt wird, wird null zurück gegeben.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.ExternalTransferObject.GetBestTextFlavorType.html#FrameworkSystems_FrameworkBase_DragAndDrop_ExternalTransferObject_GetBestTextFlavorType">GetBestTextFlavorType()</a></h4>
     <section><p><p>Gibt das erste Textformat aus der folgenden Prioritätenliste zurück.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.ExternalTransferObject.GetFileListFlavorData.html#FrameworkSystems_FrameworkBase_DragAndDrop_ExternalTransferObject_GetFileListFlavorData">GetFileListFlavorData()</a></h4>
-    <section><p><p>Wenn im Drag&amp;Drop-Vorgang Dateien transportiert werden, werden die Daten im Format 
+    <section><p><p>Wenn im Drag&amp;Drop-Vorgang Dateien transportiert werden, werden die Daten im Format
 einer Dateiliste (<a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.FileListFlavorData.html">FileListFlavorData</a>) zurückgegeben, andernfalls <code>null</code>.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.ExternalTransferObject.GetFlavorData.html#FrameworkSystems_FrameworkBase_DragAndDrop_ExternalTransferObject_GetFlavorData_System_String_">GetFlavorData(String)</a></h4>
-    <section><p><p>Wenn zu dem angegebenen Datenformat Daten abgerufen werden können, so werden diese 
+    <section><p><p>Wenn zu dem angegebenen Datenformat Daten abgerufen werden können, so werden diese
 (als Spezialisierung von <a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.FlavorData.html">FlavorData</a>) zurückgegeben, andernfalls <code>null</code>.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.ExternalTransferObject.GetImageFlavorData.html#FrameworkSystems_FrameworkBase_DragAndDrop_ExternalTransferObject_GetImageFlavorData">GetImageFlavorData()</a></h4>
-    <section><p><p>Wenn im Drag&amp;Drop-Vorgang ein Bild transportiert wird, 
+    <section><p><p>Wenn im Drag&amp;Drop-Vorgang ein Bild transportiert wird,
 werden die Bilddaten (<a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.ImageFlavorData.html">ImageFlavorData</a>) zurückgegeben, andernfalls <code>null</code>.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.ExternalTransferObject.GetSupportedFlavorTypes.html#FrameworkSystems_FrameworkBase_DragAndDrop_ExternalTransferObject_GetSupportedFlavorTypes">GetSupportedFlavorTypes()</a></h4>
@@ -152,7 +152,7 @@ werden die Bilddaten (<a class="xref" href="FrameworkSystems.FrameworkBase.DragA
     <section><p><p>Gibt die Daten zum angegebenen Textformat zurück, falls abrufbar, ansonsten <code>null</code>.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.ExternalTransferObject.GetUriListFlavorData.html#FrameworkSystems_FrameworkBase_DragAndDrop_ExternalTransferObject_GetUriListFlavorData">GetUriListFlavorData()</a></h4>
-    <section><p><p>Wenn im Drag&amp;Drop-Vorgang URIs (Uniform Resource Identifier) transportiert werden, 
+    <section><p><p>Wenn im Drag&amp;Drop-Vorgang URIs (Uniform Resource Identifier) transportiert werden,
 werden diese als URI-Liste (<a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.UriListFlavorData.html">UriListFlavorData</a>) zurückgegeben, ansonsten <code>null</code>.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.DragAndDrop.ExternalTransferObject.IsFlavorTypeSupported.html#FrameworkSystems_FrameworkBase_DragAndDrop_ExternalTransferObject_IsFlavorTypeSupported_System_String_">IsFlavorTypeSupported(String)</a></h4>

@@ -85,8 +85,8 @@
   
   <h1 id="FrameworkSystems_FrameworkBase_BrowserCommand" data-uid="FrameworkSystems.FrameworkBase.BrowserCommand" class="text-break">Class BrowserCommand
   </h1>
-  <div class="markdown level0 summary"><p>Bei einem Link, der im Browser-Control angeklickt wird, können Link-Kommandos mit Parametern hinterlegt werden, 
-die vom Broker ausgewertet werden. Diese Klasse stellt Konstanten und Methoden bereit, 
+  <div class="markdown level0 summary"><p>Bei einem Link, der im Browser-Control angeklickt wird, können Link-Kommandos mit Parametern hinterlegt werden,
+die vom Broker ausgewertet werden. Diese Klasse stellt Konstanten und Methoden bereit,
 um solche Link-Kommandos zu erstellen und auszuwerten.</p>
 </div>
   <div class="markdown level0 conceptual"></div>
@@ -106,7 +106,7 @@ public class BrowserCommand</code></pre>
   </h3>
   
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.BrowserCommand.BROKER_TAG.html">BROKER_TAG</a></h4>
-    <section><p><p>Der Broker-Tag ist ein Platzhalter für den absoluten Pfad des Broker-Verzeichnisses. </p>
+    <section><p><p>Der Broker-Tag ist ein Platzhalter für den absoluten Pfad des Broker-Verzeichnisses.</p>
 </p></section>
   
   <h3 id="methods">Methods
@@ -116,21 +116,21 @@ public class BrowserCommand</code></pre>
     <section><p><p>Mit der Methode CreateArgument() können Event-Argumente für CreateCommand() einzeln erstellt werden.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.BrowserCommand.CreateCommand.html#FrameworkSystems_FrameworkBase_BrowserCommand_CreateCommand_System_String_System_Collections_Generic_IDictionary_System_String_System_String__">CreateCommand(String, IDictionary&lt;String, String&gt;)</a></h4>
-    <section><p><p>Mit der Methode CreateCommand können Link-Kommandos mit der Notation 
-<code> fscommand:[Kommando]?[Key]=[Value]&amp;[Key1]=[Value1]&amp;…[KeyN]=[ValueN] </code> 
-erstellt werden. </p>
+    <section><p><p>Mit der Methode CreateCommand können Link-Kommandos mit der Notation
+<code> fscommand:[Kommando]?[Key]=[Value]&amp;[Key1]=[Value1]&amp;…[KeyN]=[ValueN] </code>
+erstellt werden.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.BrowserCommand.CreateCommand.html#FrameworkSystems_FrameworkBase_BrowserCommand_CreateCommand_System_String_System_Collections_Generic_KeyValuePair_System_String_System_String____">CreateCommand(String, KeyValuePair&lt;String, String&gt;[])</a></h4>
-    <section><p><p>Mit der Methode CreateCommand können Link-Kommandos mit der Notation 
-<code> fscommand:[Kommando]?[Key]=[Value]&amp;[Key1]=[Value1]&amp;…[KeyN]=[ValueN] </code> 
-erstellt werden. </p>
+    <section><p><p>Mit der Methode CreateCommand können Link-Kommandos mit der Notation
+<code> fscommand:[Kommando]?[Key]=[Value]&amp;[Key1]=[Value1]&amp;…[KeyN]=[ValueN] </code>
+erstellt werden.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.BrowserCommand.CreateRessourcesUrl.html#FrameworkSystems_FrameworkBase_BrowserCommand_CreateRessourcesUrl_System_String_">CreateRessourcesUrl(String)</a></h4>
     <section><p><p>Mit dieser Methode kann eine <em>Broker-Url</em> erstellt werden, die vom Browser in einen absoluten Pfad umgewandelt wird.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.BrowserCommand.TryParseCommand.html#FrameworkSystems_FrameworkBase_BrowserCommand_TryParseCommand_System_String_System_String__System_Collections_Generic_Dictionary_System_String_System_String___">TryParseCommand(String, out String, out Dictionary&lt;String, String&gt;)</a></h4>
-    <section><p><p>Die Methode TryParseCommand ist das Gegenstück zu  <a class="xref" href="FrameworkSystems.FrameworkBase.BrowserCommand.CreateCommand.html#FrameworkSystems_FrameworkBase_BrowserCommand_CreateCommand_System_String_System_Collections_Generic_IDictionary_System_String_System_String__">CreateCommand(String, IDictionary&lt;String, String&gt;)</a> und extrahiert, 
-falls es sich bei dem übergebenen Link (<em>url</em>) um ein Link-Kommando handelt, das 
+    <section><p><p>Die Methode TryParseCommand ist das Gegenstück zu  <a class="xref" href="FrameworkSystems.FrameworkBase.BrowserCommand.CreateCommand.html#FrameworkSystems_FrameworkBase_BrowserCommand_CreateCommand_System_String_System_Collections_Generic_IDictionary_System_String_System_String__">CreateCommand(String, IDictionary&lt;String, String&gt;)</a> und extrahiert,
+falls es sich bei dem übergebenen Link (<em>url</em>) um ein Link-Kommando handelt, das
 Kommando (<em>commandName</em>) und die Argumente (<em>args</em>). Andernfalls wird <code>false</code> zurückgegeben.</p>
 </p></section>
   

@@ -188,6 +188,18 @@ Wird kein Level angegeben, ist es standardmäßig Level 3.</p>
 <p>Die verschiedenen Warnings können Sie <a href="https://docs.microsoft.com/dotnet/csharp/language-reference/compiler-messages/">hier</a> einsehen.</p>
 <p> Die Einstellung wird an die Customizing-Packages vererbt.
  Sie kann ausschließlich durch <em>Nissen &amp; Velten</em> am <em>eNVenta</em> Package (bzw. einem anderen Default-Package) geändert werden.</p>
+<h4 id="base-workspaces-freezed-since">Base Workspaces freezed since</h4>
+<p>Gibt das Datum an, seit wann die Workspace-Stände der Basis-Packages fixiert sind.</p>
+<p>Mit dem Button <strong>Freeze</strong> wird das Datum gesetzt und der aktuelle Zustand fixiert.
+Wird jetzt für diese Package-Version ein neuer Compile-Wizard ausgeführt, dann werden bei diesem Compile-Lauf exakt dieselben Workspaces der Basis-Package-Version verwendet wie beim letzten erfolgreich abgeschlossenen Compile-Lauf - auch wenn es neuere Stände geben sollte.
+Dadurch greifen keine neuen Änderungen aus den Basis-Packages.</p>
+<p>Das Datum kann jederzeit mit dem Button <strong>Reset</strong> entfernt werden.
+Dann funktioniert der Compile wieder ganz normal.</p>
+<p>Dieses Datum greift nur im eigenen Repository.
+Diese Information wird nicht mit der Package-Version exportiert.</p>
+<p>Beim Export einer solchen Package-Version ist es ratsam, diese inkl. ihrer Basis-Packages zu exportieren.
+So ist gewährleistet, dass nach dem Import im Ziel-Repository alle Versions-Stände zusammenpassen.
+Beim Export wird die Checkbox <strong>Include Base Packages</strong> automatisch gesetzt.</p>
 <h2 id="register-languages">Register <strong>Languages</strong></h2>
 <p>Auf dieser Registerkarte können die Sprachen für die Package-Version definiert werden.</p>
 <p><img src="media/package-version-languages.png" alt="Languages"></p>

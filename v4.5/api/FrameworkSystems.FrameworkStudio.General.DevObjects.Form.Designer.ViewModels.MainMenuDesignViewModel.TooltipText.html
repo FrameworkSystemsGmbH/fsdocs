@@ -5,21 +5,23 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Java-Runtime </title>
+    <title>Property TooltipText
+   </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Java-Runtime ">
+    <meta name="title" content="Property TooltipText
+   ">
     <meta name="generator" content="docfx 2.56.2.0">
     
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/fs-docfx.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
     
-    <meta property="docfx:rel" content="../../">
+    <meta property="docfx:rel" content="../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -36,8 +38,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -78,30 +80,40 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-<h1 id="java-runtime">Java-Runtime</h1>
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.MainMenuDesignViewModel.TooltipText*">
 
-<h2 id="lizenz">Lizenz</h2>
-<p>Oracle hat im Februar 2019 für kommerzielle Nutzer den kostenlosen Support von Java 8 eingestellt.</p>
-<p>Der Client Launcher verwendet die letzte kostenlos verfügbare Version Java 8 Update 202.
-Der Einsatz einer aktuelleren Version ist auf eigene Rechnung möglich.
-Dafür müssen entsprechende Lizenzen direkt bei Oracle erworben werden.</p>
-<p>Eine abweichende <a href="fsclientlauncher-configuration.html#java-laufzeitumgebung">Laufzeitumgebung kann konfiguriert</a> werden.</p>
-<h2 id="sicherheit">Sicherheit</h2>
-<p>Die Sicherheits-Risiken durch den Einsatz einer veralteten Java-Runtime begründen sich durch die enge Integration der Runtime in das System.
-Dabei spielen insbesondere 3 Aspekte eine wesentliche Rolle:</p>
-<p>1.) Integration der installierten Java-Runtime in den Internet-Explorer.
-Dadurch werden Angriffe über entsprechend präparierte Webseiten ermöglicht.
-Für den Einsatz von Java Web Start ist die Aktivierung dieser Integration zwingend erforderlich.</p>
-<p>2.) Java Web Start selber stellt eine entscheidende Lücke dar, weil damit eine fast beliebige Anwendung / jnlp-Datei aus dem Internet gestartet werden kann.
-Code-Signierung kann das verhindern - sofern der Benutzer aufmerksam genug ist und nicht jedem Herausgeber blind vertraut.</p>
-<p>3.) Globale Erreichbarkeit der Installierten Java-Runtime für alle Java-Programme.
-Das wird z.B. durch die Umgebungs-Variable <code>java_home</code> erreicht.</p>
-<p>Der Client-Launcher besitzt seine eigene Java-Runtime.
-Diese wird in keiner Weise im System registriert.
-Damit weiß das System und Insbesondere die Browser nichts von dieser Runtime.</p>
-<p>Der Start einer Anwendung erfolgt mithilfe eines eigenen Dateiformats.</p>
-<p>Die oben genannten Sicherheits-Risiken bestehen damit nicht.</p>
+<h1 id="FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_MainMenuDesignViewModel_TooltipText_" data-uid="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.MainMenuDesignViewModel.TooltipText*">Property TooltipText
+</h1>
+<div class="markdown level0 summary"></div>
+<div class="markdown level0 conceptual"></div>
+
+<a id="FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_MainMenuDesignViewModel_TooltipText_" data-uid="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.MainMenuDesignViewModel.TooltipText*"></a>
+<h4 id="FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_MainMenuDesignViewModel_TooltipText" data-uid="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.MainMenuDesignViewModel.TooltipText">TooltipText</h4>
+<section>
+  <div class="markdown level1 summary"><p>Ist ein Tooltip hinterlegt, wird dieser in der Dokumentation angezeigt.
+Die UI zeigt für Menu Items keinen Tooltip an.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <h5 class="decalaration">Declaration</h5>
+  <section>
+    <div class="codewrapper">
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public override IMLString TooltipText { get; set; }</code></pre>
+    </div>
+  </section>
+
+
+  <h5 class="propertyValue">Property Value</h5>
+  <section>
+      <div class="propertyInfo">
+        <span class="xref">FrameworkSystems.FrameworkStudio.Base.MultiLanguage.IMLString</span>
+        <div class="markdown level1 summary"></div>
+      </div>  
+  </section>
+  <h5 class="overrides">Overrides</h5>
+  <div><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.TooltipText.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_TooltipText">ControlDesignViewModel.TooltipText</a></div>
+</section>
 </article>
           </div>
           
@@ -129,8 +141,8 @@ Damit weiß das System und Insbesondere die Browser nichts von dieser Runtime.</
       </footer>
     </div>
     
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../styles/main.js"></script>
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
   </body>
 </html>

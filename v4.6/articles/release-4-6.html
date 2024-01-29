@@ -81,6 +81,40 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-46">Release-Information Framework Studio 4.6</h1>
 
+<h2 id="462-02022024">4.6.2 (02.02.2024)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.6.2_Setup_x64</li>
+<li>FS4.5.13_AuthService</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="updates">Updates</h4>
+<ul>
+<li>Der HTML Client wurde auf Angular 17.1.1 upgedated</li>
+<li>Der Monaco Code Editor wurde auf Version 0.45.0 upgedated</li>
+</ul>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Im Package Manager können an der Package Version die <a href="../doc/package-manager/package-version.html#base-workspaces-freezed-since">Basis-Workspaces fixiert</a> werden.</li>
+<li>Mit Hilfe von <a href="../doc/package-manager/hotfix-branch.html">Hotfix-Branches</a> ist es möglich, parallel zum laufenden Service-Release Änderungen vorzunehmen und diese kurzfristig auszuliefern.</li>
+<li>Maintenance-Routine &quot;<a href="../doc/maintenance/double-form-doc-cleanup.html">Double Form Doc Cleanup</a>&quot; zur Bereinigung doppelter Form-Dokumentationen.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2024014859 - <strong>AuthService</strong>: Wird ein Benutzer mit &quot;Angemeldet bleiben&quot;
+  erneut angemeldet, dann wird im Auth-Service die Login-Info des Benutzers
+  nicht aktualisiert. In der Runtime Administration werden dadurch veraltete
+  Login-Zeiten angezeigt.</p>
+</li>
+<li><p>2024014896 - <strong>IDE</strong>: Die im Options-Dialog angegebene Schriftart und
+  Schriftgröße hat nur Einfluss auf C#-Editoren. Editoren für HTML, CSS, XML
+  und DocML nutzen fälschlicherweise immer die Standardwerte.</p>
+</li>
+<li><p>2024014914 - <strong>IDE</strong>: In sehr seltenen Fällen kann es vorkommen, dass &quot;GoTo
+  Definition&quot; im Code Editor bei gedrückter STRG-Taste erst bei einem zweiten
+  Click aufgerufen wird.</p>
+</li>
+</ul>
 <h2 id="461-05012024">4.6.1 (05.01.2024)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -91,12 +125,12 @@
 <ul>
 <li>Im DocML werden <a href="../doc/documentation/docml.html#image">Inline Images</a> ohne Größenangabe anhand der Schriftgröße skaliert.</li>
 </ul>
-<h4 id="updates">Updates</h4>
+<h4 id="updates-1">Updates</h4>
 <ul>
 <li>Die Bibliothek Oracle.ManagedDataAccess wurde von Version 21.8.0 auf die neuste Version 21.12.0 aktualisiert.</li>
 <li>DevExpress wurde auf Version 23.1.6 upgedated. Aus diesem Grund gibt es auch einen neuen <a href="aktuelle-pakete.html">Print-Service</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023114564 - <strong>IDE</strong>: Kopieren und das anschließende Einfügen eines
   Basis-Properties, wenn der Parent (Form, Component) gecustomized ist,
@@ -124,7 +158,7 @@
 <li>FS_4.6.0_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <p>In der Version 4.6 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-5.html#4511-01122023">Framework Studio 4.5.11</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

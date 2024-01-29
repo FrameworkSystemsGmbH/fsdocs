@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Constructor Cleanup </title>
+    <title>Double Form Docs Cleanup </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Constructor Cleanup ">
+    <meta name="title" content="Double Form Docs Cleanup ">
     <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -79,30 +79,59 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="constructor-cleanup">Constructor Cleanup</h1>
+<h1 id="double-form-docs-cleanup">Double Form Docs Cleanup</h1>
 
-<p><strong>Constructor Cleanup</strong> ist eine Maintenance-Routine, die ungültige Konstruktor-Deklarationen korrigiert.</p>
+<p><strong>Double Form Docs Cleanup</strong> ist eine Maintenance-Routine, die in Forms doppelte Dokumentationen bereinigt.</p>
 <p>Im Login-Dialog muss der <a href="../ide/start.html#maintenance-mode">Maintenance-Mode</a> aktiviert werden, damit Sie verfügbar ist.
-Sie kann in der IDE über das Menü <strong>Tools</strong> / <strong>Checks</strong> / <strong>Constructor Cleanup</strong> aufgerufen werden.</p>
-<p><img src="media/constructors-cleanup.png" alt="constructors-cleanup"></p>
+Sie kann in der IDE über das Menü <strong>Tools</strong> / <strong>Checks</strong> / <strong>Double Form Docs Cleanup</strong> aufgerufen werden.</p>
+<p><img src="media/double-form-doc-cleanup.png" alt="double-form-doc-cleanup"></p>
 <p>Mit dem Button <strong>Analyze</strong> wird eine Analyse gestartet ohne, dass Änderungen durchgeführt werden.
 Die Resultate werden in der Error-Liste ausgegeben.</p>
 <p>Der Button <strong>CleanUp</strong> führt die Änderungen aus.
-Dazu werden die betroffenen Components ausgecheckt, geändert und gespeichert.
-Nach erfolgreichen Compile müssen die Components wieder eingecheckt werden.</p>
+Dazu werden die betroffenen Forms und Dokumentationen ausgecheckt, geändert und gespeichert.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Nach dem CleanUp sollte Framework Studio neu gestartet werden.
+Durch die Bereinigung könnte es vorkommen, dass die Dokumentation im Form-Designer oder der Chapter-Tree nicht korrekt angezeigt werden.</p>
+</div>
+<p>Anschließend können die ausgecheckten Elemente wieder eingecheckt werden.</p>
 <h2 id="beschreibung">Beschreibung</h2>
-<p>Es war einige Zeit üblich, alle Methoden einschließlich der Konstruktoren als <code>virtual</code> zu deklarieren.
-Bei Konstruktoren ist das aber nicht zulässig - dieses sind im .net von Haus aus virtuell.</p>
-<pre><code class="lang-csharp">public virtual cdCustomer(IFSGlobalObjects global, FSlong id) : this(global)
-{
-    // ...
-}
-</code></pre><p>Mit Framework Studio 4.4 werden ungültige Konstruktor-Deklarationen erkannt und als Error ausgegeben.
-Notwendig ist das, weil Framework Studio jetzt die Methoden-Deklarationen mit offiziellen .net-Mechanismen analysiert um z.B. Tupel korrekt zu behandeln.
-Das führt bei ungültigen Deklarationen zu Fehlern.</p>
-<p>Die Routine scannt alle Components, findet die fehlerhaften Konstruktoren und entfernt das <code>virtual</code> Schlüsselwort.</p>
-<pre><code class="lang-csharp">public cdCustomer(IFSGlobalObjects global, FSlong id) : this(global)
-{
+<p>Forms können nur eine Dokumentation enthalten.
+In älteren Version gab es einen Fehler, dass beim Copy Paste von Forms im Hintergrund doppelte Einträge für die Form-Dokumentation erstellt wurden.
+Das hat zur Folge, dass der Chapter Tree das entsprechende Form mehrfach anzeigt.</p>
+<p>Dieser Fehler wurde im Mai 2023 in FS 4.4 und höher korrigiert, damit entstehen keine neuen Fehler mehr.</p>
+<p>Fehler, die vor dieser Korrektur entstanden sind, können aber noch vorhanden sein und zu unsauberen Situationen im Chapter Tree führen.</p>
+<p>Mit der Maintenance-Routine können diese Fehler bereinigt werden.</p>
+<div class="TIP"><h5>Tip</h5><p>Es ist sinnvoll, diese Routine einmal über alle Package-Version laufen zu lassen.</p>
+</div>
+<p>Mit den folgenden SQL-Statements können Sie sich einen Überblick verschaffen, welche Package-Version konkret betroffen sind.
+Führen Sie das entsprechende Statement auf der Repository-Datenbank aus.</p>
+<p>Nach CleanUp und Checkin sollten die korrigierten Forms nicht mehr ausgegeben werden.
+So lässt sich prüfen, ob der CleanUp erfolgreich war.</p>
+<pre><code class="lang-sql">-- SQL-Server:
+
+SELECT F_Name AS Form, P_Name AS Package, LBL_Name AS Version
+FROM (SELECT lblF_ObjectID, max(lblF_ObjectVersion) as lblF_ObjectVersion, lblF_LabelID, max(lblF_PackageID) as lblF_PackageID 
+    from lblRep_Form where COALESCE(lblF_IsCheckedOut, 0) = 0
+    group by lblF_ObjectID, lblF_LabelID) as lbl
+inner join tblRep_Form on F_ID = lbl.lblF_ObjectID AND F_Version = lbl.lblF_ObjectVersion AND F_PackageID = lblF_PackageID AND COALESCE(F_IsCustomization, 0) = 0 AND COALESCE(F_IsVersionDeleted, 0) = 0
+inner join tblRep_Package on P_ID = lbl.lblF_PackageID AND DataLength(P_PckKey) &gt; 1000
+inner join tblRep_Label on LBL_ID = lbl.lblF_LabelID
+where (Select count(*) from subRep_Documentation 
+    inner join tblRep_Documentation on DOC_ID = subDOC_ID AND DOC_Version = subDOC_Version AND DOC_PackageID = subDOC_PackageID AND COALESCE(DOC_IsVersionDeleted, 0) = 0
+    WHERE subDOC_F_ID = lbl.lblF_ObjectID AND subDOC_F_Version = lbl.lblF_ObjectVersion AND subDOC_PackageID = lbl.lblF_PackageID) &gt; 1
+order by P_Name, lbl_Name desc
+</code></pre><pre><code class="lang-sql">-- Oracle:
+
+SELECT F_Name AS Form, P_Name AS Package, LBL_Name AS Version
+FROM (SELECT lblF_ObjectID, max(lblF_ObjectVersion) as lblF_ObjectVersion, lblF_LabelID, max(lblF_PackageID) as lblF_PackageID 
+    from lblRep_Form where COALESCE(lblF_IsCheckedOut, &#39;0&#39;) = &#39;0&#39;
+    group by lblF_ObjectID, lblF_LabelID) lbl
+inner join tblRep_Form on F_ID = lbl.lblF_ObjectID AND F_Version = lbl.lblF_ObjectVersion AND F_PackageID = lblF_PackageID AND COALESCE(F_IsCustomization, &#39;0&#39;) = &#39;0&#39; AND COALESCE(F_IsVersionDeleted, &#39;0&#39;) = &#39;0&#39;
+inner join tblRep_Package on P_ID = lbl.lblF_PackageID AND length(P_PckKey) &gt; 1000
+inner join tblRep_Label on LBL_ID = lbl.lblF_LabelID
+where (Select count(*) from subRep_Documentation 
+    inner join tblRep_Documentation on DOC_ID = subDOC_ID AND DOC_Version = subDOC_Version AND DOC_PackageID = subDOC_PackageID AND COALESCE(DOC_IsVersionDeleted, &#39;0&#39;) = &#39;0&#39;
+    WHERE subDOC_F_ID = lbl.lblF_ObjectID AND subDOC_F_Version = lbl.lblF_ObjectVersion AND subDOC_PackageID = lbl.lblF_PackageID) &gt; 1
+order by P_Name, lbl_Name desc;
 </code></pre></article>
           </div>
           

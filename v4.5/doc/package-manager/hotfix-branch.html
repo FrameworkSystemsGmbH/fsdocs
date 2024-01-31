@@ -132,6 +132,19 @@ Er lautet z.B. &quot;4.5.hotfix1&quot;, &quot;4.5.hotfix2&quot; usw.</p>
 <p>Der Hotfix-Branch übernimmt den Service-Release-Modus. Es ist nicht möglich, den <strong>Version State</strong> auf <em>Open</em> zu setzen.</p>
 <p>Im <strong>Hotfix Title</strong> kann eine sprechender Titel angegeben werden. Dieser wird z.B. im Login-Dialog anzeigt.
 Wird kein Titel definiert, dann wird alternativ das <strong>Hotfix Start</strong> Datum verwendet.</p>
+<p>Nachdem der Hotfix-Branch erzeugt wurde muss ein <strong>Compile-Wizard</strong> ausgeführt werden.
+Weil der Abzweig zu einem beliebigen Zeitpunkt der Vergangenheit erfolgt, gibt es keinen Workspace, auf dem der Branch aufsetzen kann.
+Aus diesem Grund muss zuerst ein Compile ausgeführt werden, damit ein entsprechender Workspace frisch aufgebaut wird.</p>
+<p>Anschließend kann sich ein normaler Benutzer mit der IDE am Hotfix-Branch anmelden.
+Die Hotfix-Branches werden im Login-Dialog angeboten:
+<img src="media/hotfix-branch-ide-login.png" alt="IDE Login"></p>
+<p>Ab jetzt greift der ganz normale Entwicklungs- und Auslieferungs-Workflow:</p>
+<ul>
+<li>Änderungen druchführen</li>
+<li>Einchecken</li>
+<li>Compile-Wizard ausführen</li>
+<li>Export der Package-Version für die Auslieferung</li>
+</ul>
 <h3 id="customizing-packages">Customizing-Packages</h3>
 <p>Soll im Quell-Repository ein Hotfix-Branch (z.B. eNVenta 4.5.hotfix2) in einem Customizing-Package (z.B. eNVentaWS 4.5) verwendent werden, dann muss im Customizing ebenfalls ein Hotfix-Branch (z.B. eNVentaWS 4.5.hotfix2) erstellt werden.
 In der Using-Hierarchy kann dann die Version des Basis-Packages auf den Hotfix-Branch geändert werden.</p>

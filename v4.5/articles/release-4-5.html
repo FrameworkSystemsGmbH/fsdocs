@@ -106,6 +106,14 @@
   nicht aktualisiert. In der Runtime Administration werden dadurch veraltete
   Login-Zeiten angezeigt.</p>
 </li>
+<li><p>2024015018 - <strong>Package Manager</strong>: Bekommt ein Basis-Package einen neuen
+  Service-Release-Stand, dann müssen davon abhängige importierte Packages neu
+  compiliert werden. Hat diese importierte Package-Version den Version State
+  &quot;Sealed&quot;, dann wird dieser Compile nicht ausgeführt. In der Folge kann das
+  dazu führen, dass Service-Release-Änderungen im Basis-Package nicht greifen.</p>
+<p>  <em>Importierte Package-Versionen werden jetzt nicht mehr als &quot;Sealed&quot;
+  angezeigt.</em></p>
+</li>
 <li><p>2024014896 - <strong>IDE</strong>: Die im Options-Dialog angegebene Schriftart und
   Schriftgröße hat nur Einfluss auf C#-Editoren. Editoren für HTML, CSS, XML
   und DocML nutzen fälschlicherweise immer die Standardwerte.</p>

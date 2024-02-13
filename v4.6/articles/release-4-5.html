@@ -105,6 +105,10 @@
   nicht aktualisiert. In der Runtime Administration werden dadurch veraltete
   Login-Zeiten angezeigt.</p>
 </li>
+<li><p>2024025113 - <strong>AuthService</strong>: Wenn eine Anwendung mit Hilfe eines zuvor
+  gespeicherten Tokens einen aktualisierten Token anfragt (RenewToken / Angemeldet bleiben),
+  wird nicht geprüft, ob der Benutzer weiterhin gültig ist.</p>
+</li>
 <li><p>2024015018 - <strong>Package Manager</strong>: Bekommt ein Basis-Package einen neuen
   Service-Release-Stand, dann müssen davon abhängige importierte Packages neu
   compiliert werden. Hat diese importierte Package-Version den Version State

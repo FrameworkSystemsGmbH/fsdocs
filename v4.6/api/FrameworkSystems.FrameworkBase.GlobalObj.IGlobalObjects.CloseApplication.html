@@ -99,7 +99,8 @@ entsprechende Message-Box ausgegeben bzw. das Schließen der Anwendung verhinder
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">void CloseApplication()</code></pre>
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+void CloseApplication()</code></pre>
     </div>
   </section>
 
@@ -114,7 +115,7 @@ beendet wird. Dies wird auch dem Client mitgeteilt, sodass dieser ebenfalls gesc
 <a id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication*"></a>
 <h4 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication(FrameworkSystems.FrameworkExceptions.FrameworkCloseMode)">CloseApplication(FrameworkCloseMode)</h4>
 <section>
-  <div class="markdown level1 summary"><p>Wird als closeMode das Flag <span class="xref">FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.Restart</span> angegeben, so wird ein Neustart des
+  <div class="markdown level1 summary"><p>Wird als closeMode das Flag <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html#FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_Restart">Restart</a> angegeben, so wird ein Neustart des
 Clients veranlasst. Allerdings darf ein Neustart nur unter der Bedingung ausgeführt werden,
 dass jedes aktuell laufende Ereignis eines der folgenden ist:</p>
 <ul>
@@ -125,7 +126,7 @@ dass jedes aktuell laufende Ereignis eines der folgenden ist:</p>
 </ul>
 <p>Mit aktuell laufenden Ereignissen sind auch solche Ereignisse gemeint, die als Folge einen
 modalen Dialog geöffnet haben.Solange der Dialog offen ist, zählt das Ereignis zu den laufenden.</p>
-<p>Zusätzlich gibt es das Flag <span class="xref">FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.KeepUserLogin</span>. Wird <span class="xref">FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.Restart</span>
+<p>Zusätzlich gibt es das Flag <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html#FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_KeepUserLogin">KeepUserLogin</a>. Wird <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html#FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_Restart">Restart</a>
 mit diesem Flag kombiniert (bitweise Oder-Verknüpfung), so wird beim Neustart der User Token
 in die neue Sitzung übernommen und es ist kein erneuter Login erforderlich.</p>
 </div>
@@ -134,13 +135,14 @@ in die neue Sitzung übernommen und es ist kein erneuter Login erforderlich.</p>
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">void CloseApplication(FrameworkCloseMode closeMode)</code></pre>
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+void CloseApplication(FrameworkCloseMode closeMode)</code></pre>
     </div>
   </section>
   <h5 class="parameters">Parameters</h5>
   <section>
     <div class="propertyInfo">
-      <span class="parametername"><code>closeMode</code></span> <span class="xref">FrameworkSystems.FrameworkExceptions.FrameworkCloseMode</span>
+      <span class="parametername"><code>closeMode</code></span> <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html">FrameworkCloseMode</a>
       <div class="markdown level1 summary"></div>
     </div>
   </section>
@@ -165,7 +167,8 @@ Message ausgegeben.</p>
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
-      <pre><code class="lang-csharp hljs">void CloseApplication(string message)</code></pre>
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+void CloseApplication(string message)</code></pre>
     </div>
   </section>
   <h5 class="parameters">Parameters</h5>

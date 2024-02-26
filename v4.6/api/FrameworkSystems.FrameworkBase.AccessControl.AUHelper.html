@@ -98,7 +98,8 @@ Geschäftseinheiten, Laufzeitlizensierung und Packages an. Sie ist über <a clas
   <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkBase.dll</h6>
   <h5 id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public sealed class AUHelper : ILicenseProvider</code></pre>
+    <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public sealed class AUHelper : ILicenseProvider</code></pre>
   </div>
   <h5 id="FrameworkSystems_FrameworkBase_AccessControl_AUHelper_examples"><strong>Examples</strong></h5>
   <pre><code>this.Global.AUHelper.ChangePassword( sOld, sNew );</code></pre>

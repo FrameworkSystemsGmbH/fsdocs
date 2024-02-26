@@ -101,6 +101,8 @@ Die Dokumentation kann als HTML Webapplikation (zum Hosten auf einem Webserver) 
 <h4 id="checkbox-use-license">Checkbox <strong>Use License</strong></h4>
 <p>Wenn diese Checkbox aktiviert ist, wird die Lizenz bei dem Export der Dokumentation berücksichtigt.
 Forms und Controls, die nicht die nötigen Berechtigungen besitzen, werden nicht mit in die Dokumentation aufgenommen.</p>
+<h4 id="textbox-output-directory">Textbox <strong>Output Directory</strong></h4>
+<p>Hier wird das Verzeichnis angegeben, in den die Dokumentation exportiert werden soll. Um mehrere exportierte Dokumentationen voneinander unterscheiden zu können, wird bei jedem Export automatisch ein generierter Unterordner mit dem Schema <code>[Datum]_[Uhrzeit]_[Package]_[Version]_[Sprache]_[SettingName]</code> erstellt. <code>[SettingName]</code> wird nur ergänzt, wenn die Checkbox <code>Use License</code> aktiviert ist.</p>
 <h3 id="export-vorgang">Export-Vorgang</h3>
 <p>Für den eigentlichen Export-Vorgang wird ein Dialog mit Statusinformationen bereitgestellt. Über den Button <strong>Abort</strong> kann der Vorgang jederzeit abgebrochen werden.</p>
 <p><img src="media/ewiz-html-vorgang-status.png" alt="export-vorgang-status"></p>
@@ -138,6 +140,26 @@ Sind einem Index-Eintrag mehrere Kapitel zugeordnet, kann das gewünschte Kapite
 </ul>
 <div class="WARNING"><h5>Warning</h5><p>Internet Explorer 10 und niedriger werden NICHT unterstützt.</p>
 </div>
+<h3 id="export-aus-package-manager">Export aus Package-Manager</h3>
+<p>Der Export Wizard kann über das <img src="../media/icon-doc.png" alt="icon-doc.png">-Icon oder über das Kontextmenü einer Package-Version gestartet werden.</p>
+<p><img src="media/documentation-export-package-manager.png" alt="documentation-export-package-manager.png"></p>
+<h4 id="export-wizard">Export Wizard</h4>
+<p><img src="media/export-wizard-package-manager.png" alt="export-wizard-package-manager.png"></p>
+<p>Bei einem Export  aus dem Package Manager heraus wird immer die gesamte Dokumentation exportiert. Die Auswahl eines bestimmt en Kapitels entfällt.</p>
+<h4 id="combobox-language-1">Combobox <strong>Language</strong></h4>
+<p>Definiert die Sprache, für die die Dokumentation exportiert werden soll. Dies ändert auch die Sprache der automatisch generierten Screenshots (siehe  <a href="editor.html#screenshot">Screenshot <img src="../media/icon-screenshot.png" alt="icon-screenshot.png"></a>).</p>
+<h4 id="checkbox-include-db-tables-1">Checkbox <strong>Include DB-Tables</strong></h4>
+<p>Ist diese Checkbox gesetzt, dann wird auf der ersten Ebene ein zusätzliches Kapitel <strong>Tabellen-Beschreibungen</strong> erzeugt, unter dem die Beschreibung aller Datenbank-Tabellen enthalten ist.</p>
+<h4 id="checkbox-use-license-1">Checkbox <strong>Use License</strong></h4>
+<p>Wenn diese Checkbox aktiviert ist, wird die Lizenz beim Export der Dokumentation berücksichtigt. Forms und Controls, die nicht die nötigen Berechtigungen besitzen, werden nicht mit in die Dokumentation aufgenommen.</p>
+<p>Wenn <code>Use License</code> aktiviert ist, muss zusätzlich ein Setting ausgewählt werden, welches die Lizenz bereitstellt, die beim Export genutzt werden soll.</p>
+<h4 id="combobox-setting">Combobox <strong>Setting</strong></h4>
+<p>Bietet alle Settings für die gewählte Package-Version aus dem Repository an, die nicht als <em>Personal</em> markiert sind.</p>
+<h4 id="textbox-output-directory-1">Textbox <strong>Output Directory</strong></h4>
+<p>Hier wird das Verzeichnis angegeben, in den die Dokumentation exportiert werden soll. Um mehrere exportierte Dokumentationen voneinander unterscheiden zu können, wird bei jedem Export automatisch ein generierter Unterordner mit dem Schema <code>[Datum]_[Uhrzeit]_[Package]_[Version]_[Sprache]_[SettingName]</code> erstellt. <code>[SettingName]</code> wird nur ergänzt, wenn die Checkbox <code>Use License</code> aktiviert ist.</p>
+<h4 id="export-vorgang-1">Export-Vorgang</h4>
+<p>Für den Export-Vorgang wird ein Dialog mit Statusinformationen bereitgestellt, der nach Abschluss des Vorgangs geschlossen werden kann. </p>
+<p><img src="media/docu-export-package-manager.png" alt="docu-export-package-manager.png"></p>
 <h3 id="export-mit-fsconsole">Export mit FSConsole</h3>
 <p>Neben dem Export-Wizard kann die Webapplikation auch über die <a href="../fsconsole/fsconsole.html#fsconsole">FSConsole.exe</a> generiert werden. Hierzu gibt es die Parameter \DOCUMENTATION, \ISO und \OUTPUT.</p>
 <h5 id="documentation"><strong>\DOCUMENTATION</strong></h5>
@@ -166,10 +188,10 @@ Sind einem Index-Eintrag mehrere Kapitel zugeordnet, kann das gewünschte Kapite
 <p>Ist an einem Steuerelement eines Formulars ein Tooltip hinterlegt, wird dieser mit in die Dokumentation des Steuerelements aufgenommen.</p>
 <h5 id="doc2help"><strong>Doc2Help</strong></h5>
 <p>Zusätzlich zum Indexeintrag wird jede Kapitelüberschrift mit einer zusätzlichen Formatvorlage versehen, die es <a href="doc2help.html">Doc2Help</a> erlaubt, einen Verweis über eine Url in der Onlinehilfe auf das jeweilige Kapitel zu generieren. Für mehr Information hierzu siehe Kapitel <a href="doc2help.html">Doc2Help</a>.</p>
-<h4 id="checkbox-use-license-1">Checkbox <strong>Use License</strong></h4>
+<h4 id="checkbox-use-license-2">Checkbox <strong>Use License</strong></h4>
 <p>Wenn diese Checkbox aktiviert ist, wird die Lizenz bei dem Export der Dokumentation berücksichtigt.
 Forms und Controls, die nicht die nötigen Berechtigungen besitzen, werden nicht mit in die Dokumentation aufgenommen.</p>
-<h3 id="export-vorgang-1">Export-Vorgang</h3>
+<h3 id="export-vorgang-2">Export-Vorgang</h3>
 <p>Für den eigentlichen Export-Vorgang wird ein Dialog mit Statusinformationen bereitgestellt. Über den Button <strong>Abort</strong> kann der Vorgang jederzeit abgebrochen werden.</p>
 <p><img src="media/ewiz-word-vorgang-status.png" alt="ewiz-word-vorgang-status"></p>
 <p>Treten beim Export-Vorgang Infos, Warnungen oder Fehler auf, werden diese detailliert in das Ausgabefenster protokolliert und der Statustext ändert ggf. seine Farbe (<b style="color: orange">orange</b> für Warnungen, <b style="color: red">rot</b> für Fehler).</p>
@@ -195,7 +217,7 @@ Forms und Controls, die nicht die nötigen Berechtigungen besitzen, werden nicht
 <p>Definiert, ob an den Component-Properties definierte Tooltips zuzüglich zur eigentlichen Dokumentation gerendert werden sollen.</p>
 <h5 id="output-directory"><strong>Output Directory</strong></h5>
 <p>Über den Button <strong>[…]</strong> muss ein Zielverzeichnis für den HTML-Export definiert werden. Dieses Verzeichnis muss leer sein.</p>
-<h3 id="export-vorgang-2">Export-Vorgang</h3>
+<h3 id="export-vorgang-3">Export-Vorgang</h3>
 <p><img src="media/ewiz-html-prop-vorgang-status.png" alt="ewiz-html-prop-vorgang-status"></p>
 <p>Es kann nachvollzogen werden, welche Properties Dokumentationen beinhalten und gerendert werden. Sollte nach dem Export-Vorgang festgestellt werden, dass keine Bilder gerendert wurden, wird das zuvor erstellte Verzeichnis <strong>images</strong> wieder gelöscht.</p>
 <h3 id="ausgabe">Ausgabe</h3>

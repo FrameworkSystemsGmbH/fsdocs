@@ -105,7 +105,8 @@
   <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkBase.dll</h6>
   <h5 id="FrameworkSystems_FrameworkBase_DragAndDrop_UriListFlavorData_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class UriListFlavorData : TextFlavorData, IEnumerable&lt;string&gt;, IEnumerable</code></pre>
+    <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public class UriListFlavorData : TextFlavorData, IEnumerable&lt;string&gt;, IEnumerable</code></pre>
   </div>
   <h5 id="FrameworkSystems_FrameworkBase_DragAndDrop_UriListFlavorData_remarks"><strong>Remarks</strong></h5>
   <div class="markdown level0 remarks"><p>Die Klasse ist enumerierbar (<code>IEnumerator&lt;String&gt;</code>).</p>
@@ -130,6 +131,31 @@ Andernfalls ist die Eigenschaft undefiniert.</p>
     <section><p><p>Gibt einen Enumerator zum Iterieren durch die enthaltenen URIs zurück.</p>
 </p></section>
   
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkExceptions.EnumarableExtensions.Chunk.html#FrameworkSystems_FrameworkExceptions_EnumarableExtensions_Chunk__1_System_Collections_Generic_IEnumerable___0__System_Int32_">EnumarableExtensions.Chunk&lt;T&gt;(IEnumerable&lt;T&gt;, Int32)</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkExceptions.EnumarableExtensions.DistinctBy.html#FrameworkSystems_FrameworkExceptions_EnumarableExtensions_DistinctBy__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__">EnumarableExtensions.DistinctBy&lt;TSource, TKey&gt;(IEnumerable&lt;TSource&gt;, Func&lt;TSource, TKey&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkExceptions.EnumarableExtensions.ToDictionaryChecked.html#FrameworkSystems_FrameworkExceptions_EnumarableExtensions_ToDictionaryChecked__3_System_Collections_Generic_IEnumerable___0__System_Func___0___1__System_Func___0___2__System_Collections_Generic_IEqualityComparer___1__">EnumarableExtensions.ToDictionaryChecked&lt;TSource, TKey, TElement&gt;(IEnumerable&lt;TSource&gt;, Func&lt;TSource, TKey&gt;, Func&lt;TSource, TElement&gt;, IEqualityComparer&lt;TKey&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkExceptions.EnumarableExtensions.ToDictionaryChecked.html#FrameworkSystems_FrameworkExceptions_EnumarableExtensions_ToDictionaryChecked__3_System_Collections_Generic_IEnumerable___0__System_Func___0___1__System_Func___0___2__">EnumarableExtensions.ToDictionaryChecked&lt;TSource, TKey, TElement&gt;(IEnumerable&lt;TSource&gt;, Func&lt;TSource, TKey&gt;, Func&lt;TSource, TElement&gt;)</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkExceptions.EnumarableExtensions.OrderBySample.html#FrameworkSystems_FrameworkExceptions_EnumarableExtensions_OrderBySample__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__System_Boolean_">EnumarableExtensions.OrderBySample&lt;TSource&gt;(IEnumerable&lt;TSource&gt;, IEnumerable&lt;TSource&gt;, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkExceptions.EnumarableExtensions.OrderBySample.html#FrameworkSystems_FrameworkExceptions_EnumarableExtensions_OrderBySample__1_System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEnumerable___0__System_Collections_Generic_IEqualityComparer___0__System_Boolean_">EnumarableExtensions.OrderBySample&lt;TSource&gt;(IEnumerable&lt;TSource&gt;, IEnumerable&lt;TSource&gt;, IEqualityComparer&lt;TSource&gt;, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkExceptions.EnumarableExtensions.OrderBySample.html#FrameworkSystems_FrameworkExceptions_EnumarableExtensions_OrderBySample__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__System_Collections_Generic_IEnumerable___1__System_Boolean_">EnumarableExtensions.OrderBySample&lt;TSource, TKey&gt;(IEnumerable&lt;TSource&gt;, Func&lt;TSource, TKey&gt;, IEnumerable&lt;TKey&gt;, Boolean)</a>
+  </div>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkExceptions.EnumarableExtensions.OrderBySample.html#FrameworkSystems_FrameworkExceptions_EnumarableExtensions_OrderBySample__2_System_Collections_Generic_IEnumerable___0__System_Func___0___1__System_Collections_Generic_IEnumerable___1__System_Collections_Generic_IEqualityComparer___1__System_Boolean_">EnumarableExtensions.OrderBySample&lt;TSource, TKey&gt;(IEnumerable&lt;TSource&gt;, Func&lt;TSource, TKey&gt;, IEnumerable&lt;TKey&gt;, IEqualityComparer&lt;TKey&gt;, Boolean)</a>
+  </div>
 </article>
           </div>
           

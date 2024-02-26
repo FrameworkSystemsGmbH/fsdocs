@@ -94,6 +94,7 @@ Am GlobalObject werden alle Session-Daten verwaltet und Session-Funktionen angeb
   <h5 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[ComVisible(false)]
+[DocfxBrowsable]
 public interface IGlobalObjects : IFrameworkDBPerformanceCounter</code></pre>
   </div>
   <h3 id="properties">Properties
@@ -151,7 +152,7 @@ An den geöffneten Forms wird die Methode <code>IsApplicationQuitAllowed</code> 
 entsprechende Message-Box ausgegeben bzw. das Schließen der Anwendung verhindert.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_">CloseApplication(FrameworkCloseMode)</a></h4>
-    <section><p><p>Wird als closeMode das Flag <span class="xref">FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.Restart</span> angegeben, so wird ein Neustart des
+    <section><p><p>Wird als closeMode das Flag <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html#FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_Restart">Restart</a> angegeben, so wird ein Neustart des
 Clients veranlasst. Allerdings darf ein Neustart nur unter der Bedingung ausgeführt werden,
 dass jedes aktuell laufende Ereignis eines der folgenden ist:</p>
 <ul>
@@ -162,7 +163,7 @@ dass jedes aktuell laufende Ereignis eines der folgenden ist:</p>
 </ul>
 <p>Mit aktuell laufenden Ereignissen sind auch solche Ereignisse gemeint, die als Folge einen
 modalen Dialog geöffnet haben.Solange der Dialog offen ist, zählt das Ereignis zu den laufenden.</p>
-<p>Zusätzlich gibt es das Flag <span class="xref">FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.KeepUserLogin</span>. Wird <span class="xref">FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.Restart</span>
+<p>Zusätzlich gibt es das Flag <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html#FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_KeepUserLogin">KeepUserLogin</a>. Wird <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html#FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_Restart">Restart</a>
 mit diesem Flag kombiniert (bitweise Oder-Verknüpfung), so wird beim Neustart der User Token
 in die neue Sitzung übernommen und es ist kein erneuter Login erforderlich.</p>
 </p></section>
@@ -178,13 +179,13 @@ Message ausgegeben.</p>
     <section><p><p>Deaktiviert den <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SafeInitializing.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SafeInitializing">SafeInitializing</a> Modus.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLKeyText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(MLKey, Object[])</a></h4>
-    <section><p><p>Gibt ein <span class="xref">FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText</span>-Objekt mit dem formatierten Text und dem MLKey zurück.
+    <section><p><p>Gibt ein <a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.html">MLKeyText</a>-Objekt mit dem formatierten Text und dem MLKey zurück.
 Dabei wird ein <code>String.<span class="xref">System.String.Format(System.String,System.Object[])</span></code>
 mit den übergebenen Argumenten ausgeführt.
 Für die Fomatierung der übergebenen Argumente wird die Client-Culture verwendet.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLKeyText_System_IFormatProvider_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(IFormatProvider, MLKey, Object[])</a></h4>
-    <section><p><p>Gibt ein <span class="xref">FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText</span>-Objekt mit dem formatierten Text und dem MLKey zurück.
+    <section><p><p>Gibt ein <a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.html">MLKeyText</a>-Objekt mit dem formatierten Text und dem MLKey zurück.
 Dabei wird ein <code>String.<span class="xref">System.String.Format(System.String,System.Object[])</span></code>
 mit den übergebenen Argumenten ausgeführt.
 Für die Fomatierung der übergebenen Argumente wird die übergebene Culture verwendet.</p>
@@ -203,7 +204,7 @@ Für die Fomatierung der übergebenen Argumente wird die übergebene Culture ver
     <section><p><p>Liefert den Pfad des Verzeichnisses, in dem die Anwendung läuft.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLKeyText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_">GetMLKeyText(MLKey)</a></h4>
-    <section><p><p>Diese Methode gibt ein <span class="xref">FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText</span>-Objekt zurück, welches neben dem Text auch den übergebenen <code>MLKey</code>
+    <section><p><p>Diese Methode gibt ein <a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.html">MLKeyText</a>-Objekt zurück, welches neben dem Text auch den übergebenen <code>MLKey</code>
 beinhaltet. Das kann hilfreich sein, wenn der MLKey interessant ist, um ihn z.B. als Fehler-Code zu verwenden.</p>
 </p></section>
     <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_">GetMLText(MLKey)</a></h4>

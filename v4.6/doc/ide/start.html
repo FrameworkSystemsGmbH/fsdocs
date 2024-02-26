@@ -135,6 +135,10 @@
 <p>Ist eine Package-Version mit einer anderen FS-Version erstellt, dann wird dies in dieser Liste angezeigt (z.B. [FS 3.11] – diese Package-Version kann nur mit FS Version 3.11 bearbeitet werden). Ein Login ist in diesem Fall nicht möglich. Sie müssen den Package-Manager verwenden, um die Package-Version auf eine aktuellere FS-Version zu bringen.</p>
 <p>Ist ein Package-Version versiegelt, dann wird dies in der Liste mit dem Suffix (sealed) angezeigt. Ein Login ist möglich, es kann jedoch nicht bearbeitet werden.</p>
 <p>Beim Login merkt sich <strong>Framework Studio</strong> die zuletzt ausgewählte Version. Die Information wird für jedes Package separat gespeichert. Beim nächsten Login wird bei der Auswahl des Packages die zuletzt gewählte Version vorbelegt.</p>
+<h3 id="checkbox-show-only-applicable-packages-and-versions">Checkbox &quot;Show only applicable packages and versions&quot;</h3>
+<p>Mit dieser Checkbox werden die Packages und deren Versions gefiltert.
+Es werden nur noch die zur Auswahl bereitgestellt, an welchen sich eingeloggt werden kann.
+Beispielsweise werden sealed Packages oder Versions, welche nicht passend zur FS-Version sind ausgeblendet.</p>
 <h3 id="combobox-user">Combobox User</h3>
 <p>Eine Liste aller existierenden Benutzer. Diese Combobox arbeitet mit Autovervollständigung. Man braucht also nur die ersten Buchstaben eintippen. Das ist vorteilhaft bei langen Benutzernamen.</p>
 <p>Beim Login merkt sich <strong>Framework Studio</strong> den zuletzt verwendeten Benutzer. Diese Information wird für jede Package-Version separat gespeichert. Beim nächsten Login wird bei der Auswahl einer Version der zuletzt gewählte Benutzer vorbelegt. Wenn Sie sich als FrameworkCompiler anmelden, dann wird die letzte Vorbelegung nicht gespeichert.</p>
@@ -162,8 +166,9 @@
 <h3 id="option-autodebug-dlls">Option AutoDebug DLLs</h3>
 <p>Diese Option ist aktiv, sobald die Checkbox <a href="#checkbox-compile-changes">Compile Changes</a> aktiviert wird.
 Die initiale Vorbelegung stammt aus dem <a href="../allgemein/options.html#login">Options</a>-Dialog, kann jedoch temporär im <a href="start.html#login">Login</a>-Dialog geändert werden.</p>
-<p>Wird <strong>All</strong> bei der AutoDebug-Option angegeben, werden alle Namespaces jedes Typen debuggable kompiliert.
-Bei der Option <strong>Service, Component</strong> werden alle vorgenommenen Änderungen (Compile Changes) und Services und Components debuggable kompiliert.
+<p>Wird bei der AutoDebug-Option <strong>All</strong> angegeben, werden alle Namespaces jedes Typen debuggable kompiliert.
+Wird <strong>Service, Component</strong> angegeben, werden alle vorgenommenen Änderungen (Compile Changes), Services und Components debuggable kompiliert.
+Wird <strong>Service, Component, Form</strong> angegeben, werden alle vorgenommenen Änderungen (Compile Changes), Services, Components und Forms debuggable kompiliert.
 Mit <strong>None</strong> wird die AutoDebug-Option entsprechend &quot;deaktiviert&quot; und nur die vorgenommen Änderungen (Compile Changes) werden normal/nicht debuggable kompiliert.</p>
 <h3 id="informationen">Informationen</h3>
 <p>Bei der Auswahl einer Version werden unter den Checkboxen einige Informationen ausgegeben. Diese können je nach Anwendungs-Fall variieren.</p>

@@ -5,21 +5,21 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Aktuelle Installations-Pakete </title>
+    <title>Unit-Tests </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Aktuelle Installations-Pakete ">
+    <meta name="title" content="Unit-Tests ">
     <meta name="generator" content="docfx 2.56.2.0">
     
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/fs-docfx.css">
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
     
-    <meta property="docfx:rel" content="../">
+    <meta property="docfx:rel" content="../../">
     
   </head>
   <body data-spy="scroll" data-target="#affix" data-offset="120">
@@ -36,8 +36,8 @@
                 <span class="icon-bar"></span>
               </button>
               
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
               </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar">
@@ -79,61 +79,39 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="aktuelle-installations-pakete">Aktuelle Installations-Pakete</h1>
+<h1 id="unit-tests">Unit-Tests</h1>
 
-<p>In dieser Liste sind alle aktuellen verfügbaren Installations-Pakete aufgeführt.</p>
-<table>
-<thead>
-<tr>
-<th>Paket</th>
-<th>Version</th>
-<th>Name der Zip-Datei</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Framework Studio IDE</td>
-<td><strong>4.5</strong>.14</td>
-<td>FS_4.5.14_Setup_x64</td>
-</tr>
-<tr>
-<td><a href="requirements-package.html">Requirements-Paket</a> 64 Bit</td>
-<td><strong>4.5</strong>.4</td>
-<td>FS_4.5.4_Requirements_x64</td>
-</tr>
-<tr>
-<td>Runtime Administration</td>
-<td><strong>4.2</strong>.0</td>
-<td>FS_4.2.0_RuntimeAdministration</td>
-</tr>
-<tr>
-<td>Authentication-Service</td>
-<td><strong>4.5</strong>.13</td>
-<td>FS4.5.13_AuthService</td>
-</tr>
-<tr>
-<td><a href="../doc/print-server/installation.html">Print-Service</a></td>
-<td><strong>4.5</strong>.14</td>
-<td>FS4.5.14_PrintService</td>
-</tr>
-<tr>
-<td>FSClient Launcher 32 Bit</td>
-<td><strong>4.4</strong>.13</td>
-<td>FSCL_4.4.13_Setup_x86</td>
-</tr>
-<tr>
-<td>FSClient Launcher 64 Bit</td>
-<td><strong>4.4</strong>.13</td>
-<td>FSCL_4.4.13_Setup_x64</td>
-</tr>
-<tr>
-<td>Runtime Supervisor</td>
-<td><strong>4.4</strong>.11</td>
-<td>RS_4.4.11_Setup_x64</td>
-</tr>
-</tbody>
-</table>
-</article>
+<div class="NOTE"><h5>Note</h5><p>Dieses Feature steht aktuell nur im Haus von Nissen &amp; Velten zur Verfügung.</p>
+</div>
+<p>Über einen Befehl <strong>Run UnitTest</strong> ist es möglich eine spezielle Application zu starten, die dafür vorgesehen ist, Unit-Tests auszuführen.</p>
+<p>Beim Start der Application mit <code>F5</code> zieht das aktuell eingestellte Setting.
+Für die Unit-Tests gibt es parallel ein eigenes &quot;aktuelles Unit-Test-Setting&quot; gespeichert. Darin kann z.B. eine eigene Application mit einem anderen Start-Workflow verwendet werden, damit ein direkter Einstieg in die Unit-Test-UI gewährleistet wird.
+Es können (und müssen) aber auch alle anderen Einstellungen wie z.B. DB-Connections und Runtime-Lizenzen definiert werden.</p>
+<p>Im Run-Wizard können diese Settings ganz normal, wie alle anderen Setting auch, gespeichert und geladen werden.</p>
+<p><img src="media/unit-test-compile-menu.png" alt="unit-test-compile-menu"></p>
+<p>Im Menu <code>Compile</code> gibt es 2 Menu-Items für den Start dieser Application:</p>
+<ul>
+<li><p><strong>Run UnitTest</strong>: Startet die Application mit dem aktuellen Unit-Test-Setting.</p>
+</li>
+<li><p><strong>Run Wizard UnitTest...</strong>:
+Es öffnet sich der Run-Wizard und es kann das aktuellen Unit-Test-Setting konfiguriert werden.
+Beim ersten Aufruf wird das aktuelle (normale) Setting kopiert.</p>
+</li>
+</ul>
+<p>In den Designer-Fenstern für Components und CodeFiles gibt es im Menu <strong>UnitTest</strong> dieselben Befehle.
+Damit können gezielt diese Tests dieser konkreten Klasse ausgeführt werden.</p>
+<p><img src="media/unit-test-unittest-menu.png" alt="unit-test-unittest-menu"></p>
+<div class="NOTE"><h5>Note</h5><p>Diese Befehle sind nur bei entsprechend markierten Test-Klassen aktiv.  </p>
+</div>
+<p>Bei Code-Files muss der Name mit <code>...Test</code> enden. z.B. <code>StringUtilTest</code>.</p>
+<p>Bei Components muss am Anfang der Description ein <code>[Test...]</code>-Attribut stehen.</p>
+<pre><code class="lang-txt">[TestClass]
+In dieser Klasse werden Tests für Abc abgebildet
+...
+</code></pre><p>Der FullName der Component bzw. des CodeFiles wird als Envrionment-Variable <code>NVUnitTestItem</code> an die Application übergeben.
+Diese Variable kann in der Application an jeder beliebigen Stelle ausgewertet werden:</p>
+<pre><code class="lang-csharp">string testClassFullName = Environment.GetEnvironmentVariable(&quot;NVUnitTestItem&quot;);
+</code></pre></article>
           </div>
           
           <div class="hidden-sm col-md-2" role="complementary">
@@ -160,8 +138,8 @@
       </footer>
     </div>
     
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
   </body>
 </html>

@@ -81,6 +81,50 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-46">Release-Information Framework Studio 4.6</h1>
 
+<h2 id="465-03052024">4.6.5 (03.05.2024)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.6.5_Setup_x64</li>
+<li>FS4.5.16_PrintService</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="updates">Updates</h4>
+<ul>
+<li>DevExpress wurde auf Version 23.2.5 upgedated.</li>
+<li>Es gibt einen neuen <a href="frequently-asked-questions.html">FAQ</a> Bereich in unserer Online-Dokumentation. Hier werden wir laufend Themen ergänzen.</li>
+</ul>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Für einen Form-Container funktioniert im Java-Client jetzt die Focus-Steuerung.
+Das umfasst das Navigieren durch die Controls, das Reagieren auf Shortcuts in beiden Richtungen und die SetFocus-Action im inneren Form.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2024014866 - <strong>JavaClient</strong>: Wird am Grid in einem EditingStopped-Event mit
+  SetCell-Actions gearbeitet, dann kann es vorkommen, dass die SetCell-Action
+  und damit auch das EditingStarting-Event für eine Zelle mehrfach ausgeführt
+  werden.</p>
+</li>
+<li><p>2024035398 - <strong>IDE</strong>: Die UI-Performance bei einem ServiceProxy mit vielen
+  Service Operations ist langsam. So kann bspw. ein Save des ServiceProxy sehr
+  lange dauern.</p>
+</li>
+<li><p>2024045513 - <strong>IDE</strong>: Bei der Generierung der Diffs werden bei &quot;Compare with
+  Base&quot; die Basis auf der rechten Seite, statt der linken, angezeigt.</p>
+<div class="NOTE"><h5>Note</h5><p>Verhaltensänderung bei Compare with base. Die Reihenfolge wurde korrigiert.</p>
+</div>
+</li>
+<li><p>2024045533 - <strong>IDE</strong>: &quot;Export Table Descriptions&quot; liefert NullReference
+  Exception, wenn die MLDescription der Tabelle oder die MLDescriptions der
+  Columns nicht gesetzt sind.</p>
+</li>
+<li><p>2024045611 - <strong>IDE</strong>: Die Goto-Befehle (Open Customization, Open Customization
+  Base, ...) haben keine Shortcuts mehr.</p>
+</li>
+<li><p>2024045619 - <strong>IDE</strong>: Im MethodenCode werden Service-Proxies als Fehler
+  angezeigt und es wird kein Intellisense angeboten.</p>
+</li>
+</ul>
 <h2 id="464-05042024">4.6.4 (05.04.2024)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -116,7 +160,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <ul>
 <li>beinhaltet den neuen FS Client Launcher 4.5.15</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024035335 - <strong>JavaClient</strong>: Wird innerhalb eines SVGs ein <code>&lt;a&gt;</code> href-Link mit
   spezieller FSCommand-Logik verwendet. Reagiert nicht die Sonderlogik
@@ -169,7 +213,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>FS4.5.14_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates">Updates</h4>
+<h4 id="updates-1">Updates</h4>
 <ul>
 <li>DevExpress wurde auf Version 23.2.3 upgedated.</li>
 <li>Der Monaco Code-Editor wurde auf Version 0.44.0 upgedated.</li>
@@ -180,7 +224,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>Im Package Manager können die Packages <a href="../doc/package-manager/package-manager.html">gefiltert</a> werden. So werden nur noch Packages angezeigt, welche bearbeitbare Labels passend zur FS-Version haben.</li>
 <li>Es gibt eine neue Auto Debug DLLs Option: <code>Service, Component, Form</code>, siehe <a href="../doc/allgemein/options.html#auto-debug-dlls">Options</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024014914 - <strong>IDE</strong>: In sehr seltenen Fällen kann es vorkommen, dass &quot;GoTo
   Definition&quot; im Code Editor bei gedrückter STRG-Taste erst bei einem zweiten
@@ -208,17 +252,17 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>FS4.5.13_AuthService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-1">Updates</h4>
+<h4 id="updates-2">Updates</h4>
 <ul>
 <li>Der HTML Client wurde auf Angular 17.1.1 upgedated</li>
 </ul>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <ul>
 <li>Im Package Manager können an der Package Version die <a href="../doc/package-manager/package-version.html#base-workspaces-freezed-since">Basis-Workspaces fixiert</a> werden.</li>
 <li>Mit Hilfe von <a href="../doc/package-manager/hotfix-branch.html">Hotfix-Branches</a> ist es möglich, parallel zum laufenden Service-Release Änderungen vorzunehmen und diese kurzfristig auszuliefern.</li>
 <li>Maintenance-Routine &quot;<a href="../doc/maintenance/double-form-doc-cleanup.html">Double Form Doc Cleanup</a>&quot; zur Bereinigung doppelter Form-Dokumentationen.</li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024014859 - <strong>AuthService</strong>: Wird ein Benutzer mit &quot;Angemeldet bleiben&quot;
   erneut angemeldet, dann wird im Auth-Service die Login-Info des Benutzers
@@ -254,12 +298,12 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>Im Package-Manager können Dokumentationen im HTML-Format exportiert werden</li>
 <li>Dokumentationen werden mit automatisch generierten Ordnernamen in das gewählte Output-Verzeichnis exportiert</li>
 </ul>
-<h4 id="updates-2">Updates</h4>
+<h4 id="updates-3">Updates</h4>
 <ul>
 <li>Die Bibliothek Oracle.ManagedDataAccess wurde von Version 21.8.0 auf die neuste Version 21.12.0 aktualisiert.</li>
 <li>DevExpress wurde auf Version 23.1.6 upgedated. Aus diesem Grund gibt es auch einen neuen <a href="aktuelle-pakete.html">Print-Service</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023114564 - <strong>IDE</strong>: Kopieren und das anschließende Einfügen eines
   Basis-Properties, wenn der Parent (Form, Component) gecustomized ist,
@@ -287,7 +331,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>FS_4.6.0_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <p>In der Version 4.6 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-5.html#4511-01122023">Framework Studio 4.5.11</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

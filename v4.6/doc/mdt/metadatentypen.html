@@ -394,9 +394,17 @@ Gibt das Anzeige-Format des Felds an. Das Format wirkt sich in der Darstellung d
 </li>
 <li><p><strong>Format Pattern</strong>:
 Wird im Feld Format <strong>User Defined</strong> gewählt, ist es möglich hier selbst ein Format anzugeben. Es können Formate für Zahlen, Daten und Zeichenketten entsprechend der Standard-Definition für reguläre Ausdrücke eingegeben werden.</p>
-<p>  Siehe auch <a href="format-pattern.html">Format-Pattern</a></p>
 </li>
 </ul>
+<p>Siehe auch <a href="format-pattern.html">Format-Pattern</a></p>
+<h3 id="besonerheiten-oraclesql-bei-boolean-db-datentyp">Besonerheiten Oracle/SQL bei Boolean DB-Datentyp</h3>
+<p>Der Database-Datentyp Boolean wird in SQL und Oracle mit dem Typ Char(1) abgebildet.
+Wird ein Boolean-MDT beispielsweise in einem COALESCE-Statement verwendet, muss auf den Unterschied zwischen SQL und Oracle geachtet werden.
+SQL akzeptiert sowohl <code>COALESCE([propName],&#39;0&#39;) = &#39;0&#39;</code> als auch <code>COALESCE([propName],0) = &#39;0&#39;</code>.
+Oracle hingegen akzeptiert nur <code>COALESCE([propName],&#39;0&#39;) = &#39;0&#39;</code>, also die String-Schreibweise mit Hochkomma.</p>
+<div class="NOTE"><h5>Note</h5><p>Um SQL und Oracle zu unterstützen muss daher folgende Schreibweise verwendet werden: <code>COALESCE([propName],&#39;0&#39;) = &#39;0&#39;</code>.
+Bei der Verwendung des Metadatatyps <strong>CheckboxBoolean</strong>, welcher Boolean als Database-Datentyp hat, sollte darauf geachtet werden!</p>
+</div>
 <h2 id="registerkarte-description">Registerkarte Description</h2>
 <p>Hier kann eine Beschreibung des Metadatentyps eingegeben werden.</p>
 <h2 id="registerkarte-values">Registerkarte Values</h2>

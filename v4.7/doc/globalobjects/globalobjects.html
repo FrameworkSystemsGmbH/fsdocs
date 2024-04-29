@@ -1,0 +1,155 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Global Objects </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Global Objects ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="global-objects">Global Objects</h1>
+
+<p>In <strong>Framework Studio</strong> – bzw. in der Anwendung – gibt es ein globales Objekt, welches überall verfügbar ist. Es kann jederzeit mit <strong>this.Global</strong> angesprochen werden.</p>
+<p>Damit das Global Object überall zur Verfügung steht, muss es beim Erzeugen eines neuen Framework-Studio Objektes mit dem Constructor übergeben werden.</p>
+<p>Variante mit dem new-Operator</p>
+<pre><code class="lang-csharp">cdComponent oObject = new cdComponent( this.Global);
+</code></pre><p>Nutzen der Interfaces und Factory-Klassen</p>
+<pre><code class="lang-csharp">IcdComponent oObject2 = cdComponentFactory.Create( this.Global );
+</code></pre><p>Im automatisch generierten Code werden alle Objekte (Components, Forms, Workflows) in gleicher Weise erstellt. Somit ist dieses Global jederzeit und überall verfügbar.</p>
+<p>Das <strong>Global Object</strong> eignet sich hervorragend, um z.B. System- oder Benutzerdaten in der gesamten Anwendung zur Verfügung zu stellen.</p>
+<p>Welche Daten/Variablen dieses Objekt anbietet, wird im Namespace FSGeneral.GlobalObjects. definiert.</p>
+<p>Alle Elemente dort werden beim Start der Applikation instanziiert.</p>
+<p><strong>Global Object Designer:</strong></p>
+<p><img src="media/global-object-designer.png" alt="Global Object Designer"></p>
+<h4 id="button-new">Button <strong>New</strong></h4>
+<p><img src="../media/button-new.png" alt="new"></p>
+<p>Es wird eine neue Variable angelegt. Sie können gleich den Namen der Variablen eingeben.</p>
+<h4 id="button-delete">Button <strong>Delete</strong></h4>
+<p><img src="../media/button-delete.png" alt="delete"></p>
+<p>Löscht die markierte Variable.</p>
+<h4 id="name">Name</h4>
+<p>Name der Variablen bzw. des Objekts.</p>
+<h4 id="datatype">Datatype</h4>
+<p>Gibt den Datentyp der Variablen an. Über die Combobox kann der Datentyp geändert werden. Es öffnet sich der Namespace-Baum, über den das gewünschte Struct, Metadatatype oder Component ausgewählt werden kann.</p>
+<h4 id="autocreate">Autocreate</h4>
+<p>Ist diese Checkbox aktiviert, wird die Variable automatisch beim Start der Anwendung initialisiert. Wenn nicht, wird die Variable einfach nur angelegt, ohne ihr einen Wert zuzuweisen. Dies können Sie dann im Code-Fenster festlegen.</p>
+<h4 id="redirect-to-ocglobal">Redirect to ocGlobal</h4>
+<p>Wenn diese Checkbox aktiviert ist, dann werden alle Zugriffe auf dieses GlobalObject in das gleichnamige Property in der Component FSGeneral.cGlobal umgeleitet. Dies betrifft Lese- und ggf. auch Schreibvorgänge. Wenn es sich bei dem cGlobal-Property um ein Readonly Property handelt, dann erkennt dies Framework Studio und wird das GlobalObject selber auch entsprechend readonly erzeugen.</p>
+<p>Das cGlobal-Property kann wie gewohnt als Individual Property mit Membervariable gestaltet werden, welches die Daten erst beim ersten Zugriff aufbereitet. So ist es möglich, ein GlobalObject erst beim ersten Zugriff zu initialisieren und so den Start der Anwendung zu beschleunigen.</p>
+<h4 id="init-code">Init Code</h4>
+<p>Im Code-Fenster können Sie angeben, was mit der Variable beim Start der Anwendung geschehen soll. Sie können den Variablen beispielsweise Werte zuweisen oder wenn Sie eine Component mit einer Query eingebunden haben, an dieser einen Load ausführen, damit die entsprechenden Daten aus der Datenbank gelesen werden.</p>
+<h2 id="methoden-am-globalobject">Methoden am GlobalObject</h2>
+<p>Das Globale Objekt stellt neben den selbst definierten Properties auch System-seitig Methoden und Properties bereit.</p>
+<p>Siehe <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.html#methods">Methoden am GlobalObject</a></p>
+<h2 id="properties-am-globalobject">Properties am GlobalObject</h2>
+<p>Siehe <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.html#properties">Methoden am GlobalObject</a></p>
+<h2 id="ocglobal">ocGlobal</h2>
+<pre><code class="lang-csharp">public IcGlobal ocGlobal
+</code></pre><p>Gibt ein Objekt vom Typ IcGlobal zurück. Dieses Objekt ist eine Instanz der Component <strong>cGlobal</strong>, die im Namespace <strong>FSGeneral</strong> im <strong>SystemPackage</strong> definiert ist.</p>
+<p>Für weitere Informationen siehe <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.ocGlobal.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ocGlobal">cGlobal</a>.</p>
+<h2 id="safeinitializing">SafeInitializing</h2>
+<p>Siehe <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.SafeInitializing.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_SafeInitializing">SafeInitializing</a></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

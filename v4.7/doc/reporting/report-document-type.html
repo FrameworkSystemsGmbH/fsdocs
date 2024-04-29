@@ -1,0 +1,277 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Report Document Type </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Report Document Type ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="report-document-type">Report Document Type</h1>
+
+<p><strong>Report Document Types</strong> stellen die Verbindung zwischen den Components und den Reports dar.
+Sie definieren, was für Daten in welchem Report ausgegeben werden. Ein Report Document Type enthält eine Angabe, welche Components ausgedruckt werden sollen und welche Reports dafür zur Verfügung stehen.
+Diese <strong>Report Document Types</strong> können später in Forms verwendet werden.</p>
+<p><strong>Report Document Types</strong> sind an dem <img src="media/report-icon.png" alt="rpt-icon">– Icon zu erkennen.</p>
+<h2 id="erstellen-bearbeiten-und-löschen-von-report-document-types">Erstellen, bearbeiten und löschen von Report Document Types</h2>
+<p>Sie erstellen einen neuen Report Document Type, indem Sie in der Registerkarte <strong>Namespaces</strong> den Namespace auswählen, in welchem der Report Document Type abgelegt werden soll.</p>
+<p>Mit dem Button <img src="../media/button-new.png" alt="new-button">(<strong>New</strong>) und dem Eintrag <strong>ReportDocumentType</strong> aus dem Menü wird im markierten Namespace ein neuer Report Document Type angelegt.
+Dieser wird auch gleichzeitig geöffnet.
+Direkt nach dem Anlegen des Report Document Types steht der Cursor in dem sich öffnenden Designer auf dem Feld <strong>Name</strong>, wo Sie den Namen eingeben können.</p>
+<p>Es wird empfohlen den Namen mit <strong>rpt</strong> zu beginnen.</p>
+<p>Löschen können Sie einen Report Document Type mit dem Button <img src="../media/button-delete.png" alt="delete-button"> (<strong>Delete</strong>).
+Sie müssen dazu den gewünschten Report Document Type im Namespace-Baum markiert haben.
+Es gibt auch im Kontext-Menü den Eintrag <strong>Delete</strong>.
+Der Löschvorgang wird erst im Repository wirksam, wenn Sie den Button <img src="../media/button-save-all.png" alt="saveall-button"> (<strong>Save All</strong>) drücken.</p>
+<h2 id="registerkarte-datasource">Registerkarte DataSource</h2>
+<p>Unter Datasource werden die Components angegeben, die in einem Report ausgegeben werden sollen.
+Es können mehrere Components (Collections) aus unterschiedlichen Namespaces eingebunden werden.</p>
+<p>Jede Component wiederum kann für mehrere Reports als Datasource angegeben werden.</p>
+<p><img src="media/report-document-type-data-source.png" alt="Report Document Type – Registerkarte DataSource"></p>
+<p>Mit dem Button <strong>Add</strong> wird ein neuer Eintrag in der Liste erstellt.
+In der Combobox <strong>Datatype</strong> können Sie angeben, welche Component / Collection verwendet werden soll.
+Im Feld <strong>Name</strong> können Sie dem Eintrag einen Namen geben.
+Dieser wird anhand des ausgewählten Datentyps mit einem Standardnamen vorbelegt.</p>
+<p>Diese Einträge sind sozusagen die Properties des Reports.
+Diese Properties müssen später beim Druck mit Werten gefüllt werden.</p>
+<p>Wenn Sie Components oder Collections eingebunden haben, können Sie diese aufklappen und die Properties der Component / Collection werden angeboten.
+Sind diese Properties ebenfalls Components, können diese erneut aufgeklappt werden, etc.</p>
+<h4 id="xsd-datei">XSD-Datei</h4>
+<div class="WARNING"><h5>Warning</h5><p>Dieses Kapitel ist nur für Crystal Reports relevant. DevExpress® XtraReports™ bindet direkt an die Objekte der Datenquelle, weshalb keine Umwege über die XSD gefahren werden.</p>
+</div>
+<p>Am nun aufgeklappten Baum kann angegeben werden, welche Properties und Komponenten in die XSD-Datei aufgenommen werden sollen.
+Dazu müssen Sie die Checkbox an dem entsprechenden Eintrag setzen.</p>
+<div class="NOTE"><h5>Note</h5><p>Ein DevExpress® Report hat <strong>immer</strong> Zugriff auf <strong>alle</strong> Komponenten am Report Document Type und dessen Properties, ob die Checkbox im Einzelfall aktiviert ist oder nicht. Hierzu wird in jede verwendete Component ein &#39;<em>KomponentenName</em>_Rptx&#39;-Interface generiert.</p>
+</div>
+<p>Aus diesen Daten wird eine XSD-Datei (XML-Definition) erstellt.
+Diese XSD-Datei kann einem Crystal-Report zugewiesen werden.
+So versteht der Report die Daten, die ihm übergeben werden.
+Mit jedem Klick im Baum wird die XSD-Datei neu erzeugt.
+Sie wird im Report-Pfad der aktuellen Applikation abgelegt.
+Der Name setzt sich folgendermaßen zusammen: Namespaces.rptXXX.xsd.</p>
+<p>Zum Einstellen des Pfades siehe Kapitel <strong>Code-Builder / Applications</strong> (<a href="../ide/application.html">Application</a>).</p>
+<p>Beim Druck werden die kompletten Components / Collections an den Report Document Type übergeben.
+Es werden aber nur die ausgewählten Daten in die XSD weitergegeben.
+Umso größer die Listen, desto wichtiger für die Performance ist es, dass nur die Daten übergeben werden, die wirklich benötigt werden.</p>
+<p>Crystal Reports nutzt die übergebene XSD-Datei eigenständig, um den Report mit Daten zu füllen.</p>
+<h2 id="registerkarte-report-files">Registerkarte Report Files</h2>
+<p>Auf der Registerkarte Report Files können dem Report Document Type die eigentlichen Reports zugewiesen werden.
+Jeder Report kann entweder als CrystalReport, als DevExpress® oder auf beide Arten angelegt werden.
+Da also ein Parallelbetrieb von Crystal und DevExpress® Reports möglich ist, existieren zwei Sets von Buttons, um mit den Dateien umzugehen.</p>
+<p><img src="media/report-document-type-crystal-reports.png" alt="Report Document Type – Crystal Reports"></p>
+<h3 id="hinzufügen-und-öffnen-eines-neuen-reports">Hinzufügen und Öffnen eines neuen Reports</h3>
+<p>Einen neuen Report fügen Sie beispielsweise über das Kontextmenü der Tabelle hinzu, in der die Reports angezeigt werden.</p>
+<p><img src="media/reportdocumenttype-overview.png" alt="Overview"></p>
+<p>Um z.B. die DevExpress®-Version der Rechnung zu bearbeiten, markieren Sie den Eintrag 
+‚Invoice‘ und betätigen den Button <code>Edit Report</code> in der Kategorie DevExpress®.</p>
+<p>Für weitere Erklärungen bezüglich der Bearbeitung von DevExpress® Reports siehe <a href="report-designer.html">FS Report Designer</a></p>
+<h3 id="include-base-reports">Include Base Reports</h3>
+<p>Mit der Checkbox <strong>Include Base Reports</strong> legen Sie fest, ob vererbte, nicht geänderte Basisreports später in der Applikation zur Auswahl stehen sollen.
+Sie hat Einfluss darauf, was die Methode ReportDocument.<a class="xref" href="../../api/FS.Hosting.Core.Reporting.ReportDocument.GetReportEnums.html#FS_Hosting_Core_Reporting_ReportDocument_GetReportEnums">GetReportEnums()</a> zurückgibt.</p>
+<h3 id="allgemeine-einstellungen">Allgemeine Einstellungen</h3>
+<p>Die folgenden Einstellungen beziehen sich auf den in der Tabelle ausgewählten Report:</p>
+<p>Im Feld <strong>Name</strong> kann dem Report ein Name gegeben werden.ReportEnum</p>
+<div class="WARNING"><h5>Warning</h5><p>Dieser Name darf keine Leer- und Sonderzeichen enthalten, weil dieser später im Code zum Einsatz kommt.</p>
+</div>
+<p>Mit dem Button <strong>Edit Report</strong> wird der Report über ein externes Tool bearbeitet.</p>
+<div class="WARNING"><h5>Warning</h5><p>Zum Erstellen und Editieren von Crystal Reports benötigen Sie einen Crystal Reports Designer oder Visual Studio.</p>
+</div>
+<p>Der Button <strong>Choose File</strong> öffnet einen Dateiauswahl-Dialog, in dem Sie eine bestehende Report-Datei zuweisen können.</p>
+<p>Mit dem Button <strong>New Report</strong> wird ein neuer, leerer Report erstellt und zugewiesen.</p>
+<p>Mit dem Button <strong>Reset File</strong> wird eine einzelne Report-Datei aus einem Report gelöscht. Der Eintrag im Report Document Type und die etwaige andere Report-Datei im selben Eintrag bleiben hierbei unverändert bestehen.</p>
+<h4 id="caption">Caption</h4>
+<p>Im Report Document Type können Sie für Crystal Reports lokalisierte Bezeichnungen (Captions) hinterlegen, also die Bezeichnung mehrsprachig pflegen.
+Diese Captions können zur Laufzeit ausgewertet werden, um z.B. im Druck-Dialog bei der Auswahl der unterschiedlichen Report-Varianten einen sprechenden Text auszugeben.</p>
+<h2 id="report-verzeichnis">Report-Verzeichnis</h2>
+<p>Auf dem Dateisystem werden die Crystal Report-Dateien mit ihren .xsd-Dateien zusammen vom Compile-Verzeichnis ausgehend im Ordner /Report/ gespeichert.
+DevExpress® Reports erhalten einen weiteren Unterordner, nach dem übergeordneten Report Document Type benannt. Der Report CustomerList aus rptCustomerList wäre also unter /Report/NV.ERP.Base.Customer.rptCustomerList/CustomerList.repx zu finden.
+Da DevExpress® Reports keine .xsd-Dateien benötigen, befinden sich in den Unterordnern ausschließlich die .repx-Dateien.</p>
+<p>Bei jedem Compile-Vorgang werden Crystal und DevExpress® Report-Dateien aus dem Repository in das Dateisystem herausgeschrieben, nach folgenden Regeln:</p>
+<h4 id="crystal">Crystal</h4>
+<p>Alle Crystal Reports aller Report Document Types werden in den /Report/-Ordner geschrieben, inklusive Basis-Reports.</p>
+<h4 id="devexpress">DevExpress®</h4>
+<p>Alle DevExpress® Reports eines Report Document Types im aktuellen Package werden in den entsprechenden Unterordner unter /Report/ herausgeschrieben.</p>
+<p>Basis-Reports werden nur aus der Basis gesucht und ins Verzeichnis geschrieben, solange am Report Document Type die Checkbox &quot;Include Base Reports&quot; gesetzt ist.</p>
+<h2 id="crystal-report-mit-visual-studio-erstellen">Crystal Report mit Visual Studio erstellen</h2>
+<p>Öffnen Sie Visual Studio.</p>
+<p>Legen Sie jetzt ein neues Projekt an (Visual C# Project / leeres Projekt oder empty Project) oder öffnen Sie ein bereits vorhandenes Projekt.</p>
+<p>Es empfiehlt sich, ein Projekt zur Erstellung und Pflege von Reports anzulegen und dieses immer wieder zu verwenden.</p>
+<p><img src="media/report-document-type-rpt-vs-additem.png" alt="Menu Project / Add New Item"></p>
+<p><strong>Crystal Report</strong> auswählen und <strong>Open</strong> drücken.</p>
+<p>Es öffnet sich ein Wizard zum Erstellen eines <strong>Crystal Reports</strong>.</p>
+<p><strong>Crystal Report Gallery:</strong></p>
+<p><img src="media/report-document-type-crystal-reports-gallery.png" alt="Crystal Report Gallery"></p>
+<p>Auf <strong>OK</strong> drücken.</p>
+<p><strong>Standard Report Expert Registerkarte Data:</strong></p>
+<p><img src="media/report-document-type-standard-report-expert.png" alt="Standard Report Expert Registerkarte Data"></p>
+<p>In diesem Fenster wählen Sie den Eintrag <strong>Database Files</strong> aus. Es öffnet sich ein Datei-Auswahl-Dialog. Hier wählen Sie die von <strong>Framework Studio</strong> generierte XSD-Datei aus. Diese Datei befindet sich in dem Report Directory, der in Applications angegeben wurde.</p>
+<p>Unter <strong>Database Files</strong> wird die XSD-Datei und darunter die darin enthaltenen Tabellen angezeigt. Jede im Report Document Type eingebundene Component wird als eine Tabelle angeboten und bekommt den Namen, den Sie angegeben haben. Ist in einer Component eine andere Component enthalten und wurde diese ebenfalls ausgewählt, wird diese als eigenständige Tabelle angeboten.</p>
+<p>Sie können nun die gewünschten Tabellen mit einem Doppelklick auswählen. Sie werden dann in die rechte Listbox eingetragen.</p>
+<p>Mit <strong>Next</strong> öffnet sich die Registerkarte, in dem Sie die Felder auswählen können, die der Report anzeigen soll.</p>
+<p><img src="media/report-document-type-standard-report-expert-fields.png" alt="Standard Report Expert Registerkarte Fields"></p>
+<p>Wählen Sie die gewünschten Felder mit Doppelklick oder <strong>Add</strong> aus. Mit den Pfeilen über der Liste, mit den ausgewählten Feldern, können Sie noch die Reihenfolge der Felder ändern.</p>
+<p>Mit <strong>Next</strong> öffnen sich weitere Fenster, in denen Sie Gruppierungen, Summen, Layouts und weitere Einstellungen vornehmen können.</p>
+<p>Mit <strong>Finish</strong> wird der Report erzeugt.</p>
+<h2 id="crystal-report-mit-visual-studio-aktualisieren">Crystal Report mit Visual Studio aktualisieren</h2>
+<p>Wenn Sie in DataSource Components oder Properties hinzufügen oder entfernen, ändert sich die Schnittstelle zum Report und somit auch die XSD-Datei. Dann ist es notwendig, dass diese Änderung dem Report mitgeteilt wird.</p>
+<p>Dazu öffnen Sie wieder Visual Studio, legen ein leeres Projekt an oder öffnen Ihr Crystal-Reports-Projekt. Am besten fügen Sie zum Projekt den Report aus dem Report-Verzeichnis von Framework Studio hinzu. (Menu Project / Add Existing Item)</p>
+<div class="WARNING"><h5>Warning</h5><p>Achtung: als Dateityp geben Sie Crystal Reports an.</p>
+</div>
+<p>Rufen Sie im Field-Explorer bei Database Fields Verify Database auf.</p>
+<p><strong>Project2 – Microsoft Visual C#.NET [design] – Customer1.rpt</strong>
+<img src="media/report-document-type-rptcusto-vs-design.png" alt="rpt-design"></p>
+<p>Wenn die XSD-Dateien nicht gefunden werden, fragt <strong>Visual Studio</strong> nach, wo diese zu finden sind.</p>
+<p>Es werden jetzt die neuen Felder hinzugefügt und die entfernten Felder gelöscht. Das Löschen kann ggf. zu Fehlermeldungen führen.</p>
+<p>Wenn Sie neue Components eingebunden haben, können diese mit dem Befehl <strong>Add/Remove Database</strong> manuell hinzugefügt werden.</p>
+<h2 id="für-den-druck-relevante-klassen">Für den Druck relevante Klassen</h2>
+<ul>
+<li><a class="xref" href="../../api/FS.Hosting.Core.Reporting.ReportDocument.html">ReportDocument</a></li>
+<li><a class="xref" href="../../api/FS.Hosting.Core.Reporting.ReportEnum.html">ReportEnum</a></li>
+<li><a class="xref" href="../../api/FS.Hosting.Shared.Reporting.PrintServer.html">PrintServer</a></li>
+<li><a class="xref" href="../../api/FS.Hosting.Shared.Reporting.PrintQueue.html">PrintQueue</a></li>
+</ul>
+<h2 id="browserbasierter-report-designer-zur-laufzeit">Browserbasierter Report-Designer zur Laufzeit</h2>
+<p>Zur Laufzeit steht ein Report Designer dem Benutzer zur Verfügung. Dieser muss vorher in das System integriert und aufgerufen werden.
+Im folgenden Beispiel wird ein Report Designer geöffnet, auf eine Bestätigung des Benutzers gewartet und anschließend der geänderte Report ausgedruckt.</p>
+<div class="WARNING"><h5>Warning</h5><p>Diese Funktionalität steht noch nicht vollständig zur Verfügung.</p>
+</div>
+<pre><code class="lang-C#">// Eigenschaft, um sich die Design Session zu merken
+private FS.Hosting.Core.Reporting.ReportDesignSession oDesignSession { get; set; }
+
+// Einstiegspunkt; hier bspw. über einen Button Click
+protected virtual void btnGrdReportDesigner_OnClick(FrameworkButtonClickEventArgs e)
+{
+    rptArticles report = new rptArticles(this.Global, rptArticles.Reports.XArticleReport, ExportFormat.PDF);
+    this.oDesignSession = report.CreateDesigner();
+    this.oDesignSession.ShowDesigner();  // Öffnet den Report Designer in einem Browser-Fenster
+
+    throw MsgBox.Exception(FSGeneral.ctMessagesFactory.GetText(this.Global, 10), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, new MsgBoxEventHandler(OnMsgBoxReportDesignSessionClick));
+}
+
+// Ein Klick auf den MessageBox-Button signalisiert, dass die Bearbeitung abgeschlossen ist
+protected virtual void OnMsgBoxReportDesignSessionClick(object sender, MsgBoxEventArgs e)
+{
+    byte[] reportDesign = null;
+    if (this.oDesignSession != null &amp;&amp; this.oDesignSession.IsModified())
+    {
+        // Veränderten Report aus der Session herunterladen
+        reportDesign = this.oDesignSession.GetBytes();
+    }
+    this.oDesignSession.Dispose();  // Verwerfen der Design Session nicht vergessen
+    this.oDesignSession = null;
+    if (reportDesign == null)
+    {
+        throw new Exception(&quot;Kein neuer Report vorhanden.&quot;); 
+    }
+
+    // Drucken des geänderten Reports
+    rptArticles report = new rptArticles(this.Global, rptArticles.Reports.XArticleReport, ExportFormat.PDF);
+    report.SelectedReport.ReportBytes = reportDesign;
+    report.oArticle = oArticleColl;  // Beim Drucken wird die Datenquelle benötigt
+    report.Print();
+}
+</code></pre><p>Weitere Information zum Web-Designer finden Sie unter <a class="xref" href="../../api/FS.Hosting.Core.Reporting.ReportDesignSession.html">ReportDesignSession</a>.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

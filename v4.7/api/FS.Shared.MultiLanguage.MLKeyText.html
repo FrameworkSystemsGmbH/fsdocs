@@ -85,7 +85,11 @@
   
   <h1 id="FS_Shared_MultiLanguage_MLKeyText" data-uid="FS.Shared.MultiLanguage.MLKeyText" class="text-break">Class MLKeyText
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Diese Klasse verpackt einen MLKey und den lokalisierten Text. So ist es möglich
+mit dem Text auch den MLKey zu transportieren.
+In der <a class="xref" href="FS.Shared.FrameworkApplicationException.html">FrameworkApplicationException</a> kann so der MLKey als
+&quot;Fehlercode&quot; verwendet werden.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -99,6 +103,13 @@
     <pre><code class="lang-csharp hljs">[DocfxBrowsable]
 public class MLKeyText : Object</code></pre>
   </div>
+  <h5 id="FS_Shared_MultiLanguage_MLKeyText_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Das GlobalObject bietet Methoden, um Texte in Form dieser Klasse zu erhalten:</p>
+<ul>
+<li><span class="xref">FS.Hosting.Shared.GlobalObj.IGlobalObjects.GetMLKeyText(FS.Shared.MultiLanguage.MLKey)</span></li>
+<li><span class="xref">FS.Hosting.Shared.GlobalObj.IGlobalObjects.FormatMLKeyText(FS.Shared.MultiLanguage.MLKey,System.Object[])</span></li>
+</ul>
+</div>
   <h3 id="constructors">Constructors
   </h3>
   

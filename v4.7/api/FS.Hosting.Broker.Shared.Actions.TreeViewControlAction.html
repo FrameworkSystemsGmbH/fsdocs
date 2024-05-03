@@ -198,15 +198,26 @@ public class TreeViewControlAction : EditableControlAction, ISerializable, ITree
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.TreeViewControlAction.ExpandTreeView.html#FS_Hosting_Broker_Shared_Actions_TreeViewControlAction_ExpandTreeView">ExpandTreeView()</a></h4>
-    <section><p></section>
+    <section><p><p>Expandiert den TreeView vollständig.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.TreeViewControlAction.ExpandTreeView.html#FS_Hosting_Broker_Shared_Actions_TreeViewControlAction_ExpandTreeView_FS_Hosting_Shared_IDevFrameworkObject___">ExpandTreeView(IDevFrameworkObject[])</a></h4>
-    <section><p></section>
+    <section><p><p>Expandiert den Pfad im TreeView, der durch die Objekte <strong>objectPath</strong> definiert wird. Der Pfad beginnt mit dem Wurzelknoten und endet mit dem Knoten, der angezeigt werden soll. Die Unterknoten des im Pfad zuletzt genannten Knotens werden also nicht angezeigt.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.TreeViewControlAction.ExpandTreeView.html#FS_Hosting_Broker_Shared_Actions_TreeViewControlAction_ExpandTreeView_System_Int32_">ExpandTreeView(Int32)</a></h4>
-    <section><p></section>
+    <section><p><p>Expandiert den TreeView bis zu der Ebene, die mit dem Parameter level festgelegt wird.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.TreeViewControlAction.ExpandTreeView.html#FS_Hosting_Broker_Shared_Actions_TreeViewControlAction_ExpandTreeView_System_String_">ExpandTreeView(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Expandiert den Pfad im TreeView, der durch den Parameter path festgelegt wird.
+Der Pfad beginnt mit dem Wurzelknoten und endet mit dem Knoten, der angezeigt
+werden soll (Unterknoten des zuletzt genannten Knotens werden nicht angezeigt).
+Jeder Knoten wird durch einen Punkt (.) vom nächsten Knoten getrennt.
+Jeder Knoten wird durch <strong>ObjectRowID</strong> Semikolon und Name des TreeNodes angegeben.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.TreeViewControlAction.SelectTreeNode.html#FS_Hosting_Broker_Shared_Actions_TreeViewControlAction_SelectTreeNode_FS_Hosting_Shared_IDevFrameworkObject___">SelectTreeNode(IDevFrameworkObject[])</a></h4>
-    <section><p></section>
+    <section><p><p>Diese Action dient zum Selektieren eines Knotens im TreeView. Sie ist an die ExpandTreeView() Action angelehnt und
+hat somit auch mehrere Aufrufmöglichkeiten. Entweder mit einem String, welcher einen Pfad zu einem Knoten über die
+RowID und Knotennamen beschreibt, oder durch eine Liste mit IDevFrameworkObjects.</p>
+</p></section>
   
 </article>
           </div>

@@ -86,7 +86,7 @@
 <p>Beim Clone wird von einer Component eine Kopie erzeugt. Dabei bleibt die Eigenschaft ObjectRowID erhalten. Aber intern wird eine neue RuntimeID vergeben.</p>
 <pre><code class="lang-csharp">IcdComponent oCompCloned = (IcdComponent)oComp.Clone();
 </code></pre><p>Bei AdoptValues werden die Daten der übergebenen Component übernommen. Die ObjectRowID wird allerdings nicht übernommen, sie behält ihren Wert wie vor dem Aufruf von AdoptValues.</p>
-<pre><code class="lang-csharp">IcdComponent oCompAdopted = cdComponentFactory.Create(this.Global);
+<pre><code class="lang-csharp">IcdComponent oCompAdopted = cdComponentFactory.Create();
 oCompAdopted.AdoptValues(oComp);
 </code></pre><p>BEIDE Routinen arbeiten standardmäßig alle Unter-Properties rekursiv durch (Tiefen-Kopie). Dabei wird intern die Methode <code>Clone()</code> verwendet. Das bedeutet, dass auch bei der Verwendung von <code>AdoptValues()</code> die ObjectRowIDs der UNTER-Objekte erhalten bleiben.</p>
 <h2 id="adoptmode">AdoptMode</h2>
@@ -124,14 +124,14 @@ oCompCloned = oComp.Clone(AdoptMode.Flat)
 </code></pre><p>Das im Parameter comp übergebene Objekt soll verwendet werden. Der Parameter sourceComp gibt das Objekt in der Quell-Struktur an. Anders formuliert: wenn das in sourceComp übergebene Objekt kopiert werden soll, wird stattdessen das in comp übergebene Objekt verwendet.</p>
 <pre><code class="lang-csharp">adoptDict.UseInstance(oCompNew.oUnterObjekt, oComp.oUnterObjekt);
 </code></pre><p>Ein Beispiel: Beim Adopten soll die Instanz eines Unter-Objektes direkt übernommen werden.</p>
-<pre><code class="lang-csharp">IcdComponent oCompAdopted = cdComponentFactory.Create(this.Global);
+<pre><code class="lang-csharp">IcdComponent oCompAdopted = cdComponentFactory.Create();
 AdoptDictionary adoptDict = new AdoptDictionary();
 adoptDict.AdoptInstance(oComp.oUnterObjekt);
 // identisch mit:
 // adoptDict[oComp.oUnterObjekt.RuntimeID] = oComp.oUnterObjekt;
 oCompAdopted.AdoptValues(oComp, adoptDict);
 </code></pre><p>In einem weiteren Beispiel soll das Unter-Objekt am Ziel erhalten bleiben:</p>
-<pre><code class="lang-csharp">IcdComponent oCompAdopted = cdComponentFactory.Create(this.Global);
+<pre><code class="lang-csharp">IcdComponent oCompAdopted = cdComponentFactory.Create();
 AdoptDictionary adoptDict = new AdoptDictionary();
 adoptDict.UseInstance(oCompAdopted.oUnterObjekt, oComp.oUnterObjekt);
 // identisch mit:

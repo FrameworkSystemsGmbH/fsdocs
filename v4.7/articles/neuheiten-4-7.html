@@ -85,19 +85,24 @@
 <div class="IMPORTANT"><h5>Important</h5><p>Dieses Dokument zeigt die Neuerungen beim Update von Version 4.6 auf 4.7.
 Beim Update von einer älteren Version beachten Sie bitte auch die Hinweise und Neuerungen der älteren Version (<a href="neuheiten-4-6.html">Neuheiten 4.6</a>).</p>
 </div>
-<h2 id="geänderte-namespaces">Geänderte Namespaces</h2>
-<p>Die Basis-Assemblies von Framework Studio wurden neu strukturiert.
-Dadurch ergeben sich einige Änderungen bei den Namespaces.
-Über die <a href="../doc/maintenance/namespace-cleanup.html">Namespace CleanUp Maintenance-Routine</a> müssen die Namespace-Referenzen und der eigene Code überarbeitet werden.</p>
+<h2 id="neuorganisation-der-framework-studio-namespaces">Neuorganisation der Framework Studio Namespaces</h2>
+<p>Innerhalb FrameworkStudio haben wir Klassen und auch Namespaces neu organisiert. Dies ist eine notwendige Vorarbeit für zukünftige .Net Core Arbieten.</p>
+<p>Für die Korrektur der Namespaces im ClientCode und in den Referenzen, gibt es eine <a href="../doc/maintenance/namespace-cleanup.html">Namespace CleanUp Maintenance-Routine</a>.
+Diese ist unter dem Menüpunkt <strong>Update</strong> / <strong>FS 4.7</strong> / <strong>(1) Namespace CleanUp</strong> zu finden.</p>
 <h2 id="maintenance-routine-für-obsolete-msgboxshow-aufrufe">Maintenance Routine für obsolete <code>MsgBox.Show()</code> Aufrufe</h2>
 <p>Alle <code>MsgBox.Show(...)</code> Methoden wurden auf <code>[Obsolete]</code> gesetzt.
 Die Aufrufe können über die <a href="../doc/maintenance/msgboxshow-cleanup.html">Maintenance-Routine</a> durch den Code <code>throw MsgBox.Exception(...)</code> ersetzt werden.
 Die Funktionalität bleibt identisch.</p>
+<p>Die Maintenance Routine ist unter dem Menüpunkt <strong>Update</strong> / <strong>FS 4.7</strong> / <strong>(2) MsgBox.Show() Cleanup</strong> zu finden.</p>
+<h2 id="thisglobal-aus-konstruktoren-entfernt">this.Global aus Konstruktoren entfernt</h2>
+<p>Zur Bereinigung der Global-Aufrufe <a href="../doc/maintenance/remove-global-cleanup.html">Remove Global Cleanup</a></p>
+<p>Die Maintenance Routine ist unter dem Menüpunkt <strong>Update</strong> / <strong>FS 4.7</strong> / <strong>(3) Remove Global Cleanup</strong> zu finden.</p>
 <h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
 <ul>
 <li>Eigener Compile step <strong>UnitTest</strong> für <a href="/doc/code-file/codefile.md">Codefiles</a> ermöglicht es, <a href="/doc/weitere-themen/unit-tests.md">UnitTests</a> in eigene DLLs zu schreiben.</li>
 <li>Usability Verbesserung beim Anlegen neuer <a href="../doc/ide/references.html">References</a>: Beim Öffnen der References über einen geöffneten Record (Menü <code>Compile-References...</code>) wird der <a href="../doc/ide/references.html#combobox-object-type">ObjectType der Reference</a> automatisch auf den Typen des Records gesetzt. Das gleiche Verhalten zeigt sich auch im Namespace-TreeView über das ContextMenü des Records bzw. dem References-Button, wenn ein Record vorselektiert ist.</li>
 <li>Bei der <a href="../doc/ide/registerkarten.html#registerkarte-search">Search</a> kann in mehrere Object Types gleichzeitig gesucht werden.</li>
+<li>Maintenance-Routine <a href="../doc/maintenance/code-replace-cleanup.html">Code Replace Cleanup</a> zum globalen Ersetzen von Code.</li>
 </ul>
 </article>
           </div>

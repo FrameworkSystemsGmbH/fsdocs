@@ -85,7 +85,9 @@
   
   <h1 id="FS_Hosting_Shared_MultiLanguage_DevMLString" data-uid="FS.Hosting.Shared.MultiLanguage.DevMLString" class="text-break">Class DevMLString
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Diese Klasse beschreibt einen mehrsprachigen String. Darüber können die in den
+Designern und im Wörterbuch gesetzten Texte zur Laufzeit ermittelt werden.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -104,21 +106,32 @@ public class DevMLString : Object, IDevMLStringCodeGeneration</code></pre>
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.MultiLanguage.DevMLString.HasKey.html#FS_Hosting_Shared_MultiLanguage_DevMLString_HasKey">HasKey</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt zurück, ob dem DevMLString ein MLKey zugeordnet ist.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.MultiLanguage.DevMLString.Item.html#FS_Hosting_Shared_MultiLanguage_DevMLString_Item_FS_Hosting_Shared_GlobalObj_IGlobalObjects_">Item[IGlobalObjects]</a></h4>
-    <section><p></section>
+    <section><p><p>Ermittelt den Text mit der Sprach-Hierarchie des übergebenen GlobalObjects (siehe <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.LanguageHierarchy.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_LanguageHierarchy">LanguageHierarchy</a>).
+Diese beinhaltet immer einen Fallback auf die Default-Sprache.</p>
+</p></section>
   
   <h3 id="methods">Methods
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.MultiLanguage.DevMLString.GetKey.html#FS_Hosting_Shared_MultiLanguage_DevMLString_GetKey">GetKey()</a></h4>
-    <section><p></section>
+    <section><p><p>Liefert den zugeordneten MLKey. Ist kein MLKey zgeordnet, dann wird <code>null</code> zurückgegeben.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.MultiLanguage.DevMLString.GetString.html#FS_Hosting_Shared_MultiLanguage_DevMLString_GetString_FS_Hosting_Shared_GlobalObj_IGlobalObjects_">GetString(IGlobalObjects)</a></h4>
-    <section><p></section>
+    <section><p><p>Ermittelt den Text mit der Sprach-Hierarchie des übergebenen GlobalObjects (siehe <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.LanguageHierarchy.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_LanguageHierarchy">LanguageHierarchy</a>).
+Diese beinhaltet immer einen Fallback auf die Default-Sprache.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.MultiLanguage.DevMLString.GetString.html#FS_Hosting_Shared_MultiLanguage_DevMLString_GetString_FS_Hosting_Shared_GlobalObj_IGlobalObjects_System_Collections_Generic_IEnumerable_System_String__">GetString(IGlobalObjects, IEnumerable&lt;String&gt;)</a></h4>
-    <section><p></section>
+    <section><p><p>Ermittelt den Text für die übergebene Sprach-Hierarchie. Dabei wird für jede Sprache eine
+Ermittlung wie in <a class="xref" href="FS.Hosting.Shared.MultiLanguage.DevMLString.GetString.html#FS_Hosting_Shared_MultiLanguage_DevMLString_GetString_FS_Hosting_Shared_GlobalObj_IGlobalObjects_System_String_">GetString(IGlobalObjects, String)</a> vorgenommen und der erste
+gefundene Text zurückgegeben. Es erfolgt kein Fallback auf die Default-Sprache.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.MultiLanguage.DevMLString.GetString.html#FS_Hosting_Shared_MultiLanguage_DevMLString_GetString_FS_Hosting_Shared_GlobalObj_IGlobalObjects_System_String_">GetString(IGlobalObjects, String)</a></h4>
-    <section><p></section>
+    <section><p><p>Ermittelt den Text in der übergebenen Sprache. Ist für diese Sprache kein Text vorhaden, wird
+<code>string.Empty</code> zurügkgegeben. Es erfolgt kein Fallback auf die Default-Sprache..</p>
+</p></section>
   
 </article>
           </div>

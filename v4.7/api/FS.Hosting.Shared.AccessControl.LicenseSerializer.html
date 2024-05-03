@@ -85,7 +85,8 @@
   
   <h1 id="FS_Hosting_Shared_AccessControl_LicenseSerializer" data-uid="FS.Hosting.Shared.AccessControl.LicenseSerializer" class="text-break">Class LicenseSerializer
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Die LicenseSerializer Klasse implementiert einen Serialisierter für die License und License2 Klassen.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -99,6 +100,51 @@
     <pre><code class="lang-csharp hljs">[DocfxBrowsable]
 public class LicenseSerializer : Object</code></pre>
   </div>
+  <h5 id="FS_Hosting_Shared_AccessControl_LicenseSerializer_examples"><strong>Examples</strong></h5>
+  <p>// Allgemeine Lizenz Informationen reinschreiben
+License2 license = new License2();
+license.LicenseID = guid.NewGuid();
+license.LicenseName = &quot;Test License&quot;;
+license.LicenseType = LicenseTypes.Customer;
+license.Customer = &quot;NV&quot;;
+license.ValidFrom = DateTime.MinValue;
+license.ValidTo = new DateTime(2022, 12, 31);
+license.UserLimit = 25;
+license.Category = &quot;&quot;;
+license.Addition = &quot;&quot;;</p>
+<p>// Ein oder mehrere Packages hinzufügen
+license.Packages.Add(new LicensePackage
+{
+PackageID = new guid(&quot;fde6193cb96842aaaf0d5e005b1a0c8d&quot;),
+PackageName = &quot;FSDemo&quot;,
+LabelID = new guid(&quot;59c39232d37c4107b99f423a2a56da8e&quot;),
+LabelName = &quot;4.3&quot;,
+VersionFrom = null,
+VersionTo = new Version(4, 3),
+CustomInfos = new Dictionary&lt;string, string&gt;
+{
+{ &quot;Key&quot;, &quot;Value&quot; },
+{ &quot;Base64Data&quot;, &quot;SGFsbG8gV2VsdA==&quot; },
+}
+});</p>
+<p>// Alle exklusiven AccessUnits mit ihren Ids hinzufügen
+foreach (guid exclusiveAccessUnitId in new guid[] { new guid(&quot;c8954266da5e4f0dbd0e2177393ee60c&quot;) })
+{
+license.ExclusiveAccessUnits.Add(exclusiveAccessUnitId);
+}</p>
+<p>// Alle berechtigten AccessUnits hinzufügen
+foreach (guid allowedAccessUnitId in new guid[] { new guid(&quot;AccessUnitRoot&quot;), new guid(&quot;36c417a410da4644bbfa5cc16fd0a4aa&quot;) })
+{
+license.AccessUnits.Set(allowedAccessUnitId, AUPermission.Allowed);
+}</p>
+<p>// PackageName / PrivateKey Repository, die PrivateKeys werden für die Signierung benötigt.
+Dictionary&lt;string, RSAKeyPair&gt; packageNamePrivateKeyRelation = new Dictionary&lt;string, RSAKeyPair&gt;();
+packageNamePrivateKeyRelation.Add(&quot;FSDemo&quot;, new RSAKeyPair());</p>
+<p>// Hier wird in einen string geschrieben, möglich ist aber auch ein XDocument Objekt.
+string xmlText = LicenseSerializer.ToText(license, packageID =&gt; packageNamePrivateKeyRelation[packageID]);</p>
+<p>// Deserialisierung (ohne Verifikation)
+ILicense license = LicenseSerializer.FromText(xmlText);</p>
+
 </article>
           </div>
           

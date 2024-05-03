@@ -85,7 +85,11 @@
   
   <h1 id="FS_Hosting_Core_Reporting_ReportDesignSession" data-uid="FS.Hosting.Core.Reporting.ReportDesignSession" class="text-break">Class ReportDesignSession
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Die ReportDesignSession Klasse erlaubt das Verwalten einer Report Designer Session.
+<p>Die Klasse kann nur über <a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.CreateDesigner.html#FS_Hosting_Core_Reporting_ReportDocument_CreateDesigner_FS_Hosting_Core_Reporting_ReportEnum_">CreateDesigner(ReportEnum)</a> erzeugt werden.</p>
+<p>Über die Funktionen in der Klasse kann der Report Designer geöffnet werden, auf Veränderungen geprüft
+werden oder der geänderte Report zurückgeliefert werden.</p></p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -103,19 +107,24 @@ public class ReportDesignSession : IDisposable</code></pre>
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDesignSession.DesignerUrl.html#FS_Hosting_Core_Reporting_ReportDesignSession_DesignerUrl">DesignerUrl</a></h4>
-    <section><p></section>
+    <section><p><p>Liefert die URL des Designers zurück.</p>
+</p></section>
   
   <h3 id="methods">Methods
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDesignSession.Dispose.html#FS_Hosting_Core_Reporting_ReportDesignSession_Dispose">Dispose()</a></h4>
-    <section><p></section>
+    <section><p><p>Verwirft die gespeicherten Session Informationen.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDesignSession.GetBytes.html#FS_Hosting_Core_Reporting_ReportDesignSession_GetBytes">GetBytes()</a></h4>
-    <section><p></section>
+    <section><p><p>Liefert den serialisierten Report zurück, dieser müssen anschließend selbst in das <a class="xref" href="FS.Hosting.Core.Reporting.ReportEnum.ReportBytes.html#FS_Hosting_Core_Reporting_ReportEnum_ReportBytes">ReportBytes</a> eingefügt werden.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDesignSession.IsModified.html#FS_Hosting_Core_Reporting_ReportDesignSession_IsModified">IsModified()</a></h4>
-    <section><p></section>
+    <section><p><p>Liefert true, wenn der Benutzer den Report im Designer gespeichert hat; andernfalls false.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDesignSession.ShowDesigner.html#FS_Hosting_Core_Reporting_ReportDesignSession_ShowDesigner">ShowDesigner()</a></h4>
-    <section><p></section>
+    <section><p><p>Zeigt den Designer an, indem die <a class="xref" href="FS.Hosting.Core.Reporting.ReportDesignSession.DesignerUrl.html#FS_Hosting_Core_Reporting_ReportDesignSession_DesignerUrl">DesignerUrl</a> in einem Browser geöffnet wird.</p>
+</p></section>
   
 </article>
           </div>

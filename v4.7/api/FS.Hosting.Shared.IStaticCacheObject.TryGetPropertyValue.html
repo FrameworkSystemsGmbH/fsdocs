@@ -90,7 +90,10 @@
 <a id="FS_Hosting_Shared_IStaticCacheObject_TryGetPropertyValue_" data-uid="FS.Hosting.Shared.IStaticCacheObject.TryGetPropertyValue*"></a>
 <h4 id="FS_Hosting_Shared_IStaticCacheObject_TryGetPropertyValue_System_String_System_Object__" data-uid="FS.Hosting.Shared.IStaticCacheObject.TryGetPropertyValue(System.String,System.Object@)">TryGetPropertyValue(String, out Object)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Füllt die out-Variable &quot;value&quot; mit dem Wert des Properties &quot;name&quot; und gibt &quot;true&quot; zurück,
+wenn das Property existiert und einen Datenbankbezug hat.
+Andernfalls ist &quot;value&quot; null und die Methode gibt &quot;false&quot; zurück.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -104,11 +107,13 @@ bool TryGetPropertyValue(string name, out object value)</code></pre>
   <section>
     <div class="propertyInfo">
       <span class="parametername"><code>name</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>Name des angefragten Datenbank-Properties</p>
+</div>
     </div>
     <div class="propertyInfo">
       <span class="parametername"><code>value</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>Ermittelter Wert des Properties</p>
+</div>
     </div>
   </section>
 
@@ -116,7 +121,8 @@ bool TryGetPropertyValue(string name, out object value)</code></pre>
     <section>
       <div class="propertyInfo">
         <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>
-        <div class="markdown level1 summary"></div>
+        <div class="markdown level1 summary"><p>Existiert das Datenbank-Property</p>
+</div>
       </div>
     </section>
 

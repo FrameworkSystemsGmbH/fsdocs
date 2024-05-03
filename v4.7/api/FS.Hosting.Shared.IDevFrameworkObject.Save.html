@@ -90,7 +90,13 @@
 <a id="FS_Hosting_Shared_IDevFrameworkObject_Save_" data-uid="FS.Hosting.Shared.IDevFrameworkObject.Save*"></a>
 <h4 id="FS_Hosting_Shared_IDevFrameworkObject_Save" data-uid="FS.Hosting.Shared.IDevFrameworkObject.Save">Save()</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Speichert diese Component in der Datenbank ab. Das entsprechende SqlStatement
+muss in der SaveAction zusammengebaut und ausgeführt werden.
+Falls keine gestartete Transaktion existiert,
+wird automatisch eine Transaktion aufgebaut. In diesem Fall wird
+anschliessend ein Commit ausgeführt.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -106,7 +112,13 @@ void Save()</code></pre>
 <a id="FS_Hosting_Shared_IDevFrameworkObject_Save_" data-uid="FS.Hosting.Shared.IDevFrameworkObject.Save*"></a>
 <h4 id="FS_Hosting_Shared_IDevFrameworkObject_Save_FS_Hosting_Shared_SaveEntryPoints_" data-uid="FS.Hosting.Shared.IDevFrameworkObject.Save(FS.Hosting.Shared.SaveEntryPoints)">Save(SaveEntryPoints)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Speichert diese Component in der Datenbank ab. Das entsprechende SqlStatement
+muss in der SaveAction zusammengebaut und ausgeführt werden.
+Falls keine gestartete Transaktion existiert,
+wird automatisch eine Transaktion aufgebaut. In diesem Fall wird
+anschliessend ein Commit ausgeführt.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -120,7 +132,9 @@ void Save(SaveEntryPoints saveEntryPoints)</code></pre>
   <section>
     <div class="propertyInfo">
       <span class="parametername"><code>saveEntryPoints</code></span> <a class="xref" href="FS.Hosting.Shared.SaveEntryPoints.html">SaveEntryPoints</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>Wenn <code>true</code>, dann werden die EntryPoints
+auch aufgerufen, falls die Komponente nicht geändert wurde.</p>
+</div>
     </div>
   </section>
 

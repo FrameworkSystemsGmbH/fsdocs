@@ -90,7 +90,10 @@
 <a id="FS_Hosting_Broker_Shared_GridColumnDefinition_PropertyMdt_" data-uid="FS.Hosting.Broker.Shared.GridColumnDefinition.PropertyMdt*"></a>
 <h4 id="FS_Hosting_Broker_Shared_GridColumnDefinition_PropertyMdt" data-uid="FS.Hosting.Broker.Shared.GridColumnDefinition.PropertyMdt">PropertyMdt</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gibt den Metadatentyp von dem Property, für das eine Spalte definiert werden soll,
+zurück oder legt diesen fest. Aus dem Metadatentyp werden Eigenschaften wie type,
+size, precision, scale, caption, tool tip, format und so weiter ermittelt.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -109,6 +112,13 @@ public MLContainer PropertyMdt { get; set; }</code></pre>
         <div class="markdown level1 summary"></div>
       </div>  
   </section>
+    <h5 id="FS_Hosting_Broker_Shared_GridColumnDefinition_PropertyMdt_remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Wenn die Eigenschaft <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.ComponentType.html#FS_Hosting_Broker_Shared_GridColumnDefinition_ComponentType">ComponentType</a> nicht gesetzt werden muss,
+muss diese Eigenschaft ebenfalls nicht gesetzt werden. Die Werte können dann
+automatisch über Reflection ermittelt werden.</p>
+</div>
+    </section>
 </section>
 </article>
           </div>

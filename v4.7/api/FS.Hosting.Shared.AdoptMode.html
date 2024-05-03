@@ -85,7 +85,9 @@
   
   <h1 id="FS_Hosting_Shared_AdoptMode" data-uid="FS.Hosting.Shared.AdoptMode" class="text-break">Class AdoptMode
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Gibt an, wie sich die Methoden <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.Clone.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Clone_FS_Hosting_Shared_AdoptMode_">Clone(AdoptMode)</a>
+und <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.AdoptValues.html#FS_Hosting_Shared_IDevFrameworkBaseObject_AdoptValues_FS_Hosting_Shared_IDevFrameworkBaseObject_FS_Hosting_Shared_AdoptMode_">AdoptValues(IDevFrameworkBaseObject, AdoptMode)</a> verhalten.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -103,13 +105,19 @@ public sealed class AdoptMode : Enum</code></pre>
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.AdoptMode.Deep.html">Deep</a></h4>
-    <section><p></section>
+    <section><p><p>(Wert = 0) Das Flag <a class="xref" href="FS.Hosting.Shared.AdoptMode.Flat.html">Flat</a> ist nicht gesetzt.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AdoptMode.Default.html">Default</a></h4>
-    <section><p></section>
+    <section><p><p>(Wert = 0) Standard-Wert = <a class="xref" href="FS.Hosting.Shared.AdoptMode.Deep.html">Deep</a></p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AdoptMode.Flat.html">Flat</a></h4>
-    <section><p></section>
+    <section><p><p>(Wert = 0x1) Es wird eine flache Kopie durch geführt.</p>
+<p>Ist dieses Flag nicht gesetzt, dann wird eine tiefe Kopie erzeugt, d.h. für alle eingebetteten Objekte wird eine Kopie erzeugt.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AdoptMode.NoHistory.html">NoHistory</a></h4>
-    <section><p></section>
+    <section><p><p>(Wert = 0x2) Die Information <a class="xref" href="FS.Hosting.Shared.IDevFrameworkDataObject.IsHistorical.html#FS_Hosting_Shared_IDevFrameworkDataObject_IsHistorical">IsHistorical</a> wird nicht übertragen.
+Bei neu erzeugten Kopien hat das Property den Wert <code>false</code>.</p>
+</p></section>
   
 </article>
           </div>

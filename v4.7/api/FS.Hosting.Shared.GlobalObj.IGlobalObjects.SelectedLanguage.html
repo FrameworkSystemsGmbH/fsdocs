@@ -90,7 +90,8 @@
 <a id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_SelectedLanguage_" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.SelectedLanguage*"></a>
 <h4 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_SelectedLanguage" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.SelectedLanguage">SelectedLanguage</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gibt den 2-Zeichen IsoCode der ersten Sprache in der <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.LanguageHierarchy.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_LanguageHierarchy">LanguageHierarchy</a> zurück oder legt diesen fest.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -109,6 +110,19 @@ string SelectedLanguage { get; set; }</code></pre>
         <div class="markdown level1 summary"></div>
       </div>  
   </section>
+    <h5 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_SelectedLanguage_remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Beim Setzen der SelectedLanguage gibt es 2 Möglichkeiten:</p>
+<p>1.) Es wird nur ein ISO-Code übergeben.Dieser wird an die erste Stelle der LanguageHierarchy gesetzt.
+Wenn dieser Code schon in der Hierarchie enthalten ist, dann wird dieser an die erste Stelle verschoben.
+2.) Es wird eine Komma-separierte Liste von ISO-Codes übergeben.In diesem Fall wird aus dieser Liste
+eine neue LanguageHierarchy aufgebaut.</p>
+<p>Die Sprache wird beim Start im Client festgelegt. Der Broker wechselt beim Start der Anwendung ggf.
+auf die Default-Sprache der Anwendung, wenn die vom Client angefragte Sprache nicht zur Verfügung steht.</p>
+<div class="WARNING"><h5>Warning</h5><p>Dieser Wert sollte in einem normalen Broker nicht geändert werden.</p>
+</div>
+</div>
+    </section>
 </section>
 </article>
           </div>

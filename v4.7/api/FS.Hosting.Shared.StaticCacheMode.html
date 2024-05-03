@@ -85,7 +85,9 @@
   
   <h1 id="FS_Hosting_Shared_StaticCacheMode" data-uid="FS.Hosting.Shared.StaticCacheMode" class="text-break">Class StaticCacheMode
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Arbeitsmodus eines statischen Caches.
+Dieser kann im Einsprungpunkt <a class="xref" href="FS.Hosting.Shared.GlobalObj.cGlobalBase.GlobalGetStaticCacheMode.html#FS_Hosting_Shared_GlobalObj_cGlobalBase_GlobalGetStaticCacheMode_FS_Hosting_Shared_IDevFrameworkDataObject_">GlobalGetStaticCacheMode(IDevFrameworkDataObject)</a> pro Component-Typ festgelegt werden.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -103,9 +105,19 @@ public sealed class StaticCacheMode : Enum</code></pre>
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.StaticCacheMode.Broker.html">Broker</a></h4>
-    <section><p></section>
+    <section><p><p>Daten werden für alle Sessions zentral im Broker verwaltet.
+Der Einsprungpunkt <a class="xref" href="FS.Hosting.Shared.GlobalObj.cGlobalBase.GlobalWhereStaticCache.html#FS_Hosting_Shared_GlobalObj_cGlobalBase_GlobalWhereStaticCache_FS_Hosting_Shared_IStaticCacheObject_">GlobalWhereStaticCache(IStaticCacheObject)</a> wird durchlaufen.
+Nicht durchlaufen werden die Einsprungpunkte <span class="xref">FS.Hosting.Shared.GlobalObj.cGlobalBase.GlobalOnBeforeLoad(FS.Hosting.Shared.DevFrameworkObject,System.String@,System.String@,System.String@)</span>,
+<span class="xref">FS.Hosting.Shared.FrameworkDataObject`2.OnBeforeLoad(System.String@,System.String@,System.String@,System.Boolean)</span> und
+<span class="xref">FS.Hosting.Shared.FrameworkDataColl`2.OnBeforeLoad(System.String@,System.String@,System.String@)</span>.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.StaticCacheMode.Session.html">Session</a></h4>
-    <section><p></section>
+    <section><p><p>Daten werden pro Session verwaltet.
+Die Einsprungpunkte <span class="xref">FS.Hosting.Shared.GlobalObj.cGlobalBase.GlobalOnBeforeLoad(FS.Hosting.Shared.DevFrameworkObject,System.String@,System.String@,System.String@)</span>,
+<span class="xref">FS.Hosting.Shared.FrameworkDataObject`2.OnBeforeLoad(System.String@,System.String@,System.String@,System.Boolean)</span> und
+<span class="xref">FS.Hosting.Shared.FrameworkDataColl`2.OnBeforeLoad(System.String@,System.String@,System.String@)</span> werden durchlaufen.
+Nicht durchlaufen wird <a class="xref" href="FS.Hosting.Shared.GlobalObj.cGlobalBase.GlobalWhereStaticCache.html#FS_Hosting_Shared_GlobalObj_cGlobalBase_GlobalWhereStaticCache_FS_Hosting_Shared_IStaticCacheObject_">GlobalWhereStaticCache(IStaticCacheObject)</a>.</p>
+</p></section>
   
 </article>
           </div>

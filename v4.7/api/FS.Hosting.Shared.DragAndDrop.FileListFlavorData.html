@@ -85,7 +85,9 @@
   
   <h1 id="FS_Hosting_Shared_DragAndDrop_FileListFlavorData" data-uid="FS.Hosting.Shared.DragAndDrop.FileListFlavorData" class="text-break">Class FileListFlavorData
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Diese Klasse stellt bei einem Drag&amp;Drop-Vorgang die Liste der transportierten Dateien dar.
+Die Klasse ist enumerierbar (<code>IEnumerator&lt;FileFlavorData&gt;</code>) und eine Spezialisierung von <a class="xref" href="FS.Hosting.Shared.DragAndDrop.FlavorData.html">FlavorData</a>.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -111,17 +113,22 @@
     <pre><code class="lang-csharp hljs">[DocfxBrowsable]
 public class FileListFlavorData : FlavorData, IEnumerable&lt;FileFlavorData&gt;, IEnumerable</code></pre>
   </div>
+  <h5 id="FS_Hosting_Shared_DragAndDrop_FileListFlavorData_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Die Enumeration enthält (auch im Event <code>OnCanDrop</code>) immer mindestens ein Objekt vom Typ <a class="xref" href="FS.Hosting.Shared.DragAndDrop.FileFlavorData.html">FileFlavorData</a>.</p>
+</div>
   <h3 id="properties">Properties
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FileListFlavorData.Count.html#FS_Hosting_Shared_DragAndDrop_FileListFlavorData_Count">Count</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die Anzahl der enthaltenen Dateien zurück.</p>
+</p></section>
   
   <h3 id="methods">Methods
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FileListFlavorData.GetEnumerator.html#FS_Hosting_Shared_DragAndDrop_FileListFlavorData_GetEnumerator">GetEnumerator()</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt einen Enumerator zum Iterieren durch die enthaltenen Dateien zurück.</p>
+</p></section>
   
 </article>
           </div>

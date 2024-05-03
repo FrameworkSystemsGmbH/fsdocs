@@ -90,7 +90,10 @@
 <a id="FS_Hosting_Shared_IStaticCache_ToCollection_" data-uid="FS.Hosting.Shared.IStaticCache.ToCollection*"></a>
 <h4 id="FS_Hosting_Shared_IStaticCache_ToCollection__1" data-uid="FS.Hosting.Shared.IStaticCache.ToCollection``1">ToCollection&lt;TColl&gt;()</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Erzeugt eine Collection vom angegebenen Typ TColl und befüllt diese mit allen Datensätzen aus dem Cache.
+Dabei wird an der Collection und an allen Objekten die Methode <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen.
+Der Typ TColl muss für Objekte vom Typ TObj definiert sein.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -129,7 +132,11 @@ TColl ToCollection&lt;TColl&gt;()
 <a id="FS_Hosting_Shared_IStaticCache_ToCollection_" data-uid="FS.Hosting.Shared.IStaticCache.ToCollection*"></a>
 <h4 id="FS_Hosting_Shared_IStaticCache_ToCollection__1_System_Func_FS_Hosting_Shared_IDevFrameworkObject_System_Boolean__" data-uid="FS.Hosting.Shared.IStaticCache.ToCollection``1(System.Func{FS.Hosting.Shared.IDevFrameworkObject,System.Boolean})">ToCollection&lt;TColl&gt;(Func&lt;IDevFrameworkObject, Boolean&gt;)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Erzeugt eine Collection vom angegebenen Typ TColl und befüllt diese mit allen Datensätzen aus dem Cache,
+die der angegebenen Where-Bedingung entsprechen.
+Dabei wird an der Collection und an allen Objekten die Methode <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen.
+Der Typ TColl muss für Objekte vom Typ TObj definiert sein.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -175,7 +182,11 @@ TColl ToCollection&lt;TColl&gt;(Func&lt;IDevFrameworkObject, bool&gt; where)
 <a id="FS_Hosting_Shared_IStaticCache_ToCollection_" data-uid="FS.Hosting.Shared.IStaticCache.ToCollection*"></a>
 <h4 id="FS_Hosting_Shared_IStaticCache_ToCollection__1_System_Func_System_Collections_Generic_IEnumerable_FS_Hosting_Shared_IDevFrameworkObject__System_Collections_Generic_IEnumerable_FS_Hosting_Shared_IDevFrameworkObject___" data-uid="FS.Hosting.Shared.IStaticCache.ToCollection``1(System.Func{System.Collections.Generic.IEnumerable{FS.Hosting.Shared.IDevFrameworkObject},System.Collections.Generic.IEnumerable{FS.Hosting.Shared.IDevFrameworkObject}})">ToCollection&lt;TColl&gt;(Func&lt;IEnumerable&lt;IDevFrameworkObject&gt;, IEnumerable&lt;IDevFrameworkObject&gt;&gt;)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Erzeugt eine Collection vom angegebenen Typ TColl und befüllt diese,
+unter Berücksichtigung der angegebenen Sortierung, mit allen Datensätzen aus dem Cache.
+Dabei wird an der Collection und an allen Objekten die Methode <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen.
+Der Typ TColl muss für Objekte vom Typ TObj definiert sein.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -221,7 +232,12 @@ TColl ToCollection&lt;TColl&gt;(Func&lt;IEnumerable&lt;IDevFrameworkObject&gt;, 
 <a id="FS_Hosting_Shared_IStaticCache_ToCollection_" data-uid="FS.Hosting.Shared.IStaticCache.ToCollection*"></a>
 <h4 id="FS_Hosting_Shared_IStaticCache_ToCollection__1_System_Func_FS_Hosting_Shared_IDevFrameworkObject_System_Boolean__System_Func_System_Collections_Generic_IEnumerable_FS_Hosting_Shared_IDevFrameworkObject__System_Collections_Generic_IEnumerable_FS_Hosting_Shared_IDevFrameworkObject___" data-uid="FS.Hosting.Shared.IStaticCache.ToCollection``1(System.Func{FS.Hosting.Shared.IDevFrameworkObject,System.Boolean},System.Func{System.Collections.Generic.IEnumerable{FS.Hosting.Shared.IDevFrameworkObject},System.Collections.Generic.IEnumerable{FS.Hosting.Shared.IDevFrameworkObject}})">ToCollection&lt;TColl&gt;(Func&lt;IDevFrameworkObject, Boolean&gt;, Func&lt;IEnumerable&lt;IDevFrameworkObject&gt;, IEnumerable&lt;IDevFrameworkObject&gt;&gt;)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Erzeugt eine Collection vom angegebenen Typ TColl und befüllt diese,
+unter Berücksichtigung der angegebenen Sortierung, mit allen Datensätzen aus dem Cache,
+die der angegebenen Where-Bedingung entsprechen.
+Dabei wird an der Collection und an allen Objekten die Methode <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen.
+Der Typ TColl muss für Objekte vom Typ TObj definiert sein.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>

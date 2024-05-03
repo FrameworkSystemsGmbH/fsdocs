@@ -85,7 +85,8 @@
 
 <h1 id="FS_Hosting_Shared_IGridView_EntriesSortedOrFiltered" data-uid="FS.Hosting.Shared.IGridView.EntriesSortedOrFiltered" class="text-break">Event EntriesSortedOrFiltered
 </h1>
-<div class="markdown level0 summary"></div>
+<div class="markdown level0 summary"><p>Mit diesem Event kann man die sortierte/gefilterte Liste der ObjectRowIDs anpassen.</p>
+</div>
 <div class="markdown level0 conceptual"></div>
 <h6><strong>Namespace</strong>: <a class="xref" href="FS.Hosting.Shared.html">FS.Hosting.Shared</a></h6>
 <h6><strong>Assembly</strong>: FS.Hosting.Shared.dll</h6>
@@ -109,6 +110,28 @@ event EventHandler&lt;List&lt;guid&gt;&gt; EntriesSortedOrFiltered</code></pre>
     </tr>
   </tbody>
 </table>
+<h5 id="FS_Hosting_Shared_IGridView_EntriesSortedOrFiltered_remarks"><strong>Remarks</strong></h5>
+<div class="markdown level0 remarks"><p>Dieses Event wird nach jedem Sortier-/Filter-Vorgang aufgerufen.</p>
+</div>
+<h5 id="FS_Hosting_Shared_IGridView_EntriesSortedOrFiltered_examples"><strong>Examples</strong></h5>
+<pre><code>protected virtual void FE_frmArticle_DefaultVariant_OnLoad(FrameworkEventArgs e)
+{
+    this.grd.GetView().EntriesSortedOrFiltered += (sender, idList) => {
+        // Die erste Zeile der Collection soll immer angezeigt werden - am Anfang des Grids stehen
+        var coll = this.grd.GetView().Collection;
+        if (coll != null &amp;&amp; coll.Count > 1)
+        {
+            var firstRowId = coll.ObjectRowIDOf(0);
+            var sortedIndex = idList.IndexOf(firstRowId);
+            if (sortedIndex != 0) // nichts machen, wenn schon die erste Zeile.
+            {
+                if (sortedIndex > 0) idList.RemoveAt(sortedIndex);
+                idList.Insert(0, firstRowId);
+            }
+        }
+    };
+}</code></pre>
+
 </article>
           </div>
           

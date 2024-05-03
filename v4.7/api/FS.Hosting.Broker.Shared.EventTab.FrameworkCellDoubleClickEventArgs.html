@@ -85,7 +85,8 @@
   
   <h1 id="FS_Hosting_Broker_Shared_EventTab_FrameworkCellDoubleClickEventArgs" data-uid="FS.Hosting.Broker.Shared.EventTab.FrameworkCellDoubleClickEventArgs" class="text-break">Class FrameworkCellDoubleClickEventArgs
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Spezialisierung von <a class="xref" href="FS.Hosting.Broker.Shared.EventTab.FrameworkEventArgs.html">FrameworkEventArgs</a>.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -111,6 +112,12 @@
     <pre><code class="lang-csharp hljs">[DocfxBrowsable]
 public class FrameworkCellDoubleClickEventArgs : FrameworkDoubleClickEventArgs</code></pre>
   </div>
+  <h5 id="FS_Hosting_Broker_Shared_EventTab_FrameworkCellDoubleClickEventArgs_examples"><strong>Examples</strong></h5>
+  <pre><code>private void MyDataGrid_DoubleClickEventHandler (FrameworkDoubleClickEventArgs e)
+{
+    ArtikelObj = ArtikelColl[e.RowID];
+}</code></pre>
+
   <h3 id="properties">Properties
   </h3>
   

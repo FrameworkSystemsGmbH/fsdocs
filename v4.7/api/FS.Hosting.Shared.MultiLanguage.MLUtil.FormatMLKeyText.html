@@ -80,31 +80,36 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.FormatMLKeyText*">
+            <article class="content wrap" id="_content" data-uid="FS.Hosting.Shared.MultiLanguage.MLUtil.FormatMLKeyText*">
 
-<h1 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_FormatMLKeyText_" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.FormatMLKeyText*">Method FormatMLKeyText
+<h1 id="FS_Hosting_Shared_MultiLanguage_MLUtil_FormatMLKeyText_" data-uid="FS.Hosting.Shared.MultiLanguage.MLUtil.FormatMLKeyText*">Method FormatMLKeyText
 </h1>
 <div class="markdown level0 summary"></div>
 <div class="markdown level0 conceptual"></div>
 
-<a id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_FormatMLKeyText_" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.FormatMLKeyText*"></a>
-<h4 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_FormatMLKeyText_FS_Shared_MultiLanguage_MLKey_System_Object___" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.FormatMLKeyText(FS.Shared.MultiLanguage.MLKey,System.Object[])">FormatMLKeyText(MLKey, Object[])</h4>
+<a id="FS_Hosting_Shared_MultiLanguage_MLUtil_FormatMLKeyText_" data-uid="FS.Hosting.Shared.MultiLanguage.MLUtil.FormatMLKeyText*"></a>
+<h4 id="FS_Hosting_Shared_MultiLanguage_MLUtil_FormatMLKeyText_FS_Shared_MultiLanguage_MLKey_System_Object___" data-uid="FS.Hosting.Shared.MultiLanguage.MLUtil.FormatMLKeyText(FS.Shared.MultiLanguage.MLKey,System.Object[])">FormatMLKeyText(MLKey, Object[])</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gibt ein <a class="xref" href="FS.Shared.MultiLanguage.MLKeyText.html">MLKeyText</a>-Objekt mit dem formatierten Text und dem MLKey zurück.
+Dabei wird ein <code>String.<span class="xref">System.String.Format(System.String,System.Object[])</span></code>
+mit den übergebenen Argumenten ausgeführt.
+Für die Fomatierung der übergebenen Argumente wird die Client-Culture verwendet.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
       <pre><code class="lang-csharp hljs">[DocfxBrowsable]
-MLKeyText FormatMLKeyText(MLKey mlkey, params object[] args)</code></pre>
+public static MLKeyText FormatMLKeyText(MLKey mlkey, params object[] args)</code></pre>
     </div>
   </section>
   <h5 class="parameters">Parameters</h5>
   <section>
     <div class="propertyInfo">
       <span class="parametername"><code>mlkey</code></span> <a class="xref" href="FS.Shared.MultiLanguage.MLKey.html">MLKey</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>MLKey aus dem Wörterbuch.</p>
+</div>
     </div>
     <div class="propertyInfo">
       <span class="parametername"><code>args</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a>[]
@@ -120,29 +125,44 @@ MLKeyText FormatMLKeyText(MLKey mlkey, params object[] args)</code></pre>
       </div>
     </section>
 
+  <h5 id="FS_Hosting_Shared_MultiLanguage_MLUtil_FormatMLKeyText_FS_Shared_MultiLanguage_MLKey_System_Object____examples">Examples</h5>
+  <p>Diese Methode wird z.B. für die <a href="../doc/editors/editor-cs-code-messages.html">Code-Messages</a> benutzt:</p>
+<pre><code>// FSCodeMessage: Please specify {0}
+throw new FrameworkApplicationException(MLUtil.FormatMLKeyText(MLKeys.MSG_24979a3d247546318dc673c5501d3b15, this.sName), 0);</code></pre>
+
+  <h5 id="FS_Hosting_Shared_MultiLanguage_MLUtil_FormatMLKeyText_FS_Shared_MultiLanguage_MLKey_System_Object____seealso">See Also</h5>
+  <div class="seealso">
+      <div><a class="xref" href="FS.Hosting.Shared.GlobalObj.IcGlobalBase.GetClientCulture.html#FS_Hosting_Shared_GlobalObj_IcGlobalBase_GetClientCulture">GetClientCulture()</a></div>
+  </div>
 </section>
-<a id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_FormatMLKeyText_" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.FormatMLKeyText*"></a>
-<h4 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_FormatMLKeyText_System_IFormatProvider_FS_Shared_MultiLanguage_MLKey_System_Object___" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.FormatMLKeyText(System.IFormatProvider,FS.Shared.MultiLanguage.MLKey,System.Object[])">FormatMLKeyText(IFormatProvider, MLKey, Object[])</h4>
+<a id="FS_Hosting_Shared_MultiLanguage_MLUtil_FormatMLKeyText_" data-uid="FS.Hosting.Shared.MultiLanguage.MLUtil.FormatMLKeyText*"></a>
+<h4 id="FS_Hosting_Shared_MultiLanguage_MLUtil_FormatMLKeyText_System_IFormatProvider_FS_Shared_MultiLanguage_MLKey_System_Object___" data-uid="FS.Hosting.Shared.MultiLanguage.MLUtil.FormatMLKeyText(System.IFormatProvider,FS.Shared.MultiLanguage.MLKey,System.Object[])">FormatMLKeyText(IFormatProvider, MLKey, Object[])</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gibt ein <a class="xref" href="FS.Shared.MultiLanguage.MLKeyText.html">MLKeyText</a>-Objekt mit dem formatierten Text und dem MLKey zurück.
+Dabei wird ein <code>String.<span class="xref">System.String.Format(System.String,System.Object[])</span></code>
+mit den übergebenen Argumenten ausgeführt.
+Für die Fomatierung der übergebenen Argumente wird die übergebene Culture verwendet.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
   <section>
     <div class="codewrapper">
       <pre><code class="lang-csharp hljs">[DocfxBrowsable]
-MLKeyText FormatMLKeyText(IFormatProvider culture, MLKey mlkey, params object[] args)</code></pre>
+public static MLKeyText FormatMLKeyText(IFormatProvider culture, MLKey mlkey, params object[] args)</code></pre>
     </div>
   </section>
   <h5 class="parameters">Parameters</h5>
   <section>
     <div class="propertyInfo">
       <span class="parametername"><code>culture</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iformatprovider">IFormatProvider</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>Die zu verwendende Culture. Bei <code>null</code> erfolgt ein Fallback auf die Client-Culture</p>
+</div>
     </div>
     <div class="propertyInfo">
       <span class="parametername"><code>mlkey</code></span> <a class="xref" href="FS.Shared.MultiLanguage.MLKey.html">MLKey</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>MLKey aus dem Wörterbuch.</p>
+</div>
     </div>
     <div class="propertyInfo">
       <span class="parametername"><code>args</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a>[]

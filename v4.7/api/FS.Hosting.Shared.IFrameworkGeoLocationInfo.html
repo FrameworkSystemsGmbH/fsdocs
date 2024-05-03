@@ -85,7 +85,10 @@
   
   <h1 id="FS_Hosting_Shared_IFrameworkGeoLocationInfo" data-uid="FS.Hosting.Shared.IFrameworkGeoLocationInfo" class="text-break">Interface IFrameworkGeoLocationInfo
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Eine Instanz dieses Typs wird nach einem mit der Action
+<span class="xref">FrameworkSystems.FrameworkControls.GeneratedForm.GetGeoLocation(System.Action{FrameworkSystems.FrameworkBase.IFrameworkGeoLocationInfo})</span>
+ausgelösten Vorgang der Callback-Methode übergeben. Sie beinhaltet alle Informationen zum derzeitigen Standort des Endgeräts.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="FS.Hosting.Shared.html">FS.Hosting.Shared</a></h6>
   <h6><strong>Assembly</strong>: FS.Hosting.Shared.dll</h6>
@@ -98,25 +101,37 @@ public interface IFrameworkGeoLocationInfo</code></pre>
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.IFrameworkGeoLocationInfo.Accuracy.html#FS_Hosting_Shared_IFrameworkGeoLocationInfo_Accuracy">Accuracy</a></h4>
-    <section><p></section>
+    <section><p><p>Genauigkeit für die Werte Latitude und Logitude in Metern</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IFrameworkGeoLocationInfo.Altitude.html#FS_Hosting_Shared_IFrameworkGeoLocationInfo_Altitude">Altitude</a></h4>
-    <section><p></section>
+    <section><p><p>Höhe in Metern über dem Meeresspiegel</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IFrameworkGeoLocationInfo.ErrorMessage.html#FS_Hosting_Shared_IFrameworkGeoLocationInfo_ErrorMessage">ErrorMessage</a></h4>
-    <section><p></section>
+    <section><p><p>Fehlermeldung, wenn der Standort nicht bestimmt werden konnte</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IFrameworkGeoLocationInfo.HasError.html#FS_Hosting_Shared_IFrameworkGeoLocationInfo_HasError">HasError</a></h4>
-    <section><p></section>
+    <section><p><p><code>true</code> wenn beim Bestimmen des Standortes ein Fehler aufgetreten ist.
+Die Details können über die <a class="xref" href="FS.Hosting.Shared.IFrameworkGeoLocationInfo.ErrorMessage.html#FS_Hosting_Shared_IFrameworkGeoLocationInfo_ErrorMessage">ErrorMessage</a> ermittelt werden.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IFrameworkGeoLocationInfo.Heading.html#FS_Hosting_Shared_IFrameworkGeoLocationInfo_Heading">Heading</a></h4>
-    <section><p></section>
+    <section><p><p>Bewegungsrichtung in Grad relativ zum Norden (im Uhrzeigersinn)</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IFrameworkGeoLocationInfo.Identifier.html#FS_Hosting_Shared_IFrameworkGeoLocationInfo_Identifier">Identifier</a></h4>
-    <section><p></section>
+    <section><p><p>Der in der Action <span class="xref">FrameworkSystems.FrameworkControls.GeneratedForm.GetGeoLocation(System.Action{FrameworkSystems.FrameworkBase.IFrameworGeoLocationInfo},System.String)</span>
+übergebene Wert, sonst <code>null</code>.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IFrameworkGeoLocationInfo.Latitude.html#FS_Hosting_Shared_IFrameworkGeoLocationInfo_Latitude">Latitude</a></h4>
-    <section><p></section>
+    <section><p><p>Breitengrad z.B. 47.8477500</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IFrameworkGeoLocationInfo.Longitude.html#FS_Hosting_Shared_IFrameworkGeoLocationInfo_Longitude">Longitude</a></h4>
-    <section><p></section>
+    <section><p><p>Längengrad z.B. 9.0057000</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IFrameworkGeoLocationInfo.Speed.html#FS_Hosting_Shared_IFrameworkGeoLocationInfo_Speed">Speed</a></h4>
-    <section><p></section>
+    <section><p><p>Geschwindigkeit des Getätes in m/s</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IFrameworkGeoLocationInfo.Timestamp.html#FS_Hosting_Shared_IFrameworkGeoLocationInfo_Timestamp">Timestamp</a></h4>
-    <section><p></section>
+    <section><p><p>Zeitstempel der Standortbestimmung</p>
+</p></section>
   
 </article>
           </div>

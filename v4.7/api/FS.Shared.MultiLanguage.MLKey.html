@@ -85,7 +85,8 @@
   
   <h1 id="FS_Shared_MultiLanguage_MLKey" data-uid="FS.Shared.MultiLanguage.MLKey" class="text-break">Class MLKey
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Diese Klasse verpackt einen MLKey. Der MLKey besteht aus einem String-Wert.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -99,6 +100,15 @@
     <pre><code class="lang-csharp hljs">[DocfxBrowsable]
 public class MLKey : Object</code></pre>
   </div>
+  <h5 id="FS_Shared_MultiLanguage_MLKey_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><div class="WARNING"><h5>Warning</h5><p>Bitte einen existierenden MLKey immer über <code>MLKeys...</code> verwenden.
+Diese Klasse sollte im eigenen Code nicht instanziiert werden.</p>
+</div>
+<p>Alle im Wörterbuch enthaltenen MLKeys werden mit den Ressources in eine
+Klasse <code>MLKeys</code> genriert. über diese kann man im eigenen Code unterstützt
+durch Intellisense auf jedem MLKey zugreifen.</p>
+<pre><code>FSstring sArticle = this.Global.GetMLText(MLKeys.LBL_Article);</code></pre>
+</div>
   <h3 id="constructors">Constructors
   </h3>
   
@@ -109,7 +119,8 @@ public class MLKey : Object</code></pre>
   </h3>
   
     <h4><a class="xref" href="FS.Shared.MultiLanguage.MLKey.ToString.html#FS_Shared_MultiLanguage_MLKey_ToString">ToString()</a></h4>
-    <section><p></section>
+    <section><p><p>Liefert den String-Wert des MLKeys.</p>
+</p></section>
   
 </article>
           </div>

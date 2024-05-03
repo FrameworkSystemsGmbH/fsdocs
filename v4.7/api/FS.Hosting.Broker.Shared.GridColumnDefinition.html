@@ -85,7 +85,10 @@
   
   <h1 id="FS_Hosting_Broker_Shared_GridColumnDefinition" data-uid="FS.Hosting.Broker.Shared.GridColumnDefinition" class="text-break">Class GridColumnDefinition
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Diese Klasse definiert eine Spalte in einem Grid. Grids können zur Laufzeit mit weiteren Spalten zu existierenden
+Properties ergänzt werden. Diese Spalten werden als <em>dynamische Spalten</em> bezeichnet.
+Außerdem können dynamische Spalten zur Laufzeit auch wieder aus einem Grid entfernt werden.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -109,45 +112,90 @@ public class GridColumnDefinition : Object</code></pre>
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Caption.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Caption">Caption</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die Spaltenbezeichnung in der Sprache des Clients zurück oder legt diese fest.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.ComponentType.html#FS_Hosting_Broker_Shared_GridColumnDefinition_ComponentType">ComponentType</a></h4>
-    <section><p></section>
+    <section><p><p>Diese Eigenschaft muss nur dann gesetzt werden, wenn nicht alle
+Properties (bis auf das letzte) aus dem Property-Pfad <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Property.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Property">Property</a>
+konkrete Component-Typen sind, also z.B. ein Property den Typ
+<a class="xref" href="FS.Hosting.Shared.DevFrameworkObject.html">DevFrameworkObject</a> hat. Andernfalls kann der ComponentType
+über Reflection von Framework Studio automatisch ermittelt werden.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.DependsDataSourceOnRowData.html#FS_Hosting_Broker_Shared_GridColumnDefinition_DependsDataSourceOnRowData">DependsDataSourceOnRowData</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt für den Fall, dass die Daten in einer Combobox aufbereitet werden,
+zurück oder legt fest, ob die Liste abhängig von dem Datensatz der Reihe ist.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.EditorStyle.html#FS_Hosting_Broker_Shared_GridColumnDefinition_EditorStyle">EditorStyle</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den zu verwendenden Darstellungstyp (<a class="xref" href="FS.Hosting.Shared.EditorStyle.Editfield.html">Editfield</a>, <a class="xref" href="FS.Hosting.Shared.EditorStyle.CheckBox.html">CheckBox</a>, ...) zurück
+oder legt diesen fest.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.EditStyle.html#FS_Hosting_Broker_Shared_GridColumnDefinition_EditStyle">EditStyle</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den zu verwendenden Combobox-Typ (<a class="xref" href="FS.Hosting.Shared.ComboEditStyle.FreeTextInput.html">FreeTextInput</a>,
+<a class="xref" href="FS.Hosting.Shared.ComboEditStyle.ListValuesInput.html">ListValuesInput</a>) einer Spalte, deren <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.EditorStyle.html#FS_Hosting_Broker_Shared_GridColumnDefinition_EditorStyle">EditorStyle</a>
+auf <a class="xref" href="FS.Hosting.Shared.EditorStyle.ComboBox.html">ComboBox</a> festgelegt wurde, zurück oder legt diesen fest.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Format.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Format">Format</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt das von der Spalte zu verwendende Format zurück oder legt dieses fest.
+Wird diese Eigenschaft festgelegt, so wird der Wert, der unter Umständen
+automatisch aus dem zugeordneten <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Property.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Property">Property</a> oder dem <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.PropertyMdt.html#FS_Hosting_Broker_Shared_GridColumnDefinition_PropertyMdt">PropertyMdt</a>
+ermittelt werden kann, übersteuert.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.FormatPattern.html#FS_Hosting_Broker_Shared_GridColumnDefinition_FormatPattern">FormatPattern</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt das von der Spalte zu verwendende FormatPattern zurück oder legt dieses
+fest. Wird diese Eigenschaft festgelegt, so wird der Wert, der unter Umständen
+automatisch aus dem zugeordneten <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Property.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Property">Property</a> oder dem <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.PropertyMdt.html#FS_Hosting_Broker_Shared_GridColumnDefinition_PropertyMdt">PropertyMdt</a>
+ermittelt werden kann, übersteuert.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.IsEditable.html#FS_Hosting_Broker_Shared_GridColumnDefinition_IsEditable">IsEditable</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die Editierbarkeit der Spalte zurück oder legt diese fest.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.IsVisible.html#FS_Hosting_Broker_Shared_GridColumnDefinition_IsVisible">IsVisible</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die Sichtbarkeit der Spalte zurück oder legt diese fest.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.List.html#FS_Hosting_Broker_Shared_GridColumnDefinition_List">List</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Listendatasource, der verwendet wird, wenn der <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.EditorStyle.html#FS_Hosting_Broker_Shared_GridColumnDefinition_EditorStyle">EditorStyle</a> auf „Combobox“
+festgelegt ist, mit allen dazugehörigen Details zurück oder legt diesen fest.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.ListSortOrder.html#FS_Hosting_Broker_Shared_GridColumnDefinition_ListSortOrder">ListSortOrder</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt für den Fall, dass die Daten in einer Combobox aufbereitet werden,
+zurück oder legt fest, wie die Einträge der Combobox sortiert werden sollen.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.MaxScale.html#FS_Hosting_Broker_Shared_GridColumnDefinition_MaxScale">MaxScale</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die Anzahl der Nachkommastellen, der in der Spalte darzustellenden Daten,
+zurück oder legt diese fest. Wird diese Eigenschaft festgelegt, so wird der Wert,
+der unter Umständen automatisch aus dem zugeordneten <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Property.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Property">Property</a> oder
+dem <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.PropertyMdt.html#FS_Hosting_Broker_Shared_GridColumnDefinition_PropertyMdt">PropertyMdt</a> ermittelt werden kann, übersteuert.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.MaxSize.html#FS_Hosting_Broker_Shared_GridColumnDefinition_MaxSize">MaxSize</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die maximale Größe, der in der Spalte darzustellenden Daten, zurück oder
+legt diese fest. Wird diese Eigenschaft festgelegt, so wird der Wert, der unter
+Umständen automatisch aus dem zugeordneten <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Property.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Property">Property</a> oder dem <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.PropertyMdt.html#FS_Hosting_Broker_Shared_GridColumnDefinition_PropertyMdt">PropertyMdt</a>
+ermittelt werden kann, übersteuert.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.MLCaption.html#FS_Hosting_Broker_Shared_GridColumnDefinition_MLCaption">MLCaption</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die mehrsprachige Spaltenbezeichnung zurück oder legt diese fest.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.MLToolTip.html#FS_Hosting_Broker_Shared_GridColumnDefinition_MLToolTip">MLToolTip</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den mehrsprachigen ToolTip zurück oder legt diesen fest.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Property.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Property">Property</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den punktseparierten Pfad zu dem Property, für das eine Spalte definiert werden soll,
+zurück oder legt diesen fest.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.PropertyMdt.html#FS_Hosting_Broker_Shared_GridColumnDefinition_PropertyMdt">PropertyMdt</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Metadatentyp von dem Property, für das eine Spalte definiert werden soll,
+zurück oder legt diesen fest. Aus dem Metadatentyp werden Eigenschaften wie type,
+size, precision, scale, caption, tool tip, format und so weiter ermittelt.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.TextAlign.html#FS_Hosting_Broker_Shared_GridColumnDefinition_TextAlign">TextAlign</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die Ausrichtung der Texte in der Spalte zurück oder legt diese fest.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.ToolTip.html#FS_Hosting_Broker_Shared_GridColumnDefinition_ToolTip">ToolTip</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den ToolTip in der Sprache des Clients zurück oder legt diesen fest.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Width.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Width">Width</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die initiale Spaltenbreite zurück oder legt diese fest.</p>
+</p></section>
   
 </article>
           </div>

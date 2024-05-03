@@ -85,7 +85,8 @@
   
   <h1 id="FS_Hosting_Core_Reporting_ReportDocument" data-uid="FS.Hosting.Core.Reporting.ReportDocument" class="text-break">Class ReportDocument
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Diese Klasse ist die Basis-Klasse aller Report Document Types, die mit Framework-Studio entwickelt werden.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -111,57 +112,85 @@ public class ReportDocument</code></pre>
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.Reports.html">Reports</a></h4>
-    <section><p></section>
+    <section><p><p>Eine Instanz, die alle, im Report-Document-Type definierten Crystal Reports, als Properties beinhaltet.</p>
+</p></section>
   
   <h3 id="properties">Properties
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.Culture.html#FS_Hosting_Core_Reporting_ReportDocument_Culture">Culture</a></h4>
-    <section><p></section>
+    <section><p><p>Definiert die Culture mit welcher der Report erzeugt werden soll.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.ExportFormat.html#FS_Hosting_Core_Reporting_ReportDocument_ExportFormat">ExportFormat</a></h4>
-    <section><p></section>
+    <section><p><p>Das Format, in dem der Report mit <a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.Print.html#FS_Hosting_Core_Reporting_ReportDocument_Print">Print()</a> ausgegeben werden soll.</p>
+<p>Diese Einstellung wird ignoriert, wenn der Report auf einem Drucker ausgegeben werden soll.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.ReportDir.html#FS_Hosting_Core_Reporting_ReportDocument_ReportDir">ReportDir</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Pfad des Dateiordners zurück, in dem die Crystal Reports abgelegt sind.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.SelectedReport.html#FS_Hosting_Core_Reporting_ReportDocument_SelectedReport">SelectedReport</a></h4>
-    <section><p></section>
+    <section><p><p>Der aktuell ausgewählte Report. Die vorhandenen Reports können über das Statische Property Reports ermittelt werden.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.XSDFileName.html#FS_Hosting_Core_Reporting_ReportDocument_XSDFileName">XSDFileName</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Namen der XSD-Datei zurück, die verwendet wird.</p>
+</p></section>
   
   <h3 id="methods">Methods
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.AddAdditionalReport.html#FS_Hosting_Core_Reporting_ReportDocument_AddAdditionalReport_FS_Hosting_Core_Reporting_ReportEnum_">AddAdditionalReport(ReportEnum)</a></h4>
-    <section><p></section>
+    <section><p><p>Fügt eine zusätzliche Report-Definition hinzu.
+So können individuelle Report-Dateien zur Laufzeit ergänzt werden.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.ClearAdditionalReports.html#FS_Hosting_Core_Reporting_ReportDocument_ClearAdditionalReports">ClearAdditionalReports()</a></h4>
-    <section><p></section>
+    <section><p><p>Setzt die Liste mit den zusätzlichen Report-Definitionen zurück.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.ConvertFileNameToReportsEnum.html#FS_Hosting_Core_Reporting_ReportDocument_ConvertFileNameToReportsEnum_System_String_">ConvertFileNameToReportsEnum(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Diese Methode kann verwendet werden, um einen ReportEnum mit einem bestimmten Datei-Namen zu finden.
+Es wird nach <a class="xref" href="FS.Hosting.Core.Reporting.ReportEnum.DevExpressFileName.html#FS_Hosting_Core_Reporting_ReportEnum_DevExpressFileName">DevExpressFileName</a> und <a class="xref" href="FS.Hosting.Core.Reporting.ReportEnum.CrystalFileName.html#FS_Hosting_Core_Reporting_ReportEnum_CrystalFileName">CrystalFileName</a> gesucht.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.CreateDesigner.html#FS_Hosting_Core_Reporting_ReportDocument_CreateDesigner_FS_Hosting_Core_Reporting_ReportEnum_">CreateDesigner(ReportEnum)</a></h4>
-    <section><p></section>
+    <section><p><p>Erstellt eine Session für den Report Designer und liefert das zugehörige Objekt zurück.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.ExportReport.html#FS_Hosting_Core_Reporting_ReportDocument_ExportReport_FS_Hosting_Shared_Reporting_ExportFormat_">ExportReport(ExportFormat)</a></h4>
-    <section><p></section>
+    <section><p><p>Exportiert den Report in das gewünschte Format. Dabei wird der <a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.SelectedReport.html#FS_Hosting_Core_Reporting_ReportDocument_SelectedReport">SelectedReport</a> verwendet.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.ExportReport.html#FS_Hosting_Core_Reporting_ReportDocument_ExportReport_FS_Hosting_Shared_Reporting_ExportFormat_FS_Hosting_Shared_Reporting_ReportingSoftware__">ExportReport(ExportFormat, out ReportingSoftware)</a></h4>
-    <section><p></section>
+    <section><p><p>Exportiert den Report in das gewünschte Format. Dabei wird der <a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.SelectedReport.html#FS_Hosting_Core_Reporting_ReportDocument_SelectedReport">SelectedReport</a> verwendet.
+Dabei wird die verwendete Reporting-Software zurückgegeben.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.ExportReport.html#FS_Hosting_Core_Reporting_ReportDocument_ExportReport_FS_Hosting_Shared_Reporting_ExportFormat_FS_Shared_BaseObjects_guid_">ExportReport(ExportFormat, guid)</a></h4>
-    <section><p></section>
+    <section><p><p>Exportiert den Report in das gewünschte Format. Dabei wird der <a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.SelectedReport.html#FS_Hosting_Core_Reporting_ReportDocument_SelectedReport">SelectedReport</a> verwendet.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.GetAdditionalReports.html#FS_Hosting_Core_Reporting_ReportDocument_GetAdditionalReports">GetAdditionalReports()</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt eine Liste mit den zusätzlichen Report-Definitionen zurück.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.GetDatasource.html#FS_Hosting_Core_Reporting_ReportDocument_GetDatasource_System_String_">GetDatasource(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Wert eines bestimmten Datasources zurück.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.GetDatasources.html#FS_Hosting_Core_Reporting_ReportDocument_GetDatasources">GetDatasources()</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die Namen der Datasources zurück.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.GetReportEnums.html#FS_Hosting_Core_Reporting_ReportDocument_GetReportEnums">GetReportEnums()</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt eine Liste mit allen Report-Definitionen zurück.
+Es sind die mit <a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.AddAdditionalReport.html#FS_Hosting_Core_Reporting_ReportDocument_AddAdditionalReport_FS_Hosting_Core_Reporting_ReportEnum_">AddAdditionalReport(ReportEnum)</a> hinzugefügten Report-Definitionen enthalten.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.Print.html#FS_Hosting_Core_Reporting_ReportDocument_Print">Print()</a></h4>
-    <section><p></section>
+    <section><p><p>Erzeugt einen Druck für die Anzeige am Client.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.Print.html#FS_Hosting_Core_Reporting_ReportDocument_Print_FS_Hosting_Shared_Reporting_ExportFormat_">Print(ExportFormat)</a></h4>
-    <section><p></section>
+    <section><p><p>Erzeugt einen Druck für die Anzeige am Client.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.PrintToPrinter.html#FS_Hosting_Core_Reporting_ReportDocument_PrintToPrinter_System_Int32_System_Boolean_System_Int32_System_Int32_FS_Shared_BaseObjects_guid_FS_Shared_BaseObjects_guid_">PrintToPrinter(Int32, Boolean, Int32, Int32, guid, guid)</a></h4>
-    <section><p></section>
+    <section><p><p>Druckt das Dokument über einen Drucker am Print-Server.
+Dieser Druck erzeugt eine Transaktion und schließt diese sofort.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.PrintToTransaction.html#FS_Hosting_Core_Reporting_ReportDocument_PrintToTransaction_System_Int32_System_Boolean_System_Int32_System_Int32_System_Int32_FS_Shared_BaseObjects_guid_FS_Shared_BaseObjects_guid_">PrintToTransaction(Int32, Boolean, Int32, Int32, Int32, guid, guid)</a></h4>
-    <section><p></section>
+    <section><p><p>Druckt das Dokument in eine offene Transaktion.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.SetDatasource.html#FS_Hosting_Core_Reporting_ReportDocument_SetDatasource_System_String_System_Object_">SetDatasource(String, Object)</a></h4>
-    <section><p></section>
+    <section><p><p>Setzt den Wert eines Datasources.</p>
+</p></section>
   
 </article>
           </div>

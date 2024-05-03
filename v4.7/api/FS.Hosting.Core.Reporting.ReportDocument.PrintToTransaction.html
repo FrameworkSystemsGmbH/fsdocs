@@ -90,7 +90,8 @@
 <a id="FS_Hosting_Core_Reporting_ReportDocument_PrintToTransaction_" data-uid="FS.Hosting.Core.Reporting.ReportDocument.PrintToTransaction*"></a>
 <h4 id="FS_Hosting_Core_Reporting_ReportDocument_PrintToTransaction_System_Int32_System_Boolean_System_Int32_System_Int32_System_Int32_FS_Shared_BaseObjects_guid_FS_Shared_BaseObjects_guid_" data-uid="FS.Hosting.Core.Reporting.ReportDocument.PrintToTransaction(System.Int32,System.Boolean,System.Int32,System.Int32,System.Int32,FS.Shared.BaseObjects.guid,FS.Shared.BaseObjects.guid)">PrintToTransaction(Int32, Boolean, Int32, Int32, Int32, guid, guid)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Druckt das Dokument in eine offene Transaktion.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -104,7 +105,8 @@ public guid PrintToTransaction(int copies, bool isCollated, int startPage, int e
   <section>
     <div class="propertyInfo">
       <span class="parametername"><code>copies</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>Anzahl der Kopien.</p>
+</div>
     </div>
     <div class="propertyInfo">
       <span class="parametername"><code>isCollated</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">Boolean</a>
@@ -112,23 +114,28 @@ public guid PrintToTransaction(int copies, bool isCollated, int startPage, int e
     </div>
     <div class="propertyInfo">
       <span class="parametername"><code>startPage</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>0 = alle Seiten.</p>
+</div>
     </div>
     <div class="propertyInfo">
       <span class="parametername"><code>endPage</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>0 = alle Seiten.</p>
+</div>
     </div>
     <div class="propertyInfo">
       <span class="parametername"><code>orderID</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>Laufende Nummer des Jobs in der Transaktion. Der PrintServer druckt alle jobs einer Transaction sortiert nach dieser OrderID.</p>
+</div>
     </div>
     <div class="propertyInfo">
       <span class="parametername"><code>printerId</code></span> <a class="xref" href="FS.Shared.BaseObjects.guid.html">guid</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>Eideutige ID des Druckers. Diese kann mit PrintServer.<a class="xref" href="FS.Hosting.Shared.Reporting.PrintServer.GetPrinters.html#FS_Hosting_Shared_Reporting_PrintServer_GetPrinters">GetPrinters()</a> ermittelt werden.</p>
+</div>
     </div>
     <div class="propertyInfo">
       <span class="parametername"><code>transactionID</code></span> <a class="xref" href="FS.Shared.BaseObjects.guid.html">guid</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>ID der Transaktion. Diese kann mit PrintServer.<a class="xref" href="FS.Hosting.Shared.Reporting.PrintServer.CreateTransaction.html#FS_Hosting_Shared_Reporting_PrintServer_CreateTransaction">CreateTransaction()</a> erzeugt werden.</p>
+</div>
     </div>
   </section>
 
@@ -136,7 +143,9 @@ public guid PrintToTransaction(int copies, bool isCollated, int startPage, int e
     <section>
       <div class="propertyInfo">
         <a class="xref" href="FS.Shared.BaseObjects.guid.html">guid</a>
-        <div class="markdown level1 summary"></div>
+        <div class="markdown level1 summary"><p>Die eindeutige ID des PrintJobs.
+Diese kann verwendet werden, um den Status des DruckJobs zu ermitteln. siehe PrintQueue.<a class="xref" href="FS.Hosting.Shared.Reporting.PrintQueue.GetState.html#FS_Hosting_Shared_Reporting_PrintQueue_GetState_FS_Hosting_Shared_GlobalObj_IGlobalObjects_FS_Shared_BaseObjects_guid_">GetState(IGlobalObjects, guid)</a>.</p>
+</div>
       </div>
     </section>
 

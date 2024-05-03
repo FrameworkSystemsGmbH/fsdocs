@@ -90,7 +90,8 @@
 <a id="FS_Hosting_Shared_AccessControl_AUHelper_Granted_" data-uid="FS.Hosting.Shared.AccessControl.AUHelper.Granted*"></a>
 <h4 id="FS_Hosting_Shared_AccessControl_AUHelper_Granted_FS_Hosting_Shared_AccessControl_AccessUnit_FS_Hosting_Shared_AccessControl_AUPermissionType_" data-uid="FS.Hosting.Shared.AccessControl.AUHelper.Granted(FS.Hosting.Shared.AccessControl.AccessUnit,FS.Hosting.Shared.AccessControl.AUPermissionType)">Granted(AccessUnit, AUPermissionType)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gibt aus, ob ein bestimmtes Recht an einer AccessUnit besteht.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -120,11 +121,29 @@ public bool Granted(AccessUnit accessUnit, AUPermissionType type)</code></pre>
       </div>
     </section>
 
+    <h5 id="FS_Hosting_Shared_AccessControl_AUHelper_Granted_FS_Hosting_Shared_AccessControl_AccessUnit_FS_Hosting_Shared_AccessControl_AUPermissionType__remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Es wird dann Zugriff auf eine AccessUnit gewährt, wenn sowohl die Lizenz als auch die dem
+Benutzer zugeteilten Rollen diese freischalten.
+Prüft <a class="xref" href="FS.Hosting.Shared.GlobalObj.cGlobalBase.OnLicenseGranted.html#FS_Hosting_Shared_GlobalObj_cGlobalBase_OnLicenseGranted_FS_Hosting_Shared_AccessControl_AccessUnit_FS_Hosting_Shared_AccessControl_AUPermissionType_">OnLicenseGranted(AccessUnit, AUPermissionType)</a>, wenn die übergebene <code data-dev-comment-type="paramref" class="paramref">accessUnit</code> erlaubt ist.</p>
+</div>
+    </section>
+  <h5 id="FS_Hosting_Shared_AccessControl_AUHelper_Granted_FS_Hosting_Shared_AccessControl_AccessUnit_FS_Hosting_Shared_AccessControl_AUPermissionType__examples">Examples</h5>
+  <pre><code>if ( this.Global.AUHelper.Granted( AUList.aufrmForm1, AUPermissionType.Delete ) )
+{
+    //Delete granted
+}
+if ( this.Global.Granted(AUList.aufrmForm1, AUPermissionType.Insert) )
+{
+    //Insert granted
+}</code></pre>
+
 </section>
 <a id="FS_Hosting_Shared_AccessControl_AUHelper_Granted_" data-uid="FS.Hosting.Shared.AccessControl.AUHelper.Granted*"></a>
 <h4 id="FS_Hosting_Shared_AccessControl_AUHelper_Granted_FS_Hosting_Shared_AccessControl_AccessUnit_" data-uid="FS.Hosting.Shared.AccessControl.AUHelper.Granted(FS.Hosting.Shared.AccessControl.AccessUnit)">Granted(AccessUnit)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gibt aus, ob auf die übergebene AccessUnit das Recht <a class="xref" href="FS.Hosting.Shared.AccessControl.AUPermissionType.Access.html">Access</a> besteht.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -138,7 +157,8 @@ public bool Granted(AccessUnit accessUnit)</code></pre>
   <section>
     <div class="propertyInfo">
       <span class="parametername"><code>accessUnit</code></span> <a class="xref" href="FS.Hosting.Shared.AccessControl.AccessUnit.html">AccessUnit</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>Eine AccessUnit aus der <code>AUList</code>.</p>
+</div>
     </div>
   </section>
 
@@ -149,6 +169,18 @@ public bool Granted(AccessUnit accessUnit)</code></pre>
         <div class="markdown level1 summary"></div>
       </div>
     </section>
+
+    <h5 id="FS_Hosting_Shared_AccessControl_AUHelper_Granted_FS_Hosting_Shared_AccessControl_AccessUnit__remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Es wird dann Zugriff auf eine AccessUnit gewährt, wenn sowohl die Lizenz als auch die dem
+Benutzer zugeteilten Rollen diese freischalten.</p>
+</div>
+    </section>
+  <h5 id="FS_Hosting_Shared_AccessControl_AUHelper_Granted_FS_Hosting_Shared_AccessControl_AccessUnit__examples">Examples</h5>
+  <pre><code>if ( this.Global.AUHelper.Granted( AUList.aufrmForm1 ) )
+{
+    //Access granted
+}</code></pre>
 
 </section>
 </article>

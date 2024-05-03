@@ -85,7 +85,9 @@
   
   <h1 id="FS_Hosting_Shared_IStaticCacheObject" data-uid="FS.Hosting.Shared.IStaticCacheObject" class="text-break">Interface IStaticCacheObject
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Stellt eine Schnittstelle zu einem Objekt im Cache dar.
+Über die Methode <a class="xref" href="FS.Hosting.Shared.IStaticCacheObject.TryGetPropertyValue.html#FS_Hosting_Shared_IStaticCacheObject_TryGetPropertyValue_System_String_System_Object__">TryGetPropertyValue(String, out Object)</a> kann der Wert von Datenbank-Properties abgefragt werden.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="FS.Hosting.Shared.html">FS.Hosting.Shared</a></h6>
   <h6><strong>Assembly</strong>: FS.Hosting.Shared.dll</h6>
@@ -98,13 +100,21 @@ public interface IStaticCacheObject</code></pre>
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.IStaticCacheObject.DummyComponent.html#FS_Hosting_Shared_IStaticCacheObject_DummyComponent">DummyComponent</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt ein leeres Objekt des Typs zurück, welcher instanziiert wird,
+wenn der Cache aus diesem IStaticCacheObject ein Object erstellt.
+Dieses Objekt dient ausschließlich zum Abfragen von Typ-spezifischen
+Informationen (wie z.B. Tabellennamen). Das Objekt darf nicht geändert werden.
+Es wird insbesondere nicht als Prototyp bei der Erstellung neuer Objekte verwendet!</p>
+</p></section>
   
   <h3 id="methods">Methods
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.IStaticCacheObject.TryGetPropertyValue.html#FS_Hosting_Shared_IStaticCacheObject_TryGetPropertyValue_System_String_System_Object__">TryGetPropertyValue(String, out Object)</a></h4>
-    <section><p></section>
+    <section><p><p>Füllt die out-Variable &quot;value&quot; mit dem Wert des Properties &quot;name&quot; und gibt &quot;true&quot; zurück,
+wenn das Property existiert und einen Datenbankbezug hat.
+Andernfalls ist &quot;value&quot; null und die Methode gibt &quot;false&quot; zurück.</p>
+</p></section>
   
 </article>
           </div>

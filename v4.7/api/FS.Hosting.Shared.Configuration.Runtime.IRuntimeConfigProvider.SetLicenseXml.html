@@ -90,7 +90,8 @@
 <a id="FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_SetLicenseXml_" data-uid="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.SetLicenseXml*"></a>
 <h4 id="FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_SetLicenseXml_FS_Shared_BaseObjects_guid_System_Xml_Linq_XElement_" data-uid="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.SetLicenseXml(FS.Shared.BaseObjects.guid,System.Xml.Linq.XElement)">SetLicenseXml(guid, XElement)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Schreibt die Lizenz-Information für ein Package. Diese Methode kann nur aufgerufen werden, wenn nicht <a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.IsReadonly.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_IsReadonly">IsReadonly</a>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -104,15 +105,33 @@ void SetLicenseXml(guid packageId, XElement xeLicense)</code></pre>
   <section>
     <div class="propertyInfo">
       <span class="parametername"><code>packageId</code></span> <a class="xref" href="FS.Shared.BaseObjects.guid.html">guid</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>Eindeutige ID des Packages</p>
+</div>
     </div>
     <div class="propertyInfo">
       <span class="parametername"><code>xeLicense</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.xml.linq.xelement">XElement</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>Lizenz-Xml - der Knoten &quot;License&quot;</p>
+</div>
     </div>
   </section>
 
 
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></td>
+        <td><p>Bei Aufruf trotz <a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.IsReadonly.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_IsReadonly">IsReadonly</a></p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 </article>
           </div>

@@ -90,7 +90,10 @@
 <a id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseApplication_" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CloseApplication*"></a>
 <h4 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseApplication" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CloseApplication">CloseApplication()</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Schließt die Anwendung. Der Benutzer wird gefragt, ob er die Anwendung beenden möchte.
+An den geöffneten Forms wird die Methode <code>IsApplicationQuitAllowed</code> aufgerufen und eine
+entsprechende Message-Box ausgegeben bzw. das Schließen der Anwendung verhindert.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -102,11 +105,31 @@ void CloseApplication()</code></pre>
   </section>
 
 
+    <h5 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseApplication_remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Diese Methode wirft intern eine Exception, die dafür sorgt, dass die gesamte Anwendung
+beendet wird. Dies wird auch dem Client mitgeteilt, sodass dieser ebenfalls geschlossen wird.</p>
+</div>
+    </section>
 </section>
 <a id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseApplication_" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CloseApplication*"></a>
 <h4 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseApplication_FS_Hosting_Shared_FrameworkCloseMode_" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CloseApplication(FS.Hosting.Shared.FrameworkCloseMode)">CloseApplication(FrameworkCloseMode)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Wird als closeMode das Flag <a class="xref" href="FS.Hosting.Shared.FrameworkCloseMode.Restart.html">Restart</a> angegeben, so wird ein Neustart des
+Clients veranlasst. Allerdings darf ein Neustart nur unter der Bedingung ausgeführt werden,
+dass jedes aktuell laufende Ereignis eines der folgenden ist:</p>
+<ul>
+<li>MenuItem.OnClick</li>
+<li>Button.OnClick</li>
+<li>ImageButton.OnClick</li>
+<li>MessageBox-Event(Als Folge eine der oben genannten Events)</li>
+</ul>
+<p>Mit aktuell laufenden Ereignissen sind auch solche Ereignisse gemeint, die als Folge einen
+modalen Dialog geöffnet haben.Solange der Dialog offen ist, zählt das Ereignis zu den laufenden.</p>
+<p>Zusätzlich gibt es das Flag <a class="xref" href="FS.Hosting.Shared.FrameworkCloseMode.KeepUserLogin.html">KeepUserLogin</a>. Wird <a class="xref" href="FS.Hosting.Shared.FrameworkCloseMode.Restart.html">Restart</a>
+mit diesem Flag kombiniert (bitweise Oder-Verknüpfung), so wird beim Neustart der User Token
+in die neue Sitzung übernommen und es ist kein erneuter Login erforderlich.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -125,11 +148,20 @@ void CloseApplication(FrameworkCloseMode closeMode)</code></pre>
   </section>
 
 
+    <h5 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseApplication_FS_Hosting_Shared_FrameworkCloseMode__remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Diese Methode wirft intern eine Exception, die dafür sorgt, dass die gesamte Anwendung
+beendet wird. Dies wird auch dem Client mitgeteilt, sodass dieser ebenfalls geschlossen wird.</p>
+</div>
+    </section>
 </section>
 <a id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseApplication_" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CloseApplication*"></a>
 <h4 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseApplication_System_String_" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CloseApplication(System.String)">CloseApplication(String)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Schließt die Anwendung unmittelbar. Es wird keine weitere Prüfung durchgeführt und der
+Benutzer hat keine Möglichkeit die Aktion abzubrechen. Am Client wird dabei die übergebene
+Message ausgegeben.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -143,11 +175,20 @@ void CloseApplication(string message)</code></pre>
   <section>
     <div class="propertyInfo">
       <span class="parametername"><code>message</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>Die Meldung die am Client angezeigt werden soll.</p>
+<p>Wird <code>String.Empty</code> übergeben, wird die Anwendung ohne Meldung beendet.</p>
+<p>Wird <code>null</code> übergeben, verhält sich die Methode wie die parameterlose <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CloseApplication.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseApplication">CloseApplication()</a>.</p>
+</div>
     </div>
   </section>
 
 
+    <h5 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseApplication_System_String__remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Diese Methode wirft intern eine Exception, die dafür sorgt, dass die gesamte Anwendung
+beendet wird. Dies wird auch dem Client mitgeteilt, sodass dieser ebenfalls geschlossen wird.</p>
+</div>
+    </section>
 </section>
 </article>
           </div>

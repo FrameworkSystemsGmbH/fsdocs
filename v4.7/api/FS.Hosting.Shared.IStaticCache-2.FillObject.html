@@ -90,7 +90,11 @@
 <a id="FS_Hosting_Shared_IStaticCache_2_FillObject_" data-uid="FS.Hosting.Shared.IStaticCache`2.FillObject*"></a>
 <h4 id="FS_Hosting_Shared_IStaticCache_2_FillObject__0__1_" data-uid="FS.Hosting.Shared.IStaticCache`2.FillObject(`0,`1)">FillObject(TObj, TPK)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Füllt das Objekt mit dem per Primärschlüssel referenzierten Datensatz,
+wenn dieser existiert, sonst mit einem leeren Objekt.
+Die Methode <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.OnAfterLoad</span> wird nur im ersten Fall aufgerufen.
+Die Methode gibt 1 zurück, wenn der Datensatz gefunden wurde, sonst 0.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -124,7 +128,11 @@ int FillObject(TObj value, TPK pk)</code></pre>
 <a id="FS_Hosting_Shared_IStaticCache_2_FillObject_" data-uid="FS.Hosting.Shared.IStaticCache`2.FillObject*"></a>
 <h4 id="FS_Hosting_Shared_IStaticCache_2_FillObject__0__1_System_Func__0_System_Boolean__" data-uid="FS.Hosting.Shared.IStaticCache`2.FillObject(`0,`1,System.Func{`0,System.Boolean})">FillObject(TObj, TPK, Func&lt;TObj, Boolean&gt;)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Füllt das Objekt mit dem per Primärschlüssel referenzierten Datensatz,
+wenn dieser existiert und die übergebene Where-Einschränkung erfüllt, sonst mit einem leeren Objekt.
+Die Methode <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.OnAfterLoad</span> wird nur im ersten Fall aufgerufen.
+Die Methode gibt 1 zurück, wenn der Datensatz gefunden wurde, sonst 0.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -162,7 +170,11 @@ int FillObject(TObj value, TPK pk, Func&lt;TObj, bool&gt; where)</code></pre>
 <a id="FS_Hosting_Shared_IStaticCache_2_FillObject_" data-uid="FS.Hosting.Shared.IStaticCache`2.FillObject*"></a>
 <h4 id="FS_Hosting_Shared_IStaticCache_2_FillObject__0_System_Func__0_System_Boolean__" data-uid="FS.Hosting.Shared.IStaticCache`2.FillObject(`0,System.Func{`0,System.Boolean})">FillObject(TObj, Func&lt;TObj, Boolean&gt;)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Füllt das Objekt mit dem ersten Datensatz, welcher die übergebene Where-Einschränkung erfüllt,
+soweit einer existiert, sonst mit einem leeren Objekt.
+Die Methode <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.OnAfterLoad</span> wird nur im ersten Fall aufgerufen.
+Die Methode gibt 1 zurück, wenn ein Datensatz gefunden wurde, sonst 0.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -192,11 +204,21 @@ int FillObject(TObj value, Func&lt;TObj, bool&gt; where)</code></pre>
       </div>
     </section>
 
+    <h5 id="FS_Hosting_Shared_IStaticCache_2_FillObject__0_System_Func__0_System_Boolean___remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Hinweis: Wenn die Where-Einschränkung den PK enthält, sollte dieser explizit angegeben werden,
+also die Überladung dieser Methode mit PK genutzt werden, da diese performanter arbeiten kann.</p>
+</div>
+    </section>
 </section>
 <a id="FS_Hosting_Shared_IStaticCache_2_FillObject_" data-uid="FS.Hosting.Shared.IStaticCache`2.FillObject*"></a>
 <h4 id="FS_Hosting_Shared_IStaticCache_2_FillObject__0_System_Func_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IEnumerable__0___" data-uid="FS.Hosting.Shared.IStaticCache`2.FillObject(`0,System.Func{System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{`0}})">FillObject(TObj, Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&gt;&gt;)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Füllt das Objekt mit dem ersten Datensatz in der angegebenen Sortierung, soweit einer existiert,
+sonst mit einem leeren Objekt.
+Die Methode <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.OnAfterLoad</span> wird nur im ersten Fall aufgerufen.
+Die Methode gibt 1 zurück, wenn ein Datensatz gefunden wurde, sonst 0.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -230,7 +252,12 @@ int FillObject(TObj value, Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&
 <a id="FS_Hosting_Shared_IStaticCache_2_FillObject_" data-uid="FS.Hosting.Shared.IStaticCache`2.FillObject*"></a>
 <h4 id="FS_Hosting_Shared_IStaticCache_2_FillObject__0_System_Func__0_System_Boolean__System_Func_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IEnumerable__0___" data-uid="FS.Hosting.Shared.IStaticCache`2.FillObject(`0,System.Func{`0,System.Boolean},System.Func{System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{`0}})">FillObject(TObj, Func&lt;TObj, Boolean&gt;, Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&gt;&gt;)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Füllt das Objekt mit dem ersten Datensatz, welcher die übergebene Where-Einschränkung erfüllt
+(unter Berücksichtigung der angegebenen Sortierung),
+soweit einer existiert, sonst mit einem leeren Objekt.
+Die Methode <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.OnAfterLoad</span> wird nur im ersten Fall aufgerufen.
+Die Methode gibt 1 zurück, wenn ein Datensatz gefunden wurde, sonst 0.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>

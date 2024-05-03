@@ -90,7 +90,10 @@
 <a id="FS_Hosting_Shared_Reporting_PrintQueue_Delete_" data-uid="FS.Hosting.Shared.Reporting.PrintQueue.Delete*"></a>
 <h4 id="FS_Hosting_Shared_Reporting_PrintQueue_Delete_FS_Hosting_Shared_GlobalObj_IGlobalObjects_FS_Shared_BaseObjects_guid_" data-uid="FS.Hosting.Shared.Reporting.PrintQueue.Delete(FS.Hosting.Shared.GlobalObj.IGlobalObjects,FS.Shared.BaseObjects.guid)">Delete(IGlobalObjects, guid)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Diese Methode löscht den Datensatz aus der Print-Queue.
+Handelt es sich dabei um den letzten Eintrag für eine Transaktion wird diese ebenfalls mit gelöscht.</p>
+<p>Der Status des Print-Job muss 3 (grdruckt) oder 4 (Fehler) sein.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -112,6 +115,12 @@ public static void Delete(IGlobalObjects global, guid printJobId)</code></pre>
     </div>
   </section>
 
+
+  <h5 id="FS_Hosting_Shared_Reporting_PrintQueue_Delete_FS_Hosting_Shared_GlobalObj_IGlobalObjects_FS_Shared_BaseObjects_guid__examples">Examples</h5>
+  <pre><code>if (PrintQueue.GetStatus(this.Global, guid(sPrintJobID)) == 3 )
+{
+  PrintQueue.Delete(this.Global, new guid(sPrintJobID));
+}</code></pre>
 
 </section>
 </article>

@@ -85,7 +85,11 @@
   
   <h1 id="FS_Hosting_Shared_DragAndDrop_FlavorType" data-uid="FS.Hosting.Shared.DragAndDrop.FlavorType" class="text-break">Class FlavorType
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Wenn bei einem Drag&amp;Drop-Vorgang Daten von außerhalb der Applikation in die Applikation hinein gezogen werden, so wird in
+den Events OnCanDrop und OnDrop ( Drag&amp;Drop Events) ein TransferObject vom Typ ExternalTransferObject
+(<a class="xref" href="FS.Hosting.Shared.DragAndDrop.ExternalTransferObject.html">ExternalTransferObject</a>) zur Verfügung gestellt. An diesem externen Transferobjekt können alle Datenformate und die dazugehörigen
+Daten abgerufen werden.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -99,29 +103,41 @@
     <pre><code class="lang-csharp hljs">[DocfxBrowsable]
 public static class FlavorType : Object</code></pre>
   </div>
+  <h5 id="FS_Hosting_Shared_DragAndDrop_FlavorType_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Diese Klasse stellt primär Konstanten für alle von Framework Studio bekannten Datenformate zur Verfügung.
+Die Konstanten sind vom Typ String. So kann das externe Transferobjekt grundsätzlich auch unbekannte Datenformate unterstützen.</p>
+</div>
   <h3 id="fields">Fields
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FlavorType.FileList.html">FileList</a></h4>
-    <section><p></section>
+    <section><p><p>Stellt Dateien dar.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FlavorType.Image.html">Image</a></h4>
-    <section><p></section>
+    <section><p><p>Stellt ein Bild dar.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FlavorType.TextHtml.html">TextHtml</a></h4>
-    <section><p></section>
+    <section><p><p>Stellt Text im HTML-Format dar.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FlavorType.TextPlain.html">TextPlain</a></h4>
-    <section><p></section>
+    <section><p><p>Stellt unformatierten Text dar.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FlavorType.TextRtf.html">TextRtf</a></h4>
-    <section><p></section>
+    <section><p><p>Stellt Text im RTF-Format dar.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FlavorType.TextUriList.html">TextUriList</a></h4>
-    <section><p></section>
+    <section><p><p>Stellt eine Liste von URIs (Uniform Resource Identifier) (unter anderem als Text) dar.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FlavorType.TextXml.html">TextXml</a></h4>
-    <section><p></section>
+    <section><p><p>Stellt Text im XML-Format dar.</p>
+</p></section>
   
   <h3 id="methods">Methods
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FlavorType.IsTextFlavor.html#FS_Hosting_Shared_DragAndDrop_FlavorType_IsTextFlavor_System_String_">IsTextFlavor(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt zurück, ob das übergebene Format ein Textformat ist.</p>
+</p></section>
   
 </article>
           </div>

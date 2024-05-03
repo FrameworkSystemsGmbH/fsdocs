@@ -214,7 +214,7 @@ catch
 // oder eine andere Fehler-Situation:
 if( bError )
 {
-  IcdLogEntry oLogEntry = cdLogEntryFactory.Create(this.Global);
+  IcdLogEntry oLogEntry = cdLogEntryFactory.Create();
 
   // Fehler, also Rollback – wenn eine Transaktion offen ist
   if (oLogEntry.Connection.ActiveTransaction != null)

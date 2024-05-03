@@ -90,23 +90,41 @@
     <h3 id="classes">Classes
   </h3>
       <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.ExternalTransferObject.html">ExternalTransferObject</a></h4>
-      <section></section>
+      <section><p>Ein Objekt dieser Klasse wird in den Events <code>OnCanDrop</code> und <code>OnDrop</code> (Drag&amp;Drop Events) als TransferObject
+in den Eventparametern übergeben, wenn der Drag&amp;Drop-Vorgang von außerhalb der Applikation in die Applikation
+hinein ausgelöst wurde.</p>
+</section>
       <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FileFlavorData.html">FileFlavorData</a></h4>
-      <section></section>
+      <section><p>Diese Klasse stellt eine einzelne Datei dar, die in einem externen Drag&amp;Drop-Vorgang transportiert wird.
+Eine einzelne Datei ist immer ein Element einer Liste von Dateien (<a class="xref" href="FS.Hosting.Shared.DragAndDrop.FileListFlavorData.html">FileListFlavorData</a>).</p>
+</section>
       <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FileFlavorData.FileType.html">FileFlavorData.FileType</a></h4>
-      <section></section>
+      <section><p>Der Dateityp, der Verzeichnis oder Datei ist.</p>
+</section>
       <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FileListFlavorData.html">FileListFlavorData</a></h4>
-      <section></section>
+      <section><p>Diese Klasse stellt bei einem Drag&amp;Drop-Vorgang die Liste der transportierten Dateien dar.
+Die Klasse ist enumerierbar (<code>IEnumerator&lt;FileFlavorData&gt;</code>) und eine Spezialisierung von <a class="xref" href="FS.Hosting.Shared.DragAndDrop.FlavorData.html">FlavorData</a>.</p>
+</section>
       <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FlavorData.html">FlavorData</a></h4>
-      <section></section>
+      <section><p>Die Daten, welche am externen Transferobjekt (<a class="xref" href="FS.Hosting.Shared.DragAndDrop.ExternalTransferObject.html">ExternalTransferObject</a>) bei einem Drag&amp;Drop-Vorgang in einem
+bestimmten Format (<a class="xref" href="FS.Hosting.Shared.DragAndDrop.FlavorType.html">FlavorType</a>) angeboten werden, werden immer in einem Objekt verpackt, das eine Spezialisierung
+der abstrakten Klasse <em>FlavorData</em> darstellt.</p>
+</section>
       <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FlavorType.html">FlavorType</a></h4>
-      <section></section>
+      <section><p>Wenn bei einem Drag&amp;Drop-Vorgang Daten von außerhalb der Applikation in die Applikation hinein gezogen werden, so wird in
+den Events OnCanDrop und OnDrop ( Drag&amp;Drop Events) ein TransferObject vom Typ ExternalTransferObject
+(<a class="xref" href="FS.Hosting.Shared.DragAndDrop.ExternalTransferObject.html">ExternalTransferObject</a>) zur Verfügung gestellt. An diesem externen Transferobjekt können alle Datenformate und die dazugehörigen
+Daten abgerufen werden.</p>
+</section>
       <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.ImageFlavorData.html">ImageFlavorData</a></h4>
-      <section></section>
+      <section><p>Diese Klasse stellt bei einem Drag&amp;Drop-Vorgang das transportierte Bild dar.</p>
+</section>
       <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.TextFlavorData.html">TextFlavorData</a></h4>
-      <section></section>
+      <section><p>Diese Klasse stellt bei einem Drag&amp;Drop-Vorgang einen Text dar.</p>
+</section>
       <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.UriListFlavorData.html">UriListFlavorData</a></h4>
-      <section></section>
+      <section><p>Diese Klasse stellt bei einem Drag&amp;Drop-Vorgang eine Liste von URIs (Uniform Resource Identifier) dar.</p>
+</section>
 </article>
           </div>
           

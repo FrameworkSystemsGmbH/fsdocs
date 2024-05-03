@@ -85,7 +85,9 @@
   
   <h1 id="FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider" data-uid="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider" class="text-break">Interface IRuntimeConfigProvider
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Managed die Runtime-Konfigurationen.
+Eine Instanz kann über das statische Property <a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.RuntimeConfig.html">RuntimeConfig</a>.<a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.RuntimeConfig.Get.html#FS_Hosting_Shared_Configuration_Runtime_RuntimeConfig_Get">Get</a> abgerufen werden.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.html">FS.Hosting.Shared.Configuration.Runtime</a></h6>
   <h6><strong>Assembly</strong>: FS.Hosting.Shared.dll</h6>
@@ -98,55 +100,82 @@ public interface IRuntimeConfigProvider</code></pre>
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.AppServiceDescription.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_AppServiceDescription">AppServiceDescription</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die Beschreibung der Application zurück. Diese wird dem dem Authentication-Service migeteilt.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.AppServiceId.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_AppServiceId">AppServiceId</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die ID zurück mit der sich die Application am Authentication-Service registriert.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.AppServiceName.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_AppServiceName">AppServiceName</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Namen der Application zurück. Dieser wird dem dem Authentication-Service migeteilt.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.AppServicePrivateKey.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_AppServicePrivateKey">AppServicePrivateKey</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Private Key der Application als byte[] zurück.
+Der Authentication-Service besitzt den Public teil dieses Keys und validiert damit Nachrichten von der Application.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.AppServicePrivateKeyHex.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_AppServicePrivateKeyHex">AppServicePrivateKeyHex</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Private Key der Application als Hex-String zurück.
+Der Authentication-Service besitzt den Public teil dieses Keys und validiert damit Nachrichten von der Application.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.AppServiceTitle.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_AppServiceTitle">AppServiceTitle</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Titel der Application zurück. Dieser wird in der Titelleiste im Client angezeigt.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.AuthServiceDefaultUserName.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_AuthServiceDefaultUserName">AuthServiceDefaultUserName</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Namen des Users zurück, mit dem sich defaultmäßig am Authentication Service angemeldet werden soll.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.AuthServiceDefaultUserPassword.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_AuthServiceDefaultUserPassword">AuthServiceDefaultUserPassword</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt das Password des Default-Users <a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.AuthServiceDefaultUserName.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_AuthServiceDefaultUserName">AuthServiceDefaultUserName</a> zurück.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.AuthServicePublicKey.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_AuthServicePublicKey">AuthServicePublicKey</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Public Key des Authentication-Service als byte[] zurück.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.AuthServicePublicKeyHex.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_AuthServicePublicKeyHex">AuthServicePublicKeyHex</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Public Key des Authentication-Service als Hex-String zurück.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.BrokerIdentifier.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_BrokerIdentifier">BrokerIdentifier</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den dem Tenant zugeordneten BrokerIdentifier zurück..
+Wird nicht mit einem BrokerIdentifier gearbeitet, dann wird <code>null</code> zurückgegeben.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.ExistsLicense.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_ExistsLicense">ExistsLicense</a></h4>
-    <section><p></section>
+    <section><p><p><code>true</code>, wenn eine Lizenz für den Tenant existiert.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.ExpirationState.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_ExpirationState">ExpirationState</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Gültigkeits-Status des Tenant zurück.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.IsAuthenticationEnabled.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_IsAuthenticationEnabled">IsAuthenticationEnabled</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt zurück, ob die Authentication aktiviert ist.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.IsReadonly.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_IsReadonly">IsReadonly</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt an, ob die Konfigurations-Informationen geschrieben werden können.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.RuntimeSupervisorEnabled.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_RuntimeSupervisorEnabled">RuntimeSupervisorEnabled</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt zurück, ob der Runtime-Supervisor aktiviert ist.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.RuntimeSupervisorUri.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_RuntimeSupervisorUri">RuntimeSupervisorUri</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die Url des Runtime Supervisor</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.Tenant.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_Tenant">Tenant</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Namen des Tanant zurück.
+Wird nicht mit Tenants gearbeitet, dann wird <code>null</code> zurückgegeben.</p>
+</p></section>
   
   <h3 id="methods">Methods
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.GetConnectionString.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_GetConnectionString_System_String_">GetConnectionString(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den ConnectionString für eine Connection-Group zurück.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.GetLicenseXml.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_GetLicenseXml_FS_Shared_BaseObjects_guid_">GetLicenseXml(guid)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt das Lizenz-Xml für ein Package zurück.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.GetServiceHostEnabled.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_GetServiceHostEnabled_System_String_">GetServiceHostEnabled(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die BaseAddress eines Service Hosts zurück.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.SetLicenseXml.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_SetLicenseXml_FS_Shared_BaseObjects_guid_System_Xml_Linq_XElement_">SetLicenseXml(guid, XElement)</a></h4>
-    <section><p></section>
+    <section><p><p>Schreibt die Lizenz-Information für ein Package. Diese Methode kann nur aufgerufen werden, wenn nicht <a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.IsReadonly.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_IsReadonly">IsReadonly</a>.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.TryGetServiceProxyAddress.html#FS_Hosting_Shared_Configuration_Runtime_IRuntimeConfigProvider_TryGetServiceProxyAddress_System_String_System_String__">TryGetServiceProxyAddress(String, out String)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die Adresse eines Service-Endpoints zurück.</p>
+</p></section>
   
   <h3 id="extensionmethods">Extension Methods</h3>
   <div>

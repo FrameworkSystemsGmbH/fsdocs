@@ -90,7 +90,9 @@
 <a id="FS_Hosting_Shared_GlobalObj_IcGlobalBase_GetClientCulture_" data-uid="FS.Hosting.Shared.GlobalObj.IcGlobalBase.GetClientCulture*"></a>
 <h4 id="FS_Hosting_Shared_GlobalObj_IcGlobalBase_GetClientCulture" data-uid="FS.Hosting.Shared.GlobalObj.IcGlobalBase.GetClientCulture">GetClientCulture()</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Liefert die Culture des Clients zurück.
+Diese Methode kann in der Component <code>FSGeneral.cGlobal</code> überschrieben werden.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -109,6 +111,18 @@ CultureInfo GetClientCulture()</code></pre>
       </div>
     </section>
 
+    <h5 id="FS_Hosting_Shared_GlobalObj_IcGlobalBase_GetClientCulture_remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Die FS-seitige Implementierung der Methode ermittelt die Culture anhand der <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ClientInfos.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ClientInfos">ClientInfos</a>
+am Global Object. Dabei greifen die folgenden Prioritäten</p>
+<ol>
+<li>Aus der Angabe &quot;Locale&quot;</li>
+<li>Aus den Angaben &quot;UserLanguage&quot; und &quot;UserCountry&quot;</li>
+<li>Die <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo.currentculture#system-globalization-cultureinfo-currentculture">CurrentCulture</a>, die in der Regel der Culture des Broker-Servers entspricht.</li>
+</ol>
+<p>Wird die Methode überschrieben, muss die ermittelte Culture ggf. in einem eigenen Property zwischengespeichert werden.</p>
+</div>
+    </section>
 </section>
 </article>
           </div>

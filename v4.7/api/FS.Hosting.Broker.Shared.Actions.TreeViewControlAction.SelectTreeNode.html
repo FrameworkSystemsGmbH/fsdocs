@@ -90,7 +90,10 @@
 <a id="FS_Hosting_Broker_Shared_Actions_TreeViewControlAction_SelectTreeNode_" data-uid="FS.Hosting.Broker.Shared.Actions.TreeViewControlAction.SelectTreeNode*"></a>
 <h4 id="FS_Hosting_Broker_Shared_Actions_TreeViewControlAction_SelectTreeNode_FS_Hosting_Shared_IDevFrameworkObject___" data-uid="FS.Hosting.Broker.Shared.Actions.TreeViewControlAction.SelectTreeNode(FS.Hosting.Shared.IDevFrameworkObject[])">SelectTreeNode(IDevFrameworkObject[])</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Diese Action dient zum Selektieren eines Knotens im TreeView. Sie ist an die ExpandTreeView() Action angelehnt und
+hat somit auch mehrere Aufrufmöglichkeiten. Entweder mit einem String, welcher einen Pfad zu einem Knoten über die
+RowID und Knotennamen beschreibt, oder durch eine Liste mit IDevFrameworkObjects.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -109,6 +112,13 @@ public virtual void SelectTreeNode(IDevFrameworkObject[] objectPath)</code></pre
   </section>
 
 
+    <h5 id="FS_Hosting_Broker_Shared_Actions_TreeViewControlAction_SelectTreeNode_FS_Hosting_Shared_IDevFrameworkObject____remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p><strong>Hintergrund zum Objekt-Pfad:</strong>
+Der TreeView arbeitet mit LazyLoading – d.h.der Client liest Einträge bei Bedarf vom Broker nach.Dadurch ist der komplette Baum – der mitunter extrem komplex sein kann – im Client nicht bekannt.Ein einzelner Eintrag müsste sehr aufwendig im Baum gesucht werden, was im extremsten Fall bedeutet, dass der komplette Baum an den Client übertragen werden müsste. Bei einem Baum mit 5 Ebenen und jeweils 10 Knoten wären das 11.111 Requests und 111.110 Datensätze.
+Durch die Angabe des Pfades kann der Client ganz gezielt die benötigten Baum-Teile nachlesen. In diesem Beispiel wären das 5 Requests und nur 50 Datensätze.</p>
+</div>
+    </section>
 </section>
 </article>
           </div>

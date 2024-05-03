@@ -85,7 +85,8 @@
   
   <h1 id="FS_Hosting_Shared_DevFrameworkObject" data-uid="FS.Hosting.Shared.DevFrameworkObject" class="text-break">Class DevFrameworkObject
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Basisklasse für alle Components, die über FrameworkStudio erzeugt werden.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -113,15 +114,29 @@ public abstract class DevFrameworkObject : DevFrameworkBaseObject, ICloneable, I
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.DevFrameworkObject.State.html#FS_Hosting_Shared_DevFrameworkObject_State">State</a></h4>
-    <section><p></section>
+    <section><p><p>Aktueller Status des IDevFrameworkObjects.</p>
+</p></section>
   
   <h3 id="methods">Methods
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.DevFrameworkObject.DeferRecursiveSaves.html#FS_Hosting_Shared_DevFrameworkObject_DeferRecursiveSaves">DeferRecursiveSaves()</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt zurück, ob alle Save-Aufrufe an dieser Instanz,
+die während eines laufenden Save-Aufrufs an dieser Instanz erfolgen,
+direkt abgebrochen werden sollen und stattdessen nach dem initialen Save-Aufruf
+(innerhalb der Transaktion) ein weiterer Save-Aufruf erfolgen soll.
+Standardmäßig gibt die Methode &quot;false&quot; zurück. Der Mechanismus kann aktiviert werden,
+in dem die Methode mit &quot;return true&quot; überschrieben wird.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.DevFrameworkObject.Save.html#FS_Hosting_Shared_DevFrameworkObject_Save_FS_Hosting_Shared_SaveEntryPoints_">Save(SaveEntryPoints)</a></h4>
-    <section><p></section>
+    <section><p><p>Speichert diese Component in der Datenbank ab. Das entsprechende SqlStatement
+muss in der SaveAction zusammengebaut und ausgeführt werden.
+Falls keine gestartete Transaktion existiert,
+wird automatisch eine Transaktion aufgebaut. In diesem Fall wird
+anschliessend ein Commit ausgeführt.
+Zuerst wird <span class="xref">FS.Hosting.Shared.DevFrameworkObject.OnBeforeSave</span>, anschließend die SaveAction
+und abschließend <span class="xref">FS.Hosting.Shared.DevFrameworkObject.OnAfterSave</span> aufgerufen.</p>
+</p></section>
   
 </article>
           </div>

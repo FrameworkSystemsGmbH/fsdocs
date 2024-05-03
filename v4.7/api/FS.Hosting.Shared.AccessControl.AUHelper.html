@@ -85,7 +85,9 @@
   
   <h1 id="FS_Hosting_Shared_AccessControl_AUHelper" data-uid="FS.Hosting.Shared.AccessControl.AUHelper" class="text-break">Class AUHelper
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Diese Klasse bietet Methoden und Properties zu den Themen Authentifizierung,
+Geschäftseinheiten, Laufzeitlizensierung und Packages an. Sie ist über <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.AUHelper.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_AUHelper">AUHelper</a> zu erreichen.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -99,67 +101,106 @@
     <pre><code class="lang-csharp hljs">[DocfxBrowsable]
 public sealed class AUHelper : Object, ILicenseProvider</code></pre>
   </div>
+  <h5 id="FS_Hosting_Shared_AccessControl_AUHelper_examples"><strong>Examples</strong></h5>
+  <pre><code>this.Global.AUHelper.ChangePassword( sOld, sNew );</code></pre>
+
   <h3 id="properties">Properties
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.AuthenticationEnabled.html#FS_Hosting_Shared_AccessControl_AUHelper_AuthenticationEnabled">AuthenticationEnabled</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt an, ob die Authentication in der Anwendung aktiviert ist.
+Eine Developerlizenz deaktiviert die Benutzerauthentifizierung automatisch.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.IsDefaultUser.html#FS_Hosting_Shared_AccessControl_AUHelper_IsDefaultUser">IsDefaultUser</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt an, ob der authentifizierte Benutzer der Default User ist.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.LicenseVerifier.html#FS_Hosting_Shared_AccessControl_AUHelper_LicenseVerifier">LicenseVerifier</a></h4>
-    <section><p></section>
+    <section><p><p>Liefert den <a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.LicenseVerifier.html#FS_Hosting_Shared_AccessControl_AUHelper_LicenseVerifier">LicenseVerifier</a> für die Verwaltung der ausgewerteten Lizenzen zurück.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.UnitKey.html#FS_Hosting_Shared_AccessControl_AUHelper_UnitKey">UnitKey</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt Schlüsselwert der Unit (Geschäftseinheit) zurück, an der der Benutzer (mit der Methode <a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.IdentifyUnit.html#FS_Hosting_Shared_AccessControl_AUHelper_IdentifyUnit_System_String_">IdentifyUnit(String)</a>) angemeldet wurde.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.Units.html#FS_Hosting_Shared_AccessControl_AUHelper_Units">Units</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt eine Enumeration von Schlüssel-Wert-Paaren zurück, welche alle an dieser Applikation zur Verfügung stehenden Geschäftseinheiten repräsentieren.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.Username.html#FS_Hosting_Shared_AccessControl_AUHelper_Username">Username</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Namen das momentan authentifizierten Benutzers zurück.
+Ist die Authentifikation ausgeschaltet, wird <code>String.Empty</code> zurück gegeben.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.UserTokenAsString.html#FS_Hosting_Shared_AccessControl_AUHelper_UserTokenAsString">UserTokenAsString</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Token zurück, der bei der Authentifizierung des Benutzers am Authentication-Service gelöst wird.
+Ist die Authentifikation ausgeschaltet, wird <code>String.Empty</code> zurück gegeben.</p>
+</p></section>
   
   <h3 id="methods">Methods
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.ChangePassword.html#FS_Hosting_Shared_AccessControl_AUHelper_ChangePassword_System_String_System_String_">ChangePassword(String, String)</a></h4>
-    <section><p></section>
+    <section><p><p>Ändert das Passwort des momentan angemeldeten Benutzers.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.ChangePasswordChecked.html#FS_Hosting_Shared_AccessControl_AUHelper_ChangePasswordChecked_System_String_System_Byte___System_String_AuthenticationService_Message__System_String_">ChangePasswordChecked(String, Byte[], String, out Message, String)</a></h4>
-    <section><p></section>
+    <section><p><p>Ändert das Passwort für den angegebenen Benutzer unter Angabe einer Login Information
+In der als out Parameter angegebenen Message wird der Erfolg bzw. Grund für den Misserfolg zurückgegeben.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.ChangePasswordChecked.html#FS_Hosting_Shared_AccessControl_AUHelper_ChangePasswordChecked_System_String_System_String_System_String_AuthenticationService_Message__System_String_">ChangePasswordChecked(String, String, String, out Message, String)</a></h4>
-    <section><p></section>
+    <section><p><p>Ändert das Passwort für den angegebenen Benutzer unter Angabe einer Login Information.
+In der als out Parameter angegebenen Message wird der Erfolg bzw. Grund für den Misserfolg zurückgegeben.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.GetApplicationRoles.html#FS_Hosting_Shared_AccessControl_AUHelper_GetApplicationRoles">GetApplicationRoles()</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt eine Liste mit den Namen aller Rollen zurück, welche an dieser Applikation zur Verfügung stehen.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.GetApplicationRoles.html#FS_Hosting_Shared_AccessControl_AUHelper_GetApplicationRoles_System_Boolean_">GetApplicationRoles(Boolean)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt eine Liste mit den Namen aller Rollen zurück, welche an dieser Applikation zur Verfügung stehen.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.GetPackages.html#FS_Hosting_Shared_AccessControl_AUHelper_GetPackages">GetPackages()</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt eine Liste zurück, die alle Packages der Applikation in der Verwendungsreihenfolge enthält.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.GetRoleCaption.html#FS_Hosting_Shared_AccessControl_AUHelper_GetRoleCaption_System_String_">GetRoleCaption(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die Bezeichnung (=anzuzeigender Name) der Rolle zurück, die über den technischen Namen roleName identifiziert wird.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.GetRoleDescription.html#FS_Hosting_Shared_AccessControl_AUHelper_GetRoleDescription_System_String_">GetRoleDescription(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die Beschreibung der Rolle zurück, die über den technischen Namen roleName identifiziert wird.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.GetUserRoles.html#FS_Hosting_Shared_AccessControl_AUHelper_GetUserRoles">GetUserRoles()</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt eine Liste mit den technischen Namen der Rollen zurück, die dem aktuell angemeldeten Benutzer zugeordnet sind.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.GetUserUnits.html#FS_Hosting_Shared_AccessControl_AUHelper_GetUserUnits">GetUserUnits()</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt eine Liste mit Schlüsselwerten der Units (Geschäftseinheiten) zurück, welche für den aktuell angemeldeten Benutzer freigeschaltet sind.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.Granted.html#FS_Hosting_Shared_AccessControl_AUHelper_Granted_FS_Hosting_Shared_AccessControl_AccessUnit_">Granted(AccessUnit)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt aus, ob auf die übergebene AccessUnit das Recht <a class="xref" href="FS.Hosting.Shared.AccessControl.AUPermissionType.Access.html">Access</a> besteht.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.Granted.html#FS_Hosting_Shared_AccessControl_AUHelper_Granted_FS_Hosting_Shared_AccessControl_AccessUnit_FS_Hosting_Shared_AccessControl_AUPermissionType_">Granted(AccessUnit, AUPermissionType)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt aus, ob ein bestimmtes Recht an einer AccessUnit besteht.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.IdentifyDefaultUser.html#FS_Hosting_Shared_AccessControl_AUHelper_IdentifyDefaultUser">IdentifyDefaultUser()</a></h4>
-    <section><p></section>
+    <section><p><p>Authentifiziert den in der Application hinterlegten Default User. Dazu wird der Authentication Service kontaktiert.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.IdentifyDefaultUser.html#FS_Hosting_Shared_AccessControl_AUHelper_IdentifyDefaultUser_AuthenticationService_Message__">IdentifyDefaultUser(out Message)</a></h4>
-    <section><p></section>
+    <section><p><p>Authentifiziert den in der Application hinterlegten Default User. Dazu wird der Authentication Service kontaktiert.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.IdentifyUnit.html#FS_Hosting_Shared_AccessControl_AUHelper_IdentifyUnit_System_String_">IdentifyUnit(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Wählt die Geschäftseinheit (Unit) mit dem angegebenen Schlüsselwert unitKey aus.
+Dadurch werden Rollen und Berechtigungen automatisch neu gesetzt.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.IdentifyUser.html#FS_Hosting_Shared_AccessControl_AUHelper_IdentifyUser_AuthenticationService_Message__System_String_System_String_System_String__System_Boolean_">IdentifyUser(out Message, String, String, ref String, Boolean)</a></h4>
-    <section><p></section>
+    <section><p><p>Authentifiziert den übergebenen Benutzer. Dazu wird der Authentication Service kontaktiert.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.LicenseGranted.html#FS_Hosting_Shared_AccessControl_AUHelper_LicenseGranted_FS_Hosting_Shared_AccessControl_AccessUnit_">LicenseGranted(AccessUnit)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt aus, ob die vorhandene Lizenz den Zugriff auf die übergebene AsccessUnit erlaubt
+Prüft <a class="xref" href="FS.Hosting.Shared.GlobalObj.cGlobalBase.OnLicenseGranted.html#FS_Hosting_Shared_GlobalObj_cGlobalBase_OnLicenseGranted_FS_Hosting_Shared_AccessControl_AccessUnit_FS_Hosting_Shared_AccessControl_AUPermissionType_">OnLicenseGranted(AccessUnit, AUPermissionType)</a>, wenn die übergebene <code data-dev-comment-type="paramref" class="paramref">accessUnit</code> erlaubt ist.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.LicenseGranted.html#FS_Hosting_Shared_AccessControl_AUHelper_LicenseGranted_FS_Hosting_Shared_AccessControl_AccessUnit_FS_Hosting_Shared_AccessControl_AUPermissionType_">LicenseGranted(AccessUnit, AUPermissionType)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt aus, ob die vorhandene Lizenz den Zugriff auf die übergebene AsccessUnit erlaubt.
+Prüft <a class="xref" href="FS.Hosting.Shared.GlobalObj.cGlobalBase.OnLicenseGranted.html#FS_Hosting_Shared_GlobalObj_cGlobalBase_OnLicenseGranted_FS_Hosting_Shared_AccessControl_AccessUnit_FS_Hosting_Shared_AccessControl_AUPermissionType_">OnLicenseGranted(AccessUnit, AUPermissionType)</a>, wenn die übergebene <code data-dev-comment-type="paramref" class="paramref">accessUnit</code> erlaubt ist.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.LicenseGrantedInFile.html#FS_Hosting_Shared_AccessControl_AUHelper_LicenseGrantedInFile_FS_Hosting_Shared_AccessControl_AccessUnit_FS_Hosting_Shared_AccessControl_AUPermissionType_">LicenseGrantedInFile(AccessUnit, AUPermissionType)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt zurück, ob die vorhandene Lizenz-Datei den Zugriff auf die übergebene AccessUnit erlaubt.
+<a class="xref" href="FS.Hosting.Shared.GlobalObj.cGlobalBase.OnLicenseGranted.html#FS_Hosting_Shared_GlobalObj_cGlobalBase_OnLicenseGranted_FS_Hosting_Shared_AccessControl_AccessUnit_FS_Hosting_Shared_AccessControl_AUPermissionType_">OnLicenseGranted(AccessUnit, AUPermissionType)</a> wird dabei nicht geprüft.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.RegisterUnits.html#FS_Hosting_Shared_AccessControl_AUHelper_RegisterUnits_System_Collections_Generic_IEnumerable_System_Collections_Generic_KeyValuePair_System_String_System_String___">RegisterUnits(IEnumerable&lt;KeyValuePair&lt;String, String&gt;&gt;)</a></h4>
-    <section><p></section>
+    <section><p><p>Registriert die angegebenen Geschäftseinheiten (Units) am Authentication Service.</p>
+</p></section>
   
 </article>
           </div>

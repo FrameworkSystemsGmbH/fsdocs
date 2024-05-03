@@ -90,7 +90,8 @@
 <a id="FrameworkSystems_FrameworkStudio_API_AddIn_FSAddInMethodAttribute_MenuIsVisibleMethod_" data-uid="FrameworkSystems.FrameworkStudio.API.AddIn.FSAddInMethodAttribute.MenuIsVisibleMethod*"></a>
 <h4 id="FrameworkSystems_FrameworkStudio_API_AddIn_FSAddInMethodAttribute_MenuIsVisibleMethod" data-uid="FrameworkSystems.FrameworkStudio.API.AddIn.FSAddInMethodAttribute.MenuIsVisibleMethod">MenuIsVisibleMethod</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Name einer Methode, die aufgerufen wird, um das Menü-Item zu aktivieren bzw. zu deaktivieren.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -109,6 +110,24 @@ public string MenuIsVisibleMethod { get; set; }</code></pre>
         <div class="markdown level1 summary"></div>
       </div>  
   </section>
+    <h5 id="FrameworkSystems_FrameworkStudio_API_AddIn_FSAddInMethodAttribute_MenuIsVisibleMethod_remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Beispiel:</p>
+<pre><code>[FSAddInMethod(AddAddInToDialog.DBEditor,
+    MenuCaption = &quot;Import&quot;,
+    MenuParentPath = &quot;Database&quot;,
+    MenuIsVisibleMethod = nameof(IsMenuDBImportVisible))]
+public static void ImportMethod(object sender, FSAddInEventArgs&lt;FSFormDBEditor> e)
+{
+    // ...
+}
+
+public static bool IsMenuDBImportVisible(FSAddInEventArgs&lt;FSFormDBEditor> e)
+{
+    return e.Form.SelectedTable.IsPartOfActivePackage;
+}</code></pre>
+</div>
+    </section>
 </section>
 </article>
           </div>

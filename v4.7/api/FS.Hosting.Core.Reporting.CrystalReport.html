@@ -85,7 +85,10 @@
   
   <h1 id="FS_Hosting_Core_Reporting_CrystalReport" data-uid="FS.Hosting.Core.Reporting.CrystalReport" class="text-break">Class CrystalReport
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Der direkte FS-Wrapper für interfacing mit einer <span class="xref">CrystalDecisions.CrystalReports.Engine.ReportDocument</span>-Datei.
+Greift direkt auf <span class="xref">CrystalDecisions.CrystalReports</span>-Methoden zu und
+sollte intern als logische Repräsentation eines physischen Crystal Reports betrachtet werden.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -99,23 +102,31 @@
     <pre><code class="lang-csharp hljs">[DocfxBrowsable]
 public class CrystalReport</code></pre>
   </div>
+  <h5 id="FS_Hosting_Core_Reporting_CrystalReport_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Analog zu <a class="xref" href="FS.Hosting.Core.Reporting.DevExpressReport.html">DevExpressReport</a>.</p>
+</div>
   <h3 id="properties">Properties
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.CrystalReport.PrintOptions.html#FS_Hosting_Core_Reporting_CrystalReport_PrintOptions">PrintOptions</a></h4>
-    <section><p></section>
+    <section><p><p>Die <span class="xref">CrystalDecisions.CrystalReports.Engine.PrintOptions</span>, auf dessen Basis der Druck des Reports stattfindet</p>
+</p></section>
   
   <h3 id="methods">Methods
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.CrystalReport.ExportToDisk.html#FS_Hosting_Core_Reporting_CrystalReport_ExportToDisk_FS_Hosting_Shared_Reporting_ExportFormat_System_String_">ExportToDisk(ExportFormat, String)</a></h4>
-    <section><p></section>
+    <section><p><p>Exportiert den Report ins gegebene Format und schreibt ihn in den angegebenen Pfad.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.CrystalReport.ExportToStream.html#FS_Hosting_Core_Reporting_CrystalReport_ExportToStream_FS_Hosting_Shared_Reporting_ExportFormat_">ExportToStream(ExportFormat)</a></h4>
-    <section><p></section>
+    <section><p><p>Exportiert den Report ins gegebene Format</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.CrystalReport.Load.html#FS_Hosting_Core_Reporting_CrystalReport_Load_System_String_">Load(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Lädt einen bestehenden Crystal Report aus dem angegebenen Pfad</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Core.Reporting.CrystalReport.SetDatasource.html#FS_Hosting_Core_Reporting_CrystalReport_SetDatasource_System_Data_DataSet_">SetDatasource(DataSet)</a></h4>
-    <section><p></section>
+    <section><p><p>Setzt die Datenquelle des Reports</p>
+</p></section>
   
 </article>
           </div>

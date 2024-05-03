@@ -85,7 +85,8 @@
 
 <h1 id="FS_Hosting_Core_Reporting_ReportDocument_Reports" data-uid="FS.Hosting.Core.Reporting.ReportDocument.Reports" class="text-break">Field Reports
 </h1>
-<div class="markdown level0 summary"></div>
+<div class="markdown level0 summary"><p>Eine Instanz, die alle, im Report-Document-Type definierten Crystal Reports, als Properties beinhaltet.</p>
+</div>
 <div class="markdown level0 conceptual"></div>
 <h6><strong>Namespace</strong>: <a class="xref" href="FS.Hosting.Core.Reporting.html">FS.Hosting.Core.Reporting</a></h6>
 <h6><strong>Assembly</strong>: FS.Hosting.Core.dll</h6>
@@ -109,6 +110,16 @@ public static readonly ReportDocument.ReportEnumList Reports</code></pre>
     </tr>
   </tbody>
 </table>
+<h5 id="FS_Hosting_Core_Reporting_ReportDocument_Reports_remarks"><strong>Remarks</strong></h5>
+<div class="markdown level0 remarks"><p>Verwenden dieses Properties:</p>
+<p>1.) bei der Instanziierung des Reports</p>
+<pre><code>rptReport myRptReport = new rptReport(this.Global, rptReport.Reports.SpecialReport1, ExportFormat.PDF );</code></pre>
+
+<p>2.) Nachträglich setzen</p>
+<pre><code>myRptReport.SelectedReport = rptReport.Reports.SpecialReport2;</code></pre>
+
+<p>Mithilfe der Methode <a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.GetReportEnums.html#FS_Hosting_Core_Reporting_ReportDocument_GetReportEnums">GetReportEnums()</a> können alle verfügbaren Reports ermittelt werden.</p>
+</div>
 </article>
           </div>
           

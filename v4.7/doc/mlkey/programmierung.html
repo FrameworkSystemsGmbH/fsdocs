@@ -121,16 +121,16 @@
 <h2 id="methoden-am-global-object">Methoden am Global-Object</h2>
 <p>Das GlobalObject bietet mehrere Methoden an, mit denen ein MLKey in ein Text überführt werden kann.</p>
 <ul>
-<li><a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.GetMLText.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_GetMLText_FS_Shared_MultiLanguage_MLKey_">GetMLText(mlkey)</a></li>
-<li><a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.GetMLText.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_GetMLText_FS_Shared_MultiLanguage_MLKey_System_String_">GetMLText(mlkey, iso)</a></li>
-<li><a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.GetMLKeyText.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_GetMLKeyText_FS_Shared_MultiLanguage_MLKey_">GetMLKeyText(mlkey)</a></li>
-<li><a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.FormatMLText.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_FormatMLText_FS_Shared_MultiLanguage_MLKey_System_Object___">FormatMLText(mlkey, args)</a></li>
-<li><a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.FormatMLKeyText.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_FormatMLKeyText_FS_Shared_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(mlkey, args)</a></li>
+<li><a href="xref:FS.Hosting.Shared.GlobalObj.MLUtil.GetMLText(FS.Shared.MultiLanguage.MLKey)">GetMLText(mlkey)</a></li>
+<li><a href="xref:FS.Hosting.Shared.GlobalObj.MLUtil.GetMLText(FS.Shared.MultiLanguage.MLKey,System.String)">GetMLText(mlkey, iso)</a></li>
+<li><a href="xref:FS.Hosting.Shared.GlobalObj.MLUtil.GetMLKeyText(FS.Shared.MultiLanguage.MLKey)">GetMLKeyText(mlkey)</a></li>
+<li><a href="xref:FS.Hosting.Shared.GlobalObj.MLUtil.FormatMLText(FS.Shared.MultiLanguage.MLKey,System.Object[])">FormatMLText(mlkey, args)</a></li>
+<li><a href="xref:FS.Hosting.Shared.GlobalObj.MLUtil.FormatMLKeyText(FS.Shared.MultiLanguage.MLKey,System.Object[])">FormatMLKeyText(mlkey, args)</a></li>
 </ul>
 <p>Für die Format-Funktionen wird die Client-Culture verwendet. Für die Verwendung einer spezifischen Culture gibt es entsprechende Überladungen:</p>
 <ul>
-<li><a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.FormatMLText.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_FormatMLText_System_IFormatProvider_FS_Shared_MultiLanguage_MLKey_System_Object___">FormatMLText(culture, mlkey, args)</a></li>
-<li><a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.FormatMLKeyText.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_FormatMLKeyText_System_IFormatProvider_FS_Shared_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(culture, mlkey, args)</a></li>
+<li><a href="xref:FS.Hosting.Shared.GlobalObj.MLUtil.FormatMLText(System.IFormatProvider,FS.Shared.MultiLanguage.MLKey,System.Object[])">FormatMLText(culture, mlkey, args)</a></li>
+<li><a href="xref:FS.Hosting.Shared.GlobalObj.MLUtil.FormatMLKeyText(System.IFormatProvider,FS.Shared.MultiLanguage.MLKey,System.Object[])">FormatMLKeyText(culture, mlkey, args)</a></li>
 </ul>
 <h2 id="cglobal-entrypoint">cGlobal EntryPoint</h2>
 <p>In der Klasse <code>cGlobal</code> gibt es einen zentralen Entry-Point <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IcGlobalBase.GlobalGetMLText.html#FS_Hosting_Shared_GlobalObj_IcGlobalBase_GlobalGetMLText_FS_Shared_MultiLanguage_MLKey_System_String_">GlobalGetMLText</a>. Dieser wird JEDES MAL aufgerufen, wenn aus einem MLKey ein Text erzeugt wird.</p>

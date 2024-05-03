@@ -90,7 +90,8 @@
 <a id="FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertBefore_" data-uid="FS.Hosting.Broker.Shared.Actions.GridControlAction.InsertBefore*"></a>
 <h4 id="FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertBefore_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction___" data-uid="FS.Hosting.Broker.Shared.Actions.GridControlAction.InsertBefore(FS.Hosting.Broker.Shared.Actions.GridColumnControlAction,FS.Hosting.Broker.Shared.Actions.GridColumnControlAction[])">InsertBefore(GridColumnControlAction, GridColumnControlAction[])</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Verschiebt die Grid-Columns <code data-dev-comment-type="paramref" class="paramref">controlsToInsert</code> vor das <code data-dev-comment-type="paramref" class="paramref">beforeControl</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -113,11 +114,25 @@ public void InsertBefore(GridColumnControlAction beforeControl, params GridColum
   </section>
 
 
+    <h5 id="FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertBefore_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction____remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Wenn <code data-dev-comment-type="paramref" class="paramref">beforeControl</code> null ist, werden die Grid-Columns <code data-dev-comment-type="paramref" class="paramref">controlsToInsert</code> an den Anfang des Grids verschoben.</p>
+</div>
+    </section>
+  <h5 id="FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertBefore_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction____examples">Examples</h5>
+  <p>Verschiebt die Columns <code>grd_sName</code>, <code>grd_decPrice</code> und <code>grd_sID</code> in der angegebenen
+Reihenfolge an den Anfang des Grids.</p>
+<pre><code>this.grd.InsertBefore(null, this.grd_sName, this.grd_decPrice, this.grd_sID);</code></pre>
+<p><br> Verschiebt die Columns <code>grd_decPrice</code> und <code>grd_sID</code> in der angegebenen
+Reihenfolge vor das Column <code>grd_sName</code>.</p>
+<pre><code>this.grd.InsertBefore(this.grd_sName, this.grd_decPrice, this.grd_sID);</code></pre>
+
 </section>
 <a id="FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertBefore_" data-uid="FS.Hosting.Broker.Shared.Actions.GridControlAction.InsertBefore*"></a>
 <h4 id="FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertBefore_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_System_Collections_Generic_IEnumerable_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction__" data-uid="FS.Hosting.Broker.Shared.Actions.GridControlAction.InsertBefore(FS.Hosting.Broker.Shared.Actions.GridColumnControlAction,System.Collections.Generic.IEnumerable{FS.Hosting.Broker.Shared.Actions.GridColumnControlAction})">InsertBefore(GridColumnControlAction, IEnumerable&lt;GridColumnControlAction&gt;)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Verschiebt die Grid-Columns <code data-dev-comment-type="paramref" class="paramref">controlsToInsert</code> vor das <code data-dev-comment-type="paramref" class="paramref">beforeControl</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -139,6 +154,19 @@ public void InsertBefore(GridColumnControlAction beforeControl, IEnumerable&lt;G
     </div>
   </section>
 
+
+    <h5 id="FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertBefore_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_System_Collections_Generic_IEnumerable_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction___remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Wenn <code data-dev-comment-type="paramref" class="paramref">beforeControl</code> null ist, werden die Grid-Columns <code data-dev-comment-type="paramref" class="paramref">controlsToInsert</code> an den Anfang des Grids verschoben.</p>
+</div>
+    </section>
+  <h5 id="FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertBefore_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_System_Collections_Generic_IEnumerable_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction___examples">Examples</h5>
+  <p>Verschiebt die Columns <code>grd_sName</code>, <code>grd_decPrice</code> und <code>grd_sID</code> in der angegebenen
+Reihenfolge an den Anfang des Grids.</p>
+<pre><code>this.grd.InsertBefore(null, this.grd_sName, this.grd_decPrice, this.grd_sID);</code></pre>
+<p><br> Verschiebt die Columns <code>grd_decPrice</code> und <code>grd_sID</code> in der angegebenen
+Reihenfolge vor das Column <code>grd_sName</code>.</p>
+<pre><code>this.grd.InsertBefore(this.grd_sName, this.grd_decPrice, this.grd_sID);</code></pre>
 
 </section>
 </article>

@@ -85,7 +85,8 @@
   
   <h1 id="FS_Hosting_Shared_Reporting_PrintQueue" data-uid="FS.Hosting.Shared.Reporting.PrintQueue" class="text-break">Class PrintQueue
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Diese Klasse bietet Methoden an, mit denen die Print-Queue ausgewertet und bearbeitet werden kann.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -103,11 +104,17 @@ public class PrintQueue : Object</code></pre>
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.Reporting.PrintQueue.Delete.html#FS_Hosting_Shared_Reporting_PrintQueue_Delete_FS_Hosting_Shared_GlobalObj_IGlobalObjects_FS_Shared_BaseObjects_guid_">Delete(IGlobalObjects, guid)</a></h4>
-    <section><p></section>
+    <section><p><p>Diese Methode löscht den Datensatz aus der Print-Queue.
+Handelt es sich dabei um den letzten Eintrag für eine Transaktion wird diese ebenfalls mit gelöscht.</p>
+<p>Der Status des Print-Job muss 3 (grdruckt) oder 4 (Fehler) sein.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Reporting.PrintQueue.GetDocumentOut.html#FS_Hosting_Shared_Reporting_PrintQueue_GetDocumentOut_FS_Hosting_Shared_GlobalObj_IGlobalObjects_FS_Shared_BaseObjects_guid_">GetDocumentOut(IGlobalObjects, guid)</a></h4>
-    <section><p></section>
+    <section><p><p>Diese Methode liefert das herausgeschriebene Dokument.</p>
+<p>Dazu muss der Druck mit dem Kommando <strong>Out</strong> ausgeführt worden sein und der Status des Druck-Jobs muss 3 (Gedruckt) sein.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.Reporting.PrintQueue.GetState.html#FS_Hosting_Shared_Reporting_PrintQueue_GetState_FS_Hosting_Shared_GlobalObj_IGlobalObjects_FS_Shared_BaseObjects_guid_">GetState(IGlobalObjects, guid)</a></h4>
-    <section><p></section>
+    <section><p><p>Diese Methode liefert den Status des Druckauftrags mit der übergebenen PrintJobID zurück.Dabei wird der Status der den Druckauftrag umklammernden Transaktion zurückgegeben.</p>
+</p></section>
   
 </article>
           </div>

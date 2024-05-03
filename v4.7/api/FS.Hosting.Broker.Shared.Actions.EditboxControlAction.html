@@ -85,7 +85,8 @@
   
   <h1 id="FS_Hosting_Broker_Shared_Actions_EditboxControlAction" data-uid="FS.Hosting.Broker.Shared.Actions.EditboxControlAction" class="text-break">Class EditboxControlAction
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Über diese Klasse werden zur Laufzeit die Actions für das Control <a href="../doc/form/control/editfield.html">EditField</a> angeboten.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -198,9 +199,19 @@ public class EditboxControlAction : EditableControlAction, IFrameworkControlActi
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.EditboxControlAction.PastePlainText.html#FS_Hosting_Broker_Shared_Actions_EditboxControlAction_PastePlainText_System_String_">PastePlainText(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Diese Action fügt den angegebenen (unformatierten) Text in einem Editfield an die aktuelle
+Cursorposition ein. Wenn im Control Text markiert ist, wird dieser durch den angegebenen Text
+ersetzt.</p>
+<p>Dadurch kann insbesondere in mehrzeiligen Textfeldern Text durch die Businesslogik an der
+aktuellen Position eingefügt werden, ohne dass der neue Text unter Verwendung der
+Datasources <strong><em>SelectionStart</em></strong> und <strong><em>SelectionEnd</em></strong> manuell zusammengesetzt werden muss.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.EditboxControlAction.SelectAllText.html#FS_Hosting_Broker_Shared_Actions_EditboxControlAction_SelectAllText">SelectAllText()</a></h4>
-    <section><p></section>
+    <section><p><p>Diese Action selektiert den kompletten Text des Editfields. Sie ist gedacht für Multiline Editfields,
+weil diese im Gegensatz zu normalen Editfields nicht den Text selektieren, wenn im Java-Client
+der Fokus in das Feld gesetzt wird. Idealerweise erfolgt der Aufruf dieser Action im OnEnter-
+Event des Editfields.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.EditboxControlAction.SetDisplayMaxLength.html#FS_Hosting_Broker_Shared_Actions_EditboxControlAction_SetDisplayMaxLength_FS_Hosting_Shared_Metadatatype_FSint_">SetDisplayMaxLength(FSint)</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.EditboxControlAction.SetDisplayMaxLength.html#FS_Hosting_Broker_Shared_Actions_EditboxControlAction_SetDisplayMaxLength_System_Nullable_System_Int32__">SetDisplayMaxLength(Nullable&lt;Int32&gt;)</a></h4>
@@ -216,6 +227,10 @@ public class EditboxControlAction : EditableControlAction, IFrameworkControlActi
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.EditboxControlAction.SetDisplayMinLines.html#FS_Hosting_Broker_Shared_Actions_EditboxControlAction_SetDisplayMinLines_System_Nullable_System_Int32__">SetDisplayMinLines(Nullable&lt;Int32&gt;)</a></h4>
     <section><p></section>
   
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.EditboxDesignViewModel.html">EditboxDesignViewModel</a></div>
+  </div>
 </article>
           </div>
           

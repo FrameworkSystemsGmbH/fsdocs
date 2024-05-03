@@ -85,7 +85,14 @@
   
   <h1 id="FS_Hosting_Shared_SessionDataModel_ISessionData" data-uid="FS.Hosting.Shared.SessionDataModel.ISessionData" class="text-break">Interface ISessionData
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Mithilfe dieser Schnittstelle können über <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.html">IGlobalObjects</a> am Broker verschlüsselte Daten gespeichert werden.
+Die Speicherung der Daten erfolgt im Runtime-Repository in der Tabelle <a href="../doc/tables/tblrep_sessiondata.html">tblRep_SessionData</a>.</p>
+<p>Der Kontext dieser Daten ist der Client, unabhängig vom Benutzer.
+So können z.B. Login-Informationen gespeichert werden, sodass sich der Benutzer bei einem wiederholten Start der Anwendung nicht erneut anmelden muss.</p>
+<p>Der Schlüssel für die Verschlüsselung wird mit einer ID versehen und an den Client geschickt.
+Der Broker/Server ist damit nicht in der Lage, die gespeicherten Daten ohne Hilfe eines Clients zu entschlüsseln.</p>
+<p>Der Zugriff auf diese Schnittstelle erfolgt über das GlobalObject Property <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.SessionData.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_SessionData">SessionData</a>.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="FS.Hosting.Shared.SessionDataModel.html">FS.Hosting.Shared.SessionDataModel</a></h6>
   <h6><strong>Assembly</strong>: FS.Hosting.Shared.dll</h6>
@@ -94,15 +101,51 @@
     <pre><code class="lang-csharp hljs">[DocfxBrowsable]
 public interface ISessionData</code></pre>
   </div>
+  <h5 id="FS_Hosting_Shared_SessionDataModel_ISessionData_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><h4 id="ablauf-beim-erstmaligen-speichern-von-session-daten">Ablauf beim erstmaligen Speichern von Session-Daten</h4>
+<p>Nachfolgend wird der Prozess beschrieben, welcher durchlaufen wird, wenn der Broker zum ersten Mal für einen Client Session-Daten
+im Runtime Repository speichern soll und damit noch kein Verschlüsselungs-Key existiert.</p>
+<p><img src="media/session-data-first-login.drawio.svg" alt="first-login"></p>
+<p>Der Client wurde gestartet und es wird ein Event ausgelöst, welches am Broker die <a class="xref" href="FS.Hosting.Shared.SessionDataModel.ISessionData.SetData.html#FS_Hosting_Shared_SessionDataModel_ISessionData_SetData_System_String_System_String_">SetData(String, String)</a>-Methode aufruft.
+Nun soll für einen Schlüsselwert &quot;Test&quot; der Wert &quot;1234&quot; verschlüsselt gespeichert werden.
+Die <a class="xref" href="FS.Hosting.Shared.SessionDataModel.ISessionData.SetData.html#FS_Hosting_Shared_SessionDataModel_ISessionData_SetData_System_String_System_String_">SetData(String, String)</a>-Methode könnte während eines Requests natürlich auch mehrmals für unterschiedliche Schlüsselwerte aufgerufen werden.</p>
+<p>Während ein Request vom Broker bearbeitet wird, werden alle Key/Value-Paare, die mit <a class="xref" href="FS.Hosting.Shared.SessionDataModel.ISessionData.SetData.html#FS_Hosting_Shared_SessionDataModel_ISessionData_SetData_System_String_System_String_">SetData(String, String)</a> verschlüsselt werden sollen am Broker zwischengespeichert.
+Am Ende des Requests, kurz bevor die Antwort an den Client gesendet wird, werden die Daten nun verarbeitet.</p>
+<p>Der Broker hat vom Client bisher keinerlei Informationen über einen Verschlüsselungs-Key bekommen.
+Dies veranlasst den Broker, einen neuen AES256 Verschlüsselungs-Key zu generieren.
+Zusätzlich wird eine ID generiert, welche den Datensatz im Runtime Repository 1:1 dem Client zuordnet.</p>
+<p>Mit dem AES256-Key wird das Key/Value-Paar (&quot;Test&quot;/&quot;1234&quot;) nun verschlüsselt und mit der ID im Runtime Repository abgespeichert.</p>
+<p>Mit der nun folgenden Antwort an den Client werden die ID und der AES256-Key mitgeschickt.
+Der Client speichert sich diese Kombination persistent, sodass sie auch bei einem Neustart noch verfügbar ist.</p>
+<h4 id="ablauf-bei-erneutem-start-des-clients">Ablauf bei erneutem Start des Clients</h4>
+<p>Nachfolgend wird der Prozess beschrieben, welcher durchlaufen wird, wenn der Client auf Session Daten zugreifen will, die in einer vorherigen Session gespeichert wurden.</p>
+<p><img src="media/session-data-relogin.drawio.svg" alt="relogin"></p>
+<p>Wir gehen davon aus, dass der Client, wie im letzten Beispiel beschrieben, das Key/Value-Paar &quot;Test&quot;/ &quot;1234&quot; am Broker gespeichert hat und dafür die ID und den AES256-Key bekommen hat.
+Zwischenzeitlich wurde der Client und damit auch die Broker-Session beendet.
+D.h., der Broker hat nun keinerlei Informationen mehr darüber, wie er den gespeicherten Datensatz entschlüsseln kann.</p>
+<p>Wird der Client erneut gestartet, stellt dieser fest, dass für ihn eine ID/AES256-Key Kombination gespeichert wurde.
+Diese Kombination schickt der Client im allerersten Request an den Broker.</p>
+<p>Wird nun über <a class="xref" href="FS.Hosting.Shared.SessionDataModel.ISessionData.SetData.html#FS_Hosting_Shared_SessionDataModel_ISessionData_SetData_System_String_System_String_">SetData(String, String)</a> ein Datensatz verlangt, kann der Broker mittels der vom Client gesendeten ID den Datensatz im Runtime Repository ausfindig machen und mit Hilfe des übermittelten AES256-Keys die Daten entschlüsseln.</p>
+<h4 id="ablauf-von-session-daten">Ablauf von Session Daten</h4>
+<p>Alle Daten, die mit <a class="xref" href="FS.Hosting.Shared.SessionDataModel.ISessionData.SetData.html#FS_Hosting_Shared_SessionDataModel_ISessionData_SetData_System_String_System_String_">SetData(String, String)</a> gespeichert werden, erhalten ein Ablaufdatum.
+Die Validität der Daten ist auf <strong>14 Tage</strong> festgesetzt.
+Meldet sich also ein Client 14 Tage lang nicht am Broker an, so werden alle gespeicherten Session Daten verworfen.
+Bei einem erneuten Speichern von Daten wird dann eine neue ID/AES256-Key Kombination generiert.</p>
+<p>Meldet sich ein Client innerhalb der 14 Tage am Broker an, so wird das Ablaufdatum verlängert (Anmeldedatum + 14 Tage).
+Bei kontinuierlicher Anmeldung am Broker verfallen die Session-Daten also nicht.</p>
+</div>
   <h3 id="methods">Methods
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.SessionDataModel.ISessionData.GetData.html#FS_Hosting_Shared_SessionDataModel_ISessionData_GetData_System_String_">GetData(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Wert zurück, der für einen Schlüssel gespeichert wurde.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.SessionDataModel.ISessionData.HasData.html#FS_Hosting_Shared_SessionDataModel_ISessionData_HasData_System_String_">HasData(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Prüft, ob für den übergebenen Schlüssel einen Wert existiert.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.SessionDataModel.ISessionData.SetData.html#FS_Hosting_Shared_SessionDataModel_ISessionData_SetData_System_String_System_String_">SetData(String, String)</a></h4>
-    <section><p></section>
+    <section><p><p>Setzt den Wert für einen Schlüssel.</p>
+</p></section>
   
 </article>
           </div>

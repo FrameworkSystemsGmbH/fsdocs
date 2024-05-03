@@ -90,7 +90,9 @@
 <a id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_SafeInitializing_" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.SafeInitializing*"></a>
 <h4 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_SafeInitializing" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.SafeInitializing">SafeInitializing</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Gibt zurück, ob der Safe-Initialize-Modus aktiv ist.
+Dieser Modus wird mithilfe einer Einstellung im Start-Workflow aktiviert.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -109,6 +111,33 @@ bool SafeInitializing { get; }</code></pre>
         <div class="markdown level1 summary"></div>
       </div>  
   </section>
+    <h5 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_SafeInitializing_remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Der Modus kann mithilfe der Methode <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.EndSafeInitialize.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_EndSafeInitialize">EndSafeInitialize()</a> zurückgesetzt werden.
+Wenn diese Methode einmal aufgerufen wurde, dann ist es nicht mehr möglich,
+den Modus wieder zu aktivieren.</p>
+<p>Wenn dieser Modus aktiv ist, dann können z.B. in einer Update-Sitation Exceptions unterbunden werden,
+die den Start der Anwendung verhindern würden.</p>
+</div>
+    </section>
+  <h5 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_SafeInitializing_examples">Examples</h5>
+  <pre><code>try
+{
+    [Aktion]
+}
+catch (Exception ex)
+{
+    if (this.Global.SafeInitializing)
+    {
+        [Fehler behandeln]
+    }
+    else
+    {
+        // Exception weiter werfen.
+        throw;
+    }
+}</code></pre>
+
 </section>
 </article>
           </div>

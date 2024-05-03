@@ -85,7 +85,9 @@
   
   <h1 id="FS_Hosting_Shared_DragAndDrop_FileFlavorData" data-uid="FS.Hosting.Shared.DragAndDrop.FileFlavorData" class="text-break">Class FileFlavorData
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Diese Klasse stellt eine einzelne Datei dar, die in einem externen Drag&amp;Drop-Vorgang transportiert wird.
+Eine einzelne Datei ist immer ein Element einer Liste von Dateien (<a class="xref" href="FS.Hosting.Shared.DragAndDrop.FileListFlavorData.html">FileListFlavorData</a>).</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -103,17 +105,25 @@ public class FileFlavorData : Object</code></pre>
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FileFlavorData.Content.html#FS_Hosting_Shared_DragAndDrop_FileFlavorData_Content">Content</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Dateiinhalt zurück. Dieser steht erst im <code>OnDrop</code> Eventhandler zur Verfügung und nur dann,
+wenn am <a class="xref" href="FS.Hosting.Shared.DragAndDrop.FileFlavorData.html">FileFlavorData</a> die Methode <a class="xref" href="FS.Hosting.Shared.DragAndDrop.FlavorData.FillOnDrop.html#FS_Hosting_Shared_DragAndDrop_FlavorData_FillOnDrop">FillOnDrop()</a> aufgerufen wurde.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FileFlavorData.FullName.html#FS_Hosting_Shared_DragAndDrop_FileFlavorData_FullName">FullName</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Dateinamen inklusive Pfad zurück.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FileFlavorData.LastModified.html#FS_Hosting_Shared_DragAndDrop_FileFlavorData_LastModified">LastModified</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt das letzte Änderungsdatum der Datei zurück.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FileFlavorData.Name.html#FS_Hosting_Shared_DragAndDrop_FileFlavorData_Name">Name</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Dateinamen (inkl. Dateiendung) zurück.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FileFlavorData.Size.html#FS_Hosting_Shared_DragAndDrop_FileFlavorData_Size">Size</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die Größe der Datei in Bytes zurück.
+Diese Eigenschaft ist bereits im Event <code>OnCanDrop</code> gefüllt.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.DragAndDrop.FileFlavorData.Type.html#FS_Hosting_Shared_DragAndDrop_FileFlavorData_Type">Type</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Typ der Datei zurück.</p>
+</p></section>
   
 </article>
           </div>

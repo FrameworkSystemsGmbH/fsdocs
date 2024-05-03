@@ -85,7 +85,8 @@
   
   <h1 id="FS_Hosting_Shared_GlobalObj_cGlobalBase" data-uid="FS.Hosting.Shared.GlobalObj.cGlobalBase" class="text-break">Class cGlobalBase
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Basisklasse für das Property <span class="xref">FS.Hosting.Shared.GlobalObj.GlobalObjects.ocGlobal</span>.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -126,13 +127,29 @@ public class cGlobalBase : DevFrameworkObject, ICloneable, IFSRebind, IDevFramew
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.cGlobalBase.GlobalGetStaticCacheMode.html#FS_Hosting_Shared_GlobalObj_cGlobalBase_GlobalGetStaticCacheMode_FS_Hosting_Shared_IDevFrameworkDataObject_">GlobalGetStaticCacheMode(IDevFrameworkDataObject)</a></h4>
-    <section><p></section>
+    <section><p><p>Diese Methode wird pro Component-Typ einmalig mit einer Instanz der Component bei der ersten Benutzung
+des statischen Caches aufgerufen, um den gewünschten Arbeitsmodus des statischen Caches zu ermitteln.
+Standardwert ist <a class="xref" href="FS.Hosting.Shared.StaticCacheMode.Broker.html">Broker</a>.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.cGlobalBase.GlobalGetSubreportDirectory.html#FS_Hosting_Shared_GlobalObj_cGlobalBase_GlobalGetSubreportDirectory">GlobalGetSubreportDirectory()</a></h4>
-    <section><p></section>
+    <section><p><p>Diese Methode wird beim Druck eines externen, verlinkten Subreports aufgerufen, falls es sich um einen DevExpress-Report handelt.
+Hierbei wird davon ausgegangen, dass der fragliche Subreport über einen relativen Pfad referenziert ist.</p>
+<p>Dies ist nützlich, um z.B. im Customizing eine Umleitung auf die eigenen Subreports zu erzwingen.</p>
+<p>Falls keine passende Datei im angegebenen Pfad zu finden ist, wird auf <code>DevExpress.XtraReports.Configuration.Settings.Default.StorageOptions.RootDirectory</code> zurückgegriffen.
+Diese Einstellung verweist standardmäßig auf das in der Anwendungskonfiguration angegebene Reportverzeichnis: <code>FrameworkSystems.FrameworkBase.Configuration.Application.ApplicationConfig.Get.ReportDirectory</code>.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.cGlobalBase.GlobalWhereStaticCache.html#FS_Hosting_Shared_GlobalObj_cGlobalBase_GlobalWhereStaticCache_FS_Hosting_Shared_IStaticCacheObject_">GlobalWhereStaticCache(IStaticCacheObject)</a></h4>
-    <section><p></section>
+    <section><p><p>Diese Methode wird von den Statischen Caches aufgerufen,
+um abhängig vom Global Datensätze generell filtern zu können.
+Dieser Einsprungpunkt wird nur durchlaufen, wenn die Methode
+<a class="xref" href="FS.Hosting.Shared.GlobalObj.cGlobalBase.GlobalGetStaticCacheMode.html#FS_Hosting_Shared_GlobalObj_cGlobalBase_GlobalGetStaticCacheMode_FS_Hosting_Shared_IDevFrameworkDataObject_">GlobalGetStaticCacheMode(IDevFrameworkDataObject)</a> für den entsprechenden IDevFrameworkDataObject-Typ
+den Wert <a class="xref" href="FS.Hosting.Shared.StaticCacheMode.Broker.html">Broker</a> zurück gegeben hat.&quot;/&gt;</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.cGlobalBase.OnLicenseGranted.html#FS_Hosting_Shared_GlobalObj_cGlobalBase_OnLicenseGranted_FS_Hosting_Shared_AccessControl_AccessUnit_FS_Hosting_Shared_AccessControl_AUPermissionType_">OnLicenseGranted(AccessUnit, AUPermissionType)</a></h4>
-    <section><p></section>
+    <section><p><p>Mit diesem EntryPoint kann eine Lizenz-Freigabe programmatisch eingeschränkt werden.
+Diese Methode wird aufgerufen, wenn <a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.LicenseGranted.html#FS_Hosting_Shared_AccessControl_AUHelper_LicenseGranted_FS_Hosting_Shared_AccessControl_AccessUnit_">LicenseGranted(AccessUnit)</a> aufgerufen
+wird und die verwendete Lizenz-Datei den Zugriff auf die AccessUnit erlaubt.</p>
+</p></section>
   
 </article>
           </div>

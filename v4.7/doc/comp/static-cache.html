@@ -113,21 +113,22 @@
 <p>Wurde für eine Component der statische Cache <a href="static-cache.html#aktivieren-des-caches">aktiviert</a>, generiert Framework Studio für die Component eine statische Klasse aus dem Namen der Component gefolgt vom Suffix &quot;Cache&quot; in die Interface-Dll.</p>
 <p>Beispiel:
 Für die Component <code>cdCurrency</code> wird eine Klasse <code>cdCurrencyCache</code> generiert.</p>
-<p>Diese Klasse enthält eine statische Methode <code>Get(IGlobalObjects global)</code>, welche eine generische Singleton-Instanz zum Zugriff auf den statischen Cache mit dem übergebenen Global zurück gibt. Diese Instanz implementiert das Interface <a class="xref" href="../../api/FS.Hosting.Shared.IStaticCache-2.html">IStaticCache&lt;TObj, TPK&gt;</a>, wobei <code>TObj</code> der Interface-Typ der Component ist (z.B. <em>IcdCurrency</em>) und <code>PK</code> der Typ des/der Primärschlüssel-Properties ist (z.B. <em>FSshort</em> für shtCurrencyID).</p>
+<p>Diese Klasse enthält eine statische Methode <code>Get()</code>, welche eine generische Singleton-Instanz zum Zugriff auf den statischen Cache gibt. 
+Diese Instanz implementiert das Interface <a class="xref" href="../../api/FS.Hosting.Shared.IStaticCache-2.html">IStaticCache&lt;TObj, TPK&gt;</a>, wobei <code>TObj</code> der Interface-Typ der Component ist (z.B. <em>IcdCurrency</em>) und <code>PK</code> der Typ des/der Primärschlüssel-Properties ist (z.B. <em>FSshort</em> für shtCurrencyID).</p>
 <p>Das Ermitteln eines Objektes anhand des Primärschlüssels ist dann beispielsweise über den Indexer möglich:</p>
-<pre><code class="lang-csharp">IcdCurrency oCurrency = cdCurrencyCache.Get(this.Global)[shtCurrencyIDP];
+<pre><code class="lang-csharp">IcdCurrency oCurrency = cdCurrencyCache.Get()[shtCurrencyIDP];
 </code></pre><p>Sollte der Primärschlüssel aus mehreren Properties bestehen, so ist ein <a href="https://docs.microsoft.com/de-DE/dotnet/api/system.valuetuple?view=netframework-4.8">ValueTuple</a> mit allen Properties des Primärschlüssels in <strong>alphabetischer Reihenfolge</strong> anzugeben.</p>
 <p>Beispiel (Primärschlüssel <em>sType</em> und <em>sCode</em>):</p>
-<pre><code class="lang-csharp">var oDemo = cdDemoCache.Get(this.Global)[(sMyCode, sMyType)];
+<pre><code class="lang-csharp">var oDemo = cdDemoCache.Get()[(sMyCode, sMyType)];
 </code></pre><p>Der Cache implementiert <code>IEnumerable&lt;TObj&gt;</code>. Der folgende Code</p>
-<pre><code class="lang-csharp">IcdCurrencyColl oCurrencyColl = cdCurrencyCollFactory.Create(this.Global);
+<pre><code class="lang-csharp">IcdCurrencyColl oCurrencyColl = cdCurrencyCollFactory.Create();
 oCurrencyColl.Load(&quot;COALESCE([shtBlocked], 0) = 0&quot;, &quot;shtCurrencyCode&quot;);
 foreach (IcdCurrency oCurrency in oCurrencyColl)
 {
     // ... do something
 }
 </code></pre><p>lässt sich daher wie folgt auf die Verwendung des Caches umstellen.</p>
-<pre><code class="lang-csharp">foreach (var oCurrency in cdCurrencyCache.Get(this.Global)
+<pre><code class="lang-csharp">foreach (var oCurrency in cdCurrencyCache.Get()
     .Where(c =&gt; c.shtBlocked.Value == 0)
     .OrderBy(c =&gt; c.shtCurrencyCode))
 {
@@ -136,7 +137,7 @@ foreach (IcdCurrency oCurrency in oCurrencyColl)
 </code></pre><p> Der Cache bietet darüberhinaus viele weitere Methoden, um Collections oder Objekte zu befüllen.</p>
 <div class="NOTE"><h5>Note</h5><p>Die detaillierte Beschreibung aller Funktionen ist bei der Beschreibung des Interfaces <a class="xref" href="../../api/FS.Hosting.Shared.IStaticCache-2.html">IStaticCache&lt;TObj, TPK&gt;</a> einzusehen.</p>
 </div>
-<p>Sollte es einmal nötig sein, auf Ebene von <code>IDevFrameworkDataObject</code> auf einen Cache zuzugreifen, so bietet die statische Klasse <a class="xref" href="../../api/FS.Hosting.Shared.StaticCache.html">StaticCache</a> ebenfalls eine statische Methode <code>Get(IGlobalObjects global)</code> an, mit der (soweit existent) ein untypisierter Cache (<a class="xref" href="../../api/FS.Hosting.Shared.IStaticCache.html">IStaticCache</a>) ermittelt werden kann.</p>
+<p>Sollte es einmal nötig sein, auf Ebene von <code>IDevFrameworkDataObject</code> auf einen Cache zuzugreifen, so bietet die statische Klasse <a class="xref" href="../../api/FS.Hosting.Shared.StaticCache.html">StaticCache</a> ebenfalls eine statische Methode <code>Get()</code> an, mit der (soweit existent) ein untypisierter Cache (<a class="xref" href="../../api/FS.Hosting.Shared.IStaticCache.html">IStaticCache</a>) ermittelt werden kann.</p>
 <h3 id="relation-properties">Relation-Properties</h3>
 <p>An <a href="components.html">Components</a> können Properties vom Typ <em>Relation</em> angelegt werden. Typischerweise werden als <em>DependsOn</em> Properties die Primärschlüsseleigenschaften angegeben.</p>
 <p><strong>Relation-Properties verwenden automatisch den Cache, wenn für den Property-Typ der statische Cache aktiviert ist und die <em>DependsOn-Bedingung</em> dem am <a href="../database/dbtable.html">DBTable</a> definierten logischen Primärschlüssel entspricht.</strong></p>
@@ -157,7 +158,7 @@ Dazu wurde der globale Einsprungpunkt <a class="xref" href="../../api/FS.Hosting
 <p>Beispiel Distinct:</p>
 <pre><code class="lang-csharp">public virtual int LoadDistinctByName()
 {
-    return cdArticleCache.Get(this.Global).FillCollection(This, l =&gt; l.DistinctBy(o =&gt; o.sName));
+    return cdArticleCache.Get().FillCollection(This, l =&gt; l.DistinctBy(o =&gt; o.sName));
 }
 </code></pre><p>Beispiel GroupBy:</p>
 <pre><code class="lang-csharp">public virtual int LoadGroupByName()
@@ -168,7 +169,7 @@ Dazu wurde der globale Einsprungpunkt <a class="xref" href="../../api/FS.Hosting
     // Ergebnisobjekt vom Typ IcdArticle zu jedem Schlüsselwert und den dazugehörigen Artikeln erzeugen
     Func&lt;FSstring, IEnumerable&lt;IcdArticle&gt;, IcdArticle&gt; fnResultSelector = (sName, oArticles) =&gt;
     {
-        IcdArticle oResult = cdArticleFactory.Create(this.Global);
+        IcdArticle oResult = cdArticleFactory.Create();
 
         var oFirstArticle = oArticles.First();
         oResult.sID = oFirstArticle.sID;
@@ -185,7 +186,7 @@ Dazu wurde der globale Einsprungpunkt <a class="xref" href="../../api/FS.Hosting
     };
 
     // GroupBy-Funktionalität als spezielles orderBy übergeben
-    return cdArticleCache.Get(this.Global).FillCollection(This, l =&gt; l.GroupBy(fnKeySelector, fnResultSelector));
+    return cdArticleCache.Get().FillCollection(This, l =&gt; l.GroupBy(fnKeySelector, fnResultSelector));
 }
 </code></pre></article>
           </div>

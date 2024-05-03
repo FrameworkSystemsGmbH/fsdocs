@@ -90,7 +90,14 @@
     <h3 id="interfaces">Interfaces
   </h3>
       <h4><a class="xref" href="FS.Hosting.Shared.SessionDataModel.ISessionData.html">ISessionData</a></h4>
-      <section></section>
+      <section><p>Mithilfe dieser Schnittstelle können über <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.html">IGlobalObjects</a> am Broker verschlüsselte Daten gespeichert werden.
+Die Speicherung der Daten erfolgt im Runtime-Repository in der Tabelle <a href="../doc/tables/tblrep_sessiondata.html">tblRep_SessionData</a>.</p>
+<p>Der Kontext dieser Daten ist der Client, unabhängig vom Benutzer.
+So können z.B. Login-Informationen gespeichert werden, sodass sich der Benutzer bei einem wiederholten Start der Anwendung nicht erneut anmelden muss.</p>
+<p>Der Schlüssel für die Verschlüsselung wird mit einer ID versehen und an den Client geschickt.
+Der Broker/Server ist damit nicht in der Lage, die gespeicherten Daten ohne Hilfe eines Clients zu entschlüsseln.</p>
+<p>Der Zugriff auf diese Schnittstelle erfolgt über das GlobalObject Property <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.SessionData.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_SessionData">SessionData</a>.</p>
+</section>
 </article>
           </div>
           

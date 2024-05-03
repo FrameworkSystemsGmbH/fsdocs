@@ -85,7 +85,10 @@
   
   <h1 id="FS_Hosting_Shared_IFrameworkBarcodeScanInfo" data-uid="FS.Hosting.Shared.IFrameworkBarcodeScanInfo" class="text-break">Interface IFrameworkBarcodeScanInfo
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Eine Instanz dieses Typs wird nach einem mit der Action
+<span class="xref">FrameworkSystems.FrameworkControls.GeneratedForm.ScanBarcode(System.Action{FrameworkSystems.FrameworkBase.IFrameworkBarcodeScanInfo},FrameworkSystems.FrameworkBase.BarcodeFormat)</span>
+ausgelösten Scan-Vorgang der Callback-Methode übergeben. Sie beinhaltet die Ergebisse des Scan-Vorgangs.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <h6><strong>Namespace</strong>: <a class="xref" href="FS.Hosting.Shared.html">FS.Hosting.Shared</a></h6>
   <h6><strong>Assembly</strong>: FS.Hosting.Shared.dll</h6>
@@ -98,17 +101,25 @@ public interface IFrameworkBarcodeScanInfo</code></pre>
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.IFrameworkBarcodeScanInfo.Cancelled.html#FS_Hosting_Shared_IFrameworkBarcodeScanInfo_Cancelled">Cancelled</a></h4>
-    <section><p></section>
+    <section><p><p><code>true</code> wenn der Scanvorgang am Client abgebrochen wurde</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IFrameworkBarcodeScanInfo.ErrorMessage.html#FS_Hosting_Shared_IFrameworkBarcodeScanInfo_ErrorMessage">ErrorMessage</a></h4>
-    <section><p></section>
+    <section><p><p>Fehlermeldung bei einem gescheiterten Scanvorgang</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IFrameworkBarcodeScanInfo.Format.html#FS_Hosting_Shared_IFrameworkBarcodeScanInfo_Format">Format</a></h4>
-    <section><p></section>
+    <section><p><p>Das Format des gescannten Barcodes. <a class="xref" href="FS.Hosting.Shared.BarcodeFormat.NONE.html">NONE</a>, wenn kein Barcode gescannt wurde.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IFrameworkBarcodeScanInfo.HasError.html#FS_Hosting_Shared_IFrameworkBarcodeScanInfo_HasError">HasError</a></h4>
-    <section><p></section>
+    <section><p><p><code>true</code> wenn beim Scanvorgang ein Fehler aufgetreten ist.
+Die Details können über die <a class="xref" href="FS.Hosting.Shared.IFrameworkBarcodeScanInfo.ErrorMessage.html#FS_Hosting_Shared_IFrameworkBarcodeScanInfo_ErrorMessage">ErrorMessage</a> ermittelt werden.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IFrameworkBarcodeScanInfo.Identifier.html#FS_Hosting_Shared_IFrameworkBarcodeScanInfo_Identifier">Identifier</a></h4>
-    <section><p></section>
+    <section><p><p>Der in der Action <span class="xref">FrameworkSystems.FrameworkControls.GeneratedForm.ScanBarcode(System.Action{FrameworkSystems.FrameworkBase.IFrameworkBarcodeScanInfo},FrameworkSystems.FrameworkBase.BarcodeFormat,System.String)</span>
+übergebene Wert, sonst <code>null</code>.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IFrameworkBarcodeScanInfo.Value.html#FS_Hosting_Shared_IFrameworkBarcodeScanInfo_Value">Value</a></h4>
-    <section><p></section>
+    <section><p><p>Der Wert des gescannten Barcodes</p>
+</p></section>
   
 </article>
           </div>

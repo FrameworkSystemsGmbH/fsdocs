@@ -90,7 +90,8 @@
 <a id="FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_MoveBefore_" data-uid="FS.Hosting.Broker.Shared.Actions.GridColumnControlAction.MoveBefore*"></a>
 <h4 id="FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_MoveBefore_FS_Hosting_Broker_Shared_IGridColumnControlAction_" data-uid="FS.Hosting.Broker.Shared.Actions.GridColumnControlAction.MoveBefore(FS.Hosting.Broker.Shared.IGridColumnControlAction)">MoveBefore(IGridColumnControlAction)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Verschiebt das aktuelle Grid-Column vor das übergebene <code data-dev-comment-type="paramref" class="paramref">beforeControl</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -108,6 +109,10 @@ public virtual void MoveBefore(IGridColumnControlAction beforeControl)</code></p
     </div>
   </section>
 
+
+  <h5 id="FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_MoveBefore_FS_Hosting_Broker_Shared_IGridColumnControlAction__examples">Examples</h5>
+  <p>Verschiebt das Column <code>grd_sID</code> vor das Column <code>grd_decPrice</code>.</p>
+<pre><code>this.grd_sID.MoveBefore(this.grd_decPrice); </code></pre>
 
 </section>
 </article>

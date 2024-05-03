@@ -90,7 +90,8 @@
 <a id="FrameworkSystems_FrameworkStudio_API_AddIn_FSAddInMethodAttribute_MenuParentPath_" data-uid="FrameworkSystems.FrameworkStudio.API.AddIn.FSAddInMethodAttribute.MenuParentPath*"></a>
 <h4 id="FrameworkSystems_FrameworkStudio_API_AddIn_FSAddInMethodAttribute_MenuParentPath" data-uid="FrameworkSystems.FrameworkStudio.API.AddIn.FSAddInMethodAttribute.MenuParentPath">MenuParentPath</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Definiert, in welcher Menü-Struktur dieses Menü-Item eingehängt werden soll.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -109,6 +110,12 @@ public string MenuParentPath { get; set; }</code></pre>
         <div class="markdown level1 summary"></div>
       </div>  
   </section>
+    <h5 id="FrameworkSystems_FrameworkStudio_API_AddIn_FSAddInMethodAttribute_MenuParentPath_remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Untermenüs werden durch einen Punkt speariert - z.B. <code>&quot;Tools.Checks&quot;</code><br>
+Soll in einem Menü ein <code>&quot;.&quot;</code> angezeigt werden, dann muss dieser mit <code>@&quot;.&quot;</code> escaped werden - z.B. <code>@&quot;Update.FS 4.7&quot;</code></p>
+</div>
+    </section>
 </section>
 </article>
           </div>

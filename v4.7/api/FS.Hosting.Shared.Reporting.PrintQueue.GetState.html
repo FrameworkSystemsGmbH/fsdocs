@@ -90,7 +90,8 @@
 <a id="FS_Hosting_Shared_Reporting_PrintQueue_GetState_" data-uid="FS.Hosting.Shared.Reporting.PrintQueue.GetState*"></a>
 <h4 id="FS_Hosting_Shared_Reporting_PrintQueue_GetState_FS_Hosting_Shared_GlobalObj_IGlobalObjects_FS_Shared_BaseObjects_guid_" data-uid="FS.Hosting.Shared.Reporting.PrintQueue.GetState(FS.Hosting.Shared.GlobalObj.IGlobalObjects,FS.Shared.BaseObjects.guid)">GetState(IGlobalObjects, guid)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Diese Methode liefert den Status des Druckauftrags mit der übergebenen PrintJobID zurück.Dabei wird der Status der den Druckauftrag umklammernden Transaktion zurückgegeben.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -108,7 +109,8 @@ public static int GetState(IGlobalObjects global, guid printJobId)</code></pre>
     </div>
     <div class="propertyInfo">
       <span class="parametername"><code>printJobId</code></span> <a class="xref" href="FS.Shared.BaseObjects.guid.html">guid</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>Eindeutige ID des Print-Jobs</p>
+</div>
     </div>
   </section>
 
@@ -116,9 +118,20 @@ public static int GetState(IGlobalObjects global, guid printJobId)</code></pre>
     <section>
       <div class="propertyInfo">
         <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.int32">Int32</a>
-        <div class="markdown level1 summary"></div>
+        <div class="markdown level1 summary"><ul>
+<li>-1 = PrintJob not found</li>
+<li>0 = Transaktion ist offen. Es können weitere Druckaufträge zur Transaktion hinzugefügt werden.</li>
+<li>1 = Transaktion ist bereit zu drucken. Alle Druckaufträge sind hinzugefügt und der Printserver kann mit dem Druck beginnen.</li>
+<li>2 = Der Druck läuft gerade.</li>
+<li>3 = Druckauftrag ist abgeschlossen.</li>
+<li>4 = Der Druckauftrag wurde mit einem Fehler beendet.</li>
+</ul>
+</div>
       </div>
     </section>
+
+  <h5 id="FS_Hosting_Shared_Reporting_PrintQueue_GetState_FS_Hosting_Shared_GlobalObj_IGlobalObjects_FS_Shared_BaseObjects_guid__examples">Examples</h5>
+  <pre><code>int Status = PrintQueue.GetState(this.Global, new guid(sPrintJobID));</code></pre>
 
 </section>
 </article>

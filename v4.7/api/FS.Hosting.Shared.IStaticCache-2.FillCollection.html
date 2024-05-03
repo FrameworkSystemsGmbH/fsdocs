@@ -90,7 +90,11 @@
 <a id="FS_Hosting_Shared_IStaticCache_2_FillCollection_" data-uid="FS.Hosting.Shared.IStaticCache`2.FillCollection*"></a>
 <h4 id="FS_Hosting_Shared_IStaticCache_2_FillCollection__1___0_" data-uid="FS.Hosting.Shared.IStaticCache`2.FillCollection``1(``0)">FillCollection&lt;TColl&gt;(TColl)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Leert und befüllt die übergebene Collection mit allen Datensätzen aus dem Cache.
+Dabei wird an der Collection und an allen Objekten die Methode <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen.
+Die Collection muss für Objekte vom Typ TObj definiert sein.
+Die Methode gibt die Anzahl der Datensätze zurück.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -136,7 +140,13 @@ int FillCollection&lt;TColl&gt;(TColl value)
 <a id="FS_Hosting_Shared_IStaticCache_2_FillCollection_" data-uid="FS.Hosting.Shared.IStaticCache`2.FillCollection*"></a>
 <h4 id="FS_Hosting_Shared_IStaticCache_2_FillCollection__1___0_System_Func__0_System_Boolean__" data-uid="FS.Hosting.Shared.IStaticCache`2.FillCollection``1(``0,System.Func{`0,System.Boolean})">FillCollection&lt;TColl&gt;(TColl, Func&lt;TObj, Boolean&gt;)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Leert und befüllt die übergebene Collection mit allen Datensätzen aus dem Cache,
+die der angegebenen Where-Bedingung entsprechen.
+Dabei wird an der Collection und an allen Objekten die Methode <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen.
+Die Where-Bedingung wird vor dem Aufruf der Methode <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.OnAfterLoad</span> der Objekte ausgewertet.
+Die Collection muss für Objekte vom Typ TObj definiert sein.
+Die Methode gibt die Anzahl der Datensätze zurück.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -186,7 +196,13 @@ int FillCollection&lt;TColl&gt;(TColl value, Func&lt;TObj, bool&gt; where)
 <a id="FS_Hosting_Shared_IStaticCache_2_FillCollection_" data-uid="FS.Hosting.Shared.IStaticCache`2.FillCollection*"></a>
 <h4 id="FS_Hosting_Shared_IStaticCache_2_FillCollection__1___0_System_Func_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IEnumerable__0___" data-uid="FS.Hosting.Shared.IStaticCache`2.FillCollection``1(``0,System.Func{System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{`0}})">FillCollection&lt;TColl&gt;(TColl, Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&gt;&gt;)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Leert und befüllt die übergebene Collection mit allen Datensätzen aus dem Cache
+unter Berücksichtigung der angegebenen Sortierung.
+Dabei wird an der Collection und an allen Objekten die Methode <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen.
+Die Sortierung wird vor dem Aufruf der Methode <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.OnAfterLoad</span> der Objekte durchgeführt.
+Die Collection muss für Objekte vom Typ TObj definiert sein.
+Die Methode gibt die Anzahl der Datensätze zurück.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -232,11 +248,20 @@ int FillCollection&lt;TColl&gt;(TColl value, Func&lt;IEnumerable&lt;TObj&gt;, IE
       </tr>
     </tbody>
   </table>
+  <h5 id="FS_Hosting_Shared_IStaticCache_2_FillCollection__1___0_System_Func_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IEnumerable__0____examples">Examples</h5>
+  <p>cdCurrencyCache.Get(this.Global).FillCollection(this.oCurrencyColl, (currencies) =&gt; currencies.OrderBy(currency =&gt; currency.sName).</p>
+
 </section>
 <a id="FS_Hosting_Shared_IStaticCache_2_FillCollection_" data-uid="FS.Hosting.Shared.IStaticCache`2.FillCollection*"></a>
 <h4 id="FS_Hosting_Shared_IStaticCache_2_FillCollection__1___0_System_Func__0_System_Boolean__System_Func_System_Collections_Generic_IEnumerable__0__System_Collections_Generic_IEnumerable__0___" data-uid="FS.Hosting.Shared.IStaticCache`2.FillCollection``1(``0,System.Func{`0,System.Boolean},System.Func{System.Collections.Generic.IEnumerable{`0},System.Collections.Generic.IEnumerable{`0}})">FillCollection&lt;TColl&gt;(TColl, Func&lt;TObj, Boolean&gt;, Func&lt;IEnumerable&lt;TObj&gt;, IEnumerable&lt;TObj&gt;&gt;)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Leert und befüllt die übergebene Collection unter Berücksichtigung der angegebenen Sortierung,
+mit allen Datensätzen aus dem Cache, die der angegebenen Where-Bedingung entsprechen.
+Dabei wird an der Collection und an allen Objekten die Methode <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.OnAfterLoad</span> aufgerufen.
+Die Where-Bedingung und die Sortierung werden vor dem Aufruf der Methode <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.OnAfterLoad</span> der Objekte ausgewertet.
+Die Collection muss für Objekte vom Typ TObj definiert sein.
+Die Methode gibt die Anzahl der Datensätze zurück.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>

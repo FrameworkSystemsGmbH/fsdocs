@@ -130,55 +130,107 @@
     <pre><code class="lang-csharp hljs">[DocfxBrowsable]
 public interface IDevFrameworkObject : IDevFrameworkBaseObject, FrameworkDataTransaction.ISource, INotifyPropertyChanged</code></pre>
   </div>
+  <h5 id="FS_Hosting_Shared_IDevFrameworkObject_remarks"><strong>Remarks</strong></h5>
+  <div class="markdown level0 remarks"><p>Alle Business-Objekte, die im Developement Framework verwendet
+werden sollen, müssen dieses Interface einbinden.</p>
+</div>
   <h3 id="properties">Properties
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.IsDeleted.html#FS_Hosting_Shared_IDevFrameworkObject_IsDeleted">IsDeleted</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt an, ob das Objekt gelöscht wurde.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.IsMarkedForDeletion.html#FS_Hosting_Shared_IDevFrameworkObject_IsMarkedForDeletion">IsMarkedForDeletion</a></h4>
-    <section><p></section>
+    <section><p><p>Wenn true, ist das Objekt zum Löschen vorgemerkt. Vor einem Save wird an der Collection <span class="xref">FS.Hosting.Shared.IDevFrameworkObjectColl.DeleteMarkedObjects</span>
+aufgerufen und so dann an allen markierten Objekten Delete aufgerufen.
+Wenn <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Save.html#FS_Hosting_Shared_IDevFrameworkObject_Save">Save()</a> direkt am Objekt aufgerufen wird, wird <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.DeleteMarkedObject.html#FS_Hosting_Shared_IDevFrameworkObject_DeleteMarkedObject">DeleteMarkedObject()</a>
+am Objekt aufgerufen.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.IsModified.html#FS_Hosting_Shared_IDevFrameworkObject_IsModified">IsModified</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt an, ob das Objekt geändert wurde.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.ObjectRowID.html#FS_Hosting_Shared_IDevFrameworkObject_ObjectRowID">ObjectRowID</a></h4>
-    <section><p></section>
+    <section><p><p>Eindeutige ID vom Typ guid des Objektes.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.State.html#FS_Hosting_Shared_IDevFrameworkObject_State">State</a></h4>
-    <section><p></section>
+    <section><p><p>Aktueller Status des IDevFrameworkObjects.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.StateBeforeFirstSaveEntryInTransaction.html#FS_Hosting_Shared_IDevFrameworkObject_StateBeforeFirstSaveEntryInTransaction">StateBeforeFirstSaveEntryInTransaction</a></h4>
-    <section><p></section>
+    <section><p><p>Der Wert von <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.State.html#FS_Hosting_Shared_IDevFrameworkObject_State">State</a> vor dem ersten Save.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.StateBeforeUpdate.html#FS_Hosting_Shared_IDevFrameworkObject_StateBeforeUpdate">StateBeforeUpdate</a></h4>
-    <section><p></section>
+    <section><p><p>Der Wert von <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.State.html#FS_Hosting_Shared_IDevFrameworkObject_State">State</a> vor dem letzten Update.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.TrackVersion.html#FS_Hosting_Shared_IDevFrameworkObject_TrackVersion">TrackVersion</a></h4>
-    <section><p></section>
+    <section><p><p>Bei der Änderung eines generated Properties wird dieser Wert hochgezählt.</p>
+</p></section>
   
   <h3 id="methods">Methods
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Delete.html#FS_Hosting_Shared_IDevFrameworkObject_Delete">Delete()</a></h4>
-    <section><p></section>
+    <section><p><p>Löscht den verknüpften Datensatz aus der Datenbank.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.DeleteMarkedObject.html#FS_Hosting_Shared_IDevFrameworkObject_DeleteMarkedObject">DeleteMarkedObject()</a></h4>
-    <section><p></section>
+    <section><p><p>Führt die Löschung eines per <span class="xref">FS.Hosting.Shared.IDevFrameworkObject.MarkForDeletion</span> markierten Objekts durch.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.GetPropertyOrgValue.html#FS_Hosting_Shared_IDevFrameworkObject_GetPropertyOrgValue_System_String_">GetPropertyOrgValue(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Ermittelt den OrgValue des Properties <code data-dev-comment-type="paramref" class="paramref">propertyName</code>.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.GetTableName.html#FS_Hosting_Shared_IDevFrameworkObject_GetTableName">GetTableName()</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Tabellennamen zurück.
+Dabei wird nur die erste Tabelle berücksichtigt.
+Im Falle einer Join-Component muss <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.GetTableName.html#FS_Hosting_Shared_IDevFrameworkObject_GetTableName_System_String_">GetTableName(String)</a> verwendet werden.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.GetTableName.html#FS_Hosting_Shared_IDevFrameworkObject_GetTableName_System_String_">GetTableName(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt den Tabellennamen eines bestimmten Properties zurück. Falls es das Property nicht
+gibt bzw. das Property nicht mit einer Datenbankspalte verknüpft ist,
+wird <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string.empty#system-string-empty">Empty</a> zurückgegeben.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Load.html#FS_Hosting_Shared_IDevFrameworkObject_Load">Load()</a></h4>
-    <section><p></section>
+    <section><p><p>Lädt Daten in das Objekt anhand der übergebenen <code data-dev-comment-type="paramref" class="paramref">loadCondition</code>. Falls mehr als
+ein Datensatz gelesen wird, wird der Erste verwendet.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Load.html#FS_Hosting_Shared_IDevFrameworkObject_Load_System_String_">Load(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Lädt Daten in das Objekt anhand der übergebenen <code data-dev-comment-type="paramref" class="paramref">loadCondition</code>. Falls mehr als
+ein Datensatz gelesen wird, wird der Erste verwendet.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Load.html#FS_Hosting_Shared_IDevFrameworkObject_Load_System_String_System_String_">Load(String, String)</a></h4>
-    <section><p></section>
+    <section><p><p>Lädt Daten in das Objekt anhand der übergebenen <code data-dev-comment-type="paramref" class="paramref">loadCondition</code>. Falls mehr als
+ein Datensatz gelesen wird, wird der Erste verwendet.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Load.html#FS_Hosting_Shared_IDevFrameworkObject_Load_System_String_System_String_System_String_">Load(String, String, String)</a></h4>
-    <section><p></section>
+    <section><p><p>Lädt Daten in das Objekt anhand der übergebenen <code data-dev-comment-type="paramref" class="paramref">loadCondition</code>. Falls mehr als
+ein Datensatz gelesen wird, wird der Erste verwendet.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.RollbackChanges.html#FS_Hosting_Shared_IDevFrameworkObject_RollbackChanges">RollbackChanges()</a></h4>
-    <section><p></section>
+    <section><p><p>Überschreibt alle aktuellen Werte mit den Werten, die durch den Loadbefehl bzw.
+einen Aufruf von AcceptChanges festgehalten worden sind.
+Sollte in allen Subclasses überschrieben werden!</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Save.html#FS_Hosting_Shared_IDevFrameworkObject_Save">Save()</a></h4>
-    <section><p></section>
+    <section><p><p>Speichert diese Component in der Datenbank ab. Das entsprechende SqlStatement
+muss in der SaveAction zusammengebaut und ausgeführt werden.
+Falls keine gestartete Transaktion existiert,
+wird automatisch eine Transaktion aufgebaut. In diesem Fall wird
+anschliessend ein Commit ausgeführt.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Save.html#FS_Hosting_Shared_IDevFrameworkObject_Save_FS_Hosting_Shared_SaveEntryPoints_">Save(SaveEntryPoints)</a></h4>
-    <section><p></section>
+    <section><p><p>Speichert diese Component in der Datenbank ab. Das entsprechende SqlStatement
+muss in der SaveAction zusammengebaut und ausgeführt werden.
+Falls keine gestartete Transaktion existiert,
+wird automatisch eine Transaktion aufgebaut. In diesem Fall wird
+anschliessend ein Commit ausgeführt.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.SaveCallEntryPointsAllways.html#FS_Hosting_Shared_IDevFrameworkObject_SaveCallEntryPointsAllways">SaveCallEntryPointsAllways()</a></h4>
-    <section><p></section>
+    <section><p><p>Ruft <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Save.html#FS_Hosting_Shared_IDevFrameworkObject_Save">Save()</a> auf und stellt dabei sicher, dass alle EntryPoints aufgerufen werden.</p>
+</p></section>
   
 </article>
           </div>

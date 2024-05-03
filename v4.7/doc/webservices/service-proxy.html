@@ -93,13 +93,13 @@
 <p><strong>Beispiel:</strong></p>
 <p>Ist das Häkchen gesetzt, kann später im Code (z.B. in einer Component) wie folgt auf die Methoden zugegriffen werden:</p>
 <pre><code class="lang-csharp">dcPC[] pcs;
-using (PcListSvcProxy proxy = new PcListSvcProxy(this.Global))
+using (PcListSvcProxy proxy = new PcListSvcProxy())
 {
     pcs = proxy.GetPcList(ID);
 }
 </code></pre><p>Ist das Häkchen nicht gesetzt, sieht der Aufruf wie folgt aus:</p>
 <pre><code class="lang-csharp">dcPC[] pcs;
-using (PcListSvcProxy proxy = new PcListSvcProxy(this.Global))
+using (PcListSvcProxy proxy = new PcListSvcProxy())
 {
     pcs = proxy.Proxy.GetPcList(ID);
 }

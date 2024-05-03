@@ -225,16 +225,16 @@ else return “”;
 <p>Generated Property sType vom Typ string (z.B. mit einer Column aus der Query verbunden).</p>
 <p>Individual Property intType vom Typ int:</p>
 <p>get-Methode:</p>
-<pre><code class="lang-csharp">return Convert.ToInt32( this.sType );
+<pre><code class="lang-csharp">return Convert.ToInt32(this.sType);
 </code></pre><p>set-Methode:</p>
-<pre><code class="lang-csharp">this.sType = Convert.ToString( value );
+<pre><code class="lang-csharp">this.sType = Convert.ToString(value);
 </code></pre><p><strong>3. Fall:</strong></p>
 <p>Sie wollen ein Property anbieten, das nur bei Bedarf instanziiert und gefüllt wird. Dazu müssen Sie zum einen ein <strong>Individual (readonly)</strong> Property (z.B. oComp) anlegen und zum zweiten eine private <strong>Membervariable</strong> (z.B. oCompMember), die den nachgelesen Wert merkt, damit das Einlesen nur einmal erfolgt (Property und Membervariable müssen denselben Typ haben).</p>
 <p>get-Methode:</p>
 <pre><code class="lang-csharp">if (this.oCompMember == null)
 {
-    this.oCompMember = new cComp( this.Global );
-    oCompMember.Load ( );
+    this.oCompMember = new cComp();
+    oCompMember.Load();
 }
 return oCompMember
 </code></pre><p>Die Individual Properties müssen dem Form-DataBinding ja irgendwann mal Bescheid geben, dass sie sich geändert haben. Da sie (meist) von anderen Properties abhängen und seilber keinen eigenen Wert besitzen, der getracked werden kann, gibt es 2 Möglichkeiten:

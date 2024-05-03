@@ -90,7 +90,8 @@
 <a id="FS_Hosting_Shared_IDevFrameworkBaseObject_IsComponentProperty_" data-uid="FS.Hosting.Shared.IDevFrameworkBaseObject.IsComponentProperty*"></a>
 <h4 id="FS_Hosting_Shared_IDevFrameworkBaseObject_IsComponentProperty_System_String_" data-uid="FS.Hosting.Shared.IDevFrameworkBaseObject.IsComponentProperty(System.String)">IsComponentProperty(String)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Prüft, ob der übergebene <code data-dev-comment-type="paramref" class="paramref">propertyName</code> in <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.ComponentProperties.html#FS_Hosting_Shared_IDevFrameworkBaseObject_ComponentProperties">ComponentProperties</a> enthalten ist.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -104,7 +105,8 @@ bool IsComponentProperty(string propertyName)</code></pre>
   <section>
     <div class="propertyInfo">
       <span class="parametername"><code>propertyName</code></span> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">String</a>
-      <div class="markdown level1 summary"></div>
+      <div class="markdown level1 summary"><p>Name des Properties.</p>
+</div>
     </div>
   </section>
 
@@ -116,6 +118,14 @@ bool IsComponentProperty(string propertyName)</code></pre>
       </div>
     </section>
 
+    <h5 id="FS_Hosting_Shared_IDevFrameworkBaseObject_IsComponentProperty_System_String__remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>So kann man z.B. bei der Behandlung des Events <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged.propertychanged#system-componentmodel-inotifypropertychanged-propertychanged">PropertyChanged</a> prüfen, ob das Property vom Entwickler angelegt wurde.
+Andernfalls handelt es sich ggf. um ein von Framework Studio bereitgestelltes Property wie z.B. <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.State.html#FS_Hosting_Shared_IDevFrameworkObject_State">State</a>.</p>
+<p>Die Methode liefert <code>true</code> bei public oder internal Properties.
+Bei RowID und RowVersion wird <code>false</code> zurückgegeben.</p>
+</div>
+    </section>
 </section>
 </article>
           </div>

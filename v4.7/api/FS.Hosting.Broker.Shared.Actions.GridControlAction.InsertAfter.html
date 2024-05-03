@@ -90,7 +90,8 @@
 <a id="FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertAfter_" data-uid="FS.Hosting.Broker.Shared.Actions.GridControlAction.InsertAfter*"></a>
 <h4 id="FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertAfter_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction___" data-uid="FS.Hosting.Broker.Shared.Actions.GridControlAction.InsertAfter(FS.Hosting.Broker.Shared.Actions.GridColumnControlAction,FS.Hosting.Broker.Shared.Actions.GridColumnControlAction[])">InsertAfter(GridColumnControlAction, GridColumnControlAction[])</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Verschiebt die Grid-Columns <code data-dev-comment-type="paramref" class="paramref">controlsToInsert</code> hinter <code data-dev-comment-type="paramref" class="paramref">afterControl</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -113,11 +114,21 @@ public void InsertAfter(GridColumnControlAction afterControl, params GridColumnC
   </section>
 
 
+    <h5 id="FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertAfter_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction____remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Wenn <code data-dev-comment-type="paramref" class="paramref">afterControl</code> null ist, werden die Grid-Columns <code data-dev-comment-type="paramref" class="paramref">controlsToInsert</code> an das Ende des Grids verschoben.</p>
+</div>
+    </section>
+  <h5 id="FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertAfter_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction____examples">Examples</h5>
+  <p>Verschiebt das Column <code>grd_sName</code> hinter das Column <code>grd_decPrice</code>.</p>
+<pre><code>this.grd.InsertAfter(this.grd_decPrice, this.grd_sName);</code></pre>
+
 </section>
 <a id="FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertAfter_" data-uid="FS.Hosting.Broker.Shared.Actions.GridControlAction.InsertAfter*"></a>
 <h4 id="FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertAfter_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_System_Collections_Generic_IEnumerable_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction__" data-uid="FS.Hosting.Broker.Shared.Actions.GridControlAction.InsertAfter(FS.Hosting.Broker.Shared.Actions.GridColumnControlAction,System.Collections.Generic.IEnumerable{FS.Hosting.Broker.Shared.Actions.GridColumnControlAction})">InsertAfter(GridColumnControlAction, IEnumerable&lt;GridColumnControlAction&gt;)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Verschiebt die Grid-Columns <code data-dev-comment-type="paramref" class="paramref">controlsToInsert</code> hinter <code data-dev-comment-type="paramref" class="paramref">afterControl</code>.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -139,6 +150,15 @@ public void InsertAfter(GridColumnControlAction afterControl, IEnumerable&lt;Gri
     </div>
   </section>
 
+
+    <h5 id="FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertAfter_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_System_Collections_Generic_IEnumerable_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction___remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Wenn <code data-dev-comment-type="paramref" class="paramref">afterControl</code> null ist, werden die Grid-Columns <code data-dev-comment-type="paramref" class="paramref">controlsToInsert</code> an das Ende des Grids verschoben.</p>
+</div>
+    </section>
+  <h5 id="FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertAfter_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_System_Collections_Generic_IEnumerable_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction___examples">Examples</h5>
+  <p>Verschiebt das Column <code>grd_sName</code> hinter das Column <code>grd_decPrice</code>.</p>
+<pre><code>this.grd.InsertAfter(this.grd_decPrice, this.grd_sName);</code></pre>
 
 </section>
 </article>

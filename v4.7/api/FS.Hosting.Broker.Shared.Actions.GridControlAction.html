@@ -85,7 +85,8 @@
   
   <h1 id="FS_Hosting_Broker_Shared_Actions_GridControlAction" data-uid="FS.Hosting.Broker.Shared.Actions.GridControlAction" class="text-break">Class GridControlAction
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Über diese Klasse werden zur Laufzeit die Actions für das Control <a href="../doc/form/control/grid.html">Grid</a> angeboten.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -198,80 +199,122 @@ public class GridControlAction : EditableControlAction, IFrameworkControlActionB
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.AddColumn.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_AddColumn_FS_Hosting_Broker_Shared_GridColumnDefinition_">AddColumn(GridColumnDefinition)</a></h4>
-    <section><p></section>
+    <section><p><p>Fügt dem Grid eine neue Spalte hinzu. Sollte zu dem in der GridColumnDefinition
+angegebenen Property bereits eine Spalte existieren, so wird eine Exception ausgelöst.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.GetDynamicColumnAction.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_GetDynamicColumnAction_System_String_">GetDynamicColumnAction(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Gibt die <a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridColumnControlAction.html">GridColumnControlAction</a> der zur Laufzeit hinzugefügten Spalte (=dynamische Spalte)
+für das angegebene Property zurück. Wenn für das Property keine dynamische Spalte existiert,
+wird <code>null</code> zurück gegeben.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.GetView.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_GetView">GetView()</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.InsertAfter.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertAfter_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction___">InsertAfter(GridColumnControlAction, GridColumnControlAction[])</a></h4>
-    <section><p></section>
+    <section><p><p>Verschiebt die Grid-Columns <code data-dev-comment-type="paramref" class="paramref">controlsToInsert</code> hinter <code data-dev-comment-type="paramref" class="paramref">afterControl</code>.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.InsertAfter.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertAfter_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_System_Collections_Generic_IEnumerable_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction__">InsertAfter(GridColumnControlAction, IEnumerable&lt;GridColumnControlAction&gt;)</a></h4>
-    <section><p></section>
+    <section><p><p>Verschiebt die Grid-Columns <code data-dev-comment-type="paramref" class="paramref">controlsToInsert</code> hinter <code data-dev-comment-type="paramref" class="paramref">afterControl</code>.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.InsertBefore.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertBefore_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction___">InsertBefore(GridColumnControlAction, GridColumnControlAction[])</a></h4>
-    <section><p></section>
+    <section><p><p>Verschiebt die Grid-Columns <code data-dev-comment-type="paramref" class="paramref">controlsToInsert</code> vor das <code data-dev-comment-type="paramref" class="paramref">beforeControl</code>.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.InsertBefore.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_InsertBefore_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_System_Collections_Generic_IEnumerable_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction__">InsertBefore(GridColumnControlAction, IEnumerable&lt;GridColumnControlAction&gt;)</a></h4>
-    <section><p></section>
+    <section><p><p>Verschiebt die Grid-Columns <code data-dev-comment-type="paramref" class="paramref">controlsToInsert</code> vor das <code data-dev-comment-type="paramref" class="paramref">beforeControl</code>.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.LoadGridLayout.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_LoadGridLayout_System_String_System_Boolean_">LoadGridLayout(String, Boolean)</a></h4>
-    <section><p></section>
+    <section><p><p>Sendet eine Action an den Client, die ein auf dem Client-Rechner gespeichertes Grid-Layout einliest.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.RedoSortAndFilter.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_RedoSortAndFilter">RedoSortAndFilter()</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.RemoveAllDynamicColumns.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_RemoveAllDynamicColumns">RemoveAllDynamicColumns()</a></h4>
-    <section><p></section>
+    <section><p><p>Entfernt alle dynamischen Spalten.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.RemoveColumn.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_RemoveColumn_FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_">RemoveColumn(GridColumnControlAction)</a></h4>
-    <section><p></section>
+    <section><p><p>Entfernt die dynamische Spalte, falls sie existiert.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.RemoveColumn.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_RemoveColumn_FS_Hosting_Broker_Shared_GridColumnDefinition_">RemoveColumn(GridColumnDefinition)</a></h4>
-    <section><p></section>
+    <section><p><p>Entfernt die dynamische Spalte zu dem in der <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.html">GridColumnDefinition</a> angegebenen Property, falls sie existiert.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.RemoveColumn.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_RemoveColumn_System_String_">RemoveColumn(String)</a></h4>
-    <section><p></section>
+    <section><p><p>Entfernt die dynamische Spalte zu dem in der <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.html">GridColumnDefinition</a> angegebenen Property, falls sie existiert.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.ResetSortAndFilter.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_ResetSortAndFilter">ResetSortAndFilter()</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SaveGridLayout.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SaveGridLayout_System_String_System_Boolean_">SaveGridLayout(String, Boolean)</a></h4>
-    <section><p></section>
+    <section><p><p>Sendet eine Action an den Client, die das Layout des Grids auf dem Client-Rechner speichert.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.ScrollTo.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_ScrollTo_FS_Shared_BaseObjects_guid_">ScrollTo(guid)</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.ScrollTo.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_ScrollTo_System_Int32_">ScrollTo(Int32)</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetCell.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetCell_FS_Shared_BaseObjects_guid_System_Int32_">SetCell(guid, Int32)</a></h4>
-    <section><p></section>
+    <section><p><p>Diese Aktion setzt den Fokus in eine Zelle des Grids. Die <strong>RowID</strong> ist das Property <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.ObjectRowID.html#FS_Hosting_Shared_IDevFrameworkObject_ObjectRowID">ObjectRowID</a>
+eines Objekts der Collection. <strong>ColumnPos</strong> ist die Nummer der Spalte mit 0 beginnend.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetCell.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetCell_FS_Shared_BaseObjects_guid_System_String_">SetCell(guid, String)</a></h4>
-    <section><p></section>
+    <section><p><p>Wie <a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetCell.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetCell_FS_Shared_BaseObjects_guid_System_Int32_">SetCell(guid, Int32)</a>. Zusätzlich gibt es hier den Parameter <strong>SelectAll</strong>, mit dem angegeben werden kann, ob
+der gesamte Inhalt der Zelle markiert werden soll. Mit <code>true</code> wird der Inhalt markiert und kann direkt
+überschrieben werden.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetCellBackColor.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetCellBackColor_FS_Shared_BaseObjects_guid_System_Int32_System_Drawing_Color_">SetCellBackColor(guid, Int32, Color)</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetCellBackColor.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetCellBackColor_FS_Shared_BaseObjects_guid_System_String_System_Drawing_Color_">SetCellBackColor(guid, String, Color)</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetCellEditable.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetCellEditable_FS_Shared_BaseObjects_guid_System_Int32_System_Boolean_">SetCellEditable(guid, Int32, Boolean)</a></h4>
-    <section><p></section>
+    <section><p><p>Diese Aktion setzt eine Zelle des Grids auf editierbar oder nicht editierbar. Die RowID ist das
+Property <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.ObjectRowID.html#FS_Hosting_Shared_IDevFrameworkObject_ObjectRowID">ObjectRowID</a> eines Objekts der Collection.
+ColumnPos ist die Nummer der Spalte mit <strong>0</strong> beginnend. Ist <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.IsEditable.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_IsEditable">IsEditable</a>
+auf <code>true</code> gesetzt, wird die Zelle für Benutzereingaben zugänglich gemacht,
+bei <code>false</code> wird die Zelle gesperrt.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetCellEditable.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetCellEditable_FS_Shared_BaseObjects_guid_System_String_System_Boolean_">SetCellEditable(guid, String, Boolean)</a></h4>
-    <section><p></section>
+    <section><p><p>Diese Aktion setzt eine Zelle des Grids auf editierbar oder nicht editierbar. Die RowID ist das
+Property <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.ObjectRowID.html#FS_Hosting_Shared_IDevFrameworkObject_ObjectRowID">ObjectRowID</a> eines Objekts der Collection.
+columnName ist der Name der Spalte. Ist <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.IsEditable.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_IsEditable">IsEditable</a>
+auf <code>true</code> gesetzt, wird die Zelle für Benutzereingaben zugänglich gemacht,
+bei <code>false</code> wird die Zelle gesperrt.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetCellForeColor.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetCellForeColor_FS_Shared_BaseObjects_guid_System_Int32_System_Drawing_Color_">SetCellForeColor(guid, Int32, Color)</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetCellForeColor.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetCellForeColor_FS_Shared_BaseObjects_guid_System_String_System_Drawing_Color_">SetCellForeColor(guid, String, Color)</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetColumnCaption.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetColumnCaption_System_Int32_System_String_">SetColumnCaption(Int32, String)</a></h4>
-    <section><p></section>
+    <section><p><p>Setzt die Spaltenüberschrift der Spalte Nummer <strong>ColumnPos</strong> auf den Wert <strong>value</strong>.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetColumnCaption.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetColumnCaption_System_String_System_String_">SetColumnCaption(String, String)</a></h4>
-    <section><p></section>
+    <section><p><p>Setzt die Spaltenüberschrift der Spalte <strong>ColumnName</strong> auf den neuen Wert <strong>value</strong>.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetColumnToolTip.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetColumnToolTip_System_Int32_System_String_">SetColumnToolTip(Int32, String)</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetColumnToolTip.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetColumnToolTip_System_String_System_String_">SetColumnToolTip(String, String)</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetColumnVisible.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetColumnVisible_System_Int32_System_Boolean_">SetColumnVisible(Int32, Boolean)</a></h4>
-    <section><p></section>
+    <section><p><p>Legt fest, ob die Spalte mit der Nummer <strong>ColumnPos</strong> dargestellt werden soll.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetColumnVisible.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetColumnVisible_System_Int32_System_Nullable_System_Boolean__">SetColumnVisible(Int32, Nullable&lt;Boolean&gt;)</a></h4>
-    <section><p></section>
+    <section><p><p>Legt fest, ob die Spalte mit der Nummer <strong>ColumnPos</strong> dargestellt werden soll.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetColumnVisible.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetColumnVisible_System_String_System_Boolean_">SetColumnVisible(String, Boolean)</a></h4>
-    <section><p></section>
+    <section><p><p>Legt fest, ob die Spalte <strong>ColumnName</strong> dargestellt werden soll.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetColumnVisible.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetColumnVisible_System_String_System_Nullable_System_Boolean__">SetColumnVisible(String, Nullable&lt;Boolean&gt;)</a></h4>
-    <section><p></section>
+    <section><p><p>Legt fest, ob die Spalte <strong>ColumnName</strong> dargestellt werden soll.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetEditable.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetEditable_System_Boolean_">SetEditable(Boolean)</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetGridColor.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetGridColor_System_Drawing_Color_">SetGridColor(Color)</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetGridRowHeight.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetGridRowHeight_System_Int32_">SetGridRowHeight(Int32)</a></h4>
-    <section><p></section>
+    <section><p><p>Legt die Zeilenhöhe der einzelnen Zeilen im Grid fest.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetMultiselect.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetMultiselect_System_Boolean_">SetMultiselect(Boolean)</a></h4>
-    <section><p></section>
+    <section><p><p>Diese Methode ermöglicht es während der Laufzeit Mehrfachselektionen am GridControl zuzulassen oder zu verweigern.</p>
+</p></section>
   
+  <h3 id="seealso">See Also</h3>
+  <div class="seealso">
+      <div><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.html">GridDesignViewModel</a></div>
+  </div>
 </article>
           </div>
           

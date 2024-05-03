@@ -90,7 +90,10 @@
 <a id="FS_Hosting_Shared_BrowserCommand_CreateCommand_" data-uid="FS.Hosting.Shared.BrowserCommand.CreateCommand*"></a>
 <h4 id="FS_Hosting_Shared_BrowserCommand_CreateCommand_System_String_System_Collections_Generic_IDictionary_System_String_System_String__" data-uid="FS.Hosting.Shared.BrowserCommand.CreateCommand(System.String,System.Collections.Generic.IDictionary{System.String,System.String})">CreateCommand(String, IDictionary&lt;String, String&gt;)</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Mit der Methode CreateCommand können Link-Kommandos mit der Notation
+<code> fscommand:[Kommando]?[Key]=[Value]&amp;[Key1]=[Value1]&amp;…[KeyN]=[ValueN] </code>
+erstellt werden.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -120,11 +123,37 @@ public static string CreateCommand(string commandName, IDictionary&lt;string, st
       </div>
     </section>
 
+    <h5 id="FS_Hosting_Shared_BrowserCommand_CreateCommand_System_String_System_Collections_Generic_IDictionary_System_String_System_String___remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Link-Kommandos beginnen mit dem Schlüsselwort <code>fscommand</code> und verfügen über ein Kommando (<strong>commandName</strong>) und über
+eine beliebige Anzahl von Argumenten (<strong>args</strong>). Die Argumente bestehen immer aus einem Schlüssel (<strong>Key</strong>) und einem
+Wert (<strong>Value</strong>) und können entweder als generische Auflistung vom Typ IDictionary oder einzeln als KeyValuePairs
+an die Funktion übergeben werden. Das Schlüsselwort, Kommando und die Argumente werden in Url Schreibweise
+miteinander verbunden, codiert und als string zurückgegeben.
+Die Verwendung von GenerateCommand könnte folgendermaßen aussehen:
+<example><p>
+<pre><code>//Command-Args erstellen
+Dictionary&lt;string, string> linkCommandArgs = new Dictionary&lt;string, string>();
+linkCommandArgs.Add(&quot;Key1&quot;, &quot;1235&quot;);
+linkCommandArgs.Add(&quot;Key2&quot;, &quot;Test&quot;);
+linkCommandArgs.Add(&quot;Key3&quot;, &quot;Test 1234&quot;);
+
+// Link-Kommand erstellen
+string linkCommand = BrowserCommand.CreateCommand(&quot;TestCommand&quot;, linkCommandArgs);
+
+// Html-Link erzeugen und mit Content-Datsource vom Browser anzeigen lassen
+this.contentDatasource = &quot;&lt;a href=\&quot;&quot; + linkCommand + &quot;>Link&lt;/a>&quot;;</code></pre>
+<p></example></p>
+</div>
+    </section>
 </section>
 <a id="FS_Hosting_Shared_BrowserCommand_CreateCommand_" data-uid="FS.Hosting.Shared.BrowserCommand.CreateCommand*"></a>
 <h4 id="FS_Hosting_Shared_BrowserCommand_CreateCommand_System_String_System_Collections_Generic_KeyValuePair_System_String_System_String____" data-uid="FS.Hosting.Shared.BrowserCommand.CreateCommand(System.String,System.Collections.Generic.KeyValuePair{System.String,System.String}[])">CreateCommand(String, KeyValuePair&lt;String, String&gt;[])</h4>
 <section>
-  <div class="markdown level1 summary"></div>
+  <div class="markdown level1 summary"><p>Mit der Methode CreateCommand können Link-Kommandos mit der Notation
+<code> fscommand:[Kommando]?[Key]=[Value]&amp;[Key1]=[Value1]&amp;…[KeyN]=[ValueN] </code>
+erstellt werden.</p>
+</div>
   <div class="markdown level1 conceptual"></div>
 
   <h5 class="decalaration">Declaration</h5>
@@ -154,6 +183,29 @@ public static string CreateCommand(string commandName, params KeyValuePair&lt;st
       </div>
     </section>
 
+    <h5 id="FS_Hosting_Shared_BrowserCommand_CreateCommand_System_String_System_Collections_Generic_KeyValuePair_System_String_System_String_____remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Link-Kommandos beginnen mit dem Schlüsselwort <code>fscommand</code> und verfügen über ein Kommando (<strong>commandName</strong>) und über
+eine beliebige Anzahl von Argumenten (<strong>args</strong>). Die Argumente bestehen immer aus einem Schlüssel (<strong>Key</strong>) und einem
+Wert (<strong>Value</strong>) und können entweder als generische Auflistung vom Typ IDictionary oder einzeln als KeyValuePairs
+an die Funktion übergeben werden. Das Schlüsselwort, Kommando und die Argumente werden in Url Schreibweise
+miteinander verbunden, codiert und als string zurückgegeben.</p>
+<p>Die einzelnen Argumente können mit der Methode <a class="xref" href="FS.Hosting.Shared.BrowserCommand.CreateArgument.html#FS_Hosting_Shared_BrowserCommand_CreateArgument_System_String_System_Object_">CreateArgument(String, Object)</a> erzeugt werden, um die
+Konvertierung verschiedener Typen korrekt vorzunehmen.</p>
+<p>Die Verwendung von GenerateCommand könnte folgendermaßen aussehen:
+<example><p>
+<pre><code>// Link-Kommand erstellen
+string linkCommand = BrowserCommand.CreateCommand(&quot;TestCommand&quot;,
+    new KeyValuePair&lt;string, string>(&quot;Key1&quot;, &quot;Wert1&quot;),
+    BrowserCommand.CreateArgument(&quot;Belegnummer&quot;, new FSlong(1005342)),
+    BrowserCommand.CreateArgument(&quot;Belegart&quot;, &quot;ABC&quot;),
+    BrowserCommand.CreateArgument(&quot;Datum&quot;, FSDateTime.Today));
+
+// Html-Link erzeugen und mit Content-Datsource vom Browser anzeigen lassen
+this.contentDatasource = &quot;&lt;a href=\&quot;&quot; + linkCommand + &quot;>Link&lt;/a>&quot;;</code></pre>
+<p></example></p>
+</div>
+    </section>
 </section>
 </article>
           </div>

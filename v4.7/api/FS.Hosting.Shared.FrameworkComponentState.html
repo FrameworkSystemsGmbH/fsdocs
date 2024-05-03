@@ -85,7 +85,8 @@
   
   <h1 id="FS_Hosting_Shared_FrameworkComponentState" data-uid="FS.Hosting.Shared.FrameworkComponentState" class="text-break">Class FrameworkComponentState
   </h1>
-  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 summary"><p>Status des Objektes.</p>
+</div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
@@ -103,17 +104,24 @@ public sealed class FrameworkComponentState : Enum</code></pre>
   </h3>
   
     <h4><a class="xref" href="FS.Hosting.Shared.FrameworkComponentState.Changed.html">Changed</a></h4>
-    <section><p></section>
+    <section><p><p>Das Objekt wurde verändert und die Änderungen wurden noch nicht gespeichert</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.FrameworkComponentState.Deleted.html">Deleted</a></h4>
-    <section><p></section>
+    <section><p><p>Das Objekt wurde gelöscht (und aus der Collection entfernt!)</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.FrameworkComponentState.New.html">New</a></h4>
-    <section><p></section>
+    <section><p><p>Das Objekt wurde neu erzeugt, aber noch nicht gespeichert</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.FrameworkComponentState.NewButDeleted.html">NewButDeleted</a></h4>
-    <section><p></section>
+    <section><p><p>Das Objekt wurde zwar neu erzeugt aber inzwischen schon wieder gelöscht (und
+aus der Collection entfernt!)</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.FrameworkComponentState.Unchanged.html">Unchanged</a></h4>
-    <section><p></section>
+    <section><p><p>Das Objekt wurde seit dem Laden bzw. dem letzten Speichern nicht mehr verändert.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.FrameworkComponentState.UnchangedButDeleted.html">UnchangedButDeleted</a></h4>
-    <section><p></section>
+    <section><p><p>Das Objekt wurde gelöscht und in der Datenbank gespeichert. So gilt er als Unchanged und Deleted</p>
+</p></section>
   
 </article>
           </div>

@@ -166,7 +166,7 @@
 <p>Schließt den Dialog und verwirft die Änderungen.</p>
 <p>Wenn der Message-Box-Editor mit <strong>OK</strong> verlassen wird, wird an die Stelle im Code, an der sich der Cursor befindet der Code generiert.</p>
 <pre><code class="lang-csharp">// FSCodeMessage: Really delete article {0}?
-throw MsgBox.Exception(this.Global.FormatMLKeyText(MLKeys.MSG_9188180c5ac64a5384141b553eef8105, this.oSelectedArticle.sName), &quot;&quot;, MsgBoxButtons.YesNo, MsgBoxIcons.Question, new MsgBoxEventHandler(OnDeleteQuestionMsgBoxClick));
+throw MsgBox.Exception(MLUtil.FormatMLKeyText(MLKeys.MSG_9188180c5ac64a5384141b553eef8105, this.oSelectedArticle.sName), &quot;&quot;, MsgBoxButtons.YesNo, MsgBoxIcons.Question, new MsgBoxEventHandler(OnDeleteQuestionMsgBoxClick));
 </code></pre><p>Durch den Kommentar <code>// FSCodeMessage:</code> ist dieser Code im Code-Editor gut zu erkennen.</p>
 <p><img src="media/code-messages-example.png" alt="Examples"></p>
 <p>Um die Code-Message nachträglich zu ändern, setzen Sie den Fokus irgendwo in den generierten Code-Block und drücken erneut den entsprechenden Wizard-Button. Es öffnet sich wieder der Editor wie oben und die Daten der Code-Message werden angezeigt und können geändert werden.</p>

@@ -206,7 +206,7 @@ throw new FrameworkApplicationException (String.Format(FSGeneral.ctMessagesFacto
 #endregion End of generated section
 </code></pre><p>Neuer Exception-Code nach der Konvertierung:</p>
 <pre><code class="lang-csharp">// FSCodeMessage: Component type is required.
-throw new FrameworkApplicationException(this.Global.GetMLKeyText(MLKeys.MSG_445559f2ca44452e8d49ca9515b3a83e), 0);
+throw new FrameworkApplicationException(MLUtil.GetMLKeyText(MLKeys.MSG_445559f2ca44452e8d49ca9515b3a83e), 0);
 </code></pre><p>Es ist relativ wahrscheinlich, dass Warnings oder sogar Errors ausgegeben werden. Diese können erst einmal ignoriert werden. Es handelt sich dabei um inhaltliche Probleme und nicht um Compile-Errors. Die <strong>Convert Code Messages</strong> Routine kann zu einem späteren Zeitpunkt erneut ausgeführt und diese Probleme dann behoben werden.</p>
 <div class="IMPORTANT"><h5>Important</h5><p>Damit sind die Message-Text-Collections jetzt obsolete.
 Sie dürfen aber nicht gelöscht oder geleert werden, weil sie ggf. noch von Customizing-Packages referenziert werden.</p>

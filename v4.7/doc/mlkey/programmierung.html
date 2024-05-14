@@ -85,7 +85,7 @@
 <p>Framework Studio generiert aus dem Wörtebuch eine Klasse <code>MLKeys</code>, die alle MLKeys beinhaltet. Sie wird im Compile-Schritt <strong>Ressource</strong> compiliert und steht somit in der kompletten Applikation zur Verfügung.</p>
 <p>Sie erbt die MLKeys aus dem Basis-Package - so z.B. auch die <code>SYS_</code>-Keys aus dem System-Package.</p>
 <p>Die Klasse wird z.B. folgendermaßen verwendet:</p>
-<p><code>this.Global.GetMLText(</code><strong><code>MLKeys.LBL_Amount</code></strong><code>);</code></p>
+<p><code>MLUtil.GetMLText(</code><strong><code>MLKeys.LBL_Amount</code></strong><code>);</code></p>
 <p>Alle Quellcodes, die mit MLKeys arbeiten, greifen auf diese Klasse zu - sowohl selbst geschriebener Methoden-Code als auch der von Framework Studio generierte Code. Dadurch findet der CSharp-Compiler alle Probleme, die im Zusammenhang mit MLKeys auftreten können:</p>
 <ul>
 <li>Compile-Error, wenn ein MLKey nicht mehr existiert. Auch wenn diese z.B. in einem Metadatentypen oder einem Form-Control verwendet werden.</li>
@@ -118,19 +118,19 @@
 <li><p>Wird auf einem MLKey der Befehl <strong>Go To Definition</strong> ausgeführt, dann öffnet sich der <a href="woerterbuch.html">Multilanguage Text Editor</a> und es wird der entsprechende Eintrag selektiert.</p>
 </li>
 </ol>
-<h2 id="methoden-am-global-object">Methoden am Global-Object</h2>
-<p>Das GlobalObject bietet mehrere Methoden an, mit denen ein MLKey in ein Text überführt werden kann.</p>
+<h2 id="methoden-an-der-mlutil-klasse">Methoden an der MLUtil Klasse</h2>
+<p>Die MLUtil Klasse bietet mehrere Methoden an, mit denen ein MLKey in ein Text überführt werden kann.</p>
 <ul>
-<li><a href="xref:FS.Hosting.Shared.GlobalObj.MLUtil.GetMLText(FS.Shared.MultiLanguage.MLKey)">GetMLText(mlkey)</a></li>
-<li><a href="xref:FS.Hosting.Shared.GlobalObj.MLUtil.GetMLText(FS.Shared.MultiLanguage.MLKey,System.String)">GetMLText(mlkey, iso)</a></li>
-<li><a href="xref:FS.Hosting.Shared.GlobalObj.MLUtil.GetMLKeyText(FS.Shared.MultiLanguage.MLKey)">GetMLKeyText(mlkey)</a></li>
-<li><a href="xref:FS.Hosting.Shared.GlobalObj.MLUtil.FormatMLText(FS.Shared.MultiLanguage.MLKey,System.Object[])">FormatMLText(mlkey, args)</a></li>
-<li><a href="xref:FS.Hosting.Shared.GlobalObj.MLUtil.FormatMLKeyText(FS.Shared.MultiLanguage.MLKey,System.Object[])">FormatMLKeyText(mlkey, args)</a></li>
+<li><a class="xref" href="../../api/FS.Hosting.Shared.MultiLanguage.MLUtil.GetMLText.html#FS_Hosting_Shared_MultiLanguage_MLUtil_GetMLText_FS_Shared_MultiLanguage_MLKey_">GetMLText(mlkey)</a></li>
+<li><a class="xref" href="../../api/FS.Hosting.Shared.MultiLanguage.MLUtil.GetMLText.html#FS_Hosting_Shared_MultiLanguage_MLUtil_GetMLText_FS_Shared_MultiLanguage_MLKey_System_String_">GetMLText(mlkey, iso)</a></li>
+<li><a class="xref" href="../../api/FS.Hosting.Shared.MultiLanguage.MLUtil.GetMLKeyText.html#FS_Hosting_Shared_MultiLanguage_MLUtil_GetMLKeyText_FS_Shared_MultiLanguage_MLKey_">GetMLKeyText(mlkey)</a></li>
+<li><a class="xref" href="../../api/FS.Hosting.Shared.MultiLanguage.MLUtil.FormatMLText.html#FS_Hosting_Shared_MultiLanguage_MLUtil_FormatMLText_FS_Shared_MultiLanguage_MLKey_System_Object___">FormatMLText(mlkey, args)</a></li>
+<li><a class="xref" href="../../api/FS.Hosting.Shared.MultiLanguage.MLUtil.FormatMLKeyText.html#FS_Hosting_Shared_MultiLanguage_MLUtil_FormatMLKeyText_FS_Shared_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(mlkey, args)</a></li>
 </ul>
 <p>Für die Format-Funktionen wird die Client-Culture verwendet. Für die Verwendung einer spezifischen Culture gibt es entsprechende Überladungen:</p>
 <ul>
-<li><a href="xref:FS.Hosting.Shared.GlobalObj.MLUtil.FormatMLText(System.IFormatProvider,FS.Shared.MultiLanguage.MLKey,System.Object[])">FormatMLText(culture, mlkey, args)</a></li>
-<li><a href="xref:FS.Hosting.Shared.GlobalObj.MLUtil.FormatMLKeyText(System.IFormatProvider,FS.Shared.MultiLanguage.MLKey,System.Object[])">FormatMLKeyText(culture, mlkey, args)</a></li>
+<li><a class="xref" href="../../api/FS.Hosting.Shared.MultiLanguage.MLUtil.FormatMLText.html#FS_Hosting_Shared_MultiLanguage_MLUtil_FormatMLText_System_IFormatProvider_FS_Shared_MultiLanguage_MLKey_System_Object___">FormatMLText(culture, mlkey, args)</a></li>
+<li><a class="xref" href="../../api/FS.Hosting.Shared.MultiLanguage.MLUtil.FormatMLKeyText.html#FS_Hosting_Shared_MultiLanguage_MLUtil_FormatMLKeyText_System_IFormatProvider_FS_Shared_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(culture, mlkey, args)</a></li>
 </ul>
 <h2 id="cglobal-entrypoint">cGlobal EntryPoint</h2>
 <p>In der Klasse <code>cGlobal</code> gibt es einen zentralen Entry-Point <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IcGlobalBase.GlobalGetMLText.html#FS_Hosting_Shared_GlobalObj_IcGlobalBase_GlobalGetMLText_FS_Shared_MultiLanguage_MLKey_System_String_">GlobalGetMLText</a>. Dieser wird JEDES MAL aufgerufen, wenn aus einem MLKey ein Text erzeugt wird.</p>

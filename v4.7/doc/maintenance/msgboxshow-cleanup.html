@@ -97,7 +97,7 @@ Dieser Code wurde allerdings niemals ausgeführt.</p>
     if (this.value == 0)
     {
         // FSCodeMessage: Test
-        MsgBox.Show(this.Global.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, null);
+        MsgBox.Show(MLUtil.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, null);
         return 0;  // &lt;== wird niemals ausgeführt
     }
     else
@@ -108,13 +108,13 @@ Dieser Code wurde allerdings niemals ausgeführt.</p>
 </code></pre><p>Nach der Umstellung auf <code>throw...</code> wird diese Code-Zeile korrekt als unerreichbar erkannt und vom C#-Compiler eine Warning generiert.
 Diese Stellen können entsprechend nachgearbeitet werden.</p>
 <pre><code class="lang-csharp">        // FSCodeMessage: Test
-        throw MsgBox.Exception(this.Global.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, null);
+        throw MsgBox.Exception(MLUtil.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, null);
         return 0;  // &lt;== unreachable Code
 </code></pre><p>Nach erfolgreichen Compile müssen die Forms eingecheckt werden.</p>
 <h2 id="beschreibung">Beschreibung</h2>
 <p>Wird in der Broker-Application wie bisher eine MessageBox ausgegeben, dann mündet der heute verwendete Aufruf <code>MsgBox.Show(...)</code> in einer Exception.</p>
 <pre><code class="lang-csharp">// FSCodeMessage: Test
-MsgBox.Show(this.Global.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, null);
+MsgBox.Show(MLUtil.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, null);
 </code></pre><p>Dies hat folgende Nachteile:</p>
 <ul>
 <li>Der Aufruf dieser Methode verschleiert die Exception.</li>
@@ -124,7 +124,7 @@ MsgBox.Show(this.Global.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButto
 <p>Mit Framework Studio 4.7 wurde dieser Mechanismus deshalb optimiert.
 Der durch den <a href="../editors/editor-cs-code-messages.html">MessageBox-Wizard</a> generierte Code sieht nun wie folgt aus:</p>
 <pre><code class="lang-csharp">// FSCodeMessage: Test
-throw MsgBox.Exception(this.Global.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, null);
+throw MsgBox.Exception(MLUtil.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, null);
 </code></pre><p><code>MsgBox.Show()</code> wird weiterhin uneingeschränkt funktionieren, falls Sie den Code nicht konvertieren.</p>
 </article>
           </div>

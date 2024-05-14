@@ -120,7 +120,7 @@ Namespace.ctMessagesFactory.GetText(this.Global, 5282, FSstring.Null)
 Namespace.ctMessagesFactory.Get(this.Global, 5282).Text
 Namespace.ctMessagesFactory.Get(this.Global, 5282).Value[this.Global.SelectedLanguage]
 </code></pre><p>Diese Aufrufe werden ersetzt durch:</p>
-<pre><code class="lang-csharp">this.Global.GetMLText(MLKey.MSG_b4699cd744c94d439b06a9c68f29eaf7)
+<pre><code class="lang-csharp">MLUtil.GetMLText(MLKey.MSG_b4699cd744c94d439b06a9c68f29eaf7)
 </code></pre><p>Der Ausdruck darf keinen Zeilen-Umbruch beinhalten.
 In diesem Fall schlägt die Stelle als Warnung auf.
 Nach manueller Korrektur der Stelle kann erneut Analyze / Replace aufgerufen werden.</p>

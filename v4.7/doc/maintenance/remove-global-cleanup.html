@@ -100,6 +100,10 @@ Die Routine kann in der IDE über das Menü <strong>Update</strong> / <strong>FS
 <pre><code class="lang-diff">- MISRemoteServiceProxy proxy = new MISRemoteServiceProxy(this.Global, &quot;*&quot;, sUrlP);
 + MISRemoteServiceProxy proxy = new MISRemoteServiceProxy(&quot;*&quot;, sUrlP);
 </code></pre></li>
+<li><p>TextCollFactory-Methoden erwarten kein Global mehr</p>
+<pre><code class="lang-diff">- FSstring sLogLevel = ctLogLevelFactory.GetText(this.Global, this.shtLevel);
++ FSstring sLogLevel = ctLogLevelFactory.GetText(this.shtLevel);
+</code></pre></li>
 <li><p>Die Methoden <code>GetMLText()</code>, <code>FormatMLText()</code>, <code>GetMLKeyText()</code> und <code>FormatMLKeyText()</code> sind vom Global in die Klasse <a class="xref" href="../../api/FS.Hosting.Shared.MultiLanguage.MLUtil.html"><code>MLUtil</code></a> gewandert</p>
 <pre><code class="lang-diff">- throw new FrameworkApplicationException(this.Global.GetMLText(MLKeys.MSG_93a1ea2873804fcbb771d2b2a5305f85), 0);
 + throw new FrameworkApplicationException(MLUtil.GetMLText(MLKeys.MSG_93a1ea2873804fcbb771d2b2a5305f85), 0);

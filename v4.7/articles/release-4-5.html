@@ -81,6 +81,47 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-45">Release-Information Framework Studio 4.5</h1>
 
+<h2 id="4517-07062025">4.5.17 (07.06.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.5.17_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Zum Customizen muss für das Basis-Package keine PKL-Lizenz mehr eingespielt werden.
+Die Prüfung wurde entfernt.
+Ab Version 4.7 wird die PKL-Lizenz komplett entfernt.</li>
+<li>Fehler, die beim Start der Application auftreten, werden teilweise in einer <code>TargetInvocationException</code> verpackt.
+Dadurch wurde dem Benutzer nur die Meldung <em>&quot;Ein Aufrufziel hat einen Ausnahmefehler verursacht&quot;</em> angezeigt.
+Die eigentliche Meldung war erst in den Details zu finden.
+Jetzt wird gleich die richtige Meldung ausgegeben.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2024035421 - <strong>Java-Client</strong>: Wenn man im Bearbeitungs-Modus vom Dashboard /
+  Zoom den Titel der Registerkarte bearbeitet und während dessen eine neue
+  Registerkarte einfügt, dann führt das zu Darstellungsfehlern im Layout und
+  Fehlermeldungen in der Java-Console. Die Anwendung muss dann neu gestartet
+  werden.</p>
+</li>
+<li><p>2024055777 - <strong>Publish</strong>: FSRowID Update kann nicht geöffnet werden, es wird
+  eine Fehlermeldung.angezeigt.</p>
+</li>
+<li><p>2024055698 - <strong>IDE</strong>: Neu angelegte Workflow-Events werden erst nach einem
+  Neustart von FrameworkStudio gefunden. Im Workflow-Designer kann es deshalb
+  beim erstellen eines neuen Links zu folgender Meldung kommen: <em>Can&#39;t create
+  link because the selected instance &#39;...&#39; contains no workflow events!</em></p>
+</li>
+<li><p>2024055731 - <strong>Code-Generierung</strong>: Für die Global Objects wird der Init-Code
+  mehrfach generiert. Im Customzing-Umgebungen führt das dazu dass der Code so
+  oft durchlafen wird, wie es Packages in der aktuellen Hierarchie gibt.</p>
+<div class="NOTE"><h5>Note</h5><p>Damit die Korrektur zieht, muss die Package-Version einmal compiliert
+werden. Das funktioniert auch wenn sich die Package-Version im
+Service-Release-Modus befindet.</p>
+</div>
+</li>
+</ul>
 <h2 id="4516-03052024">4.5.16 (03.05.2024)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -93,12 +134,12 @@
 <li>DevExpress wurde auf Version 23.2.5 upgedated.</li>
 <li>Es gibt einen neuen <a href="frequently-asked-questions.html">FAQ</a> Bereich in unserer Online-Dokumentation. Hier werden wir laufend Themen ergänzen.</li>
 </ul>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <ul>
 <li>Für einen Form-Container funktioniert im Java-Client jetzt die Focus-Steuerung.
 Das umfasst das Navigieren durch die Controls, das Reagieren auf Shortcuts in beiden Richtungen und die SetFocus-Action im inneren Form.</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024014866 - <strong>JavaClient</strong>: Wird am Grid in einem EditingStopped-Event mit
   SetCell-Actions gearbeitet, dann kann es vorkommen, dass die SetCell-Action
@@ -134,6 +175,9 @@ Die enhaltenen Java-Runtimes wurden auf die neusten Sicherheitsupdates aktualisi
 <li>Java 8 Update 392</li>
 <li>Java 11.0.21 (für den experimetallen Einsatz)</li>
 </ul>
+<div class="NOTE"><h5>Note</h5><p>Alle im FS Client Launcher verwendeten Java-Versionen sind jetzt frei verwendbare OpenJDK-Builds von <a href="https://www.azul.com/downloads/#zulu">Azul.com</a>.</p>
+<p>Java von Oracle wird <strong>nicht</strong> mehr verwendet.</p>
+</div>
 <h4 id="neues-zertifikat-für-jar-dateien">Neues Zertifikat für Jar-Dateien</h4>
 <div class="IMPORTANT"><h5>Important</h5><p>Alle Jar-Dateien für Custom Controls müssen neu signiert werden.</p>
 </div>
@@ -153,7 +197,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <ul>
 <li>beinhaltet den neuen FS Client Launcher</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024035335 - <strong>JavaClient</strong>: Wird innerhalb eines SVGs ein <code>&lt;a&gt;</code> href-Link mit
   spezieller FSCommand-Logik verwendet. Reagiert nicht die Sonderlogik
@@ -200,12 +244,12 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>DevExpress wurde auf Version 23.2.3 upgedated.</li>
 <li>Der Monaco Code-Editor wurde auf Version 0.44.0 upgedated.</li>
 </ul>
-<h4 id="neuerungen-1">Neuerungen</h4>
+<h4 id="neuerungen-2">Neuerungen</h4>
 <ul>
 <li>Im <a href="../doc/ide/start.html#checkbox-show-only-applicable-packages-and-versions">Login Dialog</a> gibt es eine neue Checkbox, mit welcher die Packages und Versions gefiltert werden können.</li>
 <li>Es gibt eine neue Auto Debug DLLs Option: <code>Service, Component, Form</code>, siehe <a href="../doc/allgemein/options.html#auto-debug-dlls">Options</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024014914 - <strong>IDE</strong>: In sehr seltenen Fällen kann es vorkommen, dass &quot;GoTo
   Definition&quot; im Code Editor bei gedrückter STRG-Taste erst bei einem zweiten
@@ -237,13 +281,13 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <ul>
 <li>Der HTML Client wurde auf Angular 17.1.1 upgedated</li>
 </ul>
-<h4 id="neuerungen-2">Neuerungen</h4>
+<h4 id="neuerungen-3">Neuerungen</h4>
 <ul>
 <li>Im Package Manager können an der Package Version die <a href="../doc/package-manager/package-version.html#base-workspaces-freezed-since">Basis-Workspaces fixiert</a> werden.</li>
 <li>Mit Hilfe von <a href="../doc/package-manager/hotfix-branch.html">Hotfix-Branches</a> ist es möglich, parallel zum laufenden Service-Release Änderungen vorzunehmen und diese kurzfristig auszuliefern.</li>
 <li>Maintenance-Routine &quot;<a href="../doc/maintenance/double-form-doc-cleanup.html">Double Form Doc Cleanup</a>&quot; zur Bereinigung doppelter Form-Dokumentationen.</li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024014859 - <strong>AuthService</strong>: Wird ein Benutzer mit &quot;Angemeldet bleiben&quot;
   erneut angemeldet, dann wird im Auth-Service die Login-Info des Benutzers
@@ -279,11 +323,11 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>DevExpress wurde auf Version 23.1.6 upgedated.</li>
 <li>Die Bibliothek Oracle.ManagedDataAccess wurde von Version 21.8.0 auf die neuste Version 21.12.0 aktualisiert.</li>
 </ul>
-<h4 id="neuerungen-3">Neuerungen</h4>
+<h4 id="neuerungen-4">Neuerungen</h4>
 <ul>
 <li>Es wurde eine weitere &quot;Open compiled code in ...&quot; Option ergänzt. Nähere Informationen finden Sie <a href="../doc/allgemein/options.html">hier</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023114564 - <strong>IDE</strong>: Kopieren und das anschließende Einfügen eines
   Basis-Properties, wenn der Parent (Form, Component) gecustomized ist,
@@ -310,11 +354,11 @@ Das entspricht Chromium 118.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2023/v7-36.html">https://jxbrowser-support.teamdev.com/release-notes/2023/v7-36.html</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="neuerungen-4">Neuerungen</h4>
+<h4 id="neuerungen-5">Neuerungen</h4>
 <ul>
 <li>Beim Löschen von Form-Methoden gibt es jetzt eine Prüfung, ob diese Methode in einem Control-Event verwendet wird.</li>
 </ul>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023114553 - <strong>Java-Client</strong>: Die temporären Dateien des JxBrowsers im
   Temp-Verzeichnis werden nach einem Session-Ende nicht gelöscht.</p>
@@ -352,7 +396,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>FS_4.5.10_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023104277 - <strong>Java-Client</strong>: Wird durch ein Event im Browser-Control (z.B.
   PageLoaded) eine Aktion ausgelöst, die einen modalen Dialog öffnet, dann
@@ -378,11 +422,11 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>FS_4.5.9_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-5">Neuerungen</h4>
+<h4 id="neuerungen-6">Neuerungen</h4>
 <ul>
 <li>Neue Maintenance-Routine <a href="../doc/maintenance/devexpress-rft-comment-cleanup.html">DevExpress Rtf Comment Cleanup</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023093962 - <strong>Reporting</strong>: Beim Instantiieren eines DevExpress-Reports kann
   es zu einer NonTrustedTypeDeserializationException kommen.</p>
@@ -410,11 +454,11 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>DevExpress wurde auf Version 23.1.4 upgedated.</li>
 <li>Der HTML Client wurde auf Angular 16.2 upgedated. Das Scrolling bei vielen offenen Forms wurde im Browser und auf Tablets verbessert.</li>
 </ul>
-<h4 id="neuerungen-6">Neuerungen</h4>
+<h4 id="neuerungen-7">Neuerungen</h4>
 <ul>
 <li>In der IDE werden nun vor einem Compile alle ungespeicherten Elemente automatisch gespeichert.</li>
 </ul>
-<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023073457 - <strong>IDE</strong>: Das Output Fenster zeigt Console-Ausgaben aus der
   Anwendung nicht mehr an.</p>
@@ -485,7 +529,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 Aus diesem Grund müssen wir den <strong>Client-Support für Windows Server 2012 einstellen</strong>.</p>
 <p>Der Application-Broker ist von dieser Einschränkung NICHT betroffen.</p>
 </div>
-<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023073469 - <strong>Publish2Go</strong>: Das Änderungsdatum von Ressourcen-Dateien wird
   falsch gesetzt. Die Zeitzone wird nicht korrekt berücksichtigt.</p>
@@ -581,7 +625,7 @@ Dies geschieht wie üblich über das Menü <code>Source Control</code>, die Tool
 <p>Auch in modalen Dialogen wie z.B. dem <a href="../doc/form/control/listview.html#listview-template-editor">ListView Template Editor</a> oder dem <a href="../doc/documentation/editor.html#editor">DocML Editor</a> von Controls kann mit <code>CTRL + F10</code> <strong>rückfragefrei</strong> ausgecheckt werden.
 Dadurch wird vermieden, dass der Dialog zum Auschecken geschlossen werden muss.</p>
 <p>Beim Auschecken von Elementen über den Namespace Tree ist, wie bisher auch, eine Bestätigung des Vorgangs nötig.</p>
-<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023063292 - <strong>DevExpress</strong>: Das Speichern einer geänderten Localization im WebDesigner
   führt zu einer TypeError-Exception, wenn im Report ein CarryForward-Control vorhanden ist.</p>
@@ -623,7 +667,7 @@ Korrektur mehr geben.</p>
 <li>FS_4.5.5_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-7">Neuerungen</h4>
+<h4 id="neuerungen-8">Neuerungen</h4>
 <ul>
 <li>Für Text-Resourcen steht die Auswahl eines Encoding bereit.
 Das Encoding wird bei neu hinzugefügten Resourcen und auch bei bereits bestehenden automatisch ermittelt.
@@ -631,7 +675,7 @@ Bei bestehenden Resourcen wird jedoch erst bei einer Bearbeitung das Encoding ab
 Eine Konvertierung in ein anderes Encoding kann in beiden Fällen vorgenommen werden.
 Mehr Informationen zum Funktionsumfang findet sich <a href="../doc/resources/resources.html#encoding">hier</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023042824 - <strong>Broker</strong>: Eine Listbox oder Combobox verwendet als
   Listen-Datasource eine Collection. Werden aus dieser Collection Records
@@ -695,11 +739,11 @@ Mit dem Update von DevExpress Web-Designers auf .net 6 haben wir diesen so umges
 <li>FS_4.5.3_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-8">Neuerungen</h4>
+<h4 id="neuerungen-9">Neuerungen</h4>
 <ul>
 <li>Am GridView gibt es ein neues Event <a class="xref" href="../api/FS.Hosting.Shared.IGridView.EntriesSortedOrFiltered.html">EntriesSortedOrFiltered</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-13">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023032382 - <strong>Broker</strong>: Wird eine Gridspalte mit &quot;LIKE&quot; gefiltert, werden
   ggf. keine Treffer gefunden, wenn sich der gesuchte Begriff in einem
@@ -740,7 +784,7 @@ Das entspricht Chromium 108.</p>
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
 <h4 id="neuer-html-client">Neuer HTML Client</h4>
 <p>Der HTML Client wurde auf Angular 15.1 upgedated. Neue Features oder Bugfixes gibt es nicht.</p>
-<h4 id="korrigierte-fehler-13">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-14">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023022188 - <strong>Broker</strong>: Clientside Report Customizing (DevExpress)
   funktioniert nicht mit Applikationen, die mit einem Runtime-Repository
@@ -763,7 +807,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>FS_4.5.1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-14">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-15">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023011937 - <strong>JavaClient</strong>: Die Jar-Dateien für das neue Browser-Control sind
   nicht signiert. Deshalb ist ein Start der Anwendung über Java-Webstart nicht
@@ -819,7 +863,7 @@ Weitere Informationen finden sie <a href="release-4-4.html#abkündigung-des-msi-
 <li>Oracle.ManagedDataAccess 19.13 -&gt; 21.8</li>
 <li>HtmlAgilityPack 1.11.4 -&gt; 1.11.46</li>
 </ul>
-<h4 id="korrigierte-fehler-15">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-16">Korrigierte Fehler</h4>
 <p>In der Version 4.5 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-4.html#4413-23122022">Framework Studio 4.4.13</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

@@ -84,7 +84,69 @@
 <p><strong>Namespace CleanUp</strong> ist eine Maintenance-Routine, die Namespace-Referenzen und Code auf die neuen Namespaces umstellt.</p>
 <p>Im Login-Dialog muss der <a href="../ide/start.html#maintenance-mode">Maintenance-Mode</a> aktiviert werden, damit sie verfügbar ist.
 Die Routine kann in der IDE über das Menü <strong>Update</strong> / <strong>FS 4.7</strong> / <strong>(1) Namespace CleanUp</strong> aufgerufen werden.</p>
-<p>TODO!</p>
+<p>Durch die Umstrukturierung der <a href="../weitere-themen/fs-assemblies.html">Framework-Studio-Assemblies</a> zur Version 4.7 haben sich praktisch alle FrameworkStudio-Namespaces geändert.</p>
+<h2 id="geänderte-namespaces">Geänderte Namespaces</h2>
+<p>Die Routine ersetzt die Namespaces in Methoden-Codes.</p>
+<p>Die Routine entfernt Namespace-Referenzen, die auf diese Namespaces zeigen.
+So gut wie alle diese Referenzen sind praktisch unnötig, weil Framework Studio bereits entsprechende Standard-Referenzen verwendet.
+Im Einzelfall kann es daher vorkommen, dass eine Referenz wieder neu angelegt werden muss.</p>
+<p>Die folgende Tabelle gibt eine grobe Übersicht, welche Namespaces sich geändert haben.
+Im Detail kann es davon aber auch einige Abweichungen geben und einzelne Klassen sind in andere Namespaces gewandert.</p>
+<table>
+<thead>
+<tr>
+<th>Alter Namespace</th>
+<th>Neuer Namespace</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FrameworkSystems.FrameworkExceptions</td>
+<td>FS.Shared</td>
+</tr>
+<tr>
+<td>FrameworkSystems.FrameworkDataClient <br> FrameworkSystems.FrameworkDataProvider</td>
+<td>FS.DataClient</td>
+</tr>
+<tr>
+<td>FrameworkSystems.FrameworkBase <br> FrameworkSystems.FrameworkStudio.Base</td>
+<td>FS.Hosting.Shared</td>
+</tr>
+<tr>
+<td>FrameworkSystems.FrameworkBroker</td>
+<td>FS.Hosting.Broker</td>
+</tr>
+<tr>
+<td>FrameworkSystems.FrameworkControls <br> FrameworkSystems.FrameworkStudio.DevFormBase</td>
+<td>FS.Hosting.Broker.Shared</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ersatz-für-windows-forms-enums">Ersatz für Windows-Forms-Enums</h2>
+<p>Bisher wurden für MessageBoxen einige Enums aus dem Namespace <code>System.Windows.Forms</code> verwendet.
+Diese kommen im Bereich <code>FS.Hosting</code> nicht mehr zum Einsatz und werden von der Routine durch neue, eigene Enums ersetzt.</p>
+<table>
+<thead>
+<tr>
+<th>Altes Enum</th>
+<th>Neues Enum</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.dialogresult"><code>DialogResult</code></a></td>
+<td><a class="xref" href="../../api/FS.Hosting.Shared.FSDialogResult.html"><code>FSDialogResult</code></a></td>
+</tr>
+<tr>
+<td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.messageboxbuttons"><code>MessageBoxButtons</code></a></td>
+<td><a class="xref" href="../../api/FS.Hosting.Broker.Shared.MsgBoxButtons.html"><code>MsgBoxButtons</code></a></td>
+</tr>
+<tr>
+<td><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.windows.forms.messageboxicon"><code>MessageBoxIcon</code></a></td>
+<td><a class="xref" href="../../api/FS.Hosting.Broker.Shared.MsgBoxIcons.html"><code>MsgBoxIcons</code></a></td>
+</tr>
+</tbody>
+</table>
 </article>
           </div>
           

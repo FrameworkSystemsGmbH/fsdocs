@@ -83,7 +83,7 @@
 
 <p>Der Package Manager von <strong>Framework Studio</strong> ist ein eigenständiges Programm. Mit diesem Tool lassen sich die folgenden Aufgaben rund um Packages erledigen:</p>
 <ul>
-<li>Anlegen, Löschen und Bearbeiten sowie Import und Export von Packages und Package Lizenzen</li>
+<li>Anlegen, Löschen und Bearbeiten sowie Import und Export von Packages</li>
 <li>Exportieren einer Dokumentation im HTML-Format</li>
 <li>Definition, welche Sprachen eine Anwendung grundsätzlich unterstützen soll</li>
 <li>Fixierung eines Entwicklungsstandes (Versionierung / Labeling)</li>
@@ -106,10 +106,11 @@
 <p>Im Hauptfenster werden über die Toolbar folgende Funktionen angeboten:</p>
 <h4 id="new">New</h4>
 <p>Sie erkennen <strong>New</strong> an einem <img src="../media/icon-new.png" alt="icon-new.png">-Icon.</p>
-<p>Anlegen eines neuen Packages, einer neuen Lizenz oder einer neuen Sprache. Um eine neue Sprache anlegen zu können, muss in der Baumstruktur ein Default-Package (also das unterste Package in der Package-Hierarchie einer Anwendung) ausgewählt sein, da Sprachen nur am Default-Package definiert werden. Um neue Lizenzen anlegen zu können, muss man Eigentümer eines Packages sein (<a href="package.html">Package</a>).</p>
+<p>Anlegen eines neuen Packages.</p>
 <h4 id="delete">Delete</h4>
 <p>Sie erkennen <strong>Delete</strong> an einem <img src="../media/icon-delete.png" alt="icon-delete.png">-Icon.</p>
-<p>Löschen der in der Baumstruktur ausgewählten Lizenz (<a href="package-lizenz.html">Lizenzen</a>), Version (<a href="package-version.html">Package-Versionen</a>) oder Sprache (<a href="sprachen.html">Sprachen</a>). Versionen dürfen nur mit dem Package Manager der aktuellsten Framework Studio Version gelöscht werden, die im Repository zum Einsatz kommt!</p>
+<p>Löschen die in der Baumstruktur ausgewählten <a href="package-version.html">Package-Version</a>.
+Package-Versionen dürfen nur mit dem Package Manager der aktuellsten Framework Studio Version gelöscht werden, die im Repository zum Einsatz kommt!</p>
 <h4 id="save">Save</h4>
 <p>Sie erkennen <strong>Save</strong> an einem <img src="../media/icon-save.png" alt="icon-save.png">-Icon.</p>
 <p>Speichern der Änderungen am ausgewählten Element.</p>
@@ -138,12 +139,6 @@
 <h4 id="export-package">Export Package</h4>
 <p>Sie erkennen <strong>Export Package</strong> an einem <img src="../media/icon-export-package.png" alt="icon-export-package.png">-Icon.</p>
 <p>Exportieren der ausgewählten Package-Version.</p>
-<h4 id="import-license">Import License</h4>
-<p>Sie erkennen <strong>Import License</strong> an einem <img src="../media/icon-import-license.png" alt="icon-import-license.png">-Icon.</p>
-<p>Importieren einer Package Lizenz (PKL)</p>
-<h4 id="export-license">Export License</h4>
-<p>Sie erkennen <strong>Export License</strong> an einem <img src="../media/icon-export-license.png" alt="icon-export-licence.png">-Icon.</p>
-<p>Exportieren der ausgewählten Lizenz</p>
 <h4 id="export-service-release">Export Service Release</h4>
 <p>Sie erkennen <strong>Export Service Release</strong> an einem <img src="../media/icon-export-service-release.png" alt="icon-export-service-release.png">-Icon.</p>
 <p>Exportiert den Service Release Stand der ausgewählten Package-Version. Dabei werden nur die Änderungen seit dem Eröffnen des Service Release Modus übernommen. Dadurch entstehen deutlich kleinere Dateien als beim normalen Package-Export.</p>
@@ -157,7 +152,6 @@
 <p>Über das Menü <strong>Tools / Publish / Wizard</strong> bzw. <strong>Tools / Publish / 2Go</strong> kann der Publish- bzw. der Publish2Go-Wizard für die ausgewählte Package-Version aufgerufen werden.</p>
 <p>Über das Menü <strong>Tools / Check Using Hierarchies</strong> des Hauptmenüs können die Abhängigkeiten der Packages überprüft werden.</p>
 <p>Über das Menü <strong>Tools / Runtime Licenses Manager</strong> kann der Runtime License Manager (<a href="../access-units/laufzeitlizenzen.html">Laufzeitlizenzen</a>) für die ausgewählte Package-Version gestartet werden.</p>
-<p>In der Baumstruktur des Package Managers werden <strong>Packages</strong>, <strong>Package-Versionen</strong>, <strong>Lizenzen</strong> und <strong>Sprachen</strong> hierarchisch dargestellt. Die einzelnen Elemente werden im Folgenden genauer beschrieben.</p>
 <h4 id="checkbox-show-only-applicable-packages-and-versions">Checkbox &quot;Show only applicable packages and versions&quot;</h4>
 <p>Mit dieser Checkbox werden die Packages gefiltert.
 Es werden nur noch die zur Auswahl bereitgestellt, welche passende Versionen zur FS-Version haben, die also im geöffneten PackageManager auch bearbeitet werden können.</p>

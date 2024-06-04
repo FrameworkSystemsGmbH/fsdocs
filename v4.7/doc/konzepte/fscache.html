@@ -87,13 +87,13 @@ Derzeit werden  in eNVenta mit Begleitung durch des FS-Teams noch weitere Grunde
 <p>Framework Studio stellt eine Infrastruktur auf Basis des <a href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.memory.imemorycache">IMemoryCache</a> von Microsoft bereit.</p>
 <p>Erreichbar ist diese über einen Singleton <code>FSCache.Instance</code>.</p>
 <p><a class="xref" href="../../api/FS.Hosting.Shared.FSCache.Instance.html"><code>FSCache.Instance</code></a> bietet in erster Ebene Methoden um an den Cache für den gewünschten Scope zu gelangen - z.B. <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.Static.html#FS_Hosting_Shared_FSCache_Static_FS_Hosting_Shared_IFSCache_"><code>FSCache.Instance.Static()</code></a> oder <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.Session.html#FS_Hosting_Shared_FSCache_Session_FS_Hosting_Shared_IFSCache_"><code>FSCache.Instance.Session()</code></a>.
-Weitere Scopes z.B. für <code>Branch()</code> und <code>User()</code> werden von eNVenta mihilfe von Extension-Methods für das Interface <a class="xref" href="../../api/FS.Hosting.Shared.IFSCache.html"><code>IFSCache</code></a> implementiert.</p>
+Weitere Scopes z.B. für <code>BusinessUnit()</code> und <code>User()</code> werden von eNVenta mihilfe von Extension-Methods für das Interface <a class="xref" href="../../api/FS.Hosting.Shared.IFSCache.html"><code>IFSCache</code></a> implementiert.</p>
 <p>An den zurückgegebenen Memory-Caches können alle angebotenen Features frei verwendet werden.
 Vor allem ist es möglich, den Lifecycle eines CacheEntries mit Hilfe von Timeouts oder ExpirationTokens zu steuern.</p>
 <p><img src="media/fscache-struktur.drawio.svg" alt="FSCache"></p>
 <p>Beispiele:</p>
 <pre><code class="lang-csharp">// Verwendung des Static-Caches:
-IcdCountryColl oCountries = FSCache.Instance.Static().GetOrCreate(&quot;Coutries&quot;, entry =&gt; 
+IcdCountryColl oCountries = FSCache.Instance.Static().GetOrCreate(&quot;Countries&quot;, entry =&gt; 
 {
     // Vererfen, wenn 20 Minuten nicht verwendnet.
     entry.SetSlidingExpiration(TimeSpan.FromMinutes(20));

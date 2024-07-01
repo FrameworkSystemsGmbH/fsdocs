@@ -132,7 +132,7 @@ string sValue = FSCache.Instance.User().GetOrCreate(&quot;UserSettings&quot;, en
     return LoadUserSettings();
 });
 </code></pre><h2 id="instanzen-für-veränderungen-sperren---freeze">Instanzen für Veränderungen sperren - Freeze()</h2>
-<p>Objekte, welche im Cache verwendet werden, können mittels der Methode <a href="xref:FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze()">Freeze</a> vor Veränderungen geschützt werden.
+<p>Objekte, welche im Cache verwendet werden, können mittels der Methode <a class="xref" href="../../api/FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Freeze">Freeze</a> vor Veränderungen geschützt werden.
 Ein Freeze ist nur für ungeänderte und neue Objekte erlaubt. 
 Einmal aufgerufen kann die Instanz für Änderungen nicht mehr &quot;geöffnet&quot; werden.
 Wird versucht eine eingefrorene Instanz zu verändern, wird eine <code>InvalidOperationException()</code> geworfen.</p>

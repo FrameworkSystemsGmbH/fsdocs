@@ -99,6 +99,10 @@ public interface IFSCache</code></pre>
   <h3 id="methods">Methods
   </h3>
   
+    <h4><a class="xref" href="FS.Hosting.Shared.IFSCache.Reset.html#FS_Hosting_Shared_IFSCache_Reset">Reset()</a></h4>
+    <section><p><p>Setzt die komplette Cache-Infrastruktur zurück. Alle Scopes werden entfernt - auch die Caches in anderen Broker-Sitzungen im aktuellen Prozess.
+Im Anschluss bauen sich alle Caches wieder neu auf.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IFSCache.Scope.html#FS_Hosting_Shared_IFSCache_Scope_System_Object_System_Action_Microsoft_Extensions_Caching_Memory_ICacheEntry__">Scope(Object, Action&lt;ICacheEntry&gt;)</a></h4>
     <section><p><p>Liefert für den übergebenen Scope den Memory-Cache zurück.
 Beim ersten Aufruf wird der Memory-Cache für den Scope erzeugt.</p>
@@ -110,6 +114,9 @@ Beim ersten Aufruf wird der Memory-Cache für den Scope erzeugt.</p>
   </div>
   <div>
       <a class="xref" href="FS.Hosting.Shared.FSCache.Session.html#FS_Hosting_Shared_FSCache_Session_FS_Hosting_Shared_IFSCache_">FSCache.Session(IFSCache)</a>
+  </div>
+  <div>
+      <a class="xref" href="FS.Hosting.Shared.FSCache.Request.html#FS_Hosting_Shared_FSCache_Request_FS_Hosting_Shared_IFSCache_">FSCache.Request(IFSCache)</a>
   </div>
 </article>
           </div>

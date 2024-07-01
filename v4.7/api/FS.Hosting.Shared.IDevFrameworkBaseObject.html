@@ -102,6 +102,9 @@ public interface IDevFrameworkBaseObject : FrameworkDataTransaction.ISource, INo
 in der IDE definiert wurden.
 RowID und RowVersion sind nicht enthalten.</p>
 </p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.IsFrozen.html#FS_Hosting_Shared_IDevFrameworkBaseObject_IsFrozen">IsFrozen</a></h4>
+    <section><p><p>Gibt zurück, ob das Objekt mittels der Methode <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Freeze">Freeze()</a> für Änderungen gesperrt wurde.</p>
+</p></section>
   
   <h3 id="methods">Methods
   </h3>
@@ -116,13 +119,20 @@ herstellen kann.</p>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.AdoptValues.html#FS_Hosting_Shared_IDevFrameworkBaseObject_AdoptValues_FS_Hosting_Shared_IDevFrameworkBaseObject_FS_Hosting_Shared_AdoptMode_">AdoptValues(IDevFrameworkBaseObject, AdoptMode)</a></h4>
     <section><p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.CanFreeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_CanFreeze">CanFreeze()</a></h4>
+    <section><p><p>Gibt zurück, ob der Aufruf der Methode <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Freeze">Freeze()</a> möglich ist.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.Clone.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Clone">Clone()</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.Clone.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Clone_FS_Hosting_Shared_AdoptMode_">Clone(AdoptMode)</a></h4>
     <section><p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Freeze">Freeze()</a></h4>
+    <section><p><p>Sperrt das Objekt für weitere Änderungen.
+Wird bei einem frozen Objekt versucht Werte zu verändern, wird eine <span class="xref">System.InvalidOperationException</span> geworfen.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.GetDefaultLabel.html#FS_Hosting_Shared_IDevFrameworkBaseObject_GetDefaultLabel_System_String_">GetDefaultLabel(String)</a></h4>
     <section><p><p>Gibt des Default-Label eines bestimmten Properties zurück. Falls es das Property nicht gibt,
-wird <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string.empty#system-string-empty">Empty</a> zurückgegeben.</p>
+wird <span class="xref">System.String.Empty</span> zurückgegeben.</p>
 </p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.GetProperty.html#FS_Hosting_Shared_IDevFrameworkBaseObject_GetProperty_System_String_">GetProperty(String)</a></h4>
     <section><p><p>Gibt den Wert des Properties mit dem übergebenen <code data-dev-comment-type="paramref" class="paramref">propertyName</code> zurück.</p>

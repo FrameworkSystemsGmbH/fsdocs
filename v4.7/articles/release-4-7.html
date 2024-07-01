@@ -81,20 +81,43 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
+<h2 id="470-alpha-4-05072024">4.7.0 Alpha 4 (05.07.2024)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.0_Alpha_4_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Das Property DevFrameworkObject.Transaction ist obsolete - wurde vor nur mit den schon länger obsoleten Transaction-Methoden bestückt.</li>
+<li>Neuer Caching-Scope <a class="xref" href="../api/FS.Hosting.Shared.FSCache.Request.html#FS_Hosting_Shared_FSCache_Request_FS_Hosting_Shared_IFSCache_"><code>FSCache.Instance.Request()</code></a></li>
+<li><a class="xref" href="../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.RequestCancellationToken.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_RequestCancellationToken"><code>IGlobalObjects.RequestCancellationToken</code></a></li>
+<li>Neue Methode <a class="xref" href="../api/FS.Hosting.Shared.IFSCache.Reset.html#FS_Hosting_Shared_IFSCache_Reset"><code>FSCache.Reset()</code></a></li>
+<li>Objekte, welche im Cache verwendet werden, können mittels der Methode <a href="xref:FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze()">Freeze</a> vor Veränderungen geschützt werden.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#467-05072024">Framework Studio 4.6.7</a> enthalten.
+Zusätzlich wurden die folgenden Bugs behoben.</p>
+<ul>
+<li>DevFrameworkObject kann nicht ohne GlobalContext instanziiert werden - null-Exception wegen Connection.</li>
+<li>GlobalContext wird beim Dispose nicht korrekt zurückgesetzt</li>
+<li>2024065863 - <strong>IDE</strong>: Im Menü des Compiles wird der Text der letzten Checkbox
+  abgeschnitten.</li>
+</ul>
 <h2 id="470-alpha-3-07062024">4.7.0 Alpha 3 (07.06.2024)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.7.0_Alpha_3_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <ul>
 <li>Neue Doku <a href="../doc/weitere-themen/fs-assemblies.html">Struktur der FS-Assemblies</a></li>
 <li>Erster Wurf des <a href="../doc/konzepte/fscache.html">FSCache</a> (in Entwicklung)</li>
 <li>PKL-Lizenz wurde komplett entfernt. Im Package-Manager werden diese nicht mehr angeboten.</li>
 <li>GlobalObject Code optimiert</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#466-07062024">Framework Studio 4.6.6</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>
@@ -109,13 +132,13 @@ Zusätzlich wurden die folgenden Bugs behoben.</p>
 <li>FS_4.7.0_Alpha_2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-1">Neuerungen</h4>
+<h4 id="neuerungen-2">Neuerungen</h4>
 <ul>
 <li>Neue <a class="xref" href="../api/FS.Hosting.Shared.MultiLanguage.MLUtil.html"><code>MLUtil</code></a>.<code>GetText()</code>- und <code>FormatText()</code>-Methoden für TextCollections.</li>
 <li>Background Image im FrameworkDesigner entfernt</li>
 <li><code>FSGlobal.Current</code> im Intellisense</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#465-03052024">Framework Studio 4.6.5</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>
@@ -130,7 +153,7 @@ Zusätzlich wurden die folgenden Bugs behoben.</p>
 <li>FS_4.7.0_Alpha_1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#465-03052024">Framework Studio 4.6.5</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

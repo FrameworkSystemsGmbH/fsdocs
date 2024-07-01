@@ -89,7 +89,7 @@
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
-    <div class="level0"><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">Object</a></div>
+    <div class="level0"><span class="xref">System.Object</span></div>
     <div class="level1"><span class="xref">FSCache</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="FS.Hosting.Shared.html">FS.Hosting.Shared</a></h6>
@@ -109,6 +109,14 @@ public static class FSCache : Object</code></pre>
   <h3 id="methods">Methods
   </h3>
   
+    <h4><a class="xref" href="FS.Hosting.Shared.FSCache.Request.html#FS_Hosting_Shared_FSCache_Request_FS_Hosting_Shared_IFSCache_">Request(IFSCache)</a></h4>
+    <section><p><p>Liefert den MemoryCache für den aktuellen Request.
+Die zum Request gehörende Session wird mithilfe des <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.Token.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_Token">Token</a> vom <a class="xref" href="FS.Hosting.Shared.GlobalObj.GlobalContext.html">GlobalContext</a> identifiziert.</p>
+<p>Der Cache wird verworfen, wenn</p>
+<ul>
+<li>am Ende eines Requests <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.RequestCancellationToken.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_RequestCancellationToken">RequestCancellationToken</a> abgebrochen wird</li>
+</ul>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.FSCache.Session.html#FS_Hosting_Shared_FSCache_Session_FS_Hosting_Shared_IFSCache_">Session(IFSCache)</a></h4>
     <section><p><p>Liefert den MemoryCache für die aktuelle Session.
 Die Session wird mithilfe des <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.Token.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_Token">Token</a> vom <a class="xref" href="FS.Hosting.Shared.GlobalObj.GlobalContext.html">GlobalContext</a> identifiziert.</p>

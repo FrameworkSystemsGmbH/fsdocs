@@ -120,8 +120,15 @@ Mit der Methode <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects
 </p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ocGlobal.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ocGlobal">ocGlobal</a></h4>
     <section><p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ProgressOwner.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ProgressOwner">ProgressOwner</a></h4>
+    <section><p><p>Sammelt die Informationen zu laufenden <a class="xref" href="FS.Hosting.Shared.FrameworkProgress.html">FrameworkProgress</a>.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ReportingSoftware.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ReportingSoftware">ReportingSoftware</a></h4>
     <section><p><p>Welche Software beim Druck bevorzugt wird.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.RequestCancellationToken.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_RequestCancellationToken">RequestCancellationToken</a></h4>
+    <section><p><p>Dieser CancellationToken wird abgebrochen wenn der aktuelle Request beendet bzw. das GlobalObject disposed wird.
+Wird der aktuelle Token mit dem Ende des Requests abgebrochen wird anschließend ein neuer Token für den nachfolgenden Request zurückgegeben.</p>
 </p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.SafeInitializing.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_SafeInitializing">SafeInitializing</a></h4>
     <section><p><p>Gibt zurück, ob der Safe-Initialize-Modus aktiv ist.
@@ -149,6 +156,9 @@ sondern aus dem View, der die Originaltabelle mit der Historientabelle vereint.<
   <h3 id="methods">Methods
   </h3>
   
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CancelRequestCancellationToken.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_CancelRequestCancellationToken">CancelRequestCancellationToken()</a></h4>
+    <section><p><p>Bricht den aktuellen <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.RequestCancellationToken.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_RequestCancellationToken">RequestCancellationToken</a> ab und startet sofort einen neuen für den folgenden Request.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ClearDynamicDragSources.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ClearDynamicDragSources">ClearDynamicDragSources()</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CloseApplication.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseApplication">CloseApplication()</a></h4>

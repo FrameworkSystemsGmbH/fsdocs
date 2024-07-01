@@ -166,6 +166,30 @@ Fehler beim Laden der Datenbankinformationen
 </ul>
 <p>Uns sind auch Probleme bei Updates auf eine Runtime 13.0.26 oder höher bekannt. 
 Eine Anleitung wie Sie hier vorgehen müssen, finden Sie <a href="https://frameworksystemsgmbh.github.io/fsdocs/v4.5/articles/requirements.html#crystal-reports-runtime">hier</a>.</p>
+<h2 id="betriebssystem-macos-applikation-unterstützung">Betriebssystem MacOS Applikation Unterstützung</h2>
+<p>MacOS unterstützen wir seit einiger Zeit nicht mehr.
+Wir gewährleisten auch keinen Support hierfür .
+Auf eigenes Risiko kann natürlich mit Java 8 ein Betrieb von eNVenta ERP versucht werden.</p>
+<p>Änderungen sind hier in der Zukunft nicht geplant.</p>
+<h2 id="exception-code-analysis-has-been-disabled-in-this-code-editor-because-generating-code-took-too-long-171-s">Exception Code Analysis has been disabled in this code editor because generating code took too long (17,1 s)</h2>
+<pre><code class="lang-csharp">Code Analysis has been disabled in this code editor because generating code took too long (17,5s)!
+Exception in diagnostics task:
+System.Exception: Error creating code for NV.ERP.MM.Sales.cfrmSalesOrder
+</code></pre><p>Bei dieser Meldung im Output-Fenster handelt es sich um einen Schutz-Mechanismus und nicht um einen &quot;Fehler&quot;.</p>
+<p>Der Code-Editor führt recht aufwändige Analysen durch, damit die (potentiellen) Compile-Error unmittelbar beim Bearbeiten im Code 
+kenntlich gemacht werden. 
+Dauert diese Analyse zu lange kann das dazu führen, dass Framework Studio praktisch lahmgelegt wird, sobald im Code-Editor getippt wird. 
+Arbeiten ist dann nicht mehr möglich.
+Um genau diese Blockade zu verhindern, schalten wir diese Analyse ab, wenn die Ermittlung beim ersten Aufruf länger als 10 Sekunden 
+oder bei einem erneuten Aufruf länger als 5 Sekunden dauert.</p>
+<p>Im genannten Beispiel waren es 17,1 Sekunden.</p>
+<h2 id="drucker-wird-im-namen-mit--err--angezeigt">Drucker wird im Namen mit ## ERR ## angezeigt</h2>
+<p>Der Print-Service prüft beim Hochfahren alle konfigurierten Drucker. 
+Wenn dabei ein Fehler auftritt (z.B. weil der Drucker nicht mehr existiert), wird der Name des betroffenen Druckers mit der Kennung ## ERR ## versehen.
+Um sicher zu gehen, können Sie auch die Log-Datei des Print-Service prüfen.</p>
+<p>Mit der PrintServiceConfigEditor.exe können Sie diese Drucker aus der Konfiguration entfernen.
+Nach einem Neustart des Print-Service werden die gelöschten / nicht mehr existenten Drucker im Runtime-Repository auf gelöscht gesetzt. 
+Anschließend sollten Sie auch in eNVenta nicht mehr angeboten werden.</p>
 </article>
           </div>
           

@@ -1,0 +1,194 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Referenz-Pr&#252;fung f&#252;r Ressourcen </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Referenz-Pr&#252;fung f&#252;r Ressourcen ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="referenz-prüfung-für-ressourcen">Referenz-Prüfung für Ressourcen</h1>
+
+<p>Framework Studio bringt schon eine ganze Menge eigener Referenzen mit:</p>
+<ul>
+<li>FrameworkStudio - Assemblies die Framework Studio &quot;out of the box&quot; schon mitbringt.</li>
+<li>ReferencedAssemblies - dotnet-Framework Assemblies, die beim Compile verwendet werden.</li>
+<li>GlobalAssemblyCache</li>
+</ul>
+<p>Weitere Referenzen können als DLL-Datei mittels <a href="resources.html">Ressource</a> im <code>bin</code>-Ordner eingebunden werden.
+Diese Ressourcen können Konflikte verursachen, wenn sie z.B. FrameworkStudio - Referenzen überschreiben.</p>
+<p>Deshalb wird beim Compile der Ressources eine Referenz-Prüfung durchgeführt und gefundene Konflikte und Unstimmigkeiten als <code>#error</code> oder <code>#warning</code> ausgegeben.</p>
+<pre><code class="lang-csharp">// Reference Check Results: Resource
+#warning Resource &#39;My.Assembly.Ressource&#39; with lower version 1.0.1.2 overrides FrameworkStudio Reference with higher version 2.0.0.0 (see ...)
+</code></pre><p>Sobald Ressourcen mit einer spezifischen Architektur (32-Bit oder 64-Bit) vorhanden sind, wird pro Architektur eine vollständige Prüfung durchgeführt.
+Das ist erforderlich, weil sich die Versionen und Referenzen dieser Assemblies unterscheiden könnten.
+Dadurch werden Errors und Warnungen ggf. mehrmals ausgegeben:</p>
+<pre><code class="lang-csharp">// Reference Check Results: Resource (64 Bit)
+#warning Resource (64 Bit) | Resource &#39;My.Assembly.Ressource&#39; with lower version 1.0.1.2 overrides FrameworkStudio Reference with higher version 2.0.0.0 (see ...)
+...
+// Reference Check Results:  Resource (32 Bit)
+#warning Resource (32 Bit) | Resource &#39;My.Assembly.Ressource&#39; with lower version 1.0.1.2 overrides FrameworkStudio Reference with higher version 2.0.0.0 (see ...)
+</code></pre><p>Neben den Konflikten werden die Details der Referenz-Prüfung als Kommentar in den Code generiert.
+Wenn Probleme auftreten, lässt sich so auf einfache Weise recherchieren, wie diese zustande kommen.</p>
+<p>Treten keine Warnings oder Errors auf, kann man sich diesen Code auch manuell anzeigen lassen. Dazu muss im Namespace <code>FSGeneral.DBTables</code> der generierte Code für <code>Resources</code> angezeigt werden.</p>
+<pre><code class="lang-csharp">// Reference Details: Resources (64 Bit)
+//
+// - Accessibility 4.0.0.0 (ReferencedAssemblies)
+//      -&gt; mscorlib 4.0.0.0
+//
+// - AESInterface 1.0.5.9 (Resource)
+//      -&gt; mscorlib 2.0.0.0
+//      -&gt; System 2.0.0.0
+//      -&gt; System.Web.Services 2.0.0.0
+//      -&gt; System.Xml 2.0.0.0
+...
+</code></pre><p>Aufgelistet werden die gefundenen Assemblies mit ihrer tatsächlichen Version. In Klammern ist zu erkennen, woher diese Referenz kommt:</p>
+<ul>
+<li><code>(NotFound)</code> - Die Assembly wird von einer anderen referenziert, wurde jedoch nicht gefunden.</li>
+<li><code>(GlobalAssemblyCache)</code> - Assemblies die aus dem Global Assembly Cache gezogen werden.
+Dabei handelt es sich in der Regel um installierte Drittsoftware.</li>
+<li><code>(ReferencedAssemblies)</code> - dotnet-Framework Assemblies, die beim Compile verwendet werden.
+Diese befinden sich im Programm-Verzeichnis im Unter-Ordner <code>ReferencedAssemblies</code></li>
+<li><code>(FrameworkStudio)</code> - Assemblies die Framework Studio &quot;out of the box&quot; schon mitbringt.
+Dabei handelt es sich um eigene Assemblies und von Framework Studio verwendete Nuget-Pakete.</li>
+<li><code>(Resource64Bit)</code> - eine vom Entwickler eingebundene Ressource für 64-Bit Architektur</li>
+<li><code>(Resource32Bit)</code> - ... für 32-Bit Architektur</li>
+<li><code>(Resource)</code> - ... ohne spezifische Architektur</li>
+</ul>
+<p>Unterhalb der Assembly werden jeweils die erwarteten Referenzen mit der jeweils erwarteten Version aufgelistet.
+Diese Versionen dienen als Basis für die Prüfung der Versionen der tatsächlich verfügbaren Assemblies.</p>
+<h2 id="errors">Errors</h2>
+<p>Der folgende Error kann beim Compile ausgegeben werden:</p>
+<ul>
+<li><pre><code class="lang-csharp">#error Resource | Resource &#39;My.Assembly.Ressource&#39; with lower version 1.0.1.2 overrides FrameworkStudio Reference with higher version 2.0.0.0 (see ...)
+</code></pre><p>Die eingebundene Ressource überschreibt eine bereits von Framework Studio bereitgestellt Assembly mit einer kleineren Version.
+Dadurch funktionieren Binding-Redirects nicht mehr korrekt und es kann zur Laufzeit zu Exceptions kommen.</p>
+</li>
+<li><pre><code class="lang-csharp">#error Resource | Resource &#39;My.Assembly.Ressource&#39; with version 1.0.1.2 is too low. References from other assemblies requires Version up to 2.0.0.0 (see ...)
+</code></pre><p>Die gefundene Assembly hat eine zu kleine Version.
+Es gibt in anderen Assemblies Referenzen, die eine höhere Version erwarten.
+Wenn es sich dabei um eine Ressource handelt, dann muss diese aktualisiert werden.</p>
+<p>Dieser Error kann auch dann auftreten, wenn z.B. eine FrameworkStudio-Referenz eine zu alte Version hat.
+Das kann sein, wenn eine Ressource mit einem zu aktuellen Version-Stand eingebunden wird.
+In diesem Fall kann für die Ressource ggf. eine ältere Version dieser Assembly verwendet werden, deren Version zu den anderen Assemblies passt.
+Alternativ können auch aktuellere Versionen der Referenzen als Ressource eingebunden werden.</p>
+</li>
+</ul>
+<h2 id="warnings">Warnings</h2>
+<p>Die folgenden Warnungen können beim Compile ausgegeben werden:</p>
+<ul>
+<li><pre><code class="lang-csharp">#warning Resource | Resource &#39;My.Assembly.Ressource&#39; with version 2.0.0.0 is already referenced via FrameworkStudio. The Resource may be deleted. (see ...)
+</code></pre><p>Die eingebundene Ressource wird mit derselben Version bereits eingebunden - z.B. durch FrameworkStudio oder ReferencedAssemblies.
+Die Ressource sollte deshalb gelöscht werden.</p>
+<p>Aktuell ist das kein Problem.
+Wenn aber zu einem späteren Zeitpunkt FrameworkStudio eine neuere Version einbindet, dann wird es einen Error geben, weil die Ressource dann eine zu kleine Version hätte.</p>
+</li>
+<li><pre><code class="lang-csharp">#warning Resource | Referenced Assembly &#39;My.Assembly.Ressource&#39; not found! References from other assemblies requires Version up to 2.0.0.0. (see ...)
+</code></pre><p>Eine Assembly, welche als Referenz von anderen Assemblies erwartet wird, wurde nicht gefunden.
+Ggf. muss diese Assembly als Ressource eingebunden werden, oder es muss eine Drittsoftware installiert werden, die diese Assembly im Global Assembly Cache registriert.</p>
+</li>
+</ul>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

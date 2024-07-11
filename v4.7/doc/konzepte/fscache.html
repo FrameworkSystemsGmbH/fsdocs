@@ -133,7 +133,7 @@ string sValue = FSCache.Instance.User().GetOrCreate(&quot;UserSettings&quot;, en
 });
 </code></pre><h2 id="instanzen-für-veränderungen-sperren---freeze">Instanzen für Veränderungen sperren - Freeze()</h2>
 <p>Objekte, welche im Cache verwendet werden, können mittels der Methode <a class="xref" href="../../api/FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Freeze">Freeze</a> vor Veränderungen geschützt werden.
-Ein Freeze ist nur für ungeänderte und neue Objekte erlaubt. 
+Ein Freeze ist nur für ungeänderte und neue Objekte erlaubt.
 Einmal aufgerufen kann die Instanz für Änderungen nicht mehr &quot;geöffnet&quot; werden.
 Wird versucht eine eingefrorene Instanz zu verändern, wird eine <code>InvalidOperationException()</code> geworfen.</p>
 <p>Es stehen folgende Methoden/Property bereit:</p>
@@ -146,6 +146,33 @@ Wird versucht eine eingefrorene Instanz zu verändern, wird eine <code>InvalidOp
 Zu beachten ist: Individueller Code wird dennoch durchlaufen, wenn nicht selbstständig auf die Eigenschaft <code>IsFrozen</code> geprüft wird. 
 Erst wenn ein internes Value versucht wird zu ändern, wird eine Exception geworfen.</p>
 <p>Freeze ist auch für Collections implementiert. Hier wird die Collection selbst und alle internen Objekte gesperrt.</p>
+<h2 id="änderungen-triggern-mit-change-tokens">Änderungen Triggern mit Change-Tokens</h2>
+<p>Der FSCache bietet mithilfe von ChangeTokens die Möglichkeit, Änderungen zu triggern.</p>
+<p>Die Tokens werden Static organisiert.
+Das bedeutet: Ein Invalidate greift immer in allen Sessions innerhald des eigenen Broker-Prozesses.</p>
+<p>Beim Aufbau eines Caches wird dafür mithilfe eines Key ein Token bereitgestellt.
+Dies erfolgt mit der Methode <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.GetTokenFor.html#FS_Hosting_Shared_FSCache_GetTokenFor__1_FS_Hosting_Shared_IFSCache_"><code>FSCache.GetTokenFor&lt;T&gt;()</code></a>.
+Der Token wird mit der Methode <code>AddExpirationToken()</code> am Cache-Eintrag registriert.</p>
+<pre><code class="lang-csharp">return FSCache.Instance.Static().GetOrCreate(&quot;Countries&quot;, entry =&gt;
+    {
+        entry.AddExpirationToken(FSCache.Instance.GetTokenFor&lt;IcdCountry&gt;() );
+        var countries = cdCountryCollFactory.Create();
+        countries.Load();
+        return countries;
+    });
+</code></pre><p>Bei Bedarf können auch mehrere Tokens für verschiedene Keys registriert werden.
+In diesem Fall läuft der Cache-Eintrag aus, sobald sich der erste Token meldet.</p>
+<p>Auf der anderen Seite beim Save, kann dem Cache bescheid gegeben werden.
+Das erfolgt mit der Methode <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.Invalidate.html#FS_Hosting_Shared_FSCache_Invalidate__1_FS_Hosting_Shared_IFSCache_"><code>FSCache.Invalidate&lt;T&gt;()</code></a>.</p>
+<pre><code class="lang-csharp">protected override void OnAfterSave()
+{
+    FSCache.Instance.Invalidate&lt;IcdCountry&gt;()
+}
+</code></pre><p>Standardmäßig werden die beiden generischen Methoden <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.GetTokenFor.html#FS_Hosting_Shared_FSCache_GetTokenFor__1_FS_Hosting_Shared_IFSCache_"><code>FSCache.GetTokenFor&lt;T&gt;()</code></a> und <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.Invalidate.html#FS_Hosting_Shared_FSCache_Invalidate__1_FS_Hosting_Shared_IFSCache_"><code>FSCache.Invalidate&lt;T&gt;()</code></a> verwendet.
+Der generische Typ fungiert als Key.
+Es sollte das Interface des einzelnen Records verwendet werden.</p>
+<p>Es gibt auch allgemeine Methoden, denen als Key ein beliebiges <code>object</code> übergeben werden kann: <a class="xref" href="../../api/FS.Hosting.Shared.IFSCache.GetTokenForKey.html#FS_Hosting_Shared_IFSCache_GetTokenForKey_System_Object_"><code>IFSCache.GetTokenForKey(key)</code></a>,  <a class="xref" href="../../api/FS.Hosting.Shared.IFSCache.InvalidateKey.html#FS_Hosting_Shared_IFSCache_InvalidateKey_System_Object_"><code>IFSCache.InvalidateKey(key)</code></a>.
+Diese sollten aber nur in Ausnahmefällen verwendet werden.</p>
 </article>
           </div>
           

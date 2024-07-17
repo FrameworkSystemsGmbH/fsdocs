@@ -109,7 +109,28 @@ oCurrencyColl = FSCache.Instance.Session().GetOrCreate(&quot;Currencies&quot;, e
     currencies.Load();
     return currencies;
 });
-</code></pre><h2 id="weitere-scopes">Weitere Scopes</h2>
+</code></pre><h2 id="spielregeln">Spielregeln</h2>
+<p>Bei der Verwendung des FSCache müssen einige Regeln beachtet werden:</p>
+<ol>
+<li><p>Der FSCache ist flüchtig.</p>
+<p> Zugriffe müssen so gestaltet sein, dass die Einträge sich bei Bedarf und jederzeit neu aufbauen können.
+ Existierende Einträge können jederzeit verworfen werden, entsprechende Expiration-Tokens oder -Zeiten zuschlagen.
+ Auch die Methode <a class="xref" href="../../api/FS.Hosting.Shared.IFSCache.Reset.html#FS_Hosting_Shared_IFSCache_Reset"><code>FSCache.Reset()</code></a> kann den FSCache jederzeit komplett abräumen.</p>
+</li>
+<li><p>Keine Parameter übertragen.</p>
+<p> Der FSCache sollte nicht für den Transport von Informationen genutzt werden.
+ Aufgrund der Flüchtigkeit des FSCache können diese Informationen jederzeit verworfen werden.</p>
+</li>
+<li><p>Nur Readonly Objekte cachen.</p>
+<p> Im FSCache sollen nur Objekte abgelegt werden, die Readonly bzw. gegen Veränderungen gesichert sind (z.B. mit <a class="xref" href="../../api/FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Freeze">Freeze()</a>).
+ Insbesondere in einem sitzungsübergreifenden Cache (Static, BusinessUnit, User) bestünde die Gefahr für ungewollte Seiteneffekte.</p>
+</li>
+<li><p>Einträge müssen threadsafe sein.</p>
+<p> Wird ein Objekt in den Cache gepackt, dass veränderlich sein muss, dann muss dieses threadsafe gestaltet sein.
+ Das gilt insbesondere bei einem sitzungsübergreifenden Cache.</p>
+</li>
+</ol>
+<h2 id="weitere-scopes">Weitere Scopes</h2>
 <p>Weitere Scopes können mithilfe von Extension-Methods geschaffen werden, die die <a class="xref" href="../../api/FS.Hosting.Shared.IFSCache.Scope.html#FS_Hosting_Shared_IFSCache_Scope_System_Object_System_Action_Microsoft_Extensions_Caching_Memory_ICacheEntry__">Scope-Methode</a> aufrufen.</p>
 <p>Beispiel:</p>
 <pre><code class="lang-csharp">// Eigener User-Scope
@@ -142,7 +163,7 @@ Wird versucht eine eingefrorene Instanz zu verändern, wird eine <code>InvalidOp
 <li>bool <a class="xref" href="../../api/FS.Hosting.Shared.IDevFrameworkBaseObject.CanFreeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_CanFreeze">CanFreeze()</a></li>
 <li>void <a class="xref" href="../../api/FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Freeze">Freeze()</a></li>
 </ul>
-<p>Die Abprüfung auf <code>IsFrozen</code> erfolgt auf jedem internen Value Property. 
+<p>Die Abprüfung auf <code>IsFrozen</code> erfolgt auf jedem internen Value Property.
 Zu beachten ist: Individueller Code wird dennoch durchlaufen, wenn nicht selbstständig auf die Eigenschaft <code>IsFrozen</code> geprüft wird. 
 Erst wenn ein internes Value versucht wird zu ändern, wird eine Exception geworfen.</p>
 <p>Freeze ist auch für Collections implementiert. Hier wird die Collection selbst und alle internen Objekte gesperrt.</p>

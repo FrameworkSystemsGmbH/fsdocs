@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Namespace FS.Hosting.Shared.GlobalObj
+    <title>Method EnsureCurrent
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Namespace FS.Hosting.Shared.GlobalObj
+    <meta name="title" content="Method EnsureCurrent
    ">
     <meta name="generator" content="docfx 2.56.2.0">
     
@@ -80,36 +80,60 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FS.Hosting.Shared.GlobalObj">
-  
-  <h1 id="FS_Hosting_Shared_GlobalObj" data-uid="FS.Hosting.Shared.GlobalObj" class="text-break">Namespace FS.Hosting.Shared.GlobalObj
-  </h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
-    <h3 id="classes">Classes
-  </h3>
-      <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.cGlobalBase.html">cGlobalBase</a></h4>
-      <section><p>Basisklasse für das Property <span class="xref">FS.Hosting.Shared.GlobalObj.GlobalObjects.ocGlobal</span>.</p>
-</section>
-      <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.DropMode.html">DropMode</a></h4>
-      <section><p>Spezifiziert den Drop-Modus.</p>
-</section>
-      <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.GlobalContext.html">GlobalContext</a></h4>
-      <section></section>
-      <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.NoGlobalContextException.html">NoGlobalContextException</a></h4>
-      <section><p>Diese Exception wird ausgelöst, wenn kein <a class="xref" href="FS.Hosting.Shared.GlobalObj.GlobalContext.html">GlobalContext</a> verfügbar ist.</p>
-</section>
-    <h3 id="interfaces">Interfaces
-  </h3>
-      <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IcGlobalBase.html">IcGlobalBase</a></h4>
-      <section><p>Bereits im SystemPackage existiert im Namespace FSGeneral eine Component mit dem Namen cGlobal.
-Diese Component kann customized werden. Aus Forms oder Components heraus kann eine Instanz
-dieser Component mit <code>this.Global.<a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ocGlobal.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ocGlobal">ocGlobal</a></code> angesprochen werden.</p>
-</section>
-      <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.html">IGlobalObjects</a></h4>
-      <section><p>Das GlobalObject ist von überall auf mit <code>this.Global</code> zu erreichen.
-Am GlobalObject werden alle Session-Daten verwaltet und Session-Funktionen angeboten.</p>
+            <article class="content wrap" id="_content" data-uid="FS.Hosting.Shared.GlobalObj.GlobalContext.EnsureCurrent*">
+
+<h1 id="FS_Hosting_Shared_GlobalObj_GlobalContext_EnsureCurrent_" data-uid="FS.Hosting.Shared.GlobalObj.GlobalContext.EnsureCurrent*">Method EnsureCurrent
+</h1>
+<div class="markdown level0 summary"></div>
+<div class="markdown level0 conceptual"></div>
+
+<a id="FS_Hosting_Shared_GlobalObj_GlobalContext_EnsureCurrent_" data-uid="FS.Hosting.Shared.GlobalObj.GlobalContext.EnsureCurrent*"></a>
+<h4 id="FS_Hosting_Shared_GlobalObj_GlobalContext_EnsureCurrent" data-uid="FS.Hosting.Shared.GlobalObj.GlobalContext.EnsureCurrent">EnsureCurrent()</h4>
+<section>
+  <div class="markdown level1 summary"><p>Stellt sicher, dass ein Context verfügbar ist und gibt diesen Zurück.
+Wirft eine <a class="xref" href="FS.Hosting.Shared.GlobalObj.NoGlobalContextException.html">NoGlobalContextException</a> wenn der Code außerhalb eines GlobalContext ausgeführt wird.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <h5 class="decalaration">Declaration</h5>
+  <section>
+    <div class="codewrapper">
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public static IGlobalObjects EnsureCurrent()</code></pre>
+    </div>
+  </section>
+
+    <h5 class="returns">Returns</h5>
+    <section>
+      <div class="propertyInfo">
+        <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.html">IGlobalObjects</a>
+        <div class="markdown level1 summary"><p>Das aktuelle GlobalObject</p>
+</div>
+      </div>
+    </section>
+
+    <h5 id="FS_Hosting_Shared_GlobalObj_GlobalContext_EnsureCurrent_remarks">Remarks</h5>
+    <section>
+      <div class="markdown level1 remarks"><p>Der Rückgabe-Typ ist das Basis-Interface <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.html">IGlobalObjects</a>.
+Um auf den korrekten Typ <code>FSGlobalObjects</code> zuzugreifen kann stattdessen <code>FSGlobal.EnsureCurrent()</code> verwendet werden.</p>
+</div>
+    </section>
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><a class="xref" href="FS.Hosting.Shared.GlobalObj.NoGlobalContextException.html">NoGlobalContextException</a></td>
+        <td><p>Es ist aktuell kein GlobalContext vohanden.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
 </section>
 </article>
           </div>

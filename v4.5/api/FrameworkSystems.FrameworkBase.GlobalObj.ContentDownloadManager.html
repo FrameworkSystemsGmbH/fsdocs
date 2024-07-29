@@ -5,9 +5,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Aktuelle Installations-Pakete </title>
+    <title>Class ContentDownloadManager
+   </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Aktuelle Installations-Pakete ">
+    <meta name="title" content="Class ContentDownloadManager
+   ">
     <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -78,61 +80,47 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-<h1 id="aktuelle-installations-pakete">Aktuelle Installations-Pakete</h1>
-
-<p>In dieser Liste sind alle aktuellen verfügbaren Installations-Pakete aufgeführt.</p>
-<table>
-<thead>
-<tr>
-<th>Paket</th>
-<th>Version</th>
-<th>Name der Zip-Datei</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Framework Studio IDE</td>
-<td><strong>4.5</strong>.19</td>
-<td>FS_4.5.19_Setup_x64</td>
-</tr>
-<tr>
-<td><a href="requirements-package.html">Requirements-Paket</a> 64 Bit</td>
-<td><strong>4.5</strong>.15</td>
-<td>FS_4.5.15_Requirements_x64</td>
-</tr>
-<tr>
-<td>Runtime Administration</td>
-<td><strong>4.2</strong>.0</td>
-<td>FS_4.2.0_RuntimeAdministration</td>
-</tr>
-<tr>
-<td>Authentication-Service</td>
-<td><strong>4.5</strong>.13</td>
-<td>FS4.5.13_AuthService</td>
-</tr>
-<tr>
-<td><a href="../doc/print-server/installation.html">Print-Service</a></td>
-<td><strong>4.5</strong>.16</td>
-<td>FS4.5.16_PrintService</td>
-</tr>
-<tr>
-<td>FSClient Launcher 32 Bit</td>
-<td><strong>4.5</strong>.15</td>
-<td>FSCL_4.5.15_Setup_x86</td>
-</tr>
-<tr>
-<td>FSClient Launcher 64 Bit</td>
-<td><strong>4.5</strong>.15</td>
-<td>FSCL_4.5.15_Setup_x64</td>
-</tr>
-<tr>
-<td>Runtime Supervisor</td>
-<td><strong>4.4</strong>.11</td>
-<td>RS_4.4.11_Setup_x64</td>
-</tr>
-</tbody>
-</table>
+            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.ContentDownloadManager">
+  
+  
+  <h1 id="FrameworkSystems_FrameworkBase_GlobalObj_ContentDownloadManager" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.ContentDownloadManager" class="text-break">Class ContentDownloadManager
+  </h1>
+  <div class="markdown level0 summary"></div>
+  <div class="markdown level0 conceptual"></div>
+  <div class="inheritance">
+    <h5>Inheritance</h5>
+    <div class="level0"><span class="xref">System.Object</span></div>
+    <div class="level1"><span class="xref">ContentDownloadManager</span></div>
+  </div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.html">FrameworkSystems.FrameworkBase.GlobalObj</a></h6>
+  <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkBase.dll</h6>
+  <h5 id="FrameworkSystems_FrameworkBase_GlobalObj_ContentDownloadManager_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public static class ContentDownloadManager</code></pre>
+  </div>
+  <h3 id="methods">Methods
+  </h3>
+  
+    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.ContentDownloadManager.CreateContent.html#FrameworkSystems_FrameworkBase_GlobalObj_ContentDownloadManager_CreateContent_FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FrameworkSystems_FrameworkBase_GlobalObj_ContentDownload_">CreateContent(IGlobalObjects, ContentDownload)</a></h4>
+    <section><p><p>Erzeugt für den übergebenen Content einen Download.
+Dieser kann innerhalb zehn Minuten über die zurückgegebene Url abgerufen werden.</p>
+<p>Die Url beginnt mit den Platzhalter <code>&quot;fsbroker://&quot;</code>, welche im Client durch die korrekte Adresse des Brokers ersetzt wird.
+Die Url kann zum Beispiel in folgenden Szenarien verwendet werden:</p>
+<ul>
+<li>in der ViewDocument(string url) Action,</li>
+<li>als Url im Browser-Control</li>
+<li>oder als Datasource für ein Picture-Control.</li>
+</ul>
+<pre><code>string url = this.Global.CreateContent(new ContentDownload()
+    {
+        Content = System.IO.File.ReadAllBytes(&quot;C:\\temp\\Beispiel.pdf&quot;),
+        ContentType = &quot;application/pdf&quot;,
+        DownloadFileName= &quot;MyDownload.pdf&quot;
+    });
+ViewDocument(url);</code></pre>
+</p></section>
+  
 </article>
           </div>
           

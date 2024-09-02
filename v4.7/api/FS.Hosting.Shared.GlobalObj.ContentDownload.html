@@ -102,12 +102,26 @@ public class ContentDownload : Object</code></pre>
   <h3 id="properties">Properties
   </h3>
   
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.ContentDownload.CleanupAction.html#FS_Hosting_Shared_GlobalObj_ContentDownload_CleanupAction">CleanupAction</a></h4>
+    <section><p><p>Diese Methode wird aufgerufen, wenn der Eintrag verworfen wird.
+Als Parameter wird der Wert von <span class="xref">FS.Hosting.Shared.GlobalObj.ContentDownload.Argument</span> übergeben.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.ContentDownload.Content.html#FS_Hosting_Shared_GlobalObj_ContentDownload_Content">Content</a></h4>
-    <section><p></section>
+    <section><p><p>Der Inhalt der Datei. Alternativ kann die Methode <a class="xref" href="FS.Hosting.Shared.GlobalObj.ContentDownload.ContentFactory.html#FS_Hosting_Shared_GlobalObj_ContentDownload_ContentFactory">ContentFactory</a> verwendet werden.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.ContentDownload.ContentFactory.html#FS_Hosting_Shared_GlobalObj_ContentDownload_ContentFactory">ContentFactory</a></h4>
+    <section><p><p>Eine Methode, die beim Aufruf des Endpoints den Inhalt zurückgibt.
+Als Parameter wird der Wert von <span class="xref">FS.Hosting.Shared.GlobalObj.ContentDownload.Argument</span> übergeben.
+Wird diese Methode angegeben, darf das Property <a class="xref" href="FS.Hosting.Shared.GlobalObj.ContentDownload.Content.html#FS_Hosting_Shared_GlobalObj_ContentDownload_Content">Content</a> nicht gefüllt werden.</p>
+</p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.ContentDownload.ContentType.html#FS_Hosting_Shared_GlobalObj_ContentDownload_ContentType">ContentType</a></h4>
     <section><p></section>
     <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.ContentDownload.DownloadFileName.html#FS_Hosting_Shared_GlobalObj_ContentDownload_DownloadFileName">DownloadFileName</a></h4>
     <section><p><p>Wird der DownloadFileName angegeben, wird durch den Browser ein Download mit diesem Dateinamen initiiert.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.ContentDownload.ExpirationTimeout.html#FS_Hosting_Shared_GlobalObj_ContentDownload_ExpirationTimeout">ExpirationTimeout</a></h4>
+    <section><p><p>Abweichender Timeout. Wenn nicht angegeben, dann zieht automatisch ein Timeout von 10 Minuten.
+Der Wert muss größer als 0 sein.</p>
 </p></section>
   
 </article>

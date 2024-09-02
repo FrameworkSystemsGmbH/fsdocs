@@ -85,7 +85,7 @@
 <p>Die eigentliche Arbeit wird in den Aktionen ausgeführt.
 Neben der FSConsole.exe können auch allgemeine Aktionen definiert werden.
 So können z.B. entsprechende Ordner oder Dienste vorbereitet werden.</p>
-<h3 id="konten-batch">Konten <code>&lt;Batch&gt;</code></h3>
+<h3 id="knoten-batch">Knoten <code>&lt;Batch&gt;</code></h3>
 <p>Damit kann eine beliebige Batch-Routine ausgeführt werden.</p>
 <p>Attribute:</p>
 <ul>
@@ -152,7 +152,7 @@ Dazu werden folgende Aktionen angeboten.</p>
 <li><p><strong>Rep</strong>: erforderlich - gibt das Repository an, mit dem gearbeitet werden soll</p>
 </li>
 <li><p><strong>Args</strong>: erforderlich - gibt die weiteren Kommandozeilen-Parameter an.</p>
-<p>Wie beim <a href="#konten-batch">Konten <code>&lt;Batch&gt;</code></a> können auch Args in Form eines XML-Knoten angegeben werden.</p>
+<p>Wie beim <a href="#knoten-batch">Knoten <code>&lt;Batch&gt;</code></a> können auch Args in Form eines XML-Knoten angegeben werden.</p>
 </li>
 </ul>
 <h3 id="knoten-compilerun">Knoten <code>&lt;CompileRun&gt;</code></h3>
@@ -198,16 +198,17 @@ Der Name der Datei setzt sich aus dem Namen des Packages und der Version zusamme
 Wird dieses Attribut nicht angegeben, dann wird ein Dateiname nach folgendem Schema erzeugt: <code>{ExportFilePrefix}&lt;Package&gt;_&lt;Version&gt; (FS &lt;fs-version&gt;)</code>.
 Der Dateiname kann Parameter beinhalten.</p>
 </li>
-<li><p><strong>IncludeBasePackages</strong>: optional - gibt an ob Basis-Package in den Export eingeschlossen werden sollen.
+<li><p><strong>IncludeBasePackages</strong>: optional - gibt an ob Basis-Packages in den Export eingeschlossen werden sollen.
 Mögliche Werte:</p>
 <ul>
-<li>ServiceRelease - analog zum Package-Manager</li>
-<li>Unsealed - analog zum Package-Manager</li>
-<li>All - alle kompletten Base-Packages</li>
+<li>ServiceRelease</li>
+<li>Unsealed (obsolete -&gt; gleiche Funktion wie ServiceRelease)</li>
+<li>All</li>
 </ul>
+<p>Details zur Funktionsweise der Modi sind <a href="../package-manager/export.html#include-base-packages">hier</a> beschrieben.</p>
 </li>
 </ul>
-<h3 id="konten-import">Konten <code>&lt;Import&gt;</code></h3>
+<h3 id="knoten-import">Knoten <code>&lt;Import&gt;</code></h3>
 <p>Importiert ein Package. Ordner und Dateinamen werden wie beim Export verwendet.
 Die Attribute müssen zum Knoten <code>&lt;Export&gt;</code> passen.
 Bei der Verwendung der <code>&lt;ImportQueue&gt;</code> wird diese Aktion automatisch von der PBE.exe erzeugt.</p>
@@ -229,14 +230,14 @@ Bei der Verwendung der <code>&lt;ImportQueue&gt;</code> wird diese Aktion automa
 </li>
 </ul>
 <h3 id="knoten-approvedexport">Knoten <code>&lt;ApprovedExport&gt;</code></h3>
-<p>Arbeitet wie der Konten <code>&lt;Export&gt;</code> mit folgenden Unterschieden:</p>
+<p>Arbeitet wie der Knoten <code>&lt;Export&gt;</code> mit folgenden Unterschieden:</p>
 <ul>
 <li><p>Wenn nicht über das Attribut Dir anders definiert, dann wird für den Export-Ordner der Parameter <strong>{ApprovedExportDir}</strong> verwendet.</p>
 </li>
 <li><p>Das Attribut <strong>Queue</strong> steht nicht zur Verfügung.</p>
 </li>
 </ul>
-<h3 id="konten-approvedimport">Konten <code>&lt;ApprovedImport&gt;</code></h3>
+<h3 id="knoten-approvedimport">Knoten <code>&lt;ApprovedImport&gt;</code></h3>
 <p>Importiert alle im Ordner enthaltenen Dateien in das angegebene Repository.
 Nach erfolgreichem Import werden die Dateien in das <strong>{HistoryDir}</strong> verschoben.
 Wenn dieser Ordner nicht angegeben ist – weder als Parameter noch als Attribut – dann werden die Dateien nach dem Import gelöscht, damit sie beim nächsten Lauf nicht noch einmal importiert werden.
@@ -323,7 +324,7 @@ Dieses muss im Run-Wizard vorbereitet und abgespeichert werden.</p>
 </li>
 <li><p><strong>Args</strong>: optional - Weitere Kommandozeilen-Argumente, die zusätzlich übergeben werden sollen.
 So können zukünftige Features integriert werden.</p>
-<p>Wie beim <a href="#konten-batch">Konten <code>&lt;Batch&gt;</code></a> können auch Args in Form eines XML-Knoten angegeben werden.</p>
+<p>Wie beim <a href="#knoten-batch">Knoten <code>&lt;Batch&gt;</code></a> können auch Args in Form eines XML-Knoten angegeben werden.</p>
 </li>
 </ul>
 </article>

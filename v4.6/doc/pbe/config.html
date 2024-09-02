@@ -149,7 +149,7 @@ Dieser Parameter wird bei der Aktion <code>&lt;ApprovedExport&gt;</code> automat
 <h2 id="organisation">Organisation</h2>
 <p>Die Aktionen werden in der XML-Datei als Sequenzen oder Parallel-Verarbeitungen organisiert. Die unterschiedlichen Knoten können beliebig ineinander verschachtelt werden. Einzige Ausnahme ist der oberste Knoten – dieser muss immer <code>&lt;Sequence&gt;</code> sein.</p>
 <p>Jeder Knoten kann Optional ein Attribut &quot;Name&quot; erhalten. Dieser Name wird in der Protokoll-Datei ausgegeben.</p>
-<h3 id="konten-sequence">Konten <code>&lt;Sequence&gt;</code></h3>
+<h3 id="knoten-sequence">Knoten <code>&lt;Sequence&gt;</code></h3>
 <p>Alle darunter aufgeführten Aktionen werden nacheinander verarbeitet. In der Protokoll-Datei werden die Einträge untereinander ausgegeben.</p>
 <p>Attribute:</p>
 <ul>
@@ -166,7 +166,7 @@ Dieser Parameter wird bei der Aktion <code>&lt;ApprovedExport&gt;</code> automat
 </div>
 </li>
 </ul>
-<h3 id="konten-condition">Konten <code>&lt;Condition&gt;</code></h3>
+<h3 id="knoten-condition">Knoten <code>&lt;Condition&gt;</code></h3>
 <p>Arbeitet wie eine <code>&lt;Sequence&gt;</code> - die darunter aufgeführten Aktionen werden nacheinander ausgeführt. Die Ausführung erfolgt aber nur dann, wenn die beiden Attribute &quot;Value&quot; und &quot;Equals&quot; denselben Wert haben.</p>
 <p>Attribute:</p>
 <ul>

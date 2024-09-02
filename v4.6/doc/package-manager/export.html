@@ -85,19 +85,25 @@
 Es wird folgender Dialog angezeigt:</p>
 <p><img src="media/export-package-version-dialog.png" alt="export-package-version-dialog.png"></p>
 <h4 id="package-file">Package File</h4>
-<p>hier wird die Datei angegeben, in welche die Package-Version exportiert werden soll. Der Datei-Name wird automatisch mit dem Format <strong>&lt;Datum_Package_Version&gt;</strong> vorbelegt. Dieser sollte nach Möglichkeit nicht geändert werden.</p>
+<p>Hier wird die Datei angegeben, in welche die Package-Version exportiert werden soll.
+Der Datei-Name wird automatisch mit dem Format <strong>&lt;Datum_Package_Version&gt;</strong> vorbelegt.
+Dieser sollte nach Möglichkeit nicht geändert werden.</p>
 <h4 id="export-code">Export Code</h4>
 <p>Es wird standardmäßig der Code exportiert.
 Der Code beinhaltet dabei sämtlichen Methoden-Code und auch den vom FrameworkCompiler generierten Code.</p>
 <h4 id="include-base-packages">Include Base Packages</h4>
 <p>Wenn diese Checkbox gesetzt wird, dann wird ein Bereich eingeblendet, in dem angegeben werden kann, welche Basis-Packages mit in die Export-Datei gepackt werden sollen. Dies funktioniert auch bei importierten Basis-Packages.
 Im Vergleich zum Export der einzelnen Package-Versionen hat dieses Vorgehen den Vorteil, dass auf jeden Fall der passende Compile-Stand des Basis-Packages verwendet wird – auch wenn das Basis-Package später neu kompiliert wurde und dafür ein aktuellerer FrameworkCompiler-Stand zur Verfügung steht.</p>
-<p>Wenn die Checkbox gesetzt wird, dann werden automatisch folgende Packages ausgewählt:</p>
-<h4 id="export-unsealed-base-packages">Export unsealed Base Packages</h4>
-<p>Damit werden alle Package-Versionen ausgewählt, die nicht versiegelt wurden. Diese Option ist z.B. beim Einsatz von noch offenen Vorab-Versionen sinnvoll.</p>
-<h4 id="export-service-releases">Export Service Releases</h4>
-<p>Damit werden alle Service-Releases ausgewählt. Dies bedingt aber, dass im Ziel-Repository bereits ein aktueller Stand des Basis-Packages importiert wurde.</p>
-<p>Bei Bedarf können auch gezielt weitere Packages ausgewählt werden. Bei Package-Versionen, die sich im Service-Release-Modus befinden kann mit der Checkbox <strong>Export Full Package</strong> statt dem Service-Release-Paket die komplette Package-Version eingebunden werden.</p>
+<p>Im Bereich stehen zwei Radio-Buttons zur Auswahl:</p>
+<h5 id="export-service-releases-standardmäßig-vorbelegt">Export Service Releases (standardmäßig vorbelegt)</h5>
+<p>Damit werden alle Package-Versionen ausgewählt, welche als SR exportiert werden können.
+Darunter zählen normale SR-Packages, aber auch sealed Packages, die davor mal im SR-Modus waren (sealed SR).
+Außerdem werden &quot;Full Exporte&quot; für offene Package-Versionen exportiert.
+Diese Auswahl bedingt, dass im Ziel-Repository bereits ein aktueller Stand des Basis-Packages importiert wurde.</p>
+<h5 id="export-full-packages">Export Full Packages</h5>
+<p>Damit wird für <strong>alle</strong> Packages ein Full Export ausgewählt.
+Diese Auswahl ist sinnvoll, wenn die Package-Version erstmalig zum Ziel-Repository übertragen werden soll.</p>
+<p>Bei Bedarf können auch gezielt weitere Packages ausgewählt werden. Bei Package-Versionen, die als Service-Release exportiert werden können, kann mit der Checkbox <strong>Export Full Package</strong> statt dem Service-Release-Paket die komplette Package-Version eingebunden werden.</p>
 <p>Beim <strong>Package-Import</strong> werden automatisch alle in der Export-Datei beinhalteten Packages importiert – die Auswahl kann nur beim Export getroffen werden. Bei Service-Releases erfolgt ein Import nur dann, wenn nicht bereits ein aktuellerer Service-Release-Stand vorhanden ist.</p>
 <div class="NOTE"><h5>Note</h5><p>Ein neues Repository kann mit so einer Export-Datei nicht angelegt werden. Dies ist nur mit dem Export des Default-Packages möglich.</p>
 </div>

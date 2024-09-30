@@ -90,10 +90,25 @@ Beim Update von einer älteren Version beachten Sie bitte auch die Hinweise und 
 Dies hat zwei notwendige Aktionen zur Folge:</p>
 <ul>
 <li>Zunächst muss die Lizenzdatenbank upgedated werden. Dies wird bei der Anmeldung am Repository automatisch angeboten.</li>
-<li>Anschließend muss eine neue FrameworkStudio Lizenz eingespielt werden, welche von uns bereitgestellt wird. Dies erfolgt wie bisher über die <a href="../doc/admin/admin.html">FrameworkStudioAdministration</a>.</li>
+<li><p>Anschließend muss eine neue <a href="../doc/allgemein/licenses.html#manage-licenses">FrameworkStudio Lizenz eingespielt</a> werden, welche von uns bereitgestellt wird.</p>
+<div class="TIP"><h5>Tip</h5><p>Die Verwaltung der Lizenzen befindet sich jetzt in der <a href="../doc/ide/start.html#choose-license-database-">Repository-Auswahl</a>.</p>
+</div>
+</li>
 </ul>
 <p>Die neue Lizenz mit der Dateiendung <code>.fslx</code> ist ab FS Version 4.7 gültig. Für alle älteren FS Versionen gilt weiterhin die alte Lizenz mit der Dateiendung <code>.fsl</code>.
 Repositories, welche Packages in unterschiedlichen Versionen beinhalten, benötigen somit zwei gültige Lizenzen.</p>
+<h2 id="neue-systemvoraussetzungen">Neue Systemvoraussetzungen</h2>
+<p>In dieser Version gibt es Anpassungen bei den <a href="requirements.html">Systemvoraussetzungen</a>.</p>
+<h4 id="datenbank-server">Datenbank-Server</h4>
+<p>Es wird der <strong>SQL-Server 2016</strong> oder höher unterstützt.<br>
+Ältere Version (z.B. SQL-Server 2014) werden nicht mehr unterstützt.
+Für den SQL-Server 2014 läuft <a href="https://learn.microsoft.com/sql/sql-server/end-of-support/sql-server-end-of-support-overview#lifecycle-dates">laut Microsoft</a> der erweiterte Support im Jahr 2024 aus.</p>
+<p>Es wird <strong>Oracle 19c</strong> oder höher unterstützt.<br>
+Ältere Versionen (z.B. Oracle 12.2 oder Oracle 18c) werden nicht mehr unterstützt.
+Für Oracle 12.2 lief der Support <a href="https://support.oracle.com/knowledge/Oracle%20Database%20Products/742060_1.html">laut Oracle</a> im Jahr 2022 aus. Die Version 18c lief bereits 2021 aus.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Ein Betrieb mit einer älteren Datenbank-Version ist nicht möglich.
+Ein Connect auf so einen Datenbank-Server führt unmittelbar zu einer entsprechenden Fehlermeldung.</p>
+</div>
 <h2 id="neuorganisation-der-framework-studio-namespaces">Neuorganisation der Framework Studio Namespaces</h2>
 <p>Die <a href="../doc/weitere-themen/fs-assemblies.html">Struktur der FSramework-Studio-Assemblies</a> wurde überarbeitet.
 Dadurch wurden Klassen und auch Namespaces neu organisiert.
@@ -120,7 +135,7 @@ Die Funktionalität bleibt identisch.</p>
 <li>DBColumns können nun einzeln kopiert und in eine DBTable eingefügt werden.</li>
 <li>Die <a href="../doc/editors/editor-cs.html#intellisense">IntelliSense</a> des C# Code-Editors wurde erweitert, sodass nun auch die Framework Studio <a href="/api">API-Dokumentation</a> und die .net Framework Dokumenationen angezeigt werden.</li>
 <li>Im Customzing Package neu angelegte Namespaces erhalten nun zusätzlich die User-Referenzen aus Parent-Namespaces, welche im Basis-Package mit der Option <code>Use in Sub Namespaces</code> angelegt wurden.</li>
-<li>Die Dokuemantationen für <a href="../doc/runtimesupervisor/runtimesupervisor-common.html">Runtime Supervisor</a>, <a href="../doc/runtime-administration/runtime-administration-common.html">Runtime Administration</a> und <a href="../doc/authentication-service/authentication-service-common.html">Authentication Service</a> wurden in die Online-Dokumentation übernommen.</li>
+<li>Die Dokumentationen für <a href="../doc/runtimesupervisor/runtimesupervisor-common.html">Runtime Supervisor</a>, <a href="../doc/runtime-administration/runtime-administration-common.html">Runtime Administration</a> und <a href="../doc/authentication-service/authentication-service-common.html">Authentication Service</a> wurden in die Online-Dokumentation übernommen.</li>
 </ul>
 </article>
           </div>

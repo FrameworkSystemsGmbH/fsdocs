@@ -96,34 +96,67 @@
 <p>Mit dem Button Test Connection können Sie prüfen, ob eine Verbindung zum Repository hergestellt werden kann.</p>
 <h4 id="button-ok">Button OK</h4>
 <p>Um die Arbeit auf einem Repository zu beginnen, wählen Sie den entsprechenden Eintrag in der Tabelle aus und klicken auf OK.</p>
-<p>Es öffnet sich ein Dialog, mit dem Sie sich an das Repository anmelden können ( Login).</p>
+<p>Es öffnet sich ein Dialog, mit dem Sie sich an das Repository anmelden können (siehe <a href="#login">Login</a>).</p>
 <h3 id="weitere-funktionalität-im-hauptmenü">Weitere Funktionalität im Hauptmenü</h3>
 <p>Unter dem Menüpunkt <strong>Repository</strong> werden die folgenden Funktionen angeboten:</p>
 <h4 id="create-new-repository-">Create new repository [...]</h4>
-<p>Dieser Menüpunkt ermöglicht das Anlegen eines neuen Repositories. Weitere Informationen dazu finden Sie unter <a href="../admin/admin.html#erstellen-eines-repositories">Erstellen eines Repositories</a>.</p>
+<p>Dieser Menüpunkt ermöglicht das Anlegen eines neuen Repositories. Weitere Informationen dazu finden Sie unter <a href="#erstellen-eines-repositorys">Erstellen eines Repositories</a>.</p>
 <h4 id="fsdemo">FSDemo</h4>
 <p>In diesem Untermenü werden die folgenden beiden Menüpunkte zusammengefasst:</p>
 <h4 id="create-fsdemo-repository-">Create FSDemo repository [...]</h4>
-<p>Es wird ein neues Repository angelegt, in dem bereits eine einfache Demo-Applikation enthalten ist (siehe auch <a href="../admin/admin.html#erstellen-eines-repositories">Erstellen eines Repositories</a>).</p>
+<p>Es wird ein neues Repository angelegt, in dem bereits eine einfache Demo-Applikation enthalten ist (siehe auch <a href="#erstellen-eines-repositorys">Erstellen eines Repositories</a>).</p>
 <h4 id="create-fsdemodata-database-">Create FSDemoData Database [...]</h4>
 <p>Mit diesem Menüpunkt lässt sich eine Datenbank mit Demo-Daten für die Demo-Applikation anlegen.</p>
-<p>Mit dem Menüpunkt <strong>Licenses / Choose License Server ...</strong> können Sie die Datenbank angeben, in der die Lizenz für die Benutzung von Framework Studio abgelegt ist.</p>
-<p><img src="media/start-choose-license-db.png" alt="Choose License DB"></p>
-<p>Wird <strong>Use existing license database</strong> ausgewählt, so kann eine bereits bestehende Datenbank über Eingabefelder im unteren Dialogbereich konfiguriert werden. Wird <strong>Create new license database</strong> gewählt, kann eine neue Lizenzdatenbank erzeugt werden. Dazu muss im Feld Framework Studio License File eine Lizenzdatei für Framework Studio angegeben werden. Diese Lizenz wird dann in die neu erstellte Lizenzdatenbank kopiert. Mit dem Button <img src="../media/icon-more.png" alt="more"> wird ein Dateiauswahldialog geöffnet, mit dem die Lizenzdatei ausgewählt werden kann.</p>
-<p>Durch die folgenden Angaben wird die Lizenzdatenbank spezifiziert.</p>
+<p>Unter dem Menüpunkt <strong>Licenses</strong> werden die folgenden Funktionen angeboten:</p>
+<h4 id="choose-license-database-">Choose License Database [...]</h4>
+<p>Mit diesem Menüpunkt öffnet sich der <a href="../allgemein/licenses.html#choose-license-db">Choose License DB</a> Dialog.
+In ihm kann die Datenbank angegeben werden, in der die Lizenz für die Benutzung von Framework Studio abgelegt ist.</p>
+<h4 id="manage-licenses">Manage Licenses</h4>
+<p>Mit diesem Menüpunkt öffnet sich der <a href="../allgemein/licenses.html#manage-licenses">Manage Licenses</a> Dialog.
+In ihm kann die aktuelle Framework Studio Lizenz verwaltet oder exportiert werden, sowie neue Lizenzen importiert werden.</p>
+<h2 id="erstellen-eines-repositorys">Erstellen eines Repositorys</h2>
+<p>Der Aufruf des Create Repository Dialogs erfolgt über das Menü <em>Repositories</em>.</p>
+<p>Es gibt grundsätzlich zwei Möglichkeiten, wie ein neues Repository erzeugt wird:</p>
+<p>Ein neues leeres Repository erzeugen, um eine eigene Anwendung zu entwickeln.
+Ein vorhandenes <strong>Default-Package</strong> importieren, um die darin enthaltene Anwendung in einen Broker zu generieren oder darauf aufbauend ein Customizing-Package zu erzeugen.</p>
+<div class="WARNING"><h5>Warning</h5><p>Es gibt immer genau ein unterstes Package. Dieses nennt sich Default-Package. 
+Mehrere Default-Packages können nicht miteinander kombiniert werden. 
+Es ist also nicht möglich, nachträglich ein Package zu importieren, bei dem es sich um ein solches Default-Package handelt.</p>
+</div>
+<p><img src="media/start-create-repository.png" alt="Create Repository"></p>
 <h4 id="connection-type">Connection Type</h4>
-<p>Typ der Datenbank. Zur Auswahl stehen <strong>SqlServer</strong> und <strong>Oracle (native)</strong>.</p>
-<h4 id="server-nur-bei-connection-type-sqlserver">Server (nur bei Connection Type SqlServer)</h4>
-<p>Name oder IP Adresse des Rechners, auf dem die Datenbank eingerichtet werden soll. Auf diesem Rechner muss der entsprechende Datenbankdienst bereits installiert und in Betrieb sein.</p>
-<h4 id="database">Database</h4>
-<p>Name der Lizenzdatenbank.</p>
-<h4 id="use-windows-nt-integrated-security-nur-bei-connection-type-sqlserver">Use Windows NT Integrated Security (nur bei Connection Type SqlServer)</h4>
-<p>Zur Anmeldung am Datenbanksystem wird die Windows Authentifizierung verwendet.</p>
-<h4 id="use-a-specific-user-name-and-password">Use a specific user name and password</h4>
-<p>Wird diese Option gewählt, kann die Authentifizierung am Datenbanksystem durch Benutzername und Password durchgeführt werden. Dazu muss der Benutzername im Feld <strong>Username</strong> und das <strong>Passwort</strong> im Feld Password angegeben werden.</p>
-<p>Mit dem Button <strong>Test Connection</strong> kann überprüft werden, ob mit den angegebenen Daten eine Verbindung zum Datenbanksystem hergestellt werden kann.</p>
-<p>Mit dem Button <strong>OK</strong> werden die Angaben übernommen und gegebenenfalls das neue Repository erstellt.</p>
-<p>Mit dem Button <strong>Cancel</strong> verlassen Sie den Dialog, ohne dass Änderungen übernommen werden.</p>
+<p>(SqlServer, Oracle)
+Hier können Sie angeben, welche Art von Datenbank Sie für das neue Repository verwenden wollen.</p>
+<h4 id="server-name">Server Name</h4>
+<p>(Nur bei SQL-Server)
+Gibt an, auf welchen Server das Repository abgelegt ist bzw. abgelegt werden soll. 
+Bei Oracle werden die Datenbanken nur mit Namen angesprochen. 
+Diese Namen müssen im Oracle-Client hinterlegt werden.</p>
+<h4 id="database-name">Database Name</h4>
+<p>Gibt den Namen der Datenbank an, in der das Repository eingespielt werden soll.</p>
+<p>Bei SQL-Server wird eine neue Datenbank erzeugt, falls diese noch nicht existiert.</p>
+<p>Wenn die Datenbank bereits existiert, muss es sich dabei um eine leere Datenbank handeln. 
+Es darf auch keine <strong>Framework Studio</strong> Lizenz-Datenbank sein.</p>
+<p>Bei Oracle muss die angegebene Datenbank existieren. 
+Die Tabellen für das Repository werden in das Profil des angegebenen Benutzers generiert.</p>
+<p>Es dürfen in dem Profil noch keine Repository-Datenstrukturen existieren. 
+Es darf auch keine <strong>Framework Studio</strong> Lizenz-Datenbank in diesem Profil installiert sein.</p>
+<h4 id="authentication">Authentication</h4>
+<p>Gibt an, mit welchem Login auf die Datenbank zugegriffen werden soll.</p>
+<h4 id="repository-with-empty-default-package">Repository with empty default Package</h4>
+<p>Es wird ein leeres Default-Package generiert.</p>
+<p>Der Name des Packages wird mit „Package“ vorbelegt. 
+Er kann später im Package Manager geändert werden. 
+Dies sollte vor dem Start der Entwicklung gemacht werden.</p>
+<h4 id="i-want-to-choose-my-default-package">I want to choose my default Package</h4>
+<p>Es wird ein vorhandenes Package importiert. 
+Das Package kann mit dem Button <img src="../media/icon-more.png" alt="more"> ausgewählt werden. 
+Dabei muss es sich um ein Default-Package handeln.</p>
+<p>Der Import kann je nach Größe des Packages relativ lange dauern.</p>
+<h4 id="button-ok-1">Button OK</h4>
+<p>Erzeugt das Repository.</p>
+<h4 id="button-cancel">Button Cancel</h4>
+<p>Schließt den Dialog ohne eine Aktion auszuführen.</p>
 <h2 id="login">Login</h2>
 <p>Mit dem Login-Dialog können Sie sich am zuvor ausgewählten Repository anmelden.</p>
 <p><img src="media/start-login.png" alt="Framework Studio Login"></p>

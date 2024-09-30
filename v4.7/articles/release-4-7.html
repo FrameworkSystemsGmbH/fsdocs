@@ -82,18 +82,49 @@
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
 <h2 id="470-beta-3-04102024">4.7.0 Beta 3 (04.10.2024)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.0_Beta_3_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h3 id="neuerungen">Neuerungen</h3>
 <ul>
+<li><a href="neuheiten-4-7.html#neue-systemvoraussetzungen">Neue Systemvoraussetzungen</a> für Datenbank-Server</li>
 <li>Die <a href="../doc/editors/editor-cs.html#intellisense">IntelliSense</a> des C# Code-Editors wurde erweitert, sodass nun auch die Framework Studio <a class="xref" href="../api/FS.Hosting.Shared.html">API-Dokumentation</a> und die .net Framework Dokumenationen angezeigt werden.</li>
 <li>Im Customzing Package neu angelegte Namespaces erhalten nun zusätzlich die User-Referenzen aus Parent-Namespaces, welche im Basis-Package mit der Option <code>Use in Sub Namespaces</code> angelegt wurden.</li>
-<li>Die Dokuemantationen für <a href="../doc/runtimesupervisor/runtimesupervisor-common.html">Runtime Supervisor</a>, <a href="../doc/runtime-administration/runtime-administration-common.html">Runtime Administration</a> und <a href="../doc/authentication-service/authentication-service-common.html">Authentication Service</a> wurden in die Online-Dokumentation übernommen.</li>
+<li>Die Dokumentationen für <a href="../doc/runtimesupervisor/runtimesupervisor-common.html">Runtime Supervisor</a>, <a href="../doc/runtime-administration/runtime-administration-common.html">Runtime Administration</a> und <a href="../doc/authentication-service/authentication-service-common.html">Authentication Service</a> wurden in die Online-Dokumentation übernommen.</li>
+<li>Das eingenständige Framework Studio Administration-Tool wurde in den Repository-Auswahl Dialog beim <a href="../doc/ide/start.html">Starten von Framework Studio</a> oder des <a href="../doc/package-manager/package-manager.html">Package Managers</a> integriert.</li>
+<li>DBColumns können nun einzeln kopiert und in eine DBTable eingefügt werden.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#4610-04102024">Framework Studio 4.6.10</a> enthalten.
+Zusätzlich wurden die folgenden Bugs behoben.</p>
+<ul>
+<li><p>2024025119 - <strong>IDE</strong>: Der Name eines CodeFiles darf &quot;.&quot; als Sonderzeichen
+  enthalten, dies kann später zu Folgeproblemen führen.</p>
+<div class="NOTE"><h5>Note</h5><p>Der Name muss ein gültiger C#-Identifdier sein.<br>
+Beim Compile werden jetzt entsprechende Warnings erzeugt und im Designer
+wird ein ungültiger Wert gekennzeichnet.</p>
+</div>
+</li>
+<li><p>2024076125 - <strong>Code Generierung</strong>: Ein ServiceHost mit aktiver Option
+  &quot;Generate REST Endpoint&quot; generiert die Warning FSWarn[2033] At least one
+  endpoint has to be defined in order to use this service host. Diese Warning
+  ist nicht notwendig, da ein Endpoint automatisch angelegt wird.</p>
+</li>
+<li><p>2024096503 - <strong>Code-Generierung</strong>: ist einem alten, nicht in das neue Layout
+  übernommenen, Deprecated Control (z.B. einem Label) ein Event zugeordnet,
+  dann wird der Aufruf noch immer in den Code generiert. Zudem kann die
+  Event-Methode nicht gelöscht werden, weil die Event-Zuordnung als Dependency
+  erkannt wird.</p>
+</li>
 </ul>
 <h2 id="470-beta-2-11092024">4.7.0 Beta 2 (11.09.2024)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.7.0_Beta_2_Setup_x64</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li>Im Publish2Go können keine Web-Applications gepublisht werden.</li>
 <li>In gepublishten Service-Hosts kann es wegen fehlender Assemblies zu Fehlermeldungen kommen.</li>
@@ -112,23 +143,13 @@
 <li>Die <a class="xref" href="../api/FS.Hosting.Shared.GlobalObj.ContentDownloadManager.html">Download-API</a> wurde im <a class="xref" href="../api/FS.Hosting.Shared.GlobalObj.ContentDownload.ExpirationTimeout.html#FS_Hosting_Shared_GlobalObj_ContentDownload_ExpirationTimeout"><code>ExpirationTimeout</code></a>, <a class="xref" href="../api/FS.Hosting.Shared.GlobalObj.ContentDownload.ContentFactory.html#FS_Hosting_Shared_GlobalObj_ContentDownload_ContentFactory"><code>ContentFactory</code></a> und <a class="xref" href="../api/FS.Hosting.Shared.GlobalObj.ContentDownload.CleanupAction.html#FS_Hosting_Shared_GlobalObj_ContentDownload_CleanupAction"><code>CleanupAction</code></a> erweitert</li>
 <li>Diverse Fremdbibliotheken wurden auf die jeweils neuste Version aktualisiert.</li>
 </ul>
-<h2 id="470-beta-2-oktober-2024">4.7.0 Beta 2 (Oktober 2024)</h2>
-<p>Die Auslieferung umfasst die folgenden Pakete:</p>
-<ul>
-<li>FS_4.7.0_Beta_2_Setup_x64</li>
-</ul>
-<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h3 id="neuerungen-2">Neuerungen</h3>
-<ul>
-<li>Im Customzing Package neu angelegte Namespaces erhalten nun zusätzlich die User-Referenzen aus Parent-Namespaces, welche im Basis-Package mit der Option <code>Use in Sub Namespaces</code> angelegt wurden.</li>
-</ul>
 <h2 id="470-alpha-5-02082024">4.7.0 Alpha 5 (02.08.2024)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.7.0_Alpha_5_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h3 id="neuerungen-3">Neuerungen</h3>
+<h3 id="neuerungen-2">Neuerungen</h3>
 <ul>
 <li><a href="../doc/resources/reference-check.html">Referenz-Prüfung für Ressourcen</a></li>
 <li>Neues Feature im FSCache: <a href="../doc/konzepte/fscache.html#änderungen-triggern-mit-change-tokens">Änderungen Triggern mit Change-Tokens</a></li>
@@ -144,7 +165,7 @@
 <li>FS_4.7.0_Alpha_4_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-4">Neuerungen</h4>
+<h4 id="neuerungen-3">Neuerungen</h4>
 <ul>
 <li>Das Property DevFrameworkObject.Transaction ist obsolete - wurde vor nur mit den schon länger obsoleten Transaction-Methoden bestückt.</li>
 <li>Neuer Caching-Scope <a class="xref" href="../api/FS.Hosting.Shared.FSCache.Request.html#FS_Hosting_Shared_FSCache_Request_FS_Hosting_Shared_IFSCache_"><code>FSCache.Instance.Request()</code></a></li>
@@ -152,7 +173,7 @@
 <li>Neue Methode <a class="xref" href="../api/FS.Hosting.Shared.IFSCache.Reset.html#FS_Hosting_Shared_IFSCache_Reset"><code>FSCache.Reset()</code></a></li>
 <li>Objekte, welche im Cache verwendet werden, können mittels der Methode <a class="xref" href="../api/FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Freeze">Freeze</a> vor Veränderungen geschützt werden.</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#467-05072024">Framework Studio 4.6.7</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>
@@ -167,14 +188,14 @@ Zusätzlich wurden die folgenden Bugs behoben.</p>
 <li>FS_4.7.0_Alpha_3_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-5">Neuerungen</h4>
+<h4 id="neuerungen-4">Neuerungen</h4>
 <ul>
 <li>Neue Doku <a href="../doc/weitere-themen/fs-assemblies.html">Struktur der FS-Assemblies</a></li>
 <li>Erster Wurf des <a href="../doc/konzepte/fscache.html">FSCache</a> (in Entwicklung)</li>
 <li>PKL-Lizenz wurde komplett entfernt. Im Package-Manager werden diese nicht mehr angeboten.</li>
 <li>GlobalObject Code optimiert</li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#466-07062024">Framework Studio 4.6.6</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>
@@ -189,13 +210,13 @@ Zusätzlich wurden die folgenden Bugs behoben.</p>
 <li>FS_4.7.0_Alpha_2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-6">Neuerungen</h4>
+<h4 id="neuerungen-5">Neuerungen</h4>
 <ul>
 <li>Neue <a class="xref" href="../api/FS.Hosting.Shared.MultiLanguage.MLUtil.html"><code>MLUtil</code></a>.<code>GetText()</code>- und <code>FormatText()</code>-Methoden für TextCollections.</li>
 <li>Background Image im FrameworkDesigner entfernt</li>
 <li><code>FSGlobal.Current</code> im Intellisense</li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#465-03052024">Framework Studio 4.6.5</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>
@@ -210,7 +231,7 @@ Zusätzlich wurden die folgenden Bugs behoben.</p>
 <li>FS_4.7.0_Alpha_1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#465-03052024">Framework Studio 4.6.5</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

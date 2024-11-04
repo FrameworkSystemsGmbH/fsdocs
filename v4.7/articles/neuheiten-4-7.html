@@ -125,11 +125,55 @@ Die Funktionalität bleibt identisch.</p>
 <p>Die Maintenance Routine ist unter dem Menüpunkt <strong>Update</strong> / <strong>FS 4.7</strong> / <strong>(3) Remove Global Cleanup</strong> zu finden.</p>
 <h2 id="fscache">FSCache</h2>
 <p>siehe <a href="../doc/konzepte/fscache.html">FS Memory Cache</a></p>
+<h2 id="neue-programm-verzeichnisse">Neue Programm-Verzeichnisse</h2>
+<p>Aufgrund der Umfirmierung zur &quot;enventa Group&quot; wurden die Programm-Verzeichnisse angepasst.
+In diesem Zuge wurden einige Konsolidierungen vorgenommen und eine einheitliche Verzeichnis-Struktur für die verschiedenen FS-Produkte geschaffen.</p>
+<p>Folgende Ordner gelten ab der Version 4.7.</p>
+<ul>
+<li><p><strong>Programm-Verzeichnisse</strong></p>
+<pre><code class="lang-text">%ProgramFiles%
+    enventa Group\
+        Framework Studio\4.7\
+        FS Client Launcher\
+        Runtime Supervisor\
+</code></pre><p> Sofern bei der Installation kein abweichendes Programm-Verzeichnis angegeben wurde, wird das jeweilige Programm bei einem Update auf das neue Programm-Verzeichnis umgezogen.</p>
+</li>
+<li><p><strong>Application-Daten</strong></p>
+<pre><code class="lang-text">%AppData%
+    enventa Group\
+        Framework Studio\X.Y\
+        FS Client Launcher\
+        FS Java Client\
+        FS Runtime Administration\
+
+%LocalAppData%
+    enventa Group\
+        FS Client Launcher\
+        FS Java Client\
+</code></pre><p>  Beim ersten Programmstart werden wie jeweiligen Verzeichnisse automatisch umgezogen.</p>
+<p>  Eine Ausnahme bildet <code>FS Java Client</code>.
+  Dieses Verzeichnis wird nicht umgezogen, da es ggf. von mehreren Versionen gleichzeitig verwendet wird.
+  (Das alte Verzeichnis lautet <code>%UserProfile%\FSJavaClient\</code>.)</p>
+</li>
+<li><p><strong>Registry-Einträge</strong></p>
+<pre><code class="lang-text">HKEY_LOCAL_MACHINE\Software\
+    enventa Group\
+        Framework Studio\X.Y\
+        FS Client Launcher\
+        FS Data Provider\
+        FS Publish\
+        Runtime Supervisor\
+</code></pre><p>  Die Registry-Einträge dienen den Installations-Routinen der jeweiligen Programme und aktualisieren sich bei einem Update auf die neuen Keys.</p>
+<p>  Die beim Publish erzeugten Registry-Keys sind von <code>HKLM\Software\Framework Systems\Framework Broker\Installations</code> nach <code>HKLM\Software\enventa Group\FS Publish</code> umgezogen.
+  Die neusten Versionen von Framwork Studio 4.5 und 4.6 sind mit dieser Änderung kompatibel und erkennen auch die neuen Einträge.</p>
+</li>
+</ul>
 <h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
 <ul>
 <li>Eigener Compile step <strong>UnitTest</strong> für <a href="/doc/code-file/codefile.md">Codefiles</a> ermöglicht es, <a href="/doc/weitere-themen/unit-tests.md">UnitTests</a> in eigene DLLs zu schreiben.</li>
 <li>Usability Verbesserung beim Anlegen neuer <a href="../doc/ide/references.html">References</a>: Beim Öffnen der References über einen geöffneten Record (Menü <code>Compile-References...</code>) wird der <a href="../doc/ide/references.html#combobox-object-type">ObjectType der Reference</a> automatisch auf den Typen des Records gesetzt. Das gleiche Verhalten zeigt sich auch im Namespace-TreeView über das ContextMenü des Records bzw. dem References-Button, wenn ein Record vorselektiert ist.</li>
 <li>Bei der <a href="../doc/ide/registerkarten.html#registerkarte-search">Search</a> kann in mehrere Object Types gleichzeitig gesucht werden.</li>
+<li>Bei der <a href="../doc/ide/registerkarten.html#registerkarte-search">Search</a> bietet das Context-Menü für die jeweiligen Ergebnis-Einträge jetzt alle Befehle an.</li>
 <li>Maintenance-Routine <a href="../doc/maintenance/code-replace-cleanup.html">Code Replace Cleanup</a> zum globalen Ersetzen von Code.</li>
 <li>Die PKL-Lizenz wurde entfernt. Zum Customizing wird für das Basis-Package keine PKL-Lizenz mehr benötigt.</li>
 <li>DBColumns können nun einzeln kopiert und in eine DBTable eingefügt werden.</li>

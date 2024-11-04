@@ -109,8 +109,8 @@ Die <code>FSCL_4.X.Y_Setup_x86.exe</code> ist ausschließlich für 32 Bit Betrie
 <table>
 <thead>
 <tr>
-<th style="text-align:left"></th>
-<th style="text-align:left"></th>
+<th style="text-align:left">Parameter</th>
+<th style="text-align:left">Beschreibung</th>
 </tr>
 </thead>
 <tbody>
@@ -127,8 +127,12 @@ Die <code>FSCL_4.X.Y_Setup_x86.exe</code> ist ausschließlich für 32 Bit Betrie
 <td style="text-align:left">Silent-Deinstallation ohne Benutzerinteraktion. Es sind Administrationsrechte notwendig.</td>
 </tr>
 <tr>
+<td style="text-align:left"><code>-installdir &lt;dir&gt;</code></td>
+<td style="text-align:left">Gibt das Verzeichnis an, in welches das Programm installiert werden soll.</td>
+</tr>
+<tr>
 <td style="text-align:left"><code>-l &lt;logfile&gt;</code></td>
-<td style="text-align:left">Erzeugt ein Logfile zur Analyse von Problemen bei der Ausführung des Installers</td>
+<td style="text-align:left">Erzeugt ein Logfile zur Analyse von Problemen bei der Ausführung des Installers.</td>
 </tr>
 </tbody>
 </table>
@@ -137,57 +141,6 @@ Die <code>FSCL_4.X.Y_Setup_x86.exe</code> ist ausschließlich für 32 Bit Betrie
 Bitte verwenden Sie den Standard-Installer.
 (Siehe auch <a href="../../articles/release-4-4.html#abkündigung-des-msi-installers-für-den-fs-client-launcher">Abkündigung des MSI-Installers für den FS Client Launcher</a>)</p>
 </div>
-<p>Dieser Installer bietet bis auf Progress-Anzeigen keinerlei Benutzeroberfläche an und arbeitet somit vollständig automatisch.</p>
-<div class="CAUTION"><h5>Caution</h5><p>Ist der Client Launcher auf einem System mittels des Standard-Installers installiert worden, sollte dieser nicht durch eine MSI-Installation aktualisiert werden!
-In diesem Fall muss zuerst die alte Version deinstalliert werden!</p>
-</div>
-<h3 id="msi-installation-ausführen">MSI Installation ausführen</h3>
-<p><code>FSCL_4.X.Y_Setup_x64.msi</code> direkt oder per Kommandozeile ausführen.
-Diese Installations-Routine beinhaltet die 32-Bit Version der Java-Runtime.</p>
-<p>Die <code>FSCL_4.X.Y_Setup_x64.msi</code> ist ausschließlich für 64 Bit Betriebssysteme vorgesehen.
-Die <code>FSCL_4.X.Y_Setup_x86.msi</code> ist ausschließlich für 32 Bit Betriebssysteme vorgesehen.</p>
-<h3 id="kommandozeilen-parameter-nur-installation">Kommandozeilen-Parameter (nur Installation)</h3>
-<p>Die Setup-Routine kann mit mit allen Parametern des MSI-Systems manipuliert werden. Nachfolgend die wichtigsten.</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left"></th>
-<th style="text-align:left"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>/q</code></td>
-<td style="text-align:left">Silent-Installation / Update ohne Benutzerinteraktion. Das Programm erkennt die installierte Version und führt bei Bedarf ein Update durch. Es sind Administrationsrechte notwendig.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>/L*v &lt;logfile&gt;</code></td>
-<td style="text-align:left">Erzeugt ein Logfile zur Analyse von Problemen bei der Ausführung des Installers.</td>
-</tr>
-</tbody>
-</table>
-<h3 id="deinstallation">Deinstallation</h3>
-<p>MSI-Pakete können ausschließlich über die Systemsteuerung oder <code>Msiexec.exe</code> deinstalliert werden:
-<code>Msiexec.exe /x FSCL_4.X.Y_Setup_x64.msi /q /L*v &lt;logfile&gt;</code></p>
-<p>Die folgenden Parameter sind dabei optional:</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:left"></th>
-<th style="text-align:left"></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left"><code>/q</code></td>
-<td style="text-align:left">Silent-Installation / Update ohne Benutzerinteraktion. Das Programm erkennt die installierte Version und führt bei Bedarf ein Update durch. Es sind Administrationsrechte notwendig.</td>
-</tr>
-<tr>
-<td style="text-align:left"><code>/L*v &lt;logfile&gt;</code></td>
-<td style="text-align:left">Erzeugt ein Logfile zur Analyse von Problemen bei der Ausführung des Installers.</td>
-</tr>
-</tbody>
-</table>
 </article>
           </div>
           

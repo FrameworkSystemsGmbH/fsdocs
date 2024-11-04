@@ -81,17 +81,36 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
+<h2 id="470-beta-4-08112024">4.7.0 Beta 4 (08.11.2024)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.0_Beta_4_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Die Installations-Routine für die Version 4.7 kann aktuell kein Update ausführen - die Routine bleibt hängen.
+Bitte zuerst die Version 4.7.0 Beta 3 deinstallieren und erst dann die 4.7.0 Beta 4 installieren.</p>
+<p>Mit dem nächsten PatchDay im Dezember ist ein Update auf die Version 4.7.0 Beta 5 wieder möglich.</p>
+</div>
+<h3 id="neuerungen">Neuerungen</h3>
+<ul>
+<li>Bei der <a href="../doc/ide/registerkarten.html#registerkarte-search">Search</a> bietet das Context-Menü für die jeweiligen Ergebnis-Einträge jetzt alle Befehle an.</li>
+<li><a href="neuheiten-4-7.html#neue-programm-verzeichnisse">Neue Programm-Verzeichnisse</a></li>
+<li>2024106671 - (BETATEST) IDE: In überschriebenen Form-Methoden werden die Base-Aufrufe nicht korrekt identifiziert. Anstatt der vom Benutzer geschriebenen Basis-Methode zieht die generierte Überschreibung im Use-Code.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#4611-08112024">Framework Studio 4.6.11</a> enthalten.
+Zusätzlich wurden die folgenden Bugs behoben. </p>
 <h2 id="470-beta-3-04102024">4.7.0 Beta 3 (04.10.2024)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.7.0_Beta_3_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<div class="IMPORTANT"><h5>Important</h5><p>Die Installations-Routine für die Version 4.7 kann aktuell keinen Update ausführen - die Routine bleibt hängen.
+<div class="IMPORTANT"><h5>Important</h5><p>Die Installations-Routine für die Version 4.7 kann aktuell kein Update ausführen - die Routine bleibt hängen.
 Bitte zuerst die Version 4.7.0 Beta 2 deinstallieren und erst dann die 4.7.0 Beta 3 installieren.</p>
 <p>Wir versuchen, das Problem zum kommenden Patchday zu beheben.</p>
 </div>
-<h3 id="neuerungen">Neuerungen</h3>
+<h3 id="neuerungen-1">Neuerungen</h3>
 <ul>
 <li><a href="neuheiten-4-7.html#neue-systemvoraussetzungen">Neue Systemvoraussetzungen</a> für Datenbank-Server</li>
 <li>Die <a href="../doc/editors/editor-cs.html#intellisense">IntelliSense</a> des C# Code-Editors wurde erweitert, sodass nun auch die Framework Studio <a class="xref" href="../api/FS.Hosting.Shared.html">API-Dokumentation</a> und die .net Framework Dokumenationen angezeigt werden.</li>
@@ -100,7 +119,7 @@ Bitte zuerst die Version 4.7.0 Beta 2 deinstallieren und erst dann die 4.7.0 Bet
 <li>Das eingenständige Framework Studio Administration-Tool wurde in den Repository-Auswahl Dialog beim <a href="../doc/ide/start.html">Starten von Framework Studio</a> oder des <a href="../doc/package-manager/package-manager.html">Package Managers</a> integriert.</li>
 <li>DBColumns können nun einzeln kopiert und in eine DBTable eingefügt werden.</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#4610-04102024">Framework Studio 4.6.10</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>
@@ -128,7 +147,7 @@ wird ein ungültiger Wert gekennzeichnet.</p>
 <ul>
 <li>FS_4.7.0_Beta_2_Setup_x64</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li>Im Publish2Go können keine Web-Applications gepublisht werden.</li>
 <li>In gepublishten Service-Hosts kann es wegen fehlender Assemblies zu Fehlermeldungen kommen.</li>
@@ -141,7 +160,7 @@ wird ein ungültiger Wert gekennzeichnet.</p>
 <li>FS4.5.20_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h3 id="neuerungen-1">Neuerungen</h3>
+<h3 id="neuerungen-2">Neuerungen</h3>
 <ul>
 <li><strong>Bitte beachten!</strong> <a href="neuheiten-4-7.html#neue-fs-lizenz">Neue FS Lizenz</a></li>
 <li>Die <a class="xref" href="../api/FS.Hosting.Shared.GlobalObj.ContentDownloadManager.html">Download-API</a> wurde im <a class="xref" href="../api/FS.Hosting.Shared.GlobalObj.ContentDownload.ExpirationTimeout.html#FS_Hosting_Shared_GlobalObj_ContentDownload_ExpirationTimeout"><code>ExpirationTimeout</code></a>, <a class="xref" href="../api/FS.Hosting.Shared.GlobalObj.ContentDownload.ContentFactory.html#FS_Hosting_Shared_GlobalObj_ContentDownload_ContentFactory"><code>ContentFactory</code></a> und <a class="xref" href="../api/FS.Hosting.Shared.GlobalObj.ContentDownload.CleanupAction.html#FS_Hosting_Shared_GlobalObj_ContentDownload_CleanupAction"><code>CleanupAction</code></a> erweitert</li>
@@ -153,7 +172,7 @@ wird ein ungültiger Wert gekennzeichnet.</p>
 <li>FS_4.7.0_Alpha_5_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h3 id="neuerungen-2">Neuerungen</h3>
+<h3 id="neuerungen-3">Neuerungen</h3>
 <ul>
 <li><a href="../doc/resources/reference-check.html">Referenz-Prüfung für Ressourcen</a></li>
 <li>Neues Feature im FSCache: <a href="../doc/konzepte/fscache.html#änderungen-triggern-mit-change-tokens">Änderungen Triggern mit Change-Tokens</a></li>
@@ -169,7 +188,7 @@ wird ein ungültiger Wert gekennzeichnet.</p>
 <li>FS_4.7.0_Alpha_4_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-3">Neuerungen</h4>
+<h4 id="neuerungen-4">Neuerungen</h4>
 <ul>
 <li>Das Property DevFrameworkObject.Transaction ist obsolete - wurde vor nur mit den schon länger obsoleten Transaction-Methoden bestückt.</li>
 <li>Neuer Caching-Scope <a class="xref" href="../api/FS.Hosting.Shared.FSCache.Request.html#FS_Hosting_Shared_FSCache_Request_FS_Hosting_Shared_IFSCache_"><code>FSCache.Instance.Request()</code></a></li>
@@ -177,7 +196,7 @@ wird ein ungültiger Wert gekennzeichnet.</p>
 <li>Neue Methode <a class="xref" href="../api/FS.Hosting.Shared.IFSCache.Reset.html#FS_Hosting_Shared_IFSCache_Reset"><code>FSCache.Reset()</code></a></li>
 <li>Objekte, welche im Cache verwendet werden, können mittels der Methode <a class="xref" href="../api/FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Freeze">Freeze</a> vor Veränderungen geschützt werden.</li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#467-05072024">Framework Studio 4.6.7</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>
@@ -192,14 +211,14 @@ Zusätzlich wurden die folgenden Bugs behoben.</p>
 <li>FS_4.7.0_Alpha_3_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-4">Neuerungen</h4>
+<h4 id="neuerungen-5">Neuerungen</h4>
 <ul>
 <li>Neue Doku <a href="../doc/weitere-themen/fs-assemblies.html">Struktur der FS-Assemblies</a></li>
 <li>Erster Wurf des <a href="../doc/konzepte/fscache.html">FSCache</a> (in Entwicklung)</li>
 <li>PKL-Lizenz wurde komplett entfernt. Im Package-Manager werden diese nicht mehr angeboten.</li>
 <li>GlobalObject Code optimiert</li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#466-07062024">Framework Studio 4.6.6</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>
@@ -214,13 +233,13 @@ Zusätzlich wurden die folgenden Bugs behoben.</p>
 <li>FS_4.7.0_Alpha_2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-5">Neuerungen</h4>
+<h4 id="neuerungen-6">Neuerungen</h4>
 <ul>
 <li>Neue <a class="xref" href="../api/FS.Hosting.Shared.MultiLanguage.MLUtil.html"><code>MLUtil</code></a>.<code>GetText()</code>- und <code>FormatText()</code>-Methoden für TextCollections.</li>
 <li>Background Image im FrameworkDesigner entfernt</li>
 <li><code>FSGlobal.Current</code> im Intellisense</li>
 </ul>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#465-03052024">Framework Studio 4.6.5</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>
@@ -235,7 +254,7 @@ Zusätzlich wurden die folgenden Bugs behoben.</p>
 <li>FS_4.7.0_Alpha_1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#465-03052024">Framework Studio 4.6.5</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

@@ -88,13 +88,15 @@
 <li><p>Konfiguration in der XML-Datei</p>
 <p> Beispiel:</p>
 <pre><code class="lang-xml">&lt;FSVersions&gt;
-    &lt;FSVersion FS=&quot;3.7.0.0&quot; Dir=&quot;C:\Programme\Framework Systems\FrameworkStudio 3.7.3&quot;/&gt;
-    &lt;FSVersion FS=&quot;3.8.0.0&quot; Dir=&quot;C:\Programme\Framework Systems\FrameworkStudio 3.8&quot;/&gt;
+    &lt;FSVersion FS=&quot;4.7.0.0&quot; Dir=&quot;C:\Programme\enventa Group\Framework Studio\4.7&quot;/&gt;
+    &lt;FSVersion FS=&quot;4.8.0.0&quot; Dir=&quot;C:\Programme\enventa Group\Framework Studio\4.8&quot;/&gt;
 &lt;/FSVersions&gt;
 </code></pre></li>
 <li><p>Order <code>C:\FS\Framework Studio X.Y.0.0\</code> - das ist der Standard im Haus von Nissen &amp; Velten.</p>
 </li>
-<li><p>Standard Installations-Verzeichnis <code>%ProgramFiles%\Framework Systems\Framework Studio X.Y</code></p>
+<li><p>Standard Installations-Verzeichnis <code>%ProgramFiles%\enventa Group\Framework Studio\X.Y</code></p>
+</li>
+<li><p>Altes Standard Installations-Verzeichnis (bis zur Version 4.6) <code>%ProgramFiles%\Framework Systems\Framework Studio X.Y</code></p>
 <p> Dabei werden auch ServiceRelease- und Beta-Versionen erkannt.</p>
 </li>
 </ol>
@@ -149,7 +151,7 @@ Dieser Parameter wird bei der Aktion <code>&lt;ApprovedExport&gt;</code> automat
 <h2 id="organisation">Organisation</h2>
 <p>Die Aktionen werden in der XML-Datei als Sequenzen oder Parallel-Verarbeitungen organisiert. Die unterschiedlichen Knoten können beliebig ineinander verschachtelt werden. Einzige Ausnahme ist der oberste Knoten – dieser muss immer <code>&lt;Sequence&gt;</code> sein.</p>
 <p>Jeder Knoten kann Optional ein Attribut &quot;Name&quot; erhalten. Dieser Name wird in der Protokoll-Datei ausgegeben.</p>
-<h3 id="knoten-sequence">Knoten <code>&lt;Sequence&gt;</code></h3>
+<h3 id="konten-sequence">Konten <code>&lt;Sequence&gt;</code></h3>
 <p>Alle darunter aufgeführten Aktionen werden nacheinander verarbeitet. In der Protokoll-Datei werden die Einträge untereinander ausgegeben.</p>
 <p>Attribute:</p>
 <ul>
@@ -166,7 +168,7 @@ Dieser Parameter wird bei der Aktion <code>&lt;ApprovedExport&gt;</code> automat
 </div>
 </li>
 </ul>
-<h3 id="knoten-condition">Knoten <code>&lt;Condition&gt;</code></h3>
+<h3 id="konten-condition">Konten <code>&lt;Condition&gt;</code></h3>
 <p>Arbeitet wie eine <code>&lt;Sequence&gt;</code> - die darunter aufgeführten Aktionen werden nacheinander ausgeführt. Die Ausführung erfolgt aber nur dann, wenn die beiden Attribute &quot;Value&quot; und &quot;Equals&quot; denselben Wert haben.</p>
 <p>Attribute:</p>
 <ul>

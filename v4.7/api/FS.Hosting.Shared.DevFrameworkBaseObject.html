@@ -5,10 +5,10 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class DevFrameworkObject
+    <title>Class DevFrameworkBaseObject
    </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class DevFrameworkObject
+    <meta name="title" content="Class DevFrameworkBaseObject
    ">
     <meta name="generator" content="docfx 2.56.2.0">
     
@@ -80,92 +80,65 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FS.Hosting.Shared.DevFrameworkObject">
+            <article class="content wrap" id="_content" data-uid="FS.Hosting.Shared.DevFrameworkBaseObject">
   
   
-  <h1 id="FS_Hosting_Shared_DevFrameworkObject" data-uid="FS.Hosting.Shared.DevFrameworkObject" class="text-break">Class DevFrameworkObject
+  <h1 id="FS_Hosting_Shared_DevFrameworkBaseObject" data-uid="FS.Hosting.Shared.DevFrameworkBaseObject" class="text-break">Class DevFrameworkBaseObject
   </h1>
-  <div class="markdown level0 summary"><p>Basisklasse für alle Components, die über FrameworkStudio erzeugt werden.</p>
+  <div class="markdown level0 summary"><p>Basisklasse für DevFrameworkObject und DevFrameworkObjectColl</p>
 </div>
   <div class="markdown level0 conceptual"></div>
   <div class="inheritance">
     <h5>Inheritance</h5>
     <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.html">DevFrameworkBaseObject</a></div>
-    <div class="level2"><span class="xref">DevFrameworkObject</span></div>
-      <div class="level3"><a class="xref" href="FS.Hosting.Shared.GlobalObj.cGlobalBase.html">cGlobalBase</a></div>
+    <div class="level1"><span class="xref">DevFrameworkBaseObject</span></div>
+      <div class="level2"><a class="xref" href="FS.Hosting.Shared.DevFrameworkObject.html">DevFrameworkObject</a></div>
   </div>
   <div classs="implements">
     <h5>Implements</h5>
-    <div><span class="xref">System.ICloneable</span></div>
-    <div><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.html">IDevFrameworkObject</a></div>
     <div><a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.html">IDevFrameworkBaseObject</a></div>
     <div><span class="xref">System.ComponentModel.INotifyPropertyChanged</span></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
-    <div>
-      <a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_DevFrameworkBaseObject_Freeze">DevFrameworkBaseObject.Freeze()</a>
-    </div>
-    <div>
-      <a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.ThrowIfFrozen.html#FS_Hosting_Shared_DevFrameworkBaseObject_ThrowIfFrozen">DevFrameworkBaseObject.ThrowIfFrozen()</a>
-    </div>
-    <div>
-      <a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.GetProperty.html#FS_Hosting_Shared_DevFrameworkBaseObject_GetProperty_System_String_">DevFrameworkBaseObject.GetProperty(String)</a>
-    </div>
-    <div>
-      <a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.SetProperty.html#FS_Hosting_Shared_DevFrameworkBaseObject_SetProperty_System_String_System_Object_">DevFrameworkBaseObject.SetProperty(String, Object)</a>
-    </div>
-    <div>
-      <a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.IsComponentProperty.html#FS_Hosting_Shared_DevFrameworkBaseObject_IsComponentProperty_System_String_">DevFrameworkBaseObject.IsComponentProperty(String)</a>
-    </div>
-    <div>
-      <a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.OnPropertyChanged.html#FS_Hosting_Shared_DevFrameworkBaseObject_OnPropertyChanged_System_String_">DevFrameworkBaseObject.OnPropertyChanged(String)</a>
-    </div>
-    <div>
-      <a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.IsFrozen.html#FS_Hosting_Shared_DevFrameworkBaseObject_IsFrozen">DevFrameworkBaseObject.IsFrozen</a>
-    </div>
-    <div>
-      <a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.ComponentProperties.html#FS_Hosting_Shared_DevFrameworkBaseObject_ComponentProperties">DevFrameworkBaseObject.ComponentProperties</a>
-    </div>
+    <div><span class="xref">System.ICloneable</span></div>
   </div>
   <h6><strong>Namespace</strong>: <a class="xref" href="FS.Hosting.Shared.html">FS.Hosting.Shared</a></h6>
   <h6><strong>Assembly</strong>: FS.Hosting.Shared.dll</h6>
-  <h5 id="FS_Hosting_Shared_DevFrameworkObject_syntax">Syntax</h5>
+  <h5 id="FS_Hosting_Shared_DevFrameworkBaseObject_syntax">Syntax</h5>
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[DocfxBrowsable]
-public abstract class DevFrameworkObject : DevFrameworkBaseObject, ICloneable, IFSRebind, IDevFrameworkObject, IDevFrameworkBaseObject, FrameworkDataTransaction.ISource, INotifyPropertyChanged, IGuidObject, IGuidObjectBase</code></pre>
+public abstract class DevFrameworkBaseObject : Object, IDevFrameworkBaseObject, FrameworkDataTransaction.ISource, INotifyPropertyChanged, ICloneable, IFSRebind</code></pre>
   </div>
   <h3 id="properties">Properties
   </h3>
   
-    <h4><a class="xref" href="FS.Hosting.Shared.DevFrameworkObject.State.html#FS_Hosting_Shared_DevFrameworkObject_State">State</a></h4>
-    <section><p><p>Aktueller Status des IDevFrameworkObjects.</p>
+    <h4><a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.ComponentProperties.html#FS_Hosting_Shared_DevFrameworkBaseObject_ComponentProperties">ComponentProperties</a></h4>
+    <section><p><p>Siehe <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.ComponentProperties.html#FS_Hosting_Shared_IDevFrameworkBaseObject_ComponentProperties">ComponentProperties</a> im Interface <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.html">IDevFrameworkBaseObject</a></p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.IsFrozen.html#FS_Hosting_Shared_DevFrameworkBaseObject_IsFrozen">IsFrozen</a></h4>
+    <section><p><p>Gibt zurück, ob das Objekt mittels der Methode <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Freeze">Freeze()</a> für Änderungen gesperrt wurde.</p>
 </p></section>
   
   <h3 id="methods">Methods
   </h3>
   
-    <h4><a class="xref" href="FS.Hosting.Shared.DevFrameworkObject.DeferRecursiveSaves.html#FS_Hosting_Shared_DevFrameworkObject_DeferRecursiveSaves">DeferRecursiveSaves()</a></h4>
-    <section><p><p>Gibt zurück, ob alle Save-Aufrufe an dieser Instanz,
-die während eines laufenden Save-Aufrufs an dieser Instanz erfolgen,
-direkt abgebrochen werden sollen und stattdessen nach dem initialen Save-Aufruf
-(innerhalb der Transaktion) ein weiterer Save-Aufruf erfolgen soll.
-Standardmäßig gibt die Methode &quot;false&quot; zurück. Der Mechanismus kann aktiviert werden,
-in dem die Methode mit &quot;return true&quot; überschrieben wird.</p>
+    <h4><a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_DevFrameworkBaseObject_Freeze">Freeze()</a></h4>
+    <section><p><p>Sperrt das Objekt für weitere Änderungen.
+Wird bei einem frozen Objekt versucht Werte zu verändern, wird eine <span class="xref">System.InvalidOperationException</span> geworfen.</p>
 </p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.DevFrameworkObject.OnTrackChange.html#FS_Hosting_Shared_DevFrameworkObject_OnTrackChange_System_String_">OnTrackChange(String)</a></h4>
-    <section><p><p>Diese Methode wird aufgerufen, wenn der Wert eines Properties geändert wird.</p>
+    <h4><a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.GetProperty.html#FS_Hosting_Shared_DevFrameworkBaseObject_GetProperty_System_String_">GetProperty(String)</a></h4>
+    <section><p><p>Gibt den Wert des Properties mit dem übergebenen <code data-dev-comment-type="paramref" class="paramref">propertyName</code> zurück.</p>
 </p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.DevFrameworkObject.Save.html#FS_Hosting_Shared_DevFrameworkObject_Save_FS_Hosting_Shared_SaveEntryPoints_">Save(SaveEntryPoints)</a></h4>
-    <section><p><p>Speichert diese Component in der Datenbank ab. Das entsprechende SqlStatement
-muss in der SaveAction zusammengebaut und ausgeführt werden.
-Falls keine gestartete Transaktion existiert,
-wird automatisch eine Transaktion aufgebaut. In diesem Fall wird
-anschliessend ein Commit ausgeführt.
-Zuerst wird <span class="xref">FS.Hosting.Shared.DevFrameworkObject.OnBeforeSave</span>, anschließend die SaveAction
-und abschließend <span class="xref">FS.Hosting.Shared.DevFrameworkObject.OnAfterSave</span> aufgerufen.</p>
+    <h4><a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.IsComponentProperty.html#FS_Hosting_Shared_DevFrameworkBaseObject_IsComponentProperty_System_String_">IsComponentProperty(String)</a></h4>
+    <section><p><p>Siehe <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.IsComponentProperty.html#FS_Hosting_Shared_IDevFrameworkBaseObject_IsComponentProperty_System_String_">IsComponentProperty(String)</a> im Interface <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.html">IDevFrameworkBaseObject</a></p>
 </p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.OnPropertyChanged.html#FS_Hosting_Shared_DevFrameworkBaseObject_OnPropertyChanged_System_String_">OnPropertyChanged(String)</a></h4>
+    <section><p><p>Diese Methode löst unmittelbar das event <span class="xref">FS.Hosting.Shared.DevFrameworkBaseObject.PropertyChanged</span> aus.
+Sie kann in der Component überschrieben werden.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.SetProperty.html#FS_Hosting_Shared_DevFrameworkBaseObject_SetProperty_System_String_System_Object_">SetProperty(String, Object)</a></h4>
+    <section><p><p>Setzt das Property mit dem übergebenen <code data-dev-comment-type="paramref" class="paramref">propertyName</code> auf den Wert <code data-dev-comment-type="paramref" class="paramref">value</code>.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.DevFrameworkBaseObject.ThrowIfFrozen.html#FS_Hosting_Shared_DevFrameworkBaseObject_ThrowIfFrozen">ThrowIfFrozen()</a></h4>
+    <section><p></section>
   
 </article>
           </div>

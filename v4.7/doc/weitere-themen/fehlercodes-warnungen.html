@@ -233,6 +233,12 @@ Bei der Definition von Datasources sind Properties mit dem Typ Membervariable ni
 <h3 id="fswarn2054">FSWarn[2054]</h3>
 <p>FSWarn[2054] No DependsOn specified in individual property {0}.</p>
 <p>Es wurde keine DependsOn Properties für das individual Property angelegt. <a href="../comp/tab_properties.html#dependson-und-individual-properties">Hier</a> finden Sie nähere Informationen.</p>
+<h3 id="fswarn2055">FSWarn[2055]</h3>
+<p>FSWarn[2055] Multiple REST endpoints are specified in service host. Please rename the endpoint &#39;{0}&#39; or uncheck the checkbox &#39;Generate REST Endpoint&#39;.</p>
+<p>Am <a href="../webservices/service-host.html">Service Host</a> ist die Checkbox <strong>Generate REST Endpoint</strong> gesetzt. Dieser bekommt automatisch den Namen <code>rest</code>. <br>
+Darüber hinaus gibt es einen individuellen Endpoint mit dem Namen <code>rest</code>. Das führt zu einer Kollision.</p>
+<p>Es kann entweder der automatische oder ein individueller REST Endpoint definiert sein.
+Siehe auch: <a href="../webservices/rest-endpoint.html">REST Endpoint für Service-Methoden</a></p>
 <h2 id="errors">Errors</h2>
 <p>Im Gegensatz zu Warnings sind seitens FS generierte Errors beim Kompilieren so schwerwiegend, dass der Vorgang abgebrochen werden muss.</p>
 <p>Auch Errors sind durchnummeriert und können im Folgenden nachgelesen werden.</p>

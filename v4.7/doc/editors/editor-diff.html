@@ -5,9 +5,9 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Update auf Version 4.7 </title>
+    <title>Diff-Editor </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Update auf Version 4.7 ">
+    <meta name="title" content="Diff-Editor ">
     <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../../favicon.ico">
@@ -79,49 +79,42 @@
         <div class="article row grid-right">
           <div class="col-md-10">
             <article class="content wrap" id="_content" data-uid="">
-<h1 id="update-auf-version-47">Update auf Version 4.7</h1>
+<h1 id="diff-editor">Diff-Editor</h1>
 
-<p>Dieser Leitfaden stellt dar, wie ein Update auf die Version 4.7 durchgeführt wird.</p>
-<h2 id="update-der-lizenzdatenbank">Update der Lizenzdatenbank</h2>
-<p>Bei der Anmeldung an einem Repository in FS 4.7 kommt die Meldung, dass die Lizenzdatenbank upgedated werden muss.
-Dieses notwendige Update begründet sich in unserer Lizenzumstellung (<a href="../neuheiten-4-7.html#neue-fs-lizenz">siehe Neuheiten</a>).
-Nach dem Upgrade der Lizenzdatenbank kommt bei dem Versuch einer Anmeldung an einem Package die Meldung, dass die Lizenz nicht valide ist.
-Aus diesem Grund muss mit Hilfe der FrameworkStudioAdministration eine neue FS-Lizenz eingespielt werden, welche von uns bereitgestellt wird.
-Die neu benötigte Lizenz hat die Dateiendung <code>.fslx</code>.</p>
-<h2 id="update-einer-package-version">Update einer Package-Version</h2>
-<p>Für das Update einer Package-Version arbeiten Sie bitte die folgende Anleitung durch.</p>
-<ul>
-<li>Package-Manager 4.7 starten und an Repository anmelden</li>
-<li>Die Checkbox <strong>Show only applicable packages</strong> abhaken, weil die Package-Version noch nicht die Version 4.7 hat.</li>
-<li>Die gewünschte Package Version öffnen und den Button <strong>Lock</strong> drücken</li>
-<li>Mit dem Button <strong>Upgrade</strong> die Package-Version auf 4.7 upgraden</li>
-<li>In der Using-Hierarchy passende Version für die Basis-Packages auswählen</li>
-<li>Button <strong>UnLock</strong> drücken, um die Package-Version wieder freizugeben</li>
-</ul>
-<p>Compile-Wizard macht in der Regel keinen Sinn, weil es aufgrund der vielen Änderungen sowieso zu Compile-Fehlern kommen wird.
-Stattdessen wird jetzt mit dem FCUser weitergearbeitet.</p>
-<ul>
-<li>IDE starten und mit dem <a href="../../doc/package-manager/manage-useres.html#fcuser-frameworkcompiler-mode">FCUser</a> an der Package-Version anmelden. Die Checkbox <strong>Maintenance-Mode</strong> anhaken - <strong>Get Latest Version</strong> und <strong>Get Dlls sollten</strong> sollten angehakt sein.</li>
-<li>Nacheinander die folgenden Maintenance-Routinen ausführen<ol>
-<li>Menüpunkt <strong>Update</strong> / <strong>FS 4.7</strong> / <a href="../../doc/maintenance/namespace-cleanup.html"><strong>(1) Namespace CleanUp</strong></a></li>
-<li>Menüpunkt <strong>Update</strong> / <strong>FS 4.7</strong> / <a href="../../doc/maintenance/msgboxshow-cleanup.html"><strong>(2) MsgBox.Show() Cleanup</strong></a></li>
-<li>Menüpunkt <strong>Update</strong> / <strong>FS 4.7</strong> / <a href="../../doc/maintenance/remove-global-cleanup.html"><strong>(3) Remove Global Cleanup</strong></a></li>
-</ol>
-</li>
-<li>Menü Compile / Compile-Manager öffnen und alles kompilieren. Wenn dabei Fehler auftreten, diese korrigieren und anschließend weiter kompilieren.</li>
-</ul>
-<div class="IMPORTANT"><h5>Important</h5><p>Es kann ggf. eine große Anzahl von neuen Warnings geben.
-Diese müssen jetzt oder zu einem späteren Zeitpunkt manuell nachgearbeitet werden.
-Nähere Details dazu finden Sie in den Beschreibungen der oben aufgeführten Cleanup-Routinen.</p>
-</div>
-<ul>
-<li>Über die Checked-Out-Suche alles einchecken - Check-In-Kommentare sind durch die Maintenance-Routinen bereits gefüllt.</li>
-<li>Im Compile-Manager den Button <strong>Complete FrameworkCompiler</strong> drücken. Die IDE schließt sich im Anschluss.</li>
-</ul>
-<p>Die Package-Version ist jetzt komplett upgedated und kompiliert.
-Bei Bedarf kann jetzt das nächste Package upgedatet werden.</p>
-<p>Zum Abschluss ist es empfehlenswert für alle upgedateten Package-Versionen noch einmal den Compile-Wizard über den Package-Manager auszuführen.
-So werden bei der ersten Benutzer-Anmeldung keine unnötigen Compiles ausgeführt.</p>
+<p>Der Diff-Editor wird in FS im <a href="../ide/allgemeine-funktionalitaeten.html#element-history-browser">Element History Browser</a>, sowie im <a href="../ide/allgemeine-funktionalitaeten.html#method-history-browser">Method History Browser</a> verwendet.
+Der Aufbau und die Bedienung ist dabei immer gleich.
+Ergänzend zu den <a href="../ide/shortcuts.html#sprachübergreifend">sprachübergreifenden Shortcuts</a> gibt es auch spezifische <a href="../ide/shortcuts.html#diff-editor">Diff-Shortcuts</a>.</p>
+<h2 id="bedienelemente">Bedienelemente</h2>
+<p>Der Diff-Editor in FS beinhaltet den Monaco Diff-Editor und einige Buttons als Hilfscontrols.</p>
+<p><img src="media/diff-editor.png" alt="Bedienelemente des Diff-Editors"></p>
+<h3 id="editor">Editor</h3>
+<p>Der Editor besteht aus zwei einzelnen Monaco Code-Editoren, die standardmäßig in einer SplitPane angezeigt werden.
+Der Editor ist immer Read-Only und dient nur zum Vergleichen von bestehendem Code.
+Standardmäßig sind regions, in denen keine Changes sind mit einem Offset von 8 Zeilen collapsed.</p>
+<h3 id="buttons">Buttons</h3>
+<p>Die Buttons über dem Diff-Editor erleichtern die Arbeit mit dem Editor.</p>
+<h4 id="compare-in-external-tool">Compare in external tool</h4>
+<p>Mit dem <strong>Compare in external tool</strong> Button werden die Texte aus dem Editor im externen <a href="../allgemein/options.html#diff-tool">Diff Tool</a> angezeigt.
+Eventuell werden sie vorher noch mit zusätzlichen vorangestellten Infos bestückt.  </p>
+<h4 id="next-changemediaarrowdownpng-next-change-alt--f5"><img src="media/ArrowDown.png" alt="Next Change"> Next Change (Alt + F5)</h4>
+<p>Mit dem <strong>Next Change</strong> Button kann direkt zur nächsten Änderung im Editor gesprungen werden.
+Alternativ kann der Shortcut <strong>Alt + F5</strong> genutzt werden, allerdings muss dazu der Fokus im Editor sein.</p>
+<h4 id="previous-changemediaarrowuppng-previous-change-shift--alt--f5"><img src="media/ArrowUp.png" alt="Previous Change"> Previous Change (Shift + Alt + F5)</h4>
+<p>Mit dem <strong>Previous Change</strong> Button kann direkt zur vorherigen Änderung im Editor gesprungen werden.
+Alternativ kann der Shortcut <strong>Shift + Alt + F5</strong> genutzt werden, allerdings muss dazu der Fokus im Editor sein.</p>
+<h4 id="toggle-viewmediatoggleviewpng-toggle-view"><img src="media/ToggleView.png" alt="Toggle View"> Toggle View</h4>
+<p>Mit dem <strong>Toggle View</strong> Button kann zwischen der Side-By-Side-View und der Inline-View gewechselt werden.
+Der Editor startet immer in der Side-By-Side-View, es sei denn der Editor ist schmaler als 1000px, dann wechselt er automatisch zur Inline-View.</p>
+<h4 id="toggle-unchanged-regionsmediatoggleunchagedregionspng-toggle-unchanged-regions"><img src="media/ToggleUnchagedRegions.png" alt="Toggle Unchanged Regions"> Toggle Unchanged Regions</h4>
+<p>Mit dem <strong>Toggle Unchanged Regions</strong> Button können die regions, die keine changes enthalten collapsed oder expanded werden.
+Der Editor startet immer mit collapsed regions.</p>
+<h2 id="diff-review-pane">Diff Review Pane</h2>
+<p>Wenn der Fokus im Editor ist, kann mit <strong>F7</strong> bzw. <strong>Shift + F7</strong> die Diff Review Pane geöffnet werden.
+Diese Ansicht ermöglicht schnelles Navigieren zwischen den Änderungen und bietet eine kompakte Übersicht der Änderung.
+In der Diff Review Pane kann mit <strong>F7</strong> bzw. <strong>Shift + F7</strong> schnell zwischen den Änderungen gewechselt werden.
+Ist eine Zeile markiert kann mit Enter direkt zur entsprechenden Zeile im übergeordneten Diff-Editor gesprungen werden.
+Mit <strong>(Shift) Esc</strong> kann die Ansicht verlassen werden.</p>
+<p><img src="media/diff-review-pane.png" alt="Diff Review Pane"></p>
 </article>
           </div>
           

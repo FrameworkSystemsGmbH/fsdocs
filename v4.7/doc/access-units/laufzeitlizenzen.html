@@ -81,10 +81,14 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="laufzeitlizenzen">Laufzeitlizenzen</h1>
 
-<p>Mit dem Runtime License Manager werden Laufzeitlizenzen für die mit Framework Studio erstellte Anwendung erzeugt und verwaltet. Dieses Werkzeug wird über den Menüpunkt Tools / Runtime License Manager in Framework Studio oder im <a href="../package-manager/package-manager.html">Package Manager</a> gestartet. Außerdem wird das Tool über den Button Change configuration unter dem Navigationspunkt Runtime License sowohl im <strong>Run Wizard</strong> als auch im <strong>Publish Wizard</strong> gestartet.</p>
+<p>Mit dem Runtime License Manager werden Laufzeitlizenzen für die mit Framework Studio erstellte Anwendung erzeugt und verwaltet.
+Dieses Werkzeug wird über den Menüpunkt Tools / Runtime License Manager in Framework Studio oder im <a href="../package-manager/package-manager.html">Package Manager</a> gestartet.
+Außerdem wird das Tool über den Button Change configuration unter dem Navigationspunkt Runtime License sowohl im <strong><a href="../publish-wizards/run-wizard.html">Run Wizard</a></strong> als auch im <strong><a href="../publish-wizards/publish-wizard.html">Publish Wizard</a></strong> gestartet.</p>
 <h2 id="allgemeines--hintergrund">Allgemeines / Hintergrund</h2>
-<p>Laufzeitlizenzen werden im Repository gespeichert. Dort können für jedes Label (also für jede Version eines Packages) beliebig viele Lizenzen abgelegt werden.</p>
-<p>Wenn eine Applikation gestartet werden soll, muss zuvor im Brokerverzeichnis die Datei FSLicense.xml erstellt werden. Diese Datei enthält für jedes Label der Applikation eine Lizenz.</p>
+<p>Laufzeitlizenzen werden im Repository gespeichert.
+Dort können für jede Package-Version beliebig viele Lizenzen abgelegt werden.</p>
+<p>Wenn eine Applikation gestartet werden soll, muss zuvor im Brokerverzeichnis die Datei FSLicense.xml erstellt werden.
+Diese Datei enthält für jede Package-Version der Applikation eine Lizenz.</p>
 <p>Mit dem Runtime License Manager wird gesteuert, welche der vorhandenen Lizenzen für die erstellten Applikationen und Service Hosts verwendet werden sollen.</p>
 <p>Wenn Sie den Runtime License Manager aus dem Run Wizard oder aus dem Publish Wizard heraus starten, werden die Einstellungen im aktuellen Setting gespeichert. Sollte für ein Package, von dem man der Besitzer ist, noch keine Lizenz existieren, wird für das Package automatisch eine Developer Lizenz erzeugt.</p>
 <p>Wenn Sie den Runtime License Manager über den Menüpunkt Tools / Runtime License Manager starten, werden die Einstellungen, welche Lizenzen verwendet werden sollen, nicht gespeichert.</p>
@@ -229,7 +233,7 @@
 <p>Packageversion, bis zu der die Lizenz gültig ist. Die Version muss aus zwei bis vier natürlichen Zahlen getrennt durch je einen Punkt bestehen oder leer sein. Nicht angegebene Unterversionen werden mit eingeschlossen. <strong>Beispiel:</strong> Version 3.9.1 wird freigegeben, wenn die Versionsobergrenze (Version to) auf 3.9 festgelegt wurde.</p>
 <h4 id="package">Package</h4>
 <p>Name des Packages, für die die Lizenz erstellt wurde</p>
-<h4 id="label-1">Label</h4>
+<h4 id="version">Version</h4>
 <p>Version des Packages, für das die Lizenz erstellt wurde</p>
 <h3 id="kategorien-für-laufzeitlizenzen">Kategorien für Laufzeitlizenzen</h3>
 <h4 id="motivation">Motivation</h4>
@@ -244,17 +248,6 @@
 <p>Im <strong>Runtime License Manager</strong> kann auf der Registerkarte <strong>License Parameters</strong> der aktuell ausgewählten Lizenz im Textfeld <strong>Category</strong> eine Kategorie zugeordnet werden (<a href="#registerkarte-license-parameters">Registerkarte License Parameters</a>).</p>
 <p>Kategorien können beliebig benannt werden, dürfen aber nur aus den Buchstaben A-Z, dem Trennstrich, dem Unterstrich und Ziffern bestehen. Groß-Klein-Schreibung ist dabei unerheblich. Wird keine Kategorie angegeben, so ist die Lizenz automatisch mit der Standardkategorie <strong>Standard</strong> verknüpft.</p>
 <p>Eine Lizenz kann mit Lizenzen für Basispackages zusammen eingesetzt werden, die einer anderen Kategorie zugeordnet sind.</p>
-<h2 id="registerkarte-language">Registerkarte Language</h2>
-<p><img src="media/registerkarte-language.png" alt="Registerkarte Language"></p>
-<p>Auf dieser Registerkarte wird konfiguriert, welche Sprachen freigegeben werden sollen. Die einzelnen Sprachen werden zeilenweise in einer Tabelle dargestellt. Die Tabellenspalten haben folgende Bedeutung:</p>
-<h4 id="name-2">Name</h4>
-<p>Bezeichnung der Sprache</p>
-<h4 id="iso">ISO</h4>
-<p>Sprachkürzel nach ISO 639-1</p>
-<h4 id="granted">Granted</h4>
-<p>In der Checkbox können zwei Symbole dargestellt werden: Ein blauer Haken bedeutet, dass die Sprache freigegeben werden soll. Ein roter waagerechter Strich bedeutet, dass die Sprache gesperrt wird. Bei einer neu erstellten Lizenz sind zunächst alle Checkboxen mit blauen Haken versehen. Wenn eine Checkbox grau hinterlegt ist, wird dadurch angezeigt, dass diese Sprache durch eine der aktuell ausgewählten Basislizenzen gesperrt wird.</p>
-<h4 id="is-default">Is Default</h4>
-<p>In dieser Spalte wird die Default Sprache mit einem blauen Haken markiert. Die Default Sprache wird im <a href="../package-manager/package-manager.html">PackageManager</a> am Basispackage definiert. Wenn die Anwendung eine nicht lizenzierte Sprache anfordert, wird automatisch auf die Default Sprache umgeschaltet. Die Default Sprache ist automatisch immer freigegeben.</p>
 </internal></article>
           </div>
           

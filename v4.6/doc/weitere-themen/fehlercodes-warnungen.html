@@ -230,6 +230,12 @@ Bei der Definition von Datasources sind Properties mit dem Typ Membervariable ni
 <h3 id="fswarn2041">FSWarn[2041]</h3>
 <p>FSWarn[2041] RadioButton &#39;{2}&#39; requires a ButtonGroupDataSource at {0} &#39;{1}&#39;.</p>
 <p>Wenn an dem Container eines RadioButtons kein ButtonGroupDataSOurce hinterlegt ist, kann nicht entschieden werden, wann der Radiobutton aktiv ist.</p>
+<h3 id="fswarn2055">FSWarn[2055]</h3>
+<p>FSWarn[2055] Multiple REST endpoints are specified in service host. Please rename the endpoint &#39;{0}&#39; or uncheck the checkbox &#39;Generate REST Endpoint&#39;.</p>
+<p>Am <a href="../webservices/service-host.html">Service Host</a> ist die Checkbox <strong>Generate REST Endpoint</strong> gesetzt. Dieser bekommt automatisch den Namen <code>rest</code>. <br>
+Darüber hinaus gibt es einen individuellen Endpoint mit dem Namen <code>rest</code>. Das führt zu einer Kollision.</p>
+<p>Es kann entweder der automatische oder ein individueller REST Endpoint definiert sein.
+Siehe auch: <a href="../webservices/rest-endpoint.html">REST Endpoint für Service-Methoden</a></p>
 <h2 id="errors">Errors</h2>
 <p>Im Gegensatz zu Warnings sind seitens FS generierte Errors beim Kompilieren so schwerwiegend, dass der Vorgang abgebrochen werden muss.</p>
 <p>Auch Errors sind durchnummeriert und können im Folgenden nachgelesen werden.</p>

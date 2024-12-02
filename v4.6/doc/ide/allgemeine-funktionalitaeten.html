@@ -121,7 +121,7 @@
 <p><strong>Source Control im Kontext-Menü:</strong></p>
 <p><img src="media/sourcecontrol-contextmenu.png" alt="sourcecontrol-contextmenu.png"></p>
 <h3 id="checkin-und-checkout-mit-shortcuts">CheckIn und CheckOut mit Shortcuts</h3>
-<p>In den Code-Editoren ist es nun auch möglich mit den Shortcuts <strong>CTRL + F11</strong> den CheckIn und mit <strong>CTRL + F10</strong>  den CheckOut auszuführen. </p>
+<p>In den Code-Editoren ist es nun auch möglich mit den Shortcuts <strong>CTRL + F11</strong> den CheckIn und mit <strong>CTRL + F10</strong>  den CheckOut auszuführen.</p>
 <div class="CAUTION"><h5>Caution</h5><p>Bei der Verwendung des Shortcuts für <strong>CheckOut</strong> erfolgt <strong>keine</strong> Abfrage, ob Sie wirklich auschecken möchten. Der CheckOut wird automatisch durchgeführt, wenn er möglich ist.</p>
 </div>
 <h2 id="c-code-editor">C#-Code-Editor</h2>
@@ -140,7 +140,8 @@
 <p><img src="../media/icon-checked-out.png" alt="icon-checked-out.png"> <strong>Is Checked Out:</strong></p>
 <p>Steht dieses Icon vor einem Element, ist das Element bereits von Ihnen ausgecheckt und kann bearbeitet werden. Wenn Sie mit der Bearbeitung fertig sind, können Sie das Element wieder über das <strong>Source-Control</strong> einchecken.</p>
 <p>Haben Sie ein Element versehentlich ausgecheckt, können Sie den Checkout-Vorgang mit <strong>Undo Checkout</strong> rückgängig machen.</p>
-<div class="WARNING"><h5>Warning</h5><p>Sie sollten darauf achten, dass Sie einen kompilierbaren Stand haben,bevor Sie ein Element wieder einchecken. Dazu ist es erforderlich auch in Zusammenhang stehende Elemente einzuchecken.</p>
+<div class="WARNING"><h5>Warning</h5><p>Sie sollten darauf achten, dass Sie einen kompilierbaren Stand haben, bevor Sie ein Element wieder einchecken.
+Dazu ist es erforderlich auch in Zusammenhang stehende Elemente einzuchecken.</p>
 </div>
 <h2 id="version-history">Version History</h2>
 <p>Sowohl über das Kontextmenü eines Objekts im Objektbaum auf der <a href="registerkarten.html#registerkarte-namespaces">Registerkarte Namespaces</a> als auch über das Hauptmenü können Sie sich unter dem Menüpunkt <strong>View/Version History</strong> einen Überblick über die einzelnen Entwicklungsstufen eines Objektes verschaffen. Dazu werden von allen bisher eingecheckten Versionen Versionsnummer, Benutzer, Datum, Kommentar und die Information, ob die Version bereits inspiziert wurde, angezeigt.</p>
@@ -169,7 +170,7 @@
 </li>
 <li><p><strong>Name:</strong> Durch anklicken eines Elements in dieser Spalte wird das Element im Designer geöffnet.</p>
 </li>
-<li><p><strong>Version:</strong> Durch anklicken einer Version kann der generierte Code des Elements mit der aktuellen Version oder der Vorgängerversion verglichen werden. Dazu öffnet sich nach dem Anklicken ein Dialog, in dem Sie die Vergleichsversion auswählen können.</p>
+<li><p><strong>Version:</strong> Durch anklicken einer Version kann der generierte Code des Elements mit der aktuellen Version oder der Vorgängerversion verglichen werden. Dazu öffnet sich nach Auswahl der Vergleichsversion der <a href="../editors/editor-diff.html">Diff Editor</a>.</p>
 </li>
 </ul>
 <h2 id="get-latest-check-ins">Get latest Check Ins</h2>
@@ -211,11 +212,22 @@ Des Weiteren ist die Navigation über die beiden Navigationstasten an der Seite 
 <p><img src="media/left-right-navigation.png" alt="left-right-navigation.png"></p>
 <h2 id="method-history-browser">Method History Browser</h2>
 <p>Bei allen Elementen, die Methoden enthalten (z.B. Forms, Components, Services, FSTransformations, …) können Sie im Designer-Fenster mit dem Menüpunkt <strong>View / Method History Browser</strong> oder über das Kontextmenü im Editor, Methoden in verschiedenen Versionen innerhalb des Packages des Elements vergleichen.</p>
-<p>Dazu wählen Sie zunächst die Package-Version, anschließend die Element-Version und zuletzt die Methode aus, die betrachtet werden soll. Mit dem Button <strong>Compare with current</strong> kann diese Version der Methode mit der aktuellen Version verglichen werden. Mit dem Button <strong>Compare with previous</strong> kann die ausgewählte Version mit der ersten Vorgängerversion verglichen werden, die eine Änderung aufweist.</p>
-<p>Zum Vergleich wird ein externes Programm verwendet, welches mit dem Menüpunkt <strong>Tools / Options</strong> im Hauptfenster konfiguriert werden muss. Dort muss auf der Registerkarte <strong>Utilities</strong> der Pfad zum Werkzeug bei <strong>Diff Tool</strong> eingetragen werden. Bei <strong>Diff Tool Data Dir</strong> muss ein Verzeichnis ausgewählt werden, in das temporär die zu vergleichenden Dateien geschrieben werden können. Gut geeignet ist beispielsweise das frei verfügbare Vergleichswerkzeug <strong><em>WinMerge</em></strong>.</p>
+<p>Initial wird aus der aktuellen Package-Version die derzeit ausgewählte Methode in der aktuellsten Version geladen und direkt mit der Vorversion der Methode verglichen.
+Als Vorversion wird die letzte Version mit Änderungen im Vergleich zur aktuellen Version der Methode ausgewählt.
+Wird eine Version manuell ausgewählt, wird immer automatisch mit der Vorversion verglichen.
+Um individuell verschiedene Versionen und Methoden miteinander vergleichen zu können, ist es möglich eine Version mit der <strong>Pinnnadel</strong> anzupinnen.
+Die angepinnte Version bzw. Methode ändert sich bei Selektion einer anderen Version bzw. Methode nicht mehr.
+Der Button <strong>Compare with current</strong> lädt für die rechte Seite die aktuelle Version, pinnt diese an und lädt die selektierte Version in die linke Ansicht.</p>
+<p>Für den direkten Vergleich der Versionen wird der <a href="../editors/editor-diff.html">Monaco Diff-Editor</a> unterhalb der Auswahl angezeigt.
+Mit dem Button <strong>Compare in external tool</strong> ist es zudem möglich die Texte, die der Diff-Editor anzeigt mit einem externen Tool zu vergleichen.
+Das <a href="../allgemein/options.html#diff-tool">Diff Tool</a> muss in den <a href="../allgemein/options.html#utilities-registerkarte">Framework Studio Optionen</a> konfiguriert werden.</p>
 <p><img src="media/method-history-browser.png" alt="method-history-browser.png"></p>
 <h2 id="element-history-browser">Element History Browser</h2>
-<p>Im Designer Fenster aller Elemente für die Code generiert wird (Components, Forms, Workflows, …), lässt sich über den Menüpunkt <strong>View / Element History Browser</strong> analog zum Method History Browser ein Dialog öffnen, mit dem die Historie des Elements im Package des Elements betrachtet werden kann. Der <strong>Element History Browser</strong>  zeigt den generierten Code zu der ausgewählten Version an und ermöglicht über den Button <strong>Compare with current</strong> einen Vergleich mit der aktuellen Version. Mit dem Button <strong>Compare with previous</strong> kann mit der direkten Vorgängerversion verglichen werden.</p>
+<p>Im Designer Fenster aller Elemente für die Code generiert wird (Components, Forms, Workflows, …), lässt sich über den Menüpunkt <strong>View / Element History Browser</strong> analog zum Method History Browser ein Dialog öffnen, mit dem die Historie des Elements im Package des Elements betrachtet werden kann.
+Der <strong>Element History Browser</strong>  zeigt initial den generierten Code zu der ausgewählten Version und der Vorversion im <a href="../editors/editor-diff.html">Monaco Diff-Editor</a> an.
+Die grundsätzliche Bedienweise gleicht dem <a href="#method-history-browser">Method Hisory Browser</a>.</p>
+<div class="NOTE"><h5>Note</h5><p>Nur wenn das Package mit dem Framework Compiler compiled wurde exisitert für eine Version auch generated saved code.</p>
+</div>
 <p><img src="media/element-history-browser.png" alt="element-history-browser.png"></p>
 <h2 id="methoden-wächter">Methoden-Wächter</h2>
 <p>Für Form-Methoden, Component-Methoden, ServiceProxy-Methoden, FsTransformation-Methoden, ServiceHost-Methoden, sowie get- und set-Methoden von Individual und DataContract Properties steht ein Methoden-Wächter zur Verfügung. Dieser kann bei überschriebenen Methoden alle Basis-Methoden und deren Änderungsstatus überwachen. Wird bei einem Compile festgestellt, dass sich in einer Basis-Methode etwas geändert hat, wird eine Compiler-Warning (<a href="../weitere-themen/fehlercodes-warnungen.html#fswarn2029">FSWarn[2029]</a>) ausgegeben:</p>

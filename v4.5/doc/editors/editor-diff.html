@@ -1,0 +1,149 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Diff-Editor </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Diff-Editor ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="diff-editor">Diff-Editor</h1>
+
+<p>Der Diff-Editor wird in FS im <a href="../ide/allgemeine-funktionalitaeten.html#element-history-browser">Element History Browser</a>, sowie im <a href="../ide/allgemeine-funktionalitaeten.html#method-history-browser">Method History Browser</a> verwendet.
+Der Aufbau und die Bedienung ist dabei immer gleich.
+Ergänzend zu den <a href="../ide/shortcuts.html#sprachübergreifend">sprachübergreifenden Shortcuts</a> gibt es auch spezifische <a href="../ide/shortcuts.html#diff-editor">Diff-Shortcuts</a>.</p>
+<h2 id="bedienelemente">Bedienelemente</h2>
+<p>Der Diff-Editor in FS beinhaltet den Monaco Diff-Editor und einige Buttons als Hilfscontrols.</p>
+<p><img src="media/diff-editor.png" alt="Bedienelemente des Diff-Editors"></p>
+<h3 id="editor">Editor</h3>
+<p>Der Editor besteht aus zwei einzelnen Monaco Code-Editoren, die standardmäßig in einer SplitPane angezeigt werden.
+Der Editor ist immer Read-Only und dient nur zum Vergleichen von bestehendem Code.
+Standardmäßig sind regions, in denen keine Changes sind mit einem Offset von 8 Zeilen collapsed.</p>
+<h3 id="buttons">Buttons</h3>
+<p>Die Buttons über dem Diff-Editor erleichtern die Arbeit mit dem Editor.</p>
+<h4 id="compare-in-external-tool">Compare in external tool</h4>
+<p>Mit dem <strong>Compare in external tool</strong> Button werden die Texte aus dem Editor im externen <a href="../allgemein/options.html#diff-tool">Diff Tool</a> angezeigt.
+Eventuell werden sie vorher noch mit zusätzlichen vorangestellten Infos bestückt.  </p>
+<h4 id="next-changemediaarrowdownpng-next-change-alt--f5"><img src="media/ArrowDown.png" alt="Next Change"> Next Change (Alt + F5)</h4>
+<p>Mit dem <strong>Next Change</strong> Button kann direkt zur nächsten Änderung im Editor gesprungen werden.
+Alternativ kann der Shortcut <strong>Alt + F5</strong> genutzt werden, allerdings muss dazu der Fokus im Editor sein.</p>
+<h4 id="previous-changemediaarrowuppng-previous-change-shift--alt--f5"><img src="media/ArrowUp.png" alt="Previous Change"> Previous Change (Shift + Alt + F5)</h4>
+<p>Mit dem <strong>Previous Change</strong> Button kann direkt zur vorherigen Änderung im Editor gesprungen werden.
+Alternativ kann der Shortcut <strong>Shift + Alt + F5</strong> genutzt werden, allerdings muss dazu der Fokus im Editor sein.</p>
+<h4 id="toggle-viewmediatoggleviewpng-toggle-view"><img src="media/ToggleView.png" alt="Toggle View"> Toggle View</h4>
+<p>Mit dem <strong>Toggle View</strong> Button kann zwischen der Side-By-Side-View und der Inline-View gewechselt werden.
+Der Editor startet immer in der Side-By-Side-View, es sei denn der Editor ist schmaler als 1000px, dann wechselt er automatisch zur Inline-View.</p>
+<h4 id="toggle-unchanged-regionsmediatoggleunchagedregionspng-toggle-unchanged-regions"><img src="media/ToggleUnchagedRegions.png" alt="Toggle Unchanged Regions"> Toggle Unchanged Regions</h4>
+<p>Mit dem <strong>Toggle Unchanged Regions</strong> Button können die regions, die keine changes enthalten collapsed oder expanded werden.
+Der Editor startet immer mit collapsed regions.</p>
+<h2 id="diff-review-pane">Diff Review Pane</h2>
+<p>Wenn der Fokus im Editor ist, kann mit <strong>F7</strong> bzw. <strong>Shift + F7</strong> die Diff Review Pane geöffnet werden.
+Diese Ansicht ermöglicht schnelles Navigieren zwischen den Änderungen und bietet eine kompakte Übersicht der Änderung.
+In der Diff Review Pane kann mit <strong>F7</strong> bzw. <strong>Shift + F7</strong> schnell zwischen den Änderungen gewechselt werden.
+Ist eine Zeile markiert kann mit Enter direkt zur entsprechenden Zeile im übergeordneten Diff-Editor gesprungen werden.
+Mit <strong>(Shift) Esc</strong> kann die Ansicht verlassen werden.</p>
+<p><img src="media/diff-review-pane.png" alt="Diff Review Pane"></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

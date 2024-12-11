@@ -1,0 +1,160 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>MsgBox.Show() Cleanup </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="MsgBox.Show() Cleanup ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="msgboxshow-cleanup">MsgBox.Show() Cleanup</h1>
+
+<p><strong>MsgBox.Show() Cleanup</strong> ist eine Maintenance-Routine, die die obsoleten Methodenaufrufe <code>MsgBox.Show(...)</code> durch <code>throw MsgBoxException(...)</code> ersetzt.</p>
+<p>Im Login-Dialog muss der <a href="../ide/start.html#maintenance-mode">Maintenance-Mode</a> aktiviert werden, damit sie verfügbar ist.
+Die Routine kann in der IDE über das Menü <strong>Update</strong> / <strong>FS 4.7</strong> / <strong>(2) MsgBox.Show() Cleanup</strong> aufgerufen werden.</p>
+<p><img src="media/msgboxshow-cleanup.png" alt="msgboxshow-cleanup"></p>
+<p>Mit dem Button <strong>Analyze</strong> wird eine Analyse ohne Änderungen gestartet.
+Die Resultate werden in der Error-Liste ausgegeben.</p>
+<p>Der Button <strong>CleanUp</strong> führt die Änderungen aus.
+Dazu werden die betroffenen Forms ausgecheckt, geändert und gespeichert.</p>
+<p>Beim anschließenden Compile kann es zu etlichen &quot;unreachable Code&quot; Warnings kommen.
+Hinter dem MessageBox-Aufruf musste früher ggf. Code geschrieben werden, damit der C#-Compiler keinen Fehler produziert.
+Dieser Code wurde allerdings niemals ausgeführt.</p>
+<pre><code class="lang-csharp">protected int GetValue()
+{
+    if (this.value == 0)
+    {
+        // FSCodeMessage: Test
+        MsgBox.Show(MLUtil.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, null);
+        return 0;  // &lt;== wird niemals ausgeführt
+    }
+    else
+    {
+        return this.value;
+    }
+}
+</code></pre><p>Nach der Umstellung auf <code>throw...</code> wird diese Code-Zeile korrekt als unerreichbar erkannt und vom C#-Compiler eine Warning generiert.
+Diese Stellen können entsprechend nachgearbeitet werden.</p>
+<pre><code class="lang-csharp">        // FSCodeMessage: Test
+        throw MsgBox.Exception(MLUtil.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, null);
+        return 0;  // &lt;== unreachable Code
+</code></pre><p>Nach erfolgreichen Compile müssen die Forms eingecheckt werden.</p>
+<h2 id="beschreibung">Beschreibung</h2>
+<p>Wird in der Broker-Application wie bisher eine MessageBox ausgegeben, dann mündet der heute verwendete Aufruf <code>MsgBox.Show(...)</code> in einer Exception.</p>
+<pre><code class="lang-csharp">// FSCodeMessage: Test
+MsgBox.Show(MLUtil.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, null);
+</code></pre><p>Dies hat folgende Nachteile:</p>
+<ul>
+<li>Der Aufruf dieser Methode verschleiert die Exception.</li>
+<li>Es gibt keine &quot;Unreachable code detected&quot;-Warning, wenn nach diesem Aufruf weiterer Code vorhanden ist.</li>
+<li>Bei Methoden, die einen Return-Wert haben, muss ein Fake-Return programmiert werden.</li>
+</ul>
+<p>Mit Framework Studio 4.7 wurde dieser Mechanismus deshalb optimiert.
+Der durch den <a href="../editors/editor-cs-code-messages.html">MessageBox-Wizard</a> generierte Code sieht nun wie folgt aus:</p>
+<pre><code class="lang-csharp">// FSCodeMessage: Test
+throw MsgBox.Exception(MLUtil.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, null);
+</code></pre><p><code>MsgBox.Show()</code> wird weiterhin uneingeschränkt funktionieren, falls Sie den Code nicht konvertieren.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

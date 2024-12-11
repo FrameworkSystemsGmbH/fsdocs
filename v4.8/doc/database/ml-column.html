@@ -1,0 +1,176 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>ML-Column </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="ML-Column ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="ml-column">ML-Column</h1>
+
+<p>Framework Studio bietet einen Mechanismus, um Dateninhalte in mehreren Sprachen zu speichern.</p>
+<p>Eine beliebige Tabellen-Spalte, in der eine Zeichenkette abgelegt ist, kann im Tabelleneditor als <strong>MLColumn</strong> markiert werden. Vorraussetzung ist jedoch, dass die Tabelle die Spalte <strong>FSRowID</strong> enthält, weil diese als eindeutige Referenz auf den Datensatz benötigt wird.</p>
+<p>Ist eine Tabellen-Spalte als <strong>MLColumn</strong> gekennzeichnet, dann werden die fremdsprachigen Texte in der Tabelle <a href="../tables/dbrun_mlstrings.html">dbRun_MLStrings</a> abgelegt. Die normale Tabellen-Spalte beinhaltet die Texte in Default-Sprache.</p>
+<div class="CAUTION"><h5>Caution</h5><p>Fehlt einer Component das Property <strong>ROWID</strong> (mit Mapping auf die DB-Column <strong>FSRowID</strong>), ist der Mechanismus für diese Component deaktiviert.</p>
+<p><strong>Join-Components</strong> können keine ML-Columns aus mehreren Tabellen verabreiten, da die Component lediglich ein ROWID-Property betrachtet.
+Werden mehrere ROWID-Properties aus verschiedenen Tabellen eingebunden, dann ist es Zufall, welche ROWID für den MLColumn-Mechanismus herangezogen wird.</p>
+</div>
+<h2 id="customizing-package">Customizing-Package</h2>
+<p>Die Eigenschaft <strong>MLColumn</strong> kann im Customizing-Package gesetzt werden. Somit kann man in Kunden-Umgebungen den Mechanismus gezielt für die gewünschten Tabellen-Spalten aktivieren.</p>
+<h2 id="anwendung-in-default-sprache">Anwendung in Default-Sprache</h2>
+<p>Die Default-Sprache ist <code>de</code> - außer man definiert der Datenbank-Tabelle <a href="../tables/dbrun_config.html">dbRun_Config</a> mit dem <a href="../tables/dbrun_config.html#configkey-mldefaultlanguage">ConfigKey <code>ML_DEFAULT_LANGUAGE</code></a> eine andere Default-Sprache.</p>
+<p>Wird die Anwendung in der Default-Sprache gestartet, dann arbeitet Framework Studio mit der ganz normalen Spalte der Tabelle - ohne jegliche Sonder-Logik.</p>
+<p>Die fremdsprachigen Texte können nicht beeinflusst werden. Ändert man einen Text, dann bleiben die ggf. existierenden Übersetzungen unverändert erhalten. Bei Bedarf müsste man die Anwendung anschließend in den Fremdsprachen starten und den gewünschten Text dort ebenfalls anpassen.</p>
+<h2 id="anwendung-in-fremdsprache">Anwendung in Fremdsprache</h2>
+<p>Startet man die Anwendung mit einer Fremdsprache, dann greifen besondere Mechanismen. Die entsprechenden Component-Properties behandeln dann ausschließlich den fremdsprachigen Text mit einem Fallback auf die Default-Sprache.</p>
+<p>Die ML-Column-Logik wird von den ganz normalen Component-Properties behandelt. Dadurch wirkt sie sich automatisch auf alle Bereiche der Anwendung aus - inkl. Form-Databinding und Reporting.</p>
+<ul>
+<li><p><strong>Load</strong>: Beim Zugriff auf das entsprechende Component-Property wird der Text aus der Tabelle dbRun_MLStrings gelesen. Existiert dort kein Eintrag, wird der Text der Default-Sprache aus der normalen Tabellen-Spalte verwendet.</p>
+</li>
+<li><p><strong>Update</strong>: Wird der Text geändert, dann wird der Eintrag in der entsprechenden Fremdsprache überschrieben. Der Text in der Default-Sprache kann nicht verändert werden. Wird der fremdsprachige Text geleert, dann wird beim Save der Component der Eintrag aus der Übersetzungs-Tabelle gelöscht und das Component-Property fällt auf die Default-Sprache zurück.</p>
+</li>
+<li><p><strong>Insert</strong>: Beim Anlegen eines neuen Datensatzes wird der eingegebene Text sowohl in der normalen Tabelle als auch in der Fremdsprache gespeichert.</p>
+</li>
+<li><p><strong>Delete</strong>: Wird der Datensatz aus der Datenbank gelöscht, dann werden auch alle zu dieser FSROWID gespeicherten Texte aus der Übersetzungs-Tabelle gelöscht.</p>
+</li>
+</ul>
+<h3 id="such-funktion">Such-Funktion</h3>
+<div class="NOTE"><h5>Note</h5><p>Dieses Feature muss in der Datenbank-Tabelle <a href="../tables/dbrun_config.html">dbRun_Config</a> mit dem <a href="../tables/dbrun_config.html#configkey-mlsearchenabled">ConfigKey <code>ML_SEARCH_ENABLED</code></a> aktiviert werden.</p>
+</div>
+<p>Bei automatischen Suchfeldern werden die Fremdsprachen-Texte zusätzlich berücksichtigt.</p>
+<p>Wird die Anwendung in einer Fremdsprache ausgeführt, dann enthält die erzeugte SQL-Bedingung beinhaltet sowohl die normale Bedingung, welche den Treffer in der Default-Sprache sucht als auch einen Lookup auf die Texte in der entsprechenden Fremdsprache.</p>
+<pre><code class="lang-Sql">-- Beipiel:
+Select [....] FROM Tabelle
+WHERE (Spalte LIKE &#39;abc%&#39;
+    OR EXISTS (SELECT 1 FROM dbRun_MLStrings
+        WHERE ML_TableName = &#39;TABELLE&#39; AND ML_ColumnName = &#39;SPALTE&#39;
+        AND ML_Iso = &#39;en&#39; AND ML_FSROWID = FSROWID
+        AND ML_SearchText LIKE &#39;abc%&#39;))
+</code></pre><div class="NOTE"><h5>Note</h5><p>Der Lookup berücksichtigt die <strong>ersten 200 Zeichen</strong> des Textes.</p>
+<p>Die Fremdsprachen-Texte können auch Langtexte speichern. Diese lassen sich nicht indizieren. Aus Performance-Gründen erfolgt der Lookup über eine separate indiziere Spalte <code>ML_SearchText</code>. Diese wird (wenn das Feature aktiviert ist) von der Anwendung zusammen mit dem Langtext gespeichert.</p>
+</div>
+<h3 id="sprache-zur-laufzeit-ändern">Sprache zur Laufzeit ändern</h3>
+<p>Die Sprache ist mit dem Start der Anwendung an Global.<a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.SelectedLanguage.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_SelectedLanguage">SelectedLanguage</a> festgelegt.</p>
+<p>Wird für einen bestimmten Code eine abweichende Sprache benötigt, dann kann dies über Global.<a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.UseMLColumnLanguage.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_UseMLColumnLanguage_System_String_System_Action_">UseMLColumnLanguage</a> geschehen. Während der übergebenen Action kann so ein abweichender Iso-Code gesetzt werden. Über das Property Global.<a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.MLColumnLanguage.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_MLColumnLanguage">MLColumnLanguage</a> kann die aktuell gültige Sprache ermittelt werden.</p>
+<pre><code class="lang-csharp">this.Global.UseMLColumnLanguage(&quot;fr&quot;, () =&gt;
+{
+    // Erzeugen des Reports in französischer Sprache.
+});
+</code></pre><div class="IMPORTANT"><h5>Important</h5><p>Diese Funktion beeinflusst nicht die in der Oberfläche angezeigten Daten. Es gibt keine Möglichkeit dauerhaft auf die Sprache Einfluss zu nehmen.</p>
+</div>
+<h2 id="tips-für-entwickler">Tips für Entwickler</h2>
+<h3 id="finden-von-mlcolumns">Finden von MLColumns</h3>
+<p>Wird eine DBColumn als MLColumn gekennzeichnet wird dafür der folgende Code generiert:</p>
+<pre><code class="lang-csharp">public class Package_FSColumnName : FS.Demo.MDT.ArticleName
+{
+    public Package_FSColumnName()
+    {
+        this.m_IsMLColumn = true;
+    }
+}
+</code></pre><p>Dadurch können alle MLColumns mit dem Text <code>this.m_IsMLColumn = true;</code> über die Code-Suche gefunden werden. Dabei die Suche auf die DBTables einschränken.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

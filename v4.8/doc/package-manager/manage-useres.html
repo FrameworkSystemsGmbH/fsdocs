@@ -1,0 +1,148 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Benutzer-Verwaltung </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Benutzer-Verwaltung ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="benutzer-verwaltung">Benutzer-Verwaltung</h1>
+
+<p>Die Benutzer-Verwaltung erreicht man im Package-Manager über das Menü <strong>Tools</strong> / <strong>Manage Users</strong>.</p>
+<p><img src="media/edit-users.png" alt="Edit Users"></p>
+<h2 id="benutzer-anlegen">Benutzer anlegen</h2>
+<p>Mit dem Button <img src="../media/icon-new.png" alt="new"> (<strong>New</strong>) können Sie einen neuen Benutzer anlegen. Der neue Benutzer erscheint in der Liste mit den Benutzern und kann dann bearbeitet werden.</p>
+<h2 id="benutzer-bearbeiten">Benutzer bearbeiten</h2>
+<p>Sie können die Daten eines Benutzers bearbeiten, indem Sie diesen in der Liste auswählen. Die Daten werden dann in den rechten Teil des Fensters eingespielt und können bearbeitet werden.</p>
+<h3 id="name">Name</h3>
+<p>Name des Benutzers. Mit diesem Namen meldet sich der Entwickler beim Start von <strong>Framework Studio</strong> am Repository an.</p>
+<p>Der Benutzername kann auch noch geändert werden, wenn der Benutzer bereits Elemente bearbeitet hat.</p>
+<h3 id="password--confirm-password">Password / Confirm Password</h3>
+<p>In diesen Feldern kann das Passwort des Benutzers festgelegt oder geändert werden.</p>
+<p>Um die Änderungen zu speichern, drücken Sie den Button <img src="../media/icon-save.png" alt="save"> Save.</p>
+<h3 id="fcuser-frameworkcompiler-mode">FCUser (FrameworkCompiler Mode)</h3>
+<p>Ist die Checkbox gesetzt, arbeitet der angegebene Benutzer wie der <strong>FrameworkCompiler</strong> mit dem Unterschied, dass dieser Benutzer auch auschecken darf. Das bedeutet, dass dieser Benutzer beim Kompilieren den <strong>Saved Code</strong> und die <strong>Assemblies</strong> für den <strong>FrameworkCompiler</strong> in das Repository zurückschreiben darf.</p>
+<p>Der <strong>FrameworkCompiler Mode</strong> wurde für folgende Anwendungsfälle konzipiert:</p>
+<ol>
+<li>Durchführen eines Kompiliervorgangs als FrameworkCompiler mit der direkten Möglichkeit, Korrekturen durchführen zu können – auch in Kombination mit dem Compile Manager (<a href="../ide/compile-menu.html#compile-manager">Compile Manager</a>). Das ist z.B. bei einem Package-Update sehr vorteilhaft.</li>
+<li>Arbeiten im Ein-Benutzer-Betrieb. So können z.B. auch Korrekturen durchgeführt werden, ohne am Ende mit dem FrameworkCompiler erneut kompilieren zu müssen.</li>
+</ol>
+<p>Bei der Arbeit mit einem Benutzer im FrameworkCompiler Mode (FCUser) müssen einige Richtlinien beachtet werden:</p>
+<ol>
+<li>Es sollte nur einen FCUser geben. Mit diesem können Sie sich aber durchaus zur selben Zeit an verschiedenen Package-Versionen anmelden.</li>
+<li>Wenn mit einem FCUser an einer Package-Version gearbeitet wird, dann sollte dies der einzige Benutzer sein, der an dieser Package-Version arbeitet. Weil der FCUser generierten Code zurückschreibt, der sich ggf. auch auf von ihm ausgecheckte Elemente bezieht, kann das für andere Benutzer zu Fehlern führen.</li>
+<li>In der Zeit, in der mit einem FCUser gearbeitet wird, darf kein FrameworkCompiler laufen. Andernfalls kann es dazu führen, dass sich FCUser und FrameworkCompiler die generierten Codes und Assemblies gegenseitig zerstören.</li>
+<li>Am Ende der Arbeit sollten wieder alle Elemente eingecheckt und der FrameworkCompiler-Vorgang abgeschlossen werden. FrameworkStudio gibt beim Beenden eine entsprechende Warnmeldung aus.</li>
+</ol>
+<p>Beenden Sie FrameworkStudio als angemeldeter FCUser ohne &quot;Complete FrameworkCompiler&quot;, wird folgende Warnung angezeigt.</p>
+<p><img src="media/fcuser-close-dialog.png" alt="fcuser-close-dialog"></p>
+<p>Diese Meldung soll darauf hinweisen, dass der FCUser entgegen unserer Anwendungsfälle verwendet wird. (Diese Warnung gibt <strong>keine</strong> Auskunft über etwaige Fehler beim Complete FrameworkCompiler.)</p>
+<h2 id="benutzer-löschen">Benutzer löschen</h2>
+<p>Um einen Benutzer zu löschen, wird dieser markiert und anschließend der Button   (Delete) gedrückt. Das Löschen müssen Sie jetzt noch mit dem Button <img src="../media/icon-save-all.png" alt="save-all"> (Save All) bestätigen.</p>
+<div class="WARNING"><h5>Warning</h5><p>Ein Benutzer kann nur dann gelöscht werden, wenn er noch keine Elemente bearbeitet hat. Sollten Sie versuchen einen Benutzer zu löschen, der bereits gearbeitet hat, erscheint eine Fehlermeldung.</p>
+</div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

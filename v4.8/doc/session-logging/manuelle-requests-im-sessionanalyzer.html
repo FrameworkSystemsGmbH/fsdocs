@@ -1,0 +1,178 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Manuelle Requests im Session Analyzer </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Manuelle Requests im Session Analyzer ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="manuelle-requests-im-session-analyzer">Manuelle Requests im Session Analyzer</h1>
+
+<p>Der Broker protokolliert automatisch jeden Request im SessionLogging.
+Bei Services gibt es keine Requests, die generell von einer FS-Logik überwacht und sicher einer &quot;Session&quot; zugeordnet werden können.
+Um jedoch auch Services in die Protokollierung einfließen zu lassen, kann man gezielt eigene Requests protokollieren.</p>
+<p>Die eigentliche Session hängt am Global. Jede Instanz eines GlobalObject ist gleichzeitig auch eine eigene Session und erzeugt somit auch einen eigenen Datensatz in der <a href="../tables/tblrep_sessionlogging.html">SessionLogging-Tabelle</a>. Bei Services kann das verschiedene Auswirkungen haben:</p>
+<ul>
+<li>Wenn in einer Service-Methode ein neues Global erzeugt wird (Property GenerateGlobalObjects an der Service-Methode), dann bedeutet das JEDES mal eine neue Session.</li>
+<li>In Umgebungen mit mehreren Globals (z.B. Job-Server) baut auch dort jedes Global eine eigene Session auf. Somit erzeugt ein laufender Service mehrere Einträge im SessionLogging.</li>
+<li>Die Session &quot;läuft&quot;, solange das Global existiert. Dadurch können sich Sessions über einen sehr langen Zeitraum - ggf. mehrere Tage oder Wochen - erstrecken. Zeitliche Zusammenhänge lassen sich dadurch sehr bedingt erfassen.</li>
+</ul>
+<p>Die DB-Commands werden über die Connection automatisch am Global gesammelt - und zwar über die komplette Session und nicht nur während der protokollieren Requests.</p>
+<p>Nur dann, wenn mindestens 1 Request protokolliert wurde, landet die Session im <a href="../tables/tblrep_sessionlogging.html">Runtime-Repository</a>.</p>
+<h2 id="requests-protokollieren">Requests protokollieren</h2>
+<p>Das Session-Logging ist ursprünglich für Broker-Requests ausgelegt und betrachtet deshalb die Folgenden Informationen:</p>
+<ul>
+<li>FormName (der FullName des Forms)</li>
+<li>ControlName</li>
+<li>EventName</li>
+</ul>
+<p>Es wird die Anzahl und die Gesamt-Zeit der Requests gespeichert. Dabei wird nach allen 3 Informationen gruppiert.</p>
+<p>Auch die manuellen Requests müssen aus diesen Informationen bestehen. Es muss selbst entschieden werden, wie man diese 3 Felder mit eigenen Informationen bestückt.</p>
+<p>Beispiel Job-Server:</p>
+<ul>
+<li>FormName = &quot;JobServer&quot;</li>
+<li>ControlName = FullName der Component (also Art des Jobs)</li>
+<li>EventName = ID des Jobs (so lassen sich verschiedene Job-Konfigurationen unterscheiden)</li>
+</ul>
+<p>Über <code>this.Global.SessionLogging</code> werden verschiedene Varianten für die Protokollierung angeboten:</p>
+<h3 id="variante-1">Variante 1</h3>
+<p><code>RequestDisposable(string formName, string controlName, string eventName)</code></p>
+<p>Es wird ein Disposable zurückgegeben. Ein using-Block übernimmt automatisch die Zeit-Messung.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-csharp">using(this.Global.SessionLogging.RequestDisposable(&quot;MyForm&quot;, &quot;MyControl&quot;, &quot;MyEvent&quot;))
+{
+    // Code ...
+}
+</code></pre><h3 id="variante-2">Variante 2</h3>
+<p><code>RequestDisposable()</code></p>
+<p>Es wird ein Objekt mit dem Typ SessionRequestDisposable zurückgegeben.
+Wenn die Request-Informationen erst im Laufe der Verarbeitung bekannt sind, können sie an diesem Objekt gesetzt werden.
+Der Request wird am Ende nur protokolliert, wenn am SessionRequestDisposable-Objekt mindestens 1 Information gesetzt ist.</p>
+<p>Der Using-Block übernimmt automatisch die Zeit-Messung.</p>
+<pre><code class="lang-csharp">using(SessionRequestDisposable request = this.Global.SessionLogging.RequestDisposable())
+{
+    // Code ...
+
+    request.FormName = &quot;MyForm&quot;;
+    request.ControlName = &quot;MyControl&quot;;
+    request.EventName = &quot;MyEvent&quot;;
+
+    // Code ...
+}
+</code></pre><h3 id="variante-3">Variante 3</h3>
+<p><code>AddRequest(string formName, string controlName, string eventName, TimeSpan duration)</code></p>
+<p>Die Zeit-Messung erfolgt manuell - z.B. über eine Stopwatch.</p>
+<pre><code class="lang-csharp">System.Diagnostics.Stopwatch stopwatch = System.Diagnostics.Stopwatch.StartNew();
+try
+{
+    // Code ...
+}
+finally
+{
+    this.Global.SessionLogging.AddRequest(&quot;MyForm&quot;, &quot;MyControl&quot;, &quot;MyEvent&quot;, stopwatch.Elapsed);
+}
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,190 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Hotfix-Branch </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Hotfix-Branch ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="hotfix-branch">Hotfix-Branch</h1>
+
+<p>Mit Hilfe von Hotfix-Branches ist es möglich, parallel zum laufenden Service-Release Änderungen vorzunehmen und diese kurzfristig auszuliefern.</p>
+<p>Normalerweise werden im Laufe eines Service-Release-Zyklus mehrere Änderungen eingecheckt, die am Ende des Zyklus vor der Auslieferung getestet werden.
+Treten schwerwiegende Programmfehler auf, kann eine Korrektur ggf. nicht bis zur nächsten regulären Auslieferung warten.
+Es muss sehr zeitnah korrigiert und ausgeliefert werden.
+Eine Auslieferung des Entwicklungsstands birgt aber mitunter ein sehr großes Risiko, weil 1. viele weitere und 2. ungetestete Änderungen enthalten sein können.
+Weitere Probleme sind dann sehr wahrscheinlich.</p>
+<p><img src="media/hotfix-branch.drawio.svg" alt="Hotfix-Branch"></p>
+<p>Für diesen Zweck kann im Quell-Repository für eine Package-Version ein Hotfix-Branch abgezweigt werden.
+Der Hotfix-Branch ist eine eigene, von der Hauptversion losgelöste, parallel existierende Version.</p>
+<div class="NOTE"><h5>Note</h5><p>Alle Änderungen im Hotfix-Branch müssen deshalb parallel in der Hauptversion nachgezogen werden.
+Ein &quot;Merge&quot; zurück in die Hauptversion ist nicht möglich.</p>
+</div>
+<p>Der Hotfix-Branch kann zum Zeitpunkt der letzten Auslieferung abgezweigt werden.
+Anschließend wird die gewünschte Korrektur durchgeführt.
+So ist sichergestellt, dass nur der getestete Stand und ausschließlich diese Korrekturen enthalten sind.</p>
+<p>Beim Export der Package-Version gibt sich der Hotfix-Branch als Service-Release-Stand der Hauptversion aus.
+Nach einem Import ins Ziel-Repository müssen deshalb keine Versionen umgehängt werden und es greifen auch alle anderen beim Service-Release üblichen Optimierungen.</p>
+<p>Die Abbildung oben skizziert verschiedene Szenarien für einen Hotfix-Branch:</p>
+<ol>
+<li>Die Änderung wird zuerst im Hotfix-Branch (4.5.hotfix1) durchgeführt.
+Das muss zeitnah im Haupt-Branch (4.5) nachgezogen werden, damit die Änderung im nächsten Service-Release enthalten ist.</li>
+<li>Eine Änderung im Haupt-Branch (4.5) kann nicht bis zur Auslieferung des Service-Release warten.
+Sie wird im Hotfix-Branch (4.5.hotfix2) nachgezogen.</li>
+<li>Unmittelbar vor der Auslieferung findet eine Korrektur im Hotfix-Branch (4.5.hotfix2) statt.
+Wenn diese Korrektur einen Hotfix rechtfertigt, sollte die Auslieferung verzögert und die Korrektur sofort nachgezogen werden.
+Ist das absolut keine Option, dann muss die Korrektur nach der Auslieferung nachgezogen werden.
+In diesem Fall muss ggf. unmittelbar nach der Auslieferung ein neuer Hotfix-Branch (4.5.hotfix3) erstellt und der Zeitpunkt so gewählt werden dass die entscheidende Korrektur gerade noch so enthalten ist. ...</li>
+<li>... Ist das nicht möglich, weil es schon andere Änderungen vor dieser Korrektur gibt, muss, wie im 1. Szenario, der Hotfix-Branch (4.5.hotfix3) regulär erstellt und die Korrektur erneut nachgezogen werden.</li>
+</ol>
+<h2 id="allgemeine-regeln">Allgemeine Regeln</h2>
+<ol>
+<li>Verschiedene Hotfix-Auslieferungen eines Packages sind <strong>nicht</strong> miteinander <strong>kombinierbar</strong>!</li>
+<li>Es sollten <strong>nicht</strong> mehrere Hotfix-Branches gleichzeitig <strong>parallel</strong> betrieben werden (z.B. 4.5.hotfix1 + 4.5.hotfix2).</li>
+<li>Der Hotfix sollte <strong>ausschließlich</strong> für <strong>Notfälle</strong> verwendet werden.
+Werden im Hotfix-Branch zu viele Korrekturen durchgeführt, gefährdet das die Möglichkeit, jederzeit kurzfristig ausliefern zu können und es erzeugt zudem signifikante Mehrarbeit.</li>
+</ol>
+<h2 id="im-entwicklungs-repository">Im Entwicklungs-Repository</h2>
+<p>Um einen neuen Hotfix-Branch zu eröffnen, wählen Sie im Package Manager zuerst die entsprechende Hauptversion aus.
+Diese Version muss sich im Service-Release-Modus befinden und es darf kein anderer Hotfix-Branch sein.</p>
+<p>Drücken Sie dann den Button <img src="media/HotfixBranch.png" alt="Open Hotfix Branch"> (Open Hotfix Branch). Es erscheint eine Versions-Historie, in der der Zeitpunkt des Abzweigs ausgewählt werden kann.</p>
+<p><img src="media/hotfix-select-start-date.png" alt="Hotfix-select-Start-date"></p>
+<p>Zusätzlich zu den Check-Ins zeigt die Historie auch die Zeitpunkte für den Start des Service-Release und die letzte Service-Release-Auslieferung an.
+Normalerweise sollte einer dieser Zeitpunkte ausgewält werden, damit die Hotfix-Korrektur zum letzten Auslieferungs-Stand passt und keine weiteren Änderungen den Hotfix stören.</p>
+<p>Soll jedoch ein bestimmter Check-In explizit enthalten sein, dann kann auch dieser ausgewählt werden. Dabei ist jedoch zu beachten, dass damit auch alles, was davor eingecheckt wurde, im Hotfix-Branch landet.</p>
+<p>Nach dem Klick auf das gewünschte Datum wird der Hotfix-Branch angelegt.</p>
+<p><img src="media/hotfix-package-version.png" alt="Hotfix-package-version"></p>
+<p>Der <strong>Version Name</strong> wird automatisch vergeben und nummeriert.
+Er lautet z.B. &quot;4.5.hotfix1&quot;, &quot;4.5.hotfix2&quot; usw.</p>
+<p>Der Hotfix-Branch übernimmt den Service-Release-Modus. Es ist nicht möglich, den <strong>Version State</strong> auf <em>Open</em> zu setzen.</p>
+<p>Im <strong>Hotfix Title</strong> kann eine sprechender Titel angegeben werden. Dieser wird z.B. im Login-Dialog anzeigt.
+Wird kein Titel definiert, dann wird alternativ das <strong>Hotfix Start</strong> Datum verwendet.</p>
+<p>Nachdem der Hotfix-Branch erzeugt wurde muss ein <strong>Compile-Wizard</strong> ausgeführt werden.
+Weil der Abzweig zu einem beliebigen Zeitpunkt der Vergangenheit erfolgt, gibt es keinen Workspace, auf dem der Branch aufsetzen kann.
+Aus diesem Grund muss zuerst ein Compile ausgeführt werden, damit ein entsprechender Workspace frisch aufgebaut wird.</p>
+<p>Anschließend kann sich ein normaler Benutzer mit der IDE am Hotfix-Branch anmelden.
+Die Hotfix-Branches werden im Login-Dialog angeboten:
+<img src="media/hotfix-branch-ide-login.png" alt="IDE Login"></p>
+<p>Ab jetzt greift der ganz normale Entwicklungs- und Auslieferungs-Workflow:</p>
+<ul>
+<li>Änderungen durchführen</li>
+<li>Einchecken</li>
+<li>Compile-Wizard ausführen</li>
+<li>Export der Package-Version für die Auslieferung</li>
+</ul>
+<h3 id="customizing-packages">Customizing-Packages</h3>
+<p>Soll im Quell-Repository ein Hotfix-Branch (z.B. eNVenta 4.5.hotfix2) in einem Customizing-Package (z.B. eNVentaWS 4.5) verwendent werden, dann muss im Customizing ebenfalls ein Hotfix-Branch (z.B. eNVentaWS 4.5.hotfix2) erstellt werden.
+In der Using-Hierarchy kann dann die Version des Basis-Packages auf den Hotfix-Branch geändert werden.</p>
+<h2 id="im-ziel-repository">Im Ziel-Repository</h2>
+<p>Ein Hotfix beinhaltet immer ein komplettes Package (.db-Datei). Es kann, wie jedes andere komplette Package, jederzeit - auch nach einem Service-Release - importiert werden.</p>
+<p>Über einen Hotfix-Stand kann kein weiteres Service-Release-Package (.srdb-Datei) importiert werden.
+Um wieder zum normalen SR-Rythmus zurück zu wechseln, müssen Sie folgende Schritte druchführen:</p>
+<ol>
+<li>Import des ursprünglichen Release-Packages - z.B. <code>2023-01-02_eNVenta_4.5.db</code> (vgl. Abb. oben)</li>
+<li>Import des gewünschten Service-Release-Packages - z.B. <code>2023-02-01_eNVenta_4.5.srdb</code></li>
+</ol>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
+  </body>
+</html>

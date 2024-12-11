@@ -1,0 +1,242 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Interface IGlobalObjects
+   </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Interface IGlobalObjects
+   ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects">
+  
+  
+  <h1 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects" class="text-break">Interface IGlobalObjects
+  </h1>
+  <div class="markdown level0 summary"><p>Das GlobalObject ist von überall auf mit <code>this.Global</code> zu erreichen.
+Am GlobalObject werden alle Session-Daten verwaltet und Session-Funktionen angeboten.</p>
+</div>
+  <div class="markdown level0 conceptual"></div>
+  <h6><strong>Namespace</strong>: <a class="xref" href="FS.Hosting.Shared.GlobalObj.html">FS.Hosting.Shared.GlobalObj</a></h6>
+  <h6><strong>Assembly</strong>: FS.Hosting.Shared.dll</h6>
+  <h5 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_syntax">Syntax</h5>
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public interface IGlobalObjects : IFrameworkDBPerformanceCounter</code></pre>
+  </div>
+  <h3 id="properties">Properties
+  </h3>
+  
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.AllLanguages.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_AllLanguages">AllLanguages</a></h4>
+    <section><p><p>Gibt die Iso-Codes von allen gepflegten Sprachen zurück.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.AUHelper.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_AUHelper">AUHelper</a></h4>
+    <section><p><p>Gibt ein Objekt vom Typ <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.AUHelper.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_AUHelper">AUHelper</a> zurück. Dieses Objekt bietet Methoden
+für den Bereich Benutzer- und Rechte-Verwaltung an.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ClientInfos.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ClientInfos">ClientInfos</a></h4>
+    <section><p><p>In diesem Dictionary sind Informationen abgelegt, die der Client beim Start der Anwendung an den Broker übertragen hat.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.LanguageHierarchy.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_LanguageHierarchy">LanguageHierarchy</a></h4>
+    <section><p><p>Gibt einen Enumeratur zurück, der die Sprach-Hierarchie beinhaltet, oder legt diesen fest.
+<p>Das sind die Sprachen in der Reihenfolge der Auswahl im Client Start.</p></p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.MLColumnLanguage.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_MLColumnLanguage">MLColumnLanguage</a></h4>
+    <section><p><p>Gibt den Iso-Code der Sprache zurück, die aktuell für die MLColumn-Properties verwendet wird.
+Normalerweise handelt es sich dabei um die <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.SelectedLanguage.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_SelectedLanguage">SelectedLanguage</a>.
+Mit der Methode <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.UseMLColumnLanguage.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_UseMLColumnLanguage_System_String_System_Action_">UseMLColumnLanguage(String, Action)</a> kann die Sprache vorrübergebend geändert werden.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ocGlobal.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ocGlobal">ocGlobal</a></h4>
+    <section><p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ProgressOwner.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ProgressOwner">ProgressOwner</a></h4>
+    <section><p><p>Sammelt die Informationen zu laufenden <a class="xref" href="FS.Hosting.Shared.FrameworkProgress.html">FrameworkProgress</a>.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ReportingSoftware.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ReportingSoftware">ReportingSoftware</a></h4>
+    <section><p><p>Welche Software beim Druck bevorzugt wird.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.RequestCancellationToken.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_RequestCancellationToken">RequestCancellationToken</a></h4>
+    <section><p><p>Dieser CancellationToken wird abgebrochen wenn der aktuelle Request beendet bzw. das GlobalObject disposed wird.
+Wird der aktuelle Token mit dem Ende des Requests abgebrochen wird anschließend ein neuer Token für den nachfolgenden Request zurückgegeben.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.SafeInitializing.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_SafeInitializing">SafeInitializing</a></h4>
+    <section><p><p>Gibt zurück, ob der Safe-Initialize-Modus aktiv ist.
+Dieser Modus wird mithilfe einer Einstellung im Start-Workflow aktiviert.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.SelectedLanguage.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_SelectedLanguage">SelectedLanguage</a></h4>
+    <section><p><p>Gibt den 2-Zeichen IsoCode der ersten Sprache in der <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.LanguageHierarchy.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_LanguageHierarchy">LanguageHierarchy</a> zurück oder legt diesen fest.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.SessionCancellationToken.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_SessionCancellationToken">SessionCancellationToken</a></h4>
+    <section><p><p>Dieser CancellationToken wird abgebrochen wenn die Session beendet bzw. das GlobalObject disposed wird.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.SessionData.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_SessionData">SessionData</a></h4>
+    <section><p><p>Speichert verschlüsselte Schlüssel-Werte-Paare für den aktuellen Client.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.Token.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_Token">Token</a></h4>
+    <section><p><p>Eindeutige ID der Session.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.UseHistory.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_UseHistory">UseHistory</a></h4>
+    <section><p><p>Gibt an, ob historische Daten berücksichtigt werden sollen.
+D.h., bei Tabellen, zu denen es eine Historientabelle gibt,
+werden die Daten nicht aus der Originaltabelle geladen
+sondern aus dem View, der die Originaltabelle mit der Historientabelle vereint.</p>
+</p></section>
+  
+  <h3 id="methods">Methods
+  </h3>
+  
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CancelRequestCancellationToken.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_CancelRequestCancellationToken">CancelRequestCancellationToken()</a></h4>
+    <section><p><p>Bricht den aktuellen <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.RequestCancellationToken.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_RequestCancellationToken">RequestCancellationToken</a> ab und startet sofort einen neuen für den folgenden Request.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ClearDynamicDragSources.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ClearDynamicDragSources">ClearDynamicDragSources()</a></h4>
+    <section><p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CloseApplication.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseApplication">CloseApplication()</a></h4>
+    <section><p><p>Schließt die Anwendung. Der Benutzer wird gefragt, ob er die Anwendung beenden möchte.
+An den geöffneten Forms wird die Methode <code>IsApplicationQuitAllowed</code> aufgerufen und eine
+entsprechende Message-Box ausgegeben bzw. das Schließen der Anwendung verhindert.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CloseApplication.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseApplication_FS_Hosting_Shared_FrameworkCloseMode_">CloseApplication(FrameworkCloseMode)</a></h4>
+    <section><p><p>Wird als closeMode das Flag <a class="xref" href="FS.Hosting.Shared.FrameworkCloseMode.Restart.html">Restart</a> angegeben, so wird ein Neustart des
+Clients veranlasst. Allerdings darf ein Neustart nur unter der Bedingung ausgeführt werden,
+dass jedes aktuell laufende Ereignis eines der folgenden ist:</p>
+<ul>
+<li>MenuItem.OnClick</li>
+<li>Button.OnClick</li>
+<li>ImageButton.OnClick</li>
+<li>MessageBox-Event(Als Folge eine der oben genannten Events)</li>
+</ul>
+<p>Mit aktuell laufenden Ereignissen sind auch solche Ereignisse gemeint, die als Folge einen
+modalen Dialog geöffnet haben.Solange der Dialog offen ist, zählt das Ereignis zu den laufenden.</p>
+<p>Zusätzlich gibt es das Flag <a class="xref" href="FS.Hosting.Shared.FrameworkCloseMode.KeepUserLogin.html">KeepUserLogin</a>. Wird <a class="xref" href="FS.Hosting.Shared.FrameworkCloseMode.Restart.html">Restart</a>
+mit diesem Flag kombiniert (bitweise Oder-Verknüpfung), so wird beim Neustart der User Token
+in die neue Sitzung übernommen und es ist kein erneuter Login erforderlich.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CloseApplication.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseApplication_System_String_">CloseApplication(String)</a></h4>
+    <section><p><p>Schließt die Anwendung unmittelbar. Es wird keine weitere Prüfung durchgeführt und der
+Benutzer hat keine Möglichkeit die Aktion abzubrechen. Am Client wird dabei die übergebene
+Message ausgegeben.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CreateComponent.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_CreateComponent_System_String_">CreateComponent(String)</a></h4>
+    <section><p><p>Erzeugt eine neue Component mit dem übergebenen Namen.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.EndSafeInitialize.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_EndSafeInitialize">EndSafeInitialize()</a></h4>
+    <section><p><p>Deaktiviert den <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.SafeInitializing.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_SafeInitializing">SafeInitializing</a> Modus.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.GetCodeDirectory.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_GetCodeDirectory">GetCodeDirectory()</a></h4>
+    <section><p><p>Liefert den Pfad des Verzeichnisses, in dem die Anwendung läuft.</p>
+</p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.RemoveDynamicDragSource.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_RemoveDynamicDragSource_FS_Hosting_Shared_Metadatatype_MLContainer_">RemoveDynamicDragSource(MLContainer)</a></h4>
+    <section><p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.SetDynamicDragSource.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_SetDynamicDragSource_FS_Hosting_Shared_Metadatatype_MLContainer_System_Func_FS_Hosting_Shared_IDevFrameworkBaseObject_System_Object__">SetDynamicDragSource(MLContainer, Func&lt;IDevFrameworkBaseObject, Object&gt;)</a></h4>
+    <section><p></section>
+    <h4><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.UseMLColumnLanguage.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_UseMLColumnLanguage_System_String_System_Action_">UseMLColumnLanguage(String, Action)</a></h4>
+    <section><p><p>Verwendet für MLColumn-Properties während der übergenenen Action die angegebene Sprache.</p>
+</p></section>
+  
+  <h3 id="extensionmethods">Extension Methods</h3>
+  <div>
+      <a class="xref" href="FS.Hosting.Shared.GlobalObj.ContentDownloadManager.CreateContent.html#FS_Hosting_Shared_GlobalObj_ContentDownloadManager_CreateContent_FS_Hosting_Shared_GlobalObj_IGlobalObjects_FS_Hosting_Shared_GlobalObj_ContentDownload_">ContentDownloadManager.CreateContent(IGlobalObjects, ContentDownload)</a>
+  </div>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,141 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>TreeNode </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="TreeNode ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../../favicon.ico">
+    <link rel="stylesheet" href="../../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../../styles/docfx.css">
+    <link rel="stylesheet" href="../../../styles/main.css">
+    <link rel="stylesheet" href="../../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../../toc.html">
+    <meta property="docfx:tocrel" content="../../toc.html">
+    
+    <meta property="docfx:rel" content="../../../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../../index.html">
+                <img id="logo" class="svg" src="../../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="treenode">TreeNode</h1>
+
+<ul>
+<li><a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.TreeNodeDesignViewModel.html">Properties/Events</a></li>
+</ul>
+<p><br></p>
+<p>Das Funktionsprinzip des Tree-Views ist ähnlich dem einer Combobox: Sie wählen einen Eintrag des Tree-Views aus und bekommen den Objektverweis an den DataSource des Tree-Views zurückgeliefert. Durch abfangen der entsprechenden Events können Sie mit dieser Information operieren.</p>
+<p>Um eine einfache Auflistung in Baumform zu erstellen, erzeugen Sie eine TextCollection mit den Einträgen und benutzen diese als NodeDataSource.</p>
+<p>An dieser Stelle soll nun exemplarisch auf den Aufbau eines Baumes eingegangen werden.</p>
+<p>Am Anfang machen Sie sich bitte Gedanken darüber, woher Sie Ihre Informationen für die Darstellung des Baumes nehmen möchten. Eine gute Möglichkeit besteht in der Schaffung einer Component, wie unter Tree-View beschrieben.</p>
+<p>Positionieren Sie ein TreeView-Control auf Ihrem Form. Generieren Sie über den Tree-View Column Dialog die gewünschten Spalten, die der Tree-View beinhalten soll. In diesem Beispiel benötigen Sie eine einzige Spalte. Wählen Sie anschließend aus dem Kontext-Menü des Tree-Views den Eintrag New Node. In dem Baum des Controls wird ein neuer Knoten erzeugt, mit dem Sie operieren können.</p>
+<p>Weisen Sie die erzeugte Component Ihrem TreeNode als NodeDataSource und die Properties als Eigenschaften des NodeDataSource zu. Jetzt dürfen Sie nicht vergessen, die Component auch mit Daten zu füllen. Schreiben Sie eine entsprechende Load-Bedingung in die OnLoad-Methode des Forms. Damit nicht alle Einträge aus der Datenbanktabelle in dem TreeView dargestellt werden, müssen Sie den Load noch auf die Bedingung einschränken, dass bei den gesuchten Datensätzen die ItemIDParent null oder 0 sein soll und nur Datensätze Ihres gewünschten Typs ausgewählt werden.</p>
+<p>Der nächste Schritt ist das Anzeigen von Unterknoten. Jeder Eintrag des Tree-Views ist ein Objekt. Entsprechend sollten alle Unterknoten Elemente einer Collection sein, die als Property in das Objekt eingebunden ist. Erzeugen Sie deshalb eine Collection als IndividualReadOnly-Property. Diese Collection laden Sie über die Get-Methode. Um das Beispiel aus Tree-View weiterzuführen, werden alle Elemente geladen, die als ItemIDParent die ItemID des Objekts haben. Um unnötige Loads auf die Datenbank zu unterbinden, sollten Sie wieder eine Membervariable anlegen, die unnötige Loads verhindert.</p>
+<p>Get-Methode der Collection:</p>
+<pre><code class="lang-csharp">// Load nur durchführen, wenn noch nicht zuvor geschehen.
+if (this.oTreeviewItemCollMember == null)
+{
+// Laden aller Unterobjekte
+this.oTreeviewItemCollMember = new cdTreeviewItemColl();
+// Setzen des Merkers
+this.oTreeviewItemCollMember.Load( &quot;[lngItemIDParent] = &quot; + lngItemID );
+}
+return this.oTreeviewItemCollMember;
+</code></pre><p>Nutzen Sie dieses Collection-Property als NodeDataSource des TreeNode zweiter Ebene. Sind die Display Member, Value Member und Icons richtig eingestellt, ist ihr Navigationsbaum fertig.</p>
+<p>Benötigen Sie eine tiefergehende Unterschachtelung, können Sie einfach einen TreeNode dritter Ebene hinzufügen und die gleichen Einstellungen wie bei dem Treenode zweiter Ebene vornehmen. Da jedes Objekt des Collection-Properties wiederum ein Collection Property besitzt, das über die Get-Methode alle untergeordneten Objekte liest, brauchen Sie keine weiteren Properties o.ä. schaffen.</p>
+<p>Um andere Elemente hinzuzufügen wird empfohlen, für jeden Typ einen eigenen Tree-Node anzulegen und eine Collection des jeweiligen Element-Typs als IndividualReadOnly-Property der Component hinzuzufügen. Durch Definition der Get-Methoden können Sie die Collections entsprechend füllen.</p>
+<h2 id="tree-node-lazy-loading">Tree-Node Lazy-Loading</h2>
+<p>Der TreeView ist in der Lage, ein Lazy-Loading von TreeNodes auszuführen. Beinhaltet ein TreeNode sehr viele SubNodes, werden standardmäßig die ersten 50 Einträge angezeigt und zusätzlich ein Node mit „…“. Durch Klick auf diesen Node können dann die restlichen Nodes nachgeladen werden.</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../../styles/main.js"></script>
+  </body>
+</html>

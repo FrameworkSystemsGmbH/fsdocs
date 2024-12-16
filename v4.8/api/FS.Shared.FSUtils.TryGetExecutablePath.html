@@ -5,9 +5,11 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Aktuelle Installations-Pakete </title>
+    <title>Method TryGetExecutablePath
+   </title>
     <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Aktuelle Installations-Pakete ">
+    <meta name="title" content="Method TryGetExecutablePath
+   ">
     <meta name="generator" content="docfx 2.56.2.0">
     
     <link rel="shortcut icon" href="../favicon.ico">
@@ -78,61 +80,67 @@
         </div>
         <div class="article row grid-right">
           <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
-<h1 id="aktuelle-installations-pakete">Aktuelle Installations-Pakete</h1>
+            <article class="content wrap" id="_content" data-uid="FS.Shared.FSUtils.TryGetExecutablePath*">
 
-<p>In dieser Liste sind alle aktuellen verfügbaren Installations-Pakete aufgeführt.</p>
-<table>
-<thead>
-<tr>
-<th>Paket</th>
-<th>Version</th>
-<th>Name der Zip-Datei</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Framework Studio IDE</td>
-<td><strong>4.7</strong>.0 Fix 2</td>
-<td>FS_4.7.0_Fix_2_Setup_x64</td>
-</tr>
-<tr>
-<td><a href="requirements-package.html">Requirements-Paket</a> 64 Bit</td>
-<td><strong>4.5</strong>.15</td>
-<td>FS_4.5.15_Requirements_x64</td>
-</tr>
-<tr>
-<td>Runtime Administration</td>
-<td><strong>4.2</strong>.0</td>
-<td>FS_4.2.0_RuntimeAdministration</td>
-</tr>
-<tr>
-<td>Authentication-Service</td>
-<td><strong>4.5</strong>.13</td>
-<td>FS4.5.13_AuthService</td>
-</tr>
-<tr>
-<td><a href="../doc/print-server/installation.html">Print-Service</a></td>
-<td><strong>4.5</strong>.20</td>
-<td>FS4.5.20_PrintService</td>
-</tr>
-<tr>
-<td>FSClient Launcher 32 Bit</td>
-<td><strong>4.5</strong>.15</td>
-<td>FSCL_4.5.15_Setup_x86</td>
-</tr>
-<tr>
-<td>FSClient Launcher 64 Bit</td>
-<td><strong>4.5</strong>.15</td>
-<td>FSCL_4.5.15_Setup_x64</td>
-</tr>
-<tr>
-<td>Runtime Supervisor</td>
-<td><strong>4.4</strong>.11</td>
-<td>RS_4.4.11_Setup_x64</td>
-</tr>
-</tbody>
-</table>
+<h1 id="FS_Shared_FSUtils_TryGetExecutablePath_" data-uid="FS.Shared.FSUtils.TryGetExecutablePath*">Method TryGetExecutablePath
+</h1>
+<div class="markdown level0 summary"></div>
+<div class="markdown level0 conceptual"></div>
+
+<a id="FS_Shared_FSUtils_TryGetExecutablePath_" data-uid="FS.Shared.FSUtils.TryGetExecutablePath*"></a>
+<h4 id="FS_Shared_FSUtils_TryGetExecutablePath_System_String_System_String__" data-uid="FS.Shared.FSUtils.TryGetExecutablePath(System.String,System.String@)">TryGetExecutablePath(String, out String)</h4>
+<section>
+  <div class="markdown level1 summary"><p>Sucht eine Programmdatei im aktuellen Verzeichnis und mithilfe der PATH-Umgebungsvariable.</p>
+</div>
+  <div class="markdown level1 conceptual"></div>
+
+  <h5 class="decalaration">Declaration</h5>
+  <section>
+    <div class="codewrapper">
+      <pre><code class="lang-csharp hljs">[DocfxBrowsable]
+public static bool TryGetExecutablePath(string executableFileName, out string foundPath)</code></pre>
+    </div>
+  </section>
+  <h5 class="parameters">Parameters</h5>
+  <section>
+    <div class="propertyInfo">
+      <span class="parametername"><code>executableFileName</code></span> <span class="xref">System.String</span>
+      <div class="markdown level1 summary"><p>der Name der zu suchenden Programm-Datei. z.B. <code>&quot;cmd&quot;</code> oder <code>&quot;explorer.exe&quot;</code></p>
+</div>
+    </div>
+    <div class="propertyInfo">
+      <span class="parametername"><code>foundPath</code></span> <span class="xref">System.String</span>
+      <div class="markdown level1 summary"><p>Gibt den gefundenen Pfad zurück.</p>
+</div>
+    </div>
+  </section>
+
+    <h5 class="returns">Returns</h5>
+    <section>
+      <div class="propertyInfo">
+        <span class="xref">System.Boolean</span>
+        <div class="markdown level1 summary"><p><code>true</code>, wenn die Programmdatei gefunden wurde.</p>
+</div>
+      </div>
+    </section>
+
+  <h5 class="exceptions">Exceptions</h5>
+  <table class="table table-bordered table-striped table-condensed">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Condition</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="xref">System.ArgumentNullException</span></td>
+        <td><p>Es wurde ein leerer Pfad übergeben.</p>
+</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
 </article>
           </div>
           

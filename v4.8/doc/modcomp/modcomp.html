@@ -81,43 +81,62 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="modular-components">Modular Components</h1>
 
-<h2 id="modular-component-typen-und-deren-besonderheiten">Modular Component Typen und deren Besonderheiten</h2>
-<h3 id="allgemein">Allgemein</h3>
-<p>Diese Eigenschaften sind im Customizing nicht änderbar:</p>
+<p>Mit den Modularen Components wollen wir einen Baukasten schaffen, mit dessen Hilfe wir Objekte ausschließlich mit dem benötigten Funktionsaufwand erstellen können.</p>
+<h4 id="unsere-motivation">Unsere Motivation</h4>
+<p>Aktuell gibt es für BusinessLogik und Datenobjekte nur die Möglichkeit eine Component als Objekttyp anzulegen.
+Dieser Objekttyp bringt viele Funktionen (New, Load, Save, NotifyChanged-Logik, etc.) mit sich, welche nicht für jeden Verwendungszweck des Objekts benötigt werden.
+Zum Beispiel sollte eine Component, die ausschließlich Businesslogik enthält, nicht <em>automatisch</em> in eine Form eingebunden werden können. Diese Funktionalität sollte bei Bedarf, wie bei einem Baukasten, ausgewählt werden können.</p>
+<h3 id="derzeitiger-entwicklungsstand">Derzeitiger Entwicklungsstand</h3>
+<p>Der Komponentenbaukasten wird iterativ erweitert. Derzeit umfasst er die folgenden Features:</p>
 <ul>
-<li>Compile Step</li>
-<li>Type</li>
+<li><p>Modular Components Arten</p>
+<p>  <img src="media/modcompTypen.png" alt="Verschiedene Modular Component Typen"></p>
+<p>  Die Auswahl der Modular Component-Art bestimmt Voreinstellungen der Modular Component.
+  Bei <em>Modular Component (Interface)</em> kann der Type Interface nicht mehr verändert werden.
+  Bei <em>Modular Component (UnitTest)</em> wird der Compile Step mit &quot;UnitTest&quot;, das Attribute mit &quot;[TestClass]&quot; und die Base Class mit &quot;FSTestBase&quot; vorbelegt. Außerdem wird eine Methode <code>MyTestMethod()</code> mit dem Attribute &quot;[TestMethod]&quot; hinzugefügt.</p>
+</li>
+<li><p>Type Auswahl: <strong>Class, Class with Interface oder Interface</strong>
+Die Auswahl des Types entscheidet, ob eine Klasse und oder ein Interface generiert wird.
+Die beiden Optionen <strong>Class</strong> und <strong>Interface</strong> sind selbsterklärend. Bei der Option <strong>ClassWithInterface</strong> wird sowohl eine Klasse als auch ein Interface generiert. Bei diesem Type muss zudem der Compile Step beachtet werden! Die unterschiedliche Code-Generierung kann im Kapitel <a href="#code">Code</a> eingesehen werden.</p>
+</li>
+<li><p>Es kann der <strong>Compile Step</strong>, wie bei CodeFiles, definiert werden. Dies entscheidet in welche DLL die Modular Component kompiliert wird.</p>
+<div class="NOTE"><h5>Note</h5><p>Beim Typ <strong>ClassWithInterface</strong> gibt es die Besonderheit, dass bei Auswahl des Compile-Schritts <strong>Component</strong> das Interface in die Interface-Schicht, die Klasse jedoch in die Component-Schicht generiert wird.</p>
+</div>
+</li>
+<li><p>An der Klasse oder dem Interface, an Properties, und Methoden können <strong>Attribute</strong> definiert werden. Eine ausführliche Erklärung der Attribute und Verhalten im Customizing erfolgt im Kapitel <a href="#class-mit-attributen-und-customizing">Attribute</a>.</p>
+</li>
+<li><p>Protected Setter bei Properties</p>
+</li>
+<li>Base Class: Hier können wie bei Components eine Basisklasse oder Interfaces angegeben werden. Dieses Feld ist nicht customizebar.</li>
+<li>Copy &amp; Paste der Methoden und Properties über verschiedene Objekttypen hinweg ist möglich. Zwischen Forms, Components und Modular Components kann kopiert werden. Da keine 1:1 Übersetzung möglich ist, muss vor allem bei der Kopie von Modular Component Properties in Components das Ergebnis ggf. überprüft werden.</li>
 </ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">Allgemein</th>
-<th style="text-align:center">Class</th>
-<th style="text-align:center">Class With Interface</th>
-<th style="text-align:center">Interface</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Description (²)</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x</td>
-</tr>
-<tr>
-<td style="text-align:left">Attributes (²)</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x</td>
-</tr>
-</tbody>
-</table>
+<p>Auf dem folgenden Screenshot wird der General Tab einer Class-Modular Component abgebildet.
+    <img src="media/%C3%BCbersichtModCompsGeneralTab.png" alt="UI der Modular Component Typen"></p>
+<h3 id="funktionale-einschränkungen">Funktionale Einschränkungen</h3>
+<p>Funktionen, welche aus Components bekannt sind, jedoch nicht für Modular Components umgesetzt wurden:</p>
+<ol>
+<li>Verwendung der Modular Components in DataBindings ist nicht möglich. Auch bei Textboxen mit Autovervollständigungen werden Modular Components nicht angezeit. Es muss der FullName der Modular Component angegeben werden.</li>
+<li>Properties haben derzeit nur einen External DataType. Es muss der FullName bspw. einer Component angegeben werden. MDTs stehen ebenfalls nicht zur Auswahl.</li>
+</ol>
+<h2 id="bestandteile-der-modular-component">Bestandteile der Modular Component</h2>
+<ul>
+<li>Type (nicht änderbar im Customizing)<ul>
+<li>Class, ClassWithInterface, Interface</li>
+</ul>
+</li>
+<li>Compile Step (nicht änderbar im Customizing)<ul>
+<li>Interface, Component, UnitTest</li>
+</ul>
+</li>
+<li>Base Class (nicht änderbar im Customizing)</li>
+<li>Description (²)</li>
+<li>Attributes (²)\
+Attribute werden im Customizing über die Packages hinweg summiert und im UseCode an das Interface beziehungsweise an die Klasse generiert. Beim Typ <em>Class With Interface</em> erhält das Interface keine Attribute.</li>
+</ul>
 <p>(²) wird an die Klasse (bei Type <em>Class</em> und <em>ClassWithInterface</em>) oder an das Interface (bei Type <em>Interface</em>) im UseCode generiert.</p>
-<p>Attribute werden im Customizing über die Packages hinweg summiert und im UseCode an das Interface beziehungsweise an die Klasse generiert. Beim Typ <em>Class With Interface</em> erhält das Interface keine Attribute.</p>
-<p><strong>Type</strong>: Class, ClassWithInterface, Interface
-<strong>Compile Step</strong>: Interface oder Component</p>
-<p>Bei Type <em>ClassWithInterface</em> und Compile Step <em>Component</em> wird das Interface in die Interface-Schicht generiert. Die zugehörige Klasse kommt in die Component-Schicht.
+<div class="NOTE"><h5>Note</h5><p>Bei Type <em>ClassWithInterface</em> und Compile Step <em>Component</em> wird das Interface in die Interface-Schicht generiert. Die zugehörige Klasse kommt in die Component-Schicht.
 Bei Type <em>Class</em> und <em>Interface</em> wird es in den ausgewählten Compile Step generiert.</p>
+</div>
 <h3 id="properties">Properties</h3>
 <table>
 <thead>
@@ -143,8 +162,8 @@ Bei Type <em>Class</em> und <em>Interface</em> wird es in den ausgewählten Comp
 </tr>
 <tr>
 <td style="text-align:left">* Setter Type AutoProp</td>
-<td style="text-align:center">get | get set | private set | protected set</td>
-<td style="text-align:center">get | get set | private set | protected set</td>
+<td style="text-align:center">get | get set | protected set</td>
+<td style="text-align:center">get | get set | protected set</td>
 <td style="text-align:center">-</td>
 </tr>
 <tr>
@@ -167,8 +186,8 @@ Bei Type <em>Class</em> und <em>Interface</em> wird es in den ausgewählten Comp
 </tr>
 <tr>
 <td style="text-align:left">* Setter Type IndivProp</td>
-<td style="text-align:center">get | get set | private set | protected set</td>
-<td style="text-align:center">get | get set | private set | protected set</td>
+<td style="text-align:center">get | get set | protected set</td>
+<td style="text-align:center">get | get set | protected set</td>
 <td style="text-align:center">-</td>
 </tr>
 <tr>
@@ -180,6 +199,26 @@ Bei Type <em>Class</em> und <em>Interface</em> wird es in den ausgewählten Comp
 </tbody>
 </table>
 <p><strong>Code Generierung:</strong> AutoProperties und IndivProperties werden immer mit <strong>virtual</strong> bzw. im Customizing mit <strong>override</strong> generiert.</p>
+<p>So sieht die UI im Bereich General der Properties aus:</p>
+<p><img src="media/propertyUI.png" alt="Property UI"></p>
+<p>Für die Anzeige des Codes gibt es hier eine gemeinsame Ansicht des Getter und Setter-Codes. Mit gedrückter Shift-Taste und Doppelklick auf den Splitter kann die Ansicht von Vertical zu Horizontal (Get/Set Code wird dann untereinander angezeigt) und andersherum gewechselt werden.</p>
+<p><img src="media/indivPropCode.png" alt="Indiv Code"></p>
+<p><code>Public</code> Properties werden automatisch <code>virtual</code>.</p>
+<h4 id="autoproperty">AutoProperty</h4>
+<p>Bei AutoProperties kann kein Get- oder Set-Code geschrieben werden.</p>
+<pre><code class="lang-csharp">public virtual FSstring Stuff { get; set; }
+</code></pre><h4 id="individual-property">Individual Property</h4>
+<pre><code class="lang-csharp">public virtual FSstring Stuff { 
+    get{ 
+        // individuell definierter Code
+    }
+    set {
+        // individuell definierter Code
+    }
+ }
+</code></pre><h4 id="fields">Fields</h4>
+<p>Fields können nicht gecustomized werden.
+Attribute werden somit immer im Code des jeweiligen Packages definiert.</p>
 <h3 id="methods">Methods</h3>
 <table>
 <thead>
@@ -231,13 +270,17 @@ Bei Type <em>Class</em> und <em>Interface</em> wird es in den ausgewählten Comp
 <td style="text-align:left">Attributes</td>
 <td style="text-align:center">x</td>
 <td style="text-align:center">x</td>
-<td style="text-align:center">x³</td>
+<td style="text-align:center">x<sup>(1)</sup></td>
 </tr>
 </tbody>
 </table>
-<p>(³) Attribute werden bei Properties und Methods beim Typ Interface an den CodeCode des jeweiligen Packages, wo sie definiert wurden, im Code geschrieben. Dies verhält sich anders bei Class und ClassWithInterface. Hier werden die Attribute im UseCode an Properties und Methods gesammelt generiert.</p>
+<p>(1) Attribute werden bei Properties und Methods beim Typ Interface an den CodeCode des jeweiligen Packages, wo sie definiert wurden, im Code geschrieben. Dies verhält sich anders bei Class und ClassWithInterface. Hier werden die Attribute im UseCode an Properties und Methods gesammelt generiert.</p>
+<h4 id="testmethod">TestMethod</h4>
+<p>Beim Typen UnitTest gibt es im Bereich der Methods das spezielle TestMethod-Command.
+Dieses Command fügt automatisch das Attribute &quot;[TestMethod]&quot; hinzu. TestMethods sind nicht virtual.</p>
+<p><img src="media/testMethodAuswahl.png" alt="UnitTest Method"></p>
 <h2 id="code">Code</h2>
-<h3 id="class-mit-attributen">Class mit Attributen</h3>
+<h3 id="class-mit-attributen-und-customizing">Class mit Attributen und Customizing</h3>
 <pre><code class="lang-csharp">
 [FSDemoAttribute]
 [FSDemoCustomizeAttribute]
@@ -265,7 +308,6 @@ public class FSDemoCustomize_Stuff : FSDemo_Stuff
     public override void SetStuff(string stuff){
         base.SetStuff(stuff + &quot; customizing&quot;);
     }
-
 }
 
 public class FSDemo_Stuff 
@@ -275,18 +317,18 @@ public class FSDemo_Stuff
         Stuff = stuff;
     }
 }
-</code></pre><h3 id="generierter-code-bei-classwithinterface">Generierter Code bei &quot;ClassWithInterface&quot;</h3>
+</code></pre><h3 id="generierter-code-bei-classwithinterface-mit-customizing-und-baseclass">Generierter Code bei &quot;ClassWithInterface&quot; mit Customizing und BaseClass</h3>
 <pre><code class="lang-csharp">
-// UseCode - wird im ZielPackage generiert
+// UseCode
 public class Stuff : FSDemoCustomize_Stuff, IStuff { }
 public interface IStuff : FSDemoCustomize_IStuff { }
 
-// Customizing Package - CodeCode
+// Customizing Package
 public class FSDemoCustomize_Stuff : FSDemo_Stuff, FSDemoCustomize_IStuff { }
 public interface FSDemoCustomize_IStuff: FSDemo_IStuff { }
 
-// Basis Package - CodeCode
-public class FSDemo_Stuff { }
+// Basis Package
+public class FSDemo_Stuff : BaseClass, FSDemo_IStuff { }
 public interface FSDemo_IStuff { }
 </code></pre></article>
           </div>

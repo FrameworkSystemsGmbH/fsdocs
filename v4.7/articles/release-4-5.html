@@ -81,6 +81,36 @@
             <article class="content wrap" id="_content" data-uid="">
 <h1 id="release-information-framework-studio-45">Release-Information Framework Studio 4.5</h1>
 
+<h2 id="4524-03012025">4.5.24 (03.01.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.5.24_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h4>
+<p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.40.0 auf Version 7.41.5 aktualisiert.
+Das entspricht Chromium 131.</p>
+<p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2024/v7-41-5/">https://teamdev.com/jxbrowser/release-notes/2024/v7-41-5/</a></p>
+<p>Es sind keine besonderen Aktionen erforderlich.
+Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
+<h4 id="weitere-updates">Weitere Updates</h4>
+<ul>
+<li>Das CefSharp Browser-Control in der IDE wurde auf Version 131.3.10 upgedatet.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2024127052 - <strong>Java-Client</strong>: Der Fokus eines neu geöffneten Forms geht
+  verloren, wenn während des Öffnens ein Event (z.B. SelectedTabPageChanged)
+  gefeuert wird.</p>
+</li>
+<li><p>2024126994 - <strong>Package-Manager</strong>: Wird für eine Package-Version ein Hotfix
+  importiert, dann kommt es zu Null-Exceptions beim Compile und beim Export
+  von darauf aufsetzenden Package-Versionen.</p>
+</li>
+<li><p>2024127022 - <strong>IDE</strong>: Bei einer Änderung der AccessUnits im FormDesigner wird
+  der Speicherbutton nicht aktiv.</p>
+</li>
+</ul>
 <h2 id="4523-06122024">4.5.23 (06.12.2024)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -93,7 +123,7 @@
 Der Vergleich mit einem externen Tool ist dennoch möglich.</li>
 <li>Im Class-Code und Namespace-Code (Generated-Code) kann man im Editor nun einen Code-Refresh ausführen.</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024116925 - <strong>Package-Manager</strong>: Beim Export eines Package-Stacks, bei
   welchem Packages ohne Owner-Status dabei sind, verliert der Export das
@@ -134,7 +164,7 @@ werden.</p>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 129.0.110 upgedatet.</li>
 <li>Der HTML Client wurde auf Angular 18.2.2 upgedatet. Bitte beachten Sie die geänderten Systemvoraussetzungen für die App. Es werden nur noch Geräte mit Android 8.0 (API-Level 26) oder höher unterstützt.</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024106684 - <strong>Reporting</strong>: Wird ein DevExpress Report als HTML exportiert,
   dann werden die Bilder (z.B. Barcodes) nicht eingebettet, sondern als Datei
@@ -154,7 +184,7 @@ werden.</p>
 <ul>
 <li>Das Anlegen eines neuen Repositorys funktioniert jetzt auch mit den strengeren Password-Regeln in SQL-Server 2022.</li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024096453 - <strong>Reporting</strong>: Bei Update eines Oracle Repositories auf die
   Versionen 4.4 wurde beim Anlegen der Tabelle <code>tblRep_ReportDesign</code> die
@@ -190,7 +220,7 @@ Button <code>Prepare Runtime Repository</code> drücken und den Update ausführe
 <ul>
 <li>DevExpress wurde auf Version 24.1.4 upgedated.</li>
 </ul>
-<h4 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-1">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.38.0 auf Version 7.40.0 aktualisiert.
 Das entspricht Chromium 127.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2024/v7-40-0.html">https://jxbrowser-support.teamdev.com/release-notes/2024/v7-40-0.html</a></p>
@@ -200,7 +230,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <ul>
 <li>Die <em>Include Base Packages</em> Funktion im Package-Export über den <a href="../doc/package-manager/export.html#include-base-packages">Package-Manager</a> und die <a href="../doc/fsconsole/fsconsole.html#includebasepackages-mode">FSConsole</a> bzw. <a href="../doc/pbe/aktionen.html#knoten-export">PBE</a> wurde überarbeitet.</li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024086212 - <strong>Java-Client</strong>: Wird ein Client nicht regulär beendet, dann
   bleiben temporäre Ordner des JxBrowser-Controls hängen. Passiert das
@@ -230,7 +260,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li><a class="xref" href="../api/FS.Hosting.Shared.GlobalObj.ContentDownloadManager.html">Über eine neue API können im Broker Inhalte bereitgestellt werden. Diese können vom Client heruntergeladen werden.</a></li>
 <li>Die beiden Actions <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.GridColumnControlAction.html">SetMinWidth</a> und <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.GridColumnControlAction.html">SetMaxWidth</a> für GridColumns wurden umgesetzt</li>
 </ul>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024045657 - <strong>Java-Client</strong>: An einem Grid ist MultiSelect und Drag&amp;Drop
   aktiv. Wenn man mit Strg+A alle Zeilen selektiert und anschließend mit
@@ -326,7 +356,7 @@ Da seit FS Version 4.4 die entsprechenden SR-Dateien nicht mehr erstellt werden,
 </div>
 </li>
 </ul>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024065939 - <strong>Broker</strong>: Wird über den HTML-Client eine TakePhoto-Action
   ausgeführt und diese liefert ein großes Bild mit mehr als 3 MB, dann meldet
@@ -388,7 +418,7 @@ Dadurch wurde dem Benutzer nur die Meldung <em>&quot;Ein Aufrufziel hat einen Au
 Die eigentliche Meldung war erst in den Details zu finden.
 Jetzt wird gleich die richtige Meldung ausgegeben.</li>
 </ul>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024035421 - <strong>Java-Client</strong>: Wenn man im Bearbeitungs-Modus vom Dashboard /
   Zoom den Titel der Registerkarte bearbeitet und während dessen eine neue
@@ -430,7 +460,7 @@ Service-Release-Modus befindet.</p>
 <li>Für einen Form-Container funktioniert im Java-Client jetzt die Focus-Steuerung.
 Das umfasst das Navigieren durch die Controls, das Reagieren auf Shortcuts in beiden Richtungen und die SetFocus-Action im inneren Form.</li>
 </ul>
-<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024014866 - <strong>JavaClient</strong>: Wird am Grid in einem EditingStopped-Event mit
   SetCell-Actions gearbeitet, dann kann es vorkommen, dass die SetCell-Action
@@ -474,7 +504,7 @@ Die enhaltenen Java-Runtimes wurden auf die neusten Sicherheitsupdates aktualisi
 </div>
 <p>Aufgrund von Änderungen bei unserem Zertifikat-Anbieter DigiCert haben wir ein neues Zertifikat erhalten und mussten alle unsere Jar-Dateien neu signieren.
 Deshalb müssen ggf. auch eigene Custom Controls neu signiert werden, weil es ansonsten beim Start der Anwendung über Java Web Start zu Fehlermendungen kommt.</p>
-<h4 id="update-jxbrowser-für-javaclient-1">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-2">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.36 auf Version 7.38 aktualisiert.
 Das entspricht Chromium 122.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2024/v7-38-0.html">https://jxbrowser-support.teamdev.com/release-notes/2024/v7-38-0.html</a></p>
@@ -488,7 +518,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <ul>
 <li>beinhaltet den neuen FS Client Launcher</li>
 </ul>
-<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024035335 - <strong>JavaClient</strong>: Wird innerhalb eines SVGs ein <code>&lt;a&gt;</code> href-Link mit
   spezieller FSCommand-Logik verwendet. Reagiert nicht die Sonderlogik
@@ -540,7 +570,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>Im <a href="../doc/ide/start.html#checkbox-show-only-applicable-packages-and-versions">Login Dialog</a> gibt es eine neue Checkbox, mit welcher die Packages und Versions gefiltert werden können.</li>
 <li>Es gibt eine neue Auto Debug DLLs Option: <code>Service, Component, Form</code>, siehe <a href="../doc/allgemein/options.html#auto-debug-dlls">Options</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024014914 - <strong>IDE</strong>: In sehr seltenen Fällen kann es vorkommen, dass &quot;GoTo
   Definition&quot; im Code Editor bei gedrückter STRG-Taste erst bei einem zweiten
@@ -578,7 +608,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>Mit Hilfe von <a href="../doc/package-manager/hotfix-branch.html">Hotfix-Branches</a> ist es möglich, parallel zum laufenden Service-Release Änderungen vorzunehmen und diese kurzfristig auszuliefern.</li>
 <li>Maintenance-Routine &quot;<a href="../doc/maintenance/double-form-doc-cleanup.html">Double Form Doc Cleanup</a>&quot; zur Bereinigung doppelter Form-Dokumentationen.</li>
 </ul>
-<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024014859 - <strong>AuthService</strong>: Wird ein Benutzer mit &quot;Angemeldet bleiben&quot;
   erneut angemeldet, dann wird im Auth-Service die Login-Info des Benutzers
@@ -618,7 +648,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <ul>
 <li>Es wurde eine weitere &quot;Open compiled code in ...&quot; Option ergänzt. Nähere Informationen finden Sie <a href="../doc/allgemein/options.html">hier</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023114564 - <strong>IDE</strong>: Kopieren und das anschließende Einfügen eines
   Basis-Properties, wenn der Parent (Form, Component) gecustomized ist,
@@ -639,7 +669,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>FS_4.5.11_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="update-jxbrowser-für-javaclient-2">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-3">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.33.2 auf Version 7.36 aktualisiert.
 Das entspricht Chromium 118.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2023/v7-36.html">https://jxbrowser-support.teamdev.com/release-notes/2023/v7-36.html</a></p>
@@ -649,7 +679,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <ul>
 <li>Beim Löschen von Form-Methoden gibt es jetzt eine Prüfung, ob diese Methode in einem Control-Event verwendet wird.</li>
 </ul>
-<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-13">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023114553 - <strong>Java-Client</strong>: Die temporären Dateien des JxBrowsers im
   Temp-Verzeichnis werden nach einem Session-Ende nicht gelöscht.</p>
@@ -687,7 +717,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>FS_4.5.10_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-13">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-14">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023104277 - <strong>Java-Client</strong>: Wird durch ein Event im Browser-Control (z.B.
   PageLoaded) eine Aktion ausgelöst, die einen modalen Dialog öffnet, dann
@@ -717,7 +747,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <ul>
 <li>Neue Maintenance-Routine <a href="../doc/maintenance/devexpress-rft-comment-cleanup.html">DevExpress Rtf Comment Cleanup</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-14">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-15">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023093962 - <strong>Reporting</strong>: Beim Instantiieren eines DevExpress-Reports kann
   es zu einer NonTrustedTypeDeserializationException kommen.</p>
@@ -749,7 +779,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <ul>
 <li>In der IDE werden nun vor einem Compile alle ungespeicherten Elemente automatisch gespeichert.</li>
 </ul>
-<h4 id="korrigierte-fehler-15">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-16">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023073457 - <strong>IDE</strong>: Das Output Fenster zeigt Console-Ausgaben aus der
   Anwendung nicht mehr an.</p>
@@ -810,7 +840,7 @@ Darüber hinaus müssen <strong>alle Package-Versionen</strong> auf einen aktuel
 Anschließend kann die Package-Version wieder in den SR-Modus versetzt werden.</p>
 <h4 id="einschränkungen-für-report-scripting">Einschränkungen für Report-Scripting</h4>
 <p>Aus Sicherheitsgründen wurde das <a href="../doc/reporting/devexpress-scripting.html">Scripting für DevExpress-Reports</a> eingeschränkt und abgesichert.</p>
-<h4 id="update-jxbrowser-für-javaclient-3">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-4">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.30.2 auf Version 7.33.2 aktualisiert.
 Das entspricht Chromium 114.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2023/v7-33-2.html">https://jxbrowser-support.teamdev.com/release-notes/2023/v7-33-2.html</a></p>
@@ -820,7 +850,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 Aus diesem Grund müssen wir den <strong>Client-Support für Windows Server 2012 einstellen</strong>.</p>
 <p>Der Application-Broker ist von dieser Einschränkung NICHT betroffen.</p>
 </div>
-<h4 id="korrigierte-fehler-16">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-17">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023073469 - <strong>Publish2Go</strong>: Das Änderungsdatum von Ressourcen-Dateien wird
   falsch gesetzt. Die Zeitzone wird nicht korrekt berücksichtigt.</p>
@@ -916,7 +946,7 @@ Dies geschieht wie üblich über das Menü <code>Source Control</code>, die Tool
 <p>Auch in modalen Dialogen wie z.B. dem <a href="../doc/form/control/listview.html#listview-template-editor">ListView Template Editor</a> oder dem <a href="../doc/documentation/editor.html#editor">DocML Editor</a> von Controls kann mit <code>CTRL + F10</code> <strong>rückfragefrei</strong> ausgecheckt werden.
 Dadurch wird vermieden, dass der Dialog zum Auschecken geschlossen werden muss.</p>
 <p>Beim Auschecken von Elementen über den Namespace Tree ist, wie bisher auch, eine Bestätigung des Vorgangs nötig.</p>
-<h4 id="korrigierte-fehler-17">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-18">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023063292 - <strong>DevExpress</strong>: Das Speichern einer geänderten Localization im WebDesigner
   führt zu einer TypeError-Exception, wenn im Report ein CarryForward-Control vorhanden ist.</p>
@@ -966,7 +996,7 @@ Bei bestehenden Resourcen wird jedoch erst bei einer Bearbeitung das Encoding ab
 Eine Konvertierung in ein anderes Encoding kann in beiden Fällen vorgenommen werden.
 Mehr Informationen zum Funktionsumfang findet sich <a href="../doc/resources/resources.html#encoding">hier</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-18">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-19">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023042824 - <strong>Broker</strong>: Eine Listbox oder Combobox verwendet als
   Listen-Datasource eine Collection. Werden aus dieser Collection Records
@@ -1034,7 +1064,7 @@ Mit dem Update von DevExpress Web-Designers auf .net 6 haben wir diesen so umges
 <ul>
 <li>Am GridView gibt es ein neues Event <a class="xref" href="../api/FS.Hosting.Shared.IGridView.EntriesSortedOrFiltered.html">EntriesSortedOrFiltered</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-19">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-20">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023032382 - <strong>Broker</strong>: Wird eine Gridspalte mit &quot;LIKE&quot; gefiltert, werden
   ggf. keine Treffer gefunden, wenn sich der gesuchte Begriff in einem
@@ -1067,7 +1097,7 @@ Compiler-Version hat zudem eine 15%-20% bessere Performance.</p>
 <p>Auf Grund von Bug 2023022188 muss beim Publish2Go das Runtime Repository nochmals upgedated werden.</p>
 <p>Beim Publishen einer Applikation erscheint dann ggf. die Warnung <code>&quot;The selected runtime repository is not prepared for this version of Publish2Go. You have to prepare the runtime repository before you can publish.&quot;</code>.</p>
 <p>Um diese Situation zu lösen, muss im Publish2Go Wizard unter <code>Connection Groups</code> die <code>RuntimeConnection</code> ausgewählt werden und mit dem Button <code>Prepare Runtime Repository</code> die fehlenden Scripte ausgeführt werden.</p>
-<h4 id="update-jxbrowser-für-javaclient-4">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-5">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.27 auf Version 7.30.2 aktualisiert.
 Das entspricht Chromium 108.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2023/v7-30-2.html">https://jxbrowser-support.teamdev.com/release-notes/2023/v7-30-2.html</a></p>
@@ -1075,7 +1105,7 @@ Das entspricht Chromium 108.</p>
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
 <h4 id="neuer-html-client">Neuer HTML Client</h4>
 <p>Der HTML Client wurde auf Angular 15.1 upgedated. Neue Features oder Bugfixes gibt es nicht.</p>
-<h4 id="korrigierte-fehler-20">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-21">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023022188 - <strong>Broker</strong>: Clientside Report Customizing (DevExpress)
   funktioniert nicht mit Applikationen, die mit einem Runtime-Repository
@@ -1098,7 +1128,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>FS_4.5.1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-21">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-22">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023011937 - <strong>JavaClient</strong>: Die Jar-Dateien für das neue Browser-Control sind
   nicht signiert. Deshalb ist ein Start der Anwendung über Java-Webstart nicht
@@ -1154,7 +1184,7 @@ Weitere Informationen finden sie <a href="release-4-4.html#abkündigung-des-msi-
 <li>Oracle.ManagedDataAccess 19.13 -&gt; 21.8</li>
 <li>HtmlAgilityPack 1.11.4 -&gt; 1.11.46</li>
 </ul>
-<h4 id="korrigierte-fehler-22">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-23">Korrigierte Fehler</h4>
 <p>In der Version 4.5 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-4.html#4413-23122022">Framework Studio 4.4.13</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

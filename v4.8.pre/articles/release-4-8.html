@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/docs/articles/release-4-8.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha2/docs/articles/release-4-8.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,18 +87,68 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-48">Release-Information Framework Studio 4.8</h1>
 
-<h2 id="480-alpha-2">4.8.0 Alpha 2</h2>
+<h2 id="480-alpha-2-24012025---intern">4.8.0 Alpha 2 (24.01.2025 - intern)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.8.0_Alpha_2_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="neuerungen">Neuerungen</h4>
 <ul>
 <li><a href="neuheiten-4-8.html#crystal-reports-abgek%C3%BCndigt">Crystal Reports abgekündigt</a></li>
 </ul>
-<h2 id="480-alpha-1-03012025">4.8.0 Alpha 1 (03.01.2025)</h2>
+<h4 id="updates">Updates</h4>
+<ul>
+<li>DevExpress wurde auf die Version 24.2.3 aktualisiert.</li>
+<li>Das CefSharp Browser-Control in der IDE wurde auf Version 131.3.10 upgedatet.</li>
+</ul>
+<h4 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h4>
+<p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.40.0 auf Version 7.41.5 aktualisiert.
+Das entspricht Chromium 131.</p>
+<p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2024/v7-41-5/">https://teamdev.com/jxbrowser/release-notes/2024/v7-41-5/</a></p>
+<p>Es sind keine besonderen Aktionen erforderlich.
+Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2024127052 - <strong>Java-Client</strong>: Der Fokus eines neu geöffneten Forms geht
+verloren, wenn während des Öffnens ein Event (z.B. SelectedTabPageChanged)
+gefeuert wird.</p>
+</li>
+<li><p>2024127053 - <strong>Broker</strong>: Der vom Client aufgerufene Filter für Grid-Spalten
+arbeitet Case Sensitive (beachtet Groß-Klein-Schreibung).</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die Korrektur greift, wenn die Filterung im Hauptspeicher der
+Broker-Anwendung stattfindet.<br>
+Auf unvollständig geladenen Grids wird der Filter über die Datenbank
+ausgeführt. Dabei zieht weiterhin das Standard-Verhalten der jeweiligen
+Datenbank (Collation).</p>
+</div>
+</li>
+<li><p>2024127103 - <strong>IDE</strong>: Im Formula Converter des DevExpress Report-Designer
+werden Properties mit einem Package-Prefix nicht korrekt erkannt. Der
+Unterstrich wird durch einen Punkt erstzt.
+<code>oObject_oP01_MyColl.shtK07_MyProperty</code> wird zu
+<code>oObject.oP01.MyColl.shtK07.MyProperty</code> anstatt zu
+<code>oObject.oP01_MyColl.shtK07_MyProperty</code></p>
+</li>
+<li><p>2024096531 - <strong>DevExpress</strong>: Wird in einem Report mit Gruppen in einigen
+Positionen eine RunningSum angezigt, dann stimmt der angezeigte Wert nicht.
+Es handelt sich um einen Fehler in DevExpress:
+<a href="https://supportcenter.devexpress.com/ticket/details/t1255491">https://supportcenter.devexpress.com/ticket/details/t1255491</a></p>
+</li>
+<li><p>2024127040 - <strong>IDE</strong>: Wenn beim Laden des FrameworkStudio Layouts ein Fehler
+auftritt, ist dies nicht abgesichert. Ein Arbeiten mit FS ist nicht mehr
+möglich.</p>
+</li>
+</ul>
+<h2 id="480-alpha-1-03012025---intern">4.8.0 Alpha 1 (03.01.2025 - intern)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.8.0_Alpha_1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <p>In der Version 4.8 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-7.html">Framework Studio 4.7.Z</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

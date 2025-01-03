@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Neuheiten Framework Studio 4.3 </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Neuheiten Framework Studio 4.3 ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.6/dev/docs/articles/neuheiten-4-3.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="neuheiten-framework-studio-43">Neuheiten Framework Studio 4.3</h1>
+
+<p>Informationen zu aktuellen Versionen und korrigierten Fehlern finden Sie in den <a href="release-4-3.html">Release-Informationen</a>.</p>
+<h2 id="statisches-caching-an-components-static-cache">Statisches Caching an Components (Static Cache)</h2>
+<p>Framework Studio wurde um einen statischen Caching-Mechanismus erweitert. Wird dieser für eine geeignete Component aktiviert, so können Daten statt von der Datenbank aus diesem Cache geladen werden. Dadurch sind erhebliche Performance-Vorteile möglich.</p>
+<p>Details sind im Kapitel <a href="../doc/comp/static-cache.html">Statisches Caching</a> beschrieben.</p>
+<h2 id="umstellung-auf-propertychanged">Umstellung auf PropertyChanged</h2>
+<p>Die Framework Studio Components implementieren jetzt das Standard-Interface INotifyPropertyChanged.</p>
+<p>Details sind im Kapitel <a href="../doc/konzepte/property-changed.html">PropertyChanged</a> beschrieben.</p>
+<p>Ggf. sind Anpassungen im eigenen Code notwendig. Bitte beachten sie dazu die <a href="update-4-3/property-changed.html">Hinweise für die Umstellung</a>.</p>
+<p>In diesem Zuge sind einige weitere Änderungen vorgenommen worden:</p>
+<ul>
+<li><p>Die Methoden <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.GetProperty.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_GetProperty_System_String_">GetProperty</a>,
+<a class="xref" href="../api/FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.SetProperty.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_SetProperty_System_String_System_Object_">SetProperty</a>,
+<a class="xref" href="../api/FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.GetPropertyMdt.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_GetPropertyMdt_System_String_">GetPropertyMdt</a>
+und die Eigenschaft <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.ComponentProperties.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_ComponentProperties">ComponentProperties</a>
+wurde an (I)DevFramework<strong>Base</strong>Object verschoben. Damit können jetzt auch direkt an der Collection definierte Properties verarbeitet werden.</p>
+</li>
+<li><p>Mit der neuen Methode <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IDevFrameworkBaseObject.IsComponentProperty.html#FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_IsComponentProperty_System_String_">IsComponentProperty</a> kann man prüfen, ob es sich um ein vom Entwickler angelegtes Property handelt.</p>
+</li>
+</ul>
+<p>Das Databinding in den Forms wurde komplett neu entwickelt.
+Das bringt unter anderem die folgenden Vorteile:</p>
+<ul>
+<li><p>Deutlich weniger Code und deutlich kleinere Assemblies (ca. -30%)</p>
+</li>
+<li><p>Bei der Änderung von Werten wird für die Aktualisierung der Control-Inhalte am Ende des Requests jeder Wert nur einmal neu gelesen.
+Das gilt auch, wenn ein Property im Laufe des Requests mehrfach geändert wurde.
+Im Einzelfall kann das eine signifikante Steigerung der Performance bedeuten.</p>
+</li>
+</ul>
+<h4 id="verhaltens-änderung-bei-der-selectedrowscollection">Verhaltens-Änderung bei der SelectedRowsCollection</h4>
+<p>Die an einem Grid gebundene Objekt-Collection und SelectedRowsCollection haben in der Vergangenheit eng zusammengearbeitet.
+Werden Records aus der Collection gelöscht oder eine neue Collection zugewiesen, dann werden aus der SelectedRowsCollection unmittelbar die entsprechenden Einträge entfernt.
+Das war möglich weil jede Änderung sofort vom Data-Binding übernommen wurde.
+Der neue asynchrone Ansatz im Data-Binding verhindert dies erst einmal.</p>
+<p>Damit bestehende Logik, die heute diesen Mechanismus voraussetzt, weiterhin funktioniert, wurde er im neuen Data-Binding nachgebaut - allerdings mit einer kleinen Einschränkung:</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Weist man im Form eine neue Objekt-Hierarchie zu, die ihrerseits die Objekt-Collection für das Grid beinhaltet, dann wird die SelectedRowsCollection nicht automatisch geleert.
+Das muss in diesem Fall manuell durchgeführt werden.</p>
+</div>
+<h4 id="deprecated-eigenschaft-labelofcontrol">Deprecated Eigenschaft LabelOfControl</h4>
+<p>Die Unterstützung für die Control-Eigenschaft <strong>LabelOfControl</strong>, die teilweise noch im Hintergrund gezogen hat, wurde entfernt.
+Siehe <a href="../doc/form/label-of-control-cleanup.html">LabelOfControl Cleanup</a>.</p>
+<h2 id="intellisense-mit-roslyn">Intellisense mit Roslyn</h2>
+<p>Das Intellisense im Code-Editor wurde komplett überarbeitet. Es setzt jetzt mit &quot;Roslyn&quot; auf dieselbe Technologie auf wie das Intellisene von Visual Studio.</p>
+<p>Folgende Features werden jetzt unterstützt (Auszug):</p>
+<ul>
+<li>Lambda-Expressions (Linq)</li>
+<li>Generische Typen</li>
+<li>var schlüsselwort</li>
+<li>Überladene Methoden werden korrekt aufgelöst</li>
+<li>GoTo Definition für Form-Controls</li>
+<li>uvm ...</li>
+</ul>
+<p>Im Code-Editor werden Compile-Error und Warnings während dem Tippen direkt im Code markiert. Die Details des Errors werden in einem Tooltip angezeigt.</p>
+<h2 id="export-von-tabellen-beschreibungen">Export von Tabellen Beschreibungen</h2>
+<p>Im <a href="../doc/documentation/export-wizards.html#html">HTML-Export</a> der Dokumentation gibt es eine neue Option <strong>Export DB-Tables</strong>.
+Diese integriert die Beschreibungen aller Datenbank-Tabellen.</p>
+<p>Beim Export über die <a href="../doc/fsconsole/fsconsole.html">FSConsole</a> kann das über den Parameter <code>\ExportDBTables</code> gesteuert werden.</p>
+<p>Im <a href="../doc/pbe/aktionen.html#knoten-exportdoc">PBE</a> kann dieser Export automatisiert werden.</p>
+<h2 id="menü-änderung-beim-anlegen-von-properties-und-methods">Menü Änderung beim Anlegen von Properties und Methods</h2>
+<p>Beim Anlegen neuer <a href="../doc/comp/tab_method.html">Methoden</a> in Forms oder Components wird nun in den Menüs abgefragt, ob diese als <strong>Public Method</strong> oder <strong>Protected Method</strong> angelegt werden sollen.</p>
+<p>Ferner gilt diese Regelung auch für <a href="../doc/comp/tab_properties.html">Properties</a> in Forms.
+Bei den Properties in den Components kann zwischen einer, wie bisher standermäßgen <strong>Public Property</strong> und einer <strong>Membervariable</strong> unterschieden werden.
+Eine Membervariable wird automatisch als Protected angelegt.</p>
+<h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
+<ul>
+<li><p>Beim Export des Wörterbuches kann man die direkten Verwendungen der einzelnen MLKeys als Kommentar exportieren.
+Dazu gibt es im Export-Dialog eine neue Checkbox <strong>Include usings</strong>.</p>
+</li>
+<li><p>Copy&amp;Paste ist kompatibel bis einschließlich Framework Studio 3.11. Mit älteren Versionen von Framework Studio können per Copy&amp;Paste keine Element-Informationen mehr ausgetauscht werden.</p>
+</li>
+<li><p>In der Registerkarte <strong>Set Method</strong> kann bei Component Properties vom Typ <strong>Individual</strong> die generierte Prüfung auf den Getter der Checkbox <strong>Check before set</strong> unterbunden werden.
+Eine Prüfung findet standardmäßig statt, weshalb die Checkbox per default gesetzt ist.</p>
+</li>
+<li><p>Die Registerkarte <strong>Description</strong> bei den Components wurde in <strong>General</strong> umbenannt.
+Ab der neuen Version befindet sich hier eine zusätzliche Checkbox <strong>Autogenerate Membervariable</strong>.
+Diese Checkbox wird ausschließlich bei <strong>Individual</strong> und <strong>Individual (readonly)</strong> Properties angezeigt und generiert sowohl eine Membervariable als auch ein Depends On Property, sobald sie gesetzt wird.
+In die Registerkarte <strong>General</strong> wurden ferner die Textfelder <strong>Display MinLength</strong>, <strong>Display MaxLength</strong>, <strong>Display MinLines</strong> und <strong>Display MaxLines</strong> und die Comboboxen <strong>Mapping</strong> und <strong>Drag Source</strong> verschoben.
+Des Weiteren können Sie wie gewohnt im Textfeld <strong>Description</strong> eine Beschreibung hinzufügen.</p>
+</li>
+<li><p>Mit der Taste <strong>F1</strong> kann im <strong>PropertyGrid</strong> für ein selektiertes Property, für welches eine Definition vorliegt, die Dokumentation geöffnet werden.</p>
+</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

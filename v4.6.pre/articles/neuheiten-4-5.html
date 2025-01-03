@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Neuheiten Framework Studio 4.5 </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Neuheiten Framework Studio 4.5 ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.6/dev/docs/articles/neuheiten-4-5.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="neuheiten-framework-studio-45">Neuheiten Framework Studio 4.5</h1>
+
+<p>Informationen zu aktuellen Versionen und korrigierten Fehlern finden Sie in den <a href="release-4-5.html">Release-Informationen</a>.</p>
+<h2 id="neue-systemvoraussetzungen">Neue Systemvoraussetzungen</h2>
+<p>In dieser Version gibt es Anpassungen bei den <a href="requirements.html">Systemvoraussetzungen</a>.</p>
+<h4 id="datenbank-server">Datenbank-Server</h4>
+<p>Es wird der <strong>SQL-Server 2014</strong> oder höher unterstützt.
+Ältere Version (z.B. SQL-Server 2012) werden nicht mehr unterstützt.
+Der SQL-Server 2012 läuft laut Microsoft zum 12.07.2022 aus.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Ein Betrieb mit einer älteren Datenbank-Version ist nicht möglich.
+Ein Connect auf so einen Datenbank-Server führt unmittelbar zu einer entsprechenden Fehlermeldung.</p>
+</div>
+<h4 id="entwicklungs-rechner">Entwicklungs-Rechner</h4>
+<p>Aufgrund der Systemvorraussetzungen von <a href="https://support.google.com/chrome/a/answer/7100626?hl=en">Chromium</a> ist für die Framework Studio IDE mind Windows 10 bzw. Windows Server 2016 erforderlich.
+Aus diesem Grund müssen wir den <strong>IDE-Support für Windows Server 2012 einstellen</strong>.</p>
+<p>Die Chromium Runtime wird von den neuen <a href="release-4-5.html#neue-code-editoren-auf-basis-von-monaco">Code-Editoren</a>, verwendet.</p>
+<p>Als Application-Server kann weiterhin der Windows Server 2012 verwendet werden. Der Publish muss aber mit einem Publish2Go-Paket erfolgen, welches auf einem anderen Rechner mit der IDE bzw. den Package-Manager erstellt wurde.</p>
+<h2 id="neues-browser-control---austausch-des-javafx-browsers">Neues Browser-Control - Austausch des JavaFX Browsers</h2>
+<p>Für die Anzeige von HTML-Inhalten im Java-Client kam bisher für das Browser-Control die <a href="https://docs.oracle.com/javase/8/javafx/embedded-browser-tutorial/overview.htm">JavaFX WebView Component</a> zum Einsatz.</p>
+<p>Dieses Control hat mehrere Probleme:</p>
+<ul>
+<li>auf einigen Webseiten gibt es Abstürze des Java-Clients</li>
+<li>die Browser-Controls laufen im Java-Prozess und benötigen teilweise zu viel Speicher</li>
+</ul>
+<p>Aus diesem Grund wurde die JavaFX WebView Component durch den <a href="https://www.teamdev.com/jxbrowser">JxBrowser</a> ersetzt, welcher auf Chromium basiert.</p>
+<p><strong>Dies bringt einige Verbesserungen mit sich:</strong></p>
+<ul>
+<li>Performance / Stabilität / Sicherheit (eigene Prozesse im Hintergrund)</li>
+<li>Java Speicher wird nicht so stark belastet -&gt; weniger OutOfMemory Exceptions</li>
+<li>Hi-DPI Unterstützung</li>
+<li>Regelmäßige (Sicherheits)-Updates</li>
+<li>Developer tools für Entwickler können aktiviert werden (siehe <a href="../doc/form/control/browser.html#developer-tools-aktivieren">hier</a>)</li>
+</ul>
+<h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
+<ul>
+<li>Für Ressourcen kann eine Beschreibung angegeben werden.</li>
+<li>Es gibt nun die beiden Optionen alle Tabs links bzw. rechts vom aktuellen Tab zu schließen. Diese Funktionen sind über das Kontextmenü erreichbar.</li>
+<li>In der ClassView können mit der Enter-Taste die Properties und Methods des aktuell angezeigten Records geöffnet werden.</li>
+<li>In der Search gibt es die neue Funktion &quot;Copy List as Text&quot;. Diese erscheint, sobald neben den Suchergebnissen das Kontextmenü geöffnet wird.
+Wird in die Listen-Ansicht gewechselt, können nun auch hier alle Ergebnisse kopiert werden.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

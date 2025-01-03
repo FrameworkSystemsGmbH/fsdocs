@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Editor Features </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Editor Features ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.6/dev/docs/doc/editors/features.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="editor-features">Editor Features</h1>
+
+<p>Die folgenden Kapitel beschreiben die Features der Code-Editoren in Framework Studio, welche unabhängig der Programmiersprache zur Verfügung stehen. Es werden ausschließlich die wichtigsten Features betrachtet, da eine vollständige Dokumentation aller Funktionalitäten zu umfangreich wäre und so keinen Mehrwert bietet.</p>
+<h2 id="command-palette">Command Palette</h2>
+<p><img src="media/command-palette.png" alt="Command Palette"></p>
+<p>Über den Shortcut <code>F1</code> wird in jedem Code-Editor in Framework Studio die <code>Command Palette</code> geöffnet. Sie gibt einen Überblick über alle Aktionen, die im jeweiligen Kontext ausgeführt werden können. Dabei ist die Verfügbarkeit der Aktionen z.B. von der Selektion, Curserposition oder dem Status des Editors abhängig.</p>
+<p>Diejenigen Aktionen, die mit einem Shortcut versehen sind, zeigen diesen rechts in der Liste an. Auch Aktionen, die einen separaten Eintrag im Context-Menü des Editors haben, werden hier aufgeführt.</p>
+<p>Über das Suchfeld der <code>Command Palette</code> können alle verfügbaren Aktionen gefiltert werden.</p>
+<h2 id="context-menü">Context Menü</h2>
+<p><img src="media/context-menu.png" alt="Context Menu"></p>
+<p>Jeder Editor verfügt über ein Context-Menü, welches über die rechte Maustaste erreicht werden kann. Dieses ist sehr schlank gehalten und zeigt nur die wichtigsten Aktionen inkl. Shortcuts für den jeweiligen Kontext an.</p>
+<h2 id="shortcut-chords">Shortcut Chords</h2>
+<p>Es gibt einige Aktionen, die nur über einen sogenannten <code>Shortcut Chord</code> ausgeführt werden können. Ein <code>Chord</code> wird in der <a href="#command-palette">Command Palette</a> folgendermaßen angezeigt:</p>
+<p><img src="media/shortcut-chords.png" alt="Shortcut Chords"></p>
+<p>Dabei wird die <code>CTRL</code>-Taste gedrückt gehalten und erst <code>K</code> und danach <code>C</code> gedrückt, ohne <code>CTRL</code> loszulassen. Dies eröffnet neue Tastenkombinationen, da in modernen Editoren sehr oft mehr Aktionen als freie Shortcuts vorhanden sind.</p>
+<h2 id="zoom">Zoom</h2>
+<p>Mit <code>CTRL + MouseWheel</code>, <code>CTRL + Numpad+</code> und <code>CTRL + Numpad-</code> kann in jedem Editor gezoomt werden. Dabei wird die Schriftgröße des Codes, nicht aber die Größe des <a href="#context-men%C3%BC">Context-Menüs</a> oder der <a href="#command-palette">Command Palette</a> geändert.</p>
+<p><img src="media/zoom.png" alt="Zoom"></p>
+<p>Die Änderung der Schriftgröße ist dabei nicht persistent und wird beim nächsten Laden des Editors wieder auf die in den <a href="../allgemein/options.html">Options</a> hinterlegte Schriftgröße zurückgesetzt.</p>
+<p>Das manuelle Zurücksetzen der Zoom-Einstellung ist über den Shortcut Chord <code>CTRL + K -&gt; CTRL + 0</code> möglich.</p>
+<h2 id="fast-scrolling">Fast Scrolling</h2>
+<p>Wie in jedem Editor kann mit dem Mausrad gescrollt werden. Bei gedrückter <code>SHIFT</code>-Taste wird (wenn eine horizontale Scrollbar verfügbar ist) horizontal gescrollt.</p>
+<p>In beiden Richtungen kann die Scrollgeschwindigkeit mit zusätzlich gedrückter <code>ALT</code>-Taste um Faktor 5 beschleunigt werden. Dies ist gerade in Code mit sehr vielen Zeilen extrem nützlich.</p>
+<h2 id="source-code-minimap">Source Code Minimap</h2>
+<p><img src="media/minimap.png" alt="Source Code Minimap"></p>
+<p>Links neben der normalen Scrollbar befindet sich in den meisten Editoren die <code>Source Code Minimap</code>.</p>
+<p>Diese Minimap ist eine zusätzliche Scrollbar, die den Source Code schemenhaft aufbereitet und somit große zusammenhängende Codeblöcke optisch einfacher erkennbar macht. Zusätzlich zeigt sie den gerade angezeigten Codeausschnitt an, wenn sich die Maus über der Minimap befindet.</p>
+<p>Sie kann auch als normale Scrollbar verwendet werden. Durch ihre größere Breite ist sie mit der Maus schlichtweg &quot;einfacher zu treffen&quot;.</p>
+<p>In Code-Editoren, die aus dem Kontext heraus niemals langen Code anzeigen, ist die Minimap deaktiviert, da hier der Nutzen nicht gegeben ist.</p>
+<h2 id="code-folding">Code Folding</h2>
+<p>Abhängig von der angezeigten Programmiersprache kann der Code an bestimmten Stellen für eine bessere Übersicht zusammengeklappt werden. Nachfolgend ein Beispiel in einem C# Editor:</p>
+<p><img src="media/folding.png" alt="Code Folding"></p>
+<p>Wir empfehlen einen Blick in die <a href="#command-palette">Command Palette</a> zu werfen, da dort sehr viele weitere <code>Code Folding</code> Aktionen inkl. Shortcuts aufgeführt sind, wie z.B. <code>Fold</code> oder <code>Unfold All</code>. Welche Codeblöcke zusammengeklappt werden können, wird durch einen kleinen Pfeil sichtbar, wenn sich die Maus über dem Bereich der Zeilennummern befindet. In den unterschiedlichen Sprachen können unterschiedliche Codeblöcke zusammengeklappt werden, diese sind im Folgenen aufgeführt:</p>
+<h3 id="c">C#</h3>
+<ul>
+<li><code>#region</code> / <code>#endregion</code></li>
+<li>Jeder mehrzeilige Codeblock beginnend mit einer geschweiften Klammer <code>{</code>, z.B. <code>if</code>, <code>while</code> oder eine Methode</li>
+</ul>
+<h3 id="docml">DocML</h3>
+<ul>
+<li><code>[section]</code> und <code>[/section]</code></li>
+<li><code>[lst]</code> und <code>[/lst]</code></li>
+<li><code>[tbl]</code> und <code>[/tbl]</code></li>
+<li><code>[coldef]</code> und <code>[/coldef]</code></li>
+<li><code>[row]</code> und <code>[/row]</code></li>
+</ul>
+<h3 id="html">HTML</h3>
+<ul>
+<li>Alle HTML-Tags, die einen Inhalt besitzen, z.B. <code>&lt;body&gt;</code>, <code>&lt;div&gt;</code> oder <code>&lt;ul&gt;</code></li>
+</ul>
+<h3 id="css">CSS</h3>
+<ul>
+<li>Alle CSS-Selektoren mit geschweiften Klammern <code>{</code></li>
+</ul>
+<h2 id="single-line-copy">Single Line Copy</h2>
+<p>Sehr oft kommt es vor, dass der komplette Inhalt einer bestimmten Zeile kopiert werden soll. Normalerweise muss hierfür die gesamte Zeile markiert und z.B. mit <code>CTRL + C</code> kopiert werden.</p>
+<p>Diese Herangehensweise ist mit dem neuen Monaco Editor nicht mehr notwendig. Um eine Zeile zu kopieren muss sich nur der Cursor in der gewünschten Zeile befinden und <code>CTRL + C</code> gedrückt werden. Diese Funktion ist in jedem Editor verfügbar.</p>
+<p>Es ist zu beachten, dass <code>Single Line Copy</code> nur funktioniert, wenn keine Selektion in der Zeile getätigt wurde, da ansonsten nur die Selektion kopiert wird.</p>
+<h2 id="bracket--vertical-guides">Bracket &amp; Vertical Guides</h2>
+<p>Um mit dem Auge eine bessere und schnellere Übersicht zu erhalten, in welchem Kontext sich der Cursor befindet, bietet jeder Code-Editor <code>Bracket &amp; Vertical Guides</code>.</p>
+<p><img src="media/guides.png" alt="Guides"></p>
+<h3 id="bracket-guides">Bracket Guides</h3>
+<p>Befindet sich der Cursor innerhalb von Klammern, z.B. <code>()</code> oder <code>{}</code> im C# oder <code>&lt;&gt;</code> im HTML, so werden die nächstgelegenen Klammerpaare optisch hervorgehoben. Bei Code-Konstrukten, die mehrere verschachtelte Klammerpaare haben, ist so immer ersichtlich, welcher Block zur aktuellen Cursorposition gehört.</p>
+<h3 id="vertical-guides">Vertical Guides</h3>
+<p>Hat der Source Code mehrere Einrückungen nach rechts, so werden für zusammenhängende Codeblöcke vertikale Linien angezeigt. So ist die Zuordnung der öffnenden und schließenden Klammer eines Codeblocks auf der vertikalen Achse für das Auge einfacher zu greifen.</p>
+<h2 id="find--replace">Find &amp; Replace</h2>
+<p>Der Code-Editor hat einen integrierten Dialog für <code>Find &amp; Replace</code>, welcher über <code>CTRL + F</code> (Find) oder <code>CTRL + H</code> (Replace) aufgerufen werden kann.</p>
+<p><img src="media/find-replace.png" alt="Find &amp; Replace"></p>
+<p>Mit dem Pfeil links im Dialog kann zwischen den beiden Modi umgeschaltet werden.</p>
+<h2 id="multi-cursor-support">Multi-Cursor Support</h2>
+<p>Multi-Cursor Support ist ein sehr mächtiges Feature im Code-Editor. Es erlaubt das Selektieren und Manipulieren von Text an mehreren Stellen im Code gleichzeitig. Dabei gibt es mehrere Möglichkeiten diesen Änderungsmodus zu aktivieren. Diese werden im Folgenden näher erklärt.</p>
+<h3 id="selektion-mit-mittlerer-maustaste">Selektion mit mittlerer Maustaste</h3>
+<p><img src="media/multi-cursor.png" alt="Multi-Cursor"></p>
+<p>Die Selektion im Bild wurde mit der mittleren Maustaste (anstatt mit der linken Maustaste) getätigt. Dies hat zur Folge, dass für jede Zeile ein neuer Cursor erstellt wird.</p>
+<p>Anschließend kann wie gewohnt mit den Pfeiltasten navigiert, Text gelöscht oder normal getippt werden. Alle Aktionen erfolgen an jedem Cursor einzeln.</p>
+<h3 id="nächstes-duplikat-zur-selektion-hinzufügen">Nächstes Duplikat zur Selektion hinzufügen</h3>
+<p>Die Aktion <code>Add Selection To Next Find Match</code>, ausgelöst durch den Shortcut <code>CTRL + D</code>, sucht ausgehend von der derzeitigen Selektion das nächste Duplikat und fügt dieses als Multi-Cursor-Selektion zur Auswahl hinzu.</p>
+<p><img src="media/add-duplicate.png" alt="Add Duplicate"></p>
+<p>Die Auswahl im Bild kommt folgendermaßen zustande:</p>
+<ol>
+<li>Doppelklick auf <code>int</code> in Zeile 3 um das Wort zu markieren</li>
+<li>4x <code>CTRL + D</code> ausführen</li>
+</ol>
+<p>Diese Art der Multi-Selektion ist dann von Vorteil, wenn die zu ändernden Wörter über den gesamten Code verteilt sind und durch anderen Code unterbrochen werden. Dies macht eine Selektion mit der mittleren Maustaste unmöglich.</p>
+<h3 id="alle-duplikate-ändern">Alle Duplikate ändern</h3>
+<p>Ist ein Wort im Code selektiert, so können mit der Aktion <code>Select All Occurances</code> (<code>CTRL + F2</code>) alle äquivalenten Wörter im Code selektiert und per Multi-Cursor manipuliert werden.</p>
+<p><img src="media/all-occurances.png" alt="All Occurances"></p>
+<p>Für die Selektion im Bild wurde <code>int</code> in Zeile 3 selektiert und anschließend <code>CTRL + F2</code> ausgeführt. Zu beachte ist, dass im Gegensatz zum 4-maligen Ausführen von <code>CTRL + D</code> auch das <code>int</code> in Zeile 1 markiert wurde.</p>
+<p>An welcher Stelle die initiale Selektion stattfindet, ist also nicht von Bedeutung. Es wird immer der gesamte Code nach Duplikaten durchsucht.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

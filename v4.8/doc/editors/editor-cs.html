@@ -1,84 +1,90 @@
-﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>C# Editor </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="C# Editor ">
-    <meta name="generator" content="docfx 2.56.2.0">
-    
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <link rel="stylesheet" href="../../styles/fs-docfx.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
-    
-    <meta property="docfx:rel" content="../../">
-    
+      <title>C# Editor </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="C# Editor ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/docs/doc/editors/editor-cs.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" class="svg" src="../../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
-        
-        <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+
+        <article data-uid="">
 <h1 id="c-editor">C# Editor</h1>
 
 <p>Der C#-Editor kommt unter anderem bei Properties, Methoden und Code-Klassen zum Einsatz. In den folgenden Kapiteln werden einige Features näher betrachtet und erläutert.</p>
@@ -96,7 +102,7 @@
 <p><img src="media/cs-intellisense-filter-camel.png" alt="Camel-Case Filter"></p>
 <p>Im Beispiel wird <code>AUHS</code> getippt (muss nicht zwingend groß geschrieben werden) und der erste Treffer ist der <code>AccessUnitHierarchySerializer</code>. Somit ist das Ausschreiben langer Symbolnamen in den meisten Fällen nicht nötig.</p>
 <h3 id="word-filter">Word Filter</h3>
-<p>Der <code>Word Filter</code> sucht in der Ergebnisliste nach Teilwörtern. </p>
+<p>Der <code>Word Filter</code> sucht in der Ergebnisliste nach Teilwörtern.</p>
 <p><img src="media/cs-intellisense-filter-words.png" alt="Word Filter"></p>
 <p>Im Beispiel könnte ein Programmierer z.B. wissen, dass der Name der gesuchten Klasse mit <code>Access</code> beginnt und mit <code>Serializer</code> endet. Nach dem Tippen von <code>accessseri</code> findet der Filter den entsprechenden Eintrag und bietet den <code>AccessUnitHierarchySerializer</code> an.</p>
 <h3 id="tooltip-toggle">Tooltip Toggle</h3>
@@ -127,15 +133,21 @@
 <p>Befindet sich die Maus im Source Code über einem Symbol (z.B. Klasse, Property, Methode, usw.), so wird ein Tooltip mit allen kontextabhängigen Informationen zu diesem Symbol angezeigt.</p>
 <p><img src="media/cs-hover.png" alt="Hover Tooltip"></p>
 <p>Im Beispiel befindet sich der Mauszeiger (nicht vom Screenshot erfasst) über der Methode <code>DoStuff</code>.</p>
-<div class="NOTE"><h5>Note</h5><p>In manchen Editoren, wie z.B. der Anzeige des generierten Codes, ist diese Funktionalität deaktiviert.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In manchen Editoren, wie z.B. der Anzeige des generierten Codes, ist diese Funktionalität deaktiviert.</p>
 </div>
 <h3 id="diagnostics">Diagnostics</h3>
 <p>Beim Programmieren wird der Source Code kontinuierlich durch den Roslyn-Compiler geprüft. Werden Fehler oder Unstimmigkeiten entdeckt, so werden diese im Code markiert.</p>
 <p><img src="media/cs-hover-warning.png" alt="Diagnostics"></p>
 <p>Im Beispiel ist die Methode <code>DoStuff(int i, int j)</code> als <code>Obsolete</code> markiert. Sie wird orange unterstrichen und der Hover Tooltip zeigt die entsprechende Information an.</p>
-<div class="NOTE"><h5>Note</h5><p>Fehler und Warnings haben im Hover Tooltip immer die höchste Priorität und werden als erstes angezeigt.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Fehler und Warnings haben im Hover Tooltip immer die höchste Priorität und werden als erstes angezeigt.</p>
 </div>
-<div class="NOTE"><h5>Note</h5><p>In Editoren, die entweder den Status <a href="index.html#checkedin">CheckedIn</a> oder <a href="index.html#readonly">ReadOnly</a> haben, werden keine <code>Diagnostics</code> ausgeführt.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In Editoren, die entweder den Status <a href="index.html#checkedin">CheckedIn</a> oder <a href="index.html#readonly">ReadOnly</a> haben, werden keine <code>Diagnostics</code> ausgeführt.</p>
 </div>
 <h3 id="diagnostics-peeking">Diagnostics Peeking</h3>
 <p>Befindet sich der Cursor auf einem markierten Fehler oder einer Warning im Code, kann mit den Shortcuts <code>ALT + F8</code> vorwärts und <code>SHIFT + ALT + F8</code> rückwärts durch diese gesprungen werden. Dabei wird die Gesamtzahl der sich im Code befindlichen Probleme angezeigt.</p>
@@ -148,7 +160,9 @@
 <p><img src="media/cs-format-new.png" alt="Code Formatting New"></p>
 <h2 id="customize">Customize</h2>
 <p>Wen eine Methode aus dem Basis-Package im C# Editor geöffnet ist und die Möglichkeit besteht das Element (Form, Component, usw.) im aktuellen Package zu customizen, dann kann dies entweder über den Eintrag <code>Customize</code> im Kontextmenü oder über den Shortcut <code>CTRL + T</code> angestoßen werden.</p>
-<div class="NOTE"><h5>Note</h5><p>Die zu customizende Methode muss entweder mit <code>virtual</code> oder <code>override</code> deklariert sein.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die zu customizende Methode muss entweder mit <code>virtual</code> oder <code>override</code> deklariert sein.</p>
 </div>
 <h2 id="go-to-definition">Go To Definition</h2>
 <p>Der C# Editor erlaubt es über verschiedene Wege zur Definition eines Elements im Code zu springen.</p>
@@ -157,7 +171,9 @@
 <p>Im Hintergrund wird abgefragt, ob zu diesem Element überhaupt gesprungen werden kann. Im Beispiel befindet sich der Mauszeiger bei gedrückter <code>CTRL</code>-Taste über der Methode <code>DoStuff</code>.</p>
 <p>Im <a href="#hover-tooltip">Hover Tooltip</a> erscheint nun die Information <code>Click to open App.frmApp.DoStuff</code>. Zusätzlich wird das Wort <code>DoStuff</code> im Code als blauer Link dargestellt. Dies signalisiert zusätzlich, dass nun durch einen Click mit der linken Maustaste zur Definition gesprungen werden kann.</p>
 <p>Wenn sich der Cursor im Editor innerhalb des Wortes <code>DoStuff</code> befindet oder das gesamte Wort selektiert ist, so kann auch ohne Maus mit dem Shortcut <code>CTRL + F12</code> oder über das Kontextmenü <code>Go To Definition</code> zur Definition gesprungen werden.</p>
-<div class="NOTE"><h5>Note</h5><p><code>Go To Definition</code> funktioniert grundsätzlich mit Elementen (Methoden, Properties, usw.) aus Framework Studio, jedoch nicht mit Bibliotheken von Drittanbietern oder dem .NET Framework selbst.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>Go To Definition</code> funktioniert grundsätzlich mit Elementen (Methoden, Properties, usw.) aus Framework Studio, jedoch nicht mit Bibliotheken von Drittanbietern oder dem .NET Framework selbst.</p>
 </div>
 <h2 id="go-to-base">Go To Base</h2>
 <p>Wenn eine überschriebene Methode im C# Editor geöffnet ist, die ihren Ursprung in einem Basis-Package hat, kann über den Eintrag <code>Go To Base</code> im Kontextmenü oder über den Shortcut <code>CTRL + B</code> zu dieser Basis gesprungen werden.</p>
@@ -167,35 +183,27 @@
 <p>Über den Eintrag <code>Method History Browser</code> im Kontextmenü oder über den Shortcut <code>CTRL + SHIFT + M</code> kann für die aktuell angezeigte Methode der <a href="../ide/allgemeine-funktionalitaeten.html#method-history-browser">Method History Browser</a> aufgerufen werden.</p>
 <h2 id="code-snippet-editor">Code Snippet Editor</h2>
 <p>Über den Eintrag <code>Edit Code Snippets</code> oder über den Shortcut <code>CTRL + SHIFT + J</code> kann der <a href="../ide/tools-menu.html#code-snippets-editor">Code Snippet Editor</a> geöffnet werden.</p>
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
-            </div>
-          </div>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../styles/main.js"></script>
+    </footer>
   </body>
 </html>

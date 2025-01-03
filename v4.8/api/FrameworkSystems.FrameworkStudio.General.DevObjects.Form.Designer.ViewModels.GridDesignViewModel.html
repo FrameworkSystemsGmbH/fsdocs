@@ -1,109 +1,137 @@
-﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class GridDesignViewModel
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class GridDesignViewModel
-   ">
-    <meta name="generator" content="docfx 2.56.2.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/fs-docfx.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <title>Class GridDesignViewModel </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GridDesignViewModel ">
+      
+      <meta name="description" content="Diese Klasse repr&#228;sentiert das Control Grid. Die Properties und Events dieser Klasse werden im Form-Designer angeboten.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/new/4.8/dev/apiSpec/new?filename=FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel.md&amp;value=---%0Auid%3A%20FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
-        
-        <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel">
-  
-  
-  <h1 id="FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel" data-uid="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel" class="text-break">Class GridDesignViewModel
+
+        <article data-uid="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel">
+
+
+
+  <h1 id="FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel" data-uid="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel" class="text-break">
+Class GridDesignViewModel  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/fs/FrameworkStudio.General/DevObjects/Form/Designer/ViewModels/GridDesignViewModel.cs/#L25"><i class="bi bi-code-slash"></i></a>
   </h1>
-  <div class="markdown level0 summary"><p>Diese Klasse repräsentiert das Control <a href="../doc/form/control/grid.html">Grid</a>.
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="FrameworkSystems.html">FrameworkSystems</a>.<a class="xref" href="FrameworkSystems.FrameworkStudio.html">FrameworkStudio</a>.<a class="xref" href="FrameworkSystems.FrameworkStudio.General.html">General</a>.<a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.html">DevObjects</a>.<a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.html">Form</a>.<a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.html">Designer</a>.<a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.html">ViewModels</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>FrameworkSystems.FrameworkStudio.General.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Diese Klasse repräsentiert das Control <a href="../doc/form/control/grid.html">Grid</a>.
 Die Properties und Events dieser Klasse werden im Form-Designer angeboten.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ControlTreeNode.html">ControlTreeNode</a></div>
-    <div class="level2"><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.html">ControlDesignViewModel</a></div>
-    <div class="level3"><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ContainerDesignViewModel.html">ContainerDesignViewModel</a></div>
-    <div class="level4"><span class="xref">GridDesignViewModel</span></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class GridDesignViewModel : ContainerDesignViewModel, INotifyPropertyChanged, IDisposable</code></pre>
   </div>
-  <div classs="implements">
-    <h5>Implements</h5>
-    <div><span class="xref">System.ComponentModel.INotifyPropertyChanged</span></div>
-    <div><span class="xref">FrameworkSystems.FrameworkDataProvider.BaseObjects.INamedRecord</span></div>
-  </div>
-  <div class="inheritedMembers">
-    <h5>Inherited Members</h5>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ControlTreeNode.html">ControlTreeNode</a></div>
+      <div><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.html">ControlDesignViewModel</a></div>
+      <div><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ContainerDesignViewModel.html">ContainerDesignViewModel</a></div>
+      <div><span class="xref">GridDesignViewModel</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a></div>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
     <div>
       <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ContainerDesignViewModel.GenerateDocSection.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ContainerDesignViewModel_GenerateDocSection">ContainerDesignViewModel.GenerateDocSection</a>
     </div>
@@ -203,170 +231,237 @@ Die Properties und Events dieser Klasse werden im Form-Designer angeboten.</p>
     <div>
       <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ControlTreeNode.Name.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ControlTreeNode_Name">ControlTreeNode.Name</a>
     </div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.html">FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels</a></h6>
-  <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkStudio.General.dll</h6>
-  <h5 id="FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_syntax">Syntax</h5>
-  <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[DocfxBrowsable]
-public class GridDesignViewModel : ContainerDesignViewModel, INotifyPropertyChanged, IDisposable, INamedRecord</code></pre>
-  </div>
-  <h3 id="properties">Properties
-  </h3>
-  
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.BackColor2.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_BackColor2">BackColor2</a></h4>
-    <section><p><p>Bestimmt die zeilenweise alternierende Hintergrundfarbe einer Tabelle. Für den Hintergrund der
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.BackColor2.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_BackColor2">BackColor2</a></dt>
+    <dd><p>Bestimmt die zeilenweise alternierende Hintergrundfarbe einer Tabelle. Für den Hintergrund der
 Grid-Zeilen wird abwechselnd BackColor und BackColor2 verwendet. Wenn keine Farbe
 angegeben ist, dann wird für alle Grid-Zeilen die BackColor verwendet</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.DataSource.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_DataSource">DataSource</a></h4>
-    <section><p><p>Gibt den Datasource an, dessen Daten im Grid angezeigt werden sollen.
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.DataSource.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_DataSource">DataSource</a></dt>
+    <dd><p>Gibt den Datasource an, dessen Daten im Grid angezeigt werden sollen.
 Es ist wichtig, dass Sie hier eine Collection angeben.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.GridColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_GridColor">GridColor</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.GridRowHeight.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_GridRowHeight">GridRowHeight</a></h4>
-    <section><p><p>Definiert die Höhe einer Zeile. Die Angabe erfolgt in Pixeln.
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.GridColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_GridColor">GridColor</a></dt>
+    <dd></dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.GridRowHeight.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_GridRowHeight">GridRowHeight</a></dt>
+    <dd><p>Definiert die Höhe einer Zeile. Die Angabe erfolgt in Pixeln.
 Wenn kein Wert angegeben ist, dann berechnet der Client die
 Höhe der Zeile anhand der Schriftart.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.HeaderColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_HeaderColor">HeaderColor</a></h4>
-    <section><p><p>Gibt die Hintergrundfarbe der Tabellenüberschrift an.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.IsEditable.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_IsEditable">IsEditable</a></h4>
-    <section><p><p>Gibt an, ob am Grid Daten geändert werden dürfen. Ist <strong>IsEditable</strong>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.HeaderColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_HeaderColor">HeaderColor</a></dt>
+    <dd><p>Gibt die Hintergrundfarbe der Tabellenüberschrift an.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.IsEditable.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_IsEditable">IsEditable</a></dt>
+    <dd><p>Gibt an, ob am Grid Daten geändert werden dürfen. Ist <strong>IsEditable</strong>
 auf False gesetzt, wirkt sichdas auf alle Columns aus – egal, was
 dort angegeben ist.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.MainMemorySortingThreshold.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_MainMemorySortingThreshold">MainMemorySortingThreshold</a></h4>
-    <section><p><p>Grids bieten grundsätzlich die Möglichkeit, die dargestellten Daten nach einer Spalte zu sortieren
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.MainMemorySortingThreshold.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_MainMemorySortingThreshold">MainMemorySortingThreshold</a></dt>
+    <dd><p>Grids bieten grundsätzlich die Möglichkeit, die dargestellten Daten nach einer Spalte zu sortieren
 oder zu filtern. Dazu stehen zwei Mechanismen (<strong>Datenbanksortierung</strong> und
 <strong>Hauptspeichersortierung</strong>) zur Verfügung.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.Multiselect.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_Multiselect">Multiselect</a></h4>
-    <section><p><p>Gibt an, ob mehrere Zeilen ausgewählt werden können. Bei False kann nur maximal eine Zeile
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.Multiselect.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_Multiselect">Multiselect</a></dt>
+    <dd><p>Gibt an, ob mehrere Zeilen ausgewählt werden können. Bei False kann nur maximal eine Zeile
 ausgewählt werden. Bei True ist die Auswahl mehrerer Zeilen möglich. Welche Zeilen ausgewählt
 sind, lässt sich in der SelectRowsCollection auswerten und setzen
 (siehe Property <a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.SelectedRows.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_SelectedRows">SelectedRows</a>).</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.NewRowIcon.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_NewRowIcon">NewRowIcon</a></h4>
-    <section><p><p>Pfad für ein Icon, das im Row-Header angezeigt wird, wenn die Zeile neu hinzugefügt wurde. Das
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.NewRowIcon.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_NewRowIcon">NewRowIcon</a></dt>
+    <dd><p>Pfad für ein Icon, das im Row-Header angezeigt wird, wenn die Zeile neu hinzugefügt wurde. Das
 Icon wird angezeigt, wenn an dem Objekt der Zeile (Component) das Property <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.State.html#FS_Hosting_Shared_IDevFrameworkObject_State">State</a>
-den Wert <a class="xref" href="FS.Hosting.Shared.FrameworkComponentState.New.html">New</a> hat.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.RowChangedIcon.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_RowChangedIcon">RowChangedIcon</a></h4>
-    <section><p><p>Pfad für ein Icon, das im Row-Header angezeigt wird, wenn die Zeile geändert wurde. Das Icon
+den Wert <a class="xref" href="FS.Hosting.Shared.FrameworkComponentState.html#FS_Hosting_Shared_FrameworkComponentState_New">New</a> hat.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.RowChangedIcon.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_RowChangedIcon">RowChangedIcon</a></dt>
+    <dd><p>Pfad für ein Icon, das im Row-Header angezeigt wird, wenn die Zeile geändert wurde. Das Icon
 wird angezeigt, wenn an dem Objekt der Zeile (Component) das Property <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.State.html#FS_Hosting_Shared_IDevFrameworkObject_State">State</a>
-den Wert <a class="xref" href="FS.Hosting.Shared.FrameworkComponentState.Changed.html">Changed</a> hat.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.RowDeletedIcon.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_RowDeletedIcon">RowDeletedIcon</a></h4>
-    <section><p><p>Pfad für ein Icon, das im Row-Header angezeigt wird, wenn die Zeile zum Löschen markiert
+den Wert <a class="xref" href="FS.Hosting.Shared.FrameworkComponentState.html#FS_Hosting_Shared_FrameworkComponentState_Changed">Changed</a> hat.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.RowDeletedIcon.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_RowDeletedIcon">RowDeletedIcon</a></dt>
+    <dd><p>Pfad für ein Icon, das im Row-Header angezeigt wird, wenn die Zeile zum Löschen markiert
 wurde. Das Icon wird angezeigt, wenn an dem Objekt der Zeile (Component) das Property
 <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.StateBeforeUpdate.html#FS_Hosting_Shared_IDevFrameworkObject_StateBeforeUpdate">StateBeforeUpdate</a> den Wert <code>true</code> hat.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.RowHeader.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_RowHeader">RowHeader</a></h4>
-    <section><p><p>Bestimmt, ob im Row-Header die Zeilennummer oder der Status des Rows angezeigt wird.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.RowHeaderWidth.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_RowHeaderWidth">RowHeaderWidth</a></h4>
-    <section><p><p>Höhe der Spalten.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.SelectedRows.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_SelectedRows">SelectedRows</a></h4>
-    <section><p><p>Hier kann ein Form Property zugeordnet werden, das sich merkt, welche Zeilen im Grid markiert
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.RowHeader.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_RowHeader">RowHeader</a></dt>
+    <dd><p>Bestimmt, ob im Row-Header die Zeilennummer oder der Status des Rows angezeigt wird.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.RowHeaderWidth.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_RowHeaderWidth">RowHeaderWidth</a></dt>
+    <dd><p>Höhe der Spalten.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.SelectedRows.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_SelectedRows">SelectedRows</a></dt>
+    <dd><p>Hier kann ein Form Property zugeordnet werden, das sich merkt, welche Zeilen im Grid markiert
 sind. Dieses Property muss vom Typ <a class="xref" href="FS.Hosting.Shared.SelectedRowsCollection.html">SelectedRowsCollection</a> sein. Diese
 Collection enthält guids.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.ShowHorizontalLines.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_ShowHorizontalLines">ShowHorizontalLines</a></h4>
-    <section><p><p>Gibt an, ob die horizontalen Rasterlinien in einem Grid angezeigt werden sollen oder nicht.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.ShowVerticalLines.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_ShowVerticalLines">ShowVerticalLines</a></h4>
-    <section><p><p>Gibt an, ob die vertikalen Rasterlinien in einem Grid angezeigt werden sollen oder nicht.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.TransferReloadRowCount.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_TransferReloadRowCount">TransferReloadRowCount</a></h4>
-    <section><p><p>Definiert, wie viele Zeilen nachgelesen werden, wenn in der Tabelle in den entsprechenden
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.ShowHorizontalLines.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_ShowHorizontalLines">ShowHorizontalLines</a></dt>
+    <dd><p>Gibt an, ob die horizontalen Rasterlinien in einem Grid angezeigt werden sollen oder nicht.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.ShowVerticalLines.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_ShowVerticalLines">ShowVerticalLines</a></dt>
+    <dd><p>Gibt an, ob die vertikalen Rasterlinien in einem Grid angezeigt werden sollen oder nicht.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.TransferReloadRowCount.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_TransferReloadRowCount">TransferReloadRowCount</a></dt>
+    <dd><p>Definiert, wie viele Zeilen nachgelesen werden, wenn in der Tabelle in den entsprechenden
 Bereich gescrollt wurde. Bei 0 werden alle Zeilen zurückgegeben.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.TransferStartupRowCount.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_TransferStartupRowCount">TransferStartupRowCount</a></h4>
-    <section><p><p>Definiert, wie viele Zeilen bei einem Load zunächst an den Client zurückgegeben werden. Bei <strong>0</strong>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.TransferStartupRowCount.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_TransferStartupRowCount">TransferStartupRowCount</a></dt>
+    <dd><p>Definiert, wie viele Zeilen bei einem Load zunächst an den Client zurückgegeben werden. Bei <strong>0</strong>
 werden alle Zeilen zurückgegeben. Es wird nicht empfohlen, sich standardmäßig alle Zeilen
 zurückgeben zu lassen, da dies bei großen Datenmengen zu starker Belastung des Clients und
 des Webservers kommt. Es ist deshalb besser, sich zunächst einen Block zurückgeben zu lassen
 und bei Bedarf die Daten dynamisch nachlesen zu lassen.</p>
-</p></section>
-  
-  <h3 id="events">Events
-  </h3>
-  
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnAppendNewRow.html">OnAppendNewRow</a></h4>
-    <section><p><p>Dieser Vorgang wird ausgelöst, wenn in der letzten Zeile im
+</dd>
+  </dl>
+
+  <h2 class="section" id="events">Events
+</h2>
+
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnAppendNewRow.html">OnAppendNewRow</a></dt>
+    <dd><p>Dieser Vorgang wird ausgelöst, wenn in der letzten Zeile im
 letzten editierbaren Feld die Tab-Taste gedrückt wird.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnCellDoubleClick.html">OnCellDoubleClick</a></h4>
-    <section><p><p>Tritt auf, wenn doppelt in eine Gridzelle (nicht RowHeader und nicht ColumnHeader) geklickt
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnCellDoubleClick.html">OnCellDoubleClick</a></dt>
+    <dd><p>Tritt auf, wenn doppelt in eine Gridzelle (nicht RowHeader und nicht ColumnHeader) geklickt
 wurde. Das Event Argument stellt Spaltennummer (<a class="xref" href="FS.Hosting.Broker.Shared.EventTab.FrameworkCellDoubleClickEventArgs.ColNum.html#FS_Hosting_Broker_Shared_EventTab_FrameworkCellDoubleClickEventArgs_ColNum">ColNum</a>)
 und Datensatznummer (<a class="xref" href="FS.Hosting.Broker.Shared.EventTab.FrameworkDoubleClickEventArgs.RowID.html#FS_Hosting_Broker_Shared_EventTab_FrameworkDoubleClickEventArgs_RowID">RowID</a>) zur Verfügung.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnColumnChanged.html">OnColumnChanged</a></h4>
-    <section><p><p>Wird ausgelöst, wenn sich der Inhalt einer Spalte geändert hat.
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnColumnChanged.html">OnColumnChanged</a></dt>
+    <dd><p>Wird ausgelöst, wenn sich der Inhalt einer Spalte geändert hat.
 Sie können über das EventArg e.RowID das Objekt ermitteln,
 bei dem das Event aufgetreten ist.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnGridCornerClick.html">OnGridCornerClick</a></h4>
-    <section><p><p>Tritt auf, wenn bei sichtbarer RowHeader-Spalte in die linke, obere Ecke geklickt wurde.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnGridCornerDoubleClick.html">OnGridCornerDoubleClick</a></h4>
-    <section><p><p>Tritt auf, wenn bei sichtbarer RowHeader-Spalte doppelt in die linke, obere Ecke geklickt wurde.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnRowClick.html">OnRowClick</a></h4>
-    <section><p><p>Tritt auf, wenn auf die Zeile geklickt wurde.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnRowDoubleClick.html">OnRowDoubleClick</a></h4>
-    <section><p><p>Tritt auf, wenn auf die Zeile doppelt geklickt wurde.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnRowSelectionChanged.html">OnRowSelectionChanged</a></h4>
-    <section><p><p>Tritt auf, wenn sich die Selektion im Grid ändert - auch bei Deselektion von Datensätzen.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnGridCornerClick.html">OnGridCornerClick</a></dt>
+    <dd><p>Tritt auf, wenn bei sichtbarer RowHeader-Spalte in die linke, obere Ecke geklickt wurde.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnGridCornerDoubleClick.html">OnGridCornerDoubleClick</a></dt>
+    <dd><p>Tritt auf, wenn bei sichtbarer RowHeader-Spalte doppelt in die linke, obere Ecke geklickt wurde.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnRowClick.html">OnRowClick</a></dt>
+    <dd><p>Tritt auf, wenn auf die Zeile geklickt wurde.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnRowDoubleClick.html">OnRowDoubleClick</a></dt>
+    <dd><p>Tritt auf, wenn auf die Zeile doppelt geklickt wurde.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnRowSelectionChanged.html">OnRowSelectionChanged</a></dt>
+    <dd><p>Tritt auf, wenn sich die Selektion im Grid ändert - auch bei Deselektion von Datensätzen.</p>
 <p>Wenn dem Grid eine <a class="xref" href="FS.Hosting.Shared.SelectedRowsCollection.html">SelectedRowsCollection</a> zugeordnet ist, wird diese durch das Event
 aktualisiert.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnRowsReloadEntry.html">OnRowsReloadEntry</a></h4>
-    <section><p><p>Tritt auf, wenn Grid-Zeilen erstmalig an den Client übertragen werden,
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnRowsReloadEntry.html">OnRowsReloadEntry</a></dt>
+    <dd><p>Tritt auf, wenn Grid-Zeilen erstmalig an den Client übertragen werden,
 sowohl bei der initialien Übertragung als auch beim Nachladen von Zeilen.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnTableValidate.html">OnTableValidate</a></h4>
-    <section><p></section>
-  
-  <h3 id="seealso">See Also</h3>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.OnTableValidate.html">OnTableValidate</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h2 id="seealso">See Also</h2>
   <div class="seealso">
       <div><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.html">GridControlAction</a></div>
   </div>
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
-            </div>
-          </div>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    </footer>
   </body>
 </html>

@@ -1,84 +1,90 @@
-﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Forms </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Forms ">
-    <meta name="generator" content="docfx 2.56.2.0">
-    
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <link rel="stylesheet" href="../../styles/fs-docfx.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
-    
-    <meta property="docfx:rel" content="../../">
-    
+      <title>Forms </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Forms ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/docs/doc/form/designer.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" class="svg" src="../../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
-        
-        <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+
+        <article data-uid="">
 <h1 id="forms">Forms</h1>
 
 <p>Der <strong>Form-Designer</strong> ist ein Tool, ähnlich dem Designer in Visual Studio, in dem Sie Controls per Drag &amp; Drop auf einem Form positionieren und mit Funktionalität beleben können. Er wird entweder durch einen Doppelklick auf ein entsprechendes Form-Element auf der Registerkarte <strong>Namespaces</strong> oder durch das Erstellen eines neuen Form-Elements geöffnet.</p>
@@ -97,11 +103,11 @@
 <p><img src="media/form-designer-toolbox.png" alt="Form Designer Registerkarte Toolbox"></p>
 <h3 id="registerkarte-property">Registerkarte Property</h3>
 <p><img src="media/form-designer-tab-properties.png" alt="Registerkarte Property"></p>
-<p>Auf der Registerkarte <strong>Property</strong> können Sie die einzelnen Properties des Forms bearbeiten. 
-Wählen Sie dazu das gewünschte Property aus der Tabelle aus, oder doppelklicken Sie auf das entsprechende Property auf der Registerkarte <strong>ClassView</strong>. 
+<p>Auf der Registerkarte <strong>Property</strong> können Sie die einzelnen Properties des Forms bearbeiten.
+Wählen Sie dazu das gewünschte Property aus der Tabelle aus, oder doppelklicken Sie auf das entsprechende Property auf der Registerkarte <strong>ClassView</strong>.
 Sie können die Properties sortieren, indem Sie auf die Spaltenüberschrift des gewünschten Sortierkriteriums klicken.</p>
-<p>Neue Properties können Sie über <strong>New / Public Property</strong> bzw. <strong>New / Protected Property</strong> im Kontextmenü, im Menü des Form Designers oder über den entsprechenden Button anlegen. 
-Alternativ dazu können Sie auch eine Component aus dem Namespace Treeview in die Tabelle ziehen. 
+<p>Neue Properties können Sie über <strong>New / Public Property</strong> bzw. <strong>New / Protected Property</strong> im Kontextmenü, im Menü des Form Designers oder über den entsprechenden Button anlegen.
+Alternativ dazu können Sie auch eine Component aus dem Namespace Treeview in die Tabelle ziehen.
 Dadurch wird automatisch ein Property vom Typ der Component angelegt.</p>
 <p>Um ein Property zu löschen, wählen Sie <strong>Delete</strong> entweder aus dem Kontextmenü des Properties in der Tabelle oder im Class View.</p>
 <h4 id="name">Name</h4>
@@ -140,7 +146,7 @@ Dadurch wird automatisch ein Property vom Typ der Component angelegt.</p>
 <p><a href="../ide/bearbeiten-von-elementen.html#elemente-bearbeiten">Elemente bearbeiten</a></p>
 <p><a href="#design-des-forms">Design des Forms</a></p>
 <h3 id="löschen-eines-forms">Löschen eines Forms</h3>
-<p><a href="../ide/bearbeiten-von-elementen.html#elemente-löschen">Elemente löschen</a></p>
+<p><a href="../ide/bearbeiten-von-elementen.html#elemente-l%C3%B6schen">Elemente löschen</a></p>
 <h2 id="design-des-forms">Design des Forms</h2>
 <p>Gestaltet wird das Form auf der Registerkarte <strong>DefaultVariant</strong>.</p>
 <p>Um Controls auf dem Formular zu erstellen, gibt es mehrere Möglichkeiten:</p>
@@ -158,7 +164,8 @@ Dadurch wird automatisch ein Property vom Typ der Component angelegt.</p>
 {
     this.SetDialogPlacement(1); // Absolute
 }
-</code></pre><p>Die Action nimmt einen Integer zwischen 0 und 2 als Parameter:</p>
+</code></pre>
+<p>Die Action nimmt einen Integer zwischen 0 und 2 als Parameter:</p>
 <ul>
 <li>0 = None</li>
 <li>1 = Absolute</li>
@@ -170,17 +177,21 @@ Dadurch wird automatisch ein Property vom Typ der Component angelegt.</p>
 <p>Der JavaClient speichert sich die absolute Position und Größe aller modalen Dialoge beim Schließen. Die Dialoge werden genau an der Stelle geöffnet, an der sie geschlossen wurden.</p>
 <h4 id="relative">Relative</h4>
 <p>Der JavaClient speichert sich die relative Position der modalen Dialoge, bezogen auf die Position der Anwendung und die Größe. Die Dialoge werden relativ zur Anwendung wieder geöffnet.</p>
-<div class="NOTE"><h5>Note</h5><p>Der JavaClient speichert sich den per <code>SetDialogPlacement()</code> übergebenen Wert <strong>NICHT</strong>. Es muss von der Anwendung aus bei jedem Start die Action aufgerufen werden (z.B. beim Laden des ersten Formulars der Anwendung).</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Der JavaClient speichert sich den per <code>SetDialogPlacement()</code> übergebenen Wert <strong>NICHT</strong>. Es muss von der Anwendung aus bei jedem Start die Action aufgerufen werden (z.B. beim Laden des ersten Formulars der Anwendung).</p>
 </div>
 <h3 id="settooltipdelaysint-initialdelay-int-dismissdelay">SetToolTipDelays(int initialDelay, int dismissDelay)</h3>
 <p>Mit dieser Action kann im JavaClient die Anzeigezeit für Tooltips geändert werden. Die Einstellung gilt dann für den gesamten JavaClient. Der Parameter <code>initialDelay</code> gibt die Zeit in Millisekunden an, wie lange es dauert, bis der Tooltip angezeigt wird, nachdem der Mauszeiger über ein Control bewegt wurde. Der Parameter „dismissDelay“ gibt die Zeit in Millisekunden an, wie lange der Tooltip angezeigt werden soll. Die Action ist an der Form-Klasse zu finden.</p>
 <p><strong>Beispiel:</strong></p>
 <pre><code class="lang-csharp">this.SetToolTipDelay(3000, 10000);
-</code></pre><p>Nach diesem Beispiel würde ein Tooltip nach 3 Sekunden eingeblendet werden und dann für 10 Sekunden zu sehen sein.</p>
+</code></pre>
+<p>Nach diesem Beispiel würde ein Tooltip nach 3 Sekunden eingeblendet werden und dann für 10 Sekunden zu sehen sein.</p>
 <p>Soll bei einem Aufruf der Action nur ein Parameter geändert werden, muss der andere mit dem Wert -1 übergeben werden:</p>
 <p><strong>Beispiel:</strong></p>
 <pre><code class="lang-csharp">this.SetToolTipDelay(-1, 10000);
-</code></pre><p>Somit wird nur die Anzeigedauer der Tooltips auf 10 Sekunden geändert.</p>
+</code></pre>
+<p>Somit wird nur die Anzeigedauer der Tooltips auf 10 Sekunden geändert.</p>
 <h3 id="beeplong-length-double-frequency">Beep(long length, double frequency)</h3>
 <p>Erzeugt einen einheitlichen Beep-Ton.</p>
 <h4 id="length">length</h4>
@@ -192,7 +203,8 @@ Dadurch wird automatisch ein Property vom Typ der Component angelegt.</p>
 {
     this.Beep(500, 750);
 }
-</code></pre><p>Dieser Code erzeugt einen Beep-Ton von einer halben Sekunde bei 750Hz.</p>
+</code></pre>
+<p>Dieser Code erzeugt einen Beep-Ton von einer halben Sekunde bei 750Hz.</p>
 <h3 id="beepdoublelong-length1-long-length2-double-frequency1-double-frequency2">BeepDouble(long length1, long length2, double frequency1, double frequency2)</h3>
 <p>Erzeugt einen Ton aus zwei Frequenzen, die hintereinander abgespielt werden. Damit lassen sich z.B. Bestätigungs- oder Fehler-Sounds erstellen.</p>
 <h4 id="length1">length1</h4>
@@ -208,13 +220,15 @@ Dadurch wird automatisch ein Property vom Typ der Component angelegt.</p>
 {
     this.BeepDouble(200, 200, 500, 2000);
 }
-</code></pre><p>Dieser Code erzeugt einen Beep-Ton mit einer Gesamtlänge von 400ms. Die ersten 200ms werden mit 500Hz wiedergegeben, die zweiten 200ms mit 2000Hz. Dies ist ein klassischer Bestätigungs-Sound.</p>
+</code></pre>
+<p>Dieser Code erzeugt einen Beep-Ton mit einer Gesamtlänge von 400ms. Die ersten 200ms werden mit 500Hz wiedergegeben, die zweiten 200ms mit 2000Hz. Dies ist ein klassischer Bestätigungs-Sound.</p>
 <p><strong>Beispiel 2:</strong></p>
 <pre><code class="lang-csharp">protected virtual void FE_btn_OnClick(FrameworkButtonClickEventArgs e)
 {
     this.BeepDouble(200, 350, 1000, 400);
 }
-</code></pre><p>Dieser Code erzeugt einen Beep-Ton mit einer Gesamtlänge von 550ms. Die ersten 200ms werden mit 1000Hz wiedergegeben, die restlichen 350ms mit 400Hz. Dies könnte z.B. ein akustisches Signal bei einem Fehler sein.</p>
+</code></pre>
+<p>Dieser Code erzeugt einen Beep-Ton mit einer Gesamtlänge von 550ms. Die ersten 200ms werden mit 1000Hz wiedergegeben, die restlichen 350ms mit 400Hz. Dies könnte z.B. ein akustisches Signal bei einem Fehler sein.</p>
 <h3 id="beepmultipleint-beepcount-long-beeplength-long-breaklength-double-frequency">BeepMultiple(int beepCount, long beepLength, long breakLength, double frequency)</h3>
 <p>Erzeugt mehrere Beep-Töne hintereinander mit Pausen dazwischen.</p>
 <h4 id="beepcount">beepCount</h4>
@@ -230,7 +244,8 @@ Dadurch wird automatisch ein Property vom Typ der Component angelegt.</p>
 {
     this.BeepMultiple(3, 200, 100, 800);
 }
-</code></pre><p>Dieser Code erzeugt 3 Beep-Töne hintereinander mit einer Einzellänge von 200ms und jeweils einer 100ms langen Pause dazwischen. Die Töne werden mit 800Hz abgespielt.</p>
+</code></pre>
+<p>Dieser Code erzeugt 3 Beep-Töne hintereinander mit einer Einzellänge von 200ms und jeweils einer 100ms langen Pause dazwischen. Die Töne werden mit 800Hz abgespielt.</p>
 <h2 id="events">Events</h2>
 <p>Damit in einem Form eine Aktion ausgeführt werden kann, sind sogenannte Events notwendig. Events reagieren auf Ereignisse, die im Form auftreten. Es ist möglich, diese Events mit Funktionalität zu verbinden.</p>
 <p>Events können auf unterschiedliche Ereignisse reagieren: öffnen eines Forms, ändern des Inhalts eines Editfields, Klick auf einen Button usw.</p>
@@ -242,7 +257,9 @@ Dadurch wird automatisch ein Property vom Typ der Component angelegt.</p>
 <p>Bevor ein Form-Event an den Broker gesendet wird, werden die in den Metadatentypen hinterlegten Gültigkeitsprüfungen durchgeführt.</p>
 <h3 id="workflow-events">Workflow-Events</h3>
 <p>Workflow-Events stellen eine Schnittstelle aus dem Form heraus dar. Auf die im Form hinterlegten Workflow-Events kann später im Workflow reagiert werden. So kann z.B. zwischen verschiedenen Forms kommuniziert werden.</p>
-<div class="WARNING"><h5>Warning</h5><p>Sind für ein Ereignis ein Form-Event und ein Workflow-Event hinterlegt, wird zuerst das Form-Event ausgeführt und anschließend das Workflow-Event.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Sind für ein Ereignis ein Form-Event und ein Workflow-Event hinterlegt, wird zuerst das Form-Event ausgeführt und anschließend das Workflow-Event.</p>
 </div>
 <p>Workflow-Events können auch manuell aus einer Form-Method heraus angestoßen (gefeuert) werden. Dazu bietet jedes Workflow-Event eine Fire-Methode an.</p>
 <p><strong>Beispiel:</strong></p>
@@ -255,7 +272,8 @@ public void FE_btnSearch_OnClick(FrameworkButtonClickEventArgs e)
     FireWE_btnSearch_OnClick();
   }
 }
-</code></pre><h3 id="bearbeiten-von-control-events">Bearbeiten von Control-Events</h3>
+</code></pre>
+<h3 id="bearbeiten-von-control-events">Bearbeiten von Control-Events</h3>
 <p>Die Events von Controls werden in einem Dialog bearbeitet. Dieser öffnet sich z.B. mit einem Doppelklick auf das Control.</p>
 <p><img src="media/form-designer-control-events.png" alt="Control Events"></p>
 <p>Dieser Dialog kann auf folgenden Wegen geöffnet werden:</p>
@@ -309,35 +327,27 @@ Ist das Event in der Basis zugeordnet, dann wird dieser Befehl unterhalb des But
 <p><img src="media/form-designer-properties-grid.png" alt="Grid"></p>
 <p><strong>TreeViews</strong> stellen einen Baum aus Objekten dar. Als Datasource muss ein ganzes Objekt angegeben werden. Wenn der TreeView Objekte nur eines Typs darstellt, muss der Datasource denselben Typ besitzen. Stellt der TreeView Objekte verschiedener Typen dar, muss als Datasource ein Objekt vom Typ Object gewählt werden. In dem Fall müssen Sie in den Form-Methoden entsprechende Typenkonvertierungen vornehmen.</p>
 <p><strong>Framework Studio</strong> bietet auch eine ganz einfache Möglichkeit, ein Control mit Datasource zu erstellen. Sie können die Membervariable einfach auf das Form ziehen. Es wird das entsprechende hinterlegte Default-Control erzeugt. Es erhält einen Namen, angelehnt an den der Membervariable. Der Datasource wird automatisch eingetragen und es wird zum Control ein Label erstellt, welches das in der Membervariable hinterlegte Default-Label enthält.</p>
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
-            </div>
-          </div>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../styles/main.js"></script>
+    </footer>
   </body>
 </html>

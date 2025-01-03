@@ -1,451 +1,458 @@
-﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Class ExtendedShortcut
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Class ExtendedShortcut
-   ">
-    <meta name="generator" content="docfx 2.56.2.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/fs-docfx.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <title>Enum ExtendedShortcut </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Enum ExtendedShortcut ">
+      
+      <meta name="description" content="ExtendedShortcut contains the same properties as the System.Windows.Forms.Shortcut enumeration. Furthermore it is extended by: Esc = 27">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/new/4.8/dev/apiSpec/new?filename=FS_Hosting_Shared_ExtendedShortcut.md&amp;value=---%0Auid%3A%20FS.Hosting.Shared.ExtendedShortcut%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
-        
-        <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FS.Hosting.Shared.ExtendedShortcut">
-  
-  
-  <h1 id="FS_Hosting_Shared_ExtendedShortcut" data-uid="FS.Hosting.Shared.ExtendedShortcut" class="text-break">Class ExtendedShortcut
+
+        <article data-uid="FS.Hosting.Shared.ExtendedShortcut">
+
+
+
+
+  <h1 id="FS_Hosting_Shared_ExtendedShortcut" data-uid="FS.Hosting.Shared.ExtendedShortcut" class="text-break">
+Enum ExtendedShortcut  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/fs/FS.Hosting.Shared/enums.cs/#L199"><i class="bi bi-code-slash"></i></a>
   </h1>
-  <div class="markdown level0 summary"><p>ExtendedShortcut contains the same properties as the System.Windows.Forms.Shortcut enumeration.
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="FS.html">FS</a>.<a class="xref" href="FS.Hosting.html">Hosting</a>.<a class="xref" href="FS.Hosting.Shared.html">Shared</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>FS.Hosting.Shared.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>ExtendedShortcut contains the same properties as the System.Windows.Forms.Shortcut enumeration.
 Furthermore it is extended by:
 Esc = 27</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="inheritance">
-    <h5>Inheritance</h5>
-    <div class="level0"><span class="xref">System.Object</span></div>
-    <div class="level1"><span class="xref">ExtendedShortcut</span></div>
-  </div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="FS.Hosting.Shared.html">FS.Hosting.Shared</a></h6>
-  <h6><strong>Assembly</strong>: FS.Hosting.Shared.dll</h6>
-  <h5 id="FS_Hosting_Shared_ExtendedShortcut_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">[DocfxBrowsable]
-[HideForIntellisense]
-public sealed class ExtendedShortcut : Enum</code></pre>
+    <pre><code class="lang-csharp hljs">[HideForIntellisense]
+public enum ExtendedShortcut</code></pre>
   </div>
-  <h3 id="fields">Fields
-  </h3>
-  
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Alt0.html">Alt0</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Alt1.html">Alt1</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Alt2.html">Alt2</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Alt3.html">Alt3</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Alt4.html">Alt4</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Alt5.html">Alt5</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Alt6.html">Alt6</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Alt7.html">Alt7</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Alt8.html">Alt8</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Alt9.html">Alt9</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltBksp.html">AltBksp</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltDownArrow.html">AltDownArrow</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltF1.html">AltF1</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltF10.html">AltF10</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltF11.html">AltF11</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltF12.html">AltF12</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltF2.html">AltF2</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltF3.html">AltF3</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltF4.html">AltF4</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltF5.html">AltF5</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltF6.html">AltF6</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltF7.html">AltF7</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltF8.html">AltF8</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltF9.html">AltF9</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltLeftArrow.html">AltLeftArrow</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltRightArrow.html">AltRightArrow</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.AltUpArrow.html">AltUpArrow</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Ctrl0.html">Ctrl0</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Ctrl1.html">Ctrl1</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Ctrl2.html">Ctrl2</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Ctrl3.html">Ctrl3</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Ctrl4.html">Ctrl4</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Ctrl5.html">Ctrl5</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Ctrl6.html">Ctrl6</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Ctrl7.html">Ctrl7</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Ctrl8.html">Ctrl8</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Ctrl9.html">Ctrl9</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlA.html">CtrlA</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlB.html">CtrlB</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlC.html">CtrlC</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlD.html">CtrlD</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlDel.html">CtrlDel</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlE.html">CtrlE</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlF.html">CtrlF</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlF1.html">CtrlF1</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlF10.html">CtrlF10</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlF11.html">CtrlF11</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlF12.html">CtrlF12</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlF2.html">CtrlF2</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlF3.html">CtrlF3</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlF4.html">CtrlF4</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlF5.html">CtrlF5</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlF6.html">CtrlF6</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlF7.html">CtrlF7</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlF8.html">CtrlF8</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlF9.html">CtrlF9</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlG.html">CtrlG</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlH.html">CtrlH</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlI.html">CtrlI</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlIns.html">CtrlIns</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlJ.html">CtrlJ</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlK.html">CtrlK</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlL.html">CtrlL</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlM.html">CtrlM</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlN.html">CtrlN</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlO.html">CtrlO</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlP.html">CtrlP</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlQ.html">CtrlQ</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlR.html">CtrlR</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlS.html">CtrlS</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShift0.html">CtrlShift0</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShift1.html">CtrlShift1</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShift2.html">CtrlShift2</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShift3.html">CtrlShift3</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShift4.html">CtrlShift4</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShift5.html">CtrlShift5</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShift6.html">CtrlShift6</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShift7.html">CtrlShift7</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShift8.html">CtrlShift8</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShift9.html">CtrlShift9</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftA.html">CtrlShiftA</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftB.html">CtrlShiftB</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftC.html">CtrlShiftC</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftD.html">CtrlShiftD</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftE.html">CtrlShiftE</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftF.html">CtrlShiftF</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftF1.html">CtrlShiftF1</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftF10.html">CtrlShiftF10</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftF11.html">CtrlShiftF11</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftF12.html">CtrlShiftF12</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftF2.html">CtrlShiftF2</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftF3.html">CtrlShiftF3</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftF4.html">CtrlShiftF4</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftF5.html">CtrlShiftF5</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftF6.html">CtrlShiftF6</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftF7.html">CtrlShiftF7</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftF8.html">CtrlShiftF8</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftF9.html">CtrlShiftF9</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftG.html">CtrlShiftG</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftH.html">CtrlShiftH</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftI.html">CtrlShiftI</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftJ.html">CtrlShiftJ</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftK.html">CtrlShiftK</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftL.html">CtrlShiftL</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftM.html">CtrlShiftM</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftN.html">CtrlShiftN</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftO.html">CtrlShiftO</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftP.html">CtrlShiftP</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftQ.html">CtrlShiftQ</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftR.html">CtrlShiftR</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftS.html">CtrlShiftS</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftT.html">CtrlShiftT</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftU.html">CtrlShiftU</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftV.html">CtrlShiftV</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftW.html">CtrlShiftW</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftX.html">CtrlShiftX</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftY.html">CtrlShiftY</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlShiftZ.html">CtrlShiftZ</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlT.html">CtrlT</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlU.html">CtrlU</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlV.html">CtrlV</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlW.html">CtrlW</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlX.html">CtrlX</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlY.html">CtrlY</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.CtrlZ.html">CtrlZ</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Del.html">Del</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Esc.html">Esc</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.F1.html">F1</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.F10.html">F10</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.F11.html">F11</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.F12.html">F12</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.F2.html">F2</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.F3.html">F3</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.F4.html">F4</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.F5.html">F5</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.F6.html">F6</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.F7.html">F7</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.F8.html">F8</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.F9.html">F9</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.Ins.html">Ins</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.None.html">None</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.ShiftDel.html">ShiftDel</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.ShiftF1.html">ShiftF1</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.ShiftF10.html">ShiftF10</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.ShiftF11.html">ShiftF11</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.ShiftF12.html">ShiftF12</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.ShiftF2.html">ShiftF2</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.ShiftF3.html">ShiftF3</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.ShiftF4.html">ShiftF4</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.ShiftF5.html">ShiftF5</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.ShiftF6.html">ShiftF6</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.ShiftF7.html">ShiftF7</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.ShiftF8.html">ShiftF8</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.ShiftF9.html">ShiftF9</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FS.Hosting.Shared.ExtendedShortcut.ShiftIns.html">ShiftIns</a></h4>
-    <section><p></section>
-  
+
+
+
+
+
+
+
+
+
+  <h2 id="fields">Fields
+</h2>
+  <dl class="parameters">
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Alt0"><code>Alt0 = 262192</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Alt1"><code>Alt1 = 262193</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Alt2"><code>Alt2 = 262194</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Alt3"><code>Alt3 = 262195</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Alt4"><code>Alt4 = 262196</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Alt5"><code>Alt5 = 262197</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Alt6"><code>Alt6 = 262198</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Alt7"><code>Alt7 = 262199</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Alt8"><code>Alt8 = 262200</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Alt9"><code>Alt9 = 262201</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltBksp"><code>AltBksp = 262152</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltDownArrow"><code>AltDownArrow = 262184</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltF1"><code>AltF1 = 262256</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltF10"><code>AltF10 = 262265</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltF11"><code>AltF11 = 262266</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltF12"><code>AltF12 = 262267</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltF2"><code>AltF2 = 262257</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltF3"><code>AltF3 = 262258</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltF4"><code>AltF4 = 262259</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltF5"><code>AltF5 = 262260</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltF6"><code>AltF6 = 262261</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltF7"><code>AltF7 = 262262</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltF8"><code>AltF8 = 262263</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltF9"><code>AltF9 = 262264</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltLeftArrow"><code>AltLeftArrow = 262181</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltRightArrow"><code>AltRightArrow = 262183</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_AltUpArrow"><code>AltUpArrow = 262182</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Ctrl0"><code>Ctrl0 = 131120</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Ctrl1"><code>Ctrl1 = 131121</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Ctrl2"><code>Ctrl2 = 131122</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Ctrl3"><code>Ctrl3 = 131123</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Ctrl4"><code>Ctrl4 = 131124</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Ctrl5"><code>Ctrl5 = 131125</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Ctrl6"><code>Ctrl6 = 131126</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Ctrl7"><code>Ctrl7 = 131127</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Ctrl8"><code>Ctrl8 = 131128</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Ctrl9"><code>Ctrl9 = 131129</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlA"><code>CtrlA = 131137</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlB"><code>CtrlB = 131138</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlC"><code>CtrlC = 131139</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlD"><code>CtrlD = 131140</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlDel"><code>CtrlDel = 131118</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlE"><code>CtrlE = 131141</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlF"><code>CtrlF = 131142</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlF1"><code>CtrlF1 = 131184</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlF10"><code>CtrlF10 = 131193</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlF11"><code>CtrlF11 = 131194</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlF12"><code>CtrlF12 = 131195</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlF2"><code>CtrlF2 = 131185</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlF3"><code>CtrlF3 = 131186</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlF4"><code>CtrlF4 = 131187</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlF5"><code>CtrlF5 = 131188</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlF6"><code>CtrlF6 = 131189</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlF7"><code>CtrlF7 = 131190</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlF8"><code>CtrlF8 = 131191</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlF9"><code>CtrlF9 = 131192</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlG"><code>CtrlG = 131143</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlH"><code>CtrlH = 131144</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlI"><code>CtrlI = 131145</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlIns"><code>CtrlIns = 131117</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlJ"><code>CtrlJ = 131146</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlK"><code>CtrlK = 131147</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlL"><code>CtrlL = 131148</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlM"><code>CtrlM = 131149</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlN"><code>CtrlN = 131150</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlO"><code>CtrlO = 131151</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlP"><code>CtrlP = 131152</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlQ"><code>CtrlQ = 131153</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlR"><code>CtrlR = 131154</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlS"><code>CtrlS = 131155</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShift0"><code>CtrlShift0 = 196656</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShift1"><code>CtrlShift1 = 196657</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShift2"><code>CtrlShift2 = 196658</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShift3"><code>CtrlShift3 = 196659</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShift4"><code>CtrlShift4 = 196660</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShift5"><code>CtrlShift5 = 196661</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShift6"><code>CtrlShift6 = 196662</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShift7"><code>CtrlShift7 = 196663</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShift8"><code>CtrlShift8 = 196664</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShift9"><code>CtrlShift9 = 196665</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftA"><code>CtrlShiftA = 196673</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftB"><code>CtrlShiftB = 196674</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftC"><code>CtrlShiftC = 196675</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftD"><code>CtrlShiftD = 196676</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftE"><code>CtrlShiftE = 196677</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftF"><code>CtrlShiftF = 196678</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftF1"><code>CtrlShiftF1 = 196720</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftF10"><code>CtrlShiftF10 = 196729</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftF11"><code>CtrlShiftF11 = 196730</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftF12"><code>CtrlShiftF12 = 196731</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftF2"><code>CtrlShiftF2 = 196721</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftF3"><code>CtrlShiftF3 = 196722</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftF4"><code>CtrlShiftF4 = 196723</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftF5"><code>CtrlShiftF5 = 196724</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftF6"><code>CtrlShiftF6 = 196725</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftF7"><code>CtrlShiftF7 = 196726</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftF8"><code>CtrlShiftF8 = 196727</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftF9"><code>CtrlShiftF9 = 196728</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftG"><code>CtrlShiftG = 196679</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftH"><code>CtrlShiftH = 196680</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftI"><code>CtrlShiftI = 196681</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftJ"><code>CtrlShiftJ = 196682</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftK"><code>CtrlShiftK = 196683</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftL"><code>CtrlShiftL = 196684</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftM"><code>CtrlShiftM = 196685</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftN"><code>CtrlShiftN = 196686</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftO"><code>CtrlShiftO = 196687</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftP"><code>CtrlShiftP = 196688</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftQ"><code>CtrlShiftQ = 196689</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftR"><code>CtrlShiftR = 196690</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftS"><code>CtrlShiftS = 196691</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftT"><code>CtrlShiftT = 196692</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftU"><code>CtrlShiftU = 196693</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftV"><code>CtrlShiftV = 196694</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftW"><code>CtrlShiftW = 196695</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftX"><code>CtrlShiftX = 196696</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftY"><code>CtrlShiftY = 196697</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlShiftZ"><code>CtrlShiftZ = 196698</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlT"><code>CtrlT = 131156</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlU"><code>CtrlU = 131157</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlV"><code>CtrlV = 131158</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlW"><code>CtrlW = 131159</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlX"><code>CtrlX = 131160</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlY"><code>CtrlY = 131161</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_CtrlZ"><code>CtrlZ = 131162</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Del"><code>Del = 46</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Esc"><code>Esc = 27</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_F1"><code>F1 = 112</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_F10"><code>F10 = 121</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_F11"><code>F11 = 122</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_F12"><code>F12 = 123</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_F2"><code>F2 = 113</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_F3"><code>F3 = 114</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_F4"><code>F4 = 115</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_F5"><code>F5 = 116</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_F6"><code>F6 = 117</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_F7"><code>F7 = 118</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_F8"><code>F8 = 119</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_F9"><code>F9 = 120</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_Ins"><code>Ins = 45</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_None"><code>None = 0</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_ShiftDel"><code>ShiftDel = 65582</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_ShiftF1"><code>ShiftF1 = 65648</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_ShiftF10"><code>ShiftF10 = 65657</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_ShiftF11"><code>ShiftF11 = 65658</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_ShiftF12"><code>ShiftF12 = 65659</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_ShiftF2"><code>ShiftF2 = 65649</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_ShiftF3"><code>ShiftF3 = 65650</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_ShiftF4"><code>ShiftF4 = 65651</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_ShiftF5"><code>ShiftF5 = 65652</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_ShiftF6"><code>ShiftF6 = 65653</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_ShiftF7"><code>ShiftF7 = 65654</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_ShiftF8"><code>ShiftF8 = 65655</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_ShiftF9"><code>ShiftF9 = 65656</code></dt>
+    <dd></dd>
+    <dt id="FS_Hosting_Shared_ExtendedShortcut_ShiftIns"><code>ShiftIns = 65581</code></dt>
+    <dd></dd>
+  </dl>
+
+
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
-            </div>
-          </div>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    </footer>
   </body>
 </html>

@@ -1,84 +1,90 @@
-﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Modular Components </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Modular Components ">
-    <meta name="generator" content="docfx 2.56.2.0">
-    
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <link rel="stylesheet" href="../../styles/fs-docfx.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
-    
-    <meta property="docfx:rel" content="../../">
-    
+      <title>Modular Components </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Modular Components ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/docs/doc/modcomp/modcomp.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" class="svg" src="../../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
-        
-        <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+
+        <article data-uid="">
 <h1 id="modular-components">Modular Components</h1>
 
 <p>Mit den Modularen Components wollen wir einen Baukasten schaffen, mit dessen Hilfe wir Objekte ausschließlich mit dem benötigten Funktionsaufwand erstellen können.</p>
@@ -90,28 +96,32 @@ Zum Beispiel sollte eine Component, die ausschließlich Businesslogik enthält, 
 <p>Der Komponentenbaukasten wird iterativ erweitert. Derzeit umfasst er die folgenden Features:</p>
 <ul>
 <li><p>Modular Components Arten</p>
-<p>  <img src="media/modcompTypen.png" alt="Verschiedene Modular Component Typen"></p>
-<p>  Die Auswahl der Modular Component-Art bestimmt Voreinstellungen der Modular Component.
-  Bei <em>Modular Component (Interface)</em> kann der Type Interface nicht mehr verändert werden.
-  Bei <em>Modular Component (UnitTest)</em> wird der Compile Step mit &quot;UnitTest&quot;, das Attribute mit &quot;[TestClass]&quot; und die Base Class mit &quot;FSTestBase&quot; vorbelegt. Außerdem wird eine Methode <code>MyTestMethod()</code> mit dem Attribute &quot;[TestMethod]&quot; hinzugefügt.</p>
+<p><img src="media/modcompTypen.png" alt="Verschiedene Modular Component Typen"></p>
+<p>Die Auswahl der Modular Component-Art bestimmt Voreinstellungen der Modular Component.
+Bei <em>Modular Component (Interface)</em> kann der Type Interface nicht mehr verändert werden.
+Bei <em>Modular Component (UnitTest)</em> wird der Compile Step mit &quot;UnitTest&quot;, das Attribute mit &quot;[TestClass]&quot; und die Base Class mit &quot;FSTestBase&quot; vorbelegt. Außerdem wird eine Methode <code>MyTestMethod()</code> mit dem Attribute &quot;[TestMethod]&quot; hinzugefügt.</p>
 </li>
 <li><p>Type Auswahl: <strong>Class, Class with Interface oder Interface</strong>
 Die Auswahl des Types entscheidet, ob eine Klasse und oder ein Interface generiert wird.
 Die beiden Optionen <strong>Class</strong> und <strong>Interface</strong> sind selbsterklärend. Bei der Option <strong>ClassWithInterface</strong> wird sowohl eine Klasse als auch ein Interface generiert. Bei diesem Type muss zudem der Compile Step beachtet werden! Die unterschiedliche Code-Generierung kann im Kapitel <a href="#code">Code</a> eingesehen werden.</p>
 </li>
 <li><p>Es kann der <strong>Compile Step</strong>, wie bei CodeFiles, definiert werden. Dies entscheidet in welche DLL die Modular Component kompiliert wird.</p>
-<div class="NOTE"><h5>Note</h5><p>Beim Typ <strong>ClassWithInterface</strong> gibt es die Besonderheit, dass bei Auswahl des Compile-Schritts <strong>Component</strong> das Interface in die Interface-Schicht, die Klasse jedoch in die Component-Schicht generiert wird.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Beim Typ <strong>ClassWithInterface</strong> gibt es die Besonderheit, dass bei Auswahl des Compile-Schritts <strong>Component</strong> das Interface in die Interface-Schicht, die Klasse jedoch in die Component-Schicht generiert wird.</p>
 </div>
 </li>
 <li><p>An der Klasse oder dem Interface, an Properties, und Methoden können <strong>Attribute</strong> definiert werden. Eine ausführliche Erklärung der Attribute und Verhalten im Customizing erfolgt im Kapitel <a href="#class-mit-attributen-und-customizing">Attribute</a>.</p>
 </li>
 <li><p>Protected Setter bei Properties</p>
 </li>
-<li>Base Class: Hier können wie bei Components eine Basisklasse oder Interfaces angegeben werden. Dieses Feld ist nicht customizebar.</li>
-<li>Copy &amp; Paste der Methoden und Properties über verschiedene Objekttypen hinweg ist möglich. Zwischen Forms, Components und Modular Components kann kopiert werden. Da keine 1:1 Übersetzung möglich ist, muss vor allem bei der Kopie von Modular Component Properties in Components das Ergebnis ggf. überprüft werden.</li>
+<li><p>Base Class: Hier können wie bei Components eine Basisklasse oder Interfaces angegeben werden. Dieses Feld ist nicht customizebar.</p>
+</li>
+<li><p>Copy &amp; Paste der Methoden und Properties über verschiedene Objekttypen hinweg ist möglich. Zwischen Forms, Components und Modular Components kann kopiert werden. Da keine 1:1 Übersetzung möglich ist, muss vor allem bei der Kopie von Modular Component Properties in Components das Ergebnis ggf. überprüft werden.</p>
+</li>
 </ul>
 <p>Auf dem folgenden Screenshot wird der General Tab einer Class-Modular Component abgebildet.
-    <img src="media/%C3%BCbersichtModCompsGeneralTab.png" alt="UI der Modular Component Typen"></p>
+<img src="media/%C3%BCbersichtModCompsGeneralTab.png" alt="UI der Modular Component Typen"></p>
 <h3 id="funktionale-einschränkungen">Funktionale Einschränkungen</h3>
 <p>Funktionen, welche aus Components bekannt sind, jedoch nicht für Modular Components umgesetzt wurden:</p>
 <ol>
@@ -120,81 +130,85 @@ Die beiden Optionen <strong>Class</strong> und <strong>Interface</strong> sind s
 </ol>
 <h2 id="bestandteile-der-modular-component">Bestandteile der Modular Component</h2>
 <ul>
-<li>Type (nicht änderbar im Customizing)<ul>
+<li>Type (nicht änderbar im Customizing)
+<ul>
 <li>Class, ClassWithInterface, Interface</li>
 </ul>
 </li>
-<li>Compile Step (nicht änderbar im Customizing)<ul>
+<li>Compile Step (nicht änderbar im Customizing)
+<ul>
 <li>Interface, Component, UnitTest</li>
 </ul>
 </li>
 <li>Base Class (nicht änderbar im Customizing)</li>
 <li>Description (²)</li>
-<li>Attributes (²)\
+<li>Attributes (²)<br>
 Attribute werden im Customizing über die Packages hinweg summiert und im UseCode an das Interface beziehungsweise an die Klasse generiert. Beim Typ <em>Class With Interface</em> erhält das Interface keine Attribute.</li>
 </ul>
 <p>(²) wird an die Klasse (bei Type <em>Class</em> und <em>ClassWithInterface</em>) oder an das Interface (bei Type <em>Interface</em>) im UseCode generiert.</p>
-<div class="NOTE"><h5>Note</h5><p>Bei Type <em>ClassWithInterface</em> und Compile Step <em>Component</em> wird das Interface in die Interface-Schicht generiert. Die zugehörige Klasse kommt in die Component-Schicht.
+<div class="NOTE">
+<h5>Note</h5>
+<p>Bei Type <em>ClassWithInterface</em> und Compile Step <em>Component</em> wird das Interface in die Interface-Schicht generiert. Die zugehörige Klasse kommt in die Component-Schicht.
 Bei Type <em>Class</em> und <em>Interface</em> wird es in den ausgewählten Compile Step generiert.</p>
 </div>
 <h3 id="properties">Properties</h3>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Properties</th>
-<th style="text-align:center">Class</th>
-<th style="text-align:center">Class With Interface</th>
-<th style="text-align:center">Interface</th>
+<th style="text-align: left;">Properties</th>
+<th style="text-align: center;">Class</th>
+<th style="text-align: center;">Class With Interface</th>
+<th style="text-align: center;">Interface</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">AccessLevel</td>
-<td style="text-align:center">public | internal | protected | private</td>
-<td style="text-align:center">public | internal | protected | private</td>
-<td style="text-align:center">public</td>
+<td style="text-align: left;">AccessLevel</td>
+<td style="text-align: center;">public | internal | protected | private</td>
+<td style="text-align: center;">public | internal | protected | private</td>
+<td style="text-align: center;">public</td>
 </tr>
 <tr>
-<td style="text-align:left">AutoProp</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x (nur public)</td>
+<td style="text-align: left;">AutoProp</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x (nur public)</td>
 </tr>
 <tr>
-<td style="text-align:left">* Setter Type AutoProp</td>
-<td style="text-align:center">get | get set | protected set</td>
-<td style="text-align:center">get | get set | protected set</td>
-<td style="text-align:center">-</td>
+<td style="text-align: left;">* Setter Type AutoProp</td>
+<td style="text-align: center;">get | get set | protected set</td>
+<td style="text-align: center;">get | get set | protected set</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr>
-<td style="text-align:left">Field</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">-</td>
+<td style="text-align: left;">Field</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr>
-<td style="text-align:left">* Setter Type Field</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<td style="text-align: left;">* Setter Type Field</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr>
-<td style="text-align:left">IndivProp</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">-</td>
+<td style="text-align: left;">IndivProp</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr>
-<td style="text-align:left">* Setter Type IndivProp</td>
-<td style="text-align:center">get | get set | protected set</td>
-<td style="text-align:center">get | get set | protected set</td>
-<td style="text-align:center">-</td>
+<td style="text-align: left;">* Setter Type IndivProp</td>
+<td style="text-align: center;">get | get set | protected set</td>
+<td style="text-align: center;">get | get set | protected set</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr>
-<td style="text-align:left">Attributes</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x³</td>
+<td style="text-align: left;">Attributes</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x³</td>
 </tr>
 </tbody>
 </table>
@@ -207,7 +221,8 @@ Bei Type <em>Class</em> und <em>Interface</em> wird es in den ausgewählten Comp
 <h4 id="autoproperty">AutoProperty</h4>
 <p>Bei AutoProperties kann kein Get- oder Set-Code geschrieben werden.</p>
 <pre><code class="lang-csharp">public virtual FSstring Stuff { get; set; }
-</code></pre><h4 id="individual-property">Individual Property</h4>
+</code></pre>
+<h4 id="individual-property">Individual Property</h4>
 <pre><code class="lang-csharp">public virtual FSstring Stuff { 
     get{ 
         // individuell definierter Code
@@ -216,61 +231,62 @@ Bei Type <em>Class</em> und <em>Interface</em> wird es in den ausgewählten Comp
         // individuell definierter Code
     }
  }
-</code></pre><h4 id="fields">Fields</h4>
+</code></pre>
+<h4 id="fields">Fields</h4>
 <p>Fields können nicht gecustomized werden.
 Attribute werden somit immer im Code des jeweiligen Packages definiert.</p>
 <h3 id="methods">Methods</h3>
 <table>
 <thead>
 <tr>
-<th style="text-align:left">Methoden</th>
-<th style="text-align:center">Class</th>
-<th style="text-align:center">Class With Interface</th>
-<th style="text-align:center">Interface</th>
+<th style="text-align: left;">Methoden</th>
+<th style="text-align: center;">Class</th>
+<th style="text-align: center;">Class With Interface</th>
+<th style="text-align: center;">Interface</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td style="text-align:left">Constructor</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">-</td>
+<td style="text-align: left;">Constructor</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr>
-<td style="text-align:left">* Constructor - Attributes</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
-<td style="text-align:center">-</td>
+<td style="text-align: left;">* Constructor - Attributes</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr>
-<td style="text-align:left">protected Method</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">-</td>
+<td style="text-align: left;">protected Method</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr>
-<td style="text-align:left">* protected Method Attributes</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">-</td>
+<td style="text-align: left;">* protected Method Attributes</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">-</td>
 </tr>
 <tr>
-<td style="text-align:left">internal Method</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x</td>
+<td style="text-align: left;">internal Method</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x</td>
 </tr>
 <tr>
-<td style="text-align:left">* internal Method Attributes</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x</td>
+<td style="text-align: left;">* internal Method Attributes</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x</td>
 </tr>
 <tr>
-<td style="text-align:left">Attributes</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x</td>
-<td style="text-align:center">x<sup>(1)</sup></td>
+<td style="text-align: left;">Attributes</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">x<sup>(1)</sup></td>
 </tr>
 </tbody>
 </table>
@@ -317,7 +333,8 @@ public class FSDemo_Stuff
         Stuff = stuff;
     }
 }
-</code></pre><h3 id="generierter-code-bei-classwithinterface-mit-customizing-und-baseclass">Generierter Code bei &quot;ClassWithInterface&quot; mit Customizing und BaseClass</h3>
+</code></pre>
+<h3 id="generierter-code-bei-classwithinterface-mit-customizing-und-baseclass">Generierter Code bei &quot;ClassWithInterface&quot; mit Customizing und BaseClass</h3>
 <pre><code class="lang-csharp">
 // UseCode
 public class Stuff : FSDemoCustomize_Stuff, IStuff { }
@@ -330,35 +347,29 @@ public interface FSDemoCustomize_IStuff: FSDemo_IStuff { }
 // Basis Package
 public class FSDemo_Stuff : BaseClass, FSDemo_IStuff { }
 public interface FSDemo_IStuff { }
-</code></pre></article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
-            </div>
-          </div>
+
+</code></pre>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../styles/main.js"></script>
+    </footer>
   </body>
 </html>

@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>PBE-Aktionen </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="PBE-Aktionen ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/dev/docs/doc/pbe/aktionen.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="pbe-aktionen">PBE-Aktionen</h1>
+
+<h2 id="allgemein-aktionen">Allgemein Aktionen</h2>
+<p>Die eigentliche Arbeit wird in den Aktionen ausgeführt.
+Neben der FSConsole.exe können auch allgemeine Aktionen definiert werden.
+So können z.B. entsprechende Ordner oder Dienste vorbereitet werden.</p>
+<h3 id="knoten-batch">Knoten <code>&lt;Batch&gt;</code></h3>
+<p>Damit kann eine beliebige Batch-Routine ausgeführt werden.</p>
+<p>Attribute:</p>
+<ul>
+<li><p><strong>Name</strong>: optional</p>
+</li>
+<li><p><strong>Cmd</strong>: erforderlich - gibt den Pfad für eine Exe oder eine Batch-Datei an.
+Die Angabe sollte mit komplettem Pfad erfolgen.</p>
+</li>
+<li><p><strong>Args</strong>: optional - hier können Kommandozeilen-Argumente übergeben werden.</p>
+<p>Args können auch als XML-Knoten angegeben werden.
+Diese werden hinter die im Attribut definierten Args gepackt.
+Das ist praktisch bei komplexeren Listen von Kommandozeilen-Argumenten.
+PBE kümmert sich dabei um die korrekte Behandlung von Leerzeichen und Anführungszeichen.</p>
+</li>
+</ul>
+<p>Liefert die aufgerufene Routine einen Exit-Code != 0, dann wird der Vorgang als Fehlerhaft beendet.</p>
+<p>Wird als <code>Cmd=&quot;robocopy&quot;</code> aufgrufen, dann führen die Exit-Codes 1-7 nicht zu einem Fehler (vergleiche auch <a href="https://learn.microsoft.com/troubleshoot/windows-server/backup-and-storage/return-codes-used-robocopy-utility">https://learn.microsoft.com/troubleshoot/windows-server/backup-and-storage/return-codes-used-robocopy-utility</a>)</p>
+<p>Beispiele:</p>
+<pre><code class="lang-xml">&lt;Batch Name=&quot;IIS neu starten&quot; Cmd=&quot;iisreset&quot;/&gt;
+&lt;Batch Name=&quot;IIS beenden&quot; Cmd=&quot;NET&quot; Args=&quot;STOP W3SVC&quot;/&gt;
+&lt;Batch Name=&quot;IIS starten&quot; Cmd=&quot;NET&quot; Args=&quot;START W3SVC&quot;/&gt;
+
+&lt;!-- MyProgram.exe Param1 &quot;Param2 mit Leerzeichen&quot; C:\temp\export --&gt;
+&lt;Batch Name=&quot;Individuelle Aktion&quot; Cmd=&quot;MyProgram.exe&quot; Args=&quot;Param1&quot;&gt;
+    &lt;Args&gt;
+        &lt;Arg&gt;Param2 mit Leerzeichen&lt;/Arg&gt;
+        &lt;Arg&gt;{ExportDir}&lt;/Arg&gt;
+    &lt;/Args&gt;
+&lt;/Batch&gt;
+</code></pre>
+<h3 id="knoten-md">Knoten <code>&lt;MD&gt;</code></h3>
+<p>Legt ein neues Verzeichnis an.</p>
+<p>Attribute:</p>
+<ul>
+<li><p><strong>Name</strong>: optional</p>
+</li>
+<li><p><strong>Dir</strong>: erforderlich - Der anzulegende Ordner</p>
+</li>
+</ul>
+<p>Beispiel</p>
+<pre><code class="lang-xml">&lt;MD Dir=&quot;{ExportDir}&quot;/&gt;
+</code></pre>
+<h3 id="knoten-rd">Knoten <code>&lt;RD&gt;</code></h3>
+<p>Löscht ein Verzeichnis samt ihrem Inhalt.</p>
+<p>Attribute:</p>
+<ul>
+<li><p><strong>Name</strong>: optional</p>
+</li>
+<li><p><strong>Dir</strong>: erforderlich - Der zu löschende Ordner</p>
+</li>
+</ul>
+<p>Beispiel</p>
+<pre><code class="lang-xml">&lt;RD Dir=&quot;{ExportDir}&quot;/&gt;
+</code></pre>
+<h2 id="fsconsole-aktionen">FSConsole-Aktionen</h2>
+<p>Kern dieser Routine ist die Arbeit mit der <strong>FSConsole.exe</strong>.
+Dazu werden folgende Aktionen angeboten.</p>
+<h3 id="knoten-fsconsole">Knoten <code>&lt;FSConsole&gt;</code></h3>
+<p>Startet eine FSConsole.exe</p>
+<p>Attribute</p>
+<ul>
+<li><p><strong>Name</strong>: optional</p>
+</li>
+<li><p><strong>FS</strong>: erforderlich - gibt die Version von Framework-Studio an.
+&quot;3.8.0.0&quot;, &quot;3.7.0.0&quot;, ...</p>
+</li>
+<li><p><strong>Rep</strong>: erforderlich - gibt das Repository an, mit dem gearbeitet werden soll</p>
+</li>
+<li><p><strong>Args</strong>: erforderlich - gibt die weiteren Kommandozeilen-Parameter an.</p>
+<p>Wie beim <a href="#knoten-batch">Knoten <code>&lt;Batch&gt;</code></a> können auch Args in Form eines XML-Knoten angegeben werden.</p>
+</li>
+</ul>
+<h3 id="knoten-compilerun">Knoten <code>&lt;CompileRun&gt;</code></h3>
+<p>Führt mithilfe der FSConsole.exe einen Compile-Run durch</p>
+<p>Attribute:</p>
+<ul>
+<li><p><strong>Name</strong>: optional</p>
+</li>
+<li><p><strong>FS</strong>: erforderlich (siehe oben)</p>
+</li>
+<li><p><strong>Rep</strong>: erforderlich (siehe oben)</p>
+</li>
+<li><p><strong>Run</strong>: erforderlich - Gibt den Compile-Run an. Dieser kann im Package-Manager an der Package-Version gepflegt werden.</p>
+</li>
+<li><p><strong>MaxParallel</strong>: optional - (ab FS 3.6) gibt an, wie viele Compiler innerhalb des CompileRuns parallel laufen dürfen.</p>
+</li>
+</ul>
+<p>Beispiel:</p>
+<pre><code class="lang-xml">&lt;!--Führt den CompileRun &quot;1&quot; für Framework-Studio 3.8 aus.--&gt;
+&lt;CompileRun FS=&quot;3.8.0.0&quot; Rep=&quot;{rep1}&quot; Run=&quot;1&quot;/&gt;
+</code></pre>
+<h3 id="knoten-export">Knoten <code>&lt;Export&gt;</code></h3>
+<p>Exportiert ein Package. Dieses wird in dem Ordner abgelegt, der im Parameter <strong>ExportDir</strong> angegeben wird.
+Der Name der Datei setzt sich aus dem Namen des Packages und der Version zusammen.</p>
+<p>Attribute:</p>
+<ul>
+<li><p><strong>Name</strong>: optional</p>
+</li>
+<li><p><strong>FS</strong>: erforderlich (siehe oben)</p>
+</li>
+<li><p><strong>Rep</strong>: erforderlich (siehe oben)</p>
+</li>
+<li><p><strong>Package</strong>: erforderlich - gibt den Namen des zu exportierenden Packages an</p>
+</li>
+<li><p><strong>Version</strong>: erforderlich - gibt den Namen der zu exportierenden Package-Version an</p>
+</li>
+<li><p><strong>Mode</strong>: optional - wenn ein Bugfix / ServiceRelease exportiert werden soll, muss <code>Mode=&quot;Bugfix&quot;</code> angegeben werden</p>
+</li>
+<li><p><strong>Queue</strong>: optional - Der Name der Import-Queue, mit der dieser Export wieder importiert werden soll. Siehe auch Knoten <code>&lt;ImportQueue&gt;</code></p>
+</li>
+<li><p><strong>Dir</strong>: optional - der Ordner, in dem die Export-Dateien abgelegt werden sollen, falls dieser vom Parameter <strong>{ExportDir}</strong> abweicht.</p>
+</li>
+<li><p><strong>ExportFileName</strong>: optional - der Dateiname ohne Dateiendung, der für die Export-Datei verwendet werden soll.
+Wird dieses Attribut nicht angegeben, dann wird ein Dateiname nach folgendem Schema erzeugt: <code>{ExportFilePrefix}&lt;Package&gt;_&lt;Version&gt; (FS &lt;fs-version&gt;)</code>.
+Der Dateiname kann Parameter beinhalten.</p>
+</li>
+<li><p><strong>IncludeBasePackages</strong>: optional - gibt an ob Basis-Packages in den Export eingeschlossen werden sollen.
+Mögliche Werte:</p>
+<ul>
+<li>ServiceRelease</li>
+<li>Unsealed (obsolete -&gt; gleiche Funktion wie ServiceRelease)</li>
+<li>All</li>
+</ul>
+<p>Details zur Funktionsweise der Modi sind <a href="../package-manager/export.html#include-base-packages">hier</a> beschrieben.</p>
+</li>
+</ul>
+<h3 id="knoten-import">Knoten <code>&lt;Import&gt;</code></h3>
+<p>Importiert ein Package. Ordner und Dateinamen werden wie beim Export verwendet.
+Die Attribute müssen zum Knoten <code>&lt;Export&gt;</code> passen.
+Bei der Verwendung der <code>&lt;ImportQueue&gt;</code> wird diese Aktion automatisch von der PBE.exe erzeugt.</p>
+<p>Attribute:</p>
+<ul>
+<li><p><strong>Name</strong>: optional</p>
+</li>
+<li><p><strong>FS</strong>: erforderlich (siehe oben)</p>
+</li>
+<li><p><strong>Rep</strong>: erforderlich (siehe oben)</p>
+</li>
+<li><p><strong>Package</strong>: erforderlich - gibt den Namen des zu exportierenden Packages an</p>
+</li>
+<li><p><strong>Version</strong>: erforderlich - gibt den Namen der zu exportierenden Package-Version an</p>
+</li>
+<li><p><strong>Mode</strong>: optional - wenn ein Bugfix / ServiceRelease exportiert werden soll, muss <code>Mode=&quot;Bugfix&quot;</code> angegeben werden</p>
+</li>
+<li><p><strong>Dir</strong>: optional - der Ordner, aus dem die Export-Dateien gelesen werden sollen, falls dieser vom Parameter <strong>{ExportDir}</strong> abweicht.</p>
+</li>
+</ul>
+<h3 id="knoten-approvedexport">Knoten <code>&lt;ApprovedExport&gt;</code></h3>
+<p>Arbeitet wie der Knoten <code>&lt;Export&gt;</code> mit folgenden Unterschieden:</p>
+<ul>
+<li><p>Wenn nicht über das Attribut Dir anders definiert, dann wird für den Export-Ordner der Parameter <strong>{ApprovedExportDir}</strong> verwendet.</p>
+</li>
+<li><p>Das Attribut <strong>Queue</strong> steht nicht zur Verfügung.</p>
+</li>
+</ul>
+<h3 id="knoten-approvedimport">Knoten <code>&lt;ApprovedImport&gt;</code></h3>
+<p>Importiert alle im Ordner enthaltenen Dateien in das angegebene Repository.
+Nach erfolgreichem Import werden die Dateien in das <strong>{HistoryDir}</strong> verschoben.
+Wenn dieser Ordner nicht angegeben ist – weder als Parameter noch als Attribut – dann werden die Dateien nach dem Import gelöscht, damit sie beim nächsten Lauf nicht noch einmal importiert werden.
+Bei der Verarbeitung wird für jeden Import ein separater <strong>Import</strong>-Vorgang protokolliert.</p>
+<p>Die FS-Version wird aus dem Dateinamen ermittelt. Dieser muss z.B. so aussehen: <code>2014-11-10_FSDemo_3.9 (</code><strong><code>FS 3.9</code></strong><code>).db</code>.
+Beim Export wird bereits ein passender Dateiname erzeugt.
+Dieser sollte nicht verändert werden.</p>
+<p>Attribute:</p>
+<ul>
+<li><p><strong>Name</strong>: optional</p>
+</li>
+<li><p><strong>Rep</strong>: erforderlich (siehe oben)</p>
+</li>
+<li><p><strong>Dir</strong>: optional - der Ordner, aus dem die zu importierenden Dateien gelesen werden sollen, falls dieser vom Parameter <strong>{ApprovedImportDir}</strong> abweicht.</p>
+</li>
+<li><p><strong>HistoryDir</strong>: optional - der Ordner, in den die Dateien nach erfolgreichen Import verschoben werden sollen, falls dieser vom Parameter <strong>{ApprovedHistoryDir}</strong> abweicht.</p>
+</li>
+</ul>
+<h3 id="knoten-publish">Knoten <code>&lt;Publish&gt;</code></h3>
+<p>Führt einen Publish-Vorgang aus.</p>
+<p>Attribute:</p>
+<ul>
+<li><p><strong>Name</strong>: optional</p>
+</li>
+<li><p><strong>FS</strong>: erforderlich (siehe oben)</p>
+</li>
+<li><p><strong>Rep</strong>: erforderlich (siehe oben)</p>
+</li>
+<li><p><strong>Package</strong>: erforderlich - gibt den Namen des zu exportierenden Packages an</p>
+</li>
+<li><p><strong>Version</strong>: erforderlich - gibt den Namen der zu exportierenden Package-Version an</p>
+</li>
+<li><p><strong>Setting</strong>: erforderlich - Name des Settings. Dieses muss im Publish-Wizard vorbereitet und abgespeichert werden.</p>
+</li>
+</ul>
+<h3 id="knoten-publish2go">Knoten <code>&lt;Publish2Go&gt;</code></h3>
+<p>Führt einen Publish2Go-Vorgang aus.</p>
+<p>Attribute:</p>
+<ul>
+<li><p><strong>Name</strong>: optional</p>
+</li>
+<li><p><strong>FS</strong>: erforderlich (siehe oben) (ab FS 3.11.8)</p>
+</li>
+<li><p><strong>Rep</strong>: erforderlich (siehe oben)</p>
+</li>
+<li><p><strong>Package</strong>: erforderlich - gibt den Namen des zu exportierenden Packages an</p>
+</li>
+<li><p><strong>Version</strong>: erforderlich - gibt den Namen der zu exportierenden Package-Version an</p>
+</li>
+<li><p><strong>Setting</strong>: erforderlich - Name des Settings.
+Dieses muss im Publish-Wizard vorbereitet und abgespeichert werden.
+Im Setting muss der Folder angegeben sein
+Dieser darf für den Publish2Go keinen Inhalt haben.</p>
+</li>
+</ul>
+<h3 id="knoten-exportdoc">Knoten <code>&lt;ExportDoc&gt;</code></h3>
+<p>Exportiert die komplette Dokumentation der Package-Version im HTML-Format.</p>
+<p>Attribute:</p>
+<ul>
+<li><p><strong>Name</strong>: optional</p>
+</li>
+<li><p><strong>FS</strong>: erforderlich (siehe oben) (ab FS 3.11.8)</p>
+</li>
+<li><p><strong>Rep</strong>: erforderlich (siehe oben)</p>
+</li>
+<li><p><strong>Package</strong>: erforderlich - gibt den Namen des zu exportierenden Packages an</p>
+</li>
+<li><p><strong>Version</strong>: erforderlich - gibt den Namen der zu exportierenden Package-Version an</p>
+</li>
+<li><p><strong>Iso</strong>: erforderlich - der Iso-Code der zu exportierenden Sprache – z.B. „de“ oder „en“</p>
+</li>
+<li><p><strong>Dir</strong>: optional - der Ordner, in dem die Dokumentation abgelegt werden soll, falls dieser vom Parameter <strong>{ExportDir}</strong> abweicht.</p>
+<p>Für den Export wird ein Unter-Ordner mit dem folgenden Format erzeugt:
+<code>{ExportFilePrefix}_&lt;Package&gt;_&lt;Version&gt;_Help_&lt;Iso&gt;</code></p>
+<p>Beispiel: <code>ExportDir\2016-09-17_eNVenta_3.7_Help_de\...</code></p>
+</li>
+<li><p><strong>ExportDBTables</strong>: optional - sollen die Tabellen-Beschreibungen exportiert werden, dann muss <code>ExportDBTables=&quot;1&quot;</code> angegeben werden.</p>
+</li>
+<li><p><strong>UseLicense</strong>: optional - wenn dieser Parameter(<code>UseLicense=&quot;1&quot;</code>) gesetzt ist, wird die Runtime-Lizenz aus dem Setting verwendet, welches via <code>Setting=&quot;SETTING_NAME&quot;</code> übergeben wird.
+In der Folge wird nur der Teil der Dokumentation exportiert, der mit der Runtime-Lizenz sichtbar ist.</p>
+</li>
+<li><p><strong>Setting</strong>: erforderlich, wenn <code>UseLicense=&quot;1&quot;</code> gesetzt ist - Name des Settings.
+Dieses muss im Run-Wizard vorbereitet und abgespeichert werden.</p>
+</li>
+<li><p><strong>Args</strong>: optional - Weitere Kommandozeilen-Argumente, die zusätzlich übergeben werden sollen.
+So können zukünftige Features integriert werden.</p>
+<p>Wie beim <a href="#knoten-batch">Knoten <code>&lt;Batch&gt;</code></a> können auch Args in Form eines XML-Knoten angegeben werden.</p>
+</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

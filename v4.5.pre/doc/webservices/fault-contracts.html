@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Fault Contracts </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Fault Contracts ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/dev/docs/doc/webservices/fault-contracts.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="fault-contracts">Fault Contracts</h1>
+
+<p>Wird eine Webservicemethode von einem Client (z.B. ein C#-Programm) aufgerufen, kann es auf dem Server zu Exceptions kommen. Im Normalfall können auf Client-Seite diese Exceptions abgefangen und ausgewertet werden. Es stehen aber nur limitierte Informationen bereit (Message/StackTrace).</p>
+<p>Im folgenden Beispiel wird an einem Webservice, der mit Framework Studio erstellt wurde, die Methode <code>string GetArticleByID(string id)</code> aufgerufen.</p>
+<p><img src="media/fault-contract-code-beispiel.png" alt="code-beispiel"></p>
+<p>Wird während der Abarbeitung der Methode auf dem Server eine Exception geworfen, kann diese auf Clientseite mittels try/catch abgefangen und behandelt werden.</p>
+<p>Es gibt jedoch auch den Anwendungsfall, dass die Servicemethode ganz bewusst ein Scheitern der Abarbeitung an den Client zurückgeben soll und dies mit möglichst ausführlichen Daten, wieso es zu dem Fehler gekommen ist. Eine normale Exception mit Message und StackTrace ist dann nicht mehr ausreichend.</p>
+<p><strong>Beispiel:</strong></p>
+<p>Die Servicemethode string „GetArticleByID(string id)“ gibt normalerweise den Namen des Artikels zurück, welcher für die angegebene ID in der Datenbank gefunden wurde. Wenn die ID allerdings nicht gefunden wurde, soll nicht nur ein Leerstring oder Null an den Client zurückgegeben werden, sondern ein definierter Statuscode und zusätzlich eine adequate Fehlermeldung. Da dies schon zwei Properties sind, die an den Client übertragen werden müssen, wird ein Objekt benötigt, welches alle gewünschten Informationen enthält – der Fault Contract.</p>
+<h2 id="fault-contract--data-contract">Fault Contract = Data Contract</h2>
+<p>In der Praxis ist ein Fault Contract ein Data Contract, d.h. ein komplexes Objekt mit Properties, die wiederum vom Typ eines Data Contracts sein können. Um das obige Beispiel in die Tat umsetzen zu können, wird also ein Data Contract benötigt, der einen Statuscode und die dazugehörige Fehlermeldung aufnehmen kann. Hierzu wird in Framework Studio ein neuer Data Contract erstellt, der folgendermaßen aussieht:</p>
+<p><img src="media/fault-contract-data-contract.png" alt="fault-contract-data-contract"></p>
+<h2 id="fault-contracts-zuweisen">Fault Contracts zuweisen</h2>
+<p>Die Verbindung zwischen Service-Methode und Fault Contract kommt im Service Contract zustande. Dieses Interface legt fest, welche Methoden vom Service implementiert werden müssen und zusätzlich, welche Fault Contracts von welcher Methode genutzt werden dürfen. Der für das Beispiel nötige Service Contract sieht folgendermaßen aus:</p>
+<p><img src="media/fault-contract-contracts-zuweisen.png" alt="Fault Contracts zuweisen"></p>
+<p>Es soll also später vom Service die Methode <code>string GetArticleByID(string id)</code> implementiert werden. Zusätzlich wurde für diese Methode in der Liste der Fault Contracts der zuvor angelegte Data Contract <strong>dcArticleFault</strong> als Fault Contract hinterlegt. Das bedeutet, die Methode <code>GetArticleByID</code> kann im Fehlerfall ein Objekt vom Typ „dcArticleFault“ instantiieren und dieses an den aufrufenden Client zurückgeben.</p>
+<p>Um die Funktionsweise noch weiter zu verdeutlichen, folgt nun ein kleiner Ausschnitt aus dem generierten Code von Framework Studio. Zu sehen ist der Code des Service Contracts <strong>ArticleService Contract</strong>:</p>
+<p><img src="media/fault-contract-use-code.png" alt="usecode"></p>
+<p>Zu sehen ist, dass über der Methode <code>string GetArticleByID(string id)</code> ein Attribut <code>[Fault Contract(typeof(dcArticleFault))]</code> hinzugefügt wurde. Dies bedeutet, dass ein Service, der diesen Service Contract implementiert, in der Methode <code>GetArticleByID</code> den Data Contract <strong>dcArticleFault</strong> als Fault Contract verwenden kann. Dabei können einer Methode beliebig viele Fault Contracts zugewiesen werden.</p>
+<h3 id="zurückgeben-eines-fault-contracts">Zurückgeben eines Fault Contracts</h3>
+<p>Als erstes muss nun ein neuer Service in Framework Studio angelegt werden, der den Service Contract „ArticleService Contract“ implementiert:</p>
+<p><img src="media/fault-contract-zurueckgeben.png" alt="Zurückgeben eines Fault Contracts"></p>
+<p>Zu beachten ist, dass die Option <strong>Autogenerate Contract</strong> auf <strong>No</strong> gestellt ist, da wir uns ja selbst um einen Service Contract gekümmert haben.</p>
+<p>Der Service ist nun erstellt und der Contract korrekt zugewiesen. Nun muss die Methode <code>string GetArticleByID(string id)</code> am Service <strong>ArticleService</strong> ausprogrammiert werden.</p>
+<p><img src="media/fault-contract-incode-verwenden.png" alt="incode"></p>
+<p>Im Beispiel wurde die übliche Businesslogik außer Acht gelassen. Wir gehen einfach davon aus, dass für die übergebene ID kein zugehöriger Artikel in der Datenbank gefunden wurde. Diese Information soll dem Client nun adequat mitgeteilt werden.</p>
+<p>Es kann nun, nachdem der Artikel nicht in der Datenbank gefunden wurde, eine neue Instanz des Data-/Fault Contracts <strong>dcArticleFault</strong> erstellt werden. Dieser kann mit den gewünschten Werten gefüllt werden, die zum Client übertragen werden sollen. In unserem Fall ist es der Statuscode <code>1</code> als Integer und die Information, dass der Artikel nicht gefunden wurde in Form eines Strings.</p>
+<p>Alles was nun noch getan werden muss, ist das Werfen einer FaultException vom Typ des Fault Contracts. In unserem Fall also <code>FaultException&lt;dcArticleFault&gt;</code>. Dieser generischen FaultException wird die gerade eben erstellte Faultinstanz übergeben.</p>
+<p>Um den Service ansprechen zu können, bedarf es nur noch einem Service Host, der für den Service einen entsprechenden Endpoint bereitstellt.</p>
+<h3 id="abfangen-einer-faultexception-am-client">Abfangen einer FaultException am Client</h3>
+<p>Das folgende Beispiel des Clients wurde in Visual Studio 2012 entwickelt. Hierzu wurde der Service Host in Framework Studio gestartet und in Visual Studio eine neue Service Referenz angelegt.</p>
+<p>Das zuvor angesprochene Attribut <code>[Fault Contract(typeof(dcArticleFault))]</code> über der Methode im Service Contract sorgt dafür, dass die Beschreibung des Typs <strong>dcArticleFault</strong> in das WSDL des Webservices generiert wird. Dies hat zur Folge, dass jegliche Clients, die mit dem Service arbeiten, von diesem Typ wissen und ihn somit ohne Weiteres in ihrem eigenen Code verwenden können. Es folgt der neue Clientcode:</p>
+<p><img src="media/fault-contract-code-beispiel2.png" alt="Bespiel2"></p>
+<p>Der Client weiß also mit Hilfe des WSDL, dass die Servicemethode <code>string GetArticleByID(string id)</code> potenziell eine Exception vom Typ <code>FaultException&lt;dcArticleFault&gt;</code> werfen kann. Es kann immer noch eine <strong>unhandled Exception</strong> auftreten. Der Code wird also um einen neuen Catch-Block erweitert, der nur auf die FaultException hört. Würden der Servicemethode mehrere Fault Contracts zugewiesen, könnten die unterschiedlichen FaultExceptions in weiteren Catch-Blöcken abgefangen werden.</p>
+<p>Die generische <code>FaultException&lt;T&gt;</code> bietet den jeweiligen Fault Contract über das Property <strong>Detail</strong> schon korrekt typisiert an. Es muss nichts gecastet werdeb. Danach kann auf die zur Verfügung stehenden Properties des Fault Contracts zugegriffen und vom Client verarbeitet werden.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

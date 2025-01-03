@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Export Wizards </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Export Wizards ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/dev/docs/doc/documentation/export-wizards.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="export-wizards">Export Wizards</h1>
+
+<p>Die wichtigste Funktion des Dokumentationssystems ist der Export in ein gängiges Format. Framework Studio bietet die Möglichkeit, automatisiert alle Dokumentationen, die an Forms, Controls, Metadatentypen usw. getätigt wurden, anhand der im <a href="chapter-tree.html">Chapter Tree</a> definierten Kapitelstruktur zu exportieren.
+Die Dokumentation kann als HTML Webapplikation (zum Hosten auf einem Webserver) oder als Word-Datei (.docx) exportiert werden. Zusätzlich dazu gibt es einen besonderen Modus, mit dem ausschließlich Dokumentationen von Component-Properties exportiert werden können, um diese mittels des Browser-Controls in der Endanwendung anzeigen zu können.</p>
+<h2 id="html">HTML</h2>
+<p>Dieser Export-Modus exportiert die gesamte Dokumentation oder ein ausgewähltes Kapitel als Webapplikation, welche auf einem beliebigen Webserver (z.B. IIS, Apache, Nginx) gehostet werden kann und somit von nahezu allen Endgeräten mit Webbrowser erreichbar ist.</p>
+<p>Der Modus <a href="#html-properties">HTML (Properties)</a> ist in diesem Export-Modus integriert. Es werden alle Component-Properties von Components, die mit dem Marker <strong>{ExportDoc}</strong> markiert sind, exportiert.</p>
+<p>Der Wizard für den Export der Dokumentation als HTML Webapplikation befindet sich im Menü <strong>Tools</strong> &gt; <strong>Documentation</strong> &gt; <strong>Export</strong> &gt; <strong>HTML</strong>.</p>
+<h3 id="wizard-optionen">Wizard-Optionen</h3>
+<p><img src="media/ewiz-html-optionen.png" alt="export-html-optionen"></p>
+<p>Die Baumansicht bietet die Struktur des Release-Knotens an. Hier muss ausgewählt werden, welches Kapitel exportiert werden soll. Wird der Release-Knoten selbst angewählt, wird die gesamte Dokumentation, die im Framework Studio hinterlegt ist, exportiert.</p>
+<h4 id="combobox-language">Combobox <strong>Language</strong></h4>
+<p>Definiert die Sprache, für die die Dokumentation exportiert werden soll. Dies ändert auch die Sprache der automatisch generierten Screenshots (siehe  <a href="editor.html#screenshot">Screenshot <img src="../media/icon-screenshot.png" alt="icon-screenshot.png"></a>).</p>
+<p>Beim Export über die <a href="../fsconsole/fsconsole.html">FSConsole</a> kann die Sprache über den Parameter <code>\Iso</code> gesteuert werden.</p>
+<h4 id="checkbox-include-tooltips">Checkbox <strong>Include Tooltips</strong></h4>
+<p>Ist an einem Steuerelement eines Formulars ein Tooltip hinterlegt, wird dieser mit in die Dokumentation des Steuerelements aufgenommen.</p>
+<h4 id="checkbox-include-db-tables">Checkbox <strong>Include DB-Tables</strong></h4>
+<p>Ist diese Checkbox gesetzt, dann wird auf der ersten Ebene ein zusätzliches Kapitel <strong>Tabellen-Beschreibungen</strong> erzeugt, unter dem die Beschreibung aller Datenbank-Tabellen enthalten ist.</p>
+<p>Beim Export über die <a href="../fsconsole/fsconsole.html">FSConsole</a> kann das über den Parameter <code>\ExportDBTables</code> gesteuert werden.</p>
+<h4 id="checkbox-use-license">Checkbox <strong>Use License</strong></h4>
+<p>Wenn diese Checkbox aktiviert ist, wird die Lizenz bei dem Export der Dokumentation berücksichtigt.
+Forms und Controls, die nicht die nötigen Berechtigungen besitzen, werden nicht mit in die Dokumentation aufgenommen.</p>
+<h3 id="export-vorgang">Export-Vorgang</h3>
+<p>Für den eigentlichen Export-Vorgang wird ein Dialog mit Statusinformationen bereitgestellt. Über den Button <strong>Abort</strong> kann der Vorgang jederzeit abgebrochen werden.</p>
+<p><img src="media/ewiz-html-vorgang-status.png" alt="export-vorgang-status"></p>
+<p>Treten beim Export-Vorgang Infos, Warnungen oder Fehler auf, werden diese detailliert in das Ausgabefenster protokolliert und der Statustext ändert ggf. seine Farbe (<b style="color: orange">orange</b> für Warnungen, <b style="color: red">rot</b> für Fehler).</p>
+<h3 id="webapplikation">Webapplikation</h3>
+<p>Nach dem Export-Vorgang befindet sich die Webapplikation im zuvor ausgewählten Ausgabeordner.</p>
+<p><img src="media/ewiz-webapp.png" alt="ewiz-webapp"></p>
+<p>Die Webapplikation ist eine HTML 5 Anwendung, die ausschließlich auf den Technologien HTML, JavaScript und CSS basiert. Damit ist sie kompatibel zu nahezu allen Endgeräten mit einem Browser (<a href="#webapplikation-voraussetzungen">Webapplikation Voraussetzungen</a> beachten).</p>
+<h3 id="inhalt">Inhalt</h3>
+<p><img src="media/ewiz-webapp-inhalt.png" alt="ewiz-webapp-inhalt"></p>
+<p>Nach dem Öffnen der Webapplikation im Browser ist standardmäßig der Bereich <strong>Contents</strong> selektiert. Hier kann im Baum auf der linken Seite das gewünschte Kapitel ausgewählt werden, welches dann rechts im Viewer angezeigt wird. Bei einem Klick auf einen Link wird der Baum automatisch aktualisiert und zum neuen Kapitel gesprungen.</p>
+<h3 id="index">Index</h3>
+<p><img src="media/ewiz-webapp-index.png" alt="ewiz-webapp-index"></p>
+<p>Im Bereich <strong>Index</strong> kann der gesamte Index der Dokumentation durchsucht werden. Ist einem Index-Eintrag nur ein einziges Kapitel zugeordnet, wird dieses sofort nach dem Klick in den Baum ausgewählt.
+Sind einem Index-Eintrag mehrere Kapitel zugeordnet, kann das gewünschte Kapitel im Bereich <strong>Select Chapter</strong> links unten im Baum ausgewählt werden.</p>
+<h3 id="suche">Suche</h3>
+<p><img src="media/ewiz-webapp-suche.png" alt="ewiz-webapp-suche"></p>
+<p>Mit Hilfe der Suchfunktion können alle Kapitel nach Wörtern durchsucht werden. In der Ergebnisliste werden dann alle Kapitel angezeigt, die das eingegebene Wort enthalten.</p>
+<h3 id="drucken">Drucken</h3>
+<p><img src="media/ewiz-webapp-drucken.png" alt="ewiz-webapp-drucken"></p>
+<p>Um den Inhalt des gerade angezeigten Kapitels zu drucken, steht der Button <strong>Print</strong> zur Verfügung. Anders als die Druckfunktion des Browsers, welche die gesamte Webapplikation inkl. Baum drucken würde, wir über den Button <strong>Print</strong> nur der Inhalt des Viewers berücksichtigt.</p>
+<h3 id="webapplikation-voraussetzungen">Webapplikation Voraussetzungen</h3>
+<p>Um die von Framework Studio generierte Webapplikation zu hosten, wird einer der folgenden Webserver vorausgesetzt:</p>
+<ul>
+<li>IIS 7 oder höher</li>
+<li>Apache 2.2.x oder höher</li>
+<li>Nginx 1.9 oder höher</li>
+</ul>
+<p>Es wird empfohlen, einen der folgenden Browser zur Anzeige der Webapplikation zu verwenden:</p>
+<ul>
+<li>Google Chrome</li>
+<li>Mozilla Firefox</li>
+<li>Microsoft Edge</li>
+<li>Microsoft Internet Explorer 11</li>
+</ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Internet Explorer 10 und niedriger werden NICHT unterstützt.</p>
+</div>
+<h3 id="export-mit-fsconsole">Export mit FSConsole</h3>
+<p>Neben dem Export-Wizard kann die Webapplikation auch über die <a href="../fsconsole/fsconsole.html#fsconsole">FSConsole.exe</a> generiert werden. Hierzu gibt es die Parameter \DOCUMENTATION, \ISO und \OUTPUT.</p>
+<h5 id="documentation"><strong>\DOCUMENTATION</strong></h5>
+<p>Dieser Parameter ist nur ein Marker für die FSConsole, dass die Dokumentation gerendert werden soll.</p>
+<h5 id="iso"><strong>\ISO</strong></h5>
+<p>Gibt die Sprache an, in der die Dokumentation gerendert werden soll. Der Parameter hat auch Einfluss auf die automatisch generierten Screenshots.</p>
+<h5 id="output"><strong>\OUTPUT</strong></h5>
+<p>Gibt das Verzeichnis an, in welches die Webapplikation gerendert werden soll.</p>
+<p>Zusätzlich zu den neuen Parametern müssen die obligatorischen Connection- und Package-Version Parameter angegeben werden (<strong>\LABELID</strong>, <strong>\SERVER</strong>, <strong>\DBUSER</strong> usw.)</p>
+<h5 id="beispiel"><strong>Beispiel:</strong></h5>
+<pre><code class="lang-shell">FSConsole.exe \DOCUMENTATION \ISO de \OUTPUT „C:\Temp\Dokumentation“ \PACKAGE MyPackage \VERSION 3.8 \CONNECTIONTYPE SqlServer \SERVER Server01 \DBUSER demo \DBPASSWORD demo123
+</code></pre>
+<h2 id="word">Word</h2>
+<p>Der Wizard für den Export der Dokumentation als Word-Datei (.docx) befindet sich im Menü <strong>Tools</strong> &gt; <strong>Documentation</strong> &gt; <strong>Export</strong> &gt; <strong>Word</strong>.</p>
+<h3 id="wizard-optionen-1">Wizard-Optionen</h3>
+<p><img src="media/ewiz-word-optionen.png" alt="ewiz-word-optionen"></p>
+<p>Die Baumansicht bietet die Struktur des Release-Knotens an. Hier muss ausgewählt werden, welches Kapitel exportiert werden soll. Wird der Release-Knoten selbst angewählt, wird die gesamte Dokumentation, die im Framework Studio hinterlegt ist, exportiert.</p>
+<h5 id="title-page"><strong>Title Page</strong></h5>
+<p>Wird diese Option aktiviert, wird in der Word-Datei zusätzlich ein Deckblatt mit dem definierten Titel und Info Text generiert.</p>
+<h5 id="language"><strong>Language</strong></h5>
+<p>Definiert die Sprache, für die die Dokumentation exportiert werden soll. Dies ändert auch die Sprache der automatisch generierten Screenshots (siehe <a href="editor.html#screenshot">Screenshot <img src="../media/icon-screenshot.png" alt="icon-screenshot.png"></a>).</p>
+<h5 id="create-toc"><strong>Create TOC</strong></h5>
+<p>Erstellt ein Inhaltsverzeichnis für alle in der Dokumentation enthaltenen Kapitel am Anfang der Word-Datei.</p>
+<h5 id="create-index"><strong>Create Index</strong></h5>
+<p>Erstellt einen Index für alle Kapitel und manuell in den Dokumentationen definierten Indexeinträgen am Ende der Word-Datei. Die Überschrift jedes Kapitels aus dem <a href="chapter-tree.html">Chapter Tree</a> wird automatisch zum Index hinzugefügt.</p>
+<h5 id="include-tooltips"><strong>Include Tooltips</strong></h5>
+<p>Ist an einem Steuerelement eines Formulars ein Tooltip hinterlegt, wird dieser mit in die Dokumentation des Steuerelements aufgenommen.</p>
+<h5 id="doc2help"><strong>Doc2Help</strong></h5>
+<p>Zusätzlich zum Indexeintrag wird jede Kapitelüberschrift mit einer zusätzlichen Formatvorlage versehen, die es <a href="doc2help.html">Doc2Help</a> erlaubt, einen Verweis über eine Url in der Onlinehilfe auf das jeweilige Kapitel zu generieren. Für mehr Information hierzu siehe Kapitel <a href="doc2help.html">Doc2Help</a>.</p>
+<h4 id="checkbox-use-license-1">Checkbox <strong>Use License</strong></h4>
+<p>Wenn diese Checkbox aktiviert ist, wird die Lizenz bei dem Export der Dokumentation berücksichtigt.
+Forms und Controls, die nicht die nötigen Berechtigungen besitzen, werden nicht mit in die Dokumentation aufgenommen.</p>
+<h3 id="export-vorgang-1">Export-Vorgang</h3>
+<p>Für den eigentlichen Export-Vorgang wird ein Dialog mit Statusinformationen bereitgestellt. Über den Button <strong>Abort</strong> kann der Vorgang jederzeit abgebrochen werden.</p>
+<p><img src="media/ewiz-word-vorgang-status.png" alt="ewiz-word-vorgang-status"></p>
+<p>Treten beim Export-Vorgang Infos, Warnungen oder Fehler auf, werden diese detailliert in das Ausgabefenster protokolliert und der Statustext ändert ggf. seine Farbe (<b style="color: orange">orange</b> für Warnungen, <b style="color: red">rot</b> für Fehler).</p>
+<h3 id="besonderheit-bei-toc-und-index">Besonderheit bei TOC und Index</h3>
+<p>Wurde im Export Wizard eine der Optionen <strong>Create TOC</strong> oder <strong>Create Index</strong> ausgewählt, muss Microsoft Word (2007 oder höher) auf dem PC installiert sein, um das Inhaltsverzeichnis oder den Index nach einem erfolgreichem Exportvorgang zu aktualisieren. Zu diesem Zweck wird nach dem Speichern der docx-Datei auf der Festplatte diese automatisch von Framework Studio aus mit Word geöffnet (als Prozess - es wird kein Fenster geöffnet) und eine Aktualisierung der jeweiligen Kataloge angestoßen. Anschließend wird die Datei nochmals gespeichert und Word geschlossen.</p>
+<p><img src="media/ewiz-word-toc-index.png" alt="ewiz-word-toc-index"></p>
+<p>Im Ausgabefenster des Export-Vorgangs ist zu erkennen, dass seitens Framework Studio geprüft wird, ob Word installiert ist. Sollte dies nicht der Fall sein, werden im exportierten Dokument zwar ein Inhaltsverzeichnis und ein Index enthalten sein, die jedoch aufgrund der fehlenden Aktualisierung keine Einträge enthalten. In diesem Fall muss die Aktualisierung der Kataloge manuell mit Word durchgeführt werden.</p>
+<h2 id="html-properties">HTML (Properties)</h2>
+<p>Zusätzlich zu den anderen Modi steht ein weiterer Export-Modus zur Verfügung. Dieser ist in der Lage, ausschließlich Dokumentationen von Component-Properties in einzelne HTML-Dateien zu rendern. Er rendert also nicht wie der HTML- oder Word-Exporter die gesamte zur Verfügung stehende Dokumentation, sondern nur ausgewählte Component-Properties.</p>
+<p>Soll die Dokumentation eines Component-Properties z.B. an der Oberfläche der Endanwendung angezeigt werden, ist dies nun mit Hilfe des Browser-Controls möglich. Der neue Export-Modus befindet sich wie nun auch der bisherige Word-Export-Modus im Menü</p>
+<p><strong>Tools</strong> &gt; <strong>Documentation</strong> &gt; <strong>Export</strong> &gt; <strong>HTML (Properties)</strong>.</p>
+<p><img src="media/ewiz-html-prop.png" alt="ewiz-html-prop"></p>
+<h3 id="markieren-der-components">Markieren der Components</h3>
+<p>Eine Endanwendung besteht im Normalfall aus extrem vielen Components und Component-Properties. Der neue Export-Modus wird aber meist nur für einen gewissen Bereich der Anwendung benötigt. Deshalb muss auf Component-Ebene definiert werden, welche Components beim neuen Export-Modus beachtet werden sollen.</p>
+<p><img src="media/ewiz-html-prop-mark-comp.png" alt="ewiz-html-prop-mark-comp"></p>
+<p>Um eine Component für den neuen Modus zu markieren, muss die Zeichenfolge <strong>&quot;{ExportDoc}&quot;</strong> in das Description-Feld der Component eingetragen werden. Nun werden beim Export alle dokumentierten Properties der markierten Component exportiert.</p>
+<h3 id="wizard-optionen-2">Wizard-Optionen</h3>
+<p><img src="media/ewiz-html-prop-optionen.png" alt="ewiz-html-prop-optionen"></p>
+<p>Wird der neue Export-Dialog aufgerufen, wird eine Übersicht mit allen markierten Components angezeigt.</p>
+<h5 id="language-1"><strong>Language</strong></h5>
+<p>Definiert die Sprache, in der die Component-Properties gerendert werden sollen</p>
+<h5 id="include-tooltips-1"><strong>Include Tooltips</strong></h5>
+<p>Definiert, ob an den Component-Properties definierte Tooltips zuzüglich zur eigentlichen Dokumentation gerendert werden sollen.</p>
+<h5 id="output-directory"><strong>Output Directory</strong></h5>
+<p>Über den Button <strong>[…]</strong> muss ein Zielverzeichnis für den HTML-Export definiert werden. Dieses Verzeichnis muss leer sein.</p>
+<h3 id="export-vorgang-2">Export-Vorgang</h3>
+<p><img src="media/ewiz-html-prop-vorgang-status.png" alt="ewiz-html-prop-vorgang-status"></p>
+<p>Es kann nachvollzogen werden, welche Properties Dokumentationen beinhalten und gerendert werden. Sollte nach dem Export-Vorgang festgestellt werden, dass keine Bilder gerendert wurden, wird das zuvor erstellte Verzeichnis <strong>images</strong> wieder gelöscht.</p>
+<h3 id="ausgabe">Ausgabe</h3>
+<p><img src="media/ewiz-html-prop-ausgabe.png" alt="ewiz-html-prop-ausgabe"></p>
+<p>Beim Export wird jedes Property einer markierten Component durchlaufen und in eine separate .html-Datei geschrieben. Der Name dieser Dateien setzt sich allein aus dem Namespace-Pfad des Properties zusammen.
+Wird der Export-Ordner nun an einem im Netzwerk zugänglichen Pfad abgelegt (vorzugsweise auf dem Webserver, auf dem auch schon die bisherige Dokumentation liegt), können die Property-Dokumentationen in der Endanwendung mittels eines Browser-Controls eingebunden werden.</p>
+<h2 id="struktur-der-ausgabe">Struktur der Ausgabe</h2>
+<p>Der größte Vorteil der Generierung der Anwendungsdokumentation mit Framework Studio ist die strukturierte Ausgabe. Ziel ist es, jedes Kapitel bzw. Formular in genau demselben Schema auszugeben. Dokumentations-Elemente sind hier sehr einfach gehalten, da sie nur eine Dokumentation enthalten. Sie werden als einzelnes Kapitel mit dem zugehörigen Text gerendert. Formulare hingegen bestehen aus vielen Steuerelementen und ggf. Menüeinträgen, die wiederum ihre eigene Dokumentation beinhalten. Hier folgt Framework Studio folgendem Schema:</p>
+<p><img src="media/aufbau-einer-formulardokumentation.png" alt="aufbau-einer-formulardokumentation"></p>
+<p>Die Dokumentation eines Formulars beginnt wie ein Documentation-Element mit einem eigenen Kapitel. Danach folgt die Formular-Dokumentation. Die Steuerelemente werden anhand ihrer Position auf dem Form abgearbeitet. Es wird von links nach rechts und von oben nach unten gearbeitet.</p>
+<p><img src="media/ewiz-abarbeitung-der-steuerelemente.png" alt="ewiz-abarbeitung-der-steuerelemente"></p>
+<p>Wenn ein Steuerelement andere Steuerelemente beinhaltet (z.B. Registerkarten oder Tabellen) werden diese inneren Steuerelemente nach demselben Schema abgearbeitet.</p>
+<p>Sind alle Steuerelemente gerendert, folgt zum Schluss die Ausgabe der Menüeinträge. Zur Verdeutlichung folgen einige Beispiele in Microsoft Word.</p>
+<p>Ausgabe einer Dokumentation eines Documentation-Elements:</p>
+<p><img src="media/ewiz-ausgabe-doku-doc-elements.png" alt="ewiz-ausgabe-einer-doku"></p>
+<p>Ausgabe eines Formulars unterhalb eines Documentation-Elements:</p>
+<p><img src="media/ewiz-ausgabe-form-doc-elements.png" alt="ewiz-ausgabe-form-doc-elements"></p>
+<p>In diesem Beispiel ist zu sehen, dass im Chapter Tree das Formular <strong>Kassenparameter</strong> unterhalb des Documentation-Elements <strong>Kasse</strong> eingefügt wurde. In der Formular-Dokumentation wurde ein automatisch generierter Screenshot eingefügt.</p>
+<p>Ausgabe der Steuerelemente eines Formulars:</p>
+<p><img src="media/ewiz-ausgabe-selemente-formulars.png" alt="ewiz-ausgabe-selemente-formulars"></p>
+<p>In diesem Beispiel ist die Ausgabe der Steuerelemente eines Formulars zu sehen. Ist ein Steuerelement ein Container (d.h. beinhaltet andere Steuerelemente) wird dies mit horizontalen Linien verdeutlicht. Es ist zu erkennen, dass die Buttons <strong>Speichern</strong>, <strong>Schließen</strong>, <strong>Customizing</strong> und <strong>Hilfe</strong> innerhalb des Panels <strong>Haupt-Buttonleiste</strong> liegen.</p>
+<p>Zusätzlich ist erkennbar, dass die Bezeichnungsfelder <strong>Gutsch.kürzel</strong> und <strong>Rechn.kürzel</strong> Tooltip-Informationen enthalten, die automatisch mit in die Dokumentation aufgenommen wurden (Checkbox <strong>Include Tooltips</strong> in den <a href="#wizard-optionen">Wizard-Optionen</a>).</p>
+<h2 id="ausgabe-der-bilder-bei-steuerelementen">Ausgabe der Bilder bei Steuerelementen</h2>
+<p>Es gibt einige Steuerelemente in Framework Studio, die Bilder anzeigen (z.B. ImageButtons). Um das Auffinden eines solchen Steuerelements in der Dokumentation zu vereinfachen, kann in der Ausgabe des Steuerelements das zugehörige Bild mit angezeigt werden.</p>
+<p>ImageButtons mit Bild in der Dokumentation:</p>
+<p><img src="media/ewiz-ausgabe-imagebuttons.png" alt="ewiz-ausgabe-imagebuttons"></p>
+<p>Ob das Bild in der Dokumentation des Steuerelements mit angezeigt wird oder nicht, hängt von einem Schalter direkt am Steuerelement ab.</p>
+<p>Einstellung zur Anzeige des Bildes in der Dokumentation des Steuerelements:</p>
+<p><img src="media/ewiz-ausgabe-einstellung-bildanzeige-selement.png" alt="ewiz-ausgabe-einstellung-bildanzeige-selement"></p>
+<p>Diese Einstellung kann auch global über die DefaultControlStyles für den jeweiligen Control-Typ definiert werden.</p>
+<p>Einstellung der Bildanzeige am DefaultControlStyle:</p>
+<p><img src="media/ewiz-ausgabe-einstellung-bildanzeige-controlstyle.png" alt="ewiz-ausgabe-einstellung-bildanzeige-controlstyle"></p>
+<h2 id="registerkarten-als-separate-kapitel-ausgeben">Registerkarten als separate Kapitel ausgeben</h2>
+<p>Registerkarten beinhalten in Anwendungen oft Funktionalitäten, die in einer Dokumentation als separates Kapitel betrachtet werden sollte. Standardmäßig werden Registerkarte in der Dokumentation genauso wie andere Container-Steuerelemente in der Liste der Steuerelemente des Formulars mit ausgegeben. Dieses Verhalten ist nicht immer gewünscht, vor allem wenn eine Registerkarte sehr viele Steuerelemente und komplexere Vorgänge beinhaltet. Um für jede Registerkarte eines Registerkartes unterhalb eines Formulars ein eigenes Kapitel in der Dokumentation zu eröffnen, gibt es die Option <strong>ChaptersForTabs</strong> am Registerkarte.</p>
+<p>Registerkarten als separate Kapitel Ausgeben:</p>
+<p><img src="media/ewiz-registerkarter-ausgeben.png" alt="ewiz-registerkarter-ausgeben"></p>
+<p>Wird diese Option auf <code>True</code> gesetzt, werden beim Exportieren des Formulars für jede Registerkarte des Registerkartes ein eigenes Kapitel mit eigenem Indexeintrag erstellt.</p>
+<p>Generierung separater Kapitel für Registerkarten:</p>
+<p><img src="media/ewiz-generierung-kapitel-registerkarten.png" alt="ewiz-generierung-kapitel-registerkarten"></p>
+<p>In der Liste der Steuerelemente, in der die Registerkarten normalerweise ausgegeben werden, befindet sich dann nur noch ein Link auf das entsprechende Unterkapitel.</p>
+<p><img src="media/ewiz-querverweis-generierten-unterkapitel.png" alt="ewiz-querverweis-generierten-unterkapitel"></p>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Die Option <strong>ChapterForTabs</strong> kann je Formular nur für ein einziges Registerkarte auf <code>True</code> gesetzt werden.</p>
+</div>
+<h2 id="vorschau-eines-ganzen-formulars">Vorschau eines ganzen Formulars</h2>
+<p>Die Preview-Ansicht des Dokumentations-Editors zeigt immer nur die Ausgabe des im <a href="editor.html">Editor</a> befindlichen <a href="docml.html">DocML</a>. Um eine Vorstellung zu bekommen, wie ein ganzes Formular in der Endfassung aussieht, kann dieses komplett mit der Steuerelementauflistung und den Menüeinträgen in ein Vorschaufenster gerendert werden. Hierzu reicht im Documenation-Editor ein Klick auf den Link <strong>View Render Chapter</strong>. Es wird die in der <a href="editor.html#combobox-language">Combobox Language</a> angegebene Sprache verwendet.</p>
+<p>Dieser Link steht auch im Documentation-Editor der <strong>TabPage</strong> zur Verfügung. Diese bilden in der Regel ein eigenes Chapter und werden nicht in der Preview des Forms angezeigt.</p>
+<p>Vollständige Voransicht eines Formulars rendern:</p>
+<p><img src="media/ewiz-vorschau-formular-render.png" alt="ewiz-vorschau-formular-render"></p>
+<h2 id="unterstützung-von-themes">Unterstützung von Themes</h2>
+<p>Die Einstellung des Themes in Framework Studio hat unmittelbare Auswirkungen auf die Ausgabe der Dokumentation mittels des Export Wizards. Diese Abhängigkeit betrifft in Framework Studio eingebundene Ressourcen sowie auch die automatisch generierten Screenshots über das Screenshot-Tag (siehe <a href="editor.html#screenshot">Screenshot <img src="../media/icon-screenshot.png" alt="icon-screenshot.png"></a>  ) in der Formular-Dokumentation.</p>
+<p>Im folgenden Beispiel wurde eine Dokumentation eines Formulars mit zwei unterschiedlichen Themes exportiert, was zu anderen automatisch generierten Screenshots in der Dokumentation führt.</p>
+<p>Dokumentation exportiert mit Theme 1:</p>
+<p><img src="media/ewiz-theme1.png" alt="ewiz-theme1"></p>
+<p>Dokumentation exportiert mit Theme 2:</p>
+<p><img src="media/ewiz-theme2.png" alt="ewiz-theme2"></p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

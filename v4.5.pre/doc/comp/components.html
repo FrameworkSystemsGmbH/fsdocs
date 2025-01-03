@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Components </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Components ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/dev/docs/doc/comp/components.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="components">Components</h1>
+
+<p>Components stellen funktionale Klassen dar. <strong>Framework Studio</strong> unterscheidet zwischen vier verschiedenen Typen:</p>
+<ol>
+<li>Textcollections</li>
+<li>Components ohne Query</li>
+<li>Components mit Query (DataComponents)</li>
+<li>Collections</li>
+</ol>
+<p>In diesem Abschnitt wird auf <strong>Components mit Query</strong> und <strong>Collections</strong> eingegangen. Informationen zu <strong>Textcollections</strong> und <strong>Components ohne Query</strong> finden Sie in den folgenden Abschnitten.</p>
+<p>Eine spezielle Sorte von Components stellen in Framework Studio die Data-Components dar. Data-Components werden über den Database-Editor erstellt (siehe Abschnitt Database Editor) und stellen die Verbindung zu den Daten in der Datenbank her. Jeder aus der Datenbank geladene Datensatz entspricht deshalb einem Objekt vom Typ der jeweiligen Component.</p>
+<p>Zu einer Data-Component können Sie auch zusätzlich Properties definieren, die Sie über Get/Set-Methoden füllen oder setzen. Außerdem können auf einer Component Methoden hinterlegt werden, die mit den Daten operieren und sie validieren.</p>
+<p>Eine Component besteht aus folgenden Bestandteilen:</p>
+<p><strong>Query:</strong> Sie stellt die Verbindung zu einer Datenquelle (in der Regel) einer Datenbanktabelle dar. Dazu werden eine oder mehrere Tabellen eingebunden und angegeben, welche Spalten in der Query enthalten sein sollen. Die Component stellt genau einen Datensatz aus dieser Query dar. Allerdings kann eine Query auch ein Join sein.</p>
+<p><strong>Properties:</strong> Sie bieten die Spalten der Query nach außen an. Dabei wird jede Spalte in der Query zu einem Property. Properties können aber auch völlig frei ohne Verbindung zur Query definiert werden. Die verschiedenen Arten der Properties werden im Abschnitt Properties behandelt.</p>
+<p><strong>Methoden:</strong> Sie können verschiedene Zwecke erfüllen. Zum einen können Methoden frei wie in einer normalen Klasse definiert werden. Diese können dann irgendwelche Operationen ausführen. Zum anderen gibt es Entrypoints (virtuelle Methoden), die in der Component überschrieben werden können, um z.B. die Daten vor dem Abspeichern in der Datenbank zu validieren.</p>
+<p>Collections sind (wie in .NET) eine Sammlung von Objekten einer Component. Sie stellen bereits von sich aus Properties und Methoden bereit, um diese Sammlung zu verwalten. Eine Collection verwaltet immer die Objekte von genau einer Component. Sie können zu einer Collection nur Properties und Methoden hinzufügen.</p>
+<h2 id="anlegen-von-components">Anlegen von Components</h2>
+<p>Eine Component können Sie erzeugen, indem Sie auf der Namespaces-Registerkarte den <strong>Namespace</strong> auswählen, in dem die Component angelegt werden soll. Abschließend drücken Sie den Button (<strong>New</strong>) und wählen den Eintrag <strong>Component</strong> aus. Die neue Component wird gleich im Hauptfenster des <strong>Framework Designers</strong> geöffnet.</p>
+<h2 id="components-bearbeiten">Components bearbeiten</h2>
+<p>Sie öffnen eine vorhandene Component, indem Sie auf der Namespaces-Registerkarte einen Doppelklick auf die gewünschte Komponente machen.</p>
+<p><img src="media/components-bearbeiten.png" alt="TreeView"></p>
+<p>Auf der Registerkarte ClassView sehen Sie in einer Übersicht alle Properties und Methoden der Component. Sie haben die Möglichkeit über einen Doppelklick auf die Properties und Methoden im Fenster direkt zu dem jeweiligen Element zu springen. Alternativ können Sie auch über das Tabcontrol des Component-Fensters zu den jeweiligen Elementen navigieren. In gewohnter Weise können Sie jetzt Elemente über die Buttons des Hauptmenüs oder das Kontextmenü im Baum hinzufügen, ändern, umbenennen oder löschen.</p>
+<h4 id="name">Name</h4>
+<p>Bezeichnung der Komponente. Dieser Name muss pro Namespace eindeutig sein. Es empfiehlt sich, die Namen der Komponenten auch über Namespaces hinweg eindeutig zu vergeben.</p>
+<h4 id="check-in-by">Check In By</h4>
+<p>Gibt an, wer die Komponente wann das letzte Mal eingecheckt hat und welche Versionsnummer die aktuelle ist.</p>
+<p>Ist die Komponente ausgecheckt, werden die Daten des ausgecheckten Zustands angezeigt.</p>
+<h4 id="inspected">Inspected</h4>
+<p>Diese Checkbox hat bisher keine Funktion und dient nur zur Information.</p>
+<h2 id="registerkarte-general">Registerkarte General</h2>
+<h4 id="type">Type</h4>
+<p>Bei einer Collection ist hier angegeben, welche Component diese Collection enthält.
+Datasource:
+Gibt den Datasource an. Diese Angabe ist notwendig, wenn in der Component eine Query definiert werden soll oder wenn in der Component (oder Collection) eine Transaktion abgehandelt werden soll.
+For Component (Collections):
+Zeigt an, welche Component diese Collection enthält.</p>
+<h4 id="description">Description</h4>
+<p>Hier kann eine Beschreibung der Komponente hinterlegt werden.</p>
+<h4 id="control-types">Control Types</h4>
+<p>Hier kann ein Control-Type für die Komponente festgelegt werden, was z.B. bei Collections Sinn macht. Wird bei der Collection z.B. ein Grid hinterlegt, wird später im Form-Designer automatisch ein Grid erzeugt, wenn die Collection auf das Form gezogen wird.</p>
+<h4 id="load-size-collections">Load Size (Collections)</h4>
+<p>Hier wird festgelegt, für wie viele Datensätze beim ersten Load Komponenten instanziiert werden sollen. Für alle weiteren Datensätze wird nur der Primärschlüssel verwaltet. Der automatische Nachlademechanismus sorgt dafür, dass die Komponenten nachgelesen und instanziiert werden, sobald der erste Zugriff darauf erfolgt. Ein Wert kleiner gleich Null sorgt dafür, dass sofort alle Komponenten instanziiert werden. Der Wert kann auch dynamisch über das Property <strong>LoadSize</strong> verändert werden.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

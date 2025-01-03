@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Editfield </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Editfield ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/dev/docs/doc/form/control/editfield.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="editfield">Editfield</h1>
+
+<ul>
+<li><p><a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.EditboxDesignViewModel.html">Properties/Events</a></p>
+</li>
+<li><p><a class="xref" href="../../../api/FrameworkSystems.FrameworkControls.Actions.EditboxControlAction.html">Actions</a></p>
+</li>
+</ul>
+<h2 id="unterstütztes-html">Unterstütztes HTML</h2>
+<p>Wenn die Eigenschaft <strong>Editor</strong> auf den Wert <strong>HTML</strong> gesetzt ist, wird am Datasource des Controls HTML Text erwartet. Das Control bietet keine vollständige Unterstützung von Html. Es folgt ein Überblick über die Einschränkungen:</p>
+<ul>
+<li><p>Das Control ist zur Darstellung von formatiertem Text gedacht. Daher werden keinerlei Eingabefelder o.ä. unterstützt.</p>
+</li>
+<li><p>Textinhalt müssen (selbstverständlich) HTML-Encodiert dargestellt werden.</p>
+</li>
+<li><p>Das Control kann nur Zeichen darstellen, die im Zeichensatz der eingestellten Schrift enthalten sind.</p>
+</li>
+<li><p>Wenn am Control WordWrap eingeschaltet ist, wird (im Gegensatz zum Plain Text Modus) nur zwischen Worten getrennt. Wenn also ein Wort länger ist als die Control Breite, wird nicht umgebrochen! Dabei ist zu beachten, dass Sonderzeichen wie beispielsweise <strong><code>&amp;nbsp;</code></strong> als Wortteil betrachtet werden.</p>
+</li>
+<li><p>Schriftgrößen, die in Punkten (pt) angegeben sind, werden analog zu allen Schriftgrößenangaben in Framework Studio im Java Client skaliert und in mit Crystal Reports erstellten Dokumenten korrekt angezeigt. Die Definition von Schriftgrößen in einer anderen Einheit als pt wird nicht unterstützt.</p>
+</li>
+<li><p>Ist keine Schriftgröße im Html angegeben, wird am Control die im Form Designer angegebene Größe verwendet, in Reports die dort angegebene Größe.</p>
+</li>
+<li><p>Jeder Textinhalt muss innerhalb eines <code>&lt;p&gt;</code> Tags (Absatz) geklammert sein. Insbesondere werden deshalb die folgenden Tags nicht unterstützt:</p>
+<ul>
+<li><p>Überschriften <strong><code>&lt;h1&gt; .. &lt;h6&gt;</code></strong></p>
+</li>
+<li><p>Horizontale Linie <strong><code>&lt;hr&gt;</code></strong></p>
+</li>
+<li><p>Tabellen <strong><code>&lt;table&gt; &lt;tr&gt; &lt;td&gt;</code></strong></p>
+</li>
+<li><p>Aufzählungen <strong><code>&lt;ol&gt; &lt;ul&gt; &lt;li&gt;</code></strong></p>
+</li>
+<li><p>Scripte <strong><code>&lt;script&gt;</code></strong></p>
+</li>
+</ul>
+</li>
+<li><p>Zeilenumbrüche dürfen nicht mit <strong><code>&lt;br&gt;</code></strong> Tags realisiert werden, da mehrere <strong><code>&lt;br&gt;</code></strong> Tags hintereinander vom Crystal Reports nicht korrekt dargestellt werden können. Stattdessen müssen mit den Tags <strong><code>&lt;p style=&quot;margin-top: 0&quot;&gt;</code></strong> und <strong><code>&lt;/p&gt;</code></strong> Absätze umschlossen werden. <strong><code>&lt;p&gt;</code></strong> Tags können neben der Definition von margin-top im style Attribut weitere Attribute und Stilangaben enthalten sein.</p>
+</li>
+<li><p>Bilder können mithilfe eines <code>&lt;img alt=&quot;bild&quot; src=&quot;data:image/png;base64, BORw0KGgoAAAANSUhEUgA.../&gt;</code> Tags und im base64 Format eingebunden werden.
+Auch das Einfügen aus der Zwischenablage im Java-Client wird unterstützt.</p>
+</li>
+</ul>
+<p>Im Html-Modus liefert der Datasource den Inhalt eines Body-Elements. Gesetzt werden darf auch ein vollständiges Html-Dokument. In diesem Fall wird der Body automatisch extrahiert.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Hinweise zu Bildern:</p>
+<ul>
+<li>Reports, die mit DevExpress® erstellt werden, unterstützen diese Bilder.</li>
+<li>Reports, die mit Crystal Report erstellt werden, unterstützen diese Bilder nicht.</li>
+<li>Wenn Bilder aus der Zwischenablage nicht von dem Dateityp PNG oder JPEG sind, werde diese zu einem der Dateitypen konvertiert.
+<ul>
+<li>Bei der Konvertierung wird auf die entstehende Dateigröße geachtet und die Datei (entweder PNG oder JPEG) genommen, die am wenigsten Speicher verbraucht. Sollte die PNG Datei bis maximal 20 Prozent größer als die JPEG Datei sein, wird trotzdem wegen der besseren Qualität die PNG Datei verwendet.</li>
+</ul>
+</li>
+</ul>
+</div>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

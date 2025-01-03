@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Labels </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Labels ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/dev/docs/doc/reporting/devexpress-label-control.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="labels">Labels</h1>
+
+<h3 id="wichtige-einstellungen-für-labels-und-text-shrinking">Wichtige Einstellungen für Labels und Text-Shrinking</h3>
+<p>Labels (und Tabellenzellen) bieten viele verschiedenen Kontrollschrauben für das Verhalten von Text und der Größe des Labels selbst auf Basis dessen an. Die wichtigsten Grundregeln werden hier beschrieben.</p>
+<h3 id="canshrink">CanShrink</h3>
+<p>CanShrink ist eines der zentralen Properties im control resizing. Wenn es aktiviert ist, passt sich die Größe des Controls beim Druck der Größe des Textes innerhalb des Controls an.
+Wenn alle Controls über und unter dem schrumpfenden Control ebenfalls CanShrink aktiviert haben, kann ein gesamtes Band drastisch verkleinert werden:</p>
+<p>Design:
+<img src="media/can-shrink-design.png" alt="Can Shrink Design"></p>
+<br>
+<p>Preview:
+<img src="media/can-shrink-preview.png" alt="Can Shrink Preview"></p>
+<p>Das funktioniert allerdings nur, solange auch alle betroffenen Controls in die Platzberechnungen des Drucks miteinbezogen werden.</p>
+<p><b style="color: red">Visible = false entfernt ein Control aber aus dieser Berechnung!</b></p>
+<p>Der im Designer beanspruchte Platz des unsichtbaren Controls wird somit als leerer Platz gewertet und kann Lücken zur Folge haben:</p>
+<p>Design:
+<img src="media/can-shrink-design-invisible.png" alt="Can Shrink With Invisible Design"></p>
+<p>Preview:
+<img src="media/can-shrink-preview-invisible.png" alt="Can Shrink With Invisible Preview"></p>
+<p>(Die blauen Tabellenzellen schrumpfen immer noch ordnungsgemäß, weshalb nur der Designer-Platz der grauen Zellen mit Visible = false übrig bleibt)
+Sobald der Platz wieder in Berechnungen einfließt, wird er auch wieder geschrumpft – zum Beispiel, wenn nur eine Zelle in der Zeile unsichtbar ist:</p>
+<p>Design:
+<img src="media/can-shrink-design-emptytext.png" alt="Can Shrink With Empty Text Design "></p>
+<p>Preview:
+<img src="media/can-shrink-preview-emptytext.png" alt="Can Shrink With Empty Text Preview"></p>
+<p>Aus diesem Grund ist es empfehlenswert, bei Feldern, die unter bestimmten Bedingungen nicht angezeigt werden sollen, per Expression den Text zu leeren, statt das Visible-Property zu steuern.</p>
+<h3 id="cangrow">CanGrow</h3>
+<p>CanGrow funktioniert, wie zu erwarten, als Gegenstück zu CanShrink. Wenn ein Text nicht vollständig ins Control passt, aus Gründen der Textlänge oder Schriftgröße, wächst es <strong>vertikal</strong>. Controls unter dem Label werden weiter nach unten geschoben.</p>
+<h3 id="processnullvalues">ProcessNullValues</h3>
+<p>ProcessNullValues bestimmt, wie ein Label mit null als Textwert umgeht. Standardmäßig steht dies auf „Leave“, was das Control einfach leer stehen lässt, welches dann als Lücke auf dem Report erscheint.
+Wenn man leere Labels verstecken möchte, muss ProcessNullValues.SuppressAndShrink eingestellt sein, oder über CanShrink und expression-abhängiges Text-Leeren gearbeitet werden.</p>
+<h3 id="multiline">Multiline</h3>
+<p>Bestimmt, ob Zeilenumbrüche im Text auch als Zeilenumbrüche interpretiert und angezeigt werden. Bestimmt außerdem, ob WordWrap überhaupt umbrechen darf.</p>
+<h3 id="wordwrap">WordWrap</h3>
+<p>WordWrap setzt automatische Zeilenumbrüche, sobald Text den Rand des Controls erreicht.
+Es garantiert nicht, dass auch der gesamte Text dargestellt wird – dafür muss die Höhe des Controls zur Darstellung ausreichen.</p>
+<h3 id="autowidth">AutoWidth</h3>
+<p>Analog zu CanGrow, allerdings für die Breite des Controls. Wenn Text den Rand des Controls erreicht, wird der Text über den Seitenrand des Controls hinaus weitergeschrieben.
+Andere Controls werden ignoriert und übermalt.
+Falls AutoWidth und WordWrap gleichzeitig aktiviert sind, gewinnt WordWrap. Ein aktiviertes WordWrap verhindert seitliches Wachsen des Controls.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

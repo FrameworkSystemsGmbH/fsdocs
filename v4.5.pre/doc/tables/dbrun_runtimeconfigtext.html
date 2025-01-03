@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>dbRun_RuntimeConfigText (Runtime-Config Datenbank) </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="dbRun_RuntimeConfigText (Runtime-Config Datenbank) ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/dev/docs/doc/tables/dbrun_runtimeconfigtext.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="dbrun_runtimeconfigtext-runtime-config-datenbank">dbRun_RuntimeConfigText (Runtime-Config Datenbank)</h1>
+
+<table>
+<thead>
+<tr>
+<th>Spalte</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>RCT_Tenant</td>
+<td>Identifier des Tenants.</td>
+</tr>
+<tr>
+<td>RCT_Key</td>
+<td>Konfigurations-Schlüssel. (siehe unten)</td>
+</tr>
+<tr>
+<td>RCT_Value</td>
+<td>Wert als Langtext oder XML.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tenant-namen">Tenant-Namen</h2>
+<p>Der Tenant wird in der Spalte <code>RCT_Tenant</code> angegeben.</p>
+<p>Der Name des Tenants kann frei vergeben werden.
+Er darf Buchstaben, Zahlen und Unterstriche beinhalten - z.B. <code>MyTenant_7</code>.</p>
+<p>Es gibt reservierte Namen für Tenants:</p>
+<ul>
+<li><p><code>*</code> (Stern): Konfigurationen für diesen &quot;generellen&quot; Tenant werden von allen anderen Tenants verwendet
+Das gilt auch für die anderen reservierten Tenants, sofern sie den Konfigurations-Schlüssel unterstützen.
+Wird in anderen Tenants ebenfalls ein Eintrag für einen Konfigurations-Schlüssel definiert, dann hat dieser höhere Priorität und überschreibt so die Konfiguration des &quot;generellen&quot; Tenants.</p>
+</li>
+<li><p><code>#Proxy#</code>: In diesen speziellen &quot;Tenant&quot; werden Konfigurationen für den FrameworkBrokerHostProxy hinterlegt.</p>
+</li>
+<li><p><code>#AuthService#</code>: In diesen speziellen &quot;Tenant&quot; werden Konfigurationen für den Authentication-Service hinterlegt.
+Arbeitet der Auth-Service im Tenant-Betrieb, dann wird der normale Tenant verwendet.</p>
+</li>
+</ul>
+<h2 id="gültigkeit">Gültigkeit</h2>
+<h4 id="expiration-date">Expiration Date</h4>
+<p>Datum, an dem der Tenant ausläuft.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<ul>
+<li>Dieser Wert muss angegeben sein, ansonsten kann ein Tenant nicht gestartet werden.</li>
+<li>Für den generellen Tenant &quot;*&quot; darf dieser Wert nicht angegeben werden.</li>
+</ul>
+</div>
+<ul>
+<li>RCT_Key: <code>ExpirationDate</code></li>
+<li>RCT_Value: Datum im Format &quot;yyyy-MM-dd HH:mm:ss&quot; UTC. Gibt es kein Ablauf-Datum, dann wird <code>*</code> angegeben.</li>
+</ul>
+<h4 id="activation-date">Activation Date</h4>
+<p>Ab diesem Datum darf ein Tenant benutzt werden. Diese Angabe ist optional.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<ul>
+<li>Für den generellen Tenannt &quot;*&quot; darf dieser Wert nicht angegeben werden.</li>
+</ul>
+</div>
+<ul>
+<li>RCT_Key: <code>ActivationDate</code></li>
+<li>RCT_Value: Datum im Format &quot;yyyy-MM-dd HH:mm:ss&quot; UTC.</li>
+</ul>
+<h2 id="lizenzen">Lizenzen</h2>
+<p>Die Lizenzen werden pro Package gespeichert.</p>
+<ul>
+<li>RCT_Key: <code>License|{Package-Name}</code></li>
+<li>RCT_Value: Der <code>&lt;License&gt;</code> Knoten aus der Lizenz-XML-Datei inklusive der Singnatur.</li>
+</ul>
+<p>Beispiel:</p>
+<p>RCT_Key = 'License|FSDemo'</p>
+<p>RCT_Value =</p>
+<pre><code class="lang-xml">&lt;License&gt;
+    &lt;Data&gt;
+        &lt;LicenseID&gt;836ff6388f4f41be88a130e328facb90&lt;/LicenseID&gt;
+        &lt;PackageID&gt;fde6193cb96842aaaf0d5e005b1a0c8d&lt;/PackageID&gt;
+        &lt;PackageName&gt;FSDemo&lt;/PackageName&gt;&lt;LabelName&gt;4.3&lt;/LabelName&gt;
+        [...]
+        &lt;AccessUnits&gt;
+            &lt;AU ID=&quot;AccessUnitRoot&quot; ACC=&quot;0&quot; ACD=&quot;0&quot; UPD=&quot;0&quot; INS=&quot;0&quot; DEL=&quot;0&quot; /&gt;
+            &lt;AU ID=&quot;c8954266da5e4f0dbd0e2177393ee60c&quot; ACC=&quot;0&quot; ACD=&quot;0&quot; UPD=&quot;0&quot; INS=&quot;0&quot; DEL=&quot;0&quot; /&gt;
+            [...]
+        &lt;/AccessUnits&gt;
+    &lt;/Data&gt;
+    &lt;Signature&gt;14C129D7BC2962A0C20732F2FD1484C430[...]&lt;/Signature&gt;
+&lt;/License&gt;
+</code></pre>
+<h2 id="connections">Connections</h2>
+<h2 id="authentication">Authentication</h2>
+<ul>
+<li><p>AuthService|DefaultUserName</p>
+</li>
+<li><p>AuthService|DefaultUserPassword</p>
+</li>
+<li><p>AuthService|PublicKey</p>
+</li>
+</ul>
+<h2 id="applicationservice">ApplicationService</h2>
+<ul>
+<li><p>AppService|Id</p>
+</li>
+<li><p>AppService|Title - Überschreibt den Titel der über den Publish in der IDE definiert wurde.</p>
+</li>
+<li><p>AppService|Name</p>
+</li>
+<li><p>AppService|Description</p>
+</li>
+<li><p>AppService|PrivateKey</p>
+</li>
+<li><p>AppService|IsAuthenticationEnabled
+<code>true</code> oder <code>false</code></p>
+</li>
+</ul>
+<h2 id="service-proxies">Service-Proxies</h2>
+<ul>
+<li>RCT_Key: <code>ServiceProxy|&lt;ProxyType-FullName&gt;|Address</code></li>
+<li>RCT_Value: Adresse des Proxy</li>
+</ul>
+<h2 id="proxy-settings">Proxy-Settings</h2>
+<p>Settings für den FrameworkBrokerHostProxy.</p>
+<p>(Tenant = <code>#Proxy#</code>)</p>
+<h4 id="use-http">Use Http</h4>
+<p>Startet den FrameworkBrokerHostProxy mit HTTP statt HTTPS.</p>
+<p>Diese Einstellung sollte in Produktiv-Umgebungen nicht verwendet werden.</p>
+<ul>
+<li>RCT_Key: <code>Proxy|UseHttp</code></li>
+<li>RCT_Value: <code>true</code> oder <code>false</code>.</li>
+</ul>
+<h4 id="password-hash">Password Hash</h4>
+<p>Password-Hash für die API des FrameworkBrokerHostProxy.</p>
+<ul>
+<li>RCT_Key: <code>Proxy|PasswordHash</code></li>
+<li>RCT_Value: SAH512 Hashwert des API-Passworts.</li>
+</ul>
+<p>Z.B. auf der Seite <a href="https://passwordsgenerator.net/sha512-hash-generator/">https://passwordsgenerator.net/sha512-hash-generator/</a> (Benutzung auf eigene Gefahr!) kann man einen Passwort-Hash generieren.</p>
+<h2 id="authservice-settings">AuthService-Settings</h2>
+<p>Settings für den Authentication-Service.</p>
+<p>Wird der Auth-Service pro Tenant betrieben, wird mit dem normalen Tenant mit Fallback auf den generellen Tenant &quot;*&quot; gearbeitet.</p>
+<p>Arbeitet der Auth-Service ohne Tenants, dann wird der reservierte Tenant <code>#AuthService#</code> mit Fallback auf den generellen Tenant &quot;*&quot; verwendet.</p>
+<h4 id="multi-tenant">Multi-Tenant</h4>
+<p>Gibt an, ob der Auth-Service als Multi-Tenant betrieben werden soll.
+In diesem Fall werden Tenant-Spezifische Instanzen des Auth-Service, die ihre Einstellungen über den normalen Tenant beziehen.
+Für diese Einstellung muss der reservierte &quot;Tenant&quot; <code>#AuthService#</code> verwendet werden.</p>
+<ul>
+<li>RCT_Tenant: <code>#AuthService#</code></li>
+<li>RCT_Key: <code>AuthService|MultiTenant</code></li>
+<li>RCT_Value: <code>false</code> (default) | <code>true</code></li>
+</ul>
+<h4 id="enabled">Enabled</h4>
+<p>Gibt an, ob für den Tenant der Auth-Service gestartet werden soll.</p>
+<p>Diese Einstellung zieht nur im Tenant-Betrieb.</p>
+<ul>
+<li>RCT_Key: <code>AuthService|Enabled</code></li>
+<li>RCT_Value: <code>false</code> (default) | <code>true</code></li>
+</ul>
+<h4 id="connection">Connection</h4>
+<p>Im Tenant-Betrieb greift ein Fallback auf <code>Connection|RuntimeConnection</code>, falls dieser Key nicht gefüllt ist.</p>
+<ul>
+<li>RCT_Key: <code>AuthService|Connection</code></li>
+<li>RCT_Value: Connection-String</li>
+</ul>
+<h4 id="service-id">Service-ID</h4>
+<p>Eindeutige ID des Service.</p>
+<ul>
+<li>RCT_Key: <code>AuthService|Id</code></li>
+<li>RCT_Value: guid-String</li>
+</ul>
+<h4 id="service-uri">Service-Uri</h4>
+<p>Url des Auth-Service</p>
+<ul>
+<li>RCT_Key: <code>AuthService|Uri</code></li>
+<li>RCT_Value: Url des Auth-Service</li>
+</ul>
+<h4 id="service-name">Service-Name</h4>
+<ul>
+<li>RCT_Key: <code>AuthService|Name</code></li>
+<li>RCT_Value: Name des Service. Wenn nicht angegeben, dann ist der Default-Wert &quot;AuthenticationService&quot;</li>
+</ul>
+<h4 id="service-description">Service-Description</h4>
+<ul>
+<li>RCT_Key: <code>AuthService|Description</code></li>
+<li>RCT_Value: Beschreibung des Service</li>
+</ul>
+<h4 id="public-key">Public Key</h4>
+<p>Öffentlicher Schlüssel des Authentication-Service.</p>
+<p>Dieser kann auch im generellen Tenant &quot;*&quot; definiert und so automatisch von allen Tenants verwendet werden.</p>
+<ul>
+<li>RCT_Key: <code>AuthService|PublicKey</code></li>
+<li>RCT_Value: Public Key in Hex-Schreibweise</li>
+</ul>
+<h4 id="private-key">Private Key</h4>
+<ul>
+<li>RCT_Key: <code>AuthService|PrivateKey</code></li>
+<li>RCT_Value: Private Key in Hex-Schreibweise</li>
+</ul>
+<h4 id="runtime-supervisor">Runtime Supervisor</h4>
+<p>Gibt an, ob der Runtime-Supervisor aktiviert ist:</p>
+<ul>
+<li>RCT_Key: <code>RuntimeSupervisorEnabled</code></li>
+<li>RCT_Value: <code>true</code> oder <code>false</code></li>
+</ul>
+<p>Gibt die URL des Runtime-Supervisor an:</p>
+<ul>
+<li>RCT_Key: <code>RuntimeSupervisorUri</code></li>
+<li>RCT_Value: Url des Runtime-Supervisor</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

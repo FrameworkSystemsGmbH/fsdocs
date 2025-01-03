@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Kommandozeilen-Parameter </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Kommandozeilen-Parameter ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/dev/docs/doc/kommandozeilen-parameter/kommandozeilen-parameter.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="kommandozeilen-parameter">Kommandozeilen-Parameter</h1>
+
+<h2 id="allgemeines">Allgemeines</h2>
+<p>Die Datei <strong>FrameworkStudio.exe</strong> kann mit Parametern gestartet werden. Die Parameter ermöglichen beispielsweise automatisiert den Kompiliervorgang für den <strong>FrameworkCompiler</strong> anzustoßen.</p>
+<p>Die Parameter können in beliebiger Reihenfolge angegeben werden. Eine Liste aller möglichen Parameter mit Beschreibung folgt im nächsten Kapitel (<a href="#tabellarische-%C3%BCbersicht-aller-parameter">Tabellarische Übersicht aller Parameter</a>).</p>
+<p>Beispiel:</p>
+<pre><code class="lang-dos">FrameworkStudio2_5.exe \CONNECT &quot;ConnectionString&quot; \CONNECTIONTYPE &quot;SqlServer&quot; \LOGIN &quot;demo:&quot; \PACKAGE &quot;FSDemo&quot; \VERSION &quot;1.0&quot;
+</code></pre>
+<p>Durch diesen Aufruf wird <strong>Framework Studio</strong> auf dem durch ConnectionString spezifizierten SqlServer Repository am Package <em>FSDemo</em> in der Version <em>1.0</em> für den Benutzer demo gestartet.</p>
+<h2 id="tabellarische-übersicht-aller-parameter">Tabellarische Übersicht aller Parameter</h2>
+<h3 id="connect-connectionstring">\CONNECT &quot;ConnectionString&quot;</h3>
+<p>Repository Connections-String
+Beispiel: &quot;data source=Server;initial catalog=Repository;persist security info=true;User ID=sa;Password=sa;;Pooling=false;&quot;</p>
+<h3 id="connectiontype--type">\CONNECTIONTYPE  &quot;Type&quot;</h3>
+<p>Mögliche Werte für Type:</p>
+<ul>
+<li>Oracle</li>
+<li>SqlServer</li>
+</ul>
+<h3 id="login-username">\LOGIN &quot;UserName:&quot;</h3>
+<p>Der Benutzername mit dem sich am Repository angemeldet werden soll.
+z.B &quot;FrameworkCompiler:&quot;</p>
+<h3 id="package-packagename">\PACKAGE &quot;PackageName&quot;</h3>
+<p>Der Name des Packages</p>
+<h3 id="version-packageversion">\VERSION &quot;PackageVersion&quot;</h3>
+<p>Die Version
+z.B. &quot;1.0.1&quot;</p>
+<h3 id="application-applicationname">\APPLICATION &quot;ApplicationName&quot;</h3>
+<p>Gibt an, welche Application gesetzt werden soll. Das ist vor allem dann notwendig, wenn mit dem Parameter \REFRESHWS gearbeitet wird, damit die Assemblies auch in den richtigen Broker-Ordner geschrieben werden.</p>
+<h3 id="refreshws-true">\REFRESHWS &quot;true&quot;</h3>
+<p>Wenn dieser Parameter mit dem Wert &quot;true&quot; angegeben ist, wird ein Refresh Workspace durchgeführt. Ein Compile mit dem FrameworkCompiler macht nur Sinn, wenn dessen Workspace aktualisiert wird, und er die frisch eingecheckten Versionen kompiliert.</p>
+<h3 id="compile-0000000000000000">\COMPILE &quot;:0000000000000000&quot;</h3>
+<p>Wenn der Parameter gesetzt ist, wir der Compile automatisch gestartet.
+Die Ziffern sind eine Folge aus 0en und 1en, die die Schalter für den Compile-Vorgang angibt.
+Es folgt eine Liste der Schalter. Es müssen immer alle Ziffern entweder mit 0 oder 1 angegeben werden.</p>
+<ol>
+<li>Ziffer) Recursive</li>
+<li>Ziffer) Debugable</li>
+<li>Ziffer) XmlDoc</li>
+<li>Ziffer) Use Saved Code</li>
+<li>Ziffer) Muss immer „1“ sein.</li>
+<li>Ziffer) Ressources</li>
+<li>Ziffer) AccessUnits</li>
+<li>Ziffer) Metadatentypen</li>
+<li>Ziffer) DB-Tables</li>
+<li>Ziffer) Interfaces</li>
+<li>Ziffer) Components</li>
+<li>Ziffer) GlobalObjects</li>
+<li>Ziffer) ReportDocumentTypes</li>
+<li>Ziffer) CustomControls</li>
+<li>Ziffer) Forms</li>
+<li>Ziffer) Workflows</li>
+</ol>
+<p>Ein typischer Compile wäre z.B. &quot;:1001111111111111&quot; Dabei wird alles mit Use SavedCode kompiliert.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Nach dem Compile wird FrameworkStudio nicht beendet, sondern bleibt am Bildschirm stehen. Wenn beim Compile ein Fehler auftritt, bleibt er an dieser Stelle stehen und der Fehler wird wie bei einem normalen Compile angezeigt.</p>
+</div>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

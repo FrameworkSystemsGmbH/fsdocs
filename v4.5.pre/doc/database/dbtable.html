@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>DBTable </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="DBTable ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/dev/docs/doc/database/dbtable.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="dbtable">DBTable</h1>
+
+<p>Ein <strong>DBTable</strong> ermöglicht Komponenten den Zugriff auf eine Datenbanktabelle, die über einen Datasource angesprochen werden kann.</p>
+<p>Alle DBTables werden im Objekt-Baum (<a href="../ide/registerkarten.html#registerkarte-namespaces">Registerkarte Namespaces</a>) im Namespace <strong>FSGeneral / DBTables</strong> unterhalb des Datasources angezeigt, den der DBTable zur Verbindung mit der Datenbank verwendet.</p>
+<p>Das Erstellen und Löschen von <strong>DBTables</strong> funktioniert wie bei allen anderen Elementen (<a href="../ide/bearbeiten-von-elementen.html#elemente-erstellen">Elemente erstellen</a>, <a href="../ide/bearbeiten-von-elementen.html#elemente-l%C3%B6schen">Elemente löschen</a>).
+Zuvor muss allerdings im Objekt-Baum der zu verwendende Datasource markiert werden!</p>
+<p>Durch einen Doppelklick auf ein DBTable wird das Designer-Fenster geöffnet.</p>
+<p>Erläuterungen zu den Standardfunktionen, die im Designer-Fenster für <strong>DBTables</strong> angeboten werden, finden Sie unter <a href="../ide/allgemeine-funktionalitaeten.html">Allgemeine Funktionalitäten</a>.</p>
+<p>Über den Menüpunkt <strong>Database / Import</strong> kann die auf der Datenbank existierende Datenstruktur ausgelesen werden und der DBTable automatisch konfiguriert werden (<a href="#automatisiertes-importieren-von-datenbankstrukturen">Automatisiertes Importieren von Datenbankstrukturen</a>).</p>
+<p>Über den Menüpunkt <strong>Component / Create Component...</strong> kann aus dem DBTable eine Komponente generiert werden (<a href="#erzeugen-einer-komponente">Erzeugen einer Komponente</a>).</p>
+<p>Die Checkbox <strong>View</strong> legt fest, ob es sich bei dieser Tabelle um einen View handelt.
+Wenn dies der Fall ist, muss auf der <a href="#registerkarte-view">Registerkarte View</a> eine entsprechende View-Definition angegeben werden. Diese Einstellung kann im Customizing nicht verändert werden.</p>
+<p>Die Checkbox <strong>Use History</strong> legt fest, ob historische Daten in einer separaten Tabelle ausgelagert sind (<a href="#auslagerung-historischer-daten">Auslagerung historischer Daten</a>).</p>
+<p>Die Checkbox <strong>Imported</strong> gibt an, ob es sich bei dieser Tabelle um eine importierte Datenstruktur handelt.
+Importierte Strukturen werden beim automatischen Datenbank-Update nicht berücksichtigt.
+Wenn an der, der DBTable zugehörigen, Connection die Eigenschaft <strong>Imported</strong> gesetzt ist, dann ist auch die Checkbox an der DBTable automatisch gesetzt und kann nicht deaktiviert werden.
+Diese Einstellung kann im Customizing nicht verändert werden.</p>
+<p>Die einzelnen Registerkarten werden im Folgenden beschrieben.</p>
+<h2 id="registerkarte-columns">Registerkarte Columns</h2>
+<p><img src="media/registerkarte-columns.png" alt="registerkarte-columns.png"></p>
+<p>Auf der Registerkarte <strong>Columns</strong> werden die einzelnen Spalten der Tabelle angezeigt.
+Die Eigenschaften der Spalten sind editierbar und müssen mit der Definition des Datenmodells auf der Datenbank vereinbar sein.
+Außerdem kann ein Metadatentyp zugeordnet werden.</p>
+<h4 id="link-preview-dbtable">Link Preview DBTable</h4>
+<p>Öffnet die <a href="#sql-statement-preview">Sql Statement Preview</a></p>
+<h4 id="tabelle">Tabelle</h4>
+<p>In der Tabelle werden Informationen zu allen Spalten angezeigt.
+Die Tabelle ist readonly - die Details der ausgewählten Tabellen-Spalte können im Bereich unter der Tabelle angezeigt werden.</p>
+<ul>
+<li><p>Spalte <strong>Name</strong>: Der Name der Spalte</p>
+</li>
+<li><p>Spalte <strong>Default Label</strong>: Zeigt den Text des Default-Labels an. Dieser kann auf der Registerkarte Texts bearbeitet werden.</p>
+</li>
+<li><p>Spalte <strong>Metadatatype</strong>: Der Name des Metadatentyp</p>
+</li>
+<li><p>Spalten <strong>Size</strong>, <strong>Precision</strong>, <strong>Scale</strong>: Die Größe des Feldes.</p>
+</li>
+<li><p>Spalte <strong>Column Kind</strong>: Die Art der Spalte. RowID, RowVersion oder PK (Primary Key).</p>
+</li>
+<li><p>Spalte <strong>MLColumn</strong>: Zeigt an, ob es sich um eine <a href="ml-column.html">MLColumn</a> handelt.</p>
+</li>
+<li><p>Spalte <strong>Not Null</strong>: Zeigt an, ob die Spalte als Not Null gekennzeichnet ist.</p>
+</li>
+</ul>
+<h4 id="feld-name">Feld Name</h4>
+<p>Feldname in der Datenbank. Dabei muss es sich um einen gültigen &quot;Identifier&quot; handeln.</p>
+<h4 id="feld-metadatatype">Feld Metadatatype</h4>
+<p>Art des Feld-Typs. Hier stehen alle Metadatentypen und Datenbank-Datentypen zur Verfügung.</p>
+<p>Der Link <strong>Open</strong> Öffnet den <a href="../mdt/metadatentypen.html">Metadatentyp</a> der momentan ausgewählten Spalte.</p>
+<h4 id="checkbox-primary-key">Checkbox Primary Key</h4>
+<p>Gibt an, ob es sich bei der Spalte um einen Primär-Schlüssel handeln soll.
+Auf eine so gekennzeichnete Tabellen-Spalte kann kein Update erfolgen.</p>
+<h4 id="checkbox-rowid-rowversion">Checkbox RowID, RowVersion</h4>
+<p>Auf jeder Tabelle können die beiden Spalten FSROWID und FSROWVERSION definiert werden.
+Diese beiden Spalten werden dann jeweils mit der entsprechenden Checkbox gekennzeichnet.</p>
+<p>Diese Spalten sind für das Update der Daten notwendig, damit konkurrierende Transaktionen erkannt und verhindert werden können. (Siehe auch <a href="../weitere-themen/fsrowid_fsrowversion.html">FSROWID / FSROWVERSION</a>)</p>
+<h4 id="checkbox-mlcolumn">Checkbox MLColumn</h4>
+<p>Ist die Checkbox aktiviert, kann in der Anwendung der Dateninhalt der Spalte mehrsprachig gepflegt werden (siehe <a href="ml-column.html">MLColumn</a>).</p>
+<h4 id="checkbox-not-null">Checkbox Not Null</h4>
+<p>Wenn gesetzt, dann darf diese Spalte keine Null-Werte beinhalten.
+Diese Information wird bei automatischen Datenbank-Update abgeglichen.</p>
+<h4 id="feld-size">Feld Size</h4>
+<p>Größe des Felds bei alphanumerischen Datentyp.
+Wird eine Größe von <code>0</code> angegeben, handelt es sich um ein Langtext-Feld ohne Größen-Beschränkung.</p>
+<h4 id="feld-precision">Feld Precision</h4>
+<p>Anzahl der Stellen eines numerischen Feldes (inkl. Nachkommastellen).</p>
+<h4 id="feld-scale">Feld Scale</h4>
+<p>Anzahl der Nachkommastellen.</p>
+<h4 id="checkbox-override">Checkbox Override</h4>
+<p>Wird diese Checkbox gesetzt, dann können die aus dem Metadatentyp geerbten Größen-Angaben <strong>Size</strong>, <strong>Precision</strong> und <strong>Scale</strong>, überschrieben werden.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Davon sollte nur in Ausnahmefällen gebrauch gemacht werden.
+Zuerst sollte versucht werden, einen passenden Metadatypen zu verwenden.
+Ist keiner vorhanden, dann muss ggf. ein passender Metadatentyp erzeugt werden - insbesondere dann, wenn das mehrere Tabellen-Spalten betrifft.</p>
+<p>Auch im Customizing-Package sollte man zuerst darüber nachdenken, den zugeordneten Metadatentyp anzupassen.
+Das beugt Probleme beim Übertragen von Werten in andere Spalten mit demselben Metadatentyp vor.</p>
+</div>
+<h4 id="felder-display-length--lines">Felder Display Length / Lines</h4>
+<p>In den Feldern <strong>Display MinLength</strong>, <strong>Display MaxLength</strong>, <strong>Display MinLines</strong> und <strong>Display MaxLines</strong> können die Größen-Angaben für die Form-Controls gesteuert bzw. überschrieben werden.</p>
+<p>Siehe auch <a href="../form/layout-konzept.html#gr%C3%B6%C3%9Fe-von-controls">Größe von Controls</a>.</p>
+<h3 id="registerkarte-texts">Registerkarte Texts</h3>
+<p>Hier können Sie das zu verwendende <strong>Default-Label</strong>, die <strong>Column-Caption</strong>, der <strong>Tooltip</strong> und die <strong>Description</strong> für eine Datenbankspalte festlegen bzw. überschreiben.
+Wenn der Spalte ein Metadatentyp zugeordnet wurde, wird das Default-Label vom Metadatentyp verwendet, solange es nicht an dieser Stelle überschrieben wird.</p>
+<h3 id="registerkarte-controltypes">Registerkarte ControlTypes</h3>
+<p><img src="media/registerkarte-control-types.png" alt="registerkarte-control-types.png"></p>
+<p>Auf der Registerkarte <strong>ControlTypes</strong> wird angezeigt, welche Controls der Spalte zugeordnet sind.
+Ist der Spalte ein Metadatentyp zugewiesen, werden die dem Metadatentyp bereits zugewiesenen Controls hier angezeigt.
+Die Liste kann ggf. ergänzt werden. Ist kein Metadatentyp zugewiesen, können Sie die ControlTypes hier hinterlegen.</p>
+<p>Mit den Buttons <strong>Add</strong> und <strong>Change</strong> öffnet sich das Fenster <strong>Assign Controls</strong>.
+Siehe auch Metadatentyp <a href="../mdt/metadatentypen.html#registerkarte-control-types">Registerkarte Control Types</a></p>
+<h3 id="registerkarte-documentation">Registerkarte Documentation</h3>
+<p>Auf der Registerkarte <strong>Documentation</strong> kann die Benutzer-Dokumentation für die Tabelle hinterlegt bzw. die Dokumentation aus dem verwendeten Metadatentypen überschrieben oder ergänzt werden.
+Siehe auch <a href="../documentation/dokumentations-system.html">Dokumentations-System</a>.</p>
+<h2 id="registerkarte-indices">Registerkarte Indices</h2>
+<p>Die Indizes einer Tabelle lassen sich auf der Registerkarte <strong>Indices</strong> festlegen.
+Ein neuer Index lässt sich wie gewohnt durch das Kontextmenü, die Toolbar oder durch das Menü <strong>File / New</strong> anlegen.
+Diesem können nun Spalten zugeordnet werden, die entweder absteigend (DESC) oder aufsteigend (ASC) indiziert sein können.
+Des Weiteren kann ein Index als Unique (eindeutig) deklariert werden und er kann aktiviert oder deaktiviert werden, wodurch der automatische Abgleich mit der Datenbank beeinflusst wird.
+Indizes lassen sich nur dann verwalten, wenn es sich bei der Tabelle nicht um einen View handelt.</p>
+<p><img src="media/registerkarte-indices.png" alt="registerkarte-indices.png"></p>
+<h2 id="registerkarte-view">Registerkarte View</h2>
+<p>Wird eine DBTable mit der Checkbox View gekennzeichnet, dann muss auf der Registerkarte View ein SQL-Statement für die View-Definition angegeben werden.
+Die View-Definition wird beim automatischen Datenbank-Update abgegelichen und der View ggf. angepasst.</p>
+<p><img src="media/registerkarte-view.png" alt="registerkarte-view.png"></p>
+<p>Das Statement wird in Framework-Studio-Syntax formuliert (<a href="../sql/syntax.html">SQL-Syntax</a>).</p>
+<p>Die Bezeichnungen der Ergebnis-Spalten werden aus dem Select-Statement ermittelt.
+Aus diesem Grund muss ggf. ein Spalten-Alias angegeben werden - z.B. bei berechneten Spalten und wenn die Bezeichnung von der Tabellen-Spalte abweichen soll.</p>
+<p>Es ist zwingend zu beachten, dass alle in der <a href="#registerkarte-columns">Registerkarte Columns</a> definierten Spalten in der View-Definition enthalten sind.</p>
+<p>Die View-Definition kann im <a href="../package-manager/packages.html#customizing">Customzing-Package</a> überschrieben werden.</p>
+<p>Mit dem Link Preview Select öffnet sich die <a href="#sql-statement-preview">Sql Statement Preview</a>. Damit kann das Statement gestestet werden.</p>
+<h2 id="registerkarte-description">Registerkarte Description</h2>
+<p><img src="media/registerkarte-description.png" alt="registerkarte-description.png"></p>
+<p>In dem Textfeld der Registerkarte können allgemeine Informationen zu dieser Tabelle hinterlegt werden.</p>
+<h2 id="sql-statement-preview">Sql Statement Preview</h2>
+<p>Mit der Sql Statement Preview können SQL-Befehle getestet werden.
+Sie steht in verschiedenen Programmteilen zur Verfügung um z.B. eine DBTable, die View-Definition oder eine Component-Query zu testen.</p>
+<p><img src="media/sql-statement-preview.png" alt="sql-statement-preview.png"></p>
+<h4 id="registerkarte-select-statement">Registerkarte Select Statement</h4>
+<p>Hier wird der SQL-Befehl angezeigt, der von der Aufruf-Stelle übergeben wurde.
+Dieser kann hier temporär bearbeitet werden, die vorgenommenen Änderungen werden jedoch nicht übernommen.</p>
+<p>Im Feld <strong>Additional where clause</strong> kann optional eine zusätzliche Suchbedingung angegeben werden.
+Wenn das Statement selber schon eine Bedingung besetzt, dann wird diese ergänzt.</p>
+<p>Bei <strong>Connection</strong> wird die aktuell ausgewählte Datenbank angezeigt. An diese wird das SQL-Statement geschickt.</p>
+<p>Mit dem Button <strong>View Result</strong> wird auf die Registerkarte <strong>View top 50 Results</strong> gewechselt.</p>
+<h4 id="registerkarte-converted-statement">Registerkarte Converted Statement</h4>
+<p>Zeigt den in die Syntax der Zieldatenbank konvertierten SQL-Befehl an. Standardmäßig wird der Typ der aktuell ausgewählten Datenbank vorbelegt.
+Mit den Buttons kann der Typ gewechselt werden.
+Falls bei der Konvertierung ein Fehler auftritt, wird dieser statt dem Statement angezeigt.</p>
+<h4 id="registerkarte-view-top-50-results">Registerkarte View top 50 Results</h4>
+<p>Beim Wechsel auf diese Registerkarte wird das Statement an die aktuell ausgewählte Datenbank gesendet und die ersten 50 Ergebnisse in einer Tabelle angezeigt.</p>
+<h2 id="automatisiertes-importieren-von-datenbankstrukturen">Automatisiertes Importieren von Datenbankstrukturen</h2>
+<p><strong>Framework Studio</strong> bietet Ihnen einen Automatismus, der es erlaubt, alle nötigen Angaben über die Struktur der Daten auf der Datenbank auszulesen und daraus die Spaltendefinitionen generieren zu lassen.</p>
+<p>Benutzen Sie dazu den Menüpunkt <strong>Database / Import</strong>, der Ihnen sowohl im Designer-Fenster eines Datasources als auch im Designer-Fenster eines DBTables zur Verfügung steht.</p>
+<p>Zunächst werden Ihnen alle Tabellen, die über die Datenquelle (des DBTables) erreichbar sind, zur Auswahl gestellt.</p>
+<p><img src="media/auto-import-select-table.png" alt="auto-import-select-table.png"></p>
+<p>Wenn Sie eine Tabelle ausgewählt haben, die in <strong>Framework Studio</strong> bisher noch nicht bekannt ist, wird diese automatisch als neuer <strong>Table</strong> in <strong>Framework Studio</strong> eingebunden.</p>
+<p><img src="media/auto-import-success-message.png" alt="auto-import-success-message.png"></p>
+<p>Danach sehen Sie im Fenster <strong>Update Table</strong> eine Tabelle, in der alle <strong>Columns</strong> (Spalten der Datenbanktabelle) aufgelistet werden.</p>
+<p><strong>Update Table (Spalten):</strong>
+<img src="media/auto-import-update-table-columns.png" alt="auto-import-update-table-columns.png"></p>
+<p>In der Tabellenspalte mit der Überschrift <strong>Column Name</strong> wird der Name der Datenbankspalte aufgeführt.</p>
+<p>In der Tabellenspalte <strong>Action</strong> wird ein Symbol dargestellt, an welchem Sie erkennen können, welche Art von Änderung bei einer Aktualisierung durchgeführt wird.
+Die Symbole haben folgende Bedeutung:</p>
+<p><img src="../media/icon-green-arrow.png" alt="icon-green-arrow.png"> New: Die Spalte ist in <strong>Framework Studio</strong> bisher unbekannt und wird neu eingefügt.</p>
+<p><img src="../media/icon-modified.png" alt="icon-modified.png"> Modified: Einige Eigenschaften der Spalte (z.B. Genauigkeit, Größe oder Metadatentyp) unterscheiden sich von den Vorgaben durch die Datenbank.
+Diese Eigenschaften werden geändert.</p>
+<p><img src="../media/icon-ok.png" alt="icon-ok.png"> OK: Die Konfiguration in <strong>Framework Studio</strong> stimmt mit der Datenstruktur in der Datenbank überein.
+Sie haben trotzdem die Möglichkeit, den Metadatentypen zu ändern.</p>
+<p><img src="../media/icon-delete2.png" alt="icon-delete2.png"> Delete: Diese Spalte ist in <strong>Framework Studio</strong> angelegt worden, existiert aber nicht in der Datenbank. Deshalb wird Sie aus der Konfiguration entfernt.</p>
+<p>In der Tabellenspalte <strong>Metadatatype</strong> wird der Metadatentyp, welcher der Spalte zugewiesen wird, festgelegt.
+In der Combobox stehen alle Metadatentypen zur Auswahl, deren Datentyp sich mit dem der Datenbankspalte vertragen.
+Außerdem haben Sie die Möglichkeit, über den Eintrag <strong>Create ’mdtBeispieldatentyp’</strong> für diese Datenbankspalte einen neuen Metadatentypen generieren zu lassen.</p>
+<p>In der Tabellenspalte <strong>Action Description</strong> werden die einzelnen Änderungen aufgeführt, die bei einem Update der Spalte durchgeführt werden.
+Die alten Werte werden in runden Klammern hinter den neuen Werten aufgeführt.</p>
+<p>Mit der Checkbox in der Tabellenspalte <strong>Update</strong> legen Sie für jede einzelne Datenbankspalte fest, ob die vorgeschlagenen Änderungen tatsächlich durchgeführt werden sollen.
+Mit den Buttons <img src="../media/button-select-all.png" alt="button-select-all.png"> und <img src="../media/button-unselect-all.png" alt="button-unselect-all.png"> legen Sie fest, dass alle Datenbankspalten bzw. keine Datenbankspalte aktualisiert werden soll.</p>
+<p>Durch einen Klick auf <img src="../media/button-next.png" alt="button-next.png"> gelangen Sie zur Zusammenfassung der vorzunehmenden Änderungen.
+Sie können den Aktualisierungsvorgang nun mit dem Button <img src="../media/button-finish.png" alt="button-finish.png"> starten.</p>
+<p><strong>Update Table (Zusammenfassung):</strong></p>
+<p><img src="media/auto-import-update-table-resume.png" alt="auto-import-update-table-resume.png"></p>
+<p>Wenn Sie automatisch neue Metadatentypen generieren lassen, haben Sie die Möglichkeit, den Namespace auszuwählen, in dem der Metadatentyp angelegt werden soll.</p>
+<p><strong>Select Namespace:</strong></p>
+<p><img src="media/select-namespace.png" alt="select-namespace.png"></p>
+<p>Sie können für jeden neu zu erstellenden Metadatentypen einzeln einen Namespace auswählen oder durch Setzen der Checkbox <strong>Create all Metadatatypes in this Namespace</strong> alle Metadatentypen im gleichen Namespace erzeugen lassen.
+Mit dem Button <img src="../media/icon-new-namespace.png" alt="icon-new-namespace.png"> <strong>New Namespace</strong> können Sie im ausgewählten Namespace einen neuen Namespace anlegen.</p>
+<p><img src="media/auto-import-updated-message.png" alt="auto-import-updated-message.png"></p>
+<h2 id="auslagerung-historischer-daten">Auslagerung historischer Daten</h2>
+<p>Sehr große Datenvolumen in Tabellen mit aktuellen und historischen, viele Jahre alten Daten, können die Geschwindigkeit der Anwendung bremsen.
+Werden die historischen Daten in eine spezielle Tabelle ausgelagert, so kann Framework Studio abhängig von einem Laufzeitschalter beim Laden von Components entweder die aktuellen Daten oder alle Daten berücksichtigen.
+Der Geschwindigkeitsvorteil entsteht im Wesentlichen dadurch, dass im täglichen Betrieb nur mit den aktuellen Daten, also einer geringeren Datenmenge gearbeitet werden muss.</p>
+<p>Dem Datenbankadministrator wird außerdem die Möglichkeit gegeben, die historischen Daten auf einer langsameren Hardware zu speichern.</p>
+<p>Der Mechanismus ist für sehr große Datenmengen interessant.
+Typische Anwendungsfälle sind Journaltabellen, in denen viele Millionen Datensätze abgelegt sind.</p>
+<h3 id="details">Details</h3>
+<p>An <strong>DBTables</strong> kann über die Checkbox <strong>Use History</strong> festgelegt werden, ob historische Daten in eine separate Tabelle ausgelagert sind.
+Diese Eigenschaft kann auch in Customizing Packages nachträglich gesetzt werden.</p>
+<p><img src="media/dbtable-details.png" alt="dbtable-details.png"></p>
+<p>Ist der Schalter für eine Tabelle <em>Xyz</em> gesetzt, geht Framework Studio davon aus, dass eine Tabelle <em>Xyz_H</em> (für die historischen Daten) und ein View <em>Xyz_A</em>, welcher mit Union All die Daten aus Xyz und <em>Xyz_H</em> vereint, vorhanden ist.
+Tabelle und View können von der Endanwendung (z.B. beim Update) automatisch generiert werden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Für das Übertragen von Daten aus der Tabelle Xyz in die Historientabelle <em>Xyz_H</em> ist manuelle Programmierung nötig.</p>
+</div>
+<p>Wird versucht, einen historischen Datensatz zu speichern, so wird eine Exception ausgelöst.</p>
+<p>Am <strong>Global Object</strong> (this.Global) gibt es einen Schalter <strong>Use History</strong>, mit dem global entschieden wird, ob beim Laden historische Daten berücksichtigt werden sollen.
+Ist der globale Schalter Use History gesetzt und an einer Tabelle ist der Schalter Use History ebenfalls gesetzt, so wird beim Laden statt auf die Originaltabelle auf den View zugegriffen.</p>
+<p>Um temporär den Historienmodus zu aktivieren, kann folgendes <em><strong>Using</strong></em> Konstrukt verwendet werden:</p>
+<pre><code class="lang-csharp">// Historienmodus temporär erzwingen:
+using(this.Global.UseHistoryTemporarily())
+{
+
+  ...
+
+}
+</code></pre>
+<p>Alle <strong>Components</strong>, die einen Datenbankbezug haben, bieten die Funktion <strong>GetTableName</strong> an.
+Diese Funktion gibt den Tabellennamen inklusive Alias zurück, zum Beispiel <strong>„Artikel_A as Artikel“</strong>.
+Diese Funktion eignet sich für die Formulierung von Sub Selects.
+Für die manuelle Formulierung von Update-, Insert- oder Delete Statements kann an der Component Instanz auf <strong>QueryInfo.GetJoinInfo().FirstOrDefault().Table.TableName</strong> zugegriffen werden.</p>
+<h2 id="erzeugen-einer-komponente">Erzeugen einer Komponente</h2>
+<p>Über den Menüpunkt <strong>Component / Create Component</strong> öffnet sich das gleichnamige Fenster.
+Hier wird eine Abfrage erzeugt, die genau die Daten aus der Datenbank holt, welche Sie über Ihren <strong>DBTable</strong> definiert haben.</p>
+<h3 id="new-component-wizard--create-component">New Component Wizard / Create Component</h3>
+<p><img src="media/wizard-1.png" alt="wizard-1.png"></p>
+<p>Aktivieren Sie die Checkbox <strong>Create a Collection for the Component</strong>, um gleichzeitig eine Collection zu der Komponente zu erzeugen.
+Die Collection wird in dem gleichen Namespace erzeugt und trägt das Suffix Coll (also cdXxxColl).</p>
+<p>Der Button <strong>Next</strong> auf der Maske Create Component öffnet das Fenster <strong>Choose Namespace</strong>.</p>
+<h3 id="new-component-wizard--choose-namespace">New Component Wizard / Choose Namespace</h3>
+<p><img src="media/wizard-2.png" alt="wizard-2.png"></p>
+<p>Im Fenster <strong>Choose Namespace</strong> wählen Sie den Namespace aus, in dem die neue Komponente erzeugt werden soll.</p>
+<p>Über den Button <strong>Next</strong> öffnet sich das Fenster <strong>Summary</strong>.
+Es zeigt Ihnen eine Zusammenfassung Ihrer <strong>Einstellungen</strong>.</p>
+<h3 id="summary">Summary</h3>
+<p><img src="media/wizard-3.png" alt="wizard-3.png"></p>
+<p>Mit <strong>Finish</strong> wird die Komponente erzeugt.</p>
+<p>Alle angezeigten Tabellen werden ebenfalls über <strong>Source Control</strong> gesteuert.
+Das bedeutet, dass Elemente, die editiert werden sollen, ausgecheckt und zum Übernehmen der Änderungen wieder eingecheckt werden müssen.
+In dieser Ansicht ist nicht direkt erkennbar, welche Elemente ausgecheckt sind und welche nicht.
+Sie sollten es sich deshalb zur Gewohnheit machen, Ihre Database-Elemente so schnell wie möglich wieder einzuchecken und so für andere Entwickler verfügbar zu machen.
+Tabellen können eingecheckt werden, indem Sie sie in der Tabelle auswählen und dann über das Hauptmenü <strong>Source Control</strong> / <strong>Check In</strong> wählen.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

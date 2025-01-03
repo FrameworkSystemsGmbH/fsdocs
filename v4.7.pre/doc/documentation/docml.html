@@ -1,0 +1,907 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>DocML </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="DocML ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/dev/docs/doc/documentation/docml.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="docml">DocML</h1>
+
+<p>Bei einer Dokumentation in Textform bedarf es grundsätzlich der Möglichkeit, den Text zu formatieren und zu strukturieren. Für diesen Zweck bedient sich Framework Studio der eigens entwickelten Dokumentationssprache <strong>DocML</strong>. Ein Vorteil dieser Sprache ist, dass sie in beliebige andere Formate konvertiert werden kann. So ist die Vorschau einer Dokumentation in Framework Studio z.B. in Form von HTML realisiert. Es besteht aber auch die Möglichkeit, die gesamte Dokumentation als Worddatei zu exportieren.</p>
+<p>Um einen ersten Eindruck der Sprache zu bekommen folgt ein kurzer Auszug einer Dokumentation eines Formulars:</p>
+<p><img src="media/docml-dokumentation-formulars.png" alt="docml-dokumentation-formulars.png"></p>
+<p>Und hier die Ausgabe im Preview-Fenster in Framework Studio (HTML):</p>
+<p><img src="media/docml-preview-fenster.png" alt="docml-preview-fenster.png"></p>
+<h2 id="aufbau-der-sprache">Aufbau der Sprache</h2>
+<p>Die Sprache <strong>DocML</strong> besteht weitestgehend aus dem Text, welcher die Dokumentation widerspiegelt sowie Tags, die mit Attributen versehen sein können, um den beinhaltenden Text zu formatieren oder zu strukturieren.</p>
+<h3 id="tags">Tags</h3>
+<p>Ein Tag definiert sich durch eine öffnende eckige Klammer <strong><code>[</code></strong>, einem Bezeichner (um welches Tag es sich handelt), gefolgt von einer schließenden eckigen Klammer <strong><code>]</code></strong>:</p>
+<p><strong><code>[</code></strong>  + Bezeichner + <strong><code>]</code></strong></p>
+<p><u>Beispiele:</u> <strong><code>[b]</code></strong>, <strong><code>[tbl]</code></strong>, <strong><code>[f]</code></strong>, <strong><code>[ac]</code></strong></p>
+<p>Dabei wird zwischen öffnenden und schließenden Tags unterschieden. Das schließende Tag beinhaltet nach der öffnenden Klammer einen Schrägstrich <strong><code>/</code></strong>:</p>
+<p><strong><code>[/</code></strong> + Bezeichner + <strong><code>]</code></strong></p>
+<p><u>Beispiele:</u> <strong><code>[/b]</code></strong>, <strong><code>[/tbl]</code></strong>, <strong><code>[/f]</code></strong>, <strong><code>[/ac]</code></strong></p>
+<p>Angewendet wird ein Tag immer auf den Text, der zwischen dem öffnenden und schließenden Tag steht:</p>
+<p><strong><code>[b]</code></strong> Dies ist ein fett gedruckter Text <strong><code>[/b]</code></strong></p>
+<p>Tags können ineinander geschachtelt werden um mehrere Formatierungen auf einen Textabschnitt vorzunehmen:</p>
+<p><strong><code>[b][i]</code></strong> Dies ist ein fett gedruckter und kursiver Text <strong><code>[/i][/b]</code></strong></p>
+<p>Es ist zu beachten, dass öffnende Tags genau in der umgekehrten Reihenfolge geschlossen werden müssen.</p>
+<p><u>Folgende Beispiele sind korrekt:</u></p>
+<ul>
+<li><code>[b][i]</code>Ein Text<code>[/i][/b]</code></li>
+<li><strong><code>[i][b]</code></strong> Ein Text <strong><code>[/b][/i]</code></strong></li>
+<li><strong><code>[b][i][u]</code></strong> Ein Text <strong><code>[/u][/i][/b]</code></strong></li>
+</ul>
+<p><u>Folgende Beispiele sind <em><strong>nicht</strong></em> korrekt:</u></p>
+<ul>
+<li><code>[b][i]</code>Ein Text<code>[/b][/i]</code></li>
+<li><strong><code>[i][b]</code></strong> Ein Text <strong><code>[/i][/b]</code></strong></li>
+<li><strong><code>[b][i][u]</code></strong> Ein Text <strong><code>[/b][/u][/i]</code></strong></li>
+</ul>
+<p>Eine komplette Auflistung aller verfügbaren Tags in DocML und deren Funktion findet sich im Kapitel <a href="#tag-reference">Tag Reference</a>.</p>
+<h3 id="leere-tags">Leere Tags</h3>
+<p>Eine besondere Untergruppe der Tags bilden die leeren Tags. Dies sind öffnende und schließende Tags in einem. Leere Tags können keinen Text oder andere Tags beinhalten. Leere Tags definieren sich durch eine öffnende eckige Klammer <strong><code>[</code></strong>, den Bezeichner, einen Schrägstrich <strong><code>/</code></strong> und die schließende eckige Klammer <strong><code>]</code></strong>:</p>
+<p><strong><code>[</code></strong> + Bezeichner + <strong><code>/</code></strong> + <strong><code>]</code></strong></p>
+<p><u>Beispiele:</u> <strong><code>[screenshot/]</code></strong>, <strong><code>[img/]</code></strong>, <strong><code>[br/]</code></strong></p>
+<p>Diese leeren Tags dienen z.B. dem Einfügen eines Bildes oder Zeilenumbruch in die Dokumentation.</p>
+<h3 id="tag-attribute">Tag-Attribute</h3>
+<p>Die meisten Tags können in ihrem Verhalten durch Attribute gesteuert werden. Ein Attribut definiert sich durch einen Bezeichner gefolgt, von einem Gleichheitszeichen <strong><code>=</code></strong> sowie dem Attributwert in Hochkommas. Attribute können in öffnenden und leeren Tags vorkommen:</p>
+<p>In öffnendem Tag:</p>
+<p><code>[f</code> <strong><code>bg=&quot;ff0000&quot;</code></strong> <code>]</code>Text mit roter Hintergrundfarbe<code>[/f]</code></p>
+<p>In leerem Tag:</p>
+<p><code>[screenshot</code> <strong><code>caption=&quot;Auftragserfassung&quot;</code></strong> <code>/]</code></p>
+<p>Im Kapitel <a href="#tag-reference">Tag Reference</a> ist ausführlich beschrieben, welcher Tag mit welchen Attributen gesteuert werden kann.</p>
+<h2 id="tag-reference">Tag Reference</h2>
+<p>Nachfolgend werden alle verfügbaren Tags und die zugehörigen Attribute der <strong>DocML</strong>-Sprache beschrieben. Die Tags unterscheiden sich in zwei Klassen, <a href="#inline-tags">Inline-Tags</a> und <a href="#block-tags">Block-Tags</a>
+. <strong>Inline-Tags</strong> werden meist für Formatierungszwecke genutzt wie z.B. Fettschrift oder Textfarbe, während <strong>Block-Tags</strong> Strukturen wie Tabellen, Listen oder Abschnitte definieren.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Grundsätzlich gilt: <strong>Inline-Tags</strong> können keine <strong>Block-Tags</strong> beinhalten</p>
+</div>
+<h3 id="inline-tags">Inline-Tags</h3>
+<h4 id="font">Font</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[f]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Wendet Schriftart, Schriftgröße, Schriftfarbe und Hintergrundfarbe auf den beinhaltenden Text an</li>
+</ul>
+<p><strong>Attributes:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bez.</th>
+<th style="text-align: center;">Benötigt</th>
+<th style="text-align: left;">Mögliche Werte</th>
+<th style="text-align: left;">Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">style</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">Normal, Code</td>
+<td style="text-align: left;">Stellt die Schriftart zwischen Arial und einer Code-Schriftart um</td>
+</tr>
+<tr>
+<td style="text-align: left;">size</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">XXXL, XXL, XL, L, Normal, S, XS, XXS oder XXXS</td>
+<td style="text-align: left;">Schriftgröße</td>
+</tr>
+<tr>
+<td style="text-align: left;">fc</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">Systemfarben wie <code>red</code>, <code>black</code>, <code>blue</code> oder Farbangaben in HEX wie z.B. <code>#FF00000</code></td>
+<td style="text-align: left;">Textfarbe</td>
+</tr>
+<tr>
+<td style="text-align: left;">bc</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">Systemfarben wie <code>red</code>, <code>black</code>, <code>blue</code> oder Farbangaben in HEX wie z.B. <code>#FF00000</code></td>
+<td style="text-align: left;">Hintergrundfarbe</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[f style=&quot;code&quot; size=&quot;xl&quot; fc=&quot;red&quot; bc=&quot;#00ff00&quot;]Möglichkeiten des Font-Tags[/f]
+</code></pre>
+<h4 id="bold">Bold</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[b]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Markiert den beinhaltenden Text als fett geschrieben</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[b]Dieser Text ist fett geschrieben[/b]
+</code></pre>
+<h4 id="italic">Italic</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[i]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Markiert den beinhaltenden Text als kursiv geschrieben</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[i]Dieser Text ist kursiv geschrieben[/i]
+</code></pre>
+<h4 id="underline">Underline</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[u]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Markiert den beinhaltenden Text als unterstrichen</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[u]Dieser Text ist unterstrichen[/u]
+</code></pre>
+<h4 id="strikethrough">Strikethrough</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[s]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Markiert den beinhaltenden Text als durchstrichen</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[s]Dieser Text ist durchstrichen[/s]
+</code></pre>
+<h4 id="subscript">Subscript</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[sub]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Markiert den beinhaltenden Text als tiefgestellt</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[sub]Dieser Text ist tiefgestellt[/sub]
+</code></pre>
+<h4 id="superscript">Superscript</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[sup]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Markiert den beinhaltenden Text als hochgestellt</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[sup]Dieser Text ist hochgestellt[/sup]
+</code></pre>
+<h4 id="align-left">Align Left</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[al]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Markiert den beinhaltenden Text als linksbündig</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[al]Dieser Text ist linksbündig[/al]
+</code></pre>
+<h4 id="center">Center</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[ac]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Markiert den beinhaltenden Text als zentriert</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[ac]Dieser Text ist zentriert[/ac]
+</code></pre>
+<h4 id="align-right">Align Right</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[ar]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Markiert den beinhaltenden Text als rechtsbündig</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[ar]Dieser Text ist rechtsbündig[/ar]
+</code></pre>
+<h4 id="justify">Justify</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[aj]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Markiert den beinhaltenden Text als Blocksatz</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[aj]Dieser Text ist im Blocksatz geschrieben[/aj]
+</code></pre>
+<h4 id="image">Image</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[img]</code></strong></li>
+<li><strong>Leeres Tag:</strong> ja</li>
+<li><strong>Funktion:</strong> Bindet eine Bildressource aus Framework Studio in die Dokumentation ein</li>
+</ul>
+<p><strong>Besonderheiten:</strong></p>
+<ul>
+<li>Wird nur das width- oder height-Attribut angegeben, wird das Seitenverhältnis des Bildes beibehalten.</li>
+<li>Wird das inline-Attribut mit dem Wert <code>true</code> gesetzt, jedoch keine Größenangabe gemacht, dann wird die Bildgröße automatisch anhand der Schriftgröße skaliert. Ohne inline-Attribut wird das Bild in Originalgröße ausgegeben.</li>
+<li>Eine Bildbezeichnung (caption-Attribut) kann nur definiert werden, wenn das inline-Attribut nicht definiert ist oder den Wert <code>false</code> hat.</li>
+</ul>
+<p><strong>Attributes:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bez.</th>
+<th style="text-align: center;">Benötigt</th>
+<th style="text-align: left;">Mögliche Werte</th>
+<th style="text-align: left;">Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">src</td>
+<td style="text-align: center;">ja</td>
+<td style="text-align: left;">ID einer Framework Studio Bildressource</td>
+<td style="text-align: left;">Verweist auf das Bild, welches in der Framework Studio Resource eingebunden ist</td>
+</tr>
+<tr>
+<td style="text-align: left;">width</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">z.B. „2.3cm“, „3.3in“, „14,34cm“</td>
+<td style="text-align: left;">Breite des angezeigten Bildes. Kommawerte müssen mit Punkt „.“ angegeben werden (z.B. width=“3.4in“)</td>
+</tr>
+<tr>
+<td style="text-align: left;">height</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">z.B. „2.3cm“, „3.3in“, „14,34cm“</td>
+<td style="text-align: left;">Höhe des angezeigten Bildes. Kommawerte müssen mit Punkt „.“ angegeben werden (z.B. height=“4.7in“)</td>
+</tr>
+<tr>
+<td style="text-align: left;">caption</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">Text</td>
+<td style="text-align: left;">Bildbezeichnung</td>
+</tr>
+<tr>
+<td style="text-align: left;">inline</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;"><code>true</code>, <code>false</code></td>
+<td style="text-align: left;">Wenn <code>true</code> wird das Bild wird ein Textzeichen im Textfluss behandelt, sonst wird eine neue Zeile eingefügt</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[img src=&quot;6600e9ad6c3d4ce4ab4c51b7d2a36844&quot; height=&quot;1.5cm&quot; inline=&quot;true&quot;/]
+[img src=&quot;6600e9ad6c3d4ce4ab4c51b7d2a36844&quot; caption=“Beispielbild“/]
+[img src=&quot;6600e9ad6c3d4ce4ab4c51b7d2a36844&quot; width=“3cm“ height=&quot;1.5cm&quot; caption=“Test“/]
+</code></pre>
+<h4 id="screenshot">Screenshot</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[screenshot]</code></strong></li>
+<li><strong>Leeres Tag:</strong> ja</li>
+<li><strong>Funktion:</strong> Bindet einen automatisch generierten Screenshot des Forms als Bild in die Dokumentation ein.</li>
+</ul>
+<p><strong>Besonderheiten:</strong></p>
+<ul>
+<li>Kann nur in Form-Dokumentationen verwendet werden.</li>
+<li>Werden keine Größenangaben gemacht, wird die Größe des Forms verwendet.</li>
+</ul>
+<p><strong>Attributes:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bez.</th>
+<th style="text-align: center;">Benötigt</th>
+<th style="text-align: left;">Mögliche Werte</th>
+<th style="text-align: left;">Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">width</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">z.B. „2.3cm“, „3.3in“, „14,34cm“</td>
+<td style="text-align: left;">Breite des angezeigten Bildes. Kommawerte müssen mit Punkt „.“ angegeben werden (z.B. width=“3.4in“)</td>
+</tr>
+<tr>
+<td style="text-align: left;">caption</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">Text</td>
+<td style="text-align: left;">Bezeichnung des Screenshots</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[screenshot/]
+[screenshot width=&quot;17cm&quot;/]
+[screenshot width=&quot;14.3in&quot; caption=&quot;Kostenrechnung&quot;/]
+</code></pre>
+<h4 id="link">Link</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[lnk]</code></strong></li>
+<li><strong>Leeres Tag:</strong> ja</li>
+<li><strong>Funktion:</strong> Erstellt einen Querverweis auf ein anderes Kapitel oder einen Hyperlink auf eine Url.</li>
+</ul>
+<p><strong>Attributes:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bez.</th>
+<th style="text-align: center;">Benötigt</th>
+<th style="text-align: left;">Mögliche Werte</th>
+<th style="text-align: left;">Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">src</td>
+<td style="text-align: center;">ja</td>
+<td style="text-align: left;">• ID eines Forms oder Documentation-Elements <br>• Url mit führendem <code>http://</code></td>
+<td style="text-align: left;">Querverweis in der fertigen Dokumentation oder Hyperlink auf die angegebene Url</td>
+</tr>
+<tr>
+<td style="text-align: left;">text</td>
+<td style="text-align: center;">ja</td>
+<td style="text-align: left;">Text</td>
+<td style="text-align: left;">Der angezeigte Text des Links</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[lnk src=&quot;f037492b790d24c5b9f16cb4120465e25&quot; text=&quot;Artikeldetails&quot;/]
+[lnk src=&quot;http://www.google.de/&quot; text=&quot;Suchen mit Google&quot;/]
+</code></pre>
+<h4 id="index-entry">Index Entry</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[idx]</code></strong></li>
+<li><strong>Leeres Tag:</strong> ja</li>
+<li><strong>Funktion:</strong> Erstellt einen Eintrag im Index der Dokumentation.</li>
+</ul>
+<p><strong>Attributes:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bez.</th>
+<th style="text-align: center;">Benötigt</th>
+<th style="text-align: left;">Mögliche Werte</th>
+<th style="text-align: left;">Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">entry</td>
+<td style="text-align: center;">ja</td>
+<td style="text-align: left;">text</td>
+<td style="text-align: left;">Definiert einen Haupteintrag im Index</td>
+</tr>
+<tr>
+<td style="text-align: left;">subentry</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">Text</td>
+<td style="text-align: left;">Definiert einen Untereintrag unter dem Haupteintrag</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[idx entry=&quot;Haupteintrag&quot;/]
+[idx entry=&quot;Haupteintrag&quot; subentry=&quot;Untereintrag&quot;/]
+</code></pre>
+<h4 id="base">Base</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[base]</code></strong></li>
+<li><strong>Leeres Tag:</strong> ja</li>
+<li><strong>Funktion:</strong> Bindet die Basis-Dokumentation eines Controls, Component Properties, einer DBColumn oder eines Metadatentyps ein.</li>
+</ul>
+<p><strong>Besonderheiten:</strong></p>
+<ul>
+<li>Wird nur an Control, Component Property, DBColumn und Metadatentyp unterstützt.</li>
+<li>Mehr Information in den Kapiteln <a href="vererbung.html">Vererbung</a> und <a href="customizing.html">Customizing</a>.</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[idx entry=&quot;Haupteintrag&quot;/]
+[idx entry=&quot;Haupteintrag&quot; subentry=&quot;Untereintrag&quot;/]
+</code></pre>
+<h4 id="line">Line</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[line]</code></strong></li>
+<li><strong>Leeres Tag:</strong> ja</li>
+<li><strong>Funktion:</strong> Erstellt eine Line als Absatztrenner über die komplette Seitenbreite.</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[line/]
+</code></pre>
+<h4 id="break">Break</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[br]</code></strong></li>
+<li><strong>Leeres Tag:</strong> ja</li>
+<li><strong>Funktion:</strong> Erstellt einen Zeilenumbruch.</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[br/]
+</code></pre>
+<h3 id="block-tags">Block-Tags</h3>
+<h4 id="section">Section</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[section]</code></strong></li>
+<li><strong>Leeres Tag:</strong> optional</li>
+<li><strong>Funktion:</strong> Definiert einen Textabschnitt in einer Form-Dokumentation oder einem Documentation-Element, der durch die angegebene ID customizing-fähig ist. Siehe <a href="customizing.html">Customizing</a>.</li>
+</ul>
+<p><strong>Besonderheiten:</strong></p>
+<ul>
+<li>Kann sich nur auf oberster Ebene und somit nicht in anderen Tags befinden.</li>
+<li>Wird nur in Form- und Documentation-Elementen unterstützt.</li>
+</ul>
+<p><strong>Attributes:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bez.</th>
+<th style="text-align: center;">Benötigt</th>
+<th style="text-align: left;">Mögliche Werte</th>
+<th style="text-align: left;">Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: center;">ja</td>
+<td style="text-align: left;">32-stellige GUID</td>
+<td style="text-align: left;">Eindeutige ID des Textabschnitts</td>
+</tr>
+<tr>
+<td style="text-align: left;">customize</td>
+<td style="text-align: center;">Im Custom-Package</td>
+<td style="text-align: left;">before, after, override</td>
+<td style="text-align: left;">Überschreibungsart der gecustomizten Section</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[section id=“ f0bcfd1621444f6f9f24bc9305120809“/]
+[section id=“ f0bcfd1621444f6f9f24bc9305120809“ customize=“after“/]
+</code></pre>
+<h4 id="list">List</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[lst]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Erstellt eine geordnete oder ungeordnete Liste von ListItems (li-Tags).</li>
+</ul>
+<p><strong>Besonderheiten:</strong></p>
+<ul>
+<li>Kann nur li-Tags beinhalten.</li>
+<li>Das Symbol kann nur definiert werden, wenn das type-Attribut als „unordered“ definiert ist.</li>
+</ul>
+<p><strong>Attributes:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bez.</th>
+<th style="text-align: center;">Benötigt</th>
+<th style="text-align: left;">Mögliche Werte</th>
+<th style="text-align: left;">Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">type</td>
+<td style="text-align: center;">ja</td>
+<td style="text-align: left;">ordered, unordered</td>
+<td style="text-align: left;">Definiert den Listentyp</td>
+</tr>
+<tr>
+<td style="text-align: left;">symbol</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">disk, circle, square</td>
+<td style="text-align: left;">Definiert das Listensymbol bei ungeordneten Listen</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[lst type=&quot;unordered&quot; symbol=&quot;square&quot;]
+    [li]ListItem 1[/li]
+    [li]ListItem 2[/li]
+    [li]ListItem 3[/li]
+[/lst]
+
+[lst type=&quot;ordered&quot;]
+    [li]ListItem 1[/li]
+    [li]ListItem 2[/li]
+    [li]ListItem 3[/li]
+[/lst]
+</code></pre>
+<h4 id="listitem">ListItem</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[li]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Erstellt einen Eintrag in einer Liste.</li>
+</ul>
+<p><strong>Besonderheiten:</strong></p>
+<ul>
+<li>Kann nur innerhalb von lst-Tags verwendet werden.</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[lst type=&quot;unordered&quot; symbol=&quot;square&quot;]
+    [li]Ein ListItem[/li]
+    [li]Noch ein ListItem[/li]
+[/lst]
+</code></pre>
+<h4 id="table">Table</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[tbl]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Erstellt eine Tabelle.</li>
+</ul>
+<p><strong>Besonderheiten:</strong></p>
+<ul>
+<li>Die Breite der Tabelle kann absolut als auch prozentual angegeben werden.</li>
+<li>Wird keine Breite angegeben, definiert sich die Tabellenbreite über die Summe der Spaltenbreiten.</li>
+<li>Ist die Tabellenbreite in Prozent angegeben, müssen auch die Spaltenbreiten in Prozent angegeben werden.</li>
+<li>Ist keine Tabellenbreite angegeben, müssen die Spaltenbreiten in absoluten Werten angegeben werden.</li>
+<li>Eine Tabelle muss eine Spaltendefinition (coldef-Tag) inkl. Spalten (col-Tags) sowie mindestens eine Zeile (row-Tag) beinhalten.</li>
+</ul>
+<p><strong>Attributes:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bez.</th>
+<th style="text-align: center;">Benötigt</th>
+<th style="text-align: left;">Mögliche Werte</th>
+<th style="text-align: left;">Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">width</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">• Absolute Angaben wie z.B. „2.3cm“, „3.3in“, „14,34cm“ <br> • Prozentuale Angaben wie z.B. „50%“, „75%“</td>
+<td style="text-align: left;">Breite der Tabelle. Kommawerte müssen mit Punkt „.“ angegeben werden (z.B. width=“3.4in“). Die prozentuale Angabe bezieht sich auf die Seitenbreite bzw. die Fensterbreite im HTML</td>
+</tr>
+<tr>
+<td style="text-align: left;">fc</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">Systemfarben wie „red“, „black“, „blue“ oder Farbangaben in HEX wie z.B. „#FF0000“</td>
+<td style="text-align: left;">Textfarbe für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
+</tr>
+<tr>
+<td style="text-align: left;">bc</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">Systemfarben wie „red“, „black“, „blue“ oder Farbangaben in HEX wie z.B. „#FF0000“</td>
+<td style="text-align: left;">Hintergrundfarbe  für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiel:</strong></p>
+<p><img src="media/table-beispiel.png" alt="table-beispiel"></p>
+<p><strong>Ausgabe:</strong></p>
+<p><img src="media/table-beispiel-ausgabe.png" alt="table-beispiel-ausgabe"></p>
+<h4 id="column-definition">Column Definition</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[coldef]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Beinhaltet die Spaltendefinition einer Tabelle.</li>
+</ul>
+<p><strong>Besonderheiten:</strong></p>
+<ul>
+<li>Muss ein oder mehrere Spalten (col-Tags) beinhalten.</li>
+<li>Kann nur innerhalb eines tbl-Tags vorkommen.</li>
+<li>Kann innerhalb eines tbl-Tags nur einmal vorkommen.</li>
+<li>Kann nur col-Tags beinhalten.</li>
+<li>Muss innerhalb des tbl-Tags als erstes auftreten (vor jeglichen Zeilendefinitionen bzw. row-Tags).</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[coldef]
+    [col width=&quot;50%&quot;/]
+    [col width=&quot;50%&quot; fc=&quot;#ddee32&quot; bc=&quot;#dd3331&quot; align=&quot;right&quot;/]
+[/coldef]
+</code></pre>
+<h4 id="column">Column</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[col]</code></strong></li>
+<li><strong>Leeres Tag:</strong> ja</li>
+<li><strong>Funktion:</strong> Definiert eine Spalte innerhalb einer Tabelle.</li>
+</ul>
+<p><strong>Besonderheiten:</strong></p>
+<ul>
+<li>Kann nur innerhalb eines coldef-Tags vorkommen.</li>
+<li>Die Breite der Spalte kann absolut oder prozentual angegeben werden.</li>
+<li>Ist die Tabellenbreite (im tbl-Tag) prozentual angegeben, muss die Spaltenbreite ebenfalls prozentual angegeben werden.</li>
+<li>Ist keine Tabellenbreite (im tbl-Tag) angegeben, muss die Spaltenbreite absolut angegeben werden.</li>
+</ul>
+<p><strong>Attributes:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bez.</th>
+<th style="text-align: center;">Benötigt</th>
+<th style="text-align: left;">Mögliche Werte</th>
+<th style="text-align: left;">Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">width</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">• Absolute Angaben wie z.B. „2.3cm“, „3.3in“, „14,34cm“ <br> • Prozentuale Angaben wie z.B. „50%“, „75%“</td>
+<td style="text-align: left;">Breite der Tabelle. Kommawerte müssen mit Punkt „.“ angegeben werden (z.B. width=“3.4in“). Die prozentuale Angabe bezieht sich auf die Seitenbreite bzw. die Fensterbreite im HTML</td>
+</tr>
+<tr>
+<td style="text-align: left;">fc</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">Systemfarben wie „red“, „black“, „blue“ oder Farbangaben in HEX wie z.B. „#FF0000“</td>
+<td style="text-align: left;">Textfarbe für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
+</tr>
+<tr>
+<td style="text-align: left;">bc</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">Systemfarben wie „red“, „black“, „blue“ oder Farbangaben in HEX wie z.B. „#FF0000“</td>
+<td style="text-align: left;">Hintergrundfarbe  für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
+</tr>
+<tr>
+<td style="text-align: left;">align</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">left, center, right</td>
+<td style="text-align: left;">Horizontale Ausrichtung der Spalte. Kann durch das colalign-Attribut an der Zelle überschrieben werden.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[col width=&quot;4.5cm&quot;/]
+[col width=&quot;50%&quot; fc=&quot;#ddee32&quot; bc=&quot;#dd3331&quot; align=&quot;right&quot;/]
+</code></pre>
+<h4 id="row">Row</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[row]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Definiert eine Zeile innerhalb einer Tabelle.</li>
+</ul>
+<p><strong>Besonderheiten:</strong></p>
+<ul>
+<li>Kann nur innerhalb eines tbl-Tags vorkommen.</li>
+<li>Muss innerhalb des tbl-Tags unterhalb des coldef-Tags stehen.</li>
+<li>Kann nur cell-Tags beinhalten.</li>
+</ul>
+<p><strong>Attributes:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bez.</th>
+<th style="text-align: center;">Benötigt</th>
+<th style="text-align: left;">Mögliche Werte</th>
+<th style="text-align: left;">Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">fc</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">Systemfarben wie „red“, „black“, „blue“ oder Farbangaben in HEX wie z.B. „#FF0000“</td>
+<td style="text-align: left;">Textfarbe für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
+</tr>
+<tr>
+<td style="text-align: left;">bc</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">Systemfarben wie „red“, „black“, „blue“ oder Farbangaben in HEX wie z.B. „#FF0000“</td>
+<td style="text-align: left;">Hintergrundfarbe  für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
+</tr>
+<tr>
+<td style="text-align: left;">align</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">top, middle, bottom</td>
+<td style="text-align: left;">Vertikale Ausrichtung der Zeile. Kann durch das rowalign-Attribut an der Zelle überschrieben werden.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[row fc=“#ddee43“]
+    [cell]Zelle links oben[/cell]
+    [cell rowalign=“top“]Zelle rechts oben[/cell]
+[/row]
+[row fc=&quot;GreenYellow&quot; bc=&quot;Linen&quot; align=&quot;bottom&quot;]
+    [cell]Zelle links unten[/cell]
+    [cell bc=&quot;black&quot; colalign=&quot;left&quot; rowalign=&quot;middle&quot;]Zelle rechts unten[/cell]
+[/row]
+</code></pre>
+<h4 id="cell">Cell</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[cell]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Definiert eine Zelle innerhalb einer Zeile.</li>
+</ul>
+<p><strong>Besonderheiten:</strong></p>
+<ul>
+<li>Kann nur innerhalb eines row-Tags vorkommen.</li>
+<li>Muss innerhalb eines row-Tags genauso oft vorkommen wie die Anzahl der Spalten im coldef-Tag der Tabelle.</li>
+</ul>
+<p><strong>Attributes:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Bez.</th>
+<th style="text-align: center;">Benötigt</th>
+<th style="text-align: left;">Mögliche Werte</th>
+<th style="text-align: left;">Funktion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">fc</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">Systemfarben wie „red“, „black“, „blue“ oder Farbangaben in HEX wie z.B. „#FF0000“</td>
+<td style="text-align: left;">Textfarbe für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
+</tr>
+<tr>
+<td style="text-align: left;">bc</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">Systemfarben wie „red“, „black“, „blue“ oder Farbangaben in HEX wie z.B. „#FF0000“</td>
+<td style="text-align: left;">Hintergrundfarbe  für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
+</tr>
+<tr>
+<td style="text-align: left;">rowalign</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">top, middle, bottom</td>
+<td style="text-align: left;">Vertikale Ausrichtung der Zelle.</td>
+</tr>
+<tr>
+<td style="text-align: left;">colalign</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">left, center, right</td>
+<td style="text-align: left;">Horizontale Ausrichtung der Zelle.</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[row fc=“#ddee43“]
+    [cell fc=“#3434ee“]Zelle links oben[/cell]
+    [cell colalign=“center“]Zelle rechts oben[/cell]
+[/row]
+[row fc=&quot;GreenYellow&quot; bc=&quot;Linen&quot; align=&quot;bottom&quot;]
+    [cell]Zelle links unten[/cell]
+    [cell bc=&quot;black&quot; colalign=&quot;left&quot; rowalign=&quot;middle&quot;]Zelle rechts unten[/cell]
+[/row]
+</code></pre>
+<h4 id="headline">Headline</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[h1]</code></strong></li>
+<li><strong>Leeres Tag:</strong> nein</li>
+<li><strong>Funktion:</strong> Erstellt eine Überschrift.</li>
+</ul>
+<p><strong>Besonderheiten:</strong></p>
+<ul>
+<li>Es gibt drei verschiedene Headline-Tags h1, h2 und h3.</li>
+<li>Headline-Tags können nicht in anderen Headline-Tags eingefügt werden.</li>
+<li>In Headline-Tags können <strong><code>[i]</code></strong>, <strong><code>[u]</code></strong> und <strong><code>[s]</code></strong> Format-Tags benutzt werden.</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[h1]Überschrift h1[/h1]
+[h2]Überschrift h2[/h2]
+[h3]Überschrift h3[/h3]
+[h3]Überschrift [i]h3[/i][/h3]
+[h2]Überschrift [s]h2[/s][/h2]
+</code></pre>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

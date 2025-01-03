@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Statisches Caching </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Statisches Caching ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/dev/docs/doc/comp/static-cache.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="static-cache">
+<h1 id="statisches-caching">Statisches Caching</h1>
+
+<p>Framework Studio stellt einen statischen Caching-Mechanismus bereit. Wird dieser für eine geeignete <a href="components.html">Component</a> aktiviert, so können Daten statt von der Datenbank aus diesem Cache geladen werden. Dadurch sind erhebliche Performance-Vorteile möglich, da die Anzahl der Datenbankzugriffe reduziert wird.</p>
+<h2 id="anwendungsgebiete">Anwendungsgebiete</h2>
+<p>In Geschäftsanwendungen gibt es viele <em>kleine</em> Datenbanktabellen mit wenigen Spalten und verhältnismäßig wenigen Datensätzen. Häufig enthalten diese Tabellen Daten, welche im täglichen Betrieb kaum Veränderungen unterliegen. Beispiele sind Tabellen zu <em>Währungen</em>, <em>Sprachen</em>, <em>Versandarten</em>, <em>Lagerorten</em>, <em>Steuerschlüsseln</em>, um nur einige zu nennen.</p>
+<p>Für diese überschaubar kleinen Datenmengen mit sich eher selten ändernden Daten ist das statische Caching geeignet.</p>
+<h2 id="konzept">Konzept</h2>
+<p>Der Entwickler kann definieren, dass für eine Component ein statischer Cache bereit gestellt werden soll.</p>
+<p>Der statische Cache läd bei Bedarf die benötigten &quot;Rohdaten&quot; (soweit möglich sessionübergreifend, also benutzerunabhängig) pro .NET-Prozess (&quot;w3wp.exe&quot;) in den Arbeitsspeicher. Wird eine Anfrage an den Cache gestellt und die Daten im Cache sind älter als <strong>5 Minuten</strong>, so werden die Daten neu von der Datenbank in den Cache gelesen. Bei der Anfrage an den Cache werden die Rohdaten benutzerabhängig gefiltert und anschließend Objekte daraus erzeugt.</p>
+<p>Werden Components gespeichert, so liefert der Cache für den speichernden Benutzer die geänderten Daten, für alle anderen Benutzer weiterhin die ungeänderten Daten. Wird nach dem Speichern ein Commit ausgeführt, wird der Cache automatisch invalidiert, sodass der nächste lesende Zugriff auf den Cache (egal durch welchen Benutzer in diesem .NET-Prozess) dafür sorgt, dass die Daten neu von der Datenbank eingelesen werden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Der Cache ist streng typisiert. Where-Bedingungen müssen als <em>Function</em> formuliert werden.
+<strong>Die Angabe eines Where-Strings ist nicht möglich.</strong></p>
+</div>
+<p>Der Cache berücksichtigt die über die <em>Virtual Columns</em> an der Component definierte Sortierung. Besonders Effizient können Daten über den (an der <a href="../database/dbtable.html">DBTable</a> definierten) logischen Primärschlüssel (PK) abgefragt werden.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Zu beachten ist, dass der lesende Zugriff auf den statischen Cache (analog zum &quot;normalen&quot; Laden von der Datenbank), für ein Global <strong>nicht thread-save</strong> ist.</p>
+</div>
+<h2 id="nutzung">Nutzung</h2>
+<h3 id="aktivieren-des-caches">Aktivieren des Caches</h3>
+<p>Ist eine <a href="components.html">Component</a> für das statische Caching geeignet, weil sie z.B.</p>
+<ul>
+<li>wenige hundert Datensätze verwaltet</li>
+<li>die Datensätze kaum 20 Eigenschaften enthalten, die alle nicht große Datenmengen (wie z.B. Byte-Arrays für Bilder) enthalten</li>
+<li>die Anzahl der Änderungen pro Tag an zumindest einem Datensatz an den Fingern abzuzählen sind</li>
+<li>es (bis auf einzelne, spezielle Ausnahmen) völlig ausreichend ist, dass die Daten bis zu 5 Minuten alt sein können</li>
+</ul>
+<p>dann kann der Entwickler durch setzen der Checkbox <strong>Provide Static Cache</strong> auf der Registerkarte <strong>General</strong> im Designerfenster der Component dafür sorgen, dass für diese Component ein statischer Cache generiert wird.</p>
+<p><img src="media/checkbox-provide-static-cache.png" alt="Checkbox &quot;Provide Static Cache&quot;"></p>
+<p>Die Checkbox ist generell in jedem bearbeitbaren Package aktivierbar, soweit sich die Package-Version nicht im Service-Release Modus befindet.</p>
+<p>Wurde die Checkbox in einem Basis-Package gesetzt, kann diese Einstellung in Custom-Packages nicht mehr rückgängig gemacht werden.</p>
+<p>Nicht gesetzt werden kann die Checkbox, wenn die Component keinen Datenbankbezug hat.</p>
+<h3 id="zugriff-auf-den-cache">Zugriff auf den Cache</h3>
+<p>Wurde für eine Component der statische Cache <a href="static-cache.html#aktivieren-des-caches">aktiviert</a>, generiert Framework Studio für die Component eine statische Klasse aus dem Namen der Component gefolgt vom Suffix &quot;Cache&quot; in die Interface-Dll.</p>
+<p>Beispiel:
+Für die Component <code>cdCurrency</code> wird eine Klasse <code>cdCurrencyCache</code> generiert.</p>
+<p>Diese Klasse enthält eine statische Methode <code>Get()</code>, welche eine generische Singleton-Instanz zum Zugriff auf den statischen Cache gibt.
+Diese Instanz implementiert das Interface <a class="xref" href="../../api/FS.Hosting.Shared.IStaticCache-2.html">IStaticCache&lt;TObj, TPK&gt;</a>, wobei <code>TObj</code> der Interface-Typ der Component ist (z.B. <em>IcdCurrency</em>) und <code>PK</code> der Typ des/der Primärschlüssel-Properties ist (z.B. <em>FSshort</em> für shtCurrencyID).</p>
+<p>Das Ermitteln eines Objektes anhand des Primärschlüssels ist dann beispielsweise über den Indexer möglich:</p>
+<pre><code class="lang-csharp">IcdCurrency oCurrency = cdCurrencyCache.Get()[shtCurrencyIDP];
+</code></pre>
+<p>Sollte der Primärschlüssel aus mehreren Properties bestehen, so ist ein <a href="https://docs.microsoft.com/de-DE/dotnet/api/system.valuetuple?view=netframework-4.8">ValueTuple</a> mit allen Properties des Primärschlüssels in <strong>alphabetischer Reihenfolge</strong> anzugeben.</p>
+<p>Beispiel (Primärschlüssel <em>sType</em> und <em>sCode</em>):</p>
+<pre><code class="lang-csharp">var oDemo = cdDemoCache.Get()[(sMyCode, sMyType)];
+</code></pre>
+<p>Der Cache implementiert <code>IEnumerable&lt;TObj&gt;</code>. Der folgende Code</p>
+<pre><code class="lang-csharp">IcdCurrencyColl oCurrencyColl = cdCurrencyCollFactory.Create();
+oCurrencyColl.Load(&quot;COALESCE([shtBlocked], 0) = 0&quot;, &quot;shtCurrencyCode&quot;);
+foreach (IcdCurrency oCurrency in oCurrencyColl)
+{
+    // ... do something
+}
+</code></pre>
+<p>lässt sich daher wie folgt auf die Verwendung des Caches umstellen.</p>
+<pre><code class="lang-csharp">foreach (var oCurrency in cdCurrencyCache.Get()
+    .Where(c =&gt; c.shtBlocked.Value == 0)
+    .OrderBy(c =&gt; c.shtCurrencyCode))
+{
+    // ... do something
+}
+</code></pre>
+<p>Der Cache bietet darüberhinaus viele weitere Methoden, um Collections oder Objekte zu befüllen.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die detaillierte Beschreibung aller Funktionen ist bei der Beschreibung des Interfaces <a class="xref" href="../../api/FS.Hosting.Shared.IStaticCache-2.html">IStaticCache&lt;TObj, TPK&gt;</a> einzusehen.</p>
+</div>
+<p>Sollte es einmal nötig sein, auf Ebene von <code>IDevFrameworkDataObject</code> auf einen Cache zuzugreifen, so bietet die statische Klasse <a class="xref" href="../../api/FS.Hosting.Shared.StaticCache.html">StaticCache</a> ebenfalls eine statische Methode <code>Get()</code> an, mit der (soweit existent) ein untypisierter Cache (<a class="xref" href="../../api/FS.Hosting.Shared.IStaticCache.html">IStaticCache</a>) ermittelt werden kann.</p>
+<h3 id="relation-properties">Relation-Properties</h3>
+<p>An <a href="components.html">Components</a> können Properties vom Typ <em>Relation</em> angelegt werden. Typischerweise werden als <em>DependsOn</em> Properties die Primärschlüsseleigenschaften angegeben.</p>
+<p><strong>Relation-Properties verwenden automatisch den Cache, wenn für den Property-Typ der statische Cache aktiviert ist und die <em>DependsOn-Bedingung</em> dem am <a href="../database/dbtable.html">DBTable</a> definierten logischen Primärschlüssel entspricht.</strong></p>
+<h3 id="globale-einsprungpunkte">Globale Einsprungpunkte</h3>
+<p>Grundidee des statischen Caches ist, alle Daten sessionübergreifend, also benutzerunabhängig, pro .NET-Prozess (&quot;w3wp.exe&quot;) in den Arbeitsspeicher zu laden.
+Dadurch kann der Cache nicht den globalen Einsprungpunkt <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IcGlobalBase.GlobalOnBeforeLoad.html#FS_Hosting_Shared_GlobalObj_IcGlobalBase_GlobalOnBeforeLoad_FS_Hosting_Shared_DevFrameworkObject_System_String__System_String__System_String__">public virtual void GlobalOnBeforeLoad(DevFrameworkObject obj, ref string loadCondition, ref string replacingHavingClause, ref string replacingOrderClause)</a> durchlaufen, da hier pro Session anhand eines beliebigen Where-Strings unterschiedlich gefiltert werden kann.</p>
+<p>Eine einfache Filterung ist für den Cache jedoch in dem Moment möglich, in dem Objekte (zu einem konkreten Global) aus dem Cache angefragt werden.
+Dazu wurde der globale Einsprungpunkt <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.cGlobalBase.GlobalWhereStaticCache.html#FS_Hosting_Shared_GlobalObj_cGlobalBase_GlobalWhereStaticCache_FS_Hosting_Shared_IStaticCacheObject_">protected internal virtual bool GlobalWhereStaticCache(IStaticCacheObject oStaticCacheObject)</a> geschaffen, welcher eine Filterung der Ergebnismenge durch den Cache ermöglicht.</p>
+<p>Der zuletzt genannte Einsprungpunkt ist jedoch nicht in der Lage, beliebiges SQL im Nachhinein auszuwerten. Sollte jedoch eine Filterung nötig sein, die direkt beim Laden komplexes SQL ermöglicht, kann der statische Cache die Daten nicht sessionübergreifend einlesen. Ebenso ist es in diesem Einsprungpunkt nicht möglich, Einschränkungen auf Werte vorzunehmen, welche zwar als Tabellenspalte existieren, jedoch nicht als Property an der Component angelegt sind.</p>
+<p>Deshalb wurde ein weiterer globaler Einsprungpunkt <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.cGlobalBase.GlobalGetStaticCacheMode.html#FS_Hosting_Shared_GlobalObj_cGlobalBase_GlobalGetStaticCacheMode_FS_Hosting_Shared_IDevFrameworkDataObject_">protected internal virtual StaticCacheMode GlobalGetStaticCacheMode(IDevFrameworkDataObject oDevFrameworkDataObject)</a> geschaffen, welcher pro Component einmalig durchlaufen wird um festzulegen, in welchem Modus der Cache arbeiten soll.</p>
+<p>Die beiden Modi <em>Broker (default)</em> und <em>Session</em> sowie ihre Konsequenzen sind im Detail am <a class="xref" href="../../api/FS.Hosting.Shared.StaticCacheMode.html">StaticCacheMode</a> beschrieben.</p>
+<p>Im Modus <em>Session</em> läd der statische Cache die &quot;Rohdaten&quot; nicht global sondern pro Session. Dadurch erhöht sich der Arbeitspeicherverbrauch. Gleichzeitig kann so der erstgenannte Einsprungpunkt <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IcGlobalBase.GlobalOnBeforeLoad.html#FS_Hosting_Shared_GlobalObj_IcGlobalBase_GlobalOnBeforeLoad_FS_Hosting_Shared_DevFrameworkObject_System_String__System_String__System_String__">public virtual void GlobalOnBeforeLoad(DevFrameworkObject obj, ref string loadCondition, ref string replacingHavingClause, ref string replacingOrderClause)</a> wie gewohnt durchlaufen werden.</p>
+<h2 id="besonderheiten">Besonderheiten</h2>
+<h3 id="distinct-und-groupby">Distinct und GroupBy</h3>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Ist eine Component als <em>Distinct</em> oder <em>GroupBy</em> definiert, darf der statische Cache zu dieser Component nicht im <a class="xref" href="../../api/FS.Hosting.Shared.StaticCacheMode.html">Modus <em>Broker</em></a> betrieben werden.</p>
+</div>
+<p>Wenn eine Component nicht als <em>Distinct</em> oder <em>GroupBy</em> definiert ist, in einem speziellen Fall jedoch <em>Distinct</em> oder <em>GroupBy</em> gewünscht ist, kann an den Methoden des statischen Caches, die die Angabe eines <em>orderBy</em> ermöglichen, als <em>orderBy</em> die entsprechende Funktion angegeben werden.</p>
+<p>Beispiel Distinct:</p>
+<pre><code class="lang-csharp">public virtual int LoadDistinctByName()
+{
+    return cdArticleCache.Get().FillCollection(This, l =&gt; l.DistinctBy(o =&gt; o.sName));
+}
+</code></pre>
+<p>Beispiel GroupBy:</p>
+<pre><code class="lang-csharp">public virtual int LoadGroupByName()
+{
+    // Gruppiert werden soll nach sName
+    Func&lt;IcdArticle, FSstring&gt; fnKeySelector = oArticle =&gt; oArticle.sName;
+
+    // Ergebnisobjekt vom Typ IcdArticle zu jedem Schlüsselwert und den dazugehörigen Artikeln erzeugen
+    Func&lt;FSstring, IEnumerable&lt;IcdArticle&gt;, IcdArticle&gt; fnResultSelector = (sName, oArticles) =&gt;
+    {
+        IcdArticle oResult = cdArticleFactory.Create();
+
+        var oFirstArticle = oArticles.First();
+        oResult.sID = oFirstArticle.sID;
+        oResult.sName = oFirstArticle.sName;
+        oResult.sColor = oFirstArticle.sColor;
+
+        // Hinweis: Auch wenn mehrere Aggregatfunktionen (Sum, Count, Max, ...) aufgerufen werden, sollte nur einmal über alle Elemente iteriert werden
+        oResult.decPrice = oArticles.Select(oArticle =&gt; oArticle.decPrice.Value).Sum();
+
+        // Status des Ergebnisobjekts soll unchanged sein
+        oResult.State = FrameworkComponentState.Unchanged;
+
+        return oResult;
+    };
+
+    // GroupBy-Funktionalität als spezielles orderBy übergeben
+    return cdArticleCache.Get().FillCollection(This, l =&gt; l.GroupBy(fnKeySelector, fnResultSelector));
+}
+</code></pre>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

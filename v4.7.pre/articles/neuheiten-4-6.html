@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Neuheiten Framework Studio 4.6 </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Neuheiten Framework Studio 4.6 ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/dev/docs/articles/neuheiten-4-6.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="neuheiten-framework-studio-46">Neuheiten Framework Studio 4.6</h1>
+
+<p>Informationen zu aktuellen Versionen und korrigierten Fehlern finden Sie in den <a href="release-4-6.html">Release-Informationen</a>.</p>
+<h2 id="update-von-version-311-oder-älter">Update von Version 3.11 oder älter</h2>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Für ein Update auf Framework Studio 4.6 muss das Repository bzw. die jeweilige Package-Version mindestens in der Version 4.0 verfügbar sein.</p>
+</div>
+<p>Repositories bzw. Package-Versionen mit dem Stand von FS 3.11 oder älter müssen zunächst auf FS 4.0 - FS 4.5 upgedatet werden.
+Empfohlen ist die Long-Term-Version FS 4.5.</p>
+<h2 id="deprecated-layout-entfernt">Deprecated Layout entfernt</h2>
+<p>Mit Version 4.0 wurden die Forms auf ein modernes Layout mit sich selbst organisierenden Containern umgestellt.
+Das alte koordinatenbasierte &quot;Depercated Layout&quot; wurde in einem &quot;Notbetrieb&quot; unterstützt um eine Migration zu ermöglichen.</p>
+<p>Mit Framework Studio 4.6 wird das &quot;Deprecated Layout&quot; nicht mehr unterstützt.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Vor dem Update einer Package-Version auf Framework Studio 4.6 müssen alle Deprecated Forms vollständig migriert werden.
+Ein Update ist ansonsten nicht möglich.</p>
+</div>
+<h2 id="modernisierungen-in-der-ide">Modernisierungen in der IDE</h2>
+<p>Um Framework Studio für die Zukunft fitzumachen und den Weg in die neue .NET Welt zu ebnen wird vor allem unter der Haube sehr viel vorbereitet.
+Zum teil wirken sich die Arbeiten auch spürbar auf die Oberfläche der IDE aus.
+Im Folgenden sind einige Punkte aufgeführt.</p>
+<ul>
+<li>Die Menüs, Toolbars und Context-Menüs wurden überarbeitet.
+Neben internen Optimierungen wurden Anordnung und Reihenfolge der Befehle vereinheitlicht und viele Befehle haben Symbole erhalten.</li>
+<li>Alte DataGrids wurden durch neue DataGridViews ersetzt.
+Das verbessert das Layout.</li>
+<li>TreeViews wurden überarbeitet und in ihrem Verhalten und der Darstellung vereinheitlicht.</li>
+</ul>
+<h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
+<ul>
+<li>Neues Component-Property <a class="xref" href="../api/FS.Hosting.Shared.IDevFrameworkDataObject.IsHistorical.html#FS_Hosting_Shared_IDevFrameworkDataObject_IsHistorical">IsHistorical</a></li>
+<li>Für die Component-Methoden <code>Clone()</code> und <code>AdoptValues()</code> gibt es einen neuen <a class="xref" href="../api/FS.Hosting.Shared.AdoptMode.html#FS_Hosting_Shared_AdoptMode_NoHistory">AdoptMode <code>NoHistory</code></a>.
+Dieser unterbindet das Übertragen der <code>IsHistorical</code>-Information.</li>
+<li>Es gibt eine neue SQL <code>MOD()</code>-Funktion für den <a href="../doc/sql/funktionen.html#modulo">Modulo-Operator</a>.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

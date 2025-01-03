@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Registerkarte Query </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Registerkarte Query ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/dev/docs/doc/comp/tab_query.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="registerkarte-query">Registerkarte Query</h1>
+
+<p><img src="media/registerkarte-query.png" alt="Registerkarte Query"></p>
+<p>Auf der Registerkarte <strong>Query Generator</strong> kann eine Abfrage definiert werden. Damit das möglich ist, muss auf der Registerkarte <strong>General</strong> ein Datasource gesetzt sein.</p>
+<p>Die Query ist nicht bei Collections verfügbar. Die Collection bezieht die Query aus der ihr zugrundeliegenden Component.</p>
+<h2 id="toolbar-im-query-generator">Toolbar im Query Generator</h2>
+<h4 id="button-add-jointable">Button Add Jointable</h4>
+<p><img src="media/btn-add-jointable.png" alt="btn-add-jointable"></p>
+<p>Mit diesem Button kann eine neue Tabelle in die Query eingefügt werden. Es erscheint ein Auswahl-Dialog, der alle Tabellen des in der Component hinterlegten Datasources anbietet. Sie können dort eine Tabelle auswählen und diese mit dem Button <strong>OK</strong> in die Query einfügen.</p>
+<p>Wenn Sie mehr als eine Tabelle in die Query eingebunden haben, müssen Sie in <strong>JoinType</strong> und <strong>Condition</strong> entsprechende Angaben machen. Wenn Sie eine Tabelle mehrmals einbinden, müssen Sie auch einen <strong>Alias</strong> vergeben. (Diese Felder sind weiter unten genauer erklärt.)</p>
+<h4 id="button-remove-jointable">Button Remove Jointable</h4>
+<p><img src="media/btn-remove-jointable.png" alt="btn-remove-jointable"></p>
+<p>Entfernt die momentan ausgewählte Tabelle aus der Query.</p>
+<h4 id="button-add-virtual-column">Button Add Virtual Column</h4>
+<p><img src="media/btn-add-virtual-column.png" alt="btn-add-virtual-column"></p>
+<p>Fügt eine neue Spalte in die Query ein. Es wird eine neue Zeile in der Tabelle mit den Spalten angelegt und Sie müssen dann in der Spalte <strong>Column</strong> die entsprechende Spalte angeben. Evtl. müssen Sie noch den <strong>Alias</strong> anpassen.</p>
+<h4 id="button-remove-virtual-column">Button Remove Virtual Column</h4>
+<p><img src="media/btn-remove-virtual-column.png" alt="btn-remove-virtual-column"></p>
+<p>Löscht die momentan markierte Spalte aus der Query. Das Löschen schlägt fehl, wenn diese Spalte bereits einem Property zugeordnet ist.</p>
+<h4 id="button-autogenerate-virtual-columns">Button Autogenerate Virtual Columns</h4>
+<p><img src="media/btn-autogenerate-virtual-columns.png" alt="btn-autogenerate-virtual-columns"></p>
+<p>Öffnet den Dialog <strong>Autogenerate Virtual Columns</strong>.</p>
+<h2 id="autogenerate-virtual-columns-wizard">Autogenerate Virtual Columns Wizard</h2>
+<p><img src="media/virtual-columns-wizard.png" alt="virtual-columns-wizard"></p>
+<p>In diesem Dialog werden alle Spalten angeboten, die noch nicht in die Query eingebunden sind. Sind bereits alle Spalten mindestens einmal verwendet, wird der Dialog nicht aufgerufen.</p>
+<p>In der Spalte <strong>Choose</strong> können Sie festlegen, welche Spalten zur Abfrage hinzugefügt werden sollen.</p>
+<p>In der Spalte <strong>Alias</strong> können Sie den Alias angeben. Diesen können Sie später wieder überschreiben.</p>
+<p>Mit der Checkbox <strong>Generate a property for all new Columns</strong> wird automatisch für jede neue Spalte ein neues Property angelegt. Der Name des Properties richtet sich nach dem hier angegebenen Alias. Diesen Vorgang können Sie auch später mit dem Button <strong>Autogenerate Properties</strong> nachholen.</p>
+<p>Mit dem Button <strong>Next</strong> öffnet sich das Fenster <strong>Summary</strong>. Es zeigt eine Zusammenfassung mit den zu generierenden Spalten und Properties an.</p>
+<p>Anschließend werden die Spalten (und ggf. auch Properties) mit dem Button <strong>Finish</strong> generiert.</p>
+<h4 id="button-autogenerate-properties">Button Autogenerate Properties</h4>
+<p><img src="media/btn-autogenerate-properties.png" alt="btn-autogenerate-properties"></p>
+<p>Generiert für alle Spalten, die noch nicht einem Property zugewiesen sind, ein neues Property. Basis für den Namen der neuen Properties ist die Spalte Alias in der Tabelle. Wird der Alias nachträglich geändert, wird der Name das Properties <strong>nicht</strong> angepasst.</p>
+<h4 id="button-query-with-group-by-clause">Button Query with group by clause</h4>
+<p><img src="media/btn-query-group-clause.png" alt="btn-query-group-clause"></p>
+<p>Schaltet Group By an oder aus. Wird <strong>Group by</strong> eingeschaltet, wird in der Tabelle eine neue Spalte GroupBy sichtbar. In ihr kann angegeben werden, ob nach der Spalte gruppiert werden soll oder ob eine Aggregatfunktion (SUM, MIN, MAX..) angewendet werden soll. Wenn das der Fall ist, wird die Angabe in der Spalte <strong>Criteria</strong> in die Having-Clause des SQL-Statements eingebaut.</p>
+<p>Soll trotzdem für eine Spalte eine Where-Clause angegeben werden, müssen Sie die Spalte noch einmal einbinden, <strong>Output</strong> deaktivieren, in <strong>GroupBy</strong> nichts angeben und <strong>Criteria</strong> wie gewünscht füllen.</p>
+<h4 id="button-distinct">Button (Distinct</h4>
+<p><img src="media/btn-distinct.png" alt="btn-distinct"></p>
+<p>Wenn der Button Distinct gedrückt ist, wird das Schlüsselwort „distinct“ in die Abfrage generiert. Distinct-Abfragen führen automatisch zu einer readonly-Komponente.</p>
+<h4 id="button-readonly-component">Button ReadOnly Component</h4>
+<p><img src="media/btn-readonly.png" alt="btn-readonly"></p>
+<p>Wird dieser Button aktiviert, kann auf die Komponente kein Save ausgeführt werden.</p>
+<h4 id="button-execute-query">Button Execute query</h4>
+<p><img src="media/btn-execute.png" alt="btn-execute"></p>
+<p>Dieser Button dient zum Testen der angegebenen Query. Im unteren Teil des Fensters wird die Registerkarte <strong>Preview</strong> aktiviert und das Ergebnis der Query eingespielt.</p>
+<p>Die Registerkarte <strong>Preview</strong> können Sie auch manuell aktivieren, um die Query zu testen.</p>
+<h3 id="felder-auf-der-registerkarte-query">Felder auf der Registerkarte Query</h3>
+<p>In der Listbox werden die an der Query beteiligten Tabellen angezeigt. Es können mit dem Button <img src="media/btn-add-jointable.png" alt="btn-add-jointable">
+<strong>(Add jointable ...)</strong> neue Tabellen hinzugefügt und mit dem Button <img src="media/btn-remove-jointable.png" alt="btn-remove-jointable">
+<strong>(Remove jointable ...)</strong> die momentan ausgewählte Tabelle entfernt werden. Je nachdem, welche Tabelle ausgewählt ist, können rechts daneben weitere Angaben zur Tabelle gemacht werden.</p>
+<h4 id="alias">Alias</h4>
+<p>Gibt den Alias an, der in der Query verwendet werden soll. Ist kein Alias angegeben, wird der Name der Tabelle verwendet. Wird eine Tabelle zweimal eingebunden, muss ein Alias angegeben werden, da sonst nicht eindeutig klar ist, welche Tabelle gezogen werden soll.</p>
+<h4 id="jointype">JoinType</h4>
+<p>Dieses Feld ist ab der zweiten Tabelle zugänglich. Es gibt an, welche Art von Join verwendet werden soll (<strong>Inner Join</strong>, <strong>Left Outer Join</strong>, <strong>Rigth Outer Join</strong>, <strong>No Join</strong>). Je nachdem, was dort angegeben ist, wird auch das Statement zusammengebaut. Wenn als Typ <strong>No Join</strong> angegeben ist, wird ein Statement erzeugt, das in etwa so aussieht:</p>
+<pre><code class="lang-sql">SELECT ... FROM Table1, Table2 WHERE Tabel1.Spalte1 = Table2.Spalte3...
+</code></pre>
+<h4 id="condition">Condition</h4>
+<p>Gibt die Bedingung für den Join an. Haben Sie in den DBTables bei Relations Angaben gemacht, werden diese hier entsprechend gezogen.</p>
+<h4 id="tabelle">Tabelle</h4>
+<p>In der Tabelle sind die Spalten der Abfrage angegeben.</p>
+<h4 id="tabelle--spalte-pos">Tabelle / Spalte Pos</h4>
+<p>In dieser Spalte wird die Reihenfolge der Felder in der Abfrage definiert.</p>
+<h4 id="tabelle--spalte-output">Tabelle / Spalte Output</h4>
+<p>Gibt an, ob die Spalte ausgegeben werden soll oder nicht. Dieser wird als gecheckt vorbelegt. Sie können diese Checkbox deaktivieren, wenn Sie z.B. eine Spalte haben, bei der die Suchbedingung interessant ist. Dann kann für diese Abfrage-Spalte kein Property angelegt werden.</p>
+<p>Mit gesetzter Checkbox (bei „Spalte2“) erhalten Sie folgendes Ergebnis:</p>
+<pre><code class="lang-sql">SELECT Spalte1, Spalte2 FROM Tabelle WHERE Spalte2 = ‘ABC’
+</code></pre>
+<p>Mit deaktivierter Checkbox erhalten Sie in etwa folgendes Ergebnis:</p>
+<pre><code class="lang-sql">SELECT Spalte1 FROM Tabelle WHERE Spalte2 = ‘ABC’
+</code></pre>
+<p>Das ist z.B. dann interessant, wenn <strong>Group by</strong> aktiviert ist und Sie im Query-Designer für eine Spalte trotzdem eine Bedingung angeben möchten.</p>
+<h4 id="tabelle--spalte-column">Tabelle / Spalte Column</h4>
+<p>Gibt an, welches Feld der Tabelle(n) gezogen werden soll. In einer Combobox werden alle Felder der beteiligten Tabellen angezeigt. Es kann eines dieser Felder ausgewählt werden.</p>
+<p>Soll das Feld eine Formel enthalten, kann diese hier auch frei eingegeben werden.</p>
+<h4 id="tabelle--spalte-alias">Tabelle / Spalte Alias</h4>
+<p>Gibt den Alias des Felds an. Dieser Name wird als Standard-Name für die generierten Properties gezogen. Als Standard wird der Name des ausgewählten Felds eingetragen.</p>
+<h4 id="tabelle--spalte-sort-type">Tabelle / Spalte Sort Type</h4>
+<p>Hier kann festgelegt werden, ob und wenn ja wie nach diesem Feld sortiert werden soll. Zur Auswahl stehen Ascending (aufsteigend) und Descending (absteigend).</p>
+<h4 id="tabelle--spalte-sort-order">Tabelle / Spalte Sort Order</h4>
+<p>Gibt die Reihenfolge an, in der die Felder sortiert werden sollen. Es werden Zahlen von 0 aufsteigend vergeben, wenn Sie die Spalte ‚Sort Type‘ setzen. Diese Reihenfolge kann nachträglich geändert werden, indem die Zahlen einfach überschrieben werden. Wird ein Feld nicht sortiert, wird in die Spalte der Wert  –1 eingetragen.</p>
+<p>Wird später mit der Load-Methode eine OrderBy-Clause angegeben, sind die Angaben in <strong>Sort Type</strong> und <strong>Sort Order</strong> hinfällig.</p>
+<h4 id="tabelle--spalte-group-by">Tabelle / Spalte Group By</h4>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Diese Spalte ist nur sichtbar, wenn für die Query Group By eingeschaltet ist.</p>
+</div>
+<p>Hier wird angegeben, wie sich die Spalte im <strong>Group By</strong> verhalten soll. Es kann <strong>Group By</strong> oder eine Aggregatfunktion (z.B. SUM, MAX, AVG) angegeben werden.</p>
+<p>Die Spalte kann auch leer gelassen werden. Das macht aber nur Sinn, wenn die Spalte <strong>Output</strong> nicht gecheckt ist.</p>
+<h4 id="tabelle--spalte-key-field">Tabelle / Spalte Key Field</h4>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Diese Spalte ist nur sichtbar, wenn für die Query Group By eingeschaltet ist.</p>
+</div>
+<p>Um einen Datensatz eindeutig zu identifzieren, werden normalerweise die PK-Spalten verwendet. Dies ist bei einer GroupBy-Anfrage nicht automatisch möglich. Mit der Spalte Key Field können Sie angeben, welche Abfrage-Spalten einen Satz eindeutig identifizieren sollen.</p>
+<p>Wird hier keine Angabe gemacht, dann greift der Reload-Mechanismus in der Collection nicht. Es werden dann immer alle Datensätze komplett eingelesen.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Wenn falsche Angaben gemacht werden, dann kann dies beim Reload zu falschen Daten führen. Im Zweifel sollten besser keine Key-Spalten gekennzeichnet werden.</p>
+</div>
+<p>Wenn neben den Key-Spalten nur wenige weitere Abfrage-Spalten vorhanden sind, dann macht es keinen Sinn, die Key-Spalten zu kennzeichnen. Der Reload-Mechanismus bringt in diesem Fall keinen Vorteil - es könnte sogar einen Nachteil für die Performance bedeuten.</p>
+<h4 id="tabelle--spalte-criteria-spalten-or">Tabelle / Spalte Criteria, Spalten Or</h4>
+<p>In den Spalten Criteria, Or, Or, Or können Bedingungen angegeben werden, die in der Query immer gelten sollen. Es können maximal 4 Kriterien angegeben werden.</p>
+<p>Z.B. <code>„IS NOT NULL“, „&gt;0“...</code></p>
+<p>Wird später mit der Load-Methode eine Where-Clause angegeben, wird diese mit einem „And“ an die hier angegebene Bedingung angefügt.</p>
+<p>Bei Spalten mit ‘Group By‘ oder einer Aggregat-Funktion wird die Kondition automatisch zur Having-Clause.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Wird später mit der Load-Methode eine Having-Clause angegeben, sind diese Angaben hier hinfällig.</p>
+</div>
+<h4 id="tabelle--spalte-readonly">Tabelle / Spalte Readonly</h4>
+<p>Ist diese Spalte gesetzt, wird das Property als Readonly generiert.</p>
+<h4 id="registerkarten-framework-studio-sql--oracle-sql-sql-server-sql">Registerkarten Framework Studio SQL / Oracle SQL /SQL-Server SQL</h4>
+<p>Unten, auf den Registerkarten <strong>Framework Studio SQL</strong> / <strong>Oracle SQL</strong> /<strong>SQL-Server SQL</strong>, wird das SQL der eigentlichen Abfrage (bezogen auf die jeweilige Datenbank) angezeigt.</p>
+<h4 id="registerkarte-preview">Registerkarte Preview</h4>
+<p>Hier wird das Ergebnis der Abfrage in einer Tabelle dargestellt. Damit kann auch getestet werden, ob die definierte Abfrage funktioniert.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

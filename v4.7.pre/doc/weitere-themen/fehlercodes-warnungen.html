@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Fehlercodes Warnungen </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Fehlercodes Warnungen ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/dev/docs/doc/weitere-themen/fehlercodes-warnungen.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="fehlercodes-warnungen">Fehlercodes Warnungen</h1>
+
+<p>Bei der Erzeugung des Quellcodes prüft FrameworkStudio viele Sachverhalte. Nicht alle Konflikte haben so gravierende Auswirkungen dass der Vorgang komplett abgebrochen werden muss.
+Diese Konflikte werden als Warnungen in den Quellcode generiert und beim Kompilieren ausgegeben.</p>
+<h2 id="warnings">Warnings</h2>
+<p>Die von Framework Studio erzeugten Warnungen sind mit Codes versehen. Diese Codes können Sie in den folgenden Abschnitten nachlesen.</p>
+<h3 id="fswarn2001">FSWarn[2001]</h3>
+<p>FSWarn[2003] The identifier '{0}' is too long for Oracle Database (maximum 128 characters)</p>
+<p>Es wurde ein Bezeichner verwendet, der zu lang für Oracle ist.</p>
+<p>In Oracle dürfen Bezeichner nicht länger als 128 Zeichen sein. Die folgenden Bezeichner werden überprüft:</p>
+<ul>
+<li>Tabellen-Namen</li>
+<li>Index-Namen</li>
+<li>Spalten-Namen</li>
+<li>Spalten-Aliase in Component-Queries</li>
+<li>Tabellen-Aliase in Component-Queries</li>
+</ul>
+<p>FS prüft bei der Code-Generierung ob es Bezeichner gibt, die länger als 30 Zeichen sind und produziert entsprechende Warnungen.</p>
+<p>Es sind keine Errors, denn es kann durchaus mal vorkommen, dass z.B. bestehende Datenstrukturen einer SQL-Datenbank verwendet werden, die längere Namen enthält.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Wenn die Oracle-Datenbank mit einem alten Kompatibilität-Modus kleiner als &quot;12.2&quot; betrieben wird, dann sind nur 30 Zeichen zulässig.
+Das wird von Framework Studio aber <strong>nicht</strong> geprüft.
+Nähere Details dazu gibt es direkt bei <a href="https://docs.oracle.com/en/database/oracle/oracle-database/12.2/sqlrf/Database-Object-Names-and-Qualifiers.html">Oracle</a>.</p>
+</div>
+<h3 id="fswarn2002">FSWarn[2002]</h3>
+<p>FSWarn[2002] The identitifier '{0}' is an keyword in Oracle Database</p>
+<p>Es wurde ein Bezeichner verwendet, der ein Schlüsselwort in Oracle ist.</p>
+<p>Die folgenden Bezeichner werden überprüft:</p>
+<ul>
+<li>Tabellen-Namen</li>
+<li>Index-Namen</li>
+<li>Spalten-Namen</li>
+<li>Spalten-Aliase in Component-Queries</li>
+<li>Tabellen-Aliase in Component-Queries</li>
+</ul>
+<p>Es ist bewusst nicht als #error gelöst, da es in SQL-Server umgeben durchaus existierende Datenstrukturen geben kann, bei denen so ein Oracle-Keyword verwendet wird.</p>
+<p>Die folgenden Schlüsselworte werden geprüft:</p>
+<p>ACCESS, ADD, ALL, ALTER, AND, ANY, AS, ASC, AUDIT, BETWEEN, BY, CHAR, CHECK, CLUSTER, COLUMN, COMMENT, COMPRESS, CONNECT, CREATE, CURRENT, DATE, DECIMAL, DEFAULT, DELETE, DESC, DISTINCT, DROP, ELSE, EXCLUSIVE, EXISTS, FILE, FLOAT, FOR, FROM, GRANT, GROUP, HAVING, IDENTIFIED, IMMEDIATE, IN, INCREMENT, INDEX, INITIAL, INSERT, INTEGER, INTERSECT, INTO, IS, LEVEL, LIKE, LOCK, LONG, MAXEXTENTS, MINUS, MLSLABEL, MODE, MODIFY, NOAUDIT, NOCOMPRESS, NOT, NOWAIT, NULL, NUMBER, OF, OFFLINE, ON, ONLINE, OPTION, OR, ORDER, PCTFREE, PRIOR, PRIVILEGES, PUBLIC, RAW, RENAME, RESOURCE, REVOKE, ROW, ROWID, ROWNUM, ROWS, SELECT, SESSION, SET, SHARE, SIZE, SMALLINT, START, SUCCESSFUL, SYNONYM, SYSDATE, TABLE, THEN, TO, TRIGGER, UID, UNION, UNIQUE, UPDATE, USER, VALIDATE, VALUES, VARCHAR, VARCHAR2, VIEW, WHENEVER, WHERE, WITH</p>
+<h3 id="fswarn2006">FSWarn[2006]</h3>
+<p>FSWarn[2006] the databinding '{0}' mustn't be changed in a customisation or derivative (Form:{1} Control:{2}). Please reset the property. {Form:{3};CTRLT:{4}}</p>
+<p>Wenn man ein Form customized oder ableitet, dann dürfen an Controls die Datasources nicht verändert werden.</p>
+<p>Es gibt einige Ausnahmen</p>
+<ul>
+<li>An Comboboxen kann eine andere Liste definiert werden.</li>
+<li>An Grids kann nachträglich eine Collection zugeordnet werden, wenn in der Basis-Klasse noch keine Zuordnung existiert</li>
+</ul>
+<h3 id="fswarn2007">FSWarn[2007]</h3>
+<p>FSWarn[2007] Form '{1}' Control '{0}' is marked as search field and is mapped with an IsMLColumn property. The autogenerated load command will only find strings in default language! {Form:{2};CTRLT:{3}}</p>
+<p>Man kann Datenbank-Spalten als Multilanguage definieren. Wenn in einem Form ein Control als Suchfeld definiert wird, das so eine Spalte anzeigt, dann wird diese Warnung generiert.</p>
+<p>Die fremdsprachigen Texte werden in einer zentralen Tabelle abgelegt, deren Inhalt ausschließlich über den Primär-Schlüssel eines Datensatzes angesprochen wird. Somit kann in diesen Texten nicht nach Inhalten recherchiert werden.</p>
+<p>Wenn mehrere Packages nachträglich übereinandergelegt werden, kann es passieren, dass diese Warnung erst beim Kompilieren des eingeschobenen Packages ausgegeben wird. Das ist dann der Fall, wenn in dem <em>eingeschobenen</em> Package die Datenbank-Spalte customized und als „IsMLColumn“ definiert wird.</p>
+<h3 id="fswarn2008">FSWarn[2008]</h3>
+<p>FSWarn[2008] ReportDocumentType '{0}': The field '{1}.{2}' expects type '{3}' ('{4}'). The report uses type '{5}'. Please correct report '{6}' or the report datasource!</p>
+<p>Beim Kompilieren der Reports überprüft Framework Studio ob die definierte Schnittstelle mit der in der Crystal-Reports-Datei bekannten Schnittstelle übereinstimmt.</p>
+<p>In diesem Fall hat ein Property einen anderen Datentyp als in der Schnittstelle in der Report-Datei.
+Dass kann dazu führen, dass Daten im Report nicht korrekt verarbeitet werden.
+Um das zu beheben muss die Schnittstelle in der Report-Datei aktualisiert werden.</p>
+<h3 id="fswarn2009">FSWarn[2009]</h3>
+<p>FSWarn[2009] ReportDocumentType '{0}' doesn't contain the field '{1}.{2}'. Please correct report '{4}' or the report datasource!</p>
+<p>Beim Kompilieren der Reports überprüft Framework Studio ob die definierte Schnittstelle mit der in der Crystal-Reports-Datei bekannten Schnittstelle übereinstimmt.</p>
+<p>In diesem Fall ist ein der Schnittstelle ein Feld definiert, dass in der Report-Datei nicht bekannt ist.</p>
+<p>Um das zu beheben muss die Schnittstelle in der Report-Datei aktualisiert werden.</p>
+<h3 id="fswarn2010">FSWarn[2010]</h3>
+<p>FSWarn[2010] ReportDocumentType '{0}' doesn't contain table '{1}'. Please correct report '{2}' or the report datasource!</p>
+<p>Beim Kompilieren der Reports überprüft Framework Studio ob die definierte Schnittstelle mit der in der Crystal-Reports-Datei bekannten Schnittstelle übereinstimmt.</p>
+<p>In diesem Fall ist in der Schnittstelle eine Tabelle definiert, die in der Report-Datei nicht bekannt ist.
+Um das zu beheben muss die Schnittstelle in der Report-Datei aktualisiert werden.</p>
+<h3 id="fswarn2011">FSWarn[2011]</h3>
+<p>FSWarn[2011] ReportDocumentType '{0}': Error occured during report validation: {1}</p>
+<p>Beim Kompilieren der Reports überprüft Framework Studio ob die definierte Schnittstelle mit der in der Crystal-Reports-Datei bekannten Schnittstelle übereinstimmt.</p>
+<p>In diesem Fall ist bei der Überprüfung ein Fehler aufgetreten.</p>
+<p>Mögliche Gründe:</p>
+<ul>
+<li>Die Report-Datei ist ungültig</li>
+<li>Die CrytsalReports-Runtime ist nicht oder nicht richtig installiert.</li>
+</ul>
+<h3 id="fswarn2012">FSWarn[2012]</h3>
+<p>FSWarn[2012] ReportDocumentType '{0}': Report '{1}' uses a filepath. Please correct the report (Start CrystalReports and open the dialog Database|'Set Datasource Location' and choose the file again. Clear the file path before finish.).</p>
+<p>Im Report ist die XSD-Datei, welche die Schnittstelle beschreibt mit einem ungültigen Pfad angegeben.
+Wenn man im Report eine XSD-Datei anspricht, dann muss darauf geachtet werden, dass diese Datei ohne Pfadangeben – also nur mit dem Dateinamen angesprochen wird.
+Andernfalls kann es dazu kommen, dass der Report in einer anderen Umgebung mit einer anderen Ordner-Struktur nicht funktioniert.</p>
+<h3 id="fswarn2013">FSWarn[2013]</h3>
+<p>FSWarn[2013] The checked property '{0}.{1}' of report '{2}' was ignored because of its PropertyType(Membervariable)</p>
+<p>Properties mit dem Typ Membervariable können nicht in Report-Schnittstellen verwendet werden. FrameworkStudio ignoriert solche Angaben.
+Bei der Definition von Datasources sind Properties mit dem Typ Membervariable nicht sichtbar. Es kann aber vorkommen, dass durch eine nachträgliche Änderung des Typs so eine Situation entsteht, wenn dieses Property zuvor schon in einem Report verwendet wurde.</p>
+<p>Um diese Warnung zu beheben gehen Sie folgendermaßen vor:</p>
+<ul>
+<li>In der Component das Property vorübergehend auf „Generated“ stellen.</li>
+<li>Jetzt ist dieses Property im Datasource der Report-Schnittstelle sichtbar. Ggf. muss im ReportDocumentType noch der Refresh-Button gedrückt werden.</li>
+<li>Den Haken entfernen</li>
+<li>In der Component das Property wieder auf „Membervariable“ stellen.</li>
+</ul>
+<p>Es kann aber auch sein, dass ein Property irrtümlich auf Membervariable gesetzt wurde. In diesem Fall muss nur das Property korrigiert werden und der Report wird es nach einem erneuten Compile verwenden. Der Report muss dazu ausgecheckt werden oder ohne SavedCode kompiliert werden.</p>
+<h3 id="fswarn2014">FSWarn[2014]</h3>
+<p>FSWarn[2014] Please add a service contract to service {0}.</p>
+<p>Existiert für einen Service kein Service Contract oder ist dem Service kein Service Contract zugeordnet, wird diese Warning generiert, da ein Service ohne Contract keinen Sinn macht.</p>
+<h3 id="fswarn2015">FSWarn[2015]</h3>
+<p>FSWarn[2015] A service proxy only can use a service host of the same package. If you want to use the customized service host '{0}' in the service proxy '{1}' from an other package, please customize this service.</p>
+<p>Ein Service Proxy muss aus dem gleichen Package stammen wie der zugehörige Service Host. Wenn der Service Host gecustomized ist, muss auch der zugehörige Service Proxy gecustomized werden.</p>
+<h3 id="fswarn2016">FSWarn[2016]</h3>
+<p>FSWarn[2016] The Order IDs are not unique. Please check the tab pages of control '{0}'. {Form:{1};CTRLT:{2}}</p>
+<p>Wenn in einem TabbedWindow Control mehrere Seiten die gleiche OrderID festgelegt haben, wird die Reihenfolge zufällig erstellt.</p>
+<h3 id="fswarn2017">FSWarn[2017]</h3>
+<p>FSWarn[2017] The index '{1}' in textcollection '{0}' is used more than once.</p>
+<p>Indices in TextCollections werden als Schlüssel verwendet und sollten deshalb einzigartig sein.</p>
+<h3 id="fswarn2018">FSWarn[2018]</h3>
+<p>FSWarn[2018] Template '{0}' used in form '{1}'. Templates are obsolete and will not be supported in future releases.</p>
+<p>Templates werden in FS nicht mehr unterstützt und sollten deshalb entfernt werden.</p>
+<h3 id="fswarn2019">FSWarn[2019]</h3>
+<p>FSWarn[2019] The grid column '{0}' in grid '{1}' has a list set but doesn't use the combobox editor.</p>
+<p>Wenn in einer Grid-Spalte eine Liste als Datenquelle angegeben ist, sollte der EditorStyle auf ComboBox gesetzt werden, um die definierte Liste auch anzeigen zu können.</p>
+<h3 id="fswarn2020">FSWarn[2020]</h3>
+<p>FSWarn[2020] A column with type boolean doesn't send an OnCellValidate event, but the column '{0}' at grid '{1}' on form '{2}' has defined a handler.</p>
+<p>Wenn an einer Grid-Spalte ein OnCellValidate-EventHandler hängt und der Datentyp der Spalte anschließend auf boolean umgestellt wird, wird das OnCellValidate-Event nicht mehr gefeuert und der Handler ist somit hinfällig.</p>
+<h3 id="fswarn2021">FSWarn[2021]</h3>
+<p>FSWarn[2021] The property '{0}' is no longer accessible. Please change the properties access level to public or call 'Edit / Clean Up Datasources' in ReportDocumentType '{1}'</p>
+<p>ReportDocumentTypes greifen auf Properties von Components zu. Wird dort ein Property z.B. von public auf private gesetzt, kann der ReportDocumentType nicht mehr auf diese Eigenschaft zugreifen und sollte über die Funktion ‚'Edit / Clean Up Datasources ‘ aktualisiert werden.</p>
+<h3 id="fswarn2022">FSWarn[2022]</h3>
+<p>FSWarn[2022] Some parameters of Link '{0}' in Workflow '{1}' have to be corrected. Please call 'Correct workflow link parameters' in Maintenance Mode.</p>
+<p>Die Identifizierung der Link-Parameter wurde geändert und es sollte auf jedem Link die 'Correct workflow link parameters‘-Funktion ausgeführt werden. Sollte dies nicht der Fall sein, wird diese Warnung generiert.</p>
+<h3 id="fswarn2023">FSWarn[2023]</h3>
+<p>FSWarn[2023] The column '{0}' is used more than one time in the query of component '{1}'.</p>
+<p>Es führt zu Problemen, wenn auf Components ein Insert ausgeführt wird, welche eine Spalte mehrmals in der Abfrage ausgewählt haben.</p>
+<h3 id="fswarn2024">FSWarn[2024]</h3>
+<p>FSWarn[2024] The event '{0}' of workflow '{1}' will never be fired, but it is used by link '{2}' in workflow '{3}'! Make sure that this event is fired by a form or global event inside workflow '{1}'.</p>
+<p>Wenn innerhalb eines Workflows von einer Forminstanz ein Link auf eine Workflowinstanz zeigt und ein Event der Forminstanz als Quelle nutzt, dieses seitens des Forms oder eines Global Events aber nie gefeuert wird, wird diese Warnung generiert.</p>
+<h3 id="fswarn2025">FSWarn[2025]</h3>
+<p>FSWarn[2025] Shortcut '{0}' is assigned to more than one control of this form ({1}).</p>
+<p>Wenn in einem Form der gleiche Shortcut an mehreren Controls hinterlegt ist, wird diese Warnung generiert. FS würde ein Control zufällig wählen (unvorhersehbar) und die anderen Shourtcuts nicht ausführen.</p>
+<h3 id="fswarn2026">FSWarn[2026]</h3>
+<p>FSWarn[2026] The settings 'IsDragAllowed = false' and 'DropAllowedFrom = {0}' at tree '{1}' on form '{2}' are competing.</p>
+<p>Wenn z.B. ‘DropAllowedFrom’ auf ‘ThisTreeView’ gesetzt ist, macht dies nur Sinn wenn dann auch ‘IsDragAllowed’ auf ‚true‘ gesetzt wird, da sonst Drag&amp;Drop nicht in diesem TreeView funktionieren kann.</p>
+<h3 id="fswarn2027">FSWarn[2027]</h3>
+<p>FSWarn[2027] Avoid to use default shortcuts CtrlA, CtrlC, CtrlX, CtrlV ({0} used in {1}).</p>
+<p>Wenn Sie einem Control einen der Standard Shortcuts Strg-A, Strg-C, Strg-X oder Strg-V zuordnen, wird diese Warnung generiert. Diese Shortcuts sollten nicht verwendet werden, da sie von Windows aus schon mit Funktionen wie z.B. Kopieren und Einfügen belegt sind.</p>
+<h3 id="fswarn2029">FSWarn[2029]</h3>
+<p>FSWarn[2029] Method Observer: One or more base methods of '{0}' have been changed.</p>
+<p>Wenn eine Methode durch den Methoden-Wächter überwacht wird und sich eine oder mehrere Basismethoden dieser Methode geändert haben, wird diese Warnung generiert.</p>
+<h3 id="fswarn2036">FSWarn[2036]</h3>
+<p>FSWarn[2036] Aliases of query columns have to be unique. Duplicate alias:'{0}'</p>
+<p>Wenn bei den Spalten in einer Component-Query mehrdeutige Aliase vergeben werden, dann können die Spalten nicht mehr eindeutig angesprochen werden. Dies führt zu Fehlern beim Einlesen von Daten aus der Datenbank. In der Regel wird von Framework Studio automatisch ein korrekter Alias vergeben, der sich am Namen der Datenbank-Spalte orientiert. Bei manuell erstellten Queries, insbesondere bei Joins, kann es passieren, dass derselbe Spalten-Name mehrfach vorkommt. In diesem Fall muss manuell ein eindeutiger Name vergeben werden.</p>
+<h3 id="fswarn2038">FSWarn[2038]</h3>
+<p>FSWarn[2038] SortOrder of query columns have to be unique. Duplicate SortOrder: '{0}'.</p>
+<p>Wenn bei den Spalten in einer Component-Query mehrdeutige SortOrders vergeben werden, dann können die Spalten nicht mehr eindeutig angesprochen werden. Dies führt zu Fehlern beim Einlesen von Daten aus der Datenbank.</p>
+<h3 id="fswarn2039">FSWarn[2039]</h3>
+<p>FSWarn[2039] DeprecatedLayout. Please convert the layout.</p>
+<p>Das aktuelle Form arbeitet mit dem ‚alten‘ Layout und wurde mit dem Migrationsassistent noch nicht in das dynamische Layout konvertiert.</p>
+<h3 id="fswarn2040">FSWarn[2040]</h3>
+<p>FSWarn[2040] Form '{0}' uses more than one container control as its root control ({1}).</p>
+<h3 id="fswarn2041">FSWarn[2041]</h3>
+<p>FSWarn[2041] RadioButton '{2}' requires a ButtonGroupDataSource at {0} '{1}'.</p>
+<p>Wenn an dem Container eines RadioButtons kein ButtonGroupDataSOurce hinterlegt ist, kann nicht entschieden werden, wann der Radiobutton aktiv ist.</p>
+<h3 id="fswarn2054">FSWarn[2054]</h3>
+<p>FSWarn[2054] No DependsOn specified in individual property {0}.</p>
+<p>Es wurde keine DependsOn Properties für das individual Property angelegt. <a href="../comp/tab_properties.html#dependson-und-individual-properties">Hier</a> finden Sie nähere Informationen.</p>
+<h3 id="fswarn2055">FSWarn[2055]</h3>
+<p>FSWarn[2055] Multiple REST endpoints are specified in service host. Please rename the endpoint '{0}' or uncheck the checkbox 'Generate REST Endpoint'.</p>
+<p>Am <a href="../webservices/service-host.html">Service Host</a> ist die Checkbox <strong>Generate REST Endpoint</strong> gesetzt. Dieser bekommt automatisch den Namen <code>rest</code>. <br>
+Darüber hinaus gibt es einen individuellen Endpoint mit dem Namen <code>rest</code>. Das führt zu einer Kollision.</p>
+<p>Es kann entweder der automatische oder ein individueller REST Endpoint definiert sein.
+Siehe auch: <a href="../webservices/rest-endpoint.html">REST Endpoint für Service-Methoden</a></p>
+<h2 id="errors">Errors</h2>
+<p>Im Gegensatz zu Warnings sind seitens FS generierte Errors beim Kompilieren so schwerwiegend, dass der Vorgang abgebrochen werden muss.</p>
+<p>Auch Errors sind durchnummeriert und können im Folgenden nachgelesen werden.</p>
+<h3 id="fserr1000">FSErr[1000]</h3>
+<p>FSErr[1000] Service property must be set.</p>
+<h3 id="fserr1001">FSErr[1001]</h3>
+<p>FSErr[1001] 'internal virtual' and 'protected internal virtual' is not allowed in Framework Studio: {0}</p>
+<h3 id="fserr1002">FSErr[1002]</h3>
+<p>FSErr[1002] Property {0} has as mapping a database column without output!</p>
+<h3 id="fserr1003">FSErr[1003]</h3>
+<p>FSErr[1003] None DBConnection defined!</p>
+<h3 id="fserr1005">FSErr[1005]</h3>
+<p>FSErr[1005] Datatype of DBColumn {0}.{1}.{2} (property '{3}') is not valid.</p>
+<h3 id="fserr1006">FSErr[1006]</h3>
+<p>FSErr[1006] Update/Delete could not be generated because not all primary keys of table '{0}' are known as properties of this component!</p>
+<h3 id="fserr1008">FSErr[1008]</h3>
+<p>FSErr[1008] Update/Delete could not be generated because the rowid column of table '{0}' is not known as property of this component!</p>
+<h3 id="fserr1010">FSErr[1010]</h3>
+<p>FSErr[1010] RowID or RowVersion is for oracle oledb connection not allowed. Please change the datasource to oracle connection!</p>
+<h3 id="fserr1011">FSErr[1011]</h3>
+<p>FSErr[1011] Update/Delete could not be generated because the rowversion column of table '{0}' is not known as property of this component!</p>
+<h3 id="fserr1013">FSErr[1013]</h3>
+<p>FSErr[1013] Update/Delete not possible because no primary keys are published for the main table.</p>
+<h3 id="fserr1015">FSErr[1015]</h3>
+<p>FSErr[1015] Property '{0}' has a invalid name. {0} is a reserved keyword in c#! {Component:{1} ;Property:{2}}</p>
+<h3 id="fserr1016">FSErr[1016]</h3>
+<p>FSErr[1016] Property {0} is mapped with a deleted dbcolumn!</p>
+<h3 id="fserr1017">FSErr[1017]</h3>
+<p>FSErr[1017] PropertyTypeRecord.Relation could only be defined for components and collections.</p>
+<h3 id="fserr1018">FSErr[1018]</h3>
+<p>FSErr[1018] Relations: Compareoperator {0} is not supported yet!</p>
+<h3 id="fserr1019">FSErr[1019]</h3>
+<p>FSErr[1019] Invalid character '{0}' in identifier '{1}'.</p>
+<h3 id="fserr1020">FSErr[1020]</h3>
+<p>FSErr[1020] You have to use a metadatatype as datatype of property '{0}'.</p>
+<h3 id="fserr1021">FSErr[1021]</h3>
+<p>FSErr[1021] Multi-Language properties can be defined only with existing database columns. Please correct {0}</p>
+<h3 id="fserr1022">FSErr[1022]</h3>
+<p>FSErr[1022] FatalError: CustomizationBase is null in customization!</p>
+<h3 id="fserr1023">FSErr[1023]</h3>
+<p>FSErr[1023] FatalError: Base is null in derivative!</p>
+<h3 id="fserr1024">FSErr[1024]</h3>
+<p>FSErr[1024] Property '{0}' has no database mapping. Load Condition can't be generated!</p>
+<h3 id="fserr1025">FSErr[1025]</h3>
+<p>FSErr[1025] {0} (Individual Consistency Message).</p>
+<h3 id="fserr1026">FSErr[1026]</h3>
+<p>FSErr[1026] Invalid type '{0}' at '{1}'</p>
+<h3 id="fserr1027">FSErr[1027]</h3>
+<p>FSErr[1027] Please assign a connection group for connection '{0}'.</p>
+<h3 id="fserr1028">FSErr[1028]</h3>
+<p>FSErr[1028] Columns can be defined as multi-language only if the primary keys of the table are set!</p>
+<h3 id="fserr1029">FSErr[1029]</h3>
+<p>FSErr[1029] Mapped Property of column '{0}'.'{1}' is not available. Probably it has been deleted!</p>
+<h3 id="fserr1030">FSErr[1030]</h3>
+<p>FSErr[1030] EditStyle '{0}' requires string as datatype of the value property!</p>
+<h3 id="fserr1031">FSErr[1031]</h3>
+<p>FSErr[1031] {0}: Choosen Format {1} mustn't be used with datatype '{2}'</p>
+<h3 id="fserr1032">FSErr[1032]</h3>
+<p>FSErr[1032] Private or internal membervariables or properties mustn’t be mapped to a list as datasource. Control:{0}; Datasource:{1}; {Form:{2}; CTRLT:{3}}</p>
+<h3 id="fserr1033">FSErr[1033]</h3>
+<p>FSErr[1033] The control {0} has been moved in customization base. Please call check out at the form {1} to adjust.</p>
+<h3 id="fserr1034">FSErr[1034]</h3>
+<p>FSErr[1034] Private member variables mustn’t be used as datasource of control {0}.{1}; Datasource: {2}</p>
+<h3 id="fserr1035">FSErr[1035]</h3>
+<p>FSErr[1035] ActionWrapperClassName not found!</p>
+<h3 id="fserr1036">FSErr[1036]</h3>
+<p>FSErr[1036] Datatype of property '{0}' could not be loaded!. Possibly a used component or metadatatype is recreated by another user and not checked in.</p>
+<h3 id="fserr1037">FSErr[1037]</h3>
+<p>FSErr[1037] format at column &quot;{0}&quot; doesn't matches to the datatype &quot;{1}&quot;</p>
+<h3 id="fserr1038">FSErr[1038]</h3>
+<p>FSErr[1038] The tranformation must have at least one input parameter and the output parameter cannot be void.</p>
+<h3 id="fserr1039">FSErr[1039]</h3>
+<p>FSErr[1039] FormatPattern should not be 'c'</p>
+<h3 id="fserr1040">FSErr[1040]</h3>
+<p>FSErr[1040] Please define a datasource for the report!</p>
+<h3 id="fserr1041">FSErr[1041]</h3>
+<p>FSErr[1041] Autogenerated service contracts mustn't be derived!</p>
+<h3 id="fserr1042">FSErr[1042]</h3>
+<p>FSErr[1042] Incorrect format of {0} in {1}. The format have to be like '{2}'</p>
+<h3 id="fserr1043">FSErr[1043]</h3>
+<p>FSErr[1043] Service Contract '{0}' have to be a derivative of '{1}'</p>
+<h3 id="fserr1044">FSErr[1044]</h3>
+<p>FSErr[1044] Service Proxy '{0}' hasn't an Endpoint. Please execute 'Generate Proxy'</p>
+<h3 id="fserr1045">FSErr[1045]</h3>
+<p>FSErr[1045] A valid external or internal service must be defined for the Service Proxy '{0}'</p>
+<h3 id="fserr1046">FSErr[1046]</h3>
+<p>FSErr[1046] Could not determine SourceEvent!</p>
+<h3 id="fserr1047">FSErr[1047]</h3>
+<p>FSErr[1047] Please customize the workflow '{0}', because the base workflow '{1}' is customized in this package!</p>
+<h3 id="fserr1049">FSErr[1049]</h3>
+<p>FSErr[1049] Some parameters of Link '{0}' in Workflow '{1}' have to be corrected. Please call 'Correct workflow link parameters' in Maintenance Mode</p>
+<h3 id="fserr1050">FSErr[1050]</h3>
+<p>FSErr[1050] The interface '{0}' and the component '{1}' are not in the same namespace. Please check out the component to correct the namespace.</p>
+<h3 id="fserr1051">FSErr[1051]</h3>
+<p>FSErr[1051] The HasChild binding at node '{0}' must use a bool property.</p>
+<h3 id="fserr1052">FSErr[1052]</h3>
+<p>FSErr[1052] The datatype of the used property for the display member '{0}' at treenode '{1}' from tree '{2}' on form '{3}' is invalid</p>
+<h3 id="fserr1053">FSErr[1053]</h3>
+<p>FSErr[1053] The value member of the list datasource '{2}' in grid '{0}' at column '{1}' is not set.</p>
+<h3 id="fserr1054">FSErr[1054]</h3>
+<p>FSErr[1054] The display member of the list datasource '{2}' in grid '{0}' at column '{1}' is not set.</p>
+<h3 id="fserr1055">FSErr[1055]</h3>
+<p>FSErr[1055] Index names mustn't be empty.</p>
+<h3 id="fserr1056">FSErr[1056]</h3>
+<p>FSErr[1056] Multiple indices with the same name '{0}'.</p>
+<h3 id="fserr1057">FSErr[1057]</h3>
+<p>FSErr[1057] The index has the same columns like index '{0}'.</p>
+<h3 id="fserr1058">FSErr[1058]</h3>
+<p>FSErr[1058] The index contains no columns.</p>
+<h3 id="fserr1059">FSErr[1059]</h3>
+<p>FSErr[1059] Index names must start with a letter or an underscore and must continue with letters, underscores or numbers.</p>
+<h3 id="fserr1060">FSErr[1060]</h3>
+<p>FSErr[1060] Method has to be virtual.</p>
+<h3 id="fserr1061">FSErr[1061]</h3>
+<p>FSErr[1061] Since the transformation is a customization, this method has to be overridden.</p>
+<h3 id="fserr1062">FSErr[1062]</h3>
+<p>FSErr[1062] Property '{0}' is readonly and cannot be marked as [DataMember].</p>
+<h3 id="fserr1063">FSErr[1063]</h3>
+<p>FSErr[1063] No parent access unit has been assigned to access unit '{0}'. Please check out form '{1}' to reassign a parent access unit.</p>
+<h3 id="fserr1064">FSErr[1064]</h3>
+<p>FSErr[1064] No view definition has been specified.</p>
+<h3 id="fserr1065">FSErr[1065]</h3>
+<p>FSErr[1065] Error in view select statement (details see following comment) /<em>0</em>/</p>
+<h3 id="fserr1066">FSErr[1066]</h3>
+<p>FSErr[1066] No valid select statement has been specified.</p>
+<h3 id="fserr1067">FSErr[1067]</h3>
+<p>FSErr[1067] Some DBTable Columns are missing in view select statement: {0}.</p>
+<h3 id="fserr1068">FSErr[1068]</h3>
+<p>FSErr[1068] It is required to define an alias for column {0} in view select.</p>
+<h3 id="fserr1069">FSErr[1069]</h3>
+<p>FSErr[1069] Asterisk Expression (*) is not allowed in view select.</p>
+<h3 id="fserr1070">FSErr[1070]</h3>
+<p>FSErr[1070] Ivalid object reference: {0}</p>
+<h3 id="fserr1071">FSErr[1071]</h3>
+<p>FSErr[1071] Table names must be unique ignoring case. Table '{0}' found more than once.</p>
+<h3 id="fserr1072">FSErr[1072]</h3>
+<p>FSErr[1072] Property '{0}' does not exist on component '{1}'.</p>
+<p>Wenn an einem <a href="../globalobjects/globalobjects.html">Global Objects</a> die Checkbox <strong>Redirect to ocGlobal</strong> gesetzt ist, dann erwartet Framework Studio in der Component FSGeneral.cGlobal ein gleichnamiges Property. Dieser Fehler wird ausgegeben, wenn so ein Property nicht gefunden wurde.</p>
+<h3 id="fserr1073">FSErr[1073]</h3>
+<p>FSErr[1073] Property '{0}' type mismatch detected! Expected {1}, given {2}!</p>
+<p>Wenn an einem <a href="../globalobjects/globalobjects.html">Global Objects</a> die Checkbox <strong>Redirect to ocGlobal</strong> gesetzt ist, dann muss in der Component FSGeneral.ocGlobal das entsprechende Property denselben Typ haben wie das Global Object. Dieser Fehler wird ausgegeben, wenn die Typen abweichen.</p>
+<h3 id="fserr1074">FSErr[1074]</h3>
+<p>FSErr[1074] Cannot bind property '{0}' to control '{1}' because property type '{2}' is not supported.</p>
+<p>Der Fehler wird ausgegeben, wenn einem DataSource eines Controls im Form ein Property zugewiesen wurde, dessen Typ nicht geeignet ist. Beispiel: Einem Editfield wurde ein Property vom Typ System.Object zugewiesen.</p>
+<h3 id="fserr1075">FSErr[1075]</h3>
+<p>FSErr[1075] The customization base of {objectType} '{name}' has been moved from namespace '{source}' to '{target}'. Please call menu Tools / Adjust moved customizations.</p>
+<p>Im Basis-Package wurde ein Element in einen anderen Namespace verschoben. Im Customizing-Package muss dies über die Routine “Adjust moved customizations” nachgezogen werden.</p>
+<p>Siehe auch Kapitel <a href="../ide/tools-menu.html#adjust-moved-customizations">Adjust moved customizations</a>.</p>
+<h3 id="fserr1076">FSErr[1076]</h3>
+<p>FSErr[1076] In '{GridName}' the column for property '{PropertyName}' was added twice, in Form '{CurrentForm}' and in Form '{CustomizationBaseOrBaseForm}'. Please remove the column in one of the forms.</p>
+<h3 id="fserr1092">FSErr[1092]</h3>
+<p>FSErr[1092] The Transformation itself is used in root assignment 'Perameter -&gt; Result'. This causes an infinite recursion. Please remove this Transformation from the assignment or use a different one.</p>
+<p>Bei einer <a href="../transformationen/transformationen.html#graphische-transformation">grafischen Transformation</a> darf bei der Zuordnung der Transformation zwischen den Hauptknoten nicht auf sich selbst verwiesen werden.
+Dies mündet sonst in einer Rekursion und damit in einer <a href="../../articles/knowledge/stackoverflow-analysieren.html">StackOverflowException</a>.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

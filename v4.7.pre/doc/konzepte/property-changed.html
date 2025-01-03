@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>PropertyChanged </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="PropertyChanged ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/dev/docs/doc/konzepte/property-changed.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="propertychanged">PropertyChanged</h1>
+
+<p>Die Components und Forms implementieren das Standard-Interface <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged">INotifyPropertyChanged</a>.</p>
+<h4 id="das-event-konsumieren">Das Event konsumieren</h4>
+<p>Über das Event <code>PropetyChanged</code> werden Änderungen an Properties gemeldet. Dieses Event transportiert als Argument <code>PropertyChangedEventArgs</code> mit der Eigenschaft <code>PropertyName</code>.</p>
+<pre><code class="lang-csharp">oArticle.PropertyChanged += OnArticleChanged;
+
+// Der EventHandler:
+protected void OnArticleChanged(object sender, PropertyChangedEventArgs args)
+{
+    // reagieren auf Änderungen
+}
+</code></pre>
+<h4 id="prüfung-des-property-namen">Prüfung des Property-Namen</h4>
+<p>Um gezielt auf die Änderung bestimmter Properties zu reagieren muss die eigenschaft PropertyName ausgewertet werden. Dabei müssen auch einige Sonderfälle beachtet werden.</p>
+<p>Ist der PropertyName leer (<code>null</code> oder <code>Empty</code>) bedeutet, dass sich alle Properties geändert haben. Genauso sollte man es auch betrachten, wenn gar keine EventArgs übergeben werden.</p>
+<pre><code class="lang-csharp">// Ausführliche Prüfung
+if (args == null || string.IsNullOrEmpty(args.PropertyName) || args.PropertyName == nameof(sArticleID))
+   ...
+</code></pre>
+<p>Framework Studio bietet mit der Methode <code>IsProperty</code> eine praktische Erweiterung, um diese Prüfung zu vereinfachen. Man kann dieser Methode bei bedarf auch mehrere Property-Namen übergeben.</p>
+<pre><code class="lang-csharp">// Einfache Prüfung analog zu oben
+if ( args.IsProperty(nameof(sArticleID)) )
+   ...
+
+// mit mehreren Properties:
+if ( args.IsProperty(nameof(decPrice1), nameof(decPrice2)) )
+   // ein Preis hat sich geändert ...
+</code></pre>
+<p>Soll bewusst auf die Änderung exakt eines Properties gehört werden - also nicht wenn sich alles ändert - dann ist die folgende Schreibweise zu empfehlen:</p>
+<pre><code class="lang-csharp">// Es wurde explizit die Artikel-Nummer geändert
+if ( args?.PropertyName == nameof(sArticleID) )
+   ...
+
+</code></pre>
+<p>Generell ist es empfehlenswert, wie in den Beispielen demonstriert, mit <code>nameof(...)</code> zu arbeiten, damit die Namen der Properties vom Compiler geprüft werden.
+Das kann auf je nach Situation auf eine der folgenden Arten passieren</p>
+<ul>
+<li>Das Property direkt in der eigenen Klasse:
+<code>nameof(this.sArticleID)</code></li>
+<li>Das Property an einer vorhandenen Instanz:
+<code>nameof(oArticle.sArticleID)</code></li>
+<li>Das Property über das Interface oder die Klasse verwenden.
+<code>nameof(IcdArticle.sArticleID)</code></li>
+</ul>
+<h4 id="aufrufen-des-events">Aufrufen des Events</h4>
+<p>Innerhalb der Component bzw. des Forms kann das Event durch Aufruf der Methode <code>FirePropertyChanged(string propertyName)</code> ausgelöst werden.</p>
+<p>Ach hier gilt: wird als PropertyName der Wert <code>null</code> oder <code>String.Empty</code> übergeben, bedeutet es, dass sich alles geändert hat.
+Davon sollte allerdings nur sehr bedacht Gebrauch gemacht werden.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

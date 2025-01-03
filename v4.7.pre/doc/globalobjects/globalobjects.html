@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Global Objects </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Global Objects ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/dev/docs/doc/globalobjects/globalobjects.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="global-objects">Global Objects</h1>
+
+<p>In <strong>Framework Studio</strong> – bzw. in der Anwendung – gibt es ein globales Objekt, welches überall verfügbar ist. Es kann jederzeit mit <strong>this.Global</strong> angesprochen werden.</p>
+<p>Damit das Global Object überall zur Verfügung steht, muss es beim Erzeugen eines neuen Framework-Studio Objektes mit dem Constructor übergeben werden.</p>
+<p>Variante mit dem new-Operator</p>
+<pre><code class="lang-csharp">cdComponent oObject = new cdComponent( this.Global);
+</code></pre>
+<p>Nutzen der Interfaces und Factory-Klassen</p>
+<pre><code class="lang-csharp">IcdComponent oObject2 = cdComponentFactory.Create( this.Global );
+</code></pre>
+<p>Im automatisch generierten Code werden alle Objekte (Components, Forms, Workflows) in gleicher Weise erstellt. Somit ist dieses Global jederzeit und überall verfügbar.</p>
+<p>Das <strong>Global Object</strong> eignet sich hervorragend, um z.B. System- oder Benutzerdaten in der gesamten Anwendung zur Verfügung zu stellen.</p>
+<p>Welche Daten/Variablen dieses Objekt anbietet, wird im Namespace FSGeneral.GlobalObjects. definiert.</p>
+<p>Alle Elemente dort werden beim Start der Applikation instanziiert.</p>
+<p><strong>Global Object Designer:</strong></p>
+<p><img src="media/global-object-designer.png" alt="Global Object Designer"></p>
+<h4 id="button-new">Button <strong>New</strong></h4>
+<p><img src="../media/button-new.png" alt="new"></p>
+<p>Es wird eine neue Variable angelegt. Sie können gleich den Namen der Variablen eingeben.</p>
+<h4 id="button-delete">Button <strong>Delete</strong></h4>
+<p><img src="../media/button-delete.png" alt="delete"></p>
+<p>Löscht die markierte Variable.</p>
+<h4 id="name">Name</h4>
+<p>Name der Variablen bzw. des Objekts.</p>
+<h4 id="datatype">Datatype</h4>
+<p>Gibt den Datentyp der Variablen an. Über die Combobox kann der Datentyp geändert werden. Es öffnet sich der Namespace-Baum, über den das gewünschte Struct, Metadatatype oder Component ausgewählt werden kann.</p>
+<h4 id="autocreate">Autocreate</h4>
+<p>Ist diese Checkbox aktiviert, wird die Variable automatisch beim Start der Anwendung initialisiert. Wenn nicht, wird die Variable einfach nur angelegt, ohne ihr einen Wert zuzuweisen. Dies können Sie dann im Code-Fenster festlegen.</p>
+<h4 id="redirect-to-ocglobal">Redirect to ocGlobal</h4>
+<p>Wenn diese Checkbox aktiviert ist, dann werden alle Zugriffe auf dieses GlobalObject in das gleichnamige Property in der Component FSGeneral.cGlobal umgeleitet. Dies betrifft Lese- und ggf. auch Schreibvorgänge. Wenn es sich bei dem cGlobal-Property um ein Readonly Property handelt, dann erkennt dies Framework Studio und wird das GlobalObject selber auch entsprechend readonly erzeugen.</p>
+<p>Das cGlobal-Property kann wie gewohnt als Individual Property mit Membervariable gestaltet werden, welches die Daten erst beim ersten Zugriff aufbereitet. So ist es möglich, ein GlobalObject erst beim ersten Zugriff zu initialisieren und so den Start der Anwendung zu beschleunigen.</p>
+<h4 id="init-code">Init Code</h4>
+<p>Im Code-Fenster können Sie angeben, was mit der Variable beim Start der Anwendung geschehen soll. Sie können den Variablen beispielsweise Werte zuweisen oder wenn Sie eine Component mit einer Query eingebunden haben, an dieser einen Load ausführen, damit die entsprechenden Daten aus der Datenbank gelesen werden.</p>
+<h2 id="methoden-am-globalobject">Methoden am GlobalObject</h2>
+<p>Das Globale Objekt stellt neben den selbst definierten Properties auch System-seitig Methoden und Properties bereit.</p>
+<p>Siehe <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.html#methods">Methoden am GlobalObject</a></p>
+<h2 id="properties-am-globalobject">Properties am GlobalObject</h2>
+<p>Siehe <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.html#properties">Methoden am GlobalObject</a></p>
+<h2 id="ocglobal">ocGlobal</h2>
+<pre><code class="lang-csharp">public IcGlobal ocGlobal
+</code></pre>
+<p>Gibt ein Objekt vom Typ IcGlobal zurück. Dieses Objekt ist eine Instanz der Component <strong>cGlobal</strong>, die im Namespace <strong>FSGeneral</strong> im <strong>SystemPackage</strong> definiert ist.</p>
+<p>Für weitere Informationen siehe <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.ocGlobal.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ocGlobal">cGlobal</a>.</p>
+<h2 id="safeinitializing">SafeInitializing</h2>
+<p>Siehe <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.SafeInitializing.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_SafeInitializing">SafeInitializing</a></p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Dokumentation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Dokumentation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/docs/doc/ide/dokumentation.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="dokumentation">Dokumentation</h1>
+
+<p>Einer der größten Kostentreiber eines jeden Softwareprojektes sind schlechte Dokumentationen, welche die Wiederverwendbarkeit von Code einschränken und die Wartung erschweren. Je besser Ihr Code dokumentiert ist, desto effektiver werden Sie ihn nutzen können.</p>
+<h2 id="allgemeines">Allgemeines</h2>
+<p>Um die Übersichtlichkeit, Wiederverwendbarkeit und Wartbarkeit Ihres Codes zu gewährleisten, sollten Sie ihre Metadatentypen, Properties und Methoden entsprechend beschreiben.</p>
+<p>Um Metadatentypen und Components mit Kommentaren zu versehen, öffnen Sie diese im <strong>Framework-Designer</strong> und tragen die Beschreibung in das Feld <strong>Description</strong> ein. Dabei muss die Eingebesyntax, wie im Folgenden ausgeführt, beachtet werden.</p>
+<p>Zu Properties können Sie Kommentare hinterlegen, indem Sie die Component, die das Property enthält, über die Combobox auf der <strong>Registerkarte Property</strong> auswählen und auf der Property-Registerkarte <strong>Description</strong> einen Kommentar hinterlegen.</p>
+<p><strong>Component:</strong></p>
+<p><img src="media/documentation-component.png" alt="documentation-component.png"></p>
+<p>Bei Methoden sollten Sie Kommentare, Beschreibungen der Parameter, Beispiele u.ä. im Methodenkopf, also noch vor Deklaration der Methode hinterlegen.</p>
+<p>Ist der Code ordentlich dokumentiert, haben Sie mit NDoc eine einfache Möglichkeit, eine Entwicklerdokumentation im Stil der MSDN zu erstellen.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Dazu ist es allerdings notwendig, dass die Kommentare auch in MSDN-konforme Tags eingeschlossen sind.</p>
+</div>
+<h2 id="syntax">Syntax</h2>
+<p>Damit die Kommentare von NDoc richtig verarbeitet werden, ist es wichtig, diese in Tags einzufassen. Ein Tag ist einfach eine Beschreibung, die den Inhalt definiert. XML benötigt für eine Beschreibung immer 2 Tags, einen öffnenden und einen schließenden.</p>
+<p>Der schließende Tag unterscheidet sich dabei von dem öffnenden, dass er ’\’ vor der Tag-Bezeichnung trägt. Wenn Sie verschachtelte Tags benutzen, müssen diese von innen nach außen wieder aufgelöst werden.</p>
+<pre><code class="lang-xml">&lt;summary&gt;
+Zusammenfassung
+&lt;/summary&gt;
+</code></pre>
+<p>Tags, die Sie zum Beschreiben benötigen, sind:</p>
+<p><strong><code>&lt;summary&gt;</code></strong> Beschreibung <strong><code>&lt;/summary&gt;</code></strong><br>
+<strong><code>&lt;param name =&quot;Parametername&quot;&gt;</code></strong> Beschreibung <strong><code>&lt;/param&gt;</code></strong><br>
+<strong><code>&lt;returns&gt;</code></strong> Returnparameter <strong><code>&lt;/returns&gt;</code></strong><br>
+<strong><code>&lt;remarks&gt;</code></strong> Anmerkungen <strong><code>&lt;/remarks&gt;</code></strong><br>
+<strong><code>&lt;example&gt;</code></strong> Beispiel <strong><code>&lt;/example&gt;</code></strong><br></p>
+<p>Sie können auch ein Code-Template anlegen, welches schon eine komplette Beschreibungsstruktur aufweist, so dass Sie die Tags nicht jedes Mal neu anlegen müssen.</p>
+<p>Wie Sie es vielleicht auch schon von Visual Studio her kennen, werden Kommentare im Code, die für externe Dokumentationszwecke gedacht sind, durch 3 führende Slashs (<strong><code>///</code></strong>), interne dagegen durch 2 führende Slashs definiert.</p>
+<p><strong>Beispiel eines Description-Templates:</strong></p>
+<pre><code class="lang-csharp">///&lt;summary&gt;
+///???
+///&lt;/summary&gt;
+///
+///&lt;param name=&quot;???&quot;&gt;???&lt;/param&gt;
+///
+///&lt;returns&gt;???&lt;/returns&gt;
+///
+///&lt;remarks&gt;
+///???
+///&lt;/remarks&gt;
+///
+///&lt;example&gt;
+///???
+///&lt;/example&gt;
+public void WriteView()
+</code></pre>
+<p>Wenn Sie Kommentare in die Description-Felder eingeben, brauchen Sie keinen Slash voranstellen. Diese sind nur direkt im Code, wie bei Methoden notwendig.</p>
+<p>Weitere gültige Tags können Sie der NDoc-Hilfe entnehmen.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

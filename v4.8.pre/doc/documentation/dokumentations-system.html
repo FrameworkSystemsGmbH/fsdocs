@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Dokumentations-System </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Dokumentations-System ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/docs/doc/documentation/dokumentations-system.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="dokumentations-system">Dokumentations-System</h1>
+
+<p>Framework Studio bietet die Möglichkeit, die entwickelten Applikationen mittels eines in die IDE integrierten Dokumentationssystems zu dokumentieren. Im Gegensatz zu herkömmlichen Dokumentationen mittels Microsoft Word oder Latex bietet das System jedoch gravierende Vorteile, da es komplett an die Datenstruktur und –hierarchie von Framework Studio angepasst ist.</p>
+<h2 id="features">Features</h2>
+<p>Um den Einstieg in das Dokumentationssystem zu vereinfachen, werden im Folgenden die wichtigsten Features vorgestellt.</p>
+<h3 id="automatische-generierung-der-dokumentationsstruktur">Automatische Generierung der Dokumentationsstruktur</h3>
+<p><em>„Wo steht was?“</em> ist ein großes Problem im Bereich Dokumentation. Ein Mitarbeiter beschreibt erst die Steuerelemente des Formulars und danach dessen Funktionalität, ein anderer macht es genau anders herum. Framework Studio trennt sich vom klassischen Weg der Dokumentationserstellung. Egal, ob die Dokumentation später als Word oder HTML exportiert wird, die Struktur bleibt dieselbe. Jedes Formular folgt dem gleichen Schema, alles hat seinen zugewiesenen Platz durch vordefinierte Formatvorlagen seitens Framework Studio.</p>
+<h3 id="vererbung-vom-metadatentyp-bis-zum-steuerelement">Vererbung vom Metadatentyp bis zum Steuerelement</h3>
+<p>Hinter fast jedem Steuerelement in Framework Studio verbirgt sich als DataSource ein Component Property, eine DBColumn oder ein <a href="../mdt/metadatentypen.html">Metadatentyp</a>. Hier verhält sich die Dokumentation ähnlich wie die Tooltips. Wird ein <a href="../mdt/metadatentypen.html">Metadatentyp</a> dokumentiert, steht diese Dokumentation auch am Steuerelement zur Verfügung und wird in die endgültige Fassung herausgerendert. Dokumentationen können vererbt, gecustomized und überschrieben werden, sollte sich z.B. der Kontext in einem Formular ändern.</p>
+<h3 id="customizing-und-package-struktur">Customizing und Package-Struktur</h3>
+<p>Das Herz von Framework Studio bildet das Package-System. Das Dokumentationssystem folgt diesem und bietet voll Customizing-fähige Dokumentationen über Package-Grenzen hinweg. Vererben, überschreiben, anhängen, austauschen… die Dokumentation ist anpassbar bis zum letzten Satz.</p>
+<h3 id="mehrsprachigkeit">Mehrsprachigkeit</h3>
+<p>Erfassen Sie die Dokumentation in allen möglichen Sprachen. Der Dokumentationseditor unterstützt das parallele Bearbeiten von mehreren Sprachen. Wenn Sie die englische Dokumentation schreiben, nehmen Sie sich einfach die deutsche Dokumentation als Vorlage für die Übersetzung zur Hand.</p>
+<h3 id="screenshot-generierung">Screenshot-Generierung</h3>
+<p>Screenshot erstellen, in das Grafikprogramm laden, den Ausschnitt zurechtschneiden, Screenshot in das Dokument einfügen, Größe anpassen… und nach einer Woche ist der Screenshot veraltet, weil drei neue Steuerelemente hinzugekommen sind. Um dieses Problem aus dem Weg zu schaffen, bietet das Dokumentationssystem eine Screenshot-Generierung für Formulare. Bei jedem Herausschreiben der Dokumentation wird von Framework Studio anhand der Steuerelementdaten des Designers ein Screenshot des Formulars erstellt und automatisch in die Dokumentation eingefügt. So sind die Masken in der Dokumentation stets auf dem neuesten Stand und der Benutzer findet jedes Steuerelement wo er es erwartet.</p>
+<h3 id="theme-support">Theme Support</h3>
+<p>In Framework Studio 3.5 hielten Themes Einzug in die IDE. Die Dokumentation lässt sich für verschiedene Themes rendern. Sind beispielsweise automatisch generierte Screenshots in die Dokumentation eingebunden, werden diese im jeweiligen Theme gerendert. Auch für eingebundene Bilder können je Theme unterschiedliche Bilder definiert werden.</p>
+<h2 id="aufbau-des-dokumentationssystems">Aufbau des Dokumentationssystems</h2>
+<p>Die beiden Elemente, die das Fundament des Dokumentationssystems bilden, sind das Form- und das Documentation-Element (siehe <a href="#documentation-element">Documentation-Element</a>). Diese Elemente werden mittels einer Baumstruktur (siehe <a href="chapter-tree.html">Chapter Tree</a>) in Kapitel unterteilt. Somit bildet jedes Form- oder Documentation-Element ein Kapitel mit eigener Kapitelnummer in der fertigen Dokumentation ab.</p>
+<h3 id="form">Form</h3>
+<p>Sie erkennen Form an einem <img src="../media/icon-frm.png" alt="form-icon">-Icon.</p>
+<p>Elemente des Forms mit Dokumentation:</p>
+<p><img src="media/forms-mit-dokumentation.png" alt="elemente-des-forms-mit-dokumentations"></p>
+<p>Ein Form definiert sich grundsätzlich durch dessen Controls. Jedes Control kann eine DataSource zugewiesen haben, die über ein Component Property auf eine DBColumn verweist, die wiederum einen Wert eines <a href="../mdt/metadatentypen.html">Metadatatypes</a> kapseln kann. Diesem Mechanismus folgt das Dokumentationssystem. Es besteht die Möglichkeit, auf jeder einzelnen Ebene in Framework Studio eine Dokumentation zu hinterlegen, die von der nächst höheren Instanz verwendet werden kann (siehe <a href="vererbung.html">Vererbung</a>).</p>
+<p>So können am Metadatentyp z.B. Informationen zum Wertebereich oder zur Genauigkeit angegeben werden. In der Dokumentation des Controls, welches auf diesen Metadatentyp verweist, kann z.B. die Dokumentation des Metadatentyps eingebunden werden und steht dem Leser somit als zusätzliche Information zur Verfügung.</p>
+<p>Während in der Dokumentation eines Controls ausschließlich auf die Funktion dessen eingegangen werden sollte, dient die Dokumentation des Formulars der generellen Beschreibung, d.h. es können beliebige Texte verfasst werden, die die Funktionalität des Formulars im Gesamten beschreibt. So können Beispiele, Prozesse, Arbeitsanweisungen usw. beschrieben werden. Im Gegensatz zu den Control-Dokumentationen werden Form-Dokumentationen in sogenannte <em>Sections</em> unterteilt. Diese dienen als Text-Trenner für das Customizing (siehe <a href="customizing.html">Customizing</a>).</p>
+<h3 id="documentation-element">Documentation-Element</h3>
+<p>Sie erkennen Documentation-Element an einem <img src="../media/icon-doc.png" alt="icon">-Icon.</p>
+<p>Die meisten Dokumentationen einer Anwendung beziehen sich auf ein oder mehrere Formulare. Oft muss aber auch ein Hintergrundprozess wie z.B. eine Preisfindung oder ein Importvorgang dokumentiert werden, für den es keine visuelle Repräsentation gibt. Für diesen Zweck bietet Frameworks Studio die Documentation-Elemente. Sie sind eigenständige Elemente wie Forms, Workflows oder Components und können wie diese ein- und ausgecheckt werden.</p>
+<p>Documentation-Elemente im Namespace TreeView:</p>
+<p><img src="media/documentation-elemente-treeview.png" alt="Documentation-Elemente im Namespace TreeView"></p>
+<p>Die Documentation-Elemente bestehen nur aus einem einzigen Dokumentationseditor. Wie Forms bildet jedes Documentation-Element in der fertigen Dokumentation ein eigenes Kapitel mit eigener Kapitelnummer ab.</p>
+<p>Anwendungsfall für ein Documentation-Element:</p>
+<p>Wenn auf einem Formular ein Button existiert, welcher z.B. den Preis eines Artikels anhand eingegebener Konditionen berechnet, könnte der Kalkulationsprozess dokumentiert werden. Hier bietet sich ein Documentation-Element an. In diesem wird der Kalkulationsablauf im Detail beschrieben, ohne Bezug auf das Formular oder den Button, von dem der Prozess ausgelöst wird. In der Dokumentation des Button-Controls kann nun ein Verweis auf das Documentation-Element eingefügt werden, welcher in der fertigen Dokumentation als Hyperlink verfügbar ist. Der große Vorteil ist: Sollte in einem anderen Programmteil derselbe Kalkulationsprozess aufgerufen werden, müsste dort nur auf das bereits existierende Documentation-Element verwiesen werden, ganz nach dem Motto <em>„write once, read anywhere“</em>.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Performance-Analyse mit dotTrace </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Performance-Analyse mit dotTrace ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/docs/articles/knowledge/dottrace-performance.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="performance-analyse-mit-dottrace">Performance-Analyse mit dotTrace</h1>
+
+<p><a href="https://www.jetbrains.com/profiler/">dotTrace</a> von der Firma <a href="https://www.jetbrains.com/">JetBrains</a> ist ein kostenpflichtiges Werkzeug zur Analyse der Performance von .NET-Anwendungen.</p>
+<h2 id="aufzeichnen-mit-console-werkzeug">Aufzeichnen mit Console-Werkzeug</h2>
+<p>Für die Aufzeichnung von Sitzungen bietet JetBrains eine kostenlose Konsole-Anwendung (<a href="https://www.jetbrains.com/profiler/download/#section=commandline">zur Download-Seite</a>). Diese Aufzeichnung können mit der dotTrace-Anwendung analysiert werden.</p>
+<h3 id="development-broker-aufzeichnen">Development-Broker aufzeichnen</h3>
+<p>Als erstes bauen Sie den Command-Line Befehl für die Aufzeichnung mit der <code>dottrace.exe</code> zusammen.
+Dazu verwenden sie am besten einen Text-Editor.
+Wichtig ist, dass alle Argumente ohne Zeilen-Umbruch zusammengefügt werden müssen.</p>
+<p>Folgende Argumente werden benötigt:</p>
+<ul>
+<li><code>start</code>
+Es soll eine Anwendung gestartet werden</li>
+<li><code>--service-input=stdin</code>
+Die Aufzeichnung wird über die Console gesteuert. Weitere Erklärungen folgen unten.</li>
+<li><code>--profiling-type=Tracing</code>
+Dieser Aufzeichnungs-Modus protokolliert einzelne Methoden-Aufrufe und ermöglicht eine sehr detaillierte Auswertung sowohl über die Dauer als auch die Anzahl von Methoden-Aufrufen.</li>
+<li><code>--save-to=C:\temp\Profile\MyProfiling.dtp</code>
+Dort werden die Snapshots gespeichert. Werden mehrere Snapshots erzeugt erhalten diese den Dateinamen <code>MyProfiling-2.dtp</code> usw. Bei einer neuen Session muss ein abweichender Dateiname angegeben werden.</li>
+<li><code>&quot;--work-dir=C:\Program Files\enventa Group\Framework Studio\4.7&quot;</code>
+Das Programm-Verzeichnis von Framework Studio. Bitte auf die &quot;Gänsefüßchen&quot; achten. Die sind notwendig wegen der Leerzeichen im Pfad.</li>
+<li><code>&quot;C:\Program Files\enventa Group\Framework Studio\4.7\FS.Hosting.Broker.Dev.exe&quot;</code> - Exe-Datei für den Development-Broker</li>
+<li><code>--</code>
+Dieser Trenner <strong>muss</strong> zwingend vor die jetzt folgenden Argumente gepackt werden, weil diese ebenfalls <code>--</code> enthalten.</li>
+<li><code>--devbroker -RepositoryName &quot;FSDemoCustomize 4.3&quot; -ApplicationPath ...</code>
+Das sind die Argumente des Development-Brokers. Diese erhalten sie folgendermaßen:
+<ul>
+<li>Aus der Framework Studio heraus die Application starten.
+Im System Tray wird das Icon für den Development-Broker angezeigt.</li>
+<li>Klicken Sie auf dieses Icon und rufen Sie den Menü-Punkt <em>Copy Command Line Arguments</em> auf.</li>
+<li>Fügen Sie alle Argumente aus der Zwischen-Ablage ein - bis auf das erste Argument - das ist der Name der Exe-Datei.</li>
+<li>Beenden sie die Application wieder, ansonsten funktioniert der anschließende Start nicht.</li>
+</ul>
+</li>
+</ul>
+<p>Ein kompletter Aufruf sieht dann z.B. so aus:</p>
+<pre><code class="lang-txt">dottrace.exe start --service-input=stdin --profiling-type=Tracing --save-to=C:\temp\ProfileTest\MySnapshot.dtp &quot;--work-dir=C:\FS\Framework Studio 4.3.0.0&quot; &quot;C:\FS\Framework Studio 4.3.0.0\FrameworkBrokerHostDev.exe&quot; -- --devbroker -RepositoryName &quot;FSDemoCustomize 4.3&quot; -ApplicationPath &quot;C:\FS\Compile43\NV281_1_FSDemo_43_FSDemoCustomize_4.3_user1&quot; -ApplicationBinPath &quot;C:\FS\Compile43\NV281_1_FSDemo_43_FSDemoCustomize_4.3_user1\bin&quot; -ApplicationName &quot;FSDemoApplication&quot; -ApplicationConfig &quot;C:\FS\Compile43\NV281_1_FSDemo_43_FSDemoCustomize_4.3_user1\FSDemoApplication.config&quot; -Endpoint &quot;http://localhost:8080/Dev/NV281_1_FSDemo_43_FSDemoCustomize_4.3_user1/FSDemoApplication/&quot; -StartPageAddress &quot;http://localhost:8080/Dev/NV281_1_FSDemo_43_FSDemoCustomize_4.3_user1/FSDemoApplication/start&quot; -LoggingMode &quot;3&quot; -LoggingDir &quot;C:\FS\Logging\*&quot; -LoggingRequestFileName &quot;% ? Request.xml&quot; -LoggingResponseFileName &quot;% ? Response.xml&quot;
+</code></pre>
+<ul>
+<li>Starten Sie die Console im dotTrace Ordner.</li>
+<li>Führen Sie den gerade zusammengestellten Befehl aus.
+Dabei wird der Application-Broker gestartet.</li>
+<li>Klicken Sie auf das System-Tray-Icon der Application und rufen Sie den Menüpunkt <em>Open Client Start Page</em> auf.
+Es wird die Start-Page angezeigt über die sie Application starten können.</li>
+</ul>
+<p>DotTrace läuft jetzt in der Console und zeichnet den aktuellen Application-Broker auf.
+Sie können die Aufzeichnung durch Eingabe der folgenden Befehle steuern.
+Ein Befehl muss mit Enter bestätigt werden.</p>
+<ul>
+<li><code>##dotTrace[&quot;drop&quot;]</code>
+Stoppt die aktuelle Aufzeichnung ohne diese zu speichern.
+Vor allem direkt nach dem Start ist das sinnvoll, bis man sich an der gewünschten Stelle im Programm befindet.</li>
+<li><code>##dotTrace[&quot;start&quot;]</code>
+Startet die Aufzeichnung</li>
+<li><code>##dotTrace[&quot;get-snapshot&quot;]</code>
+Stoppt die Aufzeichnung und speichert diese ab.
+Während einer Session können mehrere Snapshots erzeugt werden. Diese werden mit fortlaufenden Nummern gespeichert.</li>
+</ul>
+<p>Sind alle Aufzeichnungen fertig, dann kann die Anwendung beendet werden.
+Beenden sie den Application-Broker über das System-Tray-Icon.
+Läuft gerade eine Aufzeichnung, dann speichert dotTrace diese automatisch ab.
+Der Java-Client muss manuell beendet werden.</p>
+<p>Die erzeugten Snapshots können jetzt inkl. der erzeugten <code>.dtp.000</code>, <code>.dtp.001</code> ... Dateien für die Analyse verpackt werden.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

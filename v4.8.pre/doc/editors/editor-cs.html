@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>C# Editor </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="C# Editor ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/docs/doc/editors/editor-cs.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="c-editor">C# Editor</h1>
+
+<p>Der C#-Editor kommt unter anderem bei Properties, Methoden und Code-Klassen zum Einsatz. In den folgenden Kapiteln werden einige Features näher betrachtet und erläutert.</p>
+<h2 id="bracket-colorization">Bracket Colorization</h2>
+<p>Ein generelles Problem in C# ist das Auffinden von zusammenhängenden Klammern im Code. Besonders bei der Programmierung von komplexeren Ausdrücken, wie z.B. mathematische Berechnungen oder verschachtelte Bedingungen.</p>
+<p><a href="features.html#bracket-guides">Bracket Guides</a> helfen hierbei, wenn z.B. zu einer öffnenden Klammer die schließende Klammer gesucht wird. Um aber den Gesamtüberblick über die Klammersetzung vor allem in einzeiligen Ausdrücken besser behalten zu können, bietet der C#-Editor zusätzlich die <code>Bracket Colorization</code> an.</p>
+<p>Dieses Feature bedient sich an drei unterschiedlichen Farben und sorgt dafür, dass direkt aufeinander folgende Klammerpaare niemals die gleiche Farbe haben. Ein Beispiel für eine entsprechende Farbmarkierung der Klammern ist in der nachfolgenden Abbildung dargestellt.</p>
+<p><img src="media/cs-bracket-colorization.png" alt="Bracket Colorization"></p>
+<p>Die <code>Bracket Colorization</code> wird auf die Klammerpaare <code>()</code>, <code>{}</code> und <code>[]</code> angewandt. Auch bei einer Mischung der Klammerarten in einem Ausdruck werden diese stets farblich getrennt.</p>
+<h2 id="intellisense">IntelliSense</h2>
+<p>Der C# Editor bietet eine kontextabhängige IntelliSense an, die durch <code>CRTL + SPACE</code> oder durch verschiedene Trigger wie z.B. <code>.</code> geöffnet wird.</p>
+<p><img src="media/cs-intellisense.png" alt="IntelliSense"></p>
+<h3 id="camel-case-filter">Camel-Case Filter</h3>
+<p>Die IntelliSense bietet einen Camel-Case Filter an, welcher die Ergebnisliste anhand der groß geschriebenen Teilwörter filtert.</p>
+<p><img src="media/cs-intellisense-filter-camel.png" alt="Camel-Case Filter"></p>
+<p>Im Beispiel wird <code>AUHS</code> getippt (muss nicht zwingend groß geschrieben werden) und der erste Treffer ist der <code>AccessUnitHierarchySerializer</code>. Somit ist das Ausschreiben langer Symbolnamen in den meisten Fällen nicht nötig.</p>
+<h3 id="word-filter">Word Filter</h3>
+<p>Der <code>Word Filter</code> sucht in der Ergebnisliste nach Teilwörtern.</p>
+<p><img src="media/cs-intellisense-filter-words.png" alt="Word Filter"></p>
+<p>Im Beispiel könnte ein Programmierer z.B. wissen, dass der Name der gesuchten Klasse mit <code>Access</code> beginnt und mit <code>Serializer</code> endet. Nach dem Tippen von <code>accessseri</code> findet der Filter den entsprechenden Eintrag und bietet den <code>AccessUnitHierarchySerializer</code> an.</p>
+<h3 id="tooltip-toggle">Tooltip Toggle</h3>
+<p>Standardmäßig wird zusätzlich zur IntelliSense-Ergebnisliste auch der Tooltip für den derzeit ausgewählten Eintrag geöffnet. Für eine Methode werden hier z.B. weitere Informationen wie die Deklaration, Dokumentation oder die Anzahl der Überladungen angezeigt.</p>
+<p><img src="media/cs-intellisense-tooltip.png" alt="Word Filter"></p>
+<p>Bei geöffneter IntelliSense kann durch das wiederholte Drücken von <code>CTRL + SPACE</code> der Tooltip geschlossen bzw. geöffnet werden. Danach werden abhängig vom verfügbaren Platz nur noch die ersten Wörter der Tooltip-Information in der Ergebnisliste angezeigt.</p>
+<p><img src="media/cs-intellisense-tooltip-collapsed.png" alt="Word Filter"></p>
+<p>Die Einstellung, ob der Tooltip angezeigt wird oder nicht, wird temporär am Editor zwischengespeichert. Wird der Editor neu geladen, wird grundsätzlich der Tooltip wieder angezeigt.</p>
+<h2 id="intellisense-für-methoden">IntelliSense für Methoden</h2>
+<p>Methoden haben eine spezielle IntelliSense, welche in der Lage ist für alle etwaigen Überladungen, Parameter, sowie Rückgabewerte die entsprechende Dokumentation aufzubereiten.</p>
+<p>Die Methoden-IntelliSense wird durch die Trigger <code>(</code> und <code>[</code> nach einem Methodennamen ausgelöst oder durch das Tippen von <code>,</code>, wenn sich der Cursor in der Parameterliste einer Methodendeklaration befindet.</p>
+<p><img src="media/cs-intellisense-method.png" alt="Method IntelliSense"></p>
+<p>Im Beispiel existiert die Methode <code>DoStuff</code> in drei Ausführungen. Mit <code>ArrowUp</code> oder <code>ArrowDown</code> kann durch die Überladungen rotiert werden.</p>
+<p>Kontextabhängig werden dann folgende Informationen angezeigt (wenn vorhanden):</p>
+<ol>
+<li>Die Deklaration der gerade ausgewählten Überladung</li>
+<li>Die <a href="../ide/dokumentation.html#syntax">XML-Dokumentation</a> zum derzeit aktiven Parameter</li>
+<li>Die <a href="../ide/dokumentation.html#syntax">XML-Dokumentation</a> zur Methode</li>
+<li>Die <a href="../ide/dokumentation.html#syntax">XML-Dokumentation</a> zum Rückgabewert</li>
+</ol>
+<h2 id="intellisense-für-code-snippets">IntelliSense für Code Snippets</h2>
+<p>Der C# Editor bietet eine eigene IntelliSense-Liste für die im <a href="../ide/tools-menu.html#code-snippets-editor">Code Snippets Editor</a> definierten Code Snippets.</p>
+<p><img src="media/cs-intellisense-snippets.png" alt="Code Snippet IntelliSense"></p>
+<p>Die Code Snippet IntelliSense kann über den Shortcut <code>CTRL + J</code> geöffnet werden.</p>
+<h2 id="hover-tooltip--diagnostics">Hover Tooltip &amp; Diagnostics</h2>
+<p>Der C# Editor bietet eine breite Unterstützung für das Auffinden von etwaigen Fehlern im Code sowie das Anzeigen von Informationen zum Source Code.</p>
+<h3 id="hover-tooltip">Hover Tooltip</h3>
+<p>Befindet sich die Maus im Source Code über einem Symbol (z.B. Klasse, Property, Methode, usw.), so wird ein Tooltip mit allen kontextabhängigen Informationen zu diesem Symbol angezeigt.</p>
+<p><img src="media/cs-hover.png" alt="Hover Tooltip"></p>
+<p>Im Beispiel befindet sich der Mauszeiger (nicht vom Screenshot erfasst) über der Methode <code>DoStuff</code>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In manchen Editoren, wie z.B. der Anzeige des generierten Codes, ist diese Funktionalität deaktiviert.</p>
+</div>
+<h3 id="diagnostics">Diagnostics</h3>
+<p>Beim Programmieren wird der Source Code kontinuierlich durch den Roslyn-Compiler geprüft. Werden Fehler oder Unstimmigkeiten entdeckt, so werden diese im Code markiert.</p>
+<p><img src="media/cs-hover-warning.png" alt="Diagnostics"></p>
+<p>Im Beispiel ist die Methode <code>DoStuff(int i, int j)</code> als <code>Obsolete</code> markiert. Sie wird orange unterstrichen und der Hover Tooltip zeigt die entsprechende Information an.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Fehler und Warnings haben im Hover Tooltip immer die höchste Priorität und werden als erstes angezeigt.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In Editoren, die entweder den Status <a href="index.html#checkedin">CheckedIn</a> oder <a href="index.html#readonly">ReadOnly</a> haben, werden keine <code>Diagnostics</code> ausgeführt.</p>
+</div>
+<h3 id="diagnostics-peeking">Diagnostics Peeking</h3>
+<p>Befindet sich der Cursor auf einem markierten Fehler oder einer Warning im Code, kann mit den Shortcuts <code>ALT + F8</code> vorwärts und <code>SHIFT + ALT + F8</code> rückwärts durch diese gesprungen werden. Dabei wird die Gesamtzahl der sich im Code befindlichen Probleme angezeigt.</p>
+<p><img src="media/cs-diagnostics-peek.png" alt="Peeking"></p>
+<h2 id="code-formatting">Code Formatting</h2>
+<p>Über den Shortcut <code>SHIFT + ALT + F</code> kann die Aktion <code>Format Document</code> ausgelöst werden. Diese formatiert den gesamten C# Code im Editor und sorgt für eine einheitliche Einrückung und Klammersetzung.</p>
+<p>So wird aus folgendem Code</p>
+<p><img src="media/cs-format-old.png" alt="Code Formatting Old"></p>
+<p>schön formatierter Code</p>
+<p><img src="media/cs-format-new.png" alt="Code Formatting New"></p>
+<h2 id="customize">Customize</h2>
+<p>Wen eine Methode aus dem Basis-Package im C# Editor geöffnet ist und die Möglichkeit besteht das Element (Form, Component, usw.) im aktuellen Package zu customizen, dann kann dies entweder über den Eintrag <code>Customize</code> im Kontextmenü oder über den Shortcut <code>CTRL + T</code> angestoßen werden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die zu customizende Methode muss entweder mit <code>virtual</code> oder <code>override</code> deklariert sein.</p>
+</div>
+<h2 id="go-to-definition">Go To Definition</h2>
+<p>Der C# Editor erlaubt es über verschiedene Wege zur Definition eines Elements im Code zu springen.</p>
+<p>Die einfachste Möglichkeit ist das Drücken der <code>CTRL</code>-Taste und das Bewegen der Maus über ein Wort im Code.</p>
+<p><img src="media/cs-goto-definition.png" alt="Go To Definition"></p>
+<p>Im Hintergrund wird abgefragt, ob zu diesem Element überhaupt gesprungen werden kann. Im Beispiel befindet sich der Mauszeiger bei gedrückter <code>CTRL</code>-Taste über der Methode <code>DoStuff</code>.</p>
+<p>Im <a href="#hover-tooltip">Hover Tooltip</a> erscheint nun die Information <code>Click to open App.frmApp.DoStuff</code>. Zusätzlich wird das Wort <code>DoStuff</code> im Code als blauer Link dargestellt. Dies signalisiert zusätzlich, dass nun durch einen Click mit der linken Maustaste zur Definition gesprungen werden kann.</p>
+<p>Wenn sich der Cursor im Editor innerhalb des Wortes <code>DoStuff</code> befindet oder das gesamte Wort selektiert ist, so kann auch ohne Maus mit dem Shortcut <code>CTRL + F12</code> oder über das Kontextmenü <code>Go To Definition</code> zur Definition gesprungen werden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>Go To Definition</code> funktioniert grundsätzlich mit Elementen (Methoden, Properties, usw.) aus Framework Studio, jedoch nicht mit Bibliotheken von Drittanbietern oder dem .NET Framework selbst.</p>
+</div>
+<h2 id="go-to-base">Go To Base</h2>
+<p>Wenn eine überschriebene Methode im C# Editor geöffnet ist, die ihren Ursprung in einem Basis-Package hat, kann über den Eintrag <code>Go To Base</code> im Kontextmenü oder über den Shortcut <code>CTRL + B</code> zu dieser Basis gesprungen werden.</p>
+<h2 id="compare-with-base">Compare With Base</h2>
+<p>Wenn eine überschriebene Methode im C# Editor geöffnet ist, kann über den Eintrag <code>Compare With Base</code> oder über den Shortcut <code>CTRL + ALT + B</code> der <a href="editor-diff.html">Diff Editor</a> geöffnet werden und die überschriebene Methode mit deren Basis verglichen werden.</p>
+<h2 id="method-history-browser">Method History Browser</h2>
+<p>Über den Eintrag <code>Method History Browser</code> im Kontextmenü oder über den Shortcut <code>CTRL + SHIFT + M</code> kann für die aktuell angezeigte Methode der <a href="../ide/allgemeine-funktionalitaeten.html#method-history-browser">Method History Browser</a> aufgerufen werden.</p>
+<h2 id="code-snippet-editor">Code Snippet Editor</h2>
+<p>Über den Eintrag <code>Edit Code Snippets</code> oder über den Shortcut <code>CTRL + SHIFT + J</code> kann der <a href="../ide/tools-menu.html#code-snippets-editor">Code Snippet Editor</a> geöffnet werden.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

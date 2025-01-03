@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class GridColumnDefinition </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GridColumnDefinition ">
+      
+      <meta name="description" content="Diese Klasse definiert eine Spalte in einem Grid. Grids k&#246;nnen zur Laufzeit mit weiteren Spalten zu existierenden Properties erg&#228;nzt werden. Diese Spalten werden als dynamische Spalten bezeichnet. Au&#223;erdem k&#246;nnen dynamische Spalten zur Laufzeit auch wieder aus einem Grid entfernt werden.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/new/4.8/dev/apiSpec/new?filename=FS_Hosting_Broker_Shared_GridColumnDefinition.md&amp;value=---%0Auid%3A%20FS.Hosting.Broker.Shared.GridColumnDefinition%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="FS.Hosting.Broker.Shared.GridColumnDefinition">
+
+
+
+  <h1 id="FS_Hosting_Broker_Shared_GridColumnDefinition" data-uid="FS.Hosting.Broker.Shared.GridColumnDefinition" class="text-break">
+Class GridColumnDefinition  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/fs/FS.Hosting.Broker.Shared/GridColumnDefinition.cs/#L15"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="FS.html">FS</a>.<a class="xref" href="FS.Hosting.html">Hosting</a>.<a class="xref" href="FS.Hosting.Broker.html">Broker</a>.<a class="xref" href="FS.Hosting.Broker.Shared.html">Shared</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>FS.Hosting.Broker.Shared.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Diese Klasse definiert eine Spalte in einem Grid. Grids können zur Laufzeit mit weiteren Spalten zu existierenden
+Properties ergänzt werden. Diese Spalten werden als <em>dynamische Spalten</em> bezeichnet.
+Außerdem können dynamische Spalten zur Laufzeit auch wieder aus einem Grid entfernt werden.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public class GridColumnDefinition</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">GridColumnDefinition</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="constructors">Constructors
+</h2>
+
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.-ctor.html#FS_Hosting_Broker_Shared_GridColumnDefinition__ctor">GridColumnDefinition()</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Caption.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Caption">Caption</a></dt>
+    <dd><p>Gibt die Spaltenbezeichnung in der Sprache des Clients zurück oder legt diese fest.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.ComponentType.html#FS_Hosting_Broker_Shared_GridColumnDefinition_ComponentType">ComponentType</a></dt>
+    <dd><p>Diese Eigenschaft muss nur dann gesetzt werden, wenn nicht alle
+Properties (bis auf das letzte) aus dem Property-Pfad <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Property.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Property">Property</a>
+konkrete Component-Typen sind, also z.B. ein Property den Typ
+<a class="xref" href="FS.Hosting.Shared.DevFrameworkObject.html">DevFrameworkObject</a> hat. Andernfalls kann der ComponentType
+über Reflection von Framework Studio automatisch ermittelt werden.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.DependsDataSourceOnRowData.html#FS_Hosting_Broker_Shared_GridColumnDefinition_DependsDataSourceOnRowData">DependsDataSourceOnRowData</a></dt>
+    <dd><p>Gibt für den Fall, dass die Daten in einer Combobox aufbereitet werden,
+zurück oder legt fest, ob die Liste abhängig von dem Datensatz der Reihe ist.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.EditStyle.html#FS_Hosting_Broker_Shared_GridColumnDefinition_EditStyle">EditStyle</a></dt>
+    <dd><p>Gibt den zu verwendenden Combobox-Typ (<a class="xref" href="FS.Hosting.Shared.ComboEditStyle.html#FS_Hosting_Shared_ComboEditStyle_FreeTextInput">FreeTextInput</a>,
+<a class="xref" href="FS.Hosting.Shared.ComboEditStyle.html#FS_Hosting_Shared_ComboEditStyle_ListValuesInput">ListValuesInput</a>) einer Spalte, deren <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.EditorStyle.html#FS_Hosting_Broker_Shared_GridColumnDefinition_EditorStyle">EditorStyle</a>
+auf <a class="xref" href="FS.Hosting.Shared.EditorStyle.html#FS_Hosting_Shared_EditorStyle_ComboBox">ComboBox</a> festgelegt wurde, zurück oder legt diesen fest.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.EditorStyle.html#FS_Hosting_Broker_Shared_GridColumnDefinition_EditorStyle">EditorStyle</a></dt>
+    <dd><p>Gibt den zu verwendenden Darstellungstyp (<a class="xref" href="FS.Hosting.Shared.EditorStyle.html#FS_Hosting_Shared_EditorStyle_Editfield">Editfield</a>, <a class="xref" href="FS.Hosting.Shared.EditorStyle.html#FS_Hosting_Shared_EditorStyle_CheckBox">CheckBox</a>, ...) zurück
+oder legt diesen fest.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Format.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Format">Format</a></dt>
+    <dd><p>Gibt das von der Spalte zu verwendende Format zurück oder legt dieses fest.
+Wird diese Eigenschaft festgelegt, so wird der Wert, der unter Umständen
+automatisch aus dem zugeordneten <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Property.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Property">Property</a> oder dem <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.PropertyMdt.html#FS_Hosting_Broker_Shared_GridColumnDefinition_PropertyMdt">PropertyMdt</a>
+ermittelt werden kann, übersteuert.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.FormatPattern.html#FS_Hosting_Broker_Shared_GridColumnDefinition_FormatPattern">FormatPattern</a></dt>
+    <dd><p>Gibt das von der Spalte zu verwendende FormatPattern zurück oder legt dieses
+fest. Wird diese Eigenschaft festgelegt, so wird der Wert, der unter Umständen
+automatisch aus dem zugeordneten <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Property.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Property">Property</a> oder dem <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.PropertyMdt.html#FS_Hosting_Broker_Shared_GridColumnDefinition_PropertyMdt">PropertyMdt</a>
+ermittelt werden kann, übersteuert.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.IsEditable.html#FS_Hosting_Broker_Shared_GridColumnDefinition_IsEditable">IsEditable</a></dt>
+    <dd><p>Gibt die Editierbarkeit der Spalte zurück oder legt diese fest.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.IsVisible.html#FS_Hosting_Broker_Shared_GridColumnDefinition_IsVisible">IsVisible</a></dt>
+    <dd><p>Gibt die Sichtbarkeit der Spalte zurück oder legt diese fest.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.List.html#FS_Hosting_Broker_Shared_GridColumnDefinition_List">List</a></dt>
+    <dd><p>Gibt den Listendatasource, der verwendet wird, wenn der <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.EditorStyle.html#FS_Hosting_Broker_Shared_GridColumnDefinition_EditorStyle">EditorStyle</a> auf „Combobox“
+festgelegt ist, mit allen dazugehörigen Details zurück oder legt diesen fest.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.ListSortOrder.html#FS_Hosting_Broker_Shared_GridColumnDefinition_ListSortOrder">ListSortOrder</a></dt>
+    <dd><p>Gibt für den Fall, dass die Daten in einer Combobox aufbereitet werden,
+zurück oder legt fest, wie die Einträge der Combobox sortiert werden sollen.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.MLCaption.html#FS_Hosting_Broker_Shared_GridColumnDefinition_MLCaption">MLCaption</a></dt>
+    <dd><p>Gibt die mehrsprachige Spaltenbezeichnung zurück oder legt diese fest.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.MLToolTip.html#FS_Hosting_Broker_Shared_GridColumnDefinition_MLToolTip">MLToolTip</a></dt>
+    <dd><p>Gibt den mehrsprachigen ToolTip zurück oder legt diesen fest.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.MaxScale.html#FS_Hosting_Broker_Shared_GridColumnDefinition_MaxScale">MaxScale</a></dt>
+    <dd><p>Gibt die Anzahl der Nachkommastellen, der in der Spalte darzustellenden Daten,
+zurück oder legt diese fest. Wird diese Eigenschaft festgelegt, so wird der Wert,
+der unter Umständen automatisch aus dem zugeordneten <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Property.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Property">Property</a> oder
+dem <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.PropertyMdt.html#FS_Hosting_Broker_Shared_GridColumnDefinition_PropertyMdt">PropertyMdt</a> ermittelt werden kann, übersteuert.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.MaxSize.html#FS_Hosting_Broker_Shared_GridColumnDefinition_MaxSize">MaxSize</a></dt>
+    <dd><p>Gibt die maximale Größe, der in der Spalte darzustellenden Daten, zurück oder
+legt diese fest. Wird diese Eigenschaft festgelegt, so wird der Wert, der unter
+Umständen automatisch aus dem zugeordneten <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Property.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Property">Property</a> oder dem <a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.PropertyMdt.html#FS_Hosting_Broker_Shared_GridColumnDefinition_PropertyMdt">PropertyMdt</a>
+ermittelt werden kann, übersteuert.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Property.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Property">Property</a></dt>
+    <dd><p>Gibt den punktseparierten Pfad zu dem Property, für das eine Spalte definiert werden soll,
+zurück oder legt diesen fest.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.PropertyMdt.html#FS_Hosting_Broker_Shared_GridColumnDefinition_PropertyMdt">PropertyMdt</a></dt>
+    <dd><p>Gibt den Metadatentyp von dem Property, für das eine Spalte definiert werden soll,
+zurück oder legt diesen fest. Aus dem Metadatentyp werden Eigenschaften wie type,
+size, precision, scale, caption, tool tip, format und so weiter ermittelt.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.TextAlign.html#FS_Hosting_Broker_Shared_GridColumnDefinition_TextAlign">TextAlign</a></dt>
+    <dd><p>Gibt die Ausrichtung der Texte in der Spalte zurück oder legt diese fest.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.ToolTip.html#FS_Hosting_Broker_Shared_GridColumnDefinition_ToolTip">ToolTip</a></dt>
+    <dd><p>Gibt den ToolTip in der Sprache des Clients zurück oder legt diesen fest.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.GridColumnDefinition.Width.html#FS_Hosting_Broker_Shared_GridColumnDefinition_Width">Width</a></dt>
+    <dd><p>Gibt die initiale Spaltenbreite zurück oder legt diese fest.</p>
+</dd>
+  </dl>
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

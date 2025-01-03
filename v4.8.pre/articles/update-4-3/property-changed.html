@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Umstellung auf PropertyChanged </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Umstellung auf PropertyChanged ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/docs/articles/update-4-3/property-changed.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="umstellung-auf-propertychanged">Umstellung auf PropertyChanged</h1>
+
+<p>Die Components arbeiten nutzen jetzt das Event <a href="../../doc/konzepte/property-changed.html">PropertyChanged</a> um Änderungen an Properties zu kommunizieren.
+Sie implementieren dazu das Standard-Interface <code>INotifyPropertyChanged</code>.</p>
+<p>Die bisher verwendeten Events, welche für jedes einzelne Component-Property sparat generiert wurden, entfallen.
+Wenn eigener Code existiert, der mit diesen Events arbeitet, muss dieser angepasst werden.</p>
+<p>Im folgenden werden einige Situationen beschrieben.</p>
+<p>Die Beispiele verwenden eine Component <code>cdArticle</code> mit den Properties <code>sArticleID</code> und <code>sArticleName</code>.</p>
+<h4 id="event-handler-umstellen">Event-Handler umstellen</h4>
+<p><strong>Bisher</strong> gab es die folgenden Events</p>
+<pre><code class="lang-csharp">public event EventArgs sArticleIDChanged;
+public event EventArgs sArticleNameChanged;
+</code></pre>
+<p>Diese wurden auf die folgende Weise verwendet:</p>
+<pre><code class="lang-csharp">// anhängen des Event-Handlers
+oArticle.sArticleIDChanged += OnArticleIDHasChanged;
+
+// Event-Handler-Methode
+protected void OnArticleIDHasChanged(object sender, EventArgs args)
+{
+    // Code für geänderte Artikel-ID
+}
+
+// Event mit Lambda-Expression
+oArticle.sArticleNameChanged += (sender, args) =&gt;
+{
+    // Code für geänderte Artikel-Bezeichnung
+};
+</code></pre>
+<p><strong>Jetzt</strong> gibt es nur noch ein Event, welches in der Basis-Klasse <code>DevFrameworkBaseObject</code> implementiert ist.</p>
+<pre><code class="lang-csharp">public event PropertyChangedEventArgs PropertyChanged;
+</code></pre>
+<p>Dieses wird auf folgende Weise verwendet:</p>
+<pre><code class="lang-csharp">// anhängen des Event-Handlers
+oArticle.PropertyChanged += OnArticleIDHasChanged;
+
+// Event-Handler-Methode
+protected void OnArticleIDHasChanged(object sender, PropertyChangedEventArgs args)
+{
+    if (args.IsProperty(nameof(IcdArticle.sArticleID)))
+    {
+        // Code für geänderte Artikel-ID
+    }
+}
+
+// Event mit Lambda-Expression
+oArticle.sArticleNameChanged += (sender, args) =&gt;
+{
+    if (args.IsProperty(nameof(oArticle.sArticleName)))
+    {
+        // Code für geänderte Artikel-Bezeichnung
+    }
+};
+</code></pre>
+<h4 id="aufrufe-von-fire-methoden">Aufrufe von Fire-Methoden</h4>
+<p>Alter Code:</p>
+<pre><code class="lang-csharp">this.FiresArticleIDChanged();
+this.FiresArticleNameChanged();
+</code></pre>
+<p>Neuer Code:</p>
+<pre><code class="lang-csharp">this.FirePropertyChanged(nameof(this.sArticleID));
+this.FirePropertyChanged(nameof(this.sArticleName));
+</code></pre>
+<p>Muss man viele dieser Aufrufe ersetzen, kann man dafür im Code-Editor die Funktion Find/Replace verwenden.</p>
+<ul>
+<li>Suche mir Regular Expression: <code>this.Fire(?&lt;prop&gt;(?!Property)\w+)Changed\s*\(\s*\)</code></li>
+<li>Ersetzen durch: <code>this.FirePropertyChanged(nameof(this.${prop}))</code></li>
+</ul>
+<h4 id="statechanged-ismodifiedchanged">StateChanged, IsModifiedChanged</h4>
+<p>Die Component-Properties <code>State</code> und <code>IsModified</code>, werden jetzt ebenfalls über PropertyChanged behandelt.</p>
+<p>Die virtuellen Methoden <code>OnStateChanged</code> und <code>OnIsModifiedChanged</code> sind entfallen. Stattdessen kann diese Logik in die neue Methode <code>OnPropertyChanged</code> verschoben werden.</p>
+<p>Alter Code:</p>
+<pre><code class="lang-csharp">protected override void OnStateChanged()
+{
+    // Status hat sich geändert
+}
+protected override void OnIsModifiedChanged()
+{
+    // IsModified hat sich geändert
+}
+</code></pre>
+<p>Neuer Code:</p>
+<pre><code class="lang-csharp">protected override void OnPropertyChanged(string propertyName)
+{
+    // Base-Aufruf ist wichtig !!!
+    base.OnPropertyChanged(propertyName);
+
+    if (propertyName == nameof(this.State))
+    {
+        // Status hat sich geändert
+    }
+    if (propertyName == nameof(this.IsModified))
+    {
+        // IsModified hat sich geändert
+    }
+}
+</code></pre>
+<p>Neuer Code für Event-Handler:</p>
+<pre><code class="lang-csharp">// anhängen des Event-Handlers
+oArticle.PropertyChanged += OnArticleStateChanged;
+
+// Event-Handler-Methode
+protected void OnArticleStateChanged(object sender, PropertyChangedEventArgs args)
+{
+    // Die Prüfung auf PropertyName == null macht hier keinen Sinn
+    if (args?.PropertyName == nameof(this.State))
+    {
+        // Status hat sich geändert
+    }
+}
+</code></pre>
+<h4 id="reflection">Reflection</h4>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Wenn die alten Changed-Events per Reflection angesprochen wurden, dann muss das gezielt umgebaut werden.
+Diese Fälle werden nicht durch den Compiler gefunden.</p>
+</div>
+<p>Mit einer Volltext-Suche nach folgendem Regulären Ausdruck könnten potentielle Stellen leicht gefunden werden:</p>
+<ul>
+<li><code>\bEventInfo\b</code></li>
+</ul>
+<p>Beispiel für einen problematischen Code:</p>
+<pre><code class="lang-csharp">System.Reflection.EventInfo oChangedEventInfo = this.oTarget.GetType().GetEvent(sPropertyNameP + &quot;Changed&quot;);
+if (oChangedEventInfo != null)
+{
+    oChangedEventInfo.AddEventHandler(this.oTarget, oXmlPropertyInfo.oChangedEventHandler);
+}
+</code></pre>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

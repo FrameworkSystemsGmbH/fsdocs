@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Allgemeine Funktionalit&#228;ten </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Allgemeine Funktionalit&#228;ten ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/docs/doc/ide/allgemeine-funktionalitaeten.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="allgemeine-funktionalitäten">Allgemeine Funktionalitäten</h1>
+
+<h2 id="buttons">Buttons</h2>
+<p>Einige der nachfolgend beschriebenen Buttons werden in unterschiedlichen Zusammenhängen angeboten. Die angebotene Funktion des Buttons bezieht sich daher immer auf den Kontext, in dem der Button dargestellt wird.</p>
+<p><img src="../media/button-new.png" alt="button-new.png"> <strong>New:</strong></p>
+<p>Dieser Button erzeugt ein neues Element.</p>
+<p>Beim Klick auf den Button wird ein Kontext-Menü angezeigt, mit dem Sie auswählen, was für ein Element erzeugt werden soll. Im Detailfenster einer <strong>Component</strong> zum Beispiel, können Sie mit diesem Button der <strong>Component</strong> ein neues Property oder eine neue Methode hinzufügen. Auf der <strong><a href="registerkarten.html#registerkarte-namespaces">Registerkarte Namespaces</a></strong> können Sie mit diesem Button dem im Objekt-Baum (unterer Baum) dargestellten Namespace neue Namespace Elemente hinzufügen, wie zum Beispiel <strong>Metadatentypen</strong>, <strong>Components</strong>, <strong>Forms</strong>.</p>
+<p><img src="../media/button-delete.png" alt="button-delete.png"> <strong>Delete:</strong></p>
+<p>Das Element im aktuellen Kontext wird mit dem Button <strong>Delete</strong> gelöscht. Der Löschvorgang wird erst mit betätigen des Buttons <img src="../media/button-save-all.png" alt="button-save-all.png"> <strong>Save All</strong> wirksam.</p>
+<p>Wird das ausgewählte Element noch von einem anderen Element benutzt, wird eine Fehlermeldung mit dem entsprechenden Hinweis angezeigt:</p>
+<p><img src="media/delete-fehlermeldung.png" alt="delete-fehlermeldung.png"></p>
+<p>Mit dem Button <strong>Details</strong> wird eine Liste aller Verwendungen angezeigt.</p>
+<p><img src="../media/button-derive.png" alt="button-derive.png"> <strong>Derive:</strong></p>
+<p>Wenn Sie diesen Button betätigen, wird das ausgewählte Element vererbt. Dies funktioniert bei Metadatentypen, Reports, Forms und Workflows.</p>
+<p><img src="../media/button-customizing.png" alt="button-customizing.png"> <strong>Customize:</strong></p>
+<p>Im aktiven Package, also in dem Package, an dem Sie sich angemeldet haben, wird von dem ausgewählten Element eine Customization angelegt. Das bedeutet, dass ein Element, das in einem Basis-Package definiert bzw. programmiert wurde, im aktiven Package geändert werden kann.</p>
+<p><img src="../media/button-save.png" alt="button-save.png"> <strong>Save:</strong></p>
+<p>Speichert die Änderungen des Elements im aktuellen Kontext ab.</p>
+<p>Alle Änderungen werden erst beim Save in das Repository zurückgeschrieben. Geänderte, aber noch nicht gespeicherte Elemente werden mit einem Stern nach dem Namen gekennzeichnet.</p>
+<p><img src="../media/button-save-all.png" alt="button-save-all.png"> <strong>Save All:</strong></p>
+<p>Alle Änderungen im gesamten Projekt werden über diesen Button gespeichert.</p>
+<p><img src="../media/button-undo.png" alt="button-undo.png"> <strong>Undo Until Last Save:</strong></p>
+<p>Mit diesem Button nehmen Sie alle Änderungen seit der letzten Speicherung zurück.</p>
+<h2 id="source-control">Source-Control</h2>
+<p>In <strong>Framework Studio</strong> kann immer nur ein Entwickler an einem Element arbeiten. Dazu muss dieser das zu bearbeitende Element auschecken. Die anderen Entwickler können das Element weiterhin in dem Stand öffnen, wie es war, bevor es ausgecheckt wurde.</p>
+<p>Wenn alle Änderungen an dem Element durchgeführt wurden, kann es wieder eingecheckt werden. Ab diesem Zeitpunkt werden die Änderungen auch für alle anderen Entwickler sichtbar.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Ein Element kann immer nur von einem Entwickler ausgecheckt werden.</p>
+</div>
+<p>Für die Bedienung der Source-Control-Funktionalität stehen folgende Buttons zur Verfügung:</p>
+<p><img src="../media/icon-checkout.png" alt="icon-checkout.png"> <strong>Check Out:</strong></p>
+<p>Checkt das Element aus, d.h. sperrt es für Änderungen durch andere Entwickler, damit Sie es bearbeiten können. Ist das Element bereits von einem Entwickler ausgecheckt, bekommen Sie eine entsprechende Fehlermeldung.</p>
+<p><img src="../media/icon-checkin.png" alt="icon-checkin.png"> <strong>Check In:</strong></p>
+<p>Der Button Check In checkt das Element ein. Alle Entwickler sehen ab jetzt das von Ihnen aktualisierte Element.</p>
+<p>Ein anderer Entwickler kann das Element jetzt erneut auschecken.</p>
+<p><img src="../media/icon-undo-checkout.png" alt="icon-undo-checkout.png"> <strong>Undo Check Out:</strong></p>
+<p>Hiermit machen Sie einen <strong>Check Out</strong> rückgängig. Dabei werden alle Änderungen, die nach dem <strong>Check Out</strong> gemacht wurden, verworfen. Bevor diese Funktion ausgeführt wird, werden alle Änderungen an ungespeicherten Elementen gespeichert (<strong>Save All</strong>). Sollte aufgrund von Abhängigkeiten beim <strong>Undo Check Out</strong> ein Problem auftreten, so startet Framework Studio neu, um weiterhin Datenkonsistenz garantieren zu können.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Diese vier Befehle können Sie auch über das Kontext-Menü des Elements aufrufen.</p>
+</div>
+<p><strong>Source Control im Kontext-Menü:</strong></p>
+<p><img src="media/sourcecontrol-contextmenu.png" alt="sourcecontrol-contextmenu.png"></p>
+<h3 id="checkin-und-checkout-mit-shortcuts">CheckIn und CheckOut mit Shortcuts</h3>
+<p>In den Code-Editoren ist es nun auch möglich mit den Shortcuts <strong>CTRL + F11</strong> den CheckIn und mit <strong>CTRL + F10</strong>  den CheckOut auszuführen.</p>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Bei der Verwendung des Shortcuts für <strong>CheckOut</strong> erfolgt <strong>keine</strong> Abfrage, ob Sie wirklich auschecken möchten. Der CheckOut wird automatisch durchgeführt, wenn er möglich ist.</p>
+</div>
+<h2 id="c-code-editor">C#-Code-Editor</h2>
+<p>Der Code kann mit dem Shortcut <strong>Shift + ALT + F</strong> formatiert werden.</p>
+<h2 id="compile">Compile</h2>
+<p><img src="../media/button-compile.png" alt="button-compile.png"> <strong>Compile Options:</strong></p>
+<p>Der Button <strong>Compile Options</strong> öffnet ein Kontextmenü, in dem Sie alle Optionen für den nächsten Kompiliervorgang festlegen können. Außerdem können Sie über dieses Kontextmenü einen Kompiliervorgang starten. Ergänzende Informationen erhalten Sie im Abschnitt <a href="code-builder.html">Code Builder</a>.</p>
+<p><img src="../media/button-application.png" alt="button-application.png"> <strong>Applications:</strong></p>
+<p>Öffnet den Applications–Optionen-Dialog, in dem Sie u.a. einstellen können, in welchem Verzeichnis der IL-Code hinterlegt werden soll und wie sich der Session-Storage verhalten soll. Außerdem werden dort einige grundlegende Einstellungen bezüglich Design und Frameset der jeweiligen Anwendung festgelegt. Ergänzende Informationen können Sie dem Abschnitt <a href="application.html">Applications</a> entnehmen.</p>
+<p><img src="../media/button-references.png" alt="button-references.png"> <strong>References:</strong></p>
+<p>Der References–Dialog dient dem Einbinden von Assemblies. Wenn Sie weitere Informationen dazu benötigen, lesen Sie bitte den Abschnitt <a href="references.html">References</a>.</p>
+<h2 id="icons">Icons</h2>
+<p><img src="../media/icon-not-checked-out.png" alt="icon-not-checked-out.png"> <strong>Is Not Checked Out:</strong></p>
+<p>Dieses Icon vor einem Element bedeutet, dass dieses Element bei dem angemeldeten Entwickler eingecheckt ist.</p>
+<p>Wollen Sie ein Element bearbeiten, müssen Sie es zuvor auschecken.</p>
+<p><img src="../media/icon-checked-out.png" alt="icon-checked-out.png"> <strong>Is Checked Out:</strong></p>
+<p>Steht dieses Icon vor einem Element, ist das Element bereits von Ihnen ausgecheckt und kann bearbeitet werden. Wenn Sie mit der Bearbeitung fertig sind, können Sie das Element wieder über das <strong>Source-Control</strong> einchecken.</p>
+<p>Haben Sie ein Element versehentlich ausgecheckt, können Sie den Checkout-Vorgang mit <strong>Undo Checkout</strong> rückgängig machen.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Sie sollten darauf achten, dass Sie einen kompilierbaren Stand haben, bevor Sie ein Element wieder einchecken.
+Dazu ist es erforderlich auch in Zusammenhang stehende Elemente einzuchecken.</p>
+</div>
+<h2 id="version-history">Version History</h2>
+<p>Sowohl über das Kontextmenü eines Objekts im Objektbaum auf der <a href="registerkarten.html#registerkarte-namespaces">Registerkarte Namespaces</a> als auch über das Hauptmenü können Sie sich unter dem Menüpunkt <strong>View/Version History</strong> einen Überblick über die einzelnen Entwicklungsstufen eines Objektes verschaffen. Dazu werden von allen bisher eingecheckten Versionen Versionsnummer, Benutzer, Datum, Kommentar und die Information, ob die Version bereits inspiziert wurde, angezeigt.</p>
+<p><strong>Version History Report:</strong></p>
+<p><img src="media/version-history-report.png" alt="version-history-report.png"></p>
+<p>Objekttyp und Name sowie der vollständige Name des Objektes (mit Namespaces) werden im Kopf des Reports angezeigt. Wenn zum Zeitpunkt der Reporterstellung ein Benutzer das Objekt ausgecheckt hat, so wird das mit dem blau gefärbten Kommentar „Checked out.“ unter der neuesten Versionsnummer ebenfalls in der Tabelle dargestellt.</p>
+<p>Über die Symbole am oberen Fensterrand wird Ihnen die Möglichkeit zum Drucken, Vergrößern, Blättern und Speichern des Reports bereitgestellt.</p>
+<p>Dieser Report steht Ihnen für alle Access Units, Components, Collections, Control Default Styles, Custom Controls, Datasources, DBTables (Tabellen im Database Editor), Forms, Global Events, Global Objects, Metadatatypes, Namespaces, Report Document Types, Resources and Workflows zur Verfügung.</p>
+<h2 id="source-control-history">Source Control History</h2>
+<p>Über den Menüpunkt <strong>Source Control/History</strong> im Hauptmenü von Framework Studio wird ein Report geöffnet, der einen Überblick über alle Check-In und Check-Out Vorgänge innerhalb des aktuellen Labels ermöglicht.</p>
+<p>Mit diesem Report können Sie sich einen guten Überblick darüber verschaffen, was sich seit einem bestimmten Datum geändert hat, welche Elemente im Moment noch ausgecheckt sind und welche Elemente noch nicht vom FrameworkCompiler kompiliert wurden. Ein Vergleich des generierten Codes mit der Vorgängerversion oder der aktuellen Version ist ebenfalls möglich.</p>
+<p><strong>Source Control History:</strong></p>
+<p><img src="media/source-control-history.png" alt="source-control-history.png"></p>
+<p><strong>Es gibt zwei Modi:</strong></p>
+<ul>
+<li><p><strong>Checked In:</strong> Es werden nur eingecheckte Elemente ab dem angegebenen Datum angezeigt.</p>
+</li>
+<li><p><strong>Checked Out:</strong> Es werden alle im Moment ausgecheckten Elemente angezeigt.</p>
+</li>
+</ul>
+<p>Mit dem Button <strong>Refresh</strong> wird die Tabelle aktualisiert.</p>
+<p>Durch Anklicken der Spaltenüberschrift kann nach allen Spalten sortiert werden. Die Tabelle kann über die Zwischenablage in andere Programme kopiert werden. Die Druckvorschau und der Druckdialog lassen sich über das Kontextmenü der Tabelle und mit den Buttons <strong>Print</strong> bzw. <strong>Preview</strong> öffnen.</p>
+<p><strong>Besondere Spalten:</strong></p>
+<ul>
+<li><p><strong>Date:</strong> Ist der Text hellrot hinterlegt, wurde dieses Element noch nicht vom FrameworkCompiler kompiliert (Datum größer als das Datum des letzten „Refresh Workspace“ des FrameworkCompilers). Ist der Text gelb hinterlegt, wurde dieses Element zwar noch nicht vom FrameworkCompiler kompiliert, aber vom Benutzer über <a href="#get-latest-check-ins">Get latest Check Ins</a> im Workspace aktualisiert.</p>
+</li>
+<li><p><strong>Name:</strong> Durch anklicken eines Elements in dieser Spalte wird das Element im Designer geöffnet.</p>
+</li>
+<li><p><strong>Version:</strong> Durch anklicken einer Version kann der generierte Code des Elements mit der aktuellen Version oder der Vorgängerversion verglichen werden. Dazu öffnet sich nach Auswahl der Vergleichsversion der <a href="../editors/editor-diff.html">Diff Editor</a>.</p>
+</li>
+</ul>
+<h2 id="get-latest-check-ins">Get latest Check Ins</h2>
+<p>Über den Menüpunkt <strong>Source Control/Get latest Check Ins</strong> kann ein Dialog aufgerufen werden, über welchen der Benutzer-Workspace bis zu einem bestimmten Zeitpunkt aktualisiert werden kann, ohne dass ein FrameworkCompiler angestoßen werden muss.</p>
+<p><img src="media/get-latest-checkins.png" alt="get-latest-checkins.png"></p>
+<p>Der Dialog ist ähnlich der <a href="#source-control-history">Source Control History</a> aufgebaut. Er zeigt allerdings nur Elemente, die die folgenden zwei Kriterien erfüllen:</p>
+<ul>
+<li>Sie sind NACH dem letzten <strong>Refresh Workspace</strong> des Users eingecheckt</li>
+<li>Sie sind von anderen Usern eingecheckt</li>
+</ul>
+<p>Anders ausgedrückt zeigt die Liste alle von anderen Usern eingecheckten Elemente, die dem Workspace des aktuellen Users noch nicht bekannt sind.</p>
+<p><strong>Beispiel:</strong></p>
+<p>Benutzer <em><strong>demo1</strong></em> und Benutzer <em><strong>demo2</strong></em> holen sich nach einem nächtlichen Compilerlauf den FrameworkCompiler-Workspace. <em><strong>demo1</strong></em> checkt Elemente aus, ändert sie und checkt sie wieder ein. Versucht <em><strong>demo2</strong></em> diese Elemente nun auszuchecken, wird FS feststellen, dass neuere Versionen der Elemente verfügbar sind, die dem aktuellen Workspace noch unbekannt sind. Diese Elemente werden dann in der Liste von „Get latest Check Ins“ angezeigt (siehe Bild).</p>
+<p>In der <strong>Source Control History</strong> werden diese Elemente rot markiert dargestellt, da sie nach dem Compilerlauf eingecheckt wurden und dem aktuellen Workspace von <em><strong>demo2</strong></em> nicht bekannt sind.</p>
+<p>Im Dialog hat der Benutzer nun die Möglichkeit, über die Checkboxen auszuwählen, bis zu welchem Zeitpunkt/Element er seinen Workspace updaten will. Nach dem Klick auf <strong>Refresh Elements</strong> startet sich Framework Studio automatisch neu. Dabei wird der Benutzer-Workspace genau bis zum ausgewählten Zeitpunkt/Element (im Beispiel frmCompany, 04.11.2011 14:20:23) aktualisiert. Die Elemente <strong>CompanyName</strong>, <strong>cdCompany</strong> und <strong>frmCompany</strong> können nun vom Benutzer <em><strong>demo2</strong></em> ausgecheckt und bearbeitet werden, obwohl noch kein FrameworkCompiler gelaufen ist. In <strong>Get latest Check Ins</strong> verbleibt nur noch das Element <strong>OrderText</strong>.</p>
+<p><img src="media/get-latest-checkins2.png" alt="get-latest-checkins2.png"></p>
+<p>In der Source Control History erscheinen die aktualisierten Elemente nun <b style="background-color: #fff2be; padding: 3px;">gelb</b>.</p>
+<p><img src="media/source-control-history2.png" alt="source-control-history2.png"></p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Bei der Auswahl des Zeitpunkts/Elements bis zu dem aktualisiert werden soll, muss auf zusammenhängende Check Ins geachtet werden. Wenn z.B. <strong>frmCompany</strong> den Metadatentyp <strong>OrderText</strong> benötigt, dieser jedoch nicht mit aktualisiert wird (wie im Beispiel), kann es anschließend zu Compile-Fehlern kommen, da <strong>OrderText</strong> im Workspace nicht gefunden werden kann.</p>
+<p>Alle über <strong>Get latest Check</strong> Ins aktualisierten Elemente werden nach dem Neustart von Framework Studio automatisch zur Compile-Liste hinzugefügt. Copy Fullname.</p>
+<p>In allen Editoren gibt es im Menü <strong>Edit</strong> den Menüpunkt <strong>Copy Fullname</strong>. Dieser legt den Namen des Elementes inkl. Namespace in die Zwischenablage. So kann dieser z.B. in Dokumentationen eingefügt werden.</p>
+<p><img src="media/copy-fullname.png" alt="copy-fullname.png"></p>
+</div>
+<h2 id="goto">GoTo</h2>
+<p><img src="media/goto.png" alt="goto.png"></p>
+<p><strong>Customization Top:</strong></p>
+<p>Wechsel zur obersten Customization.</p>
+<p><strong>Customization Up:</strong></p>
+<p>Wechsel zur nächst höheren Customization.</p>
+<p><strong>Customization Down:</strong></p>
+<p>Wechsel zur nächst tieferen Customization.</p>
+<p><strong>Customization Root:</strong></p>
+<p>Wechsel zur Definition des Elements, also dem Basiselement, auf das die unterste Customization aufsetzt.</p>
+<h2 id="vorwärts--und-rückwärtsnavigation">Vorwärts- und Rückwärtsnavigation</h2>
+<p>Framework Studio merkt sich bei jedem Verlassen eines Code Editors, über den grundsätzlich Methodencode bearbeitet werden kann, die aktuelle Cursorposition zusammen mit der Information, welche Methode gerade verlassen wird. Dies gilt für Methoden an Forms, Components, Proxies, Services, Service Hosts und in den Get- und Set-Methoden von Individual Properties an Components. Neben den Code-Editoren kann zusätzlich zwischen den LabeldRecords und den Controls des Form-Designers hin und her navigiert werden.</p>
+<p>Es werden maximal 25 Einträge gespeichert. Wenn ein Eintag eingefügt werden soll und alle 25 Speicherplätze bereits belegt sind, wird zuvor der älteste Eintrag verworfen.
+Mit dem Menüpunkt <strong>View/Navigate Backward</strong> (Tastenkombination <strong>ALT + Pfeil Links</strong>) kann jeweils zum zuvor gespeicherten Eintrag navigiert werden. Mit dem Menüpunkt <strong>View/Navigate Forward</strong> (Tastenkombination <strong>ALT + Pfeil Rechts</strong>) kann zum jeweils nächsten gespeicherten Eintrag navigiert werden, wenn zuvor rückwarts navigiert wurde.
+Des Weiteren ist die Navigation über die beiden Navigationstasten an der Seite der Maus möglich.</p>
+<p><img src="media/left-right-navigation.png" alt="left-right-navigation.png"></p>
+<h2 id="method-history-browser">Method History Browser</h2>
+<p>Bei allen Elementen, die Methoden enthalten (z.B. Forms, Components, Services, FSTransformations, …) können Sie im Designer-Fenster mit dem Menüpunkt <strong>View / Method History Browser</strong> oder über das Kontextmenü im Editor, Methoden in verschiedenen Versionen innerhalb des Packages des Elements vergleichen.</p>
+<p>Initial wird aus der aktuellen Package-Version die derzeit ausgewählte Methode in der aktuellsten Version geladen und direkt mit der Vorversion der Methode verglichen.
+Als Vorversion wird die letzte Version mit Änderungen im Vergleich zur aktuellen Version der Methode ausgewählt.
+Wird eine Version manuell ausgewählt, wird immer automatisch mit der Vorversion verglichen.
+Um individuell verschiedene Versionen und Methoden miteinander vergleichen zu können, ist es möglich eine Version mit der <strong>Pinnnadel</strong> anzupinnen.
+Die angepinnte Version bzw. Methode ändert sich bei Selektion einer anderen Version bzw. Methode nicht mehr.
+Der Button <strong>Compare with current</strong> lädt für die rechte Seite die aktuelle Version, pinnt diese an und lädt die selektierte Version in die linke Ansicht.</p>
+<p>Für den direkten Vergleich der Versionen wird der <a href="../editors/editor-diff.html">Monaco Diff-Editor</a> unterhalb der Auswahl angezeigt.
+Mit dem Button <strong>Compare in external tool</strong> ist es zudem möglich die Texte, die der Diff-Editor anzeigt mit einem externen Tool zu vergleichen.
+Das <a href="../allgemein/options.html#diff-tool">Diff Tool</a> muss in den <a href="../allgemein/options.html#utilities-registerkarte">Framework Studio Optionen</a> konfiguriert werden.</p>
+<p><img src="media/method-history-browser.png" alt="method-history-browser.png"></p>
+<h2 id="element-history-browser">Element History Browser</h2>
+<p>Im Designer Fenster aller Elemente für die Code generiert wird (Components, Forms, Workflows, …), lässt sich über den Menüpunkt <strong>View / Element History Browser</strong> analog zum Method History Browser ein Dialog öffnen, mit dem die Historie des Elements im Package des Elements betrachtet werden kann.
+Der <strong>Element History Browser</strong>  zeigt initial den generierten Code zu der ausgewählten Version und der Vorversion im <a href="../editors/editor-diff.html">Monaco Diff-Editor</a> an.
+Die grundsätzliche Bedienweise gleicht dem <a href="#method-history-browser">Method Hisory Browser</a>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Nur wenn das Package mit dem Framework Compiler compiled wurde exisitert für eine Version auch generated saved code.</p>
+</div>
+<p><img src="media/element-history-browser.png" alt="element-history-browser.png"></p>
+<h2 id="methoden-wächter">Methoden-Wächter</h2>
+<p>Für Form-Methoden, Component-Methoden, ServiceProxy-Methoden, FsTransformation-Methoden, ServiceHost-Methoden, sowie get- und set-Methoden von Individual und DataContract Properties steht ein Methoden-Wächter zur Verfügung. Dieser kann bei überschriebenen Methoden alle Basis-Methoden und deren Änderungsstatus überwachen. Wird bei einem Compile festgestellt, dass sich in einer Basis-Methode etwas geändert hat, wird eine Compiler-Warning (<a href="../weitere-themen/fehlercodes-warnungen.html#fswarn2029">FSWarn[2029]</a>) ausgegeben:</p>
+<p><strong>Methoden-Wächter Warnung:</strong></p>
+<p><img src="media/methoden-waechter-warnung.png" alt="methoden-waechter-warnung.png"></p>
+<p>Der Wächter lässt sich über den Button <img src="../media/icon-eye-enable.png" alt="icon-watcher-on.png"> in der Toolbar aktivieren:</p>
+<p><strong>Aktivierung Methoden-Wächter:</strong></p>
+<p><img src="media/methoden-waechter-aktivierung.png" alt="methoden-waechter-aktivierung.png"></p>
+<p>Ist der Wächter aktiviert, ändert sich das Symbol des Buttons in ein Refresh-Icon <img src="../media/icon-eye-refresh.png" alt="icon-eye-refresh.png"> und der Button <img src="../media/icon-eye-disable.png" alt="icon-eye-disable.png"> zum Deaktivieren des Wächters wird aktiv.</p>
+<p><strong>Refresh- und Disable Buttons:</strong></p>
+<p><img src="media/methoden-waechter-refresh-disable.png" alt="methoden-waechter-refresh-disable.png"></p>
+<p>Befinden sich mehrere Packages unter dem aktuellen Package, in dem der Methoden-Wächter aktiviert ist, wird nicht nur die direkte Basis-Methode überwacht, sondern der gesamte Basispfad bis zur <strong>virtual</strong>-Methode.</p>
+<p>Werden bei einem Compile Änderungen an einer der Basis-Methoden festgestellt, kann der Methoden-Wächter aktualisiert werden. Damit wird vom Entwickler bestätigt, dass die Änderung in der Basis-Methode keine Auswirkung auf den aktuellen Code hat. Mit dem Aktualisieren des Methoden-Wächters wird auch die Warnung während des Compile-Vorgangs eliminiert.</p>
+<p><strong>Aktualisierung des Methoden-Wächters:</strong></p>
+<p><img src="media/aktualisierung-des-methoden-waechters.png" alt="aktualisierung-des-methoden-waechters.png"></p>
+<p>Sollten beim Deaktivieren des Wächters noch nicht bestätigte Änderungen in den Basis-Methoden vorhanden sein, wird zuvor nochmals explizit gewarnt:</p>
+<p><strong>Warnung beim Deaktivieren:</strong></p>
+<p><img src="media/warnung-beim-deaktivieren.png" alt="warnung-beim-deaktivieren.png"></p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

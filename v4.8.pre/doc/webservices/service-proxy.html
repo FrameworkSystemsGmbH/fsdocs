@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Service Proxy </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Service Proxy ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/docs/doc/webservices/service-proxy.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="service-proxy">Service Proxy</h1>
+
+<p>Ein Service Proxy verschafft einem Client Zugang zu einem Webservice. Dieser kann ein Webservice (also ein Service Host, der auf einen Service inklusive Service Contract zeigt) sein, der lokal im FS definiert wurde oder ein externer Webservice im Internet. Der Service Proxy übernimmt an dieser Stelle die Generierung des Codes, der nötig ist, um auf die Operationen, die der Webservice bereitstellt, zuzugreifen. Er kapselt somit auch die gesamte EndPoint- und somit WCF-Stack-Channel-Definition des Webservice. Dies wird vor allem dann hilfreich, wenn aus der WSDL-Definition eines Webservices im Internet ein passender Client erstellt werden soll, der sich genau an die Richtlinien des Webservice hält.</p>
+<h2 id="service-proxy-für-service-hosts-aus-dem-repository">Service Proxy für Service Hosts aus dem Repository</h2>
+<p><img src="media/service-proxy-service-host-repository.png" alt="Proxy für Service aus Repository"></p>
+<h3 id="name">Name</h3>
+<p>Definiert den Namen des Service Proxy.</p>
+<h3 id="registerkarte-general">Registerkarte General</h3>
+<p>Um Service Hosts aus dem Repository in den Service Proxy einzubinden wird der Radiobutton <strong>Service from this repository</strong> gewählt. Danach kann über den Button <strong>Choose Host</strong> aus dem Namespace-Tree ein beliebiges Service Host-Element ausgewählt werden.</p>
+<p>Die Combobox <strong>EndPoint</strong> zeigt nun alle im Webservice verfügbaren EndPoints, die angesprochen werden können.</p>
+<p>Mit der Checkbox <strong>Generate wrapper for all proxy methods</strong> kann im generierten Code des Service Proxy für jede Methode eine Wrapper-Methode angelegt werden.</p>
+<p><strong>Beispiel:</strong></p>
+<p>Ist das Häkchen gesetzt, kann später im Code (z.B. in einer Component) wie folgt auf die Methoden zugegriffen werden:</p>
+<pre><code class="lang-csharp">dcPC[] pcs;
+using (PcListSvcProxy proxy = new PcListSvcProxy())
+{
+    pcs = proxy.GetPcList(ID);
+}
+</code></pre>
+<p>Ist das Häkchen nicht gesetzt, sieht der Aufruf wie folgt aus:</p>
+<pre><code class="lang-csharp">dcPC[] pcs;
+using (PcListSvcProxy proxy = new PcListSvcProxy())
+{
+    pcs = proxy.Proxy.GetPcList(ID);
+}
+</code></pre>
+<p>Der Aufruf findet also über die Interne Proxy-Klasse des Service Proxy-Elements statt.</p>
+<h3 id="registerkarte-methods">Registerkarte Methods</h3>
+<p>Hier können beliebig Methoden implementiert werden, die die Service Proxy-Klasse anbieten soll.</p>
+<h3 id="registerkarte-service-operations">Registerkarte Service Operations</h3>
+<p><strong>Liste der Methoden am Service Proxy:</strong></p>
+<p><img src="media/service-proxy-tab-service-operations.png" alt="service-operations"></p>
+<p>Hier werden alle Methoden des Webservice aufgelistet, die der Webservice anbietet bzw. auf die der Service Proxy zugreifen kann.</p>
+<h3 id="registerkarte-endpoint">Registerkarte EndPoint</h3>
+<p>Hier wird die EndPoint-Definition in Form von XML angezeigt. Diese kann mit dem Häkchen <strong>Overwrite EndPoint</strong> manuell überschrieben werden.</p>
+<h3 id="registerkarte-binding">Registerkarte Binding</h3>
+<p>Hier wird die Binding-Definition in Form von XML angezeigt. Diese kann mit dem Häkchen <strong>Overwrite Binding</strong> manuell überschrieben werden.</p>
+<h3 id="registerkarte-endpoint-behavior">Registerkarte EndPoint Behavior</h3>
+<p>Hier wird die EndPoint Behavior-Definition in Form von XML angezeigt. Diese kann mit dem Häkchen <strong>Overwrite EndPoint Behavior</strong> manuell überschrieben werden.</p>
+<h3 id="service-proxy-für-einen-externen-webservice-im-internet">Service Proxy für einen externen Webservice im Internet</h3>
+<p><img src="media/service-proxy-extern-webservice.png" alt="Externer Webservice"></p>
+<p>Um externe Webservices im Internet in die Anwendung einzubinden, wird der Radiobutton <strong>External service</strong> im Service Proxy gewählt.</p>
+<p>Im Feld <strong>Service Address</strong> wird die Adresse des Webservices im Internet angegeben. Mit der Combobox <strong>Contract</strong> kann optional aus dem Namespace-Tree ein Service Contract ausgewählt werden, den der Proxy mit implementieren soll.</p>
+<p>Die Combobox <strong>EndPoint</strong> wird automatisch gefüllt, wenn die Proxy-Klasse mit dem Button Generate Proxy (siehe <a href="#registerkarte-svcutil-options">Registerkarte SvcUtil Options</a>) aus der WSDL-Definition des Webservice generiert wird. Danach stehen alle EndPoints, die der Webservice anbietet, zur Auswahl.</p>
+<p>Mit dem Button <strong>Test Service</strong> wird der mit Visual Studio ausgelieferte WCF-Testclient gestartet und versucht, den angegebenen Webservice zu laden.</p>
+<p><img src="media/service-proxy-wcf-testclient.png" alt="WCF-Testclient"></p>
+<p>Die verschiedenen EndPoints (im Beispiel „CurrencyCenvertorSoap“ und „CurrencyConvertorSoap12“) und die erreichbaren Methoden werden angezeigt. Mit einem Doppelklick auf eine der Methoden kann diese im rechten Fenster getestet und die SOAP-Envelopes des Request und Response in XML-Format eingesehen werden.</p>
+<h3 id="registerkarte-svcutil-options">Registerkarte SvcUtil Options</h3>
+<p>Mit dem Häkchen bei <strong>\Async</strong> wird bei der Generierung des Proxy-Codes je Methode eine Signatur für den synchronen und eine für den asynchronen Aufruf erstellt. Somit ist es möglich, später in der Anwendung zu entscheiden, ob der Webservice synchron oder asynchron (z.B. wie bei AJAX) aufgerufen werden soll.</p>
+<p>Mit <strong>\Collection Type</strong> wird angegeben, welche Art von Collection-Typ die Proxy-Klasse für Collection-Parameter im Webservice verwenden soll.</p>
+<p>Mit dem Button <strong>Generate Proxy</strong> wird im Hintergrund der tatsächliche Programmcode des Proxy und die dazugehörige App.Config-Datei generiert. Dies geschieht über das Tool <strong>SvcUtil.exe</strong>, welches mit dem Windows SDK ausgeliefert wird. Wo die EXE auf dem System liegt, kann unter <strong>Tools &gt; Options &gt; Utilities &gt; SvcUtil</strong> angegeben werden. Der Standardpfad ist <strong>C:\Programme\Microsoft SDKs\Windows\v6.0A\bin\SvcUtil.exe</strong>.</p>
+<p>Die Metadaten des Webservice werden in Form der WSDL-Definition heruntergeladen und auf Basis dieser der Proxy erstellt. Dabei werden auch die Informationen über die verfügbaren EndPoints eingelesen und in der Combobox <strong>EndPoint</strong> zur Auswahl bereitgestellt.</p>
+<h3 id="registerkarte-generated-code">Registerkarte Generated Code</h3>
+<p>Hier kann der von SvcUtil.exe generierte Proxy-Code eingesehen werden.</p>
+<h3 id="registerkarte-generated-appconfig">Registerkarte Generated App.Config</h3>
+<p>Hier kann die von SvcUtil.exe generierte App.Config-Datei eingesehen werden.</p>
+<h3 id="generieren-eines-data-contracts-aus-einem-service-proxy">Generieren eines Data Contracts aus einem Service Proxy</h3>
+<p>Im Menüpunkt Edit befindet sich der Eintrag <strong>Generate Data Contracts</strong>. Damit wird auf Basis des ausgewählten Service Proxy ein (oder mehrere) <a href="data-contract.html">Data Contract</a>-Element(e) im selben Namespace generiert. Dies ist nur für externe Webservices möglich.</p>
+<h2 id="ableiten-und-customizen-von-serviceproxies">Ableiten und Customizen von ServiceProxies</h2>
+<p>ServiceProxies können abgeleitet und gecustomized werden. Lediglich EndPoints, Bindings und Behaviors können bearbeitet werden. Eine Änderung des Service Host ist nicht möglich und auch ein Aufruf von SvcUtil.exe wird nicht angeboten.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

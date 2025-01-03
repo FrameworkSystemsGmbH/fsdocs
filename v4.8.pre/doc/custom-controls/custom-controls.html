@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Custom Controls </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Custom Controls ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/docs/doc/custom-controls/custom-controls.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="custom-controls">Custom Controls</h1>
+
+<h2 id="allgemeines">Allgemeines</h2>
+<h3 id="hintergrund">Hintergrund</h3>
+<p>Framework Studio stellt eine breite Palette von Standard Controls zur Verfügung. Sie sind jedoch nicht darauf angewiesen, sich auf diese Controls zu beschränken. Mit Custom Controls bietet Framework Studio einen komfortablen Weg, eigene, komplexe oder stark spezialisierte Controls zu entwickeln und in Ihre Anwendung zu integrieren.</p>
+<p>Beispiele für diese so genannten <strong>Graphical Custom Controls</strong> sind:
+dreidimensionale Darstellung von Statistiken
+Farbauswahldialog
+HTML-Textfeld
+...</p>
+<p>Ein weiteres Anwendungsgebiet für Custom Controls sind funktionelle Erweiterungen des Clients, die lokal am Client ausgeführt werden müssen.</p>
+<p>Beispiele für Functional Custom Controls sind:
+lokaler Dateiauswahldialog
+Telefonanbindung (TAPI)
+Darstellung von Daten in externen Programmen (z.B. Word oder Excel)
+...</p>
+<p>Aufgrund der Client-Server Architektur, die Framework Studio unterstützt, muss für ein Custom Control sowohl der Client (ggf. auch mehrere) als auch Ihre Anwendung in Framework Studio um eine entsprechende Definition des Controls erweitert werden.</p>
+<p>In dieser Dokumentation wird die Erweiterung in Framework Studio beschrieben. Informationen zur Erweiterung der Clients finden Sie in den entsprechenden Dokumentationen.</p>
+<h3 id="erstellen-und-löschen-von-custom-controls">Erstellen und Löschen von Custom Controls</h3>
+<p>Erstellen eines Custom Controls
+Custom Controls werden wie alle anderen Elementtypen erzeugt. Dazu muss einer der drei Typen <strong>Functional</strong>, <strong>Graphical</strong> und <strong>Child Custom Control</strong> ausgewählt werden.</p>
+<p><a href="../ide/bearbeiten-von-elementen.html#elemente-erstellen">Elemente erstellen</a></p>
+<p>Löschen eines Custom Controls</p>
+<p><a href="../ide/bearbeiten-von-elementen.html#elemente-l%C3%B6schen">Elemente löschen</a></p>
+<h3 id="verwendung-von-custom-controls-in-forms">Verwendung von Custom Controls in Forms</h3>
+<p>Um ein Custom Control in ein Form zu integrieren, öffnen Sie das Form im Form-Designer (Forms) und wechseln Sie anschließend auf die Registerkarte Toolbox (Framework Designer). Von dort ziehen Sie das gewünschte Control auf die Registerkarte Default Variant des Form-Designers. Wenn Sie ein Functional Custom Control einfügen, wird dieses im Form-Designer auf der Registerkarte Functional Controls (Registerkarte Functional Controls) angezeigt.</p>
+<h2 id="properties">Properties</h2>
+<p>Ein Custom Control kann bestimmte statische Eigenschaften besitzen, die der Entwickler im Form-Designer angeben können soll. Diese Properties werden bei der Initialisierung des Custom Controls übertragen.</p>
+<p>Anwendungsfallbeispiele sind statische Spaltenüberschriften einer Tabelle oder allgemein Initialisierungsparameter für komplexe Controls.</p>
+<p>Diese Eigenschaften sind Theme-spezifisch, sodass in den Default Control Styles z.B. Farbwerte und Schriftarten je nach Theme angepasst werden können. Die einzige Ausnahme bilden Properties mit dem Typ MLString. Diese sind Theme-übergreifend.</p>
+<p>Wenn Sie für ein Custom Control ein neues Property anlegen möchten, benutzen Sie entweder den Button <img src="../media/button-new.png" alt="new-button"> <strong>New... / Property</strong> oder wählen den Menüpunkt <strong>File / New / Property</strong>.</p>
+<p><strong>Custom Control Registerkarte Properties:</strong>
+<img src="media/custom-control-registerkarte-properties.png" alt="Custom Control Registerkarte Properties"></p>
+<p>Anschließend können Sie auf der Registerkarte <strong>Properties</strong> die Eigenschaften des Properties festlegen.</p>
+<p>In der Auswahlbox oben auf der Registerkarte können alle Properties des Custom Controls ausgewählt werden. Zum ausgewählten Property werden dann darunter die Eigenschaften angezeigt.</p>
+<h4 id="name">Name</h4>
+<p>Name des Properties.</p>
+<h4 id="type">Type</h4>
+<p>Typ des Properties. Hier werden alle Standard .NET Datentypen, einige speziellere .NET Datentypen wie Color und Font sowie der Framework Studio Datentyp MLString angeboten.</p>
+<h4 id="category">Category</h4>
+<p>Hier kann ein Name für die Kategorie angegeben werden, unter der das Property auf der Registerkarte <strong>Properties</strong> eines Forms bei markiertem Control angezeigt wird.</p>
+<h4 id="typeconverter">TypeConverter</h4>
+<p>Hier kann ein Typkonverter für die Eingabe im Propertygrid auf der Registerkarte <strong>Properties</strong> angegeben werden. Beispielsweise NonnegativeInt32Converter, um nur die Eingabe von positiven Ganzzahlen zu ermöglichen.</p>
+<h4 id="uitypeeditor">UITypeEditor</h4>
+<p>Ein Typeditor kann für eine komfortable Eingabe eines Wertes im Propertygrid angegeben werden. Zum Beispiel der UrlUITypeEditor, mit dem URLs eingegeben und auf Gültigkeit geprüft werden können.</p>
+<p>Alle Default Control Styles, auch die von Custom Controls, werden im Namespace <strong>FSGeneral / Controls</strong> aufgelistet. Wenn Sie dort Ihr selbst definiertes Custom Control öffnen, können Sie für die Properties des Custom Controls Standardwerte vorbelegen.</p>
+<p><strong>Custom Control Default Control Style:</strong>
+<img src="media/custom-control-default-style.png" alt="Custom Control Default Control Style"></p>
+<p>Wenn Sie ein Functional Custom Control auf ein Form ziehen und es markieren, werden Ihnen die selbst definierten Properties auf der Registerkarte <strong>Properties</strong> angezeigt.</p>
+<p><strong>Custom Control Instance Properties:</strong></p>
+<p><img src="media/custom-control-instance-properties.png" alt="Custom Control Instance Properties"></p>
+<h2 id="actions">Actions</h2>
+<p>Actions ermöglichen dem Programmierer, am Client eine Methode des Custom Controls aufzurufen.</p>
+<p>Um eine neue Action anzulegen, benutzen Sie entweder den Button <img src="../media/button-new.png" alt="new-button"> <strong>New... / Action</strong> oder wählen den Menüpunkt <strong>File / New / Action</strong>.</p>
+<p>Auf der Registerkarte Actions des Custom Control Designer-Fensters können Sie in der Auswahlbox zwischen allen Actions des Controls auswählen. Die ausgewählte Action wird darunter dargestellt.</p>
+<p><strong>Custom Control Registerkarte Actions:</strong></p>
+<p><img src="media/custom-control-registerkarte-actions.png" alt="Custom Control Registerkarte Actions"></p>
+<h4 id="name-1">Name</h4>
+<p>Name der Action. Dieser Name dient am Client zur Identifizierung der Action.</p>
+<h4 id="declaration">Declaration</h4>
+<p>Deklaration der Methode, die über das Control aufgerufen werden kann. Die Methode darf keinen Rückgabewert haben und kann beliebig viele Parameter entgegen nehmen. Die Parameter müssen einfache .NET Datentypen sein.</p>
+<p><strong>Custom Control Registerkarte Method:</strong>
+<img src="media/custom-control-registerkarte-method.png" alt="Custom Control Registerkarte Method"></p>
+<p>Nach der Definition einer Action kann diese Action aus einem Form heraus, wie im obigen Bild dargestellt, aufgerufen werden.</p>
+<h2 id="datasources">Datasources</h2>
+<p>Datasources dienen zum bidirektionalen Datenaustausch zwischen Client und Broker. Die gemeinsame Datenquelle funktioniert genau wie die Datasources an den Standardcontrols.</p>
+<p>Um einen neuen Datasource anzulegen, benutzen Sie entweder den Button <img src="../media/button-new.png" alt="new-button"> <strong>New... / Datasource</strong> oder wählen den Menüpunkt <strong>File / New / Datasource</strong>.</p>
+<p><strong>Custom Control Registerkarte DataSources:</strong>
+<img src="media/custom-control-registerkarte-datasource.png" alt="Custom Control Registerkarte DataSources"></p>
+<p>Auf der Registerkarte DataSources können Sie in der obersten Auswahlbox zwischen allen Datasources des Controls auswählen. Die Eigenschaften der ausgewählten Datenquelle werden darunter dargestellt.</p>
+<h4 id="name-2">Name</h4>
+<p>Name des Datasources.</p>
+<h4 id="type-1">Type</h4>
+<p>Typ des Datasources. Zur Auswahl stehen folgende Werte:</p>
+<ul>
+<li>Value: Die Datenquelle kann mit einem beliebigen FS-Standarddatentypen gefüllt werden (z.B. string, int, object, ...)</li>
+<li>Record: Objekt vom Typ DevFrameworkObject</li>
+<li>Collection: Collection vom Typ DevFrameworkObjectColl</li>
+<li>SelectedRowsCollection: SelectedRowsCollection</li>
+<li>Inherit: Funktionslos</li>
+</ul>
+<p>Bei den Typen Record, Collection und SelectedRowsCollection müssen Methoden implementiert werden, welche die gewünschten Daten aus einem Objekt in Xml und zurück in ein Objekt übertragen! Beim Typ Value ist dies nicht nötig.</p>
+<p><strong>Custom Control Instance Datasource:</strong></p>
+<p><img src="media/custom-control-instance-datasource.png" alt="Custom Control Instance Datasource"></p>
+<h3 id="getxml">GetXML</h3>
+<p>Diese Methode wird zum Senden der Daten vom Broker an den Client benötigt. Die Daten müssen aus dem Objekt in einen geeigneten Xml-Knoten umgewandelt werden. Die Methodendeklaration lautet:</p>
+<pre><code class="lang-csharp">IEnumerable&lt;XObject&gt; GetDataSourceXml(Dictionary[…] value)
+</code></pre>
+<p>Wobei DataSource durch den Namen der Datenquelle ersetzt wird. Alle zurückgegebenen Elemente oder auch Attribute werden in den von Framework Studio generierten XML-Knoten mit dem Typ XElement eingefügt. Diese Methode kann das Ergebnis als Liste zurückgeben. Man kann das Ergebnis aber auch mit Hilfe von „yield return“ enumerieren. Wenn keine Informationen an den Client übergeben werden sollen, dann wird einfach „return null;“ aufgerufen.</p>
+<p>Beispiel einer GetXML-Methode:</p>
+<pre><code class="lang-csharp">List&lt;XObject&gt; xaList = new List&lt;XObject&gt;();
+cColor oColor = value as cColor;
+if (oColor != null)
+{
+    xaList.Add(new XAttribute(&quot;A&quot;, oColor.intA.ToString()));
+    xaList.Add(new XAttribute(&quot;R&quot;, oColor.intR.ToString()));
+    xaList.Add(new XAttribute(&quot;G&quot;, oColor.intG.ToString()));
+    xaList.Add(new XAttribute(&quot;B&quot;, oColor.intB.ToString()));
+}
+xaList.Add(new XElement(&quot;EinUnterKnoten&quot;));
+return xaList;
+</code></pre>
+<p>Dasselbe Beispiel als Enumerator mit <code>yield return</code>:</p>
+<pre><code class="lang-csharp">cColor oColor = value as cColor;
+if (oColor != null)
+{
+    yield return new XAttribute(&quot;A&quot;, oColor.intA.ToString());
+    yield return new XAttribute(&quot;R&quot;, oColor.intR.ToString());
+    yield return new XAttribute(&quot;G&quot;, oColor.intG.ToString());
+    yield return new XAttribute(&quot;B&quot;, oColor.intB.ToString());
+}
+yield return new XElement(&quot;EinUnterKnoten&quot;);
+</code></pre>
+<p>Das erzeugte XML sieht folgendermaßen aus:</p>
+<pre><code class="lang-xml">&lt;Data&gt;
+    &lt;Color A=&quot;0&quot; R=&quot;0&quot; G=&quot;0&quot; B=&quot;0&quot;&gt;
+        &lt;EinUnterKnoten /&gt;
+    &lt;/Color&gt;
+&lt;/Data&gt;
+</code></pre>
+<h3 id="setxml">SetXML</h3>
+<p>Diese Methode wird zum Empfangen der Daten vom Client am Broker benötigt. Die Daten müssen aus dem XML-Knoten ausgelesen und in das Objekt kopiert werden. Die Methodendeklaration lautet:</p>
+<pre><code class="lang-csharp">void SetDataSourceXML (XElement xeNode,
+Dictionary&lt;string, string&gt; properties,
+Dictionary&lt;string, Dictionary&lt;string, string&gt;&gt; children,
+DevFrameworkObject value)
+</code></pre>
+<p>Mit dem Parameter xeNode wird der komplette DataSource-Knoten übergeben. Aus diesem können jetzt die Attribute und Elemente ausgelesen werden.</p>
+<p>Einfaches Beispiel:</p>
+<pre><code class="lang-csharp">cColor oColor = value as cColor;
+if (oColor != null)
+{
+    oColor.intA = int.Parse(xeNode.Attribute(&quot;A&quot;).Value);
+    oColor.intR = int.Parse(xeNode.Attribute(&quot;R&quot;).Value);
+    oColor.intG = int.Parse(xeNode.Attribute(&quot;G&quot;).Value);
+    oColor.intB = int.Parse(xeNode.Attribute(&quot;B&quot;).Value);
+}
+foreach(XElement xeSubNode in xeNode.Elements())
+{
+    ... Unterknoten auswerten ...
+}
+</code></pre>
+<h2 id="events">Events</h2>
+<p>Events kann der Client senden. Auf diese Events kann dann am Broker reagiert werden.</p>
+<p>Um ein Event anzulegen, benutzen Sie entweder den Button New... / Event oder wählen den Menüpunkt File / New / Event.</p>
+<p>In der Klassenansicht (Registerkarte ClassView im Hauptfenster) können Sie den Namen des Events ändern.</p>
+<p><img src="media/custom-control-event-panel.png" alt="event-panel"></p>
+<p>Wenn Sie Ihr Custom Control in ein Form gezogen haben, können Sie im Form an das Event wie gewohnt einen Eventhandler anhängen.</p>
+<p><strong>Custom Control Eventhandler:</strong></p>
+<p><img src="media/custom-control-eventhandler.png" alt="Custom Control Eventhandler"></p>
+<h2 id="child-custom-controls">Child Custom Controls</h2>
+<p>Wenn Sie auf der Registerkarte <strong>Namespaces</strong> des Framework-Designers im Objekt-Baum ein Custom Control markieren, können Sie über den Menüpunkt <strong>File / New / Custom Control / Child Custom Control</strong> ein Untercontrol anlegen.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>An einem Untercontrol können Sie nur Properties definieren. Alle anderen Funktionen müssen über das Hauptcontrol abgewickelt werden.</p>
+</div>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

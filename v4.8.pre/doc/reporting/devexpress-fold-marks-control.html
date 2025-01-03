@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Fold Marks </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Fold Marks ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/docs/doc/reporting/devexpress-fold-marks-control.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="fold-marks">Fold Marks</h1>
+
+<p><img src="media/fold-mark.svg" alt="Fold mark"></p>
+<p>Belege in Briefform benötigen oft Falzmarken am Rand der Seite, um das Falten zu erleichtern.
+Um Falzlinien darstellen zu können, wurde das FoldMarks-Control geschaffen. Dieses ist unter dem Namen &quot;Fold Mark Settings&quot; in der Toolbox zu erreichen.</p>
+<p><img src="media/devexpress-custom-controls-foldmarks.png" alt="Fold mark"></p>
+<p>Auf der Report-Oberfläche nimmt das Control die Form einer grauen Box an:</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Hierbei handelt es sich lediglich um einen Placeholder, um das Control leichter greifbar zu machen.
+Die Box wird beim Druck nicht erscheinen.</p>
+</div>
+<p>Das Foldmark-Control kann auch in einem <strong>Sub-Report</strong> platziert werden.
+Die Falzmarken werden dabei auf allen Seiten des Haupt-Reports gedruckt - unabhängig davon, an welcher Position der Sub-Report platziert ist.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Werden Foldmark-Controls in mehreren Sub-Reports platziert, dann ziehen diese alle gleichzeitig.</p>
+</div>
+<h3 id="einstellungen">Einstellungen</h3>
+<p>Das Control bringt einige Properties mit, welche die Eigenschaften der Falzmarken bestimmen.</p>
+<h4 id="din-norm">DIN Norm</h4>
+<p>Bestimmt, <em>welche</em> Art Falzmarken angedruckt werden. Zur Verfügung stehen Falzmarken nach <a href="https://de.wikipedia.org/wiki/Falzmarke">Formen A und B</a> der DIN-Norm für Briefe.</p>
+<h4 id="halfheightmark">HalfHeightMark</h4>
+<p>Bestimmt, ob eine zusätzliche Marke an der Randmitte des Blattes angedruckt werden soll.</p>
+<h4 id="visible">Visible</h4>
+<p>Definiert, ob die Falzmarken angedruckt werden.
+Das im Report Designer angezeigte Settings-Control wird nie gedruckt.</p>
+<h4 id="mark-size">Mark Size</h4>
+<p>Bestimmt die Größe der Falzmarken. Diese werden als Rechteck gedruckt; definiert werden also erst Breite und dann Höhe.</p>
+<h4 id="orientation">Orientation</h4>
+<p>Bestimmt, ob die Marken links oder rechts gedruckt werden sollen.</p>
+<h4 id="padding">Padding</h4>
+<p>Bestimmt den Abstand der Marken vom Rand.</p>
+<h4 id="forecolor--backcolor">ForeColor / BackColor</h4>
+<p>Bestimmt die Farbe der Marken.</p>
+<h4 id="halfheightmarkforecolor--halfheightmarkbackcolor">HalfHeightMarkForeColor / HalfHeightMarkBackColor</h4>
+<p>Bestimmt die Farbe der zusätzlichen Marke.</p>
+<h4 id="halfheightmarksize">HalfHeightMarkSize</h4>
+<p>Bestimmt die Größe der zusätzlichen Marke.</p>
+<h3 id="verwendung-des-controls">Verwendung des Controls</h3>
+<p>Um die Funktionalität nachzustellen, wurde das Custom Control „Fold Mark Settings“ erstellt, welches im Designer zu finden ist:</p>
+<p><img src="media/foldmark-icon.png" alt="Foldmark icon"></p>
+<p>Das Platzieren des Controls auf dem Report erstellt ein Dummy-Control zur Selektion. Dieses wird beim späteren Druck nicht zu sehen sein.</p>
+<p><img src="media/foldmark-element.png" alt="Foldmark element"></p>
+<p>Im neuen Control lässt sich jetzt die DIN-Norm selektieren, welche bestimmt, welche Form der Falzmarken angezeigt wird:</p>
+<p><img src="media/foldmark-settings.png" alt="Foldmark settings"></p>
+<p>„A“ und „B“ beziehen sich hierbei auf die beiden DIN-Standards für Briefpapier. A beschreibt einen üblichen Briefkopf, während B mehr Platz oben auf dem Papier für Adresszeile etc. vorsieht.
+Nach der Konfiguration werden die Falzmarken nicht im Designer angezeigt – die genaue Position ist erst nach Erstellung des Report-Documents (unmittelbar vor dem physischen Druck) bekannt, da zu diesem Zeitpunkt die Platzberechnung durchgeführt wird.</p>
+<p>Im Preview sind sie allerdings schon sichtbar:</p>
+<p><img src="media/foldmark-devexpress-preview.png" alt="Foldmark DevExpress® Preview"></p>
+<p>Änderungen an den Einstellungen werden hier reflektiert. Wenn wir z.B. jetzt die ForeColor &amp; BackColor auf ein subtileres DarkGrey umstellen, ändert sich das Preview wie folgt:</p>
+<p><img src="media/foldmark-devexpress-preview-gray.png" alt="Foldmark DevExpress® Preview Gray"></p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

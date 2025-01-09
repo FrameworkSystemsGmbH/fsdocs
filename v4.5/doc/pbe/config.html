@@ -1,90 +1,84 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
 <html>
+  
   <head>
     <meta charset="utf-8">
-      <title>Konfiguration der PBE </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Konfiguration der PBE ">
-      
-      
-      <link rel="icon" href="../../favicon.ico">
-      <link rel="stylesheet" href="../../public/docfx.min.css">
-      <link rel="stylesheet" href="../../public/main.css">
-      <meta name="docfx:navrel" content="../../toc.html">
-      <meta name="docfx:tocrel" content="../toc.html">
-      
-      <meta name="docfx:rel" content="../../">
-      
-      
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/25/docs/doc/pbe/config.md/#L1">
-      <meta name="loc:inThisArticle" content="In this article">
-      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
-      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
-      <meta name="loc:tocFilter" content="Filter by title">
-      <meta name="loc:nextArticle" content="Next">
-      <meta name="loc:prevArticle" content="Previous">
-      <meta name="loc:themeLight" content="Light">
-      <meta name="loc:themeDark" content="Dark">
-      <meta name="loc:themeAuto" content="Auto">
-      <meta name="loc:changeTheme" content="Change theme">
-      <meta name="loc:copy" content="Copy">
-      <meta name="loc:downloadPdf" content="Download PDF">
-
-      <script type="module" src="./../../public/docfx.min.js"></script>
-
-      <script>
-        const theme = localStorage.getItem('theme') || 'auto'
-        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-      </script>
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Konfiguration der PBE </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Konfiguration der PBE ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
   </head>
-
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
-    <header class="bg-body border-bottom">
-      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
-        <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../../index.html">
-            <img id="logo" class="svg" src="../../logo.svg" alt="">
-            
-          </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-three-dots"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navpanel">
-            <div id="navbar">
-              <form class="search" role="search" id="search">
-                <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
               </form>
             </div>
           </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
         </div>
-      </nav>
-    </header>
-
-    <main class="container-xxl">
-      <div class="toc-offcanvas">
-        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
-          </div>
+          <ul id="pagination"></ul>
         </div>
       </div>
-
-      <div class="content">
-        <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
-            <i class="bi bi-list"></i>
-          </button>
-
-          <nav id="breadcrumb"></nav>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
         </div>
-
-        <article data-uid="">
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
 <h1 id="konfiguration-der-pbe">Konfiguration der PBE</h1>
 
 <p>Die Konfiguration erfolgt mithilfe der Datei <strong>PBE.xml</strong>. Diese wird am besten mit Visual Studio bearbeitet, weil es dort eine IntelliSense-Unterstützung und eine Validierung der Eingaben gibt.</p>
@@ -92,17 +86,16 @@
 <p>Für die unterschiedlichen FS-Versionen werden die Programm-Verzeichnisse ermittelt. Dabei geht die Routine für jede FS-Version mit den folgenden Prioritäten vor und verwendet das Verzeichnis, welches zuerst gefunden wird:</p>
 <ol>
 <li><p>Konfiguration in der XML-Datei</p>
-<p>Beispiel:</p>
+<p> Beispiel:</p>
 <pre><code class="lang-xml">&lt;FSVersions&gt;
     &lt;FSVersion FS=&quot;3.7.0.0&quot; Dir=&quot;C:\Programme\Framework Systems\FrameworkStudio 3.7.3&quot;/&gt;
     &lt;FSVersion FS=&quot;3.8.0.0&quot; Dir=&quot;C:\Programme\Framework Systems\FrameworkStudio 3.8&quot;/&gt;
 &lt;/FSVersions&gt;
-</code></pre>
-</li>
+</code></pre></li>
 <li><p>Order <code>C:\FS\Framework Studio X.Y.0.0\</code> - das ist der Standard im Haus von Nissen &amp; Velten.</p>
 </li>
 <li><p>Standard Installations-Verzeichnis <code>%ProgramFiles%\Framework Systems\Framework Studio X.Y</code></p>
-<p>Dabei werden auch ServiceRelease- und Beta-Versionen erkannt.</p>
+<p> Dabei werden auch ServiceRelease- und Beta-Versionen erkannt.</p>
 </li>
 </ol>
 <h2 id="parameter">Parameter</h2>
@@ -116,8 +109,7 @@
 &lt;Sequence&gt;
     &lt;CompileRun FS=&quot;3.7.0.0&quot; Rep=&quot;{rep}&quot; Run=&quot;1&quot;/&gt;
 &lt;/Sequence&gt;
-</code></pre>
-<p>Die im Folgenden aufgelisteten Parameter sind immer gefüllt:</p>
+</code></pre><p>Die im Folgenden aufgelisteten Parameter sind immer gefüllt:</p>
 <ul>
 <li><p><code>ExportDir</code> Beinhaltet einen Ordner, in dem die Dateien der Package-Exporte abgelegt werden. Die Package-Importe werden ebenfalls in diesen Ordner gesucht. Dieser Parameter wird bei den Aktionen <code>&lt;Export&gt;</code> und <code>&lt;Import&gt;</code> automatisch verwendet.</p>
 </li>
@@ -126,10 +118,10 @@ Dieser Parameter wird bei der Aktion <code>&lt;ApprovedExport&gt;</code> automat
 </li>
 <li><p><code>ApprovedImportDir</code> Beinhaltet einen Ordner, in dem die Dateien abgelegt werden, die mit der Aktion <code>&lt;ApprovedImport&gt;</code> verbarbeitet werden sollen.</p>
 </li>
-<li><p><code>ApprovedHistoryDir</code> Beinhaltet einen Ordner, in den die Dateien verschoben werden, nachdem sie mit der Aktion <approvedimport> verbarbeitet wurden.</approvedimport></p>
-</li>
+<li><p><code>ApprovedHistoryDir</code> Beinhaltet einen Ordner, in den die Dateien verschoben werden, nachdem sie mit der Aktion <approvedimport> verbarbeitet wurden.<p>
+</approvedimport></li>
 <li><p><code>Date</code> Start-Datum im Format &quot;yyyyMMdd&quot;</p>
-<p>z.B. 20140526</p>
+<p>  z.B. 20140526</p>
 </li>
 <li><p><code>DateTime</code> Start-Zeit im Format &quot;yyyyMMdd-HHmmss&quot;</p>
 <p>z.B. 20140526-142457</p>
@@ -152,9 +144,7 @@ Dieser Parameter wird bei der Aktion <code>&lt;ApprovedExport&gt;</code> automat
 </ul>
 <p>Darüber hinaus können auch eigene Parameter definiert werden. So können z.B. die verwendeten Repository-Connections an zentraler Stelle definiert werden.</p>
 <p>Bei Parametern kann auch auf vorher definierte Parameter verwiesen werden – wie z.B. bei dem vordefinierten Parameter <code>Title</code>.</p>
-<div class="TIP">
-<h5>Tip</h5>
-<p>Alle bekannten Parameter können der PBE.exe mit dem <a href="commandline-parameter.html#-p----param">Kommandozeilen-Parameter <code>-p</code> / <code>--param</code></a> übergeben und so &quot;überschrieben&quot; werden.</p>
+<div class="TIP"><h5>Tip</h5><p>Alle bekannten Parameter können der PBE.exe mit dem <a href="commandline-parameter.html#-p----param">Kommandozeilen-Parameter <code>-p</code> / <code>--param</code></a> übergeben und so &quot;überschrieben&quot; werden.</p>
 </div>
 <h2 id="organisation">Organisation</h2>
 <p>Die Aktionen werden in der XML-Datei als Sequenzen oder Parallel-Verarbeitungen organisiert. Die unterschiedlichen Knoten können beliebig ineinander verschachtelt werden. Einzige Ausnahme ist der oberste Knoten – dieser muss immer <code>&lt;Sequence&gt;</code> sein.</p>
@@ -172,9 +162,7 @@ Dieser Parameter wird bei der Aktion <code>&lt;ApprovedExport&gt;</code> automat
 <li><p><strong>Name</strong>: optional</p>
 </li>
 <li><p><strong>MaxTasks</strong>: optional - gibt die Anzahl der maximal parallel ausgeführten Aktionen an. Bei einer sehr langen Liste an Aktionen macht es Sinn, die Parallelität z.B. auf 4 zu begrenzen.</p>
-<div class="IMPORTANT">
-<h5>Important</h5>
-<p>Wenn dieses Attribut nicht angegeben ist, erfolgt die Verarbeitung komplett parallel – egal wie viele Aktionen definiert wurden.</p>
+<div class="IMPORTANT"><h5>Important</h5><p>Wenn dieses Attribut nicht angegeben ist, erfolgt die Verarbeitung komplett parallel – egal wie viele Aktionen definiert wurden.</p>
 </div>
 </li>
 </ul>
@@ -199,8 +187,7 @@ Der Dateipfad kann auch Parameter beinhalten.</p>
 <pre><code class="lang-xml">&lt;Condition Name=&quot;Prüfen ob Publish2Go existiert&quot;
         Value=&quot;#Exists({InputDir}\sqlitedb.p2go)&quot;
         Equals=&quot;True&quot;&gt;
-</code></pre>
-</li>
+</code></pre></li>
 <li><p><code>&quot;#CONTAINS_FILES(&lt;verzeichnispfad&gt;)&quot;</code></p>
 <p>Prüft, ob das Verzeichnis einen Inhalt hat.
 Diese Funktion liefert <code>&quot;True&quot;</code>, wenn das Verzeichnis einen Inhalt (Datei / Verzeichnis) hat und <code>&quot;False&quot;</code> wenn es leer ist.
@@ -209,8 +196,7 @@ Der Verzeichnispfad kann auch Parameter beinhalten.</p>
 <pre><code class="lang-xml">&lt;Condition Name=&quot;Prüfen ob das Export-Verzeichnis leer ist&quot;
         Value=&quot;#CONTAINS_FILES({ExportDir}\Package2)&quot;
         Equals=&quot;False&quot;&gt;
-</code></pre>
-</li>
+</code></pre></li>
 </ul>
 <h3 id="knoten-importqueue">Knoten <code>&lt;ImportQueue&gt;</code></h3>
 <p>Damit können die Package-Importe so organisiert werden, dass diese parallel zu anderen Aktionen durchgeführt werden können. Die Export-Aktionen packen, wenn sie fertig sind, entsprechende Import-Aktionen in diese Queue. Diese wird dann sofort mit der Abarbeitung beginnen. Dabei werden aber alle Importe nacheinander verarbeitet, weil parallele Importe auf einem Repository nicht möglich sind.</p>
@@ -241,28 +227,35 @@ Es laufen parallel 2 Compile-Läufe und Exporte auf Repository1. Daneben werden 
         &lt;Export FS=&quot;3.8.0.0&quot; Rep=&quot;{rep1}&quot; Package=&quot;Cust2&quot; Version=&quot;3.3&quot; Queue=&quot;ImportQueue&quot;/&gt;
     &lt;/Sequence&gt;
 &lt;/Parallel&gt;
-</code></pre>
-
-</article>
-
-
-        <div class="next-article d-print-none border-top" id="nextArticle"></div>
-
-      </div>
-
-      <div class="affix">
-        <nav id="affix"></nav>
-      </div>
-    </main>
-
-    <div class="container-xxl search-results" id="search-results"></div>
-
-    <footer class="border-top text-secondary">
-      <div class="container-xxl">
-        <div class="flex-fill">
-          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+</code></pre></article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
   </body>
 </html>

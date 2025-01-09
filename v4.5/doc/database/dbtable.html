@@ -1,95 +1,89 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
 <html>
+  
   <head>
     <meta charset="utf-8">
-      <title>DBTable </title>
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="DBTable ">
-      
-      
-      <link rel="icon" href="../../favicon.ico">
-      <link rel="stylesheet" href="../../public/docfx.min.css">
-      <link rel="stylesheet" href="../../public/main.css">
-      <meta name="docfx:navrel" content="../../toc.html">
-      <meta name="docfx:tocrel" content="../toc.html">
-      
-      <meta name="docfx:rel" content="../../">
-      
-      
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/25/docs/doc/database/dbtable.md/#L1">
-      <meta name="loc:inThisArticle" content="In this article">
-      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
-      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
-      <meta name="loc:tocFilter" content="Filter by title">
-      <meta name="loc:nextArticle" content="Next">
-      <meta name="loc:prevArticle" content="Previous">
-      <meta name="loc:themeLight" content="Light">
-      <meta name="loc:themeDark" content="Dark">
-      <meta name="loc:themeAuto" content="Auto">
-      <meta name="loc:changeTheme" content="Change theme">
-      <meta name="loc:copy" content="Copy">
-      <meta name="loc:downloadPdf" content="Download PDF">
-
-      <script type="module" src="./../../public/docfx.min.js"></script>
-
-      <script>
-        const theme = localStorage.getItem('theme') || 'auto'
-        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
-      </script>
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>DBTable </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="DBTable ">
+    <meta name="generator" content="docfx 2.56.2.0">
+    
+    <link rel="shortcut icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../../styles/docfx.css">
+    <link rel="stylesheet" href="../../styles/main.css">
+    <link rel="stylesheet" href="../../styles/fs-docfx.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+    <meta property="docfx:navrel" content="../../toc.html">
+    <meta property="docfx:tocrel" content="../toc.html">
+    
+    <meta property="docfx:rel" content="../../">
+    
   </head>
-
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
-    <header class="bg-body border-bottom">
-      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
-        <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../../index.html">
-            <img id="logo" class="svg" src="../../logo.svg" alt="">
-            
-          </a>
-          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
-            <i class="bi bi-three-dots"></i>
-          </button>
-          <div class="collapse navbar-collapse" id="navpanel">
-            <div id="navbar">
-              <form class="search" role="search" id="search">
-                <i class="bi bi-search"></i>
-                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../../index.html">
+                <img id="logo" class="svg" src="../../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
               </form>
             </div>
           </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
         </div>
-      </nav>
-    </header>
-
-    <main class="container-xxl">
-      <div class="toc-offcanvas">
-        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
-          <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
           </div>
-          <div class="offcanvas-body">
-            <nav class="toc" id="toc"></nav>
-          </div>
+          <ul id="pagination"></ul>
         </div>
       </div>
-
-      <div class="content">
-        <div class="actionbar">
-          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
-            <i class="bi bi-list"></i>
-          </button>
-
-          <nav id="breadcrumb"></nav>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
         </div>
-
-        <article data-uid="">
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
 <h1 id="dbtable">DBTable</h1>
 
 <p>Ein <strong>DBTable</strong> ermöglicht Komponenten den Zugriff auf eine Datenbanktabelle, die über einen Datasource angesprochen werden kann.</p>
 <p>Alle DBTables werden im Objekt-Baum (<a href="../ide/registerkarten.html#registerkarte-namespaces">Registerkarte Namespaces</a>) im Namespace <strong>FSGeneral / DBTables</strong> unterhalb des Datasources angezeigt, den der DBTable zur Verbindung mit der Datenbank verwendet.</p>
-<p>Das Erstellen und Löschen von <strong>DBTables</strong> funktioniert wie bei allen anderen Elementen (<a href="../ide/bearbeiten-von-elementen.html#elemente-erstellen">Elemente erstellen</a>, <a href="../ide/bearbeiten-von-elementen.html#elemente-l%C3%B6schen">Elemente löschen</a>).
+<p>Das Erstellen und Löschen von <strong>DBTables</strong> funktioniert wie bei allen anderen Elementen (<a href="../ide/bearbeiten-von-elementen.html#elemente-erstellen">Elemente erstellen</a>, <a href="../ide/bearbeiten-von-elementen.html#elemente-löschen">Elemente löschen</a>).
 Zuvor muss allerdings im Objekt-Baum der zu verwendende Datasource markiert werden!</p>
 <p>Durch einen Doppelklick auf ein DBTable wird das Designer-Fenster geöffnet.</p>
 <p>Erläuterungen zu den Standardfunktionen, die im Designer-Fenster für <strong>DBTables</strong> angeboten werden, finden Sie unter <a href="../ide/allgemeine-funktionalitaeten.html">Allgemeine Funktionalitäten</a>.</p>
@@ -155,9 +149,7 @@ Wird eine Größe von <code>0</code> angegeben, handelt es sich um ein Langtext-
 <p>Anzahl der Nachkommastellen.</p>
 <h4 id="checkbox-override">Checkbox Override</h4>
 <p>Wird diese Checkbox gesetzt, dann können die aus dem Metadatentyp geerbten Größen-Angaben <strong>Size</strong>, <strong>Precision</strong> und <strong>Scale</strong>, überschrieben werden.</p>
-<div class="WARNING">
-<h5>Warning</h5>
-<p>Davon sollte nur in Ausnahmefällen gebrauch gemacht werden.
+<div class="WARNING"><h5>Warning</h5><p>Davon sollte nur in Ausnahmefällen gebrauch gemacht werden.
 Zuerst sollte versucht werden, einen passenden Metadatypen zu verwenden.
 Ist keiner vorhanden, dann muss ggf. ein passender Metadatentyp erzeugt werden - insbesondere dann, wenn das mehrere Tabellen-Spalten betrifft.</p>
 <p>Auch im Customizing-Package sollte man zuerst darüber nachdenken, den zugeordneten Metadatentyp anzupassen.
@@ -165,7 +157,7 @@ Das beugt Probleme beim Übertragen von Werten in andere Spalten mit demselben M
 </div>
 <h4 id="felder-display-length--lines">Felder Display Length / Lines</h4>
 <p>In den Feldern <strong>Display MinLength</strong>, <strong>Display MaxLength</strong>, <strong>Display MinLines</strong> und <strong>Display MaxLines</strong> können die Größen-Angaben für die Form-Controls gesteuert bzw. überschrieben werden.</p>
-<p>Siehe auch <a href="../form/layout-konzept.html#gr%C3%B6%C3%9Fe-von-controls">Größe von Controls</a>.</p>
+<p>Siehe auch <a href="../form/layout-konzept.html#größe-von-controls">Größe von Controls</a>.</p>
 <h3 id="registerkarte-texts">Registerkarte Texts</h3>
 <p>Hier können Sie das zu verwendende <strong>Default-Label</strong>, die <strong>Column-Caption</strong>, der <strong>Tooltip</strong> und die <strong>Description</strong> für eine Datenbankspalte festlegen bzw. überschreiben.
 Wenn der Spalte ein Metadatentyp zugeordnet wurde, wird das Default-Label vom Metadatentyp verwendet, solange es nicht an dieser Stelle überschrieben wird.</p>
@@ -265,14 +257,12 @@ Diese Eigenschaft kann auch in Customizing Packages nachträglich gesetzt werden
 <p><img src="media/dbtable-details.png" alt="dbtable-details.png"></p>
 <p>Ist der Schalter für eine Tabelle <em>Xyz</em> gesetzt, geht Framework Studio davon aus, dass eine Tabelle <em>Xyz_H</em> (für die historischen Daten) und ein View <em>Xyz_A</em>, welcher mit Union All die Daten aus Xyz und <em>Xyz_H</em> vereint, vorhanden ist.
 Tabelle und View können von der Endanwendung (z.B. beim Update) automatisch generiert werden.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Für das Übertragen von Daten aus der Tabelle Xyz in die Historientabelle <em>Xyz_H</em> ist manuelle Programmierung nötig.</p>
+<div class="NOTE"><h5>Note</h5><p>Für das Übertragen von Daten aus der Tabelle Xyz in die Historientabelle <em>Xyz_H</em> ist manuelle Programmierung nötig.</p>
 </div>
 <p>Wird versucht, einen historischen Datensatz zu speichern, so wird eine Exception ausgelöst.</p>
 <p>Am <strong>Global Object</strong> (this.Global) gibt es einen Schalter <strong>Use History</strong>, mit dem global entschieden wird, ob beim Laden historische Daten berücksichtigt werden sollen.
 Ist der globale Schalter Use History gesetzt und an einer Tabelle ist der Schalter Use History ebenfalls gesetzt, so wird beim Laden statt auf die Originaltabelle auf den View zugegriffen.</p>
-<p>Um temporär den Historienmodus zu aktivieren, kann folgendes <em><strong>Using</strong></em> Konstrukt verwendet werden:</p>
+<p>Um temporär den Historienmodus zu aktivieren, kann folgendes <strong><em>Using</em></strong> Konstrukt verwendet werden:</p>
 <pre><code class="lang-csharp">// Historienmodus temporär erzwingen:
 using(this.Global.UseHistoryTemporarily())
 {
@@ -280,8 +270,7 @@ using(this.Global.UseHistoryTemporarily())
   ...
 
 }
-</code></pre>
-<p>Alle <strong>Components</strong>, die einen Datenbankbezug haben, bieten die Funktion <strong>GetTableName</strong> an.
+</code></pre><p>Alle <strong>Components</strong>, die einen Datenbankbezug haben, bieten die Funktion <strong>GetTableName</strong> an.
 Diese Funktion gibt den Tabellennamen inklusive Alias zurück, zum Beispiel <strong>„Artikel_A as Artikel“</strong>.
 Diese Funktion eignet sich für die Formulierung von Sub Selects.
 Für die manuelle Formulierung von Update-, Insert- oder Delete Statements kann an der Component Instanz auf <strong>QueryInfo.GetJoinInfo().FirstOrDefault().Table.TableName</strong> zugegriffen werden.</p>
@@ -306,27 +295,35 @@ Das bedeutet, dass Elemente, die editiert werden sollen, ausgecheckt und zum Üb
 In dieser Ansicht ist nicht direkt erkennbar, welche Elemente ausgecheckt sind und welche nicht.
 Sie sollten es sich deshalb zur Gewohnheit machen, Ihre Database-Elemente so schnell wie möglich wieder einzuchecken und so für andere Entwickler verfügbar zu machen.
 Tabellen können eingecheckt werden, indem Sie sie in der Tabelle auswählen und dann über das Hauptmenü <strong>Source Control</strong> / <strong>Check In</strong> wählen.</p>
-
 </article>
-
-
-        <div class="next-article d-print-none border-top" id="nextArticle"></div>
-
-      </div>
-
-      <div class="affix">
-        <nav id="affix"></nav>
-      </div>
-    </main>
-
-    <div class="container-xxl search-results" id="search-results"></div>
-
-    <footer class="border-top text-secondary">
-      <div class="container-xxl">
-        <div class="flex-fill">
-          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
         </div>
       </div>
-    </footer>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../../styles/docfx.js"></script>
+    <script type="text/javascript" src="../../styles/main.js"></script>
   </body>
 </html>

@@ -87,7 +87,7 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
-<h2 id="472-24012025---intern">4.7.2 (24.01.2025 - intern)</h2>
+<h2 id="472-07022025">4.7.2 (07.02.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.7.2_Setup_x64</li>
@@ -96,15 +96,32 @@
 <h4 id="updates">Updates</h4>
 <ul>
 <li>DevExpress wurde auf die Version 24.2.3 aktualisiert.</li>
+<li>Der HTML Client wurde auf Angular 19.1.1 upgedatet.</li>
+</ul>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Bei Klicken auf einen Link im <code>Errors and Warnings</code> Tab wird dieser farblich hervorgehoben, um zu visualisieren, dass der Link bereits besucht wurde.</li>
+<li>Bei den Aktionen <code>Open</code>, <code>Save</code> (im FS Report Designer), sowie <code>Choose Report</code> wird nun das Verzeichnis der tatsächlichen Report-Datei geöffnet, statt das Haupt-Reportverzeichnis.</li>
 </ul>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
+<li><p>2025017196 - <strong>Reporting</strong>: Im WebDesigner ist der Expression Editor nicht
+nutzbar, da weder Formeln angezeigt noch bearbeitet werden können.</p>
+</li>
+<li><p>2025017210 - <strong>Publish2Go</strong>: Wird ein Publish2Go-Paket mit mehreren
+Applications erstellt, dann enthält das Paket nur eine FSJavaClient.jnlp. In
+der Folge ziehen einige Einstellungen der Application (z.B. Java Heap Size)
+nicht korrekt.</p>
+</li>
 <li><p>2024127103 - <strong>IDE</strong>: Im Formula Converter des DevExpress Report-Designer
 werden Properties mit einem Package-Prefix nicht korrekt erkannt. Der
 Unterstrich wird durch einen Punkt erstzt.
 <code>oObject_oP01_MyColl.shtK07_MyProperty</code> wird zu
 <code>oObject.oP01.MyColl.shtK07.MyProperty</code> anstatt zu
 <code>oObject.oP01_MyColl.shtK07_MyProperty</code></p>
+</li>
+<li><p>2025017187 - <strong>IDE</strong>: Der MultiLanguageText-Editor erzeugt Excpetions, wenn es
+einen überschriebenen Text ohne passenden Text aus dem Basis-Package gibt.</p>
 </li>
 <li><p>2024096531 - <strong>DevExpress</strong>: Wird in einem Report mit Gruppen in einigen
 Positionen eine RunningSum angezigt, dann stimmt der angezeigte Wert nicht.
@@ -222,7 +239,7 @@ dass die Datenbankverknüpfungen im Crystal Report Designer gelöscht sind.</p>
 <p>Wenn Sie die Version 4.7.0 Beta 3, 2 oder 1 installiert haben, müssen Sie diese zuerst deinstallieren.
 Ein Update von diesen Versionen ist nicht möglich.</p>
 </div>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <p>Siehe <a href="neuheiten-4-7.html">Neuheiten Framework Studio 4.7</a>.</p>
 <h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#4612-06122024">Framework Studio 4.6.12</a> enthalten.

@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Namespace FS.Shared </title>
+      <title>Method TryGetExecutablePath </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Namespace FS.Shared ">
+      <meta name="title" content="Method TryGetExecutablePath ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/new/4.7/release/2/apiSpec/new?filename=FS_Shared_FSUtils_TryGetExecutablePath_.md&amp;value=---%0Auid%3A%20FS.Shared.FSUtils.TryGetExecutablePath*%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,34 +84,85 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="FS.Shared">
+        <article data-uid="FS.Shared.FSUtils.TryGetExecutablePath*">
 
-  <h1 id="FS_Shared" data-uid="FS.Shared" class="text-break">Namespace FS.Shared</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
 
-    <h3 id="classes">
-Classes
+
+
+
+<h1 id="FS_Shared_FSUtils_TryGetExecutablePath_" data-uid="FS.Shared.FSUtils.TryGetExecutablePath*" class="text-break">
+Method TryGetExecutablePath  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/2/fs/FS.Shared/FSUtils.cs/#L237"><i class="bi bi-code-slash"></i></a>
+</h1>
+
+<div class="facts text-secondary">
+  <dl><dt>Namespace</dt><dd><a class="xref" href="FS.html">FS</a>.<a class="xref" href="FS.Shared.html">Shared</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>FS.Shared.dll</dd></dl>
+</div>
+
+<div class="markdown summary"></div>
+<div class="markdown conceptual"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a id="FS_Shared_FSUtils_TryGetExecutablePath_" data-uid="FS.Shared.FSUtils.TryGetExecutablePath*"></a>
+
+<h3 id="FS_Shared_FSUtils_TryGetExecutablePath_System_String_System_String__" data-uid="FS.Shared.FSUtils.TryGetExecutablePath(System.String,System.String@)">
+  TryGetExecutablePath(string, out string)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/2/fs/FS.Shared/FSUtils.cs/#L237"><i class="bi bi-code-slash"></i></a>
 </h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="FS.Shared.FSUtils.html">FSUtils</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="FS.Shared.FrameworkApplicationException.html">FrameworkApplicationException</a></dt>
-      <dd><p>Exceptions die vom Framework geworfen werden und einen erwarteten
-Fehler darstellen sollten von dieser Klasse sein. Der Broker gibt
-diese dann als Fehler ohne StackTrace an den Client weiter.</p>
+
+<div class="markdown level1 summary"><p>Sucht eine Programmdatei im aktuellen Verzeichnis und mithilfe der PATH-Umgebungsvariable.</p>
+</div>
+<div class="markdown level1 conceptual"></div>
+
+<div class="codewrapper">
+  <pre><code class="lang-csharp hljs">public static bool TryGetExecutablePath(string executableFileName, out string foundPath)</code></pre>
+</div>
+
+<h4 class="section">Parameters</h4>
+<dl class="parameters">
+  <dt><code>executableFileName</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+  <dd><p>der Name der zu suchenden Programm-Datei. z.B. <code>&quot;cmd&quot;</code> oder <code>&quot;explorer.exe&quot;</code></p>
 </dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="FS.Shared.RowVersionInvalidException.html">RowVersionInvalidException</a></dt>
-      <dd><p>Die Component prüft beim Save automatisch, ob der Datensatz auf der Datenbank zwischenzeitlich
-von einer anderen Instanz geändert wurde – sprich, ob sich der Wert in der Spalte <strong>FSROWVERSION</strong>
-geändert hat. Wenn das der Fall ist, dann wird eine diese Exception geworfen.</p>
+  <dt><code>foundPath</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+  <dd><p>Gibt den gefundenen Pfad zurück.</p>
 </dd>
-    </dl>
+</dl>
+
+<h4 class="section">Returns</h4>
+<dl class="parameters">
+  <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+  <dd><p><code>true</code>, wenn die Programmdatei gefunden wurde.</p>
+</dd>
+</dl>
+
+
+
+
+
+
+
+
+<h4 class="section">Exceptions</h4>
+<dl class="parameters">
+  <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.argumentnullexception">ArgumentNullException</a></dt>
+  <dd><p>Es wurde ein leerer Pfad übergeben.</p>
+</dd>
+</dl>
+
 
 
 </article>

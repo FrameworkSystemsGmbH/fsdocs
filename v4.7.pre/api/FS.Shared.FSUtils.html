@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Namespace FS.Shared </title>
+      <title>Class FSUtils </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Namespace FS.Shared ">
+      <meta name="title" content="Class FSUtils ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/new/4.7/release/2/apiSpec/new?filename=FS_Shared_FSUtils.md&amp;value=---%0Auid%3A%20FS.Shared.FSUtils%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,34 +84,96 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="FS.Shared">
+        <article data-uid="FS.Shared.FSUtils">
 
-  <h1 id="FS_Shared" data-uid="FS.Shared" class="text-break">Namespace FS.Shared</h1>
-  <div class="markdown level0 summary"></div>
-  <div class="markdown level0 conceptual"></div>
-  <div class="markdown level0 remarks"></div>
 
-    <h3 id="classes">
-Classes
-</h3>
-    <dl class="jumplist">
-      <dt><a class="xref" href="FS.Shared.FSUtils.html">FSUtils</a></dt>
-      <dd></dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="FS.Shared.FrameworkApplicationException.html">FrameworkApplicationException</a></dt>
-      <dd><p>Exceptions die vom Framework geworfen werden und einen erwarteten
-Fehler darstellen sollten von dieser Klasse sein. Der Broker gibt
-diese dann als Fehler ohne StackTrace an den Client weiter.</p>
+
+  <h1 id="FS_Shared_FSUtils" data-uid="FS.Shared.FSUtils" class="text-break">
+Class FSUtils  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/2/fs/FS.Shared/FSUtils.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="FS.html">FS</a>.<a class="xref" href="FS.Shared.html">Shared</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>FS.Shared.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public static class FSUtils</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><span class="xref">FSUtils</span></div>
+    </dd>
+  </dl>
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Shared.FSUtils.EscapeCommandLineArgs.html#FS_Shared_FSUtils_EscapeCommandLineArgs_System_Collections_Generic_IEnumerable_System_String__">EscapeCommandLineArgs(IEnumerable&lt;string&gt;)</a></dt>
+    <dd><p>Wandelt die ünergebenen String-Argumente in einen string mit Command-Line-Arguments um.
+Dabei werden Leerzeichen, \ und &quot; escaped.</p>
 </dd>
-    </dl>
-    <dl class="jumplist">
-      <dt><a class="xref" href="FS.Shared.RowVersionInvalidException.html">RowVersionInvalidException</a></dt>
-      <dd><p>Die Component prüft beim Save automatisch, ob der Datensatz auf der Datenbank zwischenzeitlich
-von einer anderen Instanz geändert wurde – sprich, ob sich der Wert in der Spalte <strong>FSROWVERSION</strong>
-geändert hat. Wenn das der Fall ist, dann wird eine diese Exception geworfen.</p>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Shared.FSUtils.EscapeCommandLineArgs.html#FS_Shared_FSUtils_EscapeCommandLineArgs_System_String_">EscapeCommandLineArgs(string)</a></dt>
+    <dd><p>Wandelt den übergebenen String so um dass er als Command-Line-Argument verwendet werden kann.
+Dabei werden Leerzeichen, \ und &quot; escaped.</p>
 </dd>
-    </dl>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Shared.FSUtils.EscapeCommandLineArgs.html#FS_Shared_FSUtils_EscapeCommandLineArgs_System_String___">EscapeCommandLineArgs(params string[])</a></dt>
+    <dd><p>Wandelt die ünergebenen String-Argumente in einen string mit Command-Line-Arguments um.
+Dabei werden Leerzeichen, \ und &quot; escaped.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Shared.FSUtils.TryGetExecutablePath.html#FS_Shared_FSUtils_TryGetExecutablePath_System_String_System_String__">TryGetExecutablePath(string, out string)</a></dt>
+    <dd><p>Sucht eine Programmdatei im aktuellen Verzeichnis und mithilfe der PATH-Umgebungsvariable.</p>
+</dd>
+  </dl>
+
 
 
 </article>

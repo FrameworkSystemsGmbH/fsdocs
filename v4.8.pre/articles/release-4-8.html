@@ -96,6 +96,8 @@
 <h4 id="neuerungen">Neuerungen</h4>
 <ul>
 <li><a href="neuheiten-4-8.html#crystal-reports-abgek%C3%BCndigt">Crystal Reports abgekündigt</a></li>
+<li>Bei Klicken auf einen Link im <code>Errors and Warnings</code> Tab wird dieser farblich hervorgehoben, um zu visualisieren, dass der Link bereits besucht wurde.</li>
+<li>Bei den Aktionen <code>Open</code>, <code>Save</code> (im FS Report Designer), sowie <code>Choose Report</code> wird nun das Verzeichnis der tatsächlichen Report-Datei geöffnet, statt das Haupt-Reportverzeichnis.</li>
 </ul>
 <h4 id="updates">Updates</h4>
 <ul>
@@ -125,12 +127,23 @@ ausgeführt. Dabei zieht weiterhin das Standard-Verhalten der jeweiligen
 Datenbank (Collation).</p>
 </div>
 </li>
+<li><p>2025017196 - <strong>Reporting</strong>: Im WebDesigner ist der Expression Editor nicht
+nutzbar, da weder Formeln angezeigt noch bearbeitet werden können.</p>
+</li>
+<li><p>2025017210 - <strong>Publish2Go</strong>: Wird ein Publish2Go-Paket mit mehreren
+Applications erstellt, dann enthält das Paket nur eine FSJavaClient.jnlp. In
+der Folge ziehen einige Einstellungen der Application (z.B. Java Heap Size)
+nicht korrekt.</p>
+</li>
 <li><p>2024127103 - <strong>IDE</strong>: Im Formula Converter des DevExpress Report-Designer
 werden Properties mit einem Package-Prefix nicht korrekt erkannt. Der
 Unterstrich wird durch einen Punkt erstzt.
 <code>oObject_oP01_MyColl.shtK07_MyProperty</code> wird zu
 <code>oObject.oP01.MyColl.shtK07.MyProperty</code> anstatt zu
 <code>oObject.oP01_MyColl.shtK07_MyProperty</code></p>
+</li>
+<li><p>2025017187 - <strong>IDE</strong>: Der MultiLanguageText-Editor erzeugt Excpetions, wenn es
+einen überschriebenen Text ohne passenden Text aus dem Basis-Package gibt.</p>
 </li>
 <li><p>2024096531 - <strong>DevExpress</strong>: Wird in einem Report mit Gruppen in einigen
 Positionen eine RunningSum angezigt, dann stimmt der angezeigte Wert nicht.

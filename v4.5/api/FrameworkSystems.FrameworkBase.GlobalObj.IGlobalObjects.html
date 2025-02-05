@@ -1,152 +1,205 @@
-﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Interface IGlobalObjects
-   </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Interface IGlobalObjects
-   ">
-    <meta name="generator" content="docfx 2.56.2.0">
-    
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="stylesheet" href="../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../styles/docfx.css">
-    <link rel="stylesheet" href="../styles/main.css">
-    <link rel="stylesheet" href="../styles/fs-docfx.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <meta property="docfx:navrel" content="../toc.html">
-    <meta property="docfx:tocrel" content="toc.html">
-    
-    <meta property="docfx:rel" content="../">
-    
+      <title>Interface IGlobalObjects </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IGlobalObjects ">
+      
+      <meta name="description" content="Das GlobalObject ist von &#252;berall auf mit this.Global zu erreichen. Am GlobalObject werden alle Session-Daten verwaltet und Session-Funktionen angeboten.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/new/4.5/release/25/apiSpec/new?filename=FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects.md&amp;value=---%0Auid%3A%20FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../index.html">
-                <img id="logo" class="svg" src="../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
-        
-        <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects">
-  
-  
-  <h1 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects" class="text-break">Interface IGlobalObjects
+
+        <article data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects">
+
+
+
+  <h1 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects" data-uid="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects" class="text-break">
+Interface IGlobalObjects  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/25/fs/FrameworkBase/GlobalObj/GlobalObjects.cs/#L1167"><i class="bi bi-code-slash"></i></a>
   </h1>
-  <div class="markdown level0 summary"><p>Das GlobalObject ist von überall auf mit <code>this.Global</code> zu erreichen.
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="FrameworkSystems.html">FrameworkSystems</a>.<a class="xref" href="FrameworkSystems.FrameworkBase.html">FrameworkBase</a>.<a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.html">GlobalObj</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>FrameworkSystems.FrameworkBase.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Das GlobalObject ist von überall auf mit <code>this.Global</code> zu erreichen.
 Am GlobalObject werden alle Session-Daten verwaltet und Session-Funktionen angeboten.</p>
 </div>
-  <div class="markdown level0 conceptual"></div>
-  <h6><strong>Namespace</strong>: <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.html">FrameworkSystems.FrameworkBase.GlobalObj</a></h6>
-  <h6><strong>Assembly</strong>: FrameworkSystems.FrameworkBase.dll</h6>
-  <h5 id="FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_syntax">Syntax</h5>
+  <div class="markdown conceptual"></div>
+
   <div class="codewrapper">
     <pre><code class="lang-csharp hljs">[ComVisible(false)]
-[DocfxBrowsable]
-public interface IGlobalObjects : IFrameworkDBPerformanceCounter</code></pre>
+public interface IGlobalObjects</code></pre>
   </div>
-  <h3 id="properties">Properties
-  </h3>
-  
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.AllLanguages.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_AllLanguages">AllLanguages</a></h4>
-    <section><p><p>Gibt die Iso-Codes von allen gepflegten Sprachen zurück.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.AUHelper.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_AUHelper">AUHelper</a></h4>
-    <section><p><p>Gibt ein Objekt vom Typ <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.AUHelper.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_AUHelper">AUHelper</a> zurück. Dieses Objekt bietet Methoden
+
+
+
+
+
+
+
+
+  <dl class="typelist extensionMethods">
+    <dt>Extension Methods</dt>
+    <dd>
+  <div>
+      <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.ContentDownloadManager.CreateContent.html#FrameworkSystems_FrameworkBase_GlobalObj_ContentDownloadManager_CreateContent_FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FrameworkSystems_FrameworkBase_GlobalObj_ContentDownload_">ContentDownloadManager.CreateContent(IGlobalObjects, ContentDownload)</a>
+  </div>
+  </dd></dl>
+
+
+
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.AUHelper.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_AUHelper">AUHelper</a></dt>
+    <dd><p>Gibt ein Objekt vom Typ <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.AUHelper.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_AUHelper">AUHelper</a> zurück. Dieses Objekt bietet Methoden
 für den Bereich Benutzer- und Rechte-Verwaltung an.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.ClientInfos.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_ClientInfos">ClientInfos</a></h4>
-    <section><p><p>In diesem Dictionary sind Informationen abgelegt, die der Client beim Start der Anwendung an den Broker übertragen hat.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.LanguageHierarchy.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_LanguageHierarchy">LanguageHierarchy</a></h4>
-    <section><p><p>Gibt einen Enumeratur zurück, der die Sprach-Hierarchie beinhaltet, oder legt diesen fest.
-<p>Das sind die Sprachen in der Reihenfolge der Auswahl im Client Start.</p></p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.MLColumnLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_MLColumnLanguage">MLColumnLanguage</a></h4>
-    <section><p><p>Gibt den Iso-Code der Sprache zurück, die aktuell für die MLColumn-Properties verwendet wird.
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.AllLanguages.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_AllLanguages">AllLanguages</a></dt>
+    <dd><p>Gibt die Iso-Codes von allen gepflegten Sprachen zurück.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.ClientInfos.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_ClientInfos">ClientInfos</a></dt>
+    <dd><p>In diesem Dictionary sind Informationen abgelegt, die der Client beim Start der Anwendung an den Broker übertragen hat.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.LanguageHierarchy.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_LanguageHierarchy">LanguageHierarchy</a></dt>
+    <dd><p>Gibt einen Enumeratur zurück, der die Sprach-Hierarchie beinhaltet, oder legt diesen fest.</p>
+<p>Das sind die Sprachen in der Reihenfolge der Auswahl im Client Start.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.MLColumnLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_MLColumnLanguage">MLColumnLanguage</a></dt>
+    <dd><p>Gibt den Iso-Code der Sprache zurück, die aktuell für die MLColumn-Properties verwendet wird.
 Normalerweise handelt es sich dabei um die <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SelectedLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SelectedLanguage">SelectedLanguage</a>.
-Mit der Methode <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.UseMLColumnLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_UseMLColumnLanguage_System_String_System_Action_">UseMLColumnLanguage(String, Action)</a> kann die Sprache vorrübergebend geändert werden.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.ocGlobal.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_ocGlobal">ocGlobal</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.ReportingSoftware.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_ReportingSoftware">ReportingSoftware</a></h4>
-    <section><p><p>Welche Software beim Druck bevorzugt wird.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SafeInitializing.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SafeInitializing">SafeInitializing</a></h4>
-    <section><p><p>Gibt zurück, ob der Safe-Initialize-Modus aktiv ist.
+Mit der Methode <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.UseMLColumnLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_UseMLColumnLanguage_System_String_System_Action_">UseMLColumnLanguage(string, Action)</a> kann die Sprache vorrübergebend geändert werden.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.ReportingSoftware.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_ReportingSoftware">ReportingSoftware</a></dt>
+    <dd><p>Welche Software beim Druck bevorzugt wird.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SafeInitializing.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SafeInitializing">SafeInitializing</a></dt>
+    <dd><p>Gibt zurück, ob der Safe-Initialize-Modus aktiv ist.
 Dieser Modus wird mithilfe einer Einstellung im Start-Workflow aktiviert.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SelectedLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SelectedLanguage">SelectedLanguage</a></h4>
-    <section><p><p>Gibt den 2-Zeichen IsoCode der ersten Sprache in der <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.LanguageHierarchy.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_LanguageHierarchy">LanguageHierarchy</a> zurück oder legt diesen fest.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SessionData.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SessionData">SessionData</a></h4>
-    <section><p><p>Speichert verschlüsselte Schlüssel-Werte-Paare für den aktuellen Client.</p>
-</p></section>
-  
-  <h3 id="methods">Methods
-  </h3>
-  
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.ClearDynamicDragSources.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_ClearDynamicDragSources">ClearDynamicDragSources()</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication">CloseApplication()</a></h4>
-    <section><p><p>Schließt die Anwendung. Der Benutzer wird gefragt, ob er die Anwendung beenden möchte.
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SelectedLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SelectedLanguage">SelectedLanguage</a></dt>
+    <dd><p>Gibt den 2-Zeichen IsoCode der ersten Sprache in der <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.LanguageHierarchy.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_LanguageHierarchy">LanguageHierarchy</a> zurück oder legt diesen fest.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SessionData.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SessionData">SessionData</a></dt>
+    <dd><p>Speichert verschlüsselte Schlüssel-Werte-Paare für den aktuellen Client.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.ocGlobal.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_ocGlobal">ocGlobal</a></dt>
+    <dd></dd>
+  </dl>
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.ClearDynamicDragSources.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_ClearDynamicDragSources">ClearDynamicDragSources()</a></dt>
+    <dd></dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication">CloseApplication()</a></dt>
+    <dd><p>Schließt die Anwendung. Der Benutzer wird gefragt, ob er die Anwendung beenden möchte.
 An den geöffneten Forms wird die Methode <code>IsApplicationQuitAllowed</code> aufgerufen und eine
 entsprechende Message-Box ausgegeben bzw. das Schließen der Anwendung verhindert.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_">CloseApplication(FrameworkCloseMode)</a></h4>
-    <section><p><p>Wird als closeMode das Flag <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html#FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_Restart">Restart</a> angegeben, so wird ein Neustart des
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_">CloseApplication(FrameworkCloseMode)</a></dt>
+    <dd><p>Wird als closeMode das Flag <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html#FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_Restart">Restart</a> angegeben, so wird ein Neustart des
 Clients veranlasst. Allerdings darf ein Neustart nur unter der Bedingung ausgeführt werden,
 dass jedes aktuell laufende Ereignis eines der folgenden ist:</p>
 <ul>
@@ -160,95 +213,112 @@ modalen Dialog geöffnet haben.Solange der Dialog offen ist, zählt das Ereignis
 <p>Zusätzlich gibt es das Flag <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html#FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_KeepUserLogin">KeepUserLogin</a>. Wird <a class="xref" href="FrameworkSystems.FrameworkExceptions.FrameworkCloseMode.html#FrameworkSystems_FrameworkExceptions_FrameworkCloseMode_Restart">Restart</a>
 mit diesem Flag kombiniert (bitweise Oder-Verknüpfung), so wird beim Neustart der User Token
 in die neue Sitzung übernommen und es ist kein erneuter Login erforderlich.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_System_String_">CloseApplication(String)</a></h4>
-    <section><p><p>Schließt die Anwendung unmittelbar. Es wird keine weitere Prüfung durchgeführt und der
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CloseApplication.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CloseApplication_System_String_">CloseApplication(string)</a></dt>
+    <dd><p>Schließt die Anwendung unmittelbar. Es wird keine weitere Prüfung durchgeführt und der
 Benutzer hat keine Möglichkeit die Aktion abzubrechen. Am Client wird dabei die übergebene
 Message ausgegeben.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CreateComponent.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CreateComponent_System_String_">CreateComponent(String)</a></h4>
-    <section><p><p>Erzeugt eine neue Component mit dem übergebenen Namen.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.EndSafeInitialize.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_EndSafeInitialize">EndSafeInitialize()</a></h4>
-    <section><p><p>Deaktiviert den <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SafeInitializing.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SafeInitializing">SafeInitializing</a> Modus.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLKeyText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(MLKey, Object[])</a></h4>
-    <section><p><p>Gibt ein <a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.html">MLKeyText</a>-Objekt mit dem formatierten Text und dem MLKey zurück.
-Dabei wird ein <code>String.<span class="xref">System.String.Format(System.String,System.Object[])</span></code>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.CreateComponent.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_CreateComponent_System_String_">CreateComponent(string)</a></dt>
+    <dd><p>Erzeugt eine neue Component mit dem übergebenen Namen.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.EndSafeInitialize.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_EndSafeInitialize">EndSafeInitialize()</a></dt>
+    <dd><p>Deaktiviert den <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SafeInitializing.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SafeInitializing">SafeInitializing</a> Modus.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLKeyText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(MLKey, params object[])</a></dt>
+    <dd><p>Gibt ein <a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.html">MLKeyText</a>-Objekt mit dem formatierten Text und dem MLKey zurück.
+Dabei wird ein <code>String.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string.format#system-string-format(system-string-system-object())">Format(string, params object[])</a></code>
 mit den übergebenen Argumenten ausgeführt.
 Für die Fomatierung der übergebenen Argumente wird die Client-Culture verwendet.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLKeyText_System_IFormatProvider_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(IFormatProvider, MLKey, Object[])</a></h4>
-    <section><p><p>Gibt ein <a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.html">MLKeyText</a>-Objekt mit dem formatierten Text und dem MLKey zurück.
-Dabei wird ein <code>String.<span class="xref">System.String.Format(System.String,System.Object[])</span></code>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLKeyText_System_IFormatProvider_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(IFormatProvider, MLKey, params object[])</a></dt>
+    <dd><p>Gibt ein <a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.html">MLKeyText</a>-Objekt mit dem formatierten Text und dem MLKey zurück.
+Dabei wird ein <code>String.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string.format#system-string-format(system-string-system-object())">Format(string, params object[])</a></code>
 mit den übergebenen Argumenten ausgeführt.
 Für die Fomatierung der übergebenen Argumente wird die übergebene Culture verwendet.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLText(MLKey, Object[])</a></h4>
-    <section><p><p>Übersetz einen MLKey in einen Text. Dabei wird ein <code>String.<span class="xref">System.String.Format(System.String,System.Object[])</span></code>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLText(MLKey, params object[])</a></dt>
+    <dd><p>Übersetz einen MLKey in einen Text. Dabei wird ein <code>String.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string.format#system-string-format(system-string-system-object())">Format(string, params object[])</a></code>
 mit den übergebenen Argumenten ausgeführt.
 Für die Fomatierung der übergebenen Argumente wird die Client-Culture verwendet.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLText_System_IFormatProvider_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLText(IFormatProvider, MLKey, Object[])</a></h4>
-    <section><p><p>Übersetz einen MLKey in einen Text. Dabei wird ein <code>String.<span class="xref">System.String.Format(System.String,System.Object[])</span></code>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLText_System_IFormatProvider_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLText(IFormatProvider, MLKey, params object[])</a></dt>
+    <dd><p>Übersetz einen MLKey in einen Text. Dabei wird ein <code>String.<a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string.format#system-string-format(system-string-system-object())">Format(string, params object[])</a></code>
 mit den übergebenen Arumenten ausgeführt.
 Für die Fomatierung der übergebenen Argumente wird die übergebene Culture verwendet.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetCodeDirectory.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetCodeDirectory">GetCodeDirectory()</a></h4>
-    <section><p><p>Liefert den Pfad des Verzeichnisses, in dem die Anwendung läuft.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLKeyText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_">GetMLKeyText(MLKey)</a></h4>
-    <section><p><p>Diese Methode gibt ein <a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.html">MLKeyText</a>-Objekt zurück, welches neben dem Text auch den übergebenen <code>MLKey</code>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetCodeDirectory.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetCodeDirectory">GetCodeDirectory()</a></dt>
+    <dd><p>Liefert den Pfad des Verzeichnisses, in dem die Anwendung läuft.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLKeyText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_">GetMLKeyText(MLKey)</a></dt>
+    <dd><p>Diese Methode gibt ein <a class="xref" href="FrameworkSystems.FrameworkExceptions.MultiLanguage.MLKeyText.html">MLKeyText</a>-Objekt zurück, welches neben dem Text auch den übergebenen <code>MLKey</code>
 beinhaltet. Das kann hilfreich sein, wenn der MLKey interessant ist, um ihn z.B. als Fehler-Code zu verwenden.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_">GetMLText(MLKey)</a></h4>
-    <section><p><p>Ermittelt für den übergebenen <code>MLKey</code> den Text. Es wird die aktuell in der Session gesetzte Sprach-Hierarchie verwendet.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_String_">GetMLText(MLKey, String)</a></h4>
-    <section><p><p>Diese Methode ermittelt für den übergebenen <code>MLKey</code> den Text für die übergebene Sprache.
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_">GetMLText(MLKey)</a></dt>
+    <dd><p>Ermittelt für den übergebenen <code>MLKey</code> den Text. Es wird die aktuell in der Session gesetzte Sprach-Hierarchie verwendet.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_String_">GetMLText(MLKey, string)</a></dt>
+    <dd><p>Diese Methode ermittelt für den übergebenen <code>MLKey</code> den Text für die übergebene Sprache.
 Es erfolgt kein Fallback auf eine andere Sprache.</p>
-</p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.RemoveDynamicDragSource.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_RemoveDynamicDragSource_FrameworkSystems_FrameworkBase_Metadatatype_MLContainer_">RemoveDynamicDragSource(MLContainer)</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SetDynamicDragSource.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SetDynamicDragSource_FrameworkSystems_FrameworkBase_Metadatatype_MLContainer_System_Func_FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_System_Object__">SetDynamicDragSource(MLContainer, Func&lt;IDevFrameworkBaseObject, Object&gt;)</a></h4>
-    <section><p></section>
-    <h4><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.UseMLColumnLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_UseMLColumnLanguage_System_String_System_Action_">UseMLColumnLanguage(String, Action)</a></h4>
-    <section><p><p>Verwendet für MLColumn-Properties während der übergenenen Action die angegebene Sprache.</p>
-</p></section>
-  
-  <h3 id="extensionmethods">Extension Methods</h3>
-  <div>
-      <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.ContentDownloadManager.CreateContent.html#FrameworkSystems_FrameworkBase_GlobalObj_ContentDownloadManager_CreateContent_FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FrameworkSystems_FrameworkBase_GlobalObj_ContentDownload_">ContentDownloadManager.CreateContent(IGlobalObjects, ContentDownload)</a>
-  </div>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.RemoveDynamicDragSource.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_RemoveDynamicDragSource_FrameworkSystems_FrameworkBase_Metadatatype_MLContainer_">RemoveDynamicDragSource(MLContainer)</a></dt>
+    <dd></dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SetDynamicDragSource.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SetDynamicDragSource_FrameworkSystems_FrameworkBase_Metadatatype_MLContainer_System_Func_FrameworkSystems_FrameworkBase_IDevFrameworkBaseObject_System_Object__">SetDynamicDragSource(MLContainer, Func&lt;IDevFrameworkBaseObject, object&gt;)</a></dt>
+    <dd></dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.UseMLColumnLanguage.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_UseMLColumnLanguage_System_String_System_Action_">UseMLColumnLanguage(string, Action)</a></dt>
+    <dd><p>Verwendet für MLColumn-Properties während der übergenenen Action die angegebene Sprache.</p>
+</dd>
+  </dl>
+
+
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
-            </div>
-          </div>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../styles/docfx.js"></script>
-    <script type="text/javascript" src="../styles/main.js"></script>
+    </footer>
   </body>
 </html>

@@ -1,84 +1,90 @@
-﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>FS Report Designer </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="FS Report Designer ">
-    <meta name="generator" content="docfx 2.56.2.0">
-    
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <link rel="stylesheet" href="../../styles/fs-docfx.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
-    
-    <meta property="docfx:rel" content="../../">
-    
+      <title>FS Report Designer </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="FS Report Designer ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.6/release/14/docs/doc/reporting/report-designer.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" class="svg" src="../../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
-        
-        <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+
+        <article data-uid="">
 <h1 id="fs-report-designer">FS Report Designer</h1>
 
 <p>Der <strong>FS Report Designer</strong> ist für den Einsatz mit Framework Studio konzipiert.
@@ -92,7 +98,9 @@ Dieser kann auch komplette Websites übersetzen.</p>
 Durch die Integration in FS sind keine weiteren Einstellungen notwendig.</p>
 <p>Die Daten, welche im FS Report Designer verwendet werden können, werden durch die DataSource definiert.
 Hier müssen keine Haken gesetzt werden, da DevExpress® auf alle Daten zugreift und selbst nur die verwendeten Daten zieht.</p>
-<div class="NOTE"><h5>Note</h5><p>Falls sich die Datenquellen oder die Komponenten ändern, die als Datenquelle genutzt werden, muss das Report Document und die betroffenen Interfaces der Datenquellen neu kompiliert werden. Dies zeigt Framework Studio an.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Falls sich die Datenquellen oder die Komponenten ändern, die als Datenquelle genutzt werden, muss das Report Document und die betroffenen Interfaces der Datenquellen neu kompiliert werden. Dies zeigt Framework Studio an.</p>
 <p><img src="media/compile-message-box.PNG" alt="MessageBox Report Compile"></p>
 </div>
 <h2 id="allgemeine-verhaltensweisen-des-fsreportdesigners">Allgemeine Verhaltensweisen des FSReportDesigners</h2>
@@ -128,7 +136,9 @@ Neue Dateien müssen aus Framework Studio heraus erzeugt werden.</p>
 <h3 id="direkter-aufruf">Direkter Aufruf</h3>
 <p>Bei einem direkten Aufruf der FSReportDesigner.exe, z.B. per Doppelklick, oder beim Aufruf mit einer ungültigen .repx-Datei, wird ein Auswahldialog für eine .repx geöffnet.</p>
 <p>Ein Öffnen einer .repx-Datei per Windows file association oder durch drag &amp; drop einer .repx-Datei auf die .exe öffnet die besagte Datei und verhält sich ansonsten identisch.</p>
-<div class="IMPORTANT"><h5>Important</h5><p>Bei einem Standalone-Aufruf des Report-Designers steht normalerweise keine Datenquelle zur Verfügung. Um sie trotzdem nutzen zu können, müssen die Argumente &quot;--type&quot;, &quot;--assembly&quot; und &quot;--folder&quot; angegeben sein.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Bei einem Standalone-Aufruf des Report-Designers steht normalerweise keine Datenquelle zur Verfügung. Um sie trotzdem nutzen zu können, müssen die Argumente &quot;--type&quot;, &quot;--assembly&quot; und &quot;--folder&quot; angegeben sein.</p>
 </div>
 <h3 id="kommandozeilen-argumente">Kommandozeilen-Argumente</h3>
 <p>Der FSReportDesigner ist von der Kommandozeile aus granularer aufrufbar. Die folgenden Argumente stehen zur Verfügung:</p>
@@ -136,9 +146,9 @@ Neue Dateien müssen aus Framework Studio heraus erzeugt werden.</p>
 <li><code>--report</code>: Muss in der Kommandozeile angegeben werden. Definiert den voll qualifizierten Pfad zu der zu editierenden .repx-Datei.</li>
 <li><code>--crystal</code> (optional): Voll qualifizierter Pfad der Crystal Reports Datei, um features wie &quot;<a href="report-migration.html#open-crystal-report">Open Crystal Report</a>&quot; zu ermöglichen.</li>
 <li><code>--designer</code> (optional): Bestimmt den voll qualifizierten Pfad zur .exe des Crystal Designers, um features wie &quot;<a href="report-migration.html#open-crystal-report">Open Crystal Report</a>&quot; zu ermöglichen.</li>
-<li><code>--type</code>: Der voll qualifizierte type name der Datenquelle, z.B. &#39;NV.ERP.MM.Sales.rptSalesDocument_Rptx&#39;</li>
-<li><code>--assembly</code>: Der Name der assembly-Datei, die den bereits angegebenen Typen beinhaltet, in diesem Beispiel also &#39;NV.ERP.MM.Sales_RDT.dll&#39;.</li>
-<li><code>--folder</code>: Das Verzeichnis, welches die benötigten Assembly-Dateien beinhaltet - üblicherweise &#39;\bin\&#39; im Compile-Verzeichnis.</li>
+<li><code>--type</code>: Der voll qualifizierte type name der Datenquelle, z.B. 'NV.ERP.MM.Sales.rptSalesDocument_Rptx'</li>
+<li><code>--assembly</code>: Der Name der assembly-Datei, die den bereits angegebenen Typen beinhaltet, in diesem Beispiel also 'NV.ERP.MM.Sales_RDT.dll'.</li>
+<li><code>--folder</code>: Das Verzeichnis, welches die benötigten Assembly-Dateien beinhaltet - üblicherweise '\bin\' im Compile-Verzeichnis.</li>
 <li><code>-l</code>/<code>--locked</code> (optional): Setzt den Report in einen readonly-modus, welcher Änderungen und das Speichern verhindert.</li>
 </ul>
 <h2 id="einstellungen-im-winforms-designer">Einstellungen im Winforms-Designer</h2>
@@ -156,7 +166,9 @@ Neue Dateien müssen aus Framework Studio heraus erzeugt werden.</p>
 <p>Der Designer nutzt ein Raster (Grid), an welchem sich Controls per Snapping ausrichten, d.h. Objekte rasten an den Grid-Linien ein.</p>
 <p><img src="media/grid-snapping.png" alt="Grid Snapping"></p>
 <p>Einstellungen des Grids, wie dessen Größe, Snapping Mode und bei welchen Kästchen Snapping angewandt wird, werden von FS aus festgesetzt und an den Designer übergeben.</p>
-<div class="NOTE"><h5>Note</h5><p>Änderungen der Grid-Einstellungen gehen beim erneuten Öffnen verloren und könnten zu Verschiebungen von Controls führen – wird deshalb nicht empfohlen.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Änderungen der Grid-Einstellungen gehen beim erneuten Öffnen verloren und könnten zu Verschiebungen von Controls führen – wird deshalb nicht empfohlen.</p>
 </div>
 <h3 id="maße">Maße</h3>
 <p>Die Maßeinheit ist gleichermaßen auf Zehntelmillimeter festgesetzt, obwohl auch Pixel und Hunderstel-Inches unterstützt werden.</p>
@@ -197,7 +209,7 @@ Ist kein Control ausgewählt, finden sich hier die Einstellungen des Reports sel
 <h2 id="report-mit-bands-strukturieren">Report mit Bands strukturieren</h2>
 <p>Ein Report Layout besteht aus Bändern, die Report-Controls enthalten und deren Position auf den Dokumentseiten festlegen.
 Sie bilden die Struktur eines Reports.
-Verschiedene Bands haben verschiedene Funktionen und demnach auch verschiedene Eigenschaften, welche im folgenden Kapitel erörtert werden. </p>
+Verschiedene Bands haben verschiedene Funktionen und demnach auch verschiedene Eigenschaften, welche im folgenden Kapitel erörtert werden.</p>
 <p>Dies ist eine Übersicht über die verschiedenen Bands, welche zur Verfügung stehen:</p>
 <p><img src="media/devexpress-insert-bands.png" alt="Report Editor"></p>
 <p><strong>Ein leerer Report enthält die folgenden Bereiche:</strong></p>
@@ -215,7 +227,7 @@ Verschiedene Bands haben verschiedene Funktionen und demnach auch verschiedene E
 <p>Wie ReportHeader/ -Footer, nur einmal pro Seite.
 Sie verfügen über die Eigenschaft <strong>Print On</strong>, die es erlaubt beispielsweise nur zu drucken, falls kein Report Header auf derselben Seite ist.</p>
 <h3 id="detail">Detail</h3>
-<p>Das Detail Band hat besondere Eigenschaften. In ihm wird automatisch über eine Collection iteriert, falls diese als Data Member <strong>am Report selbst</strong> eingestellt ist. </p>
+<p>Das Detail Band hat besondere Eigenschaften. In ihm wird automatisch über eine Collection iteriert, falls diese als Data Member <strong>am Report selbst</strong> eingestellt ist.</p>
 <p>Der Data Member bezeichnet die primäre Collection, über die iteriert werden soll. Alle Bänder unter dem Detail Band müssen auch in der Datenquelle dem Data Member untergeordnet sein oder müssen ihre Felder mit vollem Namen qualifizieren.</p>
 <p>Als Beispiel: In diesem Report ist oSalesDocument.oSalesOrderColl als Data Member definiert.</p>
 <p>Um auf das direkt am oSalesDocument (also über dem Data Member) hängende decTaxRa-te1 zuzugreifen, muss voll über oSalesDocument.decTaxRate1 qualifiziert werden.</p>
@@ -241,11 +253,13 @@ In der Gruppierung lassen sich mehrere Felder und Sortierungen kombinieren. Übe
 <p>Das Ergebnis der jeweiligen Summe bestimmt daraufhin, in welcher Reihenfolge die einzelnen Gruppen gedruckt werden.
 Es wird empfohlen, die Positionen des Reports mit einer Gruppe zu umschließen.
 Gruppen bieten Features explizit für dieses Szenario an, z.B. „Repeat Every Page“. Diese Checkbox erlaubt Überschriften in dem Group Header zu platzieren und sie auf jeder Seite erneut zu drucken, unabhängig des Page Headers.</p>
-<div class="TIP"><h5>Tip</h5><p>Nur die Detail- und Group Bands können zur Anzeige dynamischer Datenquelleninhalte verwendet werden.
+<div class="TIP">
+<h5>Tip</h5>
+<p>Nur die Detail- und Group Bands können zur Anzeige dynamischer Datenquelleninhalte verwendet werden.
 Andere Bands zeigen Titel, Zusammenfassungen und andere zusätzliche Informationen an.</p>
 </div>
 <h4 id="sorting-summary-in-group-bands">Sorting Summary in Group Bands</h4>
-<p>Group Bands bieten ein sog. Sorting Summary an. </p>
+<p>Group Bands bieten ein sog. Sorting Summary an.</p>
 <p><img src="media/group-header-sorting-summary.png" alt="Group Header Sorting Summary"></p>
 <p>Das Sorting Summary wird nicht genutzt, um z.B. eine Gesamtsumme darzustellen, sondern dient zur Bestimmung der <strong>Sortierreihenfolge</strong> innerhalb der Gruppe.
 Die folgende Konfiguration, beispielsweise, sortiert die Datensätze der Gruppe nach der jeweiligen Anzahl der ClientAddressLine-Datensätze:</p>
@@ -307,7 +321,7 @@ Diese Methode ermöglicht das Umlenken eines Subreports auf eine eigene Customiz
 DevExpress® bietet die <a href="https://docs.devexpress.com/XtraReports/402370/detailed-guide-to-devexpress-reporting/use-report-controls/manipulate-report-controls/convert-labels-to-table">Funktion &quot;Convert to Table&quot;</a> an, welche für eine Anordnung verwendet werden kann.</p>
 <ol>
 <li>Markieren Sie die entsprechenden Labels. Diese dürfen sich horizontal nicht überschneiden.</li>
-<li>Über das Kontextmenü (Rechtsklick) können Sie die Funktion &quot;Convert to Table&quot; ausführen. </li>
+<li>Über das Kontextmenü (Rechtsklick) können Sie die Funktion &quot;Convert to Table&quot; ausführen.</li>
 </ol>
 <p>Nun sind alle Labels auf einer Höhe ausgerichtet.
 Sollten Sie keine Tabelle benötigen, kann auf gleichem Weg die Tabelle wieder in einzelne Labels umgewandelt werden.
@@ -334,19 +348,21 @@ Die Beispiele basieren auf dem Repository FSDemo und können mithilfe dessen nac
 Anschließend muss dieses FSDemo mit dem User &quot;user1&quot; gestartet werden.
 Es genügt die Anmeldung am Default-Package.</p>
 <ol>
-<li><p>An der Form <code>frmCompany</code> ein Event zum Print-Button &quot;OnClick&quot;-Event hinzufügen und folgenden Code in die Methode einfügen.</p>
+<li>An der Form <code>frmCompany</code> ein Event zum Print-Button &quot;OnClick&quot;-Event hinzufügen und folgenden Code in die Methode einfügen.</li>
+</ol>
 <pre><code class="lang-csharp">protected virtual void FE_btnPrint_OnClick(FrameworkButtonClickEventArgs e)
 {
- var rpt = new rptCompanyList(this.Global, rptCompanyList.Reports.SideBySide, ExportFormat.PDF);
- rpt.oCompanyColl = this.oCompanyColl;
+  var rpt = new rptCompanyList(this.Global, rptCompanyList.Reports.SideBySide, ExportFormat.PDF);
+  rpt.oCompanyColl = this.oCompanyColl;
 
- var articleColl = FS.Demo.Article.cdArticleCollFactory.Create(this.Global);
- articleColl.Load();
- rpt.oArticleColl = articleColl;
+  var articleColl = FS.Demo.Article.cdArticleCollFactory.Create(this.Global);
+  articleColl.Load();
+  rpt.oArticleColl = articleColl;
 
- rpt.Print();
+  rpt.Print();
 }
-</code></pre></li>
+</code></pre>
+<ol start="2">
 <li>Das Property <em>Visibility</em> des Print-Buttons auf <em>Visible</em> setzen.</li>
 <li>Einen Report <code>rptCompanyList</code> im Namespace <em>Company</em> anlegen.</li>
 <li>Dem Report in der Registerkarte <em>DataSource</em> die DataSources oArticleColl und oCompanyColl zuweisen.</li>
@@ -372,7 +388,9 @@ Es genügt die Anmeldung am Default-Package.</p>
 Über das Fenster <em>Report Explorer</em> kann der Haupt-Report (hier <code>report</code>) ausgewählt werden und anschließend in den Properties der Data Member eingesehen werden (siehe folgenden Screenshot).</p>
 <p><img src="media/report-datamember-example.png" alt="Data Member des Reports"></p>
 <p>Sobald eine Datenquelle ausgewählt wurde, wird im Report im oberen Teil des Detail Reports der komplette Datenpfad angezeigt.</p>
-<div class="WARNING"><h5>Warning</h5><p>Falls dem Report über die DataSource zwei Collections übergeben wurden, kann im Haupt-Report der Data Member auf eine andere Collection geändert werden.
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Falls dem Report über die DataSource zwei Collections übergeben wurden, kann im Haupt-Report der Data Member auf eine andere Collection geändert werden.
 Dies wird jedoch <strong>nicht empfohlen</strong>, da hierdurch bestehende DetailReports auf falsche Datenfelder verweisen können.
 Sind die Datenfelder in der neu zugewiesenen Collection nicht vorhanden, führt dies zu Fehlern.</p>
 </div>
@@ -420,7 +438,7 @@ Diesen DetailReport können Sie als Übung selbst hinzufügen und sich am bereit
 <li>DetailReport oCompanyColl.oSalesOrderMasterColl: Iteration über die verschiedenen Bestellungen</li>
 </ul>
 <p><strong>Report im FSReportDesigner:</strong>
-<img src="media/devexpress-report-example.png" alt="Ergebnis Report im Designer"> </p>
+<img src="media/devexpress-report-example.png" alt="Ergebnis Report im Designer"></p>
 <p><strong>Ergebnis:</strong></p>
 <p><img src="media/devexpress-report-finish.png" alt="Ergebnis kombinierter Report"></p>
 <h3 id="datenanzeige-direkt-im-detail-band">Datenanzeige direkt im Detail Band</h3>
@@ -449,7 +467,9 @@ Ansonsten werden die Positionen nur nebeneinander angezeigt, wenn beispielsweise
 <h3 id="ansprechpartner-im-embedded-subreport">Ansprechpartner im Embedded Subreport</h3>
 <p>Es gibt die Möglichkeiten die Anzeige der Bestellungen und Ansprechpartner nicht über Detail Reports, sondern mittels Embedded Subreports zu lösen.
 Ziel ist, dass die Ansprechpartner neben den Bestellungen und Positionen angezeigt werden.</p>
-<div class="NOTE"><h5>Note</h5><p>Die nachfolgende Vorgehensweise ist auf Basis des obigen Reports. Die Überschriften sind im Embedded Subreport mit grünem Hintergrund versehen.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die nachfolgende Vorgehensweise ist auf Basis des obigen Reports. Die Überschriften sind im Embedded Subreport mit grünem Hintergrund versehen.</p>
 </div>
 <ol>
 <li>Im Detail Band unterhalb der Firmen Infos (grauer Hintergrund) zwei Embedded Subreports hinzufügen.</li>
@@ -472,7 +492,9 @@ Im rechten PropertyGrid muss nun bei <em>Binding</em> auf die ROWID der oCompany
 <img src="media/devexpress-parameter-binding-editor.png" alt="Parameter Binding Collection Editor"></li>
 <li>Das Fenster mit Ok schließen.</li>
 </ol>
-<div class="NOTE"><h5>Note</h5><p>Nur wenn sie zusätzlich zum Parameter auch den <strong>Filter String</strong> anlegen, wird nach der ROWID gefiltert. Ansonsten werden bspw. für alle Firmen alle Ansprechpartner untereinander angezeigt.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Nur wenn sie zusätzlich zum Parameter auch den <strong>Filter String</strong> anlegen, wird nach der ROWID gefiltert. Ansonsten werden bspw. für alle Firmen alle Ansprechpartner untereinander angezeigt.</p>
 </div>
 <p>Auf diesem Screenshot ist zu sehen, wie nun der embedded Subreport auf dem finalen Report aussieht:</p>
 <p><img src="media/devexpress-final-embedded-contact.png" alt="Finaler Report mit Embedded Subreport contact"></p>
@@ -488,7 +510,7 @@ Mit den bisherigen Beispielen können Sie sich nun selbst ausprobieren oder der 
 <img src="media/devexpress-embedded-orders.png" alt="Embedded Subreport Orders"></li>
 <li>Zusätzlich muss noch ein Parameter <code>Company_ROWID</code> hinzugefügt werden.</li>
 <li>Nennen Sie den hier hinzugefügten Embedded Subreport bitte ebenfalls <code>embeddedSubreportControl_OrderPos</code>, da dieser im Folgenden so genannt wird.</li>
-<li>Anschließend müssen im Report <code>embeddedSubreportControl_Orders</code> auf das oberste Report Element im <em>Report Explorer</em> klicken und den Filter String auf 
+<li>Anschließend müssen im Report <code>embeddedSubreportControl_Orders</code> auf das oberste Report Element im <em>Report Explorer</em> klicken und den Filter String auf
 <code>[ROWID] = ?Company_ROWID</code>
 setzen.</li>
 <li>Als letzten Schritt müssen Sie zurück in den Haupt-Report und beim Control <code>embeddedSubreportControl_Orders</code> auf das Zahnrad-Icon klicken und <em>Edit Parameter Bindings</em> auswählen.
@@ -504,40 +526,32 @@ Im nun geöffneten Fenster können Sie wieder über den Button <em>Sync</em> den
 <li>Als nächstes muss erneut ein Filter String zum obersten Report Element hinzugefügt werden. Dieser lautet wie folgt: <code>[ROWID] = ?Company_ROWID</code></li>
 <li>Nun navigieren Sie zum <code>embeddedSubreportControl_Orders</code> und legen am <code>embeddedSubreportControl_OrderPos</code> Control die beiden Parameter Bindings an.
 Das Binding der Company_ROWID ist identisch zu den Beispiele zuvor.
-Das Binding der Order_ROWID lautet: oCompanyColl.oSalesOrderMasterColl.ROWID 
+Das Binding der Order_ROWID lautet: oCompanyColl.oSalesOrderMasterColl.ROWID
 <img src="media/devexpress-embedded-orderpos-parameters.png" alt="Parameter Binding im embeddedSubreportControl_OrderPos"></li>
 </ol>
 <p><strong>Der finale Report sieht nun wie folgt aus:</strong>
 <img src="media/devexpress-finaler-report-example.png" alt="Finaler Report"></p>
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
-            </div>
-          </div>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../styles/main.js"></script>
+    </footer>
   </body>
 </html>

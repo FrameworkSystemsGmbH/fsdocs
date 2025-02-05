@@ -1,84 +1,90 @@
-﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Authentication Service </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Authentication Service ">
-    <meta name="generator" content="docfx 2.56.2.0">
-    
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <link rel="stylesheet" href="../../styles/fs-docfx.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
-    
-    <meta property="docfx:rel" content="../../">
-    
+      <title>Authentication Service </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Authentication Service ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/2/docs/doc/authentication-service/authentication-service-common.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" class="svg" src="../../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
-        
-        <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+
+        <article data-uid="">
 <h1 id="authentication-service">Authentication Service</h1>
 
 <h2 id="update">Update</h2>
@@ -89,12 +95,16 @@
 Dazu kann der <em>AuthenticationServiceConfigEditor</em> verwendet werden (siehe <a href="#deinstallation">Deinstallation</a>).</p>
 </li>
 <li><p>Kopieren Sie die neuen Dateien aus dem Ordner <code>bin\</code> in den Zielordner.</p>
-<div class="NOTE"><h5>Note</h5><p>Die Datei <code>AuthenticationService.exe.config</code> im Zielverzeichnis muss erhalten bleiben.
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die Datei <code>AuthenticationService.exe.config</code> im Zielverzeichnis muss erhalten bleiben.
 Darin sind alle Konfigurationseinstellungen für den Authentication Service gespeichert.</p>
 </div>
 </li>
 <li><p>Installieren Sie den neuen Authentication Service wie im Abschnitt <a href="#installation">Installation</a> ab 3. beschrieben.</p>
-<div class="NOTE"><h5>Note</h5><p>Auch wenn Sie im <em>AuthenticationServiceConfigEditor</em> keine Änderungen vornehmen, speichern Sie in jeden Fall mit der Funktion <em>Save Changes</em>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Auch wenn Sie im <em>AuthenticationServiceConfigEditor</em> keine Änderungen vornehmen, speichern Sie in jeden Fall mit der Funktion <em>Save Changes</em>.</p>
 </div>
 </li>
 </ol>
@@ -155,10 +165,10 @@ Dabei sollte der Benutzer-Account des Dienstes wieder der von vorher sein – gg
 <li><p>Speichern Sie die Änderungen mit <em>Save Changes</em> ab.</p>
 </li>
 <li><p>Auf der Registerkarte <strong>Application Security</strong> können erweiterte Sicherheitsanforderungen, die für Ihre Anwendungen gelten sollen, konfiguriert werden.</p>
-<p> <img src="media/image5.png" alt="Authentication Service Configuration Editor"></p>
-<p> Mit <em>Set Default</em> werden die Standardeinstellungen dieser Registerkarte wiederhergestellt.</p>
+<p><img src="media/image5.png" alt="Authentication Service Configuration Editor"></p>
+<p>Mit <em>Set Default</em> werden die Standardeinstellungen dieser Registerkarte wiederhergestellt.</p>
 </li>
-<li><p>Im Bereich <strong><em>General Settings</em></strong> können Sie zunächst die vom Authentifizierungsdienst geduldete Maximallänge für Benutzernamen ändern (Einstellung <em>Maximum username length)</em>.</p>
+<li><p>Im Bereich <em><strong>General Settings</strong></em> können Sie zunächst die vom Authentifizierungsdienst geduldete Maximallänge für Benutzernamen ändern (Einstellung <em>Maximum username length)</em>.</p>
 <p>Das Eingabefeld <strong>Domain controller</strong> muss leer bleiben, wenn die Authentifizierung beim Start der Endanwendung nicht automatisch mit den angemeldeten Windows-Benutzern erfolgen soll.
 Andernfalls muss hier der zu verwendende Domain Controller (DC) angegeben werden (z.B. mydc.mycompany.com).</p>
 <p>Das Eingabefeld <strong>Domain</strong> muss ebenfalls leer bleiben, wenn die Authentifizierung beim Start der Endanwendung nicht automatisch mit dem angemeldeten Windows-Benutzer erfolgen soll.
@@ -193,16 +203,20 @@ Wenn Sie diese nicht aktivieren, sind alle weiteren Einstellungen auf dieser Reg
 <li><p>Speichern Sie Ihre Änderungen mit <strong>Save Changes</strong>.</p>
 </li>
 <li><p>Auf der Registerkarte <strong>Runtime Supervisor</strong> kann angegeben werden, an welchem Runtime Supervisor sich der Authentication Service registrieren soll.</p>
+</li>
+</ol>
 <p><img src="media/image6.png" alt="Authentication Service Configuration Editor Registerkarte Runtime ">Supervisor</p>
 <p>Checkbox <strong>Enable</strong>: Diese Checkbox muss gesetzt werden, damit der Runtime Supervisor aktiviert wird.</p>
 <p><strong>Runtime Supervisor Url:</strong> Hier können der Server und der Port angegeben werden. Die vollständige URL wird automatisch aufgebaut. Mit dem Button <strong>Test</strong> kann versucht werden, ob eine Verbindung zum Runtime Supervisor aufgebaut werden kann.</p>
 <p>Nähere Informationen dazu sind in der Dokumentation des <a href="../runtimesupervisor/runtimesupervisor-common.html">Runtime Supervisor</a> zu finden.</p>
-</li>
+<ol start="12">
 <li><p>Speichern Sie Ihre Änderungen mit <strong>Save Changes</strong>.</p>
 </li>
 <li><p>Jetzt müssen Sie das Programm als Dienst im Betriebssystem registrieren. Klicken Sie dazu den Link <strong>install Service</strong></p>
 </li>
 <li><p>Sie erhalten folgendes Bild:</p>
+</li>
+</ol>
 <p><img src="media/image7.png" alt="Startup Account for Authentication Service"></p>
 <p>Geben Sie hier den Benutzer an, mit welchem der Dienst ausgeführt werden soll.</p>
 <p>Es wird empfohlen nach Möglichkeit einen Domain-User anzugeben, da die System-Konten standardmäßig nicht über die notwendigen Rechte verfügen.
@@ -210,20 +224,22 @@ Wählen Sie dazu <em>User</em> aus und geben Sie in <em>User credentials</em> di
 <p>Der <em>User</em> muss im Format <code>Domain\User</code> angegeben werden.</p>
 <p>Je nach Konfiguration des Systems kann ggf. auch eines der Systemkonten verwendet werden.</p>
 <p>Diese Routine erzeugt einige Protokoll-Dateien über den Installationsverlauf im Zielordner. Diese sind kein Problem.</p>
-</li>
-<li><p>Überprüfen Sie ggf. ob der Dienst erfolgreich installiert wurde.
-Im oberen Teil des Fensters sollten Sie folgendes Bild sehen:</p>
+<ol start="15">
+<li>Überprüfen Sie ggf. ob der Dienst erfolgreich installiert wurde.
+Im oberen Teil des Fensters sollten Sie folgendes Bild sehen:</li>
+</ol>
 <p><img src="media/image8.png" alt="Authentication Service Configuration Editor Registerkarte General"></p>
-</li>
-<li><p>Mögliche Gründe für das Fehlschlagen der Installation:</p>
+<ol start="16">
+<li>Mögliche Gründe für das Fehlschlagen der Installation:</li>
+</ol>
 <ul>
-<li>Die Konfiguration ist fehlerhaft. Prüfen Sie die Angaben<em>.</em></li>
+<li>Die Konfiguration ist fehlerhaft. Prüfen Sie die Angaben*.*</li>
 <li>Der angegebene Benutzer hat nicht die notwendigen Rechte. Prüfen Sie ggf. das Ereignisprotokoll.</li>
 </ul>
-</li>
-</ol>
 <h2 id="deinstallation">Deinstallation</h2>
-<div class="WARNING"><h5>Warning</h5><p>Es gehen die Einstellungen aus der Konfigurations-Datei <code>AuthenticationService.exe.config</code> verloren. Sichern Sie diese ggf. vorher.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Es gehen die Einstellungen aus der Konfigurations-Datei <code>AuthenticationService.exe.config</code> verloren. Sichern Sie diese ggf. vorher.</p>
 </div>
 <ol>
 <li>Starten Sie das Programm <code>AuthenticationServiceConfigEditor.exe</code>.</li>
@@ -249,35 +265,27 @@ Insbesondere zu Testzwecken besteht folgende Möglichkeit, um den Authentication
 Alle Meldungen des Services werden in das Console-Fenster ausgegeben.
 Zum Stoppen des Services drücken Sie im Console-Fenster die Eingabetaste.</p>
 <p>Beachten Sie bitte, dass der manuelle Start des Authentication Services Administratorrechte erfordert.</p>
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
-            </div>
-          </div>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../styles/main.js"></script>
+    </footer>
   </body>
 </html>

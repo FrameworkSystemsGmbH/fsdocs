@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/dev/docs/doc/database/connection.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha2/docs/doc/database/connection.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,23 +87,28 @@
         <article data-uid="">
 <h1 id="datenbank-connection">Datenbank-Connection</h1>
 
+<p><img src="media/connection.png" alt="alt text"></p>
 <h2 id="sql-server-connection">SQL-Server Connection</h2>
 <ul>
-<li>Wird kein Username angegeben, dann wird Windows-Authentifizierung verwendet.</li>
+<li>Soll beim <strong>Server</strong> ein Adresse mit einem Port angegeben werden, dann muss der Port duch ein Komma abgegrenzt werden.<br>
+Beispiel: <code>Server=MySqlServer,1234</code></li>
+<li>Wird kein <strong>Username</strong> angegeben, dann wird Windows-Authentifizierung verwendet.</li>
 </ul>
 <h2 id="oracle-connection">Oracle-Connection</h2>
-<p>1.) Server / Database</p>
-<p>Bei der Angabe von Server und einer Database erzeugt Framework Studio einen TNS-String in dem folgenden Format:</p>
+<h4 id="server--database">Server / Database</h4>
+<p>Bei der Angabe von <strong>Server</strong> und <strong>Database</strong> erzeugt Framework Studio einen TNS-String in dem folgenden Format:</p>
 <p><code>(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=</code><em><code>&lt;SERVER&gt;</code></em><code>)(PORT=1521)))(CONNECT_DATA=(SID=</code><em><code>&lt;Database&gt;</code></em><code>)(SERVER=DEDICATED)))</code></p>
-<p>Der Standard-Port 1521 kann über den Server-Namen beeinflusst werden, indem er mit einem &quot;:&quot; getrennt angegeben wird.</p>
-<p>Die Database wird standardmäßig als <strong>SID</strong> angegeben. Durch Angabe von &quot;SERVICE_NAME=&quot; kann die Angabe als <strong>SERVICE_NAME</strong> definiert werden. Das kann bei Container-Datenbanken sinnvoll sein.</p>
+<p>Der Standard-Port <code>1521</code> kann über den Server-Namen beeinflusst werden, indem er mit einem <code>:</code> getrennt angegeben wird.</p>
+<p>Die Database wird standardmäßig als <strong>SID</strong> angegeben.
+Durch Angabe von <code>SERVICE_NAME=</code> kann die Angabe als <strong>SERVICE_NAME</strong> definiert werden.
+Das kann bei Container-Datenbanken sinnvoll sein.</p>
 <p>Beispiel 1:</p>
 <ul>
-<li><p><code>Server=MyServer:1234</code></p>
+<li><p><code>Server=MyOraServer:1234</code></p>
 </li>
 <li><p><code>Database=MyDatabase</code> dasselbe wie <code>Database=&quot;SID=MyDatabase&quot;</code></p>
 <p>Ergibt den folgenden TNS-String:
-<code>(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=MyServer)(PORT=1234)))(CONNECT_DATA=(SID=MyDatabase)(SERVER=DEDICATED)))</code></p>
+<code>(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=MyOraServer)(PORT=1234)))(CONNECT_DATA=(SID=MyDatabase)(SERVER=DEDICATED)))</code></p>
 </li>
 </ul>
 <p>Beispiel 2:</p>
@@ -115,47 +120,113 @@
 <code>(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=[2607:f0d0:1002:51::4])(PORT=1234)))(CONNECT_DATA=(SERVICE_NAME=MyDatabase)(SERVER=DEDICATED)))</code></p>
 </li>
 </ul>
-<p>2.) TNS-String</p>
-<p>Wird kein Server angegeben, dann wird die Database direkt als TNS-String verwendet. Das kann benutzt werden, wenn der automatisch generierte TNS-String nicht ausreicht.</p>
-<h2 id="connection-string">Connection-String</h2>
-<h4 id="fsprovidertype">FSProviderType</h4>
-<p>Gültige Werte:</p>
+<h4 id="tnsnamesora">tnsnames.ora</h4>
+<p>Wird kein <strong>Server</strong> angegeben, dann erzeugt Framework Studio keinen TNS-String sondern verwendet <strong>Database</strong> direkt als DataSource.
+So kann man einen in der <code>tnsnames.ora</code> konfigurierten TNS-Alias bei <strong>Database</strong> angeben.</p>
+<h4 id="tns-string">TNS-String</h4>
+<p>Wird kein <strong>Server</strong> angegeben, dann kann bei <strong>Database</strong> auch ein kompletter TNS-String angegeben werden.
+Das kann benutzt werden, wenn der automatisch generierte TNS-String nicht ausreicht.</p>
+<h2 id="einstellungen-im-detail">Einstellungen im Detail</h2>
+<p>Im folgenden werden die Parameter für eine Connection erklärt.</p>
+<p>Neben der Oberfläche können diese Angaben auch in einem Connection-String für die FrameworkDataConnection verwendet werden.</p>
+<p>Beispiel für einen Connection-String: <code>FSProviderType=SqlServer;Server=MyDBServer;Database=MyBusinessDB;UserID=sa;Password=geheim!</code></p>
+<h4 id="connection-type">Connection Type</h4>
+<p>Gibt an, mit was für einer Datenbank (SQL-Server oder Oracle Managed) gearbeitet werden soll.</p>
 <ul>
-<li>SqlServer</li>
-<li>OracleManaged</li>
+<li>Name im Connection-String: <code>FSProviderType</code></li>
+<li>gültige Werte: <code>SqlServer</code>, <code>OracleManaged</code></li>
+<li>Beispiel: <code>FSProviderType=SqlServer</code></li>
 </ul>
 <h4 id="server">Server</h4>
+<p>Der Server, auf dem die Datenbank liegt (siehe oben),</p>
+<ul>
+<li>Name im Connection-String: <code>Server</code></li>
+<li>Beispiel: <code>Server=MyDBServer</code></li>
+</ul>
 <h4 id="database">Database</h4>
-<h4 id="userid">UserID</h4>
-<p>Wird bei SQL-Server kein UserName dann wird Windows-Authentifizierung verwendet.</p>
+<p>Name der Datenbank (siehe oben)</p>
+<ul>
+<li>Name im Connection-String: <code>Database</code></li>
+<li>Beispiel: <code>Database=MyBusinessDB</code></li>
+</ul>
+<h4 id="db-username">DB Username</h4>
+<p>Benutzer-Name für die Anmeldung.
+Wird bei SQL-Server kein UserName angegeben, dann wird Windows-Authentifizierung verwendet.</p>
+<ul>
+<li>Name im Connection-String: <code>UserID</code></li>
+<li>Beispiel: <code>UserID=sysadm</code></li>
+</ul>
 <h4 id="password">Password</h4>
-<h4 id="passwordencrypted">PasswordEncrypted</h4>
-<p>Wird das Password in der Oberfläche eingegeben, dann erzeugt Framework Studio ein verschlüsseltes Passwort. Das verhindert lediglich, dass ein Benutzer das Passwort einfach lesen kann.</p>
-<h4 id="fsuseansistring">FSUseAnsiString</h4>
-<p>Standard-Wert: false</p>
+<p>Das Passwort für die Anmeldung.</p>
+<ul>
+<li>Name im Connection-String: <code>Password</code></li>
+<li>Beispiel: <code>Password=geheim!123</code></li>
+</ul>
+<p>Wird das Password in der Oberfläche eingegeben, dann erzeugt Framework Studio ein verschlüsseltes Passwort.</p>
+<ul>
+<li>Name im Connection-String: <code>PasswordEncrypted</code></li>
+<li>Beispiel: <code>PasswordEncrypted=K96Px6YBomSeHPMr/IgnZg==</code></li>
+</ul>
+<p>Diese Vershlüsselung ist nicht sehr sicher - es wird lediglich verhindert, dass ein Benutzer das Passwort einfach lesen kann.</p>
+<h4 id="use-ansistring">Use AnsiString</h4>
 <p>Gibt an, ob die String-Parameter in den Commands als Ansi-String behandelt werden sollen.</p>
+<ul>
+<li>Name im Connection-String: <code>FSUseAnsiString</code></li>
+<li>Standard-Wert: <code>false</code></li>
+<li>Beispiel: <code>FSUseAnsiString=true</code></li>
+</ul>
 <div class="CAUTION">
 <h5>Caution</h5>
-<p>Es können Unicode-Inhalte zur Datenbank transportiert werden.</p>
+<p>Wenn aktiviert, dann können keine Unicode-Inhalte zur Datenbank transportiert werden.</p>
 </div>
-<h4 id="fspoolingmin">FSPoolingMin</h4>
-<p>Standard-Wert: 5</p>
-<p>Anzahl der Datenbank-Connections, die dauerhaft im Connection-Pool verbleiben sollen.</p>
-<h4 id="fspoolingmax">FSPoolingMax</h4>
-<p>Standard-Wert: 15</p>
-<p>Anzahl der Datenbank-Connections, die maximal im Connection-Pool enthalten sein dürfen. Jede weitere Connection wird nach der Verwendung unmittelbar getrennt.</p>
-<h4 id="fspoolingtimeout">FSPoolingTimeout</h4>
-<p>Standard-Wert: 60</p>
-<p>Timeout in Sekunden. Diese Zeit verbleiben die zusätzlichen Datenbank-Connections im Pool, bis auch sie getrennt werden.</p>
-<h4 id="fspoolingdebugoutput">FSPoolingDebugOutput</h4>
-<p>Gibt einen Dateinamen an, in dem der Connection-Pool ein Protokoll schreiben soll. Dieses kann für die Analyse des Connection-Pools verwendet werden.</p>
 <h2 id="connection-pooling">Connection-Pooling</h2>
-<p>Der Connection-Pool stellt eine Menge von freien wiederverwendbaren Datenbank-Verbindungen zur Verfügung. Dabei kann über die FSPooling-Parameter das Verhalten des Pools gesteuert werden. Die Parameter haben die folgende Bedeutung:</p>
+<p>Der Connection-Pool stellt eine Menge von freien wiederverwendbaren Datenbank-Verbindungen zur Verfügung.
+Dabei kann über die FSPooling-Parameter das Verhalten des Pools gesteuert werden.</p>
+<p>Eine mit <strong>Framework Studio</strong> entwickelte Anwendung benötigt eine Datenbankverbindung, um mit dem zugehörigen Broker zu kommunizieren.
+Bei jedem Request wird eine Verbindung aufgebaut und danach wieder geschlossen.
+Da dieses Verhalten vor allem auf Oracle-Datenbankservern sehr viel Zeit in Anspruch nimmt, kann vom Broker eine bestimmte Anzahl an offenen Datenbankverbindungen vorgehalten werden, auf die die Anwendung zurückgreifen kann.</p>
+<p>Die Parameter haben die folgende Bedeutung:</p>
 <ul>
 <li><code>FSPoolingMin</code>: Wird eine Connection nicht mehr benötigt, wird sie (z.B. am Ende eines Broker-Requests) wieder zurück in den Vorrat / Pool gepackt. Der Pool darf dauerhaft diese Anzahl an Connections beinhalten.</li>
 <li><code>FSPoolingMax</code>: Das ist die maximale Anzahl der Connections, die sich im Pool befinden dürfen. Ist der Pool voll, dann wird die Connection nicht in den Pool zurückgepackt sondern sie wird direkt geschlossen.</li>
 <li><code>FSPoolingTimeout</code>: (in Sekunden) Die Connections zwischen Min und Max verbleiben maximal diese Zeit im Pool. Werden sie nicht vorher wieder verwendet, werden sie nach dem Timeout aus dem Pool entfernt und geschlossen. Der Timeout wird geprüft, wenn versucht wird, eine Connection in den Pool zu packen.</li>
 </ul>
+<p>In der Oberfläche kann das Pooling mit der Checkbox <strong>Activate FSPooling</strong> aktiviert werden.</p>
+<h4 id="min">Min</h4>
+<p>Anzahl der Datenbank-Connections, die dauerhaft im Connection-Pool verbleiben sollen.</p>
+<ul>
+<li>Name im Connection-String: <code>FSPoolingMin</code></li>
+<li>Standard-Wert: <code>5</code></li>
+<li>Beispiel: <code>FSPoolingMin=5</code></li>
+</ul>
+<h4 id="max">Max</h4>
+<p>Anzahl der Datenbank-Connections, die maximal im Connection-Pool enthalten sein dürfen.
+Jede weitere Connection wird unmittelbar nach der Verwendung wieder getrennt.</p>
+<ul>
+<li>Name im Connection-String: <code>FSPoolingMax</code></li>
+<li>Standard-Wert: <code>15</code></li>
+<li>Beispiel: <code>FSPoolingMax=15</code></li>
+</ul>
+<h4 id="timeout">Timeout</h4>
+<p>Timeout in Sekunden.
+Diese Zeit verbleiben die zusätzlichen Datenbank-Connections im Pool, bis auch sie getrennt werden.</p>
+<ul>
+<li>Name im Connection-String: <code>FSPoolingTimeout</code></li>
+<li>Standard-Wert: <code>60</code></li>
+<li>Beispiel: <code>FSPoolingTimeout=60</code></li>
+</ul>
+<h4 id="fspoolingdebugoutput">FSPoolingDebugOutput</h4>
+<p>Gibt einen Dateinamen an, in dem der Connection-Pool ein Protokoll schreiben soll.
+Dieses kann für die Analyse des Connection-Pools verwendet werden.</p>
+<p>(siehe Kapitel <a href="../weitere-themen/connection-pooling-protokoll.html">Connection Pooling Protokoll</a>)</p>
+<p>Diese Einstellung kann nicht über die Oberfläche definiert werden.</p>
+<ul>
+<li>Name im Connection-String: <code>FSPoolingDebugOutput</code></li>
+<li>Beispiel: <code>FSPoolingDebugOutput=C:\temp\FSPool.txt</code></li>
+</ul>
+<h2 id="weitere-parameter">Weitere Parameter</h2>
+<p>Die von Framework Studio nicht erkannt werden, werden direkt in den nativen Connection-String übernommen.
+So können auch native Features der jeweiligen Datenbank genutzt werden.</p>
 
 </article>
 

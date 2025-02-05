@@ -1,84 +1,90 @@
-﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Registerkarte Query </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Registerkarte Query ">
-    <meta name="generator" content="docfx 2.56.2.0">
-    
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <link rel="stylesheet" href="../../styles/fs-docfx.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
-    
-    <meta property="docfx:rel" content="../../">
-    
+      <title>Registerkarte Query </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Registerkarte Query ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.6/release/14/docs/doc/comp/tab_query.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" class="svg" src="../../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
-        
-        <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+
+        <article data-uid="">
 <h1 id="registerkarte-query">Registerkarte Query</h1>
 
 <p><img src="media/registerkarte-query.png" alt="Registerkarte Query"></p>
@@ -128,14 +134,15 @@
 <p>Die Registerkarte <strong>Preview</strong> können Sie auch manuell aktivieren, um die Query zu testen.</p>
 <h3 id="felder-auf-der-registerkarte-query">Felder auf der Registerkarte Query</h3>
 <p>In der Listbox werden die an der Query beteiligten Tabellen angezeigt. Es können mit dem Button <img src="media/btn-add-jointable.png" alt="btn-add-jointable">
- <strong>(Add jointable ...)</strong> neue Tabellen hinzugefügt und mit dem Button <img src="media/btn-remove-jointable.png" alt="btn-remove-jointable">
- <strong>(Remove jointable ...)</strong> die momentan ausgewählte Tabelle entfernt werden. Je nachdem, welche Tabelle ausgewählt ist, können rechts daneben weitere Angaben zur Tabelle gemacht werden.</p>
+<strong>(Add jointable ...)</strong> neue Tabellen hinzugefügt und mit dem Button <img src="media/btn-remove-jointable.png" alt="btn-remove-jointable">
+<strong>(Remove jointable ...)</strong> die momentan ausgewählte Tabelle entfernt werden. Je nachdem, welche Tabelle ausgewählt ist, können rechts daneben weitere Angaben zur Tabelle gemacht werden.</p>
 <h4 id="alias">Alias</h4>
 <p>Gibt den Alias an, der in der Query verwendet werden soll. Ist kein Alias angegeben, wird der Name der Tabelle verwendet. Wird eine Tabelle zweimal eingebunden, muss ein Alias angegeben werden, da sonst nicht eindeutig klar ist, welche Tabelle gezogen werden soll.</p>
 <h4 id="jointype">JoinType</h4>
 <p>Dieses Feld ist ab der zweiten Tabelle zugänglich. Es gibt an, welche Art von Join verwendet werden soll (<strong>Inner Join</strong>, <strong>Left Outer Join</strong>, <strong>Rigth Outer Join</strong>, <strong>No Join</strong>). Je nachdem, was dort angegeben ist, wird auch das Statement zusammengebaut. Wenn als Typ <strong>No Join</strong> angegeben ist, wird ein Statement erzeugt, das in etwa so aussieht:</p>
 <pre><code class="lang-sql">SELECT ... FROM Table1, Table2 WHERE Tabel1.Spalte1 = Table2.Spalte3...
-</code></pre><h4 id="condition">Condition</h4>
+</code></pre>
+<h4 id="condition">Condition</h4>
 <p>Gibt die Bedingung für den Join an. Haben Sie in den DBTables bei Relations Angaben gemacht, werden diese hier entsprechend gezogen.</p>
 <h4 id="tabelle">Tabelle</h4>
 <p>In der Tabelle sind die Spalten der Abfrage angegeben.</p>
@@ -145,9 +152,11 @@
 <p>Gibt an, ob die Spalte ausgegeben werden soll oder nicht. Dieser wird als gecheckt vorbelegt. Sie können diese Checkbox deaktivieren, wenn Sie z.B. eine Spalte haben, bei der die Suchbedingung interessant ist. Dann kann für diese Abfrage-Spalte kein Property angelegt werden.</p>
 <p>Mit gesetzter Checkbox (bei „Spalte2“) erhalten Sie folgendes Ergebnis:</p>
 <pre><code class="lang-sql">SELECT Spalte1, Spalte2 FROM Tabelle WHERE Spalte2 = ‘ABC’
-</code></pre><p>Mit deaktivierter Checkbox erhalten Sie in etwa folgendes Ergebnis:</p>
+</code></pre>
+<p>Mit deaktivierter Checkbox erhalten Sie in etwa folgendes Ergebnis:</p>
 <pre><code class="lang-sql">SELECT Spalte1 FROM Tabelle WHERE Spalte2 = ‘ABC’
-</code></pre><p>Das ist z.B. dann interessant, wenn <strong>Group by</strong> aktiviert ist und Sie im Query-Designer für eine Spalte trotzdem eine Bedingung angeben möchten.</p>
+</code></pre>
+<p>Das ist z.B. dann interessant, wenn <strong>Group by</strong> aktiviert ist und Sie im Query-Designer für eine Spalte trotzdem eine Bedingung angeben möchten.</p>
 <h4 id="tabelle--spalte-column">Tabelle / Spalte Column</h4>
 <p>Gibt an, welches Feld der Tabelle(n) gezogen werden soll. In einer Combobox werden alle Felder der beteiligten Tabellen angezeigt. Es kann eines dieser Felder ausgewählt werden.</p>
 <p>Soll das Feld eine Formel enthalten, kann diese hier auch frei eingegeben werden.</p>
@@ -159,16 +168,22 @@
 <p>Gibt die Reihenfolge an, in der die Felder sortiert werden sollen. Es werden Zahlen von 0 aufsteigend vergeben, wenn Sie die Spalte ‚Sort Type‘ setzen. Diese Reihenfolge kann nachträglich geändert werden, indem die Zahlen einfach überschrieben werden. Wird ein Feld nicht sortiert, wird in die Spalte der Wert  –1 eingetragen.</p>
 <p>Wird später mit der Load-Methode eine OrderBy-Clause angegeben, sind die Angaben in <strong>Sort Type</strong> und <strong>Sort Order</strong> hinfällig.</p>
 <h4 id="tabelle--spalte-group-by">Tabelle / Spalte Group By</h4>
-<div class="WARNING"><h5>Warning</h5><p>Diese Spalte ist nur sichtbar, wenn für die Query Group By eingeschaltet ist.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Diese Spalte ist nur sichtbar, wenn für die Query Group By eingeschaltet ist.</p>
 </div>
 <p>Hier wird angegeben, wie sich die Spalte im <strong>Group By</strong> verhalten soll. Es kann <strong>Group By</strong> oder eine Aggregatfunktion (z.B. SUM, MAX, AVG) angegeben werden.</p>
 <p>Die Spalte kann auch leer gelassen werden. Das macht aber nur Sinn, wenn die Spalte <strong>Output</strong> nicht gecheckt ist.</p>
 <h4 id="tabelle--spalte-key-field">Tabelle / Spalte Key Field</h4>
-<div class="WARNING"><h5>Warning</h5><p>Diese Spalte ist nur sichtbar, wenn für die Query Group By eingeschaltet ist.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Diese Spalte ist nur sichtbar, wenn für die Query Group By eingeschaltet ist.</p>
 </div>
 <p>Um einen Datensatz eindeutig zu identifzieren, werden normalerweise die PK-Spalten verwendet. Dies ist bei einer GroupBy-Anfrage nicht automatisch möglich. Mit der Spalte Key Field können Sie angeben, welche Abfrage-Spalten einen Satz eindeutig identifizieren sollen.</p>
 <p>Wird hier keine Angabe gemacht, dann greift der Reload-Mechanismus in der Collection nicht. Es werden dann immer alle Datensätze komplett eingelesen.</p>
-<div class="WARNING"><h5>Warning</h5><p>Wenn falsche Angaben gemacht werden, dann kann dies beim Reload zu falschen Daten führen. Im Zweifel sollten besser keine Key-Spalten gekennzeichnet werden.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Wenn falsche Angaben gemacht werden, dann kann dies beim Reload zu falschen Daten führen. Im Zweifel sollten besser keine Key-Spalten gekennzeichnet werden.</p>
 </div>
 <p>Wenn neben den Key-Spalten nur wenige weitere Abfrage-Spalten vorhanden sind, dann macht es keinen Sinn, die Key-Spalten zu kennzeichnen. Der Reload-Mechanismus bringt in diesem Fall keinen Vorteil - es könnte sogar einen Nachteil für die Performance bedeuten.</p>
 <h4 id="tabelle--spalte-criteria-spalten-or">Tabelle / Spalte Criteria, Spalten Or</h4>
@@ -176,7 +191,9 @@
 <p>Z.B. <code>„IS NOT NULL“, „&gt;0“...</code></p>
 <p>Wird später mit der Load-Methode eine Where-Clause angegeben, wird diese mit einem „And“ an die hier angegebene Bedingung angefügt.</p>
 <p>Bei Spalten mit ‘Group By‘ oder einer Aggregat-Funktion wird die Kondition automatisch zur Having-Clause.</p>
-<div class="WARNING"><h5>Warning</h5><p>Wird später mit der Load-Methode eine Having-Clause angegeben, sind diese Angaben hier hinfällig.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Wird später mit der Load-Methode eine Having-Clause angegeben, sind diese Angaben hier hinfällig.</p>
 </div>
 <h4 id="tabelle--spalte-readonly">Tabelle / Spalte Readonly</h4>
 <p>Ist diese Spalte gesetzt, wird das Property als Readonly generiert.</p>
@@ -184,35 +201,27 @@
 <p>Unten, auf den Registerkarten <strong>Framework Studio SQL</strong> / <strong>Oracle SQL</strong> /<strong>SQL-Server SQL</strong>, wird das SQL der eigentlichen Abfrage (bezogen auf die jeweilige Datenbank) angezeigt.</p>
 <h4 id="registerkarte-preview">Registerkarte Preview</h4>
 <p>Hier wird das Ergebnis der Abfrage in einer Tabelle dargestellt. Damit kann auch getestet werden, ob die definierte Abfrage funktioniert.</p>
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
-            </div>
-          </div>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../styles/main.js"></script>
+    </footer>
   </body>
 </html>

@@ -1,84 +1,90 @@
-﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Allgemeine Funktionalit&#228;ten </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Allgemeine Funktionalit&#228;ten ">
-    <meta name="generator" content="docfx 2.56.2.0">
-    
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <link rel="stylesheet" href="../../styles/fs-docfx.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
-    
-    <meta property="docfx:rel" content="../../">
-    
+      <title>Allgemeine Funktionalit&#228;ten </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Allgemeine Funktionalit&#228;ten ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/25/docs/doc/ide/allgemeine-funktionalitaeten.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" class="svg" src="../../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
-        
-        <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+
+        <article data-uid="">
 <h1 id="allgemeine-funktionalitäten">Allgemeine Funktionalitäten</h1>
 
 <h2 id="buttons">Buttons</h2>
@@ -106,7 +112,9 @@
 <h2 id="source-control">Source-Control</h2>
 <p>In <strong>Framework Studio</strong> kann immer nur ein Entwickler an einem Element arbeiten. Dazu muss dieser das zu bearbeitende Element auschecken. Die anderen Entwickler können das Element weiterhin in dem Stand öffnen, wie es war, bevor es ausgecheckt wurde.</p>
 <p>Wenn alle Änderungen an dem Element durchgeführt wurden, kann es wieder eingecheckt werden. Ab diesem Zeitpunkt werden die Änderungen auch für alle anderen Entwickler sichtbar.</p>
-<div class="WARNING"><h5>Warning</h5><p>Ein Element kann immer nur von einem Entwickler ausgecheckt werden.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Ein Element kann immer nur von einem Entwickler ausgecheckt werden.</p>
 </div>
 <p>Für die Bedienung der Source-Control-Funktionalität stehen folgende Buttons zur Verfügung:</p>
 <p><img src="../media/icon-checkout.png" alt="icon-checkout.png"> <strong>Check Out:</strong></p>
@@ -116,13 +124,17 @@
 <p>Ein anderer Entwickler kann das Element jetzt erneut auschecken.</p>
 <p><img src="../media/icon-undo-checkout.png" alt="icon-undo-checkout.png"> <strong>Undo Check Out:</strong></p>
 <p>Hiermit machen Sie einen <strong>Check Out</strong> rückgängig. Dabei werden alle Änderungen, die nach dem <strong>Check Out</strong> gemacht wurden, verworfen. Bevor diese Funktion ausgeführt wird, werden alle Änderungen an ungespeicherten Elementen gespeichert (<strong>Save All</strong>). Sollte aufgrund von Abhängigkeiten beim <strong>Undo Check Out</strong> ein Problem auftreten, so startet Framework Studio neu, um weiterhin Datenkonsistenz garantieren zu können.</p>
-<div class="WARNING"><h5>Warning</h5><p>Diese vier Befehle können Sie auch über das Kontext-Menü des Elements aufrufen.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Diese vier Befehle können Sie auch über das Kontext-Menü des Elements aufrufen.</p>
 </div>
 <p><strong>Source Control im Kontext-Menü:</strong></p>
 <p><img src="media/sourcecontrol-contextmenu.png" alt="sourcecontrol-contextmenu.png"></p>
 <h3 id="checkin-und-checkout-mit-shortcuts">CheckIn und CheckOut mit Shortcuts</h3>
 <p>In den Code-Editoren ist es nun auch möglich mit den Shortcuts <strong>CTRL + F11</strong> den CheckIn und mit <strong>CTRL + F10</strong>  den CheckOut auszuführen.</p>
-<div class="CAUTION"><h5>Caution</h5><p>Bei der Verwendung des Shortcuts für <strong>CheckOut</strong> erfolgt <strong>keine</strong> Abfrage, ob Sie wirklich auschecken möchten. Der CheckOut wird automatisch durchgeführt, wenn er möglich ist.</p>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Bei der Verwendung des Shortcuts für <strong>CheckOut</strong> erfolgt <strong>keine</strong> Abfrage, ob Sie wirklich auschecken möchten. Der CheckOut wird automatisch durchgeführt, wenn er möglich ist.</p>
 </div>
 <h2 id="c-code-editor">C#-Code-Editor</h2>
 <p>Der Code kann mit dem Shortcut <strong>Shift + ALT + F</strong> formatiert werden.</p>
@@ -140,7 +152,9 @@
 <p><img src="../media/icon-checked-out.png" alt="icon-checked-out.png"> <strong>Is Checked Out:</strong></p>
 <p>Steht dieses Icon vor einem Element, ist das Element bereits von Ihnen ausgecheckt und kann bearbeitet werden. Wenn Sie mit der Bearbeitung fertig sind, können Sie das Element wieder über das <strong>Source-Control</strong> einchecken.</p>
 <p>Haben Sie ein Element versehentlich ausgecheckt, können Sie den Checkout-Vorgang mit <strong>Undo Checkout</strong> rückgängig machen.</p>
-<div class="WARNING"><h5>Warning</h5><p>Sie sollten darauf achten, dass Sie einen kompilierbaren Stand haben, bevor Sie ein Element wieder einchecken.
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Sie sollten darauf achten, dass Sie einen kompilierbaren Stand haben, bevor Sie ein Element wieder einchecken.
 Dazu ist es erforderlich auch in Zusammenhang stehende Elemente einzuchecken.</p>
 </div>
 <h2 id="version-history">Version History</h2>
@@ -183,13 +197,15 @@ Dazu ist es erforderlich auch in Zusammenhang stehende Elemente einzuchecken.</p
 </ul>
 <p>Anders ausgedrückt zeigt die Liste alle von anderen Usern eingecheckten Elemente, die dem Workspace des aktuellen Users noch nicht bekannt sind.</p>
 <p><strong>Beispiel:</strong></p>
-<p>Benutzer <strong><em>demo1</em></strong> und Benutzer <strong><em>demo2</em></strong> holen sich nach einem nächtlichen Compilerlauf den FrameworkCompiler-Workspace. <strong><em>demo1</em></strong> checkt Elemente aus, ändert sie und checkt sie wieder ein. Versucht <strong><em>demo2</em></strong> diese Elemente nun auszuchecken, wird FS feststellen, dass neuere Versionen der Elemente verfügbar sind, die dem aktuellen Workspace noch unbekannt sind. Diese Elemente werden dann in der Liste von „Get latest Check Ins“ angezeigt (siehe Bild).</p>
-<p>In der <strong>Source Control History</strong> werden diese Elemente rot markiert dargestellt, da sie nach dem Compilerlauf eingecheckt wurden und dem aktuellen Workspace von <strong><em>demo2</em></strong> nicht bekannt sind.</p>
-<p>Im Dialog hat der Benutzer nun die Möglichkeit, über die Checkboxen auszuwählen, bis zu welchem Zeitpunkt/Element er seinen Workspace updaten will. Nach dem Klick auf <strong>Refresh Elements</strong> startet sich Framework Studio automatisch neu. Dabei wird der Benutzer-Workspace genau bis zum ausgewählten Zeitpunkt/Element (im Beispiel frmCompany, 04.11.2011 14:20:23) aktualisiert. Die Elemente <strong>CompanyName</strong>, <strong>cdCompany</strong> und <strong>frmCompany</strong> können nun vom Benutzer <strong><em>demo2</em></strong> ausgecheckt und bearbeitet werden, obwohl noch kein FrameworkCompiler gelaufen ist. In <strong>Get latest Check Ins</strong> verbleibt nur noch das Element <strong>OrderText</strong>.</p>
+<p>Benutzer <em><strong>demo1</strong></em> und Benutzer <em><strong>demo2</strong></em> holen sich nach einem nächtlichen Compilerlauf den FrameworkCompiler-Workspace. <em><strong>demo1</strong></em> checkt Elemente aus, ändert sie und checkt sie wieder ein. Versucht <em><strong>demo2</strong></em> diese Elemente nun auszuchecken, wird FS feststellen, dass neuere Versionen der Elemente verfügbar sind, die dem aktuellen Workspace noch unbekannt sind. Diese Elemente werden dann in der Liste von „Get latest Check Ins“ angezeigt (siehe Bild).</p>
+<p>In der <strong>Source Control History</strong> werden diese Elemente rot markiert dargestellt, da sie nach dem Compilerlauf eingecheckt wurden und dem aktuellen Workspace von <em><strong>demo2</strong></em> nicht bekannt sind.</p>
+<p>Im Dialog hat der Benutzer nun die Möglichkeit, über die Checkboxen auszuwählen, bis zu welchem Zeitpunkt/Element er seinen Workspace updaten will. Nach dem Klick auf <strong>Refresh Elements</strong> startet sich Framework Studio automatisch neu. Dabei wird der Benutzer-Workspace genau bis zum ausgewählten Zeitpunkt/Element (im Beispiel frmCompany, 04.11.2011 14:20:23) aktualisiert. Die Elemente <strong>CompanyName</strong>, <strong>cdCompany</strong> und <strong>frmCompany</strong> können nun vom Benutzer <em><strong>demo2</strong></em> ausgecheckt und bearbeitet werden, obwohl noch kein FrameworkCompiler gelaufen ist. In <strong>Get latest Check Ins</strong> verbleibt nur noch das Element <strong>OrderText</strong>.</p>
 <p><img src="media/get-latest-checkins2.png" alt="get-latest-checkins2.png"></p>
 <p>In der Source Control History erscheinen die aktualisierten Elemente nun <b style="background-color: #fff2be; padding: 3px;">gelb</b>.</p>
 <p><img src="media/source-control-history2.png" alt="source-control-history2.png"></p>
-<div class="IMPORTANT"><h5>Important</h5><p>Bei der Auswahl des Zeitpunkts/Elements bis zu dem aktualisiert werden soll, muss auf zusammenhängende Check Ins geachtet werden. Wenn z.B. <strong>frmCompany</strong> den Metadatentyp <strong>OrderText</strong> benötigt, dieser jedoch nicht mit aktualisiert wird (wie im Beispiel), kann es anschließend zu Compile-Fehlern kommen, da <strong>OrderText</strong> im Workspace nicht gefunden werden kann.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Bei der Auswahl des Zeitpunkts/Elements bis zu dem aktualisiert werden soll, muss auf zusammenhängende Check Ins geachtet werden. Wenn z.B. <strong>frmCompany</strong> den Metadatentyp <strong>OrderText</strong> benötigt, dieser jedoch nicht mit aktualisiert wird (wie im Beispiel), kann es anschließend zu Compile-Fehlern kommen, da <strong>OrderText</strong> im Workspace nicht gefunden werden kann.</p>
 <p>Alle über <strong>Get latest Check</strong> Ins aktualisierten Elemente werden nach dem Neustart von Framework Studio automatisch zur Compile-Liste hinzugefügt. Copy Fullname.</p>
 <p>In allen Editoren gibt es im Menü <strong>Edit</strong> den Menüpunkt <strong>Copy Fullname</strong>. Dieser legt den Namen des Elementes inkl. Namespace in die Zwischenablage. So kann dieser z.B. in Dokumentationen eingefügt werden.</p>
 <p><img src="media/copy-fullname.png" alt="copy-fullname.png"></p>
@@ -226,7 +242,9 @@ Das <a href="../allgemein/options.html#diff-tool">Diff Tool</a> muss in den <a h
 <p>Im Designer Fenster aller Elemente für die Code generiert wird (Components, Forms, Workflows, …), lässt sich über den Menüpunkt <strong>View / Element History Browser</strong> analog zum Method History Browser ein Dialog öffnen, mit dem die Historie des Elements im Package des Elements betrachtet werden kann.
 Der <strong>Element History Browser</strong>  zeigt initial den generierten Code zu der ausgewählten Version und der Vorversion im <a href="../editors/editor-diff.html">Monaco Diff-Editor</a> an.
 Die grundsätzliche Bedienweise gleicht dem <a href="#method-history-browser">Method Hisory Browser</a>.</p>
-<div class="NOTE"><h5>Note</h5><p>Nur wenn das Package mit dem Framework Compiler compiled wurde exisitert für eine Version auch generated saved code.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Nur wenn das Package mit dem Framework Compiler compiled wurde exisitert für eine Version auch generated saved code.</p>
 </div>
 <p><img src="media/element-history-browser.png" alt="element-history-browser.png"></p>
 <h2 id="methoden-wächter">Methoden-Wächter</h2>
@@ -246,35 +264,27 @@ Die grundsätzliche Bedienweise gleicht dem <a href="#method-history-browser">Me
 <p>Sollten beim Deaktivieren des Wächters noch nicht bestätigte Änderungen in den Basis-Methoden vorhanden sein, wird zuvor nochmals explizit gewarnt:</p>
 <p><strong>Warnung beim Deaktivieren:</strong></p>
 <p><img src="media/warnung-beim-deaktivieren.png" alt="warnung-beim-deaktivieren.png"></p>
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
-            </div>
-          </div>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../styles/main.js"></script>
+    </footer>
   </body>
 </html>

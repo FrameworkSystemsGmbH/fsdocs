@@ -1,84 +1,90 @@
-﻿<!DOCTYPE html>
-<!--[if IE]><![endif]-->
+<!DOCTYPE html>
 <html>
-  
   <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title>Benutzer verwalten / Authentication and Authorisation Tool </title>
-    <meta name="viewport" content="width=device-width">
-    <meta name="title" content="Benutzer verwalten / Authentication and Authorisation Tool ">
-    <meta name="generator" content="docfx 2.56.2.0">
-    
-    <link rel="shortcut icon" href="../../favicon.ico">
-    <link rel="stylesheet" href="../../styles/docfx.vendor.css">
-    <link rel="stylesheet" href="../../styles/docfx.css">
-    <link rel="stylesheet" href="../../styles/main.css">
-    <link rel="stylesheet" href="../../styles/fs-docfx.css">
-    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
-    <meta property="docfx:navrel" content="../../toc.html">
-    <meta property="docfx:tocrel" content="../toc.html">
-    
-    <meta property="docfx:rel" content="../../">
-    
+      <title>Benutzer verwalten / Authentication and Authorisation Tool </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Benutzer verwalten / Authentication and Authorisation Tool ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/2/docs/doc/runtime-administration/runtime-administration-user.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
   </head>
-  <body data-spy="scroll" data-target="#affix" data-offset="120">
-    <div id="wrapper">
-      <header>
-        
-        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
-          <div class="container">
-            <div class="navbar-header">
-              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-              </button>
-              
-              <a class="navbar-brand" href="../../index.html">
-                <img id="logo" class="svg" src="../../logo.svg" alt="">
-              </a>
-            </div>
-            <div class="collapse navbar-collapse" id="navbar">
-              <form class="navbar-form navbar-right" role="search" id="search">
-                <div class="form-group">
-                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
-                </div>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
               </form>
             </div>
           </div>
-        </nav>
-        
-        <div class="subnav navbar navbar-default">
-          <div class="container hide-when-search" id="breadcrumb">
-            <ul class="breadcrumb">
-              <li></li>
-            </ul>
-          </div>
         </div>
-      </header>
-      <div class="container body-content">
-        
-        <div id="search-results">
-          <div class="search-list"></div>
-          <div class="sr-items">
-            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
           </div>
-          <ul id="pagination"></ul>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
         </div>
       </div>
-      <div role="main" class="container body-content hide-when-search">
-        
-        <div class="sidenav hide-when-search">
-          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
-          <div class="sidetoggle collapse" id="sidetoggle">
-            <div id="sidetoc"></div>
-          </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
         </div>
-        <div class="article row grid-right">
-          <div class="col-md-10">
-            <article class="content wrap" id="_content" data-uid="">
+
+        <article data-uid="">
 <h1 id="benutzer-verwalten--authentication-and-authorisation-tool">Benutzer verwalten / Authentication and Authorisation Tool</h1>
 
 <h2 id="allgemeines">Allgemeines</h2>
@@ -89,7 +95,7 @@
 <p>Wenn Sie das <strong>Authentication and Authorisation Tool</strong> starten, sehen Sie folgendes Fenster.</p>
 <p><img src="media/image5.png" alt="Authentication and Authorisation Tool"></p>
 <p><strong>Bedienkonzept:</strong></p>
-<p>Es gibt drei Hauptregisterkarten <strong><em>Users</em></strong>, <strong><em>Groups</em></strong> und <strong><em>Roles</em></strong> (siehe 1 in obigem Screenshot), die alle nach dem gleichen System aufgebaut sind:</p>
+<p>Es gibt drei Hauptregisterkarten <em><strong>Users</strong></em>, <em><strong>Groups</strong></em> und <em><strong>Roles</strong></em> (siehe 1 in obigem Screenshot), die alle nach dem gleichen System aufgebaut sind:</p>
 <p>Im linken Bereich (siehe 2 im Screenshot) wird das Element ausgewählt, welches konfiguriert werden soll (hier: Benutzer „Admin“).</p>
 <p>Im mittleren Bereich (siehe 3) befinden sich zwei weitere Registerkarten, auf denen jeweils die Verknüpfungen des links ausgewählten Elements mit den anderen Elementen definiert werden (hier Gruppen und Rollen).</p>
 <p>Im rechten Bereich (4) werden Eigenschaften des links ausgewählten Elements angezeigt.</p>
@@ -130,12 +136,18 @@
 <p>Wenn Änderungen an einem Benutzer durchgeführt werden und diese Änderungen noch nicht gespeichert wurden, wird der Benutzer mit einem Sternchen in Klammern (*) gekennzeichnet. Neu hinzugefügte Benutzer, die noch nicht gespeichert wurden, werden mit einem Plus in Klammern (+) gekennzeichnet.</p>
 <p>Mit dem Button <strong>Save All</strong> werden alle Änderungen gespeichert.</p>
 <p>Mit dem Button <strong>Reload All</strong> werden alle aktuellen Änderungen verworfen und alle Daten neu vom Authentifizierungsdienst geladen.</p>
-<div class="NOTE"><h5>Note</h5><p>Das neue Einlesen der Daten mit dem Button <strong>Reload All</strong> ist auch dann notwendig, wenn Sie im <strong>Role Management Tool</strong> relevante Änderungen an Rollen durchgeführt haben, also beispielsweise neue Rollen angelegt oder die Bezeichnung geändert haben.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Das neue Einlesen der Daten mit dem Button <strong>Reload All</strong> ist auch dann notwendig, wenn Sie im <strong>Role Management Tool</strong> relevante Änderungen an Rollen durchgeführt haben, also beispielsweise neue Rollen angelegt oder die Bezeichnung geändert haben.</p>
 </div>
 <p><strong>Allgemeine Hinweise:</strong></p>
-<div class="NOTE"><h5>Note</h5><p>Der Authentifizierungsdienst selbst wird unter der Bezeichnung <em>AuthenticationService</em> mit den Rollen <em>ManageUsers</em> und <em>ManageRoles</em> aufgeführt. Jedem Benutzer, der das <strong>Authentication and Authorisation Tool</strong> starten will, muss die Rolle <em>ManageUsers</em> zugeordnet sein, jedem Benutzer, der das <strong>Role Management Tool</strong> starten will, muss die Rolle <em>ManageRoles</em> zugeordnet sein!</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Der Authentifizierungsdienst selbst wird unter der Bezeichnung <em>AuthenticationService</em> mit den Rollen <em>ManageUsers</em> und <em>ManageRoles</em> aufgeführt. Jedem Benutzer, der das <strong>Authentication and Authorisation Tool</strong> starten will, muss die Rolle <em>ManageUsers</em> zugeordnet sein, jedem Benutzer, der das <strong>Role Management Tool</strong> starten will, muss die Rolle <em>ManageRoles</em> zugeordnet sein!</p>
 </div>
-<div class="NOTE"><h5>Note</h5><p>Dem Benutzer <em>Admin</em> werden beim Start des Authentifizierungsdienstes automatisch die Rollen <em>ManageUsers</em> und <em>ManageRoles</em> zugeordnet.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Dem Benutzer <em>Admin</em> werden beim Start des Authentifizierungsdienstes automatisch die Rollen <em>ManageUsers</em> und <em>ManageRoles</em> zugeordnet.</p>
 </div>
 <h2 id="benutzer-verwalten-registerkarte-users">Benutzer verwalten (Registerkarte Users)</h2>
 <p>Mit dem Button <strong>New</strong> auf der Hauptregisterkarte <strong>Users</strong> wird ein neuer Benutzer angelegt.</p>
@@ -144,16 +156,18 @@
 <p><img src="media/image7.png" alt="New User (Advanced Security)"></p>
 <p>Wenn Sie <strong>Domain</strong> und <strong>Domain Controller</strong> angegeben haben (ebenfalls beschrieben in der Installationsanleitung <strong>Authentication Service</strong>), ist zusätzlich ein Eingabefeld für den Domänenbenutzer (<strong>Domain user</strong>) sichtbar</p>
 <p><img src="media/image8.png" alt="Edit User)"></p>
-<p><strong>User:</strong>Name des Benutzers.</p>
+<p>**User:**Name des Benutzers.</p>
 <p><strong>Password:</strong> Passwort des Benutzers</p>
-<p><strong>Confirm:</strong>Passwortwiederholung. Dieses Feld muss nur angegeben werden, wenn das Passwort neu festgelegt oder geändert wurde.</p>
+<p>**Confirm:**Passwortwiederholung. Dieses Feld muss nur angegeben werden, wenn das Passwort neu festgelegt oder geändert wurde.</p>
 <p><strong>Domain user:</strong> Nur wenn der <strong>Authentication Service</strong> mit <strong>Domain</strong> und <strong>Domain Controller</strong> konfiguriert wurde, wird dieses Eingabefeld angezeigt. Darin kann der Benutzer mit einem Domänenbenutzer verknüpft werden. Das zu verwendende Format ist <em>Domäne</em>\<em>Benutzer</em>. Wird eine Applikation auf einem Windows System gestartet, an dem der Domänenbenutzer angemeldet ist, so wird automatisch der zugeordnete Benutzer angemeldet. Ein Domänenbenutzer kann nur einem Benutzer zugeordnet werden.</p>
 <p><strong>Enable:</strong> Wenn die Checkbox gesetzt ist, ist der Benutzerzugang freigeschaltet.</p>
 <p><strong>Valid from:</strong> Wenn die Checkbox gesetzt ist, kann ein Datum angegeben werden, ab dem der Benutzerzugang gültig ist.</p>
 <p><strong>Valid to:</strong> Wenn die Checkbox gesetzt ist, kann ein Datum angegeben werden, bis zu dem der Benutzerzugang gültig ist.</p>
 <p><strong>Change password required:</strong> Wenn die Checkbox gesetzt ist, muss der Benutzer bei der ersten Anmeldung sein Passwort ändern.</p>
 <p><strong>Enable Advanced Security:</strong> Ist diese Checkbox gesetzt, gelten die erweiterten Sicherheitsanforderungen, wie sie am <strong>Authentication Service</strong> definiert sind.</p>
-<div class="NOTE"><h5>Note</h5><p>Die erweiterten Sicherheitseinstellungen dürfen typischer Weise nicht für den Benutzer aktiviert werden, der als Standardbenutzer für den Login an Applikationen vorgesehen ist (Standardbezeichnung <strong>anonymous</strong>), da dessen Passwort zeitlich unbegrenzt gültig sein muss.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die erweiterten Sicherheitseinstellungen dürfen typischer Weise nicht für den Benutzer aktiviert werden, der als Standardbenutzer für den Login an Applikationen vorgesehen ist (Standardbezeichnung <strong>anonymous</strong>), da dessen Passwort zeitlich unbegrenzt gültig sein muss.</p>
 </div>
 <p>Mit dem Button <strong>Delete</strong> wird der aktuell ausgewählte Benutzer gelöscht.</p>
 <p><img src="media/image9.png" alt="User Delete"></p>
@@ -163,7 +177,7 @@
 <p><img src="media/image11.png" alt="Edit User (Advanced Security)"></p>
 <p>Wenn Sie <strong>Domain</strong> und <strong>Domain Controller</strong> angegeben haben (ebenfalls beschrieben in der Installationsanleitung <strong>Authentication Service</strong>), ist zusätzlich ein Eingabefeld für den Domänenbenutzer (<strong>Domain user</strong>) sichtbar.</p>
 <p><img src="media/image8.png" alt="text"></p>
-<p>Bis auf den Benutzernamen können hier alle Angaben, wie bei der Funktion <strong>New **beschrieben</strong>,** angegeben werden.</p>
+<p>Bis auf den Benutzernamen können hier alle Angaben, wie bei der Funktion <strong>New <strong>beschrieben</strong>,</strong> angegeben werden.</p>
 <p>Mit dem Button <strong>Copy</strong> kann ein neuer Benutzer angelegt werden, der bis auf den Namen und das Passwort die gleichen Eigenschaften wie der aktuell ausgewählte Benutzer erhält.</p>
 <h2 id="gruppen-verwalten-registerkarte-groups">Gruppen Verwalten (Registerkarte Groups)</h2>
 <p>Mit dem Button <strong>New</strong> auf der Registerkarte <strong>Groups</strong> wird eine neue Gruppe angelegt, mit dem Button <strong>Edit</strong> kann die ausgewählte Gruppe bearbeitet werden. Mit beiden Buttons öffnet sich ein Dialog, in dem der Name der Gruppe und eine Beschreibung eingegeben werden kann.</p>
@@ -178,18 +192,22 @@
 <p>Die Spalten drei und vier sind nicht von Interesse, wenn der ausgewählte Service keine Geschäftseinheiten (<strong>Units</strong>) besitzt. In diesem Fall enthalten die Spalten keinerlei Daten.</p>
 <p>Wenn der ausgewählte Service bei der Registrierung am Authentifizierungsdienst Geschäftseinheiten mitgeteilt hat, so werden in der dritten Spalte alle Geschäftseinheiten aufgelistet. In diesem Fall wird zu der in der dritten Spalte ausgewählten Geschäftseinheit deren Eigenschaften in der vierten Spalte angezeigt. Dort kann außerdem eine Geschäftseinheit, die als veraltet (obsolete) markiert ist (siehe 0), mit dem Button <strong>Delete Obsolete Unit</strong> gelöscht werden.</p>
 <p><img src="media/image13.png" alt="Delete unit?"></p>
-<div class="NOTE"><h5>Note</h5><p>Wenn für diese Unit Rollen zu Benutzern oder Gruppen zugeordnet waren, gehen diese Zuordnungen dabei unwiderruflich verloren!</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Wenn für diese Unit Rollen zu Benutzern oder Gruppen zugeordnet waren, gehen diese Zuordnungen dabei unwiderruflich verloren!</p>
 </div>
 <p>Mit dem Button <strong>Delete Service</strong> wird der aktuell ausgewählte Service am Authentifizierungsdienst vollständig entfernt.</p>
 <p><img src="media/image14.png" alt=": Service Delete"></p>
-<div class="NOTE"><h5>Note</h5><p>Wenn Rollen von diesem Service Benutzern oder Gruppen zugeordnet waren, gehen diese Zuordnungen unwiderruflich verloren!</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Wenn Rollen von diesem Service Benutzern oder Gruppen zugeordnet waren, gehen diese Zuordnungen unwiderruflich verloren!</p>
 </div>
 <p>Mit dem Button <strong>Copy mappings from…</strong> können für den ausgewählten Service Rollen-Zuordnungen von einem anderen Service übernommen werden. Bestehende Zuordnungen werden dabei überschrieben. Dazu muss der Service ausgewählt werden, von dem die Rollen-Zuordnungen kopiert werden sollen. Hat der ausgewählte Service mehrere Geschäftseinheiten, so können auch aus diesem Service selbst Rollen-Zuordnungen von einer Geschäftseinheit in eine andere kopiert werden.</p>
 <p><img src="media/image15.png" alt=": Role Management Tool – Service Selector"></p>
 <p>Nach der Auswahl des Services, aus dem kopiert werden soll, erscheint der Dialog <strong>Copy role mappings from…</strong>, in dem die genauen Optionen für den Kopiervorgang festgelegt werden.</p>
 <p><img src="media/image16.png" alt=": Copy role mappings from …"></p>
 <p>Mit den Checkboxen <strong>User-Role mappings</strong> und <strong>Group-Role mappings</strong> wird festgelegt, ob Benutzer-Rollen Zuordnungen und Gruppen-Rollen Zuordnungen kopiert werden sollen.</p>
-<p>Der Bereich <strong>Units</strong> ist komplett deaktiviert, falls weder der als Quelle noch der als Ziel ausgewählte Service über mehrere Geschäftseinheiten verfügt. Andernfalls gibt es zwei Kopiermodi zur Auswahl:</p>
+<p>Der Bereich <strong>Units</strong> ist komplett deaktiviert, falls weder der als Quelle noch der als Ziel ausgewählte Service über mehrere Geschäftseinheiten verfügt. Andernfalls gibt es zwei Kopiermodi zur Auswahl:</p>
 <ul>
 <li><strong>All Units:</strong> In diesem Modus werden für alle Units, die in beiden Versionen existieren, die Zuordnungen eins zu eins übertragen. Achtung: Alle Zuordnungen (egal für welche Unit), die vorher im Ziel existiert haben, werden dabei gelöscht. Dieser Modus steht nur zur Auswahl, wenn sowohl der als Quelle, als auch der als Ziel ausgewählte Service mehrere Mandanten enthält.</li>
 <li><strong>One Unit:</strong> In diesem Modus werden Zuordnungen aus der Geschäftseinheit <strong>Source Unit</strong> in die Geschäftseinheit <strong>Target Unit</strong> kopiert. Alle zuvor existierenden Zuordnungen zur Target Unit werden dabei gelöscht. Alle anderen Geschäftseinheiten im Ziel Service werden dabei nicht verändert. Die Geschäftseinheiten <strong>Source Unit</strong> und <strong>Target Unit</strong> müssen ggf. über die entsprechenden Buttons <strong>Select</strong> ausgewählt werden. Erst dann wird der Button <strong>Start</strong> aktiviert.</li>
@@ -198,9 +216,13 @@
 <h2 id="arbeiten-mit-mehreren-geschäftseinheiten-units">Arbeiten mit mehreren Geschäftseinheiten (Units)</h2>
 <p>Seit <strong>Framework Studio 3.7</strong> kann eine Framework Studio Endanwendung dem Authentifizierungsdienst Geschäftseinheiten (Units) mitteilen. Diese werden im <strong>Authentication and Authorization Tool</strong> auf der Registerkarte <strong>Services</strong> für den ausgewählten Service angezeigt (siehe 3.5).</p>
 <p>Wird eine Unit beim Start eines Services dem Authentifizierungsdienst nicht mehr mitgeteilt, so wird diese als veraltet (<strong>obsolete</strong>) markiert. Erst dann kann eine Unit endgültig (mit den Button <strong>Delete Obsolete Unit</strong>, siehe 3.5) aus dem Authentifizierungsdienst gelöscht werden. Bis dahin bleiben alle Zuordnungen zu dieser Unit erhalten.</p>
-<div class="NOTE"><h5>Note</h5><p>Im Broker werden die Geschäftseinheiten nicht bei jedem Anwendungsstart geprüft und an den Authentifizierungsdienst übermittelt, sondern nur beim ersten Start der Anwendung. Sollen diese erneut geprüft und der Authentifizierungsdienst über Änderungen informiert werden, muss daher ggf. der genutzte Application Pool im IIS neu gestartet werden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Im Broker werden die Geschäftseinheiten nicht bei jedem Anwendungsstart geprüft und an den Authentifizierungsdienst übermittelt, sondern nur beim ersten Start der Anwendung. Sollen diese erneut geprüft und der Authentifizierungsdienst über Änderungen informiert werden, muss daher ggf. der genutzte Application Pool im IIS neu gestartet werden.</p>
 </div>
-<div class="NOTE"><h5>Note</h5><p>Als veraltet gekennzeichnete Units werden in der Vorbelegung der Unit Filter für die Rollenzuordnung ausgeblendet. Über den Button <strong>Filter Units</strong> ist ein Einblenden jederzeit möglich. In diesem Fall wird der Name der Unit in Spaltenüberschriften in Klammern gesetzt.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Als veraltet gekennzeichnete Units werden in der Vorbelegung der Unit Filter für die Rollenzuordnung ausgeblendet. Über den Button <strong>Filter Units</strong> ist ein Einblenden jederzeit möglich. In diesem Fall wird der Name der Unit in Spaltenüberschriften in Klammern gesetzt.</p>
 </div>
 <p><img src="media/image17.png" alt=": Runtime Administration (Authentication and Authorisation Tool)"></p>
 <p>Wenn ein Service mehrere Units hat, werden in allen Ansichten, in denen Rollen mit Benutzern oder Rollen mit Gruppen verknüpft werden, aus den Listenansichten mit Checkboxen <strong>Tabellen</strong> mit Checkboxen.</p>
@@ -298,39 +320,33 @@
 <li>Zeile „Buyer“: Taste 0 wird gedrückt =&gt; General ist nicht mehr ausgewählt</li>
 <li>Zeile „Administrator“: Leertaste wird gedrückt =&gt; Alle Units (außer General) sind ausgewählt</li>
 </ol>
-<div class="NOTE"><h5>Note</h5><p>Diese Shortcuts ermöglichen es im Zusammenspiel mit der Unit-Filterfunktion, für ausgewählte Units die gleichen Einstellungen zu vorzunehmen.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Diese Shortcuts ermöglichen es im Zusammenspiel mit der Unit-Filterfunktion, für ausgewählte Units die gleichen Einstellungen zu vorzunehmen.</p>
 </div>
 <p>Beispiel:</p>
 <p>Ein Benutzer hat grundsätzlich Rechte an den Units A, B, C und D. Ihm sollen viele Rollen zugeordnet werden. Diese Rollen sollen genau gleich an den Units A, B und D gesetzt werden, also nicht an Unit C. Nun können Sie mit dem Button <strong>Filter Units</strong> die Units A, B, und D zur Darstellung auswählen. Nun selektieren Sie nach und nach die gewünschten Rollen und drücken die Leertaste. Auf diese Weise werden jeweils die Checkboxen für die Units A, B, und D gesetzt. Unit C bleibt unberührt, da diese nicht angezeigt wird.</p>
+
 </article>
-          </div>
-          
-          <div class="hidden-sm col-md-2" role="complementary">
-            <div class="sideaffix">
-              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
-              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
-              </nav>
-            </div>
-          </div>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
         </div>
       </div>
-      
-      <footer>
-        <div class="grad-bottom"></div>
-        <div class="footer">
-          <div class="container">
-            <span class="pull-right">
-              <a href="#top">Back to top</a>
-            </span>
-            
-            <span>Generated by <strong>DocFX</strong></span>
-          </div>
-        </div>
-      </footer>
-    </div>
-    
-    <script type="text/javascript" src="../../styles/docfx.vendor.js"></script>
-    <script type="text/javascript" src="../../styles/docfx.js"></script>
-    <script type="text/javascript" src="../../styles/main.js"></script>
+    </footer>
   </body>
 </html>

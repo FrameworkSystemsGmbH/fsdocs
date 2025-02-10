@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/2/docs/doc/sql/grammatik.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/2.1/docs/doc/sql/grammatik.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -114,6 +114,10 @@ SET {&lt;identifierChain&gt; = &lt;value&gt; } [,…n]
 <h4 id="delete"><code>&lt;delete&gt;</code></h4>
 <pre><code class="lang-sql">DELETE [FROM] &lt;identifierChain&gt;
 [ WHERE &lt;condition&gt; ]
+</code></pre>
+<h3 id="withquery"><code>&lt;withQuery&gt;</code></h3>
+<pre><code class="lang-sql">WITH &lt;identifier&gt; AS ( &lt;select(ohne orderby)&gt; ) [,…n]
+&lt;select&gt;
 </code></pre>
 <h2 id="grammatik-für-die-bestandteile-der-kommandos">Grammatik für die Bestandteile der Kommandos</h2>
 <h4 id="resultcolumn"><code>&lt;resultColumn&gt;</code></h4>

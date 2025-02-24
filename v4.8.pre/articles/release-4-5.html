@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha3/docs/articles/release-4-5.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha4/docs/articles/release-4-5.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,10 +87,10 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-45">Release-Information Framework Studio 4.5</h1>
 
-<h2 id="45251-21022025">4.5.25.1 (21.02.2025)</h2>
+<h2 id="4526-07032025">4.5.26 (07.03.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.5.25.1_Setup_x64</li>
+<li>FS_4.5.26_Setup_x64</li>
 <li>Weitere Pakete (Dateinamen ohne ZIP-Endung)</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
@@ -106,6 +106,11 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 </ul>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
+<li><p>2025027380 - <strong>Java Client</strong>: Wenn an einer Registerkarte das Event
+<code>OnFirstSelect</code> implementiert ist, dann kann es passieren, dass bei der
+ersten Eingabe in einem TextFeld das <code>OnLeave</code>-Event nicht korrekt gefeuert
+wird.</p>
+</li>
 <li><p>2025017265 - <strong>Java-Client</strong>: Wenn ein Form, das über ein Event geschlossen
 werden soll, im selben Zug fokussiert wird, kommt es zu einer Fehlermeldung.</p>
 </li>
@@ -125,8 +130,8 @@ angezeigt - das zieht die Tabelle auseinander.<br></li>
 produziert und der Exception-Editor erkennt diesen Code nicht korrekt.</li>
 </ul>
 </li>
-<li><p>2025027305 - <strong>Framework</strong>: Die Methode <code>LoadCount()</code> liefert bei GroupBy-Components falsche Werte
-zurück. Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
+<li><p>2025027305 - <strong>Framework</strong>: Die Methode <code>LoadCount()</code> liefert bei GroupBy-Components falsche Werte zurück.
+Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
 </li>
 </ul>
 <h2 id="4525-07022025">4.5.25 (07.02.2025)</h2>

@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha3/docs/articles/release-4-7.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha4/docs/articles/release-4-7.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,27 +87,38 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
-<h2 id="4721-21022025">4.7.2.1 (21.02.2025)</h2>
+<h2 id="473-07032025">4.7.3 (07.03.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.7.2.1_Setup_x64</li>
+<li>FS_4.7.3_Setup_x64</li>
 <li>Weitere Pakete (Dateinamen ohne ZIP-Endung)</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen">Neuerungen</h4>
-<ul>
-<li>Neue Client-Action <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript.html#FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_System_String_"><code>BrowserControlAction.ExecuteJavaScript()</code></a></li>
-</ul>
 <h4 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.41.5 auf Version 7.42.0 aktualisiert.
 Das entspricht Chromium 132.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/">https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Der <a href="../doc/sql/grammatik.html#withquery">Sql-Parser</a> versteht jetzt <code>WITH</code>-Statements, auch bekannt als <em>Common Table Expression (CTE)</em>.</li>
+<li>Neue Client-Action <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript.html#FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_System_String_"><code>BrowserControlAction.ExecuteJavaScript()</code></a></li>
+</ul>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
+<li><p>2025027380 - <strong>Java Client</strong>: Wenn an einer Registerkarte das Event
+<code>OnFirstSelect</code> implementiert ist, dann kann es passieren, dass bei der
+ersten Eingabe in einem TextFeld das <code>OnLeave</code>-Event nicht korrekt gefeuert
+wird.</p>
+</li>
 <li><p>2025017265 - <strong>Java-Client</strong>: Wenn ein Form, das über ein Event geschlossen
 werden soll, im selben Zug fokussiert wird, kommt es zu einer Fehlermeldung.</p>
+</li>
+<li><p>2025027375 - <strong>Package-Manager</strong>: In einem Oracle-Repository kann es
+passieren, dass das Update einer Package-Version zu einem Fehler führt. Im
+Script <code>4.6.0.0 2022.11.18 DeprecatedLayoutCheck.ora</code> wird eine
+Sql-Exception ausgegeben <code>FS.DataClient.FrameworkDbException: ORA-00932: Inkonsistente Datentypen: CHAR erwartet, NUMBER erhalten</code>.</p>
 </li>
 <li><p>2025017231 - <strong>IDE</strong>: Wird nach dem Kopieren und Einfügen eines Combobox- oder
 ListBox-Controls das Property, das als ListDataSource definiert ist nicht
@@ -124,6 +135,9 @@ angezeigt - das zieht die Tabelle auseinander.<br></li>
 <li>Der Exception-Editor erzeugt einen mehrzeiligen Code, der Compile-Fehler
 produziert und der Exception-Editor erkennt diesen Code nicht korrekt.</li>
 </ul>
+</li>
+<li><p>2025027305 - <strong>Framework</strong>: Die Methode <code>LoadCount()</code> liefert bei GroupBy-Components falsche Werte zurück.
+Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
 </li>
 </ul>
 <h2 id="472-07022025">4.7.2 (07.02.2025)</h2>

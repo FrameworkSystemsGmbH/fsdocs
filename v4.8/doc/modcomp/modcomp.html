@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha2/docs/doc/modcomp/modcomp.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha4/docs/doc/modcomp/modcomp.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -115,13 +115,42 @@ Die beiden Optionen <strong>Class</strong> und <strong>Interface</strong> sind s
 </li>
 <li><p>Protected Setter bei Properties</p>
 </li>
-<li><p>Base Class: Hier können wie bei Components eine Basisklasse oder Interfaces angegeben werden. Dieses Feld ist nicht customizebar.</p>
-</li>
 <li><p>Copy &amp; Paste der Methoden und Properties über verschiedene Objekttypen hinweg ist möglich. Zwischen Forms, Components und Modular Components kann kopiert werden. Da keine 1:1 Übersetzung möglich ist, muss vor allem bei der Kopie von Modular Component Properties in Components das Ergebnis ggf. überprüft werden.</p>
 </li>
 </ul>
+<h4 id="baseclass">BaseClass</h4>
+<p>Im Feld <strong>BaseClass</strong> sind nur Klassen erlaubt, welche mit Fullname angegeben werden müssen.
+Dies kann für externe Klassen oder nicht Modular Component-Klassen händisch eingetragen werden.
+Oder es wird eine derived Modular Component über das Derive-Command im Namespace-Baum einer Basis Modular Component erstellt - ähnlich zur Form-Vererbung.</p>
+<p>Modular Components vom Typ <em>Interface</em> können keine BaseClass besitzen, das Feld wird deshalb nicht angezeigt.
+Stattdessen können im Feld <strong>Interfaces</strong> mehrere Basis-Interfaces definiert werden.</p>
+<p>Im Customizing kann die BaseClass nicht geändert werden.
+Das Feld <strong>BaseClass</strong> zeigt den Wert aus dem Basis-Package an.</p>
+<p>Im Property-Kontextmenü gibt es ebenfalls die neue Funktion: <strong>Property (Override)</strong>.
+Mit welcher Properties aus der Basisklasse überschrieben werden können.
+Properties haben eine Checkbox <strong>Override</strong> erhalten, welche beim Überschreiben eines Properties automatisch angehakt wird.</p>
+<p><img src="media/propertyoverride.png" alt="Property override Kontextmenü"></p>
+<p>Auch bei &quot;Method (override)&quot; werden Methoden aus der Basis aufgeführt.</p>
 <p>Auf dem folgenden Screenshot wird der General Tab einer Class-Modular Component abgebildet.
 <img src="media/%C3%BCbersichtModCompsGeneralTab.png" alt="UI der Modular Component Typen"></p>
+<h4 id="interfaces">Interfaces</h4>
+<p>Im Feld <strong>Interfaces</strong> können durch ein Komma getrennt mehrere Interfaces angegeben werden, welche die Modular Component implementieren soll.
+Es müssen FullNames (inkl. Namespaces) verwendet werden.</p>
+<p><img src="media/modcomp-interfaces.png" alt="interfaces"></p>
+<p>Diese Interfaces werden 1:1 in den generierten Code der Klasse des entsprechenden Packages übernommen.
+Für eine Implementierung muss manuell gesorgt werden.
+Für bekannte Interfaces gibt es aber eine Unterstützung zum Erzeugen der entsprechenden Properties und Methoden.</p>
+<p>&quot;Bekannte&quot; Interfaces sind derzeit andere Modular Components.</p>
+<p>Im Customizing kann eine Modular Component weitere Interfaces implementieren - die im Basis-Package definierten Interfaces können hingegen nicht entfernt werden.
+Aus diesem Grund stellt das Feld <strong>Interfaces</strong> nicht den Wert aus dem Basis-Package dar.</p>
+<p>Über den Button neben dem Feld öffnet sich ein Context-Menü mit Aktionen für bekannte Interfaces.</p>
+<ul>
+<li><p><strong>Open</strong>: öffnet die entsprechende Modular Component.</p>
+</li>
+<li><p><strong>Implement</strong>: sofern die angegebene Modular Component vom Typ <em>Interface</em> ist, werden die fehlenden Properties und Methoden automatisch erzeugt.
+Dabei wird nur das jeweilige Interface und nicht dessen Basis-Interface(s) betrachtet.</p>
+</li>
+</ul>
 <h3 id="funktionale-einschränkungen">Funktionale Einschränkungen</h3>
 <p>Funktionen, welche aus Components bekannt sind, jedoch nicht für Modular Components umgesetzt wurden:</p>
 <ol>

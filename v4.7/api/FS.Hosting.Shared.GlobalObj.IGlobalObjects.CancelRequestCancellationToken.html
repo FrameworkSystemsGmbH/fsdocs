@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/new/4.7/release/2-fix1/apiSpec/new?filename=FS_Hosting_Shared_GlobalObj_IGlobalObjects_CancelRequestCancellationToken_.md&amp;value=---%0Auid%3A%20FS.Hosting.Shared.GlobalObj.IGlobalObjects.CancelRequestCancellationToken*%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/new/4.7/release/3/apiSpec/new?filename=FS_Hosting_Shared_GlobalObj_IGlobalObjects_CancelRequestCancellationToken_.md&amp;value=---%0Auid%3A%20FS.Hosting.Shared.GlobalObj.IGlobalObjects.CancelRequestCancellationToken*%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -91,7 +91,7 @@
 
 
 <h1 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_CancelRequestCancellationToken_" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CancelRequestCancellationToken*" class="text-break">
-Method CancelRequestCancellationToken  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/2-fix1/fs/FS.Hosting.Shared/GlobalObj/GlobalObjects.cs/#L1112"><i class="bi bi-code-slash"></i></a>
+Method CancelRequestCancellationToken  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/3/fs/FS.Hosting.Shared/GlobalObj/GlobalObjects.cs/#L1112"><i class="bi bi-code-slash"></i></a>
 </h1>
 
 <div class="facts text-secondary">
@@ -121,7 +121,7 @@ Method CancelRequestCancellationToken  <a class="header-action link-secondary" t
 
 <h3 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_CancelRequestCancellationToken" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CancelRequestCancellationToken">
   CancelRequestCancellationToken()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/2-fix1/fs/FS.Hosting.Shared/GlobalObj/GlobalObjects.cs/#L1112"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/3/fs/FS.Hosting.Shared/GlobalObj/GlobalObjects.cs/#L1112"><i class="bi bi-code-slash"></i></a>
 </h3>
 
 <div class="markdown level1 summary"><p>Bricht den aktuellen <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.RequestCancellationToken.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_RequestCancellationToken">RequestCancellationToken</a> ab und startet sofort einen neuen für den folgenden Request.</p>
@@ -143,12 +143,12 @@ Method CancelRequestCancellationToken  <a class="header-action link-secondary" t
 <h4 class="section" id="FS_Hosting_Shared_GlobalObj_IGlobalObjects_CancelRequestCancellationToken_remarks">Remarks</h4>
 <div class="markdown level1 remarks"><p>Ist das GlobalObject disposed, dann ist diese Funktion wirkunslos.
 In diesem Fall ist der RequestCancellationToken bereits abgebrochen und es gibt keinen neuen RequestCancellationToken mehr.</p>
-<p>Der Aufruf erfolgt mit <span class="xref">FS.Hosting.Shared.GlobalObj.IGlobalObjects.CloseConnection()</span>.
-In einer Broker-Application wird der RequestCancellationToken dadurch Ende des Client-Requests automatisch abgebrochen.</p>
+<p>Der Aufruf erfolgt mit <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CloseConnection.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseConnection">CloseConnection()</a>.
+In einer Broker-Application wird der <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.RequestCancellationToken.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_RequestCancellationToken">RequestCancellationToken</a> dadurch Ende des Client-Requests automatisch abgebrochen.</p>
 <p>Im Service-Context wird das GlobalObject manuell verwaltet - z.B. in einem Service-Host.
-Dort sollte am Ende einer Verarbeitung auch die Methode <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CloseApplication.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseApplication">CloseApplication()</a> aufgerufen werden, damit der RequestCancellationToken abgebrochen wird
+Dort sollte am Ende einer Verarbeitung auch die Methode <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CloseConnection.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseConnection">CloseConnection()</a> aufgerufen werden, damit der RequestCancellationToken abgebrochen wird
 (aber auch, damit die DB-Connections nicht dauerhaft blockiert werden).
-Im Regelfall muss dort also kein Extra Code für den RequestCancellationToken geschrieben werden.</p>
+Im Regelfall muss dort also kein Extra Code für den <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.RequestCancellationToken.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_RequestCancellationToken">RequestCancellationToken</a> geschrieben werden.</p>
 </div>
 
 

@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha4/docs/doc/access-units/laufzeitlizenzen.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha5/docs/doc/access-units/laufzeitlizenzen.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -216,7 +216,13 @@ Diese Datei enthält für jede Package-Version der Applikation eine Lizenz.</p>
 <p>Wenn eine Checkbox mit <strong>grauem Hintergrund</strong> <img src="media/icon-leere-checkbox.png" alt="leere-checkbox"> dargestellt wird, so bedeutet dies, dass das repräsentierte Zugriffsrecht bereits durch eine der verwendeten Basislizenzen verweigert wird.</p>
 <p>Sie können in der Lizenz für das aktuelle Package diese Zugriffsart trotzdem erlauben. Die Endanwendung wird diese Zugriffsart jedoch nur erlaubt bekommen, wenn andere Basislizenzen verwendet werden, die diese Zugriffsart ebenfalls ermöglichen.</p>
 <p>Mit dem Menüeintrag <strong>Parents</strong> im Kontextmenü einer Access Unit erhält man eine Liste aller Access Units, die die ausgewählte Access Unit als Unterelement enthalten. Wählt man aus der Liste eine Access Unit aus, wird direkt dorthin gesprungen.</p>
-<p>Im Access Unit Tree kann mit der <strong>Multiplikationstaste</strong> * der komplette Teilbaum der ausgewählten AccessUnit aufgeklappt werden, mit der <strong>Subtraktionstaste</strong> - wird der Teilbaum wieder kollabiert.</p>
+<p>Im Access Unit Tree kann mit der <strong>Multiplikationstaste</strong> * der komplette Teilbaum der ausgewählten AccessUnit aufgeklappt werden, mit der <strong>Subtraktionstaste</strong> - wird der Teilbaum wieder eingeklappt.
+Über das Kontextmenü der Name-Column kann auch Full Expand oder Full Collapse ausgewählt werden. Dies klappt den kompletten Baum auf. Expand/Collapse öffnet bzw. schließt nur den selektieren Teilbaum.</p>
+<p><img src="media/access-unit-contextmenu.png" alt="Kontextmenü AccessUnit Baum"></p>
+<p>Über den Shortcut <code>Strg + F</code> kann im AccessUnit-Baum nach einem Namen gesucht werden.
+Die gefundenen Elemente werden im Tree gelb markiert. Auf der Scrollbar werden alle gefundenen Elemente markiert.
+Für die Suche nach einem AccessUnit-Namen, wie aufrmArticle, muss die Sprache auf <code>&lt;internal Name&gt;</code> geändert werden.</p>
+<p><img src="media/access-unit-tree-search.png" alt="Search im Access Unit Baum"></p>
 <h2 id="registerkarte-license-parameters">Registerkarte License Parameters</h2>
 <p><img src="media/registerkarte-license-parameters.png" alt="Registerkarte License parameters"></p>
 <p>Diese Registerkarte beinhaltet alle allgemeinen Eigenschaften der ausgewählten Lizenz:</p>

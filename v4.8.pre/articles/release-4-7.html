@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha4/docs/articles/release-4-7.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha5/docs/articles/release-4-7.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,11 +87,22 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
+<h2 id="4731-21032025">4.7.3.1 (21.03.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.3.1_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li>2025027468 - <strong>Framework</strong>: Arbeitet der StaticCache im SessionMode, dann kann
+der gleichzeitige Aufruf der Invalidate-Methode in mehreren Sessions zu
+Threading-Problemen und leeren Ergebnissen führen.</li>
+</ul>
 <h2 id="473-07032025">4.7.3 (07.03.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.7.3_Setup_x64</li>
-<li>Weitere Pakete (Dateinamen ohne ZIP-Endung)</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h4>
@@ -105,7 +116,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>Der <a href="../doc/sql/grammatik.html#withquery">Sql-Parser</a> versteht jetzt <code>WITH</code>-Statements, auch bekannt als <em>Common Table Expression (CTE)</em>.</li>
 <li>Neue Client-Action <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript.html#FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_System_String_"><code>BrowserControlAction.ExecuteJavaScript()</code></a></li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025027380 - <strong>Java Client</strong>: Wenn an einer Registerkarte das Event
 <code>OnFirstSelect</code> implementiert ist, dann kann es passieren, dass bei der
@@ -156,7 +167,7 @@ Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
 <li>Bei Klicken auf einen Link im <code>Errors and Warnings</code> Tab wird dieser farblich hervorgehoben, um zu visualisieren, dass der Link bereits besucht wurde.</li>
 <li>Bei den Aktionen <code>Open</code>, <code>Save</code> (im FS Report Designer), sowie <code>Choose Report</code> wird nun das Verzeichnis der tatsächlichen Report-Datei geöffnet, statt das Haupt-Reportverzeichnis.</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025017196 - <strong>Reporting</strong>: Im WebDesigner ist der Expression Editor nicht
 nutzbar, da weder Formeln angezeigt noch bearbeitet werden können.</p>
@@ -202,7 +213,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <ul>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 131.3.10 upgedatet.</li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024127052 - <strong>Java-Client</strong>: Der Fokus eines neu geöffneten Forms geht
 verloren, wenn während des Öffnens ein Event (z.B. SelectedTabPageChanged)
@@ -261,7 +272,7 @@ DB-Korrekturskript nicht mehr verwendet werden.</p>
 <li>FS_4.7.0_Fix_2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li>2024127026 - <strong>Framework</strong>: Wird bei einem Aufruf von <code>Clone()</code> oder <code>AdoptValue()</code> ein
 <code>AdoptMode.NoHistory</code> übergeben, dann wird dieser nicht in den <code>Clone()</code> der Unterobjekte
@@ -274,7 +285,7 @@ nicht korrekt.</li>
 <li>FS_4.7.0_Fix_1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024126996 - <strong>FS-Broker</strong>: Wird im Publish-Setting ein Load-Balancing konfiguriert,
 dann zieht dieses nicht. Die Application startet in diesem Broker anstatt auf die
@@ -298,7 +309,7 @@ Ein Update von diesen Versionen ist nicht möglich.</p>
 </div>
 <h4 id="neuerungen-2">Neuerungen</h4>
 <p>Siehe <a href="neuheiten-4-7.html">Neuheiten Framework Studio 4.7</a>.</p>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#4612-06122024">Framework Studio 4.6.12</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

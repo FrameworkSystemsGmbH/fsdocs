@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha5/docs/articles/release-4-7.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha6/docs/articles/release-4-7.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,17 +87,25 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
-<h2 id="4731-21032025">4.7.3.1 (21.03.2025)</h2>
+<h2 id="474-04042025">4.7.4 (04.04.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.7.3.1_Setup_x64</li>
+<li>FS_4.7.4_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
-<li>2025027468 - <strong>Framework</strong>: Arbeitet der StaticCache im SessionMode, dann kann
+<li><p>2025037573 - <strong>Java-Client</strong>: Die Tabreihenfolge für Controls unterhalb eines
+Tabbed Windows funktioniert nicht. Die Controls lassen sich nicht
+durchtabben.</p>
+</li>
+<li><p>2025027450 - <strong>IDE</strong>: Wenn ein Control-Style oder Base-Control-Style geöffnet
+wird, kommt es zu einer ArgumentException und die Anwendung stürzt ab.</p>
+</li>
+<li><p>2025027468 - <strong>Framework</strong>: Arbeitet der StaticCache im SessionMode, dann kann
 der gleichzeitige Aufruf der Invalidate-Methode in mehreren Sessions zu
-Threading-Problemen und leeren Ergebnissen führen.</li>
+Threading-Problemen und leeren Ergebnissen führen.</p>
+</li>
 </ul>
 <h2 id="473-07032025">4.7.3 (07.03.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>

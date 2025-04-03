@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha4/docs/articles/release-4-6.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha6/docs/articles/release-4-6.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,11 +87,32 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-46">Release-Information Framework Studio 4.6</h1>
 
+<h2 id="4616-04042025">4.6.16 (04.04.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.6.16_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2025037573 - <strong>Java-Client</strong>: Die Tabreihenfolge für Controls unterhalb eines
+Tabbed Windows funktioniert nicht. Die Controls lassen sich nicht
+durchtabben.</p>
+</li>
+<li><p>2025037610 - <strong>IDE</strong>: Bei der Suche in Customizing-Packages werden Treffer aus
+dem Basis-Package nicht korrekt aufbereitet. Dies hat zur Folge, dass beim
+Aufbau der Search-Ergebnisse ArgumentNullExceptions geworfen werden und die
+Suche abgebrochen wird.</p>
+</li>
+<li><p>2025027468 - <strong>Framework</strong>: Arbeitet der StaticCache im SessionMode, dann kann
+der gleichzeitige Aufruf der Invalidate-Methode in mehreren Sessions zu
+Threading-Problemen und leeren Ergebnissen führen.</p>
+</li>
+</ul>
 <h2 id="4615-07032025">4.6.15 (07.03.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.6.15_Setup_x64</li>
-<li>Weitere Pakete (Dateinamen ohne ZIP-Endung)</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h4>
@@ -104,7 +125,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <ul>
 <li>Der <a href="../doc/sql/grammatik.html#withquery">Sql-Parser</a> versteht jetzt <code>WITH</code>-Statements, auch bekannt als <em>Common Table Expression (CTE)</em>.</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025027380 - <strong>Java Client</strong>: Wenn an einer Registerkarte das Event
 <code>OnFirstSelect</code> implementiert ist, dann kann es passieren, dass bei der
@@ -155,7 +176,7 @@ Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
 <li>Bei Klicken auf einen Link im <code>Errors and Warnings</code> Tab wird dieser farblich hervorgehoben, um zu visualisieren, dass der Link bereits besucht wurde.</li>
 <li>Bei den Aktionen <code>Open</code>, <code>Save</code> (im FS Report Designer), sowie <code>Choose Report</code> wird nun das Verzeichnis der tatsächlichen Report-Datei geöffnet, statt das Haupt-Reportverzeichnis.</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025017196 - <strong>Reporting</strong>: Im WebDesigner ist der Expression Editor nicht
 nutzbar, da weder Formeln angezeigt noch bearbeitet werden können.</p>
@@ -201,7 +222,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <ul>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 131.3.10 upgedatet.</li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024127052 - <strong>Java-Client</strong>: Der Fokus eines neu geöffneten Forms geht
 verloren, wenn während des Öffnens ein Event (z.B. SelectedTabPageChanged)
@@ -232,7 +253,7 @@ eNVenta das Kopieren von historisierten Belegen nicht korrekt.</p>
 Der Vergleich mit einem externen Tool ist dennoch möglich.</li>
 <li>Im Class-Code und Namespace-Code (Generated-Code) kann man im Editor nun einen Code-Refresh ausführen.</li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024116925 - <strong>Package-Manager</strong>: Beim Export eines Package-Stacks, bei
 welchem Packages ohne Owner-Status dabei sind, verliert der Export das
@@ -275,7 +296,7 @@ aufgerufen wird.</p>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 129.0.110 upgedatet.</li>
 <li>Der HTML Client wurde auf Angular 18.2.2 upgedatet. Bitte beachten Sie die geänderten Systemvoraussetzungen für die App. Es werden nur noch Geräte mit Android 8.0 (API-Level 26) oder höher unterstützt.</li>
 </ul>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024106684 - <strong>Reporting</strong>: Wird ein DevExpress Report als HTML exportiert,
 dann werden die Bilder (z.B. Barcodes) nicht eingebettet, sondern als Datei
@@ -295,7 +316,7 @@ mal in die Methode OnServiceHostExit().</p>
 <ul>
 <li>Das Anlegen eines neuen Repositorys funktioniert jetzt auch mit den strengeren Password-Regeln in SQL-Server 2022.</li>
 </ul>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024096453 - <strong>Reporting</strong>: Bei Update eines Oracle Repositories auf die
 Versionen 4.4 wurde beim Anlegen der Tabelle <code>tblRep_ReportDesign</code> die
@@ -352,7 +373,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <ul>
 <li>Die <em>Include Base Packages</em> Funktion im Package-Export über den <a href="../doc/package-manager/export.html#include-base-packages">Package-Manager</a> und die <a href="../doc/fsconsole/fsconsole.html#includebasepackages-mode">FSConsole</a> bzw. <a href="../doc/pbe/aktionen.html#knoten-export">PBE</a> wurde überarbeitet.</li>
 </ul>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024086212 - <strong>Java-Client</strong>: Wird ein Client nicht regulär beendet, dann
 bleiben temporäre Ordner des JxBrowser-Controls hängen. Passiert das
@@ -386,7 +407,7 @@ gesetzt.</p>
 <li><a class="xref" href="../api/FS.Hosting.Shared.GlobalObj.ContentDownloadManager.html">Über eine neue API können im Broker Inhalte bereitgestellt werden. Diese können vom Client heruntergeladen werden.</a></li>
 <li>Die beiden Actions <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.GridColumnControlAction.html">SetMinWidth</a> und <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.GridColumnControlAction.html">SetMaxWidth</a> für GridColumns wurden umgesetzt</li>
 </ul>
-<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024045657 - <strong>Java-Client</strong>: An einem Grid ist MultiSelect und Drag&amp;Drop
 aktiv. Wenn man mit Strg+A alle Zeilen selektiert und anschließend mit
@@ -498,7 +519,7 @@ Wenn Sie die Service-Release-Funktion für das Ersetzen von anderen Datei-Typen 
 </div>
 </li>
 </ul>
-<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024065939 - <strong>Broker</strong>: Wird über den HTML-Client eine TakePhoto-Action
 ausgeführt und diese liefert ein großes Bild mit mehr als 3 MB, dann meldet
@@ -562,7 +583,7 @@ Dadurch wurde dem Benutzer nur die Meldung <em>&quot;Ein Aufrufziel hat einen Au
 Die eigentliche Meldung war erst in den Details zu finden.
 Jetzt wird gleich die richtige Meldung ausgegeben.</li>
 </ul>
-<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024035421 - <strong>Java-Client</strong>: Wenn man im Bearbeitungs-Modus vom Dashboard /
 Zoom den Titel der Registerkarte bearbeitet und während dessen eine neue
@@ -610,7 +631,7 @@ Service-Release-Modus befindet.</p>
 <li>Für einen Form-Container funktioniert im Java-Client jetzt die Focus-Steuerung.
 Das umfasst das Navigieren durch die Controls, das Reagieren auf Shortcuts in beiden Richtungen und die SetFocus-Action im inneren Form.</li>
 </ul>
-<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024014866 - <strong>JavaClient</strong>: Wird am Grid in einem EditingStopped-Event mit
 SetCell-Actions gearbeitet, dann kann es vorkommen, dass die SetCell-Action
@@ -681,7 +702,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <ul>
 <li>beinhaltet den neuen FS Client Launcher 4.5.15</li>
 </ul>
-<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024035335 - <strong>JavaClient</strong>: Wird innerhalb eines SVGs ein <code>&lt;a&gt;</code> href-Link mit
 spezieller FSCommand-Logik verwendet. Reagiert nicht die Sonderlogik
@@ -745,7 +766,7 @@ Exception kommen.</p>
 <li>Im Package Manager können die Packages <a href="../doc/package-manager/package-manager.html">gefiltert</a> werden. So werden nur noch Packages angezeigt, welche bearbeitbare Labels passend zur FS-Version haben.</li>
 <li>Es gibt eine neue Auto Debug DLLs Option: <code>Service, Component, Form</code>, siehe <a href="../doc/allgemein/options.html#auto-debug-dlls">Options</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-13">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024014914 - <strong>IDE</strong>: In sehr seltenen Fällen kann es vorkommen, dass &quot;GoTo
 Definition&quot; im Code Editor bei gedrückter STRG-Taste erst bei einem zweiten
@@ -783,7 +804,7 @@ SR-Methode ein Leerzeichen enthalten ist.</p>
 <li>Mit Hilfe von <a href="../doc/package-manager/hotfix-branch.html">Hotfix-Branches</a> ist es möglich, parallel zum laufenden Service-Release Änderungen vorzunehmen und diese kurzfristig auszuliefern.</li>
 <li>Maintenance-Routine &quot;<a href="../doc/maintenance/double-form-doc-cleanup.html">Double Form Doc Cleanup</a>&quot; zur Bereinigung doppelter Form-Dokumentationen.</li>
 </ul>
-<h4 id="korrigierte-fehler-13">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-14">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024014859 - <strong>AuthService</strong>: Wird ein Benutzer mit &quot;Angemeldet bleiben&quot;
 erneut angemeldet, dann wird im Auth-Service die Login-Info des Benutzers
@@ -824,7 +845,7 @@ und DocML nutzen fälschlicherweise immer die Standardwerte.</p>
 <li>Die Bibliothek Oracle.ManagedDataAccess wurde von Version 21.8.0 auf die neuste Version 21.12.0 aktualisiert.</li>
 <li>DevExpress wurde auf Version 23.1.6 upgedated. Aus diesem Grund gibt es auch einen neuen <a href="aktuelle-pakete.html">Print-Service</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-14">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-15">Korrigierte Fehler</h4>
 <ul>
 <li><p>2023114564 - <strong>IDE</strong>: Kopieren und das anschließende Einfügen eines
 Basis-Properties, wenn der Parent (Form, Component) gecustomized ist,
@@ -852,7 +873,7 @@ verwirft diese.</p>
 <li>FS_4.6.0_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-15">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-16">Korrigierte Fehler</h4>
 <p>In der Version 4.6 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-5.html#4511-01122023">Framework Studio 4.5.11</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

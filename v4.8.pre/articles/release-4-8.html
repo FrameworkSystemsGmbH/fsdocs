@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha6/docs/articles/release-4-8.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha7/docs/articles/release-4-8.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,13 +87,25 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-48">Release-Information Framework Studio 4.8</h1>
 
+<h2 id="480-alpha-7-17042025">4.8.0 Alpha 7 (17.04.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.8.0_Alpha_7_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h3 id="neuerungen">Neuerungen</h3>
+<ul>
+<li><a href="neuheiten-4-8.html#sql-parser-abgesichert">SQL-Parser abgesichert</a></li>
+<li>In <a href="../doc/modcomp/modcomp.html">Modular Components</a> werden im Customizing private Properties aus der Basis ausgeblendet.</li>
+<li>Die <a href="requirements.html">Systemvoraussetzungen</a> wurden auf <a href="neuheiten-4-8.html#java-21">Java 21</a> angepasst und veraltete Windows-Systeme entfernt.</li>
+</ul>
 <h2 id="480-alpha-6-04042025">4.8.0 Alpha 6 (04.04.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.8.0_Alpha_6_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h3 id="neuerungen">Neuerungen</h3>
+<h3 id="neuerungen-1">Neuerungen</h3>
 <ul>
 <li>Der Element History Browser ist nun für lesbare Ressourcen wie beispielsweise .txt oder .xml Dateien verfügbar.</li>
 <li>Internal Methoden an Modularen Componenten führen jetzt zu Compilewarnings.
@@ -105,18 +117,15 @@
 </ul>
 <h4 id="fxbrowser-entfernt">FxBrowser entfernt</h4>
 <p>Im Zuge des Updates auf Java 21 wurde der FxBrowser von JavaFx ausgebaut.
-Der JxBrowser ist damit das einzige in FS integrierte Browser-Control.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Der JxBrowser unterstützt kein Linux oder macOS.</p>
-</div>
+Der JxBrowser ist somit das einzige in FS integrierte Browser-Control.
+Die eingebundene Java 21 Runtime, die durch den FSClientLauncher ausgerollt wird, enthält damit nicht mehr die JavaFx Componenten.</p>
 <h2 id="480-alpha-5-21032025">4.8.0 Alpha 5 (21.03.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.8.0_Alpha_5_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h3 id="neuerungen-1">Neuerungen</h3>
+<h3 id="neuerungen-2">Neuerungen</h3>
 <ul>
 <li>Änderungen an Methoden und Properties bei einem ausgecheckten Record werden durch die neue Spalte <code>Modified</code> angezeigt.</li>
 <li><a href="neuheiten-4-8.html#grafische-transformationen-%C3%BCberarbeitet">Access Unit Tree überarbeitet</a></li>
@@ -144,7 +153,7 @@ Modular Components nicht aufgeführt.</p>
 <li>Weitere Pakete (Dateinamen ohne ZIP-Endung)</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h3 id="neuerungen-2">Neuerungen</h3>
+<h3 id="neuerungen-3">Neuerungen</h3>
 <ul>
 <li>In den Modular Components können <a href="../doc/modcomp/modcomp.html#interfaces">Interfaces</a> definiert und implementiert werden.</li>
 <li>Der <a href="../doc/sql/grammatik.html#withquery">Sql-Parser</a> versteht jetzt <code>WITH</code>-Statements, auch bekannt als <em>Common Table Expression (CTE)</em>.</li>
@@ -172,7 +181,7 @@ Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
 <li>Weitere Pakete (Dateinamen ohne ZIP-Endung)</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-3">Neuerungen</h4>
+<h4 id="neuerungen-4">Neuerungen</h4>
 <ul>
 <li>In den Modular Components können nun <a href="../doc/modcomp/modcomp.html#baseclass">Basis-Klassen</a> definiert werden, sowie deren Properties mit der neuen Override-Checkbox überschrieben werden.</li>
 <li>Neue Client-Action <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript.html#FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_System_String_"><code>BrowserControlAction.ExecuteJavaScript()</code></a></li>
@@ -212,7 +221,7 @@ produziert und der Exception-Editor erkennt diesen Code nicht korrekt.</li>
 <li>FS_4.8.0_Alpha_2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-4">Neuerungen</h4>
+<h4 id="neuerungen-5">Neuerungen</h4>
 <ul>
 <li><a href="neuheiten-4-8.html#crystal-reports-abgek%C3%BCndigt">Crystal Reports abgekündigt</a></li>
 <li>Bei Klicken auf einen Link im <code>Errors and Warnings</code> Tab wird dieser farblich hervorgehoben, um zu visualisieren, dass der Link bereits besucht wurde.</li>

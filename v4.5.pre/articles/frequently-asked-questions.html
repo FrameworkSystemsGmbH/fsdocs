@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/27.1/docs/articles/frequently-asked-questions.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/28/docs/articles/frequently-asked-questions.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -177,6 +177,69 @@ Fehler beim Laden der Datenbankinformationen
 </ul>
 <p>Uns sind auch Probleme bei Updates auf eine Runtime 13.0.26 oder höher bekannt.
 Eine Anleitung wie Sie hier vorgehen müssen, finden Sie <a href="https://frameworksystemsgmbh.github.io/fsdocs/v4.5/articles/requirements.html#crystal-reports-runtime">hier</a>.</p>
+<h2 id="devexpress-exception-scriptitemizeopentype-in-usp10dll-nicht-gefunden">DevExpress Exception <code>ScriptItemizeOpenType</code> in <code>Usp10.dll</code> nicht gefunden</h2>
+<p>Beim Druck eines DevExpress Reports kommt es zu folgender Exception:</p>
+<pre><code class="lang-csharp">Der Einstiegspunkt &quot;ScriptItemizeOpenType&quot; wurde nicht in der DLL &quot;Usp10.dll&quot; gefunden.
+ 
+System.EntryPointNotFoundException: Der Einstiegspunkt &quot;ScriptItemizeOpenType&quot; wurde nicht in der DLL &quot;Usp10.dll&quot; gefunden.
+ 
+   bei DevExpress.Pdf.ContentGeneration.Interop.UniscribeInterop.ScriptItemizeOpenType(String pwcInChars, Int32 cInChars, Int32 cMaxItems, SCRIPT_CONTROL&amp; psControl, SCRIPT_STATE&amp; psState, SCRIPT_ITEM[] pItems, OPENTYPE_TAG[] pScriptTags, Int32&amp; pcItems)
+   bei DevExpress.Pdf.ContentGeneration.Interop.UniscribeInterop.ScriptItemize(String text, SCRIPT_CONTROL&amp; psControl, SCRIPT_STATE&amp; psState, OPENTYPE_TAG[]&amp; scriptTags)
+   bei DevExpress.Pdf.ContentGeneration.UniscribeShaper.CreateRuns(String text, Boolean directionRightToLeft)
+   bei DevExpress.Pdf.ContentGeneration.UniscribeShaper.CreateTextAnalysisRuns(String text, Boolean directionRightToLeft)
+   bei DevExpress.Drawing.Internal.Fonts.DXShaper`1.ShapeText(String text, Boolean directionRightToLeft, Single fontSizeInPoints, Boolean useKerning)
+   bei DevExpress.Pdf.ContentGeneration.PdfExportFullTrustFont.FullTrustFontShaper.ShapeText(String text, Boolean directionRightToLeft, Single fontSizeInPoints, Boolean useKerning)
+   bei DevExpress.Pdf.Native.PdfTabbedStringFormatter.FormatString(String line)
+   bei DevExpress.Pdf.ContentGeneration.PdfGraphicsCommandConstructor.FormatMultilineText(String[] lines, PdfExportFontInfo fontInfo, Single tabStopInterval, Boolean isRtl)
+   bei DevExpress.Pdf.ContentGeneration.PdfGraphicsCommandConstructor.DrawFormattedLines(String[] lines, PdfExportFontInfo fontInfo, RectangleF layout, DXStringFormat format, Nullable`1 clipRectangle)
+   bei DevExpress.Printing.Core.NativePdfExport.PdfPrintingGraphicsImplementation.&lt;&gt;c__DisplayClass12_0.&lt;DrawFormattedStringLines&gt;b__0()
+   bei DevExpress.Printing.Core.NativePdfExport.PdfGraphicsImplementation.PerformIsolatedAction(Action action)
+   bei DevExpress.Printing.Core.NativePdfExport.PdfPrintingGraphicsImplementation.DrawFormattedStringLines(String[] lines, DXSolidBrush solidBrush, RectangleF bounds, DXStringFormat validFormat, PdfExportFontInfo fontInfo)
+   bei DevExpress.Printing.Core.NativePdfExport.PdfPrintingGraphicsImplementation.&lt;&gt;c__DisplayClass9_0.&lt;DrawString&gt;b__0(DXStringFormat validFormat)
+   bei DevExpress.XtraPrinting.Native.GraphicsBase.EnsureDXStringFormat(DXFont font, RectangleF bounds, DXGraphicsUnit unit, DXStringFormat dxFormat, IMeasurer measurer, Action`1 action)
+   bei DevExpress.Printing.Core.NativePdfExport.PdfPrintingGraphicsImplementation.DrawString(String s, DXFont font, DXBrush dxBrush, RectangleF bounds, DXStringFormat format, IMeasurer measurer, Boolean justifyText)
+   bei DevExpress.Printing.Core.NativePdfExport.PdfGraphics.DrawString(String s, DXFont font, DXBrush dxBrush, RectangleF bounds, DXStringFormat dxFormat)
+   bei DevExpress.XtraPrinting.BrickExporters.TextBrickExporter.DrawCore(IGraphics gr, RectangleF clientRectangle, DXStringFormat sf, DXBrush brush)
+   bei DevExpress.XtraPrinting.BrickExporters.TextBrickExporter.DrawText(IGraphics gr, RectangleF clientRectangle, DXStringFormat sf, DXBrush brush)
+   bei DevExpress.XtraPrinting.BrickExporters.LabelBrickExporter.DrawCore(IGraphics gr, RectangleF clientRectangle, DXStringFormat sf, DXBrush brush)
+   bei DevExpress.XtraPrinting.BrickExporters.LabelBrickExporter.DrawPdfCore(IPdfGraphics gr, RectangleF clientRectangle, DXStringFormat sf, DXBrush brush)
+   bei DevExpress.XtraPrinting.BrickExporters.LabelBrickExporter.DrawText(IGraphics gr, RectangleF clientRectangle, DXStringFormat sf, DXBrush brush)
+   bei DevExpress.XtraPrinting.BrickExporters.TextBrickExporter.DrawClientContent(IGraphics gr, RectangleF clientRect)
+   bei DevExpress.XtraPrinting.BrickExporters.VisualBrickExporter.DrawObjectCore(IGraphics gr, RectangleF rect)
+   bei DevExpress.XtraPrinting.BrickExporters.VisualBrickExporter.&lt;&gt;c__DisplayClass17_0.&lt;DrawObjectCoreWithClipping&gt;b__0()
+   bei DevExpress.XtraPrinting.Native.IGraphicsExtensions.ExecUsingClipBounds(IGraphics gr, Action action, RectangleF clipBounds, Boolean snapToDpi)
+   bei DevExpress.XtraPrinting.BrickExporters.VisualBrickExporter.DrawObjectCoreWithClipping(IGraphics gr, RectangleF rect)
+   bei DevExpress.XtraPrinting.BrickExporters.VisualBrickExporter.DrawObject(IGraphics gr, RectangleF rect)
+   bei DevExpress.XtraPrinting.BrickExporters.VisualBrickExporter.&lt;&gt;c__DisplayClass15_0.&lt;Draw&gt;b__0()
+   bei DevExpress.XtraPrinting.Native.BrickPaintBase.ExecUsingStyle(Action action, BrickStyle style)
+   bei DevExpress.XtraPrinting.BrickExporters.VisualBrickExporter.Draw(IGraphics gr, RectangleF rect)
+   bei DevExpress.XtraPrinting.BrickExporters.CompositeBrickExporterHelper.DrawInnerBricks(IGraphics gr, BrickIterator bricks)
+   bei DevExpress.XtraPrinting.Native.IGraphicsExtensions.ExecUsingClipBounds(IGraphics gr, Action action, RectangleF clipBounds, Boolean snapToDpi)
+   bei DevExpress.XtraPrinting.BrickExporters.CompositeBrickExporterHelper.Draw(IGraphics gr, RectangleF rect, BrickBase brickBase)
+   bei DevExpress.XtraPrinting.BrickExporters.CompositeBrickExporter.Draw(IGraphics gr, RectangleF rect)
+   bei DevExpress.XtraPrinting.BrickExporters.CompositeBrickExporterHelper.DrawInnerBricks(IGraphics gr, BrickIterator bricks)
+   bei DevExpress.XtraPrinting.Native.IGraphicsExtensions.ExecUsingClipBounds(IGraphics gr, Action action, RectangleF clipBounds, Boolean snapToDpi)
+   bei DevExpress.XtraPrinting.BrickExporters.CompositeBrickExporterHelper.Draw(IGraphics gr, RectangleF rect, BrickBase brickBase)
+   bei DevExpress.XtraPrinting.BrickExporters.PageExporter.DrawContent(IGraphics gr, RectangleF rect)
+   bei DevExpress.XtraPrinting.BrickExporters.PageExporter.Draw(IGraphics gr, RectangleF rect)
+   bei DevExpress.XtraPrinting.BrickExporters.PageExporter.DrawPage(IGraphics gr, PointF location)
+   bei DevExpress.XtraPrinting.Export.Pdf.PdfDocumentBuilder.ExportPage(PrintingSystemBase ps, IPdfGraphics gr, Page page, Int32 pageIndex)
+   bei DevExpress.XtraPrinting.Export.Pdf.PdfDocumentBuilder.&lt;&gt;c__DisplayClass5_2.&lt;CreateDocument&gt;b__4()
+   bei DevExpress.XtraPrinting.Export.Pdf.PdfDocumentBuilder.CreateDocument(Stream stream, Document document, PdfExportOptions pdfOptions, Boolean flushPageContent)
+   bei DevExpress.XtraPrinting.PrintingSystemBase.ExportToPdf(Stream stream, PdfExportOptions options)
+   bei FrameworkSystems.FrameworkBase.Reporting.DevExpressReport.ExportToStream(ExportFormat format, Stream stream)
+   bei FrameworkSystems.FrameworkBase.Reporting.DevExpressReport.ExportToBytes(ExportFormat format)
+   bei FrameworkSystems.FrameworkBase.Reporting.ReportDocument.ExportReportDevExpress(ReportEnum reportEnum, ExportFormat format, guid printJobID)
+   bei FrameworkSystems.FrameworkBase.Reporting.ReportDocument.ExportReport(ExportFormat format, guid printJobID, ReportingSoftware&amp; software)
+   bei FrameworkSystems.FrameworkBase.Reporting.ReportDocument.WriteReportToRepository(ExportFormat export, guid reportPrintID)
+   bei FrameworkSystems.FrameworkBase.Reporting.ReportDocument.Print(ExportFormat export)
+...
+</code></pre>
+<h3 id="lösung-1">Lösung</h3>
+<p>Das Problem tritt bisher ausschließlich bei einem Parallelbetrieb von Crystal Reports und DevExpress auf. Der Fehler entsteht, wenn zuerst ein Crystal Report und anschließend ein DevExpress mit Unicode Zeichen gedruckt wird.</p>
+<p>Crystal Report lädt beim ersten Druck eine ältere Version der usp10.dll, diese wird im IIS registriert. Sobald nun ein DevExpress gedruckt wird, wird hier ebenfalls auf die usp10.dll zugegriffen. DevExpress erwartet jedoch eine neuere Version der DLL, als die DLL die von Crystal im IIS geladen wurde.</p>
+<p>Derzeit ist der Fehler nur mit einer Crystal Runtime 13.0.18 reproduzierbar. Aus diesem Grund raten wir zu einem Update auf die Crystal Report Runtime 13.0.29.
+Gegebenenfalls kann es nach einem Update der Crystal Report Runtime zu folgendem Fehler kommen: <a href="#crystal-report-exception-fehler-beim-laden-der-datenbankinformation">Crystal Report Exception <code>Fehler beim Laden der Datenbankinformation</code></a>. Bitte beachten Sie deshalb die folgende <a href="requirements.html#crystal-reports-runtime">Vorgehensweise</a>!</p>
 <h2 id="betriebssystem-macos-applikation-unterstützung">Betriebssystem MacOS Applikation Unterstützung</h2>
 <p>MacOS unterstützen wir seit einiger Zeit nicht mehr.
 Wir gewährleisten auch keinen Support hierfür .

@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/4.1/docs/articles/release-4-7.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/5/docs/articles/release-4-7.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,11 +87,11 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
-<h2 id="4741-17042025---intern">4.7.4.1 (17.04.2025 - intern)</h2>
+<h2 id="475-02052025">4.7.5 (02.05.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.7.4.1_Setup_x64</li>
-<li>FS4.5.27.1_PrintService</li>
+<li>FS_4.7.5_Setup_x64</li>
+<li>FS4.5.28_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="neuerungen">Neuerungen</h4>
@@ -100,16 +100,16 @@
 </ul>
 <h4 id="updates">Updates</h4>
 <ul>
+<li>Der HTML Client, die StartPage und das HelpSystem wurden auf Angular 19.2.6 upgedatet.</li>
+<li>Das CefSharp Browser-Control in der IDE wurde auf Version 135.0.170 upgedatet.</li>
 <li>DevExpress wurde auf die Version 24.2.6 aktualisiert.</li>
 <li>Der HTML Client wurde auf Capacitor 7 upgedatet.</li>
 </ul>
+<h4 id="hinweis">Hinweis</h4>
+<p>Es gibt einen neuen Artikel zum Thema &quot;<a href="frequently-asked-questions.html#devexpress-exception-scriptitemizeopentype-in-usp10dll-nicht-gefunden">DevExpress Exception <code>ScriptItemizeOpenType</code> in <code>Usp10.dll</code> nicht gefunden</a>&quot; in unserem FAQ Bereich.
+Dieser Fehler wurde uns nun häufiger gemeldet, deshalb möchten wir Sie bitten unsere derzeitigen <a href="requirements.html">Requirements</a> mit Ihren Systemen zu vergleichen. Testen und führen Sie notwendige Updates durch, falls dies möglich ist.</p>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
-<li><p>2024065918 - <strong>IDE</strong>: Ist bei den TreeViews das Sliding beim Start von FS
-aktiviert, wird nach dem zweiten Aufklappen die Schrift im Tree fett und
-abgeschnitten. Nur durch ein Neustart von Framework Studio wird die Schrift
-wieder normal angezeigt.</p>
-</li>
 <li><p>2025037564 - <strong>IDE</strong>: Werden Component- oder DataContract-Properties gelöscht,
 welche in grafischen Transformationen zugeordnet sind, dann fällt diese
 Zuordnung ohne weiteren Hinweis auf die darüberliegende Ebene zurück.
@@ -124,6 +124,16 @@ Fehler angezeigt und fehlerhafte Zuordnungen gelöscht.</p>
 </li>
 <li><p>2025037643 - <strong>IDE</strong>: FS Lizenzen gelten als ungültig, wenn diese ohne Datum
 von/bis ausgestellt werden. Die Angabe einer Version reicht nicht.</p>
+</li>
+<li><p>2025047734 - <strong>PBE</strong>: In Framework-Studio 4.6 wurde beim Export der
+Dokumentation ein automatischer Ordner bestehend aus Datum, Package, Version
+und Iso-Code eingeführt. PBE erzeugt seinerseits bereits einen ähnlichen
+Ordner. Das führt zu einem doppelten Ordner und unnötig langen Datei-Pfaden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die aktualisierte Version der PBE.exe liegt im Framework Studio
+Programm-Verzeichnis im Unterordner PBE.</p>
+</div>
 </li>
 <li><p>2025047708 - <strong>Startpage</strong>: Die Auswertung der Startpage-URL erfolgt
 case-sensitive. Wenn das Wort &quot;start&quot; in der URL

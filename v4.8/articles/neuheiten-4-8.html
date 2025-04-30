@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha6/docs/articles/neuheiten-4-8.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha8/docs/articles/neuheiten-4-8.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -148,6 +148,46 @@ So können die Änderungen im Customizing besser erfasst werden.</li>
 <li>Es gibt eine Extra Spalte &quot;Assigned&quot;.
 Diese bietet den Vorteil, dass so in einem großen Tree danach gefiltert werden kann.</li>
 </ul>
+<h2 id="sql-parser-abgesichert">SQL-Parser abgesichert</h2>
+<p>Der Sql-Parser hat bisher ungültige bestandteile Bestandteile von SQL-Statements ignoriert ohne dabei einen Fehler zu werfen.
+Insbesondere unvollständige Identifier, Zeichen-Ketten oder Kommentare wurden nicht erkannt.
+Das konnte dazu führen, dass unvollständige SQL-Statements verarbeitet wurden - ggf. ohne eine Fehlermeldung.</p>
+<p>Einige Beispiele:</p>
+<pre><code class="lang-sql">-- unvollständiger Identifier [Spalte1 :
+SELECT 1 FROM Tabelle ORDER BY [Spalte1, [Spalte2]
+
+-- Spontane Sonderzeichen wie z.B. #  pasen zu keiner Syntax und wurden ignoriert.
+SELECT 1 FROM Tabelle # ORDER BY [Spalte1, [Spalte2]
+
+-- Kommentar nicht richtig beendet - Where Bedingung wurde ignoriert.
+SELECT 1 FROM Tabelle /* Ein Kommentar * / WHERE [Spalte] = 7
+</code></pre>
+<p>Derartige falsche Statements führen jetzt zu ensprchenden SQL-Fehlern.</p>
+<h2 id="java-21">Java 21</h2>
+<p>Die <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html#java-runtime">Java Version</a> des Java-Clients wurde auf Java 21 aktualisiert.
+Entsprechend dessen muss zwingend die neuste Version des <a href="requirements.html#client-launcher">FSClientLaunchers</a> <a href="../doc/fsclientlauncher/fsclientlauncher-installation.html">installiert</a> werden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Java 21 unterstützt nur noch <strong>64-Bit</strong> Systeme.</p>
+</div>
+<h3 id="lookandfeel---flatlaf">LookAndFeel - FlatLAF</h3>
+<p>Seit Java 17 gibt es keinen Zugang mehr zu den Windows LookAndFeel UIComponents.
+Das hat zur Folge, dass das Java eigene Metal-LookAndFeel standardmäßig aktiv ist.
+Da das Metal-LookAndFeel aber teilweise unschön aussieht, wurde das open-source LookAndFeel <code>FlatLAF</code> eingebunden.
+Die Darstellung einiger Controls im Java-Client hat sich daher verändert.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Das an den Java-Client übergebene <code>lookAndFeel</code> Argument wird nun nicht mehr ausgewertet und hat keinen Einfluss auf die Oberfläche.</p>
+</div>
+<h3 id="browser-control-fxbrowser-entfernt">Browser-Control FxBrowser entfernt</h3>
+<p>Im Zuge des Updates auf Java 21 wurde der FxBrowser von JavaFx ausgebaut.
+Der JxBrowser ist somit das einzige in FS integrierte Browser-Control.
+Die eingebundene Java 21 Runtime, die durch den FSClientLauncher ausgerollt wird, enthält damit nicht mehr die JavaFx Componenten.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Die aktuelle Implementierung von JxBrowser in FS unterstützt kein <strong>Linux</strong> oder <strong>macOS</strong>.
+Auf diesen Betriebssystemen wird dementsprechend das Browser-Control nicht funktionieren.</p>
+</div>
 
 </article>
 

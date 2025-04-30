@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha6/docs/articles/requirements.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha8/docs/articles/requirements.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -92,12 +92,12 @@
 <h4 id="betriebssystem">Betriebssystem</h4>
 <p>Es werden ausschließlich <strong>64-Bit</strong> Systeme unterstützt.</p>
 <ul>
-<li>Windows 10 - mind. Version 18.03</li>
+<li>Windows 11 Update 24H2 oder höher</li>
+<li>Windows 10 Update 21H2 oder höher</li>
 <li>Windows Server 2019</li>
 <li>Windows Server Version 1809, 1803</li>
 <li>Windows Server 2016</li>
 </ul>
-<p>Die Framwork Studio IDE läuft seit der Version 4.5.6 nicht mehr auf einem Windows Server 2012.</p>
 <h4 id="net-framework">.NET Framework</h4>
 <ul>
 <li>.NET Framework 4.8 - oder höher <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48">https://dotnet.microsoft.com/download/dotnet-framework/net48</a></li>
@@ -107,7 +107,7 @@
 <li><a href="#client-launcher">Client Launcher</a></li>
 <li>Visual Studio: empfohlen zum Debuggen von Anwendungen
 <ul>
-<li>Visual Studio 2017 oder höher</li>
+<li>Visual Studio 2019 oder höher</li>
 <li>Andere Versionen können auf eigene Verantwortung in den <a href="../doc/allgemein/options.html#path">IDE-Options</a> konfiguriert werden.</li>
 </ul>
 </li>
@@ -120,14 +120,11 @@
 <li>Windows Server 2019</li>
 <li>Windows Server Version 1809, 1803</li>
 <li>Windows Server 2016</li>
-<li>Windows Server 2012 R2</li>
 <li>Client-Betriebssysteme:
-Ein Broker oder Service kann prinzipiell auf einem Client-Betriebssystem (Windows 10) installiert werden.
+Ein Broker oder Service kann prinzipiell auf einem Client-Betriebssystem (Windows 10/11) installiert werden.
 In einer Produktiv-Umgebung wird aber dringend der Einsatz eines o.g. Server-Betriebssystems empfohlen.
 Auf Client-Betriebssystemen können nur sehr wenige Benutzer parallel arbeiten.</li>
 </ul>
-<p>Die Framweork Studio IDE läuft seit der Version 4.5.6 nicht mehr auf einem Windows Server 2012.
-Auf so einen Server muss die Anwendung deshalb mit Hilfe von Pulish2Go installiert werden.</p>
 <h4 id="net-framework-1">.NET Framework</h4>
 <ul>
 <li><a href="https://dotnet.microsoft.com/download/dotnet-framework/net48">.NET Framework 4.8</a> - oder höher</li>
@@ -139,12 +136,11 @@ Auf so einen Server muss die Anwendung deshalb mit Hilfe von Pulish2Go installie
 <h2 id="print-server">Print-Server</h2>
 <p>Der Print-Service benötigt eine Verbindung zur Runtime-Repository-Datenbank und er muss die gewünschten Drucker ansprechen können. Er wird nicht von der Anwendung direkt kontaktiert, deshalb kann auch ein Client-Betriebssystem verwendet werden.</p>
 <h4 id="print-service">Print-Service</h4>
-<p>Die hier aufgeführten Systemvorrausetzungen gelten für den Print-Service Version 4.2.</p>
+<p>Die hier aufgeführten Systemvorraussetzungen gelten für den Print-Service Version 4.5.</p>
 <p>Framework Studio ist kompatibel mit älteren Versionen des Print-Service. Kommen diese zum Einsatz, gelten die Systemvorrausetzungen für die jeweilige Version.</p>
 <ul>
+<li>Framework Studio Print-Service 4.5.25</li>
 <li>Framework Studio Print-Service 4.2.18</li>
-<li>Framework Studio Print-Service 4.0.29</li>
-<li>Framework Studio Print-Service 3.11.67</li>
 </ul>
 <h4 id="betriebssystem-2">Betriebssystem</h4>
 <ul>
@@ -180,9 +176,10 @@ Auf so einen Server muss die Anwendung deshalb mit Hilfe von Pulish2Go installie
 <h2 id="client-rechner">Client-Rechner</h2>
 <p>Rechner, auf dem die Anwendung mit dem Java-Client ausgeführt wird.</p>
 <h4 id="betriebssystem-4">Betriebssystem</h4>
-<p>Es werden ausschließlich folgende Windows-Versionen unterstützt:</p>
+<p>Es werden ausschließlich folgende <strong>64-Bit</strong> Windows-Versionen unterstützt:</p>
 <ul>
-<li>Windows 10 oder höher</li>
+<li>Windows 11 Update 24H2 oder höher</li>
+<li>Windows 10 Update 21H2 oder höher</li>
 <li>Windows Server 2016 oder höher</li>
 </ul>
 <p>Je nach Framework-Studio-Anwendung kann es ggf. weitere Einschränkungen geben.</p>
@@ -194,7 +191,7 @@ Auf so einen Server muss die Anwendung deshalb mit Hilfe von Pulish2Go installie
 <h2 id="client-launcher">Client Launcher</h2>
 <p>Der Client Launcher stellt die Java Runtime bereit, die für das Ausführen des Java-Clients benötigt wird.</p>
 <ul>
-<li>Framework Studio Client Launcher 4.2.16 / 4.4.0</li>
+<li>Framework Studio Client Launcher 4.8.0</li>
 </ul>
 <p>Der aktuelle Client Launcher ist im <a href="requirements-package.html">Requirements-Paket</a> enthalten.</p>
 <h2 id="datenbank-server">Datenbank-Server</h2>
@@ -228,11 +225,11 @@ Framework Studio bringt mit dem Oracle Managed Provider eine eigene Client-DLL m
 <h3 id="runtime-supervisor-1">Runtime Supervisor</h3>
 <p><strong>Betriebssystem:</strong></p>
 <ul>
-<li>Windows 10 Update 1803 oder höher</li>
-<li>Windows Server 2012 R2</li>
-<li>Windows Server 2016</li>
-<li>Windows Server 2019</li>
+<li>Windows 11 Update 24H2 oder höher</li>
+<li>Windows 10 Update 21H2 oder höher</li>
 <li>Windows Server 2022</li>
+<li>Windows Server 2019</li>
+<li>Windows Server 2016</li>
 </ul>
 <p><strong>Software:</strong></p>
 <ul>

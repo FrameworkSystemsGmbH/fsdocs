@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha8/docs/articles/neuheiten-4-8.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha9/docs/articles/neuheiten-4-8.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -188,6 +188,11 @@ Die eingebundene Java 21 Runtime, die durch den FSClientLauncher ausgerollt wird
 <p>Die aktuelle Implementierung von JxBrowser in FS unterstützt kein <strong>Linux</strong> oder <strong>macOS</strong>.
 Auf diesen Betriebssystemen wird dementsprechend das Browser-Control nicht funktionieren.</p>
 </div>
+<h2 id="broker-launch-endpoint">Broker-Launch Endpoint</h2>
+<p>Der <code>/api/fsclient</code>-Endpoint, der für den Download der <code>.fsclient</code>-Datei genutzt wird, wurde abgeändert.
+Der Parameter <code>dl</code> wurde entfernt und stattdessen ein neuer Endpoint geschaffen.
+Ursprünglich wurde der Parameter eingebaut, um Content-Management-Systemen, wie SharePoints o.ä., die mit dem Startlink aus der <a href="../doc/fsclientlauncher/fsclientlauncher-common.html#startpage">Startpage</a> nicht zurechtgekommen sind, eine Möglichkeit zu bieten den Client zu starten.
+In diesen Systemen hinterlegte Links müssen auf den neuen <a href="../doc/fsclientlauncher/fsclientlauncher-common.html#broker-launch-endpoint">Endpoint</a> <code>/api/launch</code> abgeändert werden.</p>
 
 </article>
 

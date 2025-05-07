@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/new/4.8/release/0-alpha8/apiSpec/new?filename=FS_Hosting_Shared_GlobalObj_IGlobalObjects.md&amp;value=---%0Auid%3A%20FS.Hosting.Shared.GlobalObj.IGlobalObjects%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/new/4.8/release/0-alpha9/apiSpec/new?filename=FS_Hosting_Shared_GlobalObj_IGlobalObjects.md&amp;value=---%0Auid%3A%20FS.Hosting.Shared.GlobalObj.IGlobalObjects%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -89,7 +89,7 @@
 
 
   <h1 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects" class="text-break">
-Interface IGlobalObjects  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha8/fs/FS.Hosting.Shared/GlobalObj/GlobalObjects.cs/#L1065"><i class="bi bi-code-slash"></i></a>
+Interface IGlobalObjects  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha9/fs/FS.Hosting.Shared/GlobalObj/GlobalObjects.cs/#L1100"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -141,7 +141,15 @@ für den Bereich Benutzer- und Rechte-Verwaltung an.</p>
   </dl>
   <dl class="jumplist">
     <dt><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ClientInfos.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ClientInfos">ClientInfos</a></dt>
-    <dd><p>In diesem Dictionary sind Informationen abgelegt, die der Client beim Start der Anwendung an den Broker übertragen hat.</p>
+    <dd><p>In diesem Dictionary sind Informationen abgelegt, die der Client beim Start der Anwendung an den Broker übertragen hat. <br>
+Schließt die <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ClientInfosAppArgs.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ClientInfosAppArgs">ClientInfosAppArgs</a> mit ein.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ClientInfosAppArgs.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ClientInfosAppArgs">ClientInfosAppArgs</a></dt>
+    <dd><p>Selbst hinzufügbare dynamische AppArgs, die für leichteren Zugriff aus den <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ClientInfos.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ClientInfos">ClientInfos</a> ausgelesen wurden.<br>
+Die Keys der Argumente werden hier ohne <code>appArgs.</code> gespeichert.
+Der Zugriff kann auch über <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.GetAppArg.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_GetAppArg_System_String_">GetAppArg(string)</a> oder <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.TryGetAppArg.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_TryGetAppArg_System_String_System_String__">TryGetAppArg(string, out string)</a> erfolgen.</p>
 </dd>
   </dl>
   <dl class="jumplist">
@@ -273,6 +281,12 @@ Message ausgegeben.</p>
 </dd>
   </dl>
   <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.GetAppArg.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_GetAppArg_System_String_">GetAppArg(string)</a></dt>
+    <dd><p>Zurgiffs-Methode um einen Wert aus den <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ClientInfosAppArgs.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ClientInfosAppArgs">ClientInfosAppArgs</a> auszulesen.<br>
+Der Key muss ohne <code>appArgs.</code> angegeben werden.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
     <dt><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.GetCodeDirectory.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_GetCodeDirectory">GetCodeDirectory()</a></dt>
     <dd><p>Liefert den Pfad des Verzeichnisses, in dem die Anwendung läuft.</p>
 </dd>
@@ -284,6 +298,13 @@ Message ausgegeben.</p>
   <dl class="jumplist">
     <dt><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.SetDynamicDragSource.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_SetDynamicDragSource_FS_Hosting_Shared_Metadatatype_MLContainer_System_Func_FS_Hosting_Shared_IDevFrameworkBaseObject_System_Object__">SetDynamicDragSource(MLContainer, Func&lt;IDevFrameworkBaseObject, object&gt;)</a></dt>
     <dd></dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.TryGetAppArg.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_TryGetAppArg_System_String_System_String__">TryGetAppArg(string, out string)</a></dt>
+    <dd><p>Zurgiffs-Methode um einen Wert aus den <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ClientInfosAppArgs.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ClientInfosAppArgs">ClientInfosAppArgs</a> auszulesen.<br>
+Der Key muss ohne <code>appArgs.</code> angegeben werden.<br>
+Der out-Param ist <code>string.Empty</code>, wenn der Key nicht gefunden wurde.</p>
+</dd>
   </dl>
   <dl class="jumplist">
     <dt><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.UseMLColumnLanguage.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_UseMLColumnLanguage_System_String_System_Action_">UseMLColumnLanguage(string, Action)</a></dt>

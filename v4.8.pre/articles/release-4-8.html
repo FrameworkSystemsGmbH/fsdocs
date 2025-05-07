@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha8/docs/articles/release-4-8.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha9/docs/articles/release-4-8.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,6 +87,29 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-48">Release-Information Framework Studio 4.8</h1>
 
+<h2 id="480-alpha-9-08052025">4.8.0 Alpha 9 (08.05.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.8.0_Alpha_9_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="hinweis">Hinweis</h4>
+<p>Die ausgelieferte <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html#java-runtime">JRE</a> unterstützt keine ARM-Prozessoren.
+Dies ist auch in den <a href="requirements.html#client-rechner">Requirements</a> dokumentiert.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Es wurden dynamisch erweiterbare <a href="../doc/fsclientlauncher/fsclientlauncher-common.html#app-argumente">App-Argumente</a> hinzugefügt, auf die, über die <a class="xref" href="../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.ClientInfos.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ClientInfos">ClientInfos</a> bzw. <a class="xref" href="../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.ClientInfosAppArgs.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ClientInfosAppArgs">ClientInfosAppArgs</a> im Broker-Code, zugegriffen werden kann.</li>
+<li>Die <a href="../doc/fsclientlauncher/fsclientlauncher-common.html#allgemeine-informationen">StartPage</a> wurde überarbeitet.</li>
+<li><a href="../doc/maintenance/code-replace-cleanup.html">Code-Replace-Cleanup</a> wurde für die <a href="../doc/modcomp/modcomp.html">Modular Components</a> erweitert. Über die Methoden-Codes hinaus, werden Attribute, BaseClass, Interfaces und ExternalDatatype analysiert.
+Bei allen Methoden (also auch in Components, Forms, ...) wird jetzt der komplette Code inkl. der Declaration analysiert.</li>
+<li>Bei <a href="../doc/modcomp/modcomp.html">Modular Components</a> wurde der Typ ClassWithInterface entfernt.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li>2025047832 - <strong>Publish2Go</strong>: Bei einer Datenbank-Connection kann es, z.B. im
+Publish2Go, zu einer Fehlermeldung kommen: System.TypeLoadException: Error
+loading provider assembly.</li>
+</ul>
 <h2 id="480-alpha-8-02052025">4.8.0 Alpha 8 (02.05.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -108,7 +131,7 @@
 <li>FS_4.8.0_Alpha_7_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h3 id="neuerungen">Neuerungen</h3>
+<h3 id="neuerungen-1">Neuerungen</h3>
 <ul>
 <li><a href="neuheiten-4-8.html#sql-parser-abgesichert">SQL-Parser abgesichert</a></li>
 <li>In <a href="../doc/modcomp/modcomp.html">Modular Components</a> werden im Customizing private Properties aus der Basis ausgeblendet.</li>
@@ -120,7 +143,7 @@
 <li>FS_4.8.0_Alpha_6_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h3 id="neuerungen-1">Neuerungen</h3>
+<h3 id="neuerungen-2">Neuerungen</h3>
 <ul>
 <li>Der Element History Browser ist nun für lesbare Ressourcen wie beispielsweise .txt oder .xml Dateien verfügbar.</li>
 <li>Internal Methoden an Modularen Componenten führen jetzt zu Compilewarnings.
@@ -140,7 +163,7 @@ Die eingebundene Java 21 Runtime, die durch den FSClientLauncher ausgerollt wird
 <li>FS_4.8.0_Alpha_5_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h3 id="neuerungen-2">Neuerungen</h3>
+<h3 id="neuerungen-3">Neuerungen</h3>
 <ul>
 <li>Änderungen an Methoden und Properties bei einem ausgecheckten Record werden durch die neue Spalte <code>Modified</code> angezeigt.</li>
 <li><a href="neuheiten-4-8.html#grafische-transformationen-%C3%BCberarbeitet">Access Unit Tree überarbeitet</a></li>
@@ -152,7 +175,7 @@ Das entspricht Chromium 133.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2025/v8-4-0/">https://teamdev.com/jxbrowser/release-notes/2025/v8-4-0/</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025017196 - <strong>Reporting</strong>: Im WebDesigner ist der Expression Editor nicht
 nutzbar, da weder Formeln angezeigt noch bearbeitet werden können.</p>
@@ -168,12 +191,12 @@ Modular Components nicht aufgeführt.</p>
 <li>Weitere Pakete (Dateinamen ohne ZIP-Endung)</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h3 id="neuerungen-3">Neuerungen</h3>
+<h3 id="neuerungen-4">Neuerungen</h3>
 <ul>
 <li>In den Modular Components können <a href="../doc/modcomp/modcomp.html#interfaces">Interfaces</a> definiert und implementiert werden.</li>
 <li>Der <a href="../doc/sql/grammatik.html#withquery">Sql-Parser</a> versteht jetzt <code>WITH</code>-Statements, auch bekannt als <em>Common Table Expression (CTE)</em>.</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025027380 - <strong>Java Client</strong>: Wenn an einer Registerkarte das Event
 <code>OnFirstSelect</code> implementiert ist, dann kann es passieren, dass bei der
@@ -196,7 +219,7 @@ Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
 <li>Weitere Pakete (Dateinamen ohne ZIP-Endung)</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-4">Neuerungen</h4>
+<h4 id="neuerungen-5">Neuerungen</h4>
 <ul>
 <li>In den Modular Components können nun <a href="../doc/modcomp/modcomp.html#baseclass">Basis-Klassen</a> definiert werden, sowie deren Properties mit der neuen Override-Checkbox überschrieben werden.</li>
 <li>Neue Client-Action <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript.html#FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_System_String_"><code>BrowserControlAction.ExecuteJavaScript()</code></a></li>
@@ -208,7 +231,7 @@ Das entspricht Chromium 132.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/">https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025017265 - <strong>Java-Client</strong>: Wenn ein Form, das über ein Event geschlossen
 werden soll, im selben Zug fokussiert wird, kommt es zu einer Fehlermeldung.</p>
@@ -236,7 +259,7 @@ produziert und der Exception-Editor erkennt diesen Code nicht korrekt.</li>
 <li>FS_4.8.0_Alpha_2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-5">Neuerungen</h4>
+<h4 id="neuerungen-6">Neuerungen</h4>
 <ul>
 <li><a href="neuheiten-4-8.html#crystal-reports-abgek%C3%BCndigt">Crystal Reports abgekündigt</a></li>
 <li>Bei Klicken auf einen Link im <code>Errors and Warnings</code> Tab wird dieser farblich hervorgehoben, um zu visualisieren, dass der Link bereits besucht wurde.</li>
@@ -254,7 +277,7 @@ Das entspricht Chromium 131.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2024/v7-41-5/">https://teamdev.com/jxbrowser/release-notes/2024/v7-41-5/</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024127052 - <strong>Java-Client</strong>: Der Fokus eines neu geöffneten Forms geht
 verloren, wenn während des Öffnens ein Event (z.B. SelectedTabPageChanged)
@@ -309,7 +332,7 @@ möglich.</p>
 <li>FS_4.8.0_Alpha_1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <p>In der Version 4.8 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-7.html">Framework Studio 4.7.Z</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha8/docs/doc/modcomp/modcomp.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-alpha9/docs/doc/modcomp/modcomp.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -101,15 +101,10 @@ Zum Beispiel sollte eine Component, die ausschließlich Businesslogik enthält, 
 Bei <em>Modular Component (Interface)</em> kann der Type Interface nicht mehr verändert werden.
 Bei <em>Modular Component (UnitTest)</em> wird der Compile Step mit &quot;UnitTest&quot;, das Attribute mit &quot;[TestClass]&quot; und die Base Class mit &quot;FSTestBase&quot; vorbelegt. Außerdem wird eine Methode <code>MyTestMethod()</code> mit dem Attribute &quot;[TestMethod]&quot; hinzugefügt.</p>
 </li>
-<li><p>Type Auswahl: <strong>Class, Class with Interface oder Interface</strong>
-Die Auswahl des Types entscheidet, ob eine Klasse und oder ein Interface generiert wird.
-Die beiden Optionen <strong>Class</strong> und <strong>Interface</strong> sind selbsterklärend. Bei der Option <strong>ClassWithInterface</strong> wird sowohl eine Klasse als auch ein Interface generiert. Bei diesem Type muss zudem der Compile Step beachtet werden! Die unterschiedliche Code-Generierung kann im Kapitel <a href="#code">Code</a> eingesehen werden.</p>
+<li><p>Type Auswahl: <strong>Class oder Interface</strong>
+Die Auswahl des Types entscheidet, ob eine Klasse und oder ein Interface generiert wird.</p>
 </li>
 <li><p>Es kann der <strong>Compile Step</strong>, wie bei CodeFiles, definiert werden. Dies entscheidet in welche DLL die Modular Component kompiliert wird.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Beim Typ <strong>ClassWithInterface</strong> gibt es die Besonderheit, dass bei Auswahl des Compile-Schritts <strong>Component</strong> das Interface in die Interface-Schicht, die Klasse jedoch in die Component-Schicht generiert wird.</p>
-</div>
 </li>
 <li><p>An der Klasse oder dem Interface, an Properties, und Methoden können <strong>Attribute</strong> definiert werden. Eine ausführliche Erklärung der Attribute und Verhalten im Customizing erfolgt im Kapitel <a href="#class-mit-attributen-und-customizing">Attribute</a>.</p>
 </li>
@@ -186,7 +181,6 @@ Bei Type <em>Class</em> und <em>Interface</em> wird es in den ausgewählten Comp
 <tr>
 <th style="text-align: left;">Properties</th>
 <th style="text-align: center;">Class</th>
-<th style="text-align: center;">Class With Interface</th>
 <th style="text-align: center;">Interface</th>
 </tr>
 </thead>
@@ -194,24 +188,20 @@ Bei Type <em>Class</em> und <em>Interface</em> wird es in den ausgewählten Comp
 <tr>
 <td style="text-align: left;">AccessLevel</td>
 <td style="text-align: center;">public | internal | protected | private</td>
-<td style="text-align: center;">public | internal | protected | private</td>
 <td style="text-align: center;">public</td>
 </tr>
 <tr>
 <td style="text-align: left;">AutoProp</td>
-<td style="text-align: center;">x</td>
 <td style="text-align: center;">x</td>
 <td style="text-align: center;">x (nur public)</td>
 </tr>
 <tr>
 <td style="text-align: left;">* Setter Type AutoProp</td>
 <td style="text-align: center;">get | get set | protected set</td>
-<td style="text-align: center;">get | get set | protected set</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr>
 <td style="text-align: left;">Field</td>
-<td style="text-align: center;">x</td>
 <td style="text-align: center;">x</td>
 <td style="text-align: center;">-</td>
 </tr>
@@ -219,23 +209,19 @@ Bei Type <em>Class</em> und <em>Interface</em> wird es in den ausgewählten Comp
 <td style="text-align: left;">* Setter Type Field</td>
 <td style="text-align: center;">-</td>
 <td style="text-align: center;">-</td>
-<td style="text-align: center;">-</td>
 </tr>
 <tr>
 <td style="text-align: left;">IndivProp</td>
-<td style="text-align: center;">x</td>
 <td style="text-align: center;">x</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr>
 <td style="text-align: left;">* Setter Type IndivProp</td>
 <td style="text-align: center;">get | get set | protected set</td>
-<td style="text-align: center;">get | get set | protected set</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr>
 <td style="text-align: left;">Attributes</td>
-<td style="text-align: center;">x</td>
 <td style="text-align: center;">x</td>
 <td style="text-align: center;">x³</td>
 </tr>
@@ -362,21 +348,6 @@ public class FSDemo_Stuff
         Stuff = stuff;
     }
 }
-</code></pre>
-<h3 id="generierter-code-bei-classwithinterface-mit-customizing-und-baseclass">Generierter Code bei &quot;ClassWithInterface&quot; mit Customizing und BaseClass</h3>
-<pre><code class="lang-csharp">
-// UseCode
-public class Stuff : FSDemoCustomize_Stuff, IStuff { }
-public interface IStuff : FSDemoCustomize_IStuff { }
-
-// Customizing Package
-public class FSDemoCustomize_Stuff : FSDemo_Stuff, FSDemoCustomize_IStuff { }
-public interface FSDemoCustomize_IStuff: FSDemo_IStuff { }
-
-// Basis Package
-public class FSDemo_Stuff : BaseClass, FSDemo_IStuff { }
-public interface FSDemo_IStuff { }
-
 </code></pre>
 
 </article>

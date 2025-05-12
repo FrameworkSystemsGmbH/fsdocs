@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Installation Print-Server </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Installation Print-Server ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/preview/docs/doc/print-server/installation.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="installation-print-server">Installation Print-Server</h1>
+
+<h2 id="requirements">Requirements</h2>
+<p>Die Requirements für den Print-Server sind in der <a href="../../articles/requirements.html#print-server">Liste der Requirements</a> enthalten.</p>
+<h2 id="update">Update</h2>
+<p>Wenn ein bestehender Print-Service mit einer neuen Version aktualisiert werden soll, dann befolgen Sie bitte die folgenden Schritte. Die <a href="#installation">Installation</a> eines neuen Print-Service ist weiter unten beschrieben.</p>
+<ol>
+<li><p>Bitte prüfen Sie vor dem Update, ob alle <a href="../../articles/requirements.html#print-server">Requirements</a> in der korrekten Version installiert sind.</p>
+</li>
+<li><p>Sichern Sie das aktuelle Programm-Verzeichnis.</p>
+</li>
+<li><p>Jetzt müssen Sie den Dienst deinstallieren.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Sehen Sie ggf. nach, mit welchem Benutzer der Dienst im Moment läuft (unter Systemsteuerung, Verwaltung, Dienste). Dieser Benutzer muss später bei der Installation der neuen Version wieder angegeben werden.</p>
+</div>
+<p>Starten sie das Programm <strong>PrintServiceConfigEditor.exe</strong> und drücken sie nacheinander die beiden Links <strong>stop</strong> und <strong>uninstall Service</strong> und beenden Sie dann den Config-Editor.</p>
+<p>Wenn noch eine ältere Version im Einsatz ist, welche keinen PrintServiceConfigEditor besitzt, dann führen Sie die Datei <code>Service_uninstall.bat</code> aus.</p>
+</li>
+<li><p>Kopieren Sie den Inhalt des Ordners <code>bin\</code> in den Zielordner. Ersetzen Sie alle vorhandenen Dateien.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Mit dieser Kopier-Aktion wird eine Datei <code>Template_PrintService.exe.config</code> in den Programm-Ordner kopiert. Unbedingt die Datei <code>PrintService.exe.config</code> aus dem alten (gesicherten) Programmverzeichnis weiterverwenden.</p>
+</div>
+</li>
+<li><p>Starten Sie das Programm <strong>PrintServiceConfigEditor.exe</strong> und prüfen Sie, ob alle Einstellungen korrekt sind. Es kann durch den Update Änderungen in der config-Datei geben, die dazu führen, dass Änderungen gespeichert werden müssen.</p>
+<p>Mit Klick auf den Link <strong>install Service</strong> wird das Programm wieder als Dienst im Betriebssystem registriert. Die darauffolgenden Schritte sind identisch mit der Installation (siehe unten).</p>
+</li>
+</ol>
+<h2 id="installation">Installation</h2>
+<ol>
+<li><p>Bitte prüfen Sie vor der Installation, ob alle  <a href="../../articles/requirements.html#print-server">Requirements</a> installiert sind.</p>
+</li>
+<li><p>Erstellen Sie den Zielordner für den Service</p>
+<p>Empfehlung: <code>C:\Programme\Framework Systems\PrintService\</code></p>
+</li>
+<li><p>Kopieren Sie den Inhalt des Ordners <code>bin\</code> in den Zielordner.</p>
+</li>
+<li><p>Jetzt müssen Sie die Konfiguration des Services festlegen. Führen Sie dazu im Zielordner das Programm <strong>PrintServiceConfigEditor.exe</strong> aus.</p>
+<p>Dieses Programm bearbeitet den Inhalt der Konfigurations-Datei <code>PrintService.exe.config</code>. Beim ersten Aufruf des Configuration-Editors wird die Datei <code>Template_PrintService.exe.config</code> automatisch in <code>PrintService.exe.config</code> umbenannt.</p>
+<p>Informationen zur Konfiguration von Datenbankverbindung und Drucker finden Sie auf der separaten Seite <a href="config.html">Konfiguration</a>. Bitte führen sie diese wie gewünscht durch.</p>
+</li>
+<li><p>Jetzt müssen Sie das Programm als Dienst im Betriebssystem registrieren.</p>
+<p>Klicken Sie dazu den Link <strong>install Service</strong>. Es öffnet sich ein Fenster, welches den Fortschritt der Installation anzeigt. Fehler, die bei der Installation auftreten, werden in diesem Fenster ausgegeben.</p>
+<p><img src="media/installing-service.png" alt="installing-service"></p>
+</li>
+<li><p>Während der Installation des Services wird folgendes Fenster angezeigt:</p>
+<p><img src="media/install-account.png" alt="install-account"></p>
+<p>Geben Sie hier den Benutzer an, mit welchem der Dienst ausgeführt werden soll.</p>
+<p>Es wird empfohlen nach Möglichkeit einen Domain-User anzugeben, der Zugriff auf die Drucker des Rechners hat. Im Idealfall dürfte dies der angemeldete Benutzer sein. Wählen Sie dazu User aus und geben sie in <strong>User credentials</strong> die Benutzerdaten an. Der User muss im Format <code>Domain\User</code> angegeben werden.</p>
+<p>Je nach Konfiguration des Systems kann ggf. auch eines der Systemkonten verwendet werden.</p>
+<p>Diese Routine erzeugt einige Protokoll-Dateien über den Installationsverlauf im Zielordner. Diese sind kein Problem.</p>
+</li>
+<li><p>Schließen Sie das Installations-Fenster mit dem Button <strong>Close</strong>. Wenn die Installation erfolgreich verlaufen ist, dann wird im Anschluss angezeigt, dass der Dienst läuft.</p>
+<p>Im oberen Teil des Fensters sollten Sie folgendes Bild sehen:</p>
+<p><img src="media/service-running.png" alt="installed-running-service"></p>
+</li>
+</ol>
+<p>Mögliche Gründe für das Fehlschlagen der Installation:</p>
+<ul>
+<li><p>Die Konfiguration ist fehlerhaft. Starten Sie ggf. die PrintServiceConfigEditor.exe erneut und prüfen Sie die Angaben.</p>
+</li>
+<li><p>Der angegebene Benutzer hat nicht die notwendigen Rechte. Prüfen Sie ggf. das Ereignisprotokoll.</p>
+</li>
+</ul>
+<h2 id="deinstallation">Deinstallation</h2>
+<ol>
+<li><p>Starten Sie das Programm <strong>PrintServiceConfigEditor.exe</strong></p>
+<p><img src="media/service-running.png" alt="running"></p>
+</li>
+<li><p>Stoppen Sie den Dienst mit dem Link <strong>stop</strong></p>
+<p><img src="media/service-installed.png" alt="installed"></p>
+</li>
+<li><p>Mit dem Link <strong>uninstall Service</strong> wird der Windows Dienst deinstalliert. Nach einer Rückfrage startet die Deinstallation und es wird wie bei der Installation ein Dialog mit dem Fortschritt angezeigt. Auch hier werden bei Problemen Fehlermeldungen ausgegeben.</p>
+<p>Wenn die Deinstallation abgeschlossen ist, kann dieser Dialog mit dem Button Close beendet werden.</p>
+</li>
+<li><p>Anschließend wird angezeigt, dass der Service nicht installiert ist.</p>
+<p><img src="media/service-uninstalled.png" alt="uninstalled"></p>
+</li>
+<li><p>Beenden Sie den Configuration-Editor und löschen Sie den Zielordner.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Dabei gehen die Einstellungen aus der Konfigurations-Datei <code>PrintService.exe.config</code> verloren. Sichern Sie diese Datei ggf. für eine spätere Verwendung.</p>
+</div>
+</li>
+</ol>
+<h2 id="david-fax-für-faxversand">David Fax für Faxversand</h2>
+<ol>
+<li><p>Installieren Sie auf dem PrintService-Rechner ein Tobit Infocenter.</p>
+</li>
+<li><p>Setzen Sie den neu angelegten Tobit Faxware Drucker als Standarddrucker ein.</p>
+</li>
+<li><p>Falls noch nicht vorhanden, installieren Sie ein Microsoft Word in der Version 2003, 2007, 2010 oder 2013 auf dem PrintService-Rechner.</p>
+</li>
+<li><p>Legen Sie im Abschnitt Printers den neuen Fax-Drucker an.</p>
+<p>a. Legen Sie mit <strong>Add new Printer</strong> einen neuen Fax-Drucker an.</p>
+<p>b. Es erscheint eine Drucker-Auswahl der auf dem Rechner installierten Drucker. Wählen Sie den Drucker <strong>Tobit Faxware</strong> aus.</p>
+<p>c. Für den Faxware Drucker wird eine Registerkarte angelegt.</p>
+<p>d. Markieren Sie die Checkbox <strong>Use Word</strong> (for Fax Printers).</p>
+<p><img src="media/tobit-fax.png" alt="tobit-fax"></p>
+<p>Bei <strong>Name</strong> geben Sie den Namen des neuen Fax-Druckers an. Dieser Name wird in Framework-Studio-Anwendungen ausgegeben. Dieser Name ist frei wählbar und muss nicht mit dem physikalischen Namen des Druckers in Verbindung stehen. Hier im Beispiel haben wir den Namen <code>Tobit Fax</code> gewählt.</p>
+<p>Bei <strong>Path</strong> wird der physikalische Name des Fax-Druckers angegeben, hier <code>Tobit Faxware</code>.</p>
+<p>Bei <strong>Paper Source</strong> können Sie den Schacht angeben, der zum Druck verwendet werden soll. Diese Einstellung ist hier erst einmal nicht von Interesse.</p>
+<p>Der Schacht wird nur beim Ausdruck mit CrystalReports berücksichtigt.</p>
+</li>
+<li><p>Speichern Sie die neuen Einstellungen über <strong>Save Changes</strong>.</p>
+</li>
+<li><p>Starten Sie anschließend den PrintService-Dienst einmal mit dem Link <strong>restart</strong> durch.</p>
+</li>
+<li><p>Der Fax-Drucker steht nun in <strong>eNVenta ERP</strong> zur Verfügung und kann benutzt werden.</p>
+</li>
+</ol>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

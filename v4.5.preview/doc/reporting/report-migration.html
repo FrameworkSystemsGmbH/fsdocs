@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Report Migration </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Report Migration ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/preview/docs/doc/reporting/report-migration.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="report-migration">Report Migration</h1>
+
+<p>Zur Unterstützung der Migration stehen im Framework Studio und im FS Report Designer einige spezielle Funktionen zur Verfügung.</p>
+<h2 id="unterschiede-zwischen-crystal-reports-und-devexpress">Unterschiede zwischen Crystal Reports und DevExpress®</h2>
+<h2 id="begrifflichkeiten">Begrifflichkeiten</h2>
+<ul>
+<li>Bands sind vergleichbar mit Sektionen in Crystal Reports.</li>
+<li>Expressions sind das Formel-Äquivalent von DevExpress®. Sie werden allerdings nicht, wie in Crystal Reports, zentral verwaltet, sondern sind immer Teil eines Properties.</li>
+<li>Durch Expressions an Properties lassen sich die Unterdrückungsformeln von Crystal nachbilden.</li>
+</ul>
+<h2 id="fold-marks">Fold Marks</h2>
+<p>In Crystal Reports wurden Falzmarken mit dem Subreport „GlobalPageBackground“ gelöst, welcher sich hinter den Rest des Beleges gelegt hat:</p>
+<p><img src="media/foldmark-crystal.png" alt="Foldmark Crystal"></p>
+<p>In DevExpress® wurde hierfür das Custom Control <a href="devexpress-fold-marks-control.html">Fold Mark Settings</a> angeboten.</p>
+<h3 id="datasource">Datasource</h3>
+<p>Während in Crystal nur angehakte DataSource Eigenschaften im Report auftauchen, werden alle im Tab vorkommenden Daten an DevExpress® übergeben.</p>
+<h2 id="report-migration-summary">Report Migration Summary</h2>
+<p>Für die Migration der Crystal Reports zu DevExpress® muss der zu erwartende Aufwand bewertet werden können.</p>
+<p>Diese Aufwandsübersicht kann folgendermaßen aufgerufen werden:</p>
+<ol>
+<li>Menü <strong>Tools</strong> / <strong>Report Migration Summary</strong> - zeigt eine komplette Liste mit allen Reports an.</li>
+<li>Am Namespace über das Kontext-Menü <strong>Report Migration Summary</strong> - zeigt alle Reports des Namespaces und darunterliegender Namespaces an.</li>
+<li>Im geöffneten Report Document Type über das Menü <strong>View</strong> / <strong>Report Migration Summary</strong>  - zeigt die Report Files dieses Reports an.</li>
+</ol>
+<p>In der nachfolgenden Abbildung ist die Zusammenfassung für ein einzelnes RDT dargestellt:
+<img src="media/report-migration-summary.png" alt="Report Migration Summary"></p>
+<p><strong>Folgende Informationen sind ersichtlich:</strong></p>
+<ul>
+<li>Welche Reports sind noch nicht konvertiert?</li>
+<li>Aus welchem Package stammt dieser Report?</li>
+<li>Gibt es in der Basis eine DevExpress®-Variante?</li>
+<li>Summe der nicht konvertierten Crystal-Reports</li>
+</ul>
+<p>Angezeigt werden Report Files, die im derzeitig angemeldeten Package überschrieben sind.</p>
+<h3 id="icons-und-datei-links">Icons und Datei-Links</h3>
+<ul>
+<li><img src="media/RMS-not-migrated.png" alt="RMS not migrated"> Nicht konvertierter DevExpress® Report</li>
+<li><img src="media/RMS-Crystal.png" alt="RMS Crystal"> Öffnet den Crystal-Designer</li>
+<li><img src="media/RMS-txt.png" alt="RMS text"> Neben dem Crystal-Icon -  Öffnet die Text-Variante des Crystal Reports</li>
+<li><img src="media/RMS-repx.png" alt="RMS rpx"> Öffnet den DevExpress® Report Designer</li>
+<li><img src="media/RMS-compare.png" alt="RMS Compare"> Öffnet ein DiffTool mit der Text-Variante und vergleicht mit dem darüber liegenden Package</li>
+<li>Datei-Link in der Spalte &quot;Report Document Type&quot; - Öffnet den RDT</li>
+<li>Datei-Link in der Spalte &quot;Report File&quot; - Öffnet den RDT und fokussiert das File</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Über die Icons können parallel mehrere Report Files <strong>zur Ansicht</strong> geöffnet werden.
+Eine Bearbeitung der Report Files muss über das <a href="report-document-type.html#registerkarte-report-files">Designer-Fenster</a> erfolgen.</p>
+</div>
+<h3 id="weitere-eigenschaften">Weitere Eigenschaften</h3>
+<p>Die Spalten &quot;Report Document Type&quot;, &quot;Report File&quot; und &quot;Complexity&quot; können sortiert werden.</p>
+<p><strong>Show Migrated</strong> - In der Liste werden auch die konvertierten Report Files angezeigt. In der Summary über der Tabelle wird der Fortschritt eingeblendet.</p>
+<p><strong>Analyze Complexity</strong> - Anzeige der Komplexität erfolgt optional. Bei erfolgreicher Analyse wird die Spalte &quot;Complexity&quot; und die entsprechende Summary-Zeile eingeblendet.</p>
+<h2 id="open-crystal-report">Open Crystal Report</h2>
+<p>Wenn beim Öffnen des <a href="report-designer.html">FS Report Designer</a> bekannt ist, dass ein ihm zugeordneter Crystal-Report existiert und ein Crystal-Designer konfiguriert ist, wird ein zusätzlicher Button &quot;Open Crystal Report&quot; angeboten.</p>
+<p><img src="media/devexpress-designer-customizations-open-crystal-button.png" alt="Open Crystal Button"></p>
+<p>Bei dessen Betätigung wird im Hintergrund der zugeordnete Report im readonly-Modus im Crystal-Editor geöffnet.</p>
+<p>Hierfür wird der in den Einstellungen hinterlegte Pfad des Crystal Editors genutzt.</p>
+<h2 id="formula-converter">Formula Converter</h2>
+<p>Es wird ein zusätzlicher Button &quot;Formula Converter&quot; im <a href="report-designer.html">FS Report Designer</a> generiert.</p>
+<p><img src="media/devexpress-designer-customizations-formula-converter-button.png" alt="Formula Converter Button"></p>
+<p>Eine Betätigung dessen öffnet ein separates Fenster, welches eine automatische Konvertierungsroutine für Crystal-Formeln beinhaltet.</p>
+<p><img src="media/devexpress-designer-customizations-formula-converter-layout.png" alt="Formula Converter Layout"></p>
+<ul>
+<li><p>Textbox <strong>Input</strong>: In die obere Textbox lässt sich eine Crystal Reports-Formel eintragen, die konvertiert werden soll.</p>
+</li>
+<li><p><strong>Splitter</strong>: Zwischen den beiden Textboxen liegt ein Splitter, um leeren Platz zwischen den Textboxen ausnutzen zu können.</p>
+</li>
+<li><p><strong>DataMember</strong>-Feld: Datenquellen-Felder in Crystal-Formeln sind oft mit langen Qualifizierungsketten im Namen versehen. Der hier angegebene DataMember wird im Ergebnis vor den einzelnen Feldern weggekürzt. Das Feld wird mit dem am Report selbst definierten DataMember vorbelegt.</p>
+</li>
+</ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Es wird empfohlen, den DataMember so spezifisch wie möglich pro zu übersetzender Formel zu definieren. Unnötig ausholend qualifizierte Felder stören nicht nur beim Lesen der Formel, sie können auch ihre Funktionalität beeinträchtigen.</p>
+</div>
+<ul>
+<li>Textbox <strong>Output</strong>: In der unteren Textbox werden die Ergebnisse des Formel-Konvertierers ausgegeben. In einem Fehlerfall wird stattdessen die Zeilennummer des Syntaxfehlers angezeigt:</li>
+</ul>
+<p><img src="media/devexpress-designer-customization-formula-converter-error.png" alt="Formula Converter Error"></p>
+<ul>
+<li>Textbox <strong>Warnung/Fehler</strong>: Hier werden genauere Fehlermeldungen und auch Warnungen ausgegeben. Es wird jeweils nur die erste Meldung ausgegeben, falls es mehrere gibt. Warnungen werden folgendermaßen angezeigt:</li>
+</ul>
+<p><img src="media/devexpress-designer-customization-formula-converter-warning.png" alt="Formula Converter Warning"></p>
+<ul>
+<li>Button <strong>&quot;Show all&quot;</strong>: Wenn mehrere Warnungen existieren oder eine Fehlermeldung mit Call-stack, werden diese hiermit in einer Message Box angezeigt:</li>
+</ul>
+<p><img src="media/devexpress-designer-customization-formula-converter-show-warnings.png" alt="Formula Converter Show Warnings"></p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

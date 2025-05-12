@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface ISessionData </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface ISessionData ">
+      
+      <meta name="description" content="Mithilfe dieser Schnittstelle k&#246;nnen &#252;ber  am Broker verschl&#252;sselte Daten gespeichert werden. Die Speicherung der Daten erfolgt im Runtime-Repository in der Tabelle tblRep_SessionData. Der Kontext dieser Daten ist der Client, unabh&#228;ngig vom Benutzer. So k&#246;nnen z.B. Login-Informationen gespeichert werden, sodass sich der Benutzer bei einem wiederholten Start der Anwendung nicht erneut anmelden muss. Der Schl&#252;ssel f&#252;r die Verschl&#252;sselung wird mit einer ID versehen und an den Client geschickt. Der Broker/Server ist damit nicht in der Lage, die gespeicherten Daten ohne Hilfe eines Clients zu entschl&#252;sseln. Der Zugriff auf diese Schnittstelle erfolgt &#252;ber das GlobalObject Property .">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/new/4.5/preview/apiSpec/new?filename=FrameworkSystems_FrameworkBase_SessionDataModel_ISessionData.md&amp;value=---%0Auid%3A%20FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData">
+
+
+
+  <h1 id="FrameworkSystems_FrameworkBase_SessionDataModel_ISessionData" data-uid="FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData" class="text-break">
+Interface ISessionData  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/preview/fs/FrameworkBase/SessionDataModel/ISessionData.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="FrameworkSystems.html">FrameworkSystems</a>.<a class="xref" href="FrameworkSystems.FrameworkBase.html">FrameworkBase</a>.<a class="xref" href="FrameworkSystems.FrameworkBase.SessionDataModel.html">SessionDataModel</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>FrameworkSystems.FrameworkBase.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Mithilfe dieser Schnittstelle können über <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.html">IGlobalObjects</a> am Broker verschlüsselte Daten gespeichert werden.
+Die Speicherung der Daten erfolgt im Runtime-Repository in der Tabelle <a href="../doc/tables/tblrep_sessiondata.html">tblRep_SessionData</a>.</p>
+<p>Der Kontext dieser Daten ist der Client, unabhängig vom Benutzer.
+So können z.B. Login-Informationen gespeichert werden, sodass sich der Benutzer bei einem wiederholten Start der Anwendung nicht erneut anmelden muss.</p>
+<p>Der Schlüssel für die Verschlüsselung wird mit einer ID versehen und an den Client geschickt.
+Der Broker/Server ist damit nicht in der Lage, die gespeicherten Daten ohne Hilfe eines Clients zu entschlüsseln.</p>
+<p>Der Zugriff auf diese Schnittstelle erfolgt über das GlobalObject Property <a class="xref" href="FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.SessionData.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_SessionData">SessionData</a>.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">public interface ISessionData</code></pre>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+  <h2 id="FrameworkSystems_FrameworkBase_SessionDataModel_ISessionData_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><h4 id="ablauf-beim-erstmaligen-speichern-von-session-daten">Ablauf beim erstmaligen Speichern von Session-Daten</h4>
+<p>Nachfolgend wird der Prozess beschrieben, welcher durchlaufen wird, wenn der Broker zum ersten Mal für einen Client Session-Daten
+im Runtime Repository speichern soll und damit noch kein Verschlüsselungs-Key existiert.</p>
+<p><img src="media/session-data-first-login.drawio.svg" alt="first-login"></p>
+<p>Der Client wurde gestartet und es wird ein Event ausgelöst, welches am Broker die <a class="xref" href="FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData.SetData.html#FrameworkSystems_FrameworkBase_SessionDataModel_ISessionData_SetData_System_String_System_String_">SetData(string, string)</a>-Methode aufruft.
+Nun soll für einen Schlüsselwert &quot;Test&quot; der Wert &quot;1234&quot; verschlüsselt gespeichert werden.
+Die <a class="xref" href="FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData.SetData.html#FrameworkSystems_FrameworkBase_SessionDataModel_ISessionData_SetData_System_String_System_String_">SetData(string, string)</a>-Methode könnte während eines Requests natürlich auch mehrmals für unterschiedliche Schlüsselwerte aufgerufen werden.</p>
+<p>Während ein Request vom Broker bearbeitet wird, werden alle Key/Value-Paare, die mit <a class="xref" href="FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData.SetData.html#FrameworkSystems_FrameworkBase_SessionDataModel_ISessionData_SetData_System_String_System_String_">SetData(string, string)</a> verschlüsselt werden sollen am Broker zwischengespeichert.
+Am Ende des Requests, kurz bevor die Antwort an den Client gesendet wird, werden die Daten nun verarbeitet.</p>
+<p>Der Broker hat vom Client bisher keinerlei Informationen über einen Verschlüsselungs-Key bekommen.
+Dies veranlasst den Broker, einen neuen AES256 Verschlüsselungs-Key zu generieren.
+Zusätzlich wird eine ID generiert, welche den Datensatz im Runtime Repository 1:1 dem Client zuordnet.</p>
+<p>Mit dem AES256-Key wird das Key/Value-Paar (&quot;Test&quot;/&quot;1234&quot;) nun verschlüsselt und mit der ID im Runtime Repository abgespeichert.</p>
+<p>Mit der nun folgenden Antwort an den Client werden die ID und der AES256-Key mitgeschickt.
+Der Client speichert sich diese Kombination persistent, sodass sie auch bei einem Neustart noch verfügbar ist.</p>
+<h4 id="ablauf-bei-erneutem-start-des-clients">Ablauf bei erneutem Start des Clients</h4>
+<p>Nachfolgend wird der Prozess beschrieben, welcher durchlaufen wird, wenn der Client auf Session Daten zugreifen will, die in einer vorherigen Session gespeichert wurden.</p>
+<p><img src="media/session-data-relogin.drawio.svg" alt="relogin"></p>
+<p>Wir gehen davon aus, dass der Client, wie im letzten Beispiel beschrieben, das Key/Value-Paar &quot;Test&quot;/ &quot;1234&quot; am Broker gespeichert hat und dafür die ID und den AES256-Key bekommen hat.
+Zwischenzeitlich wurde der Client und damit auch die Broker-Session beendet.
+D.h., der Broker hat nun keinerlei Informationen mehr darüber, wie er den gespeicherten Datensatz entschlüsseln kann.</p>
+<p>Wird der Client erneut gestartet, stellt dieser fest, dass für ihn eine ID/AES256-Key Kombination gespeichert wurde.
+Diese Kombination schickt der Client im allerersten Request an den Broker.</p>
+<p>Wird nun über <a class="xref" href="FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData.SetData.html#FrameworkSystems_FrameworkBase_SessionDataModel_ISessionData_SetData_System_String_System_String_">SetData(string, string)</a> ein Datensatz verlangt, kann der Broker mittels der vom Client gesendeten ID den Datensatz im Runtime Repository ausfindig machen und mit Hilfe des übermittelten AES256-Keys die Daten entschlüsseln.</p>
+<h4 id="ablauf-von-session-daten">Ablauf von Session Daten</h4>
+<p>Alle Daten, die mit <a class="xref" href="FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData.SetData.html#FrameworkSystems_FrameworkBase_SessionDataModel_ISessionData_SetData_System_String_System_String_">SetData(string, string)</a> gespeichert werden, erhalten ein Ablaufdatum.
+Die Validität der Daten ist auf <strong>14 Tage</strong> festgesetzt.
+Meldet sich also ein Client 14 Tage lang nicht am Broker an, so werden alle gespeicherten Session Daten verworfen.
+Bei einem erneuten Speichern von Daten wird dann eine neue ID/AES256-Key Kombination generiert.</p>
+<p>Meldet sich ein Client innerhalb der 14 Tage am Broker an, so wird das Ablaufdatum verlängert (Anmeldedatum + 14 Tage).
+Bei kontinuierlicher Anmeldung am Broker verfallen die Session-Daten also nicht.</p>
+</div>
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData.GetData.html#FrameworkSystems_FrameworkBase_SessionDataModel_ISessionData_GetData_System_String_">GetData(string)</a></dt>
+    <dd><p>Gibt den Wert zurück, der für einen Schlüssel gespeichert wurde.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData.HasData.html#FrameworkSystems_FrameworkBase_SessionDataModel_ISessionData_HasData_System_String_">HasData(string)</a></dt>
+    <dd><p>Prüft, ob für den übergebenen Schlüssel einen Wert existiert.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData.SetData.html#FrameworkSystems_FrameworkBase_SessionDataModel_ISessionData_SetData_System_String_System_String_">SetData(string, string)</a></dt>
+    <dd><p>Setzt den Wert für einen Schlüssel.</p>
+</dd>
+  </dl>
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

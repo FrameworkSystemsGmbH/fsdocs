@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Databinding in Forms </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Databinding in Forms ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/preview/docs/doc/konzepte/form-databinding.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="databinding-in-forms">Databinding in Forms</h1>
+
+<p>Die Daten in Forms werden mithilfe von Databinding aus den zugeordneten Objekten gezogen.</p>
+<p>Die Verarbeitung der Daten im Laufe eines Requests erfolgt immer in 3 Schritten:</p>
+<ol>
+<li>Der Client sendet einen Request mit Daten, die der Benutzer geändert hat.
+Das Binding spielt alle Änderungen in die momentan gebundenen Objekt-Instanzen ein.</li>
+<li>Das Form-Event / Workflow-Event wird ausgeführt.
+Änderungen an Objekten werden über diverse Events (wie z.B. <a href="property-changed.html">PropertyChanged</a>) gemeldet. Das Binding registriert diese Events - holt aber noch keine Daten ab.</li>
+<li>Nach der Event-Verarbeitung, am Ende vom Request aktualisiert das Binding die Daten.
+Alle zuvor registrierten Änderungen werden abgearbeitet, die Daten abgeholt und an die Controls übertragen.
+Die Änderungen werden mit dem Response zum Client geschickt.</li>
+</ol>
+<p>Das Binding greift auf jedes Property maximal einmal zu.
+Das gilt auch dann, wenn sich während des Requests ein Property mehrfach ändert und mehrfach Changed-Events gefeuert werden.</p>
+<p>Hierarchische Objekt-Strukturen werden vom Binding hierarchisch verarbeitet.
+Sie werden intern mit &quot;Binding-Points&quot; organisiert.</p>
+<p>Änderungs-Markierungen werden an jedem einzelnen Binding-Point gesammelt.</p>
+<p>Beispiel für Binding-Points:</p>
+<ul>
+<li>FormProperty: <code>oSalesOrder</code>
+<ul>
+<li>Propery: <code>oMaster</code>
+<ul>
+<li>Property: <code>lngOrderID</code> &lt;--&gt; Control <code>edtOrderID.Value</code></li>
+<li>Property: <code>sOrderType</code> &lt;--&gt; Control <code>cmdOrdertype.Value</code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Szenarien:</p>
+<ol>
+<li><p>Wenn sich z.B. <code>lngOrderID</code> ändert, dann gibt es ein PropertyChanged-Event und nur der entsprechende Binding-Point wird markiert.
+Am Ende des Requests wird dann auch nur dieser eine Binding-Point aktualisiert.
+Alle anderen Properties werden nicht geprüft.</p>
+</li>
+<li><p>Wurde eine Änderung von <code>oMaster</code> gemeldet, holt das Binding zuerst den neuen Wert von <code>oSalesOrder.oMaster</code> ab.
+Nur wenn dabei eine andere Objekt-Instanz zurückgegeben wird, dann werden auch die darunterliegendenden Binding-Points für <code>lngOrderID</code> und <code>sOrderType</code> aktualisiert.</p>
+</li>
+</ol>
+<h2 id="individual-properties-und-dependson">Individual Properties und DependsOn</h2>
+<p>Das Binding ist auf ein PropertyChanged-Event angewiesen, um Änderungen mitzubekommen.
+Individual Properties und Relations geben in der Regel berechnete Werte zurück, die von anderen Werten abhängen.
+Da sie keinen eigenen Wert besitzen, der ein PropertyChanged-Event auslösen könnte, sind sie darauf angewiesen, dass sie von ihren Abhängigkeiten benachrichtigt werden.
+Diese Aufgabe übernehmen die DependsOn-Properties.</p>
+<p>Ist kein DependsOn hinterlegt, gibt es keine aktive Benachrichtigung und das Databinding geht davon aus, dass sich der Wert jederzeit ändern könnte.
+Aus diesem Grund werden diese Binding-Points nach <strong>jedem</strong> Request überprüft.</p>
+<p>Dies sorgt für eine schlechte Performance und sollte, wenn möglich vermieden werden.</p>
+<p>Generell sollten folgende Hinweise beachtet werden, insbesondere jedoch dann, wenn keine (sinnvollen) DependsOn-Angaben möglich sind.</p>
+<ul>
+<li>Die Get-Methode muss sehr performant sein und darf nicht bei jedem Zugriff einen Datenbank-Load absetzen.</li>
+<li>Es müssen dieselben Objekt-Instanzen zurückgegeben werden, wenn sich die Bedingungen nicht geändert haben.
+Das unterbindet eine Aktualisierung der darunterliegenden Binding-Points.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

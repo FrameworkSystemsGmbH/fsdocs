@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Metadatentypen </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Metadatentypen ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/preview/docs/doc/mdt/metadatentypen.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="metadatentypen">Metadatentypen</h1>
+
+<p>Die Idee der Metadatentypen kommt daher, dass bestimmte Felder innerhalb einer Anwendung immer wieder auftauchen (z.B. Artikelnummer, Kundennummer, ...). Deshalb können solche Felder an einer zentralen Stelle definiert werden, was Fehler in der Felddefinition verhindert und Redundanzen minimiert. Dabei werden Informationen wie das Label, das Datenformat, das zugehörige Control, die mehrsprachige Bezeichnung usw. hinterlegt, so dass sich der Arbeitsaufwand bei der späteren Arbeit mit dem Metadatentypen minimiert.</p>
+<p>Sie erkennen Metadatentypen an einem  <img src="../media/icon-mdt.png" alt="Icon"> - Icon vor der Bezeichnung.</p>
+<h2 id="metadatentypen-bearbeiten">Metadatentypen bearbeiten</h2>
+<p>Um einen Metadatatypen zu bearbeiten, doppelklicken Sie den entsprechenden Eintrag auf der Registerkarte <strong>Namespaces</strong>. Der Metadatentyp wird im Hauptfenster des <strong>Framework Designers</strong> angezeigt.</p>
+<p><img src="media/mdt-designer.png" alt="MDT-Designer"></p>
+<p>Der Metadatentyp kann in verschiedenen Teilen der Anwendung zum Einsatz kommen:</p>
+<ul>
+<li>Er kann auf unterster Ebene der Spalte einer DBTable zugeordnet werden.</li>
+<li>Er kann in Components oder Forms als Datentyp für Properties verwendet werden.</li>
+</ul>
+<p>Deshalb nehmen Sie an einem Metadatentyp verschiedene Einstellungen vor:</p>
+<ul>
+<li><p><strong>Name</strong>:
+Geben Sie die Bezeichnung des Metadatentyps an.</p>
+</li>
+<li><p><strong>Datatype Database</strong>:
+Benennen Sie den Datentyp der Spalte in der Datenbank.</p>
+</li>
+<li><p><strong>Datatype Application</strong>:
+Gibt den FS-Datentyp des Metadatentyps an. Dieser Datentyp wird später in den <strong>Components</strong> und <strong>Forms</strong> gezogen.</p>
+</li>
+</ul>
+<p>Die folgende Tabelle zeigt, welche Database-Datentypen mit welchem Application-Datatype kombiniert werden können:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;"></th>
+<th style="text-align: center;">FSbool</th>
+<th style="text-align: center;">FSbyte</th>
+<th style="text-align: center;">FSbyteArray</th>
+<th style="text-align: center;">FSDateTime</th>
+<th style="text-align: center;">FSdecimal</th>
+<th style="text-align: center;">FSdouble</th>
+<th style="text-align: center;">FSfloat</th>
+<th style="text-align: center;">FSint</th>
+<th style="text-align: center;">FSlong</th>
+<th style="text-align: center;">FSshort</th>
+<th style="text-align: center;">FSstring</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Binary</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">Boolean</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">Byte</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">Date</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">DateTime</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">Time</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">Double</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">Currency</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">Single</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">Decimal</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">Big Int</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">Integer</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">Smallint</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">Tiny Int</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;"></td>
+</tr>
+<tr>
+<td style="text-align: right;">Ansi String</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+</tr>
+<tr>
+<td style="text-align: right;">Long Varchar</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+</tr>
+<tr>
+<td style="text-align: right;">String</td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;">X</td>
+</tr>
+<tr>
+<td style="text-align: right;">null</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+<td style="text-align: center;">X</td>
+</tr>
+</tbody>
+</table>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Wenn Sie die Datentypen nachträglich ändern, kann das evtl. Auswirkungen auf Programmteile haben, die diesen Metadatentypen bereits verwenden. Unter Umständen lassen sich diese Programmteile nicht mehr kompilieren.</p>
+</div>
+<p>Die Einstellungen für Size, Precision und Scale hängen von der Auswahl des <strong>Datatype Database</strong> ab. Je nachdem, ob der Datenbank-Datentyp Zeichen, Ganzzahlen oder Gleitkommazahlen unterstützt, sind die Felder für Eingaben zugänglich.</p>
+<ul>
+<li><p><strong>Size</strong>:
+Definiert die Feldlänge bei Zeichenfeldern.</p>
+</li>
+<li><p><strong>Precision</strong>:
+Anzahl der Stellen inkl. eventueller Nachkommastellen bei numerischen Feldern.</p>
+</li>
+<li><p><strong>Scale</strong>:
+Anzahl der Nachkommastellen bei <strong>Dezimal</strong>-Feldern.</p>
+</li>
+<li><p><strong>Format</strong>:
+Gibt das Anzeige-Format des Felds an. Das Format wirkt sich in der Darstellung des Felds auf einem Form aus.</p>
+</li>
+<li><p><strong>Format Pattern</strong>:
+Wird im Feld Format <strong>User Defined</strong> gewählt, ist es möglich hier selbst ein Format anzugeben. Es können Formate für Zahlen, Daten und Zeichenketten entsprechend der Standard-Definition für reguläre Ausdrücke eingegeben werden.</p>
+</li>
+</ul>
+<p>Siehe auch <a href="format-pattern.html">Format-Pattern</a></p>
+<h3 id="besonerheiten-oraclesql-bei-boolean-db-datentyp">Besonerheiten Oracle/SQL bei Boolean DB-Datentyp</h3>
+<p>Der Database-Datentyp Boolean wird in SQL und Oracle mit dem Typ Char(1) abgebildet.
+Wird ein Boolean-MDT beispielsweise in einem COALESCE-Statement verwendet, muss auf den Unterschied zwischen SQL und Oracle geachtet werden.
+SQL akzeptiert sowohl <code>COALESCE([propName],'0') = '0'</code> als auch <code>COALESCE([propName],0) = '0'</code>.
+Oracle hingegen akzeptiert nur <code>COALESCE([propName],'0') = '0'</code>, also die String-Schreibweise mit Hochkomma.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Um SQL und Oracle zu unterstützen muss daher folgende Schreibweise verwendet werden: <code>COALESCE([propName],'0') = '0'</code>.
+Bei der Verwendung des Metadatatyps <strong>CheckboxBoolean</strong>, welcher Boolean als Database-Datentyp hat, sollte darauf geachtet werden!</p>
+</div>
+<h2 id="registerkarte-description">Registerkarte Description</h2>
+<p>Hier kann eine Beschreibung des Metadatentyps eingegeben werden.</p>
+<h2 id="registerkarte-values">Registerkarte Values</h2>
+<p><img src="media/register-values.png" alt="Register Values"></p>
+<p>Für einen Metadatentypen kann definiert werden, welche Werte er annehmen darf. Wird hier nichts angegeben, sind alle Werte möglich, die der entsprechend hinterlegte Datentyp zulässt.</p>
+<p>Es können mehrere Werte oder Wertebereiche angegeben werden.</p>
+<ul>
+<li><p><strong>From</strong>: Gibt die untere Grenze eines Wertebereichs an.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Ist nur dieses Feld gefüllt (und <strong>To</strong> nicht), wird dies als Wert und nicht als Wertebereich angesehen.</p>
+</div>
+</li>
+<li><p><strong>To</strong>: Gibt die obere Grenze eines Wertebereichs an.</p>
+</li>
+<li><p>Button <strong>Add New Range</strong>: Mit dem Button Add New Range kann ein neuer Bereich hinzugefügt werden.</p>
+</li>
+<li><p>Button <strong>Remove Range</strong>: Mit dem Button Remove Range kann ein Bereich gelöscht werden.</p>
+</li>
+</ul>
+<h2 id="registerkarte-default-label">Registerkarte Default Label</h2>
+<p><img src="media/register-default-label.png" alt="Default Label"></p>
+<p>Einem Metadatentypen kann ein Label zugewiesen werden. Dieses Label wird im Form links neben dem Control des Metadatentyps angezeigt. Das Label kann mehrsprachig hinterlegt werden.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Es ist möglich, dieses Label in den Components und im Form zu überschreiben.</p>
+</div>
+<h2 id="registerkarte-control-types">Registerkarte Control Types</h2>
+<p><img src="media/register-control-types.png" alt="Register ControlTypes"></p>
+<p>Die Registerkarte <strong>ControlTypes</strong> zeigt an, welche Controls später im Form zur Verfügung stehen sollen. Es ist möglich, einem Metadatentypen mehrere Controls zuzuordnen. Es kann aber maximal ein Control als Default gekennzeichnet sein. Das als Default gekennzeichnete Control wird zunächst angezeigt, wenn ein Property (welches diesen Metadatentypen verwendet) in ein Form gezogen wird. Das Default-Control kann dann auf weitere, hier hinterlegte Controls geändert werden.</p>
+<p>Diese Liste von Controls kann auch im DBTable oder in der einer Component ergänzt werden. Ist kein Control als Standard-Control hinterlegt, wird ein Editfeld angenommen.</p>
+<p>Mit dem Button <strong>Add</strong> wird ein neuer Control-Type hinzugefügt. Es öffnet sich das Fenster Assign Controls.</p>
+<p><img src="media/assign-controls.png" alt="Assign Controls"></p>
+<p>In diesem Fenster sind alle Controls aufgelistet, einschließlich der Controls, die Sie in den <strong>Control Default Styles</strong> definieren können (siehe Kapitel Control Default Styles). Wählen Sie hier ein Control aus und setzen Sie ggf. die Checkbox <strong>is Default</strong>. Mit dem Button OK wird das Control der Liste hinzugefügt.</p>
+<p>Mit dem Button <strong>Change</strong> können Sie das Control ändern. Es öffnet sich wieder wie bei <strong>Add</strong> das Fenster <strong>Assign Controls</strong>. Sie können hier ein anderes Control auswählen und dann mit <strong>OK</strong> bestätigen.</p>
+<p>Mit dem Button <strong>Delete</strong> wird das markierte Control gelöscht.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Application </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Application ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/preview/docs/doc/ide/application.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="application">Application</h1>
+
+<p>Um Ihre Anwendung erzeugen zu können, müssen Sie zunächst Ihre Anwendung geeignet konfigurieren.</p>
+<p>Mit einem neuen Repository wird unter dem Namespace <strong>FSGeneral</strong> &gt; <strong>Applications</strong> automatisch ein Application-Element angelegt.</p>
+<p>Dieses kann aus dem Namespace-Tree oder über den Menüeintrag <strong>Compile</strong> &gt; <strong>Application</strong> aufgerufen werden.</p>
+<p><strong>Start Workflow:</strong></p>
+<p>Hier wird angegeben, welchen Workflow die Applikation starten soll, nachdem sie gestartet wurde.</p>
+<p><strong>Export:</strong></p>
+<p>Über dieses Häkchen wird definiert, ob die Application bei einem Package-Export mit exportiert werden soll oder nicht.</p>
+<h2 id="registerkarte-broker-general">Registerkarte Broker General</h2>
+<p><img src="media/application-registerkarte-broker-general.png" alt="application-registerkarte-broker-general.png"></p>
+<h4 id="supports-html-client"><strong>Supports Html Client</strong></h4>
+<p>Mit dieser Checkbox kann definiert werden, ob die Application mit dem HTML-Client gestartet werden kann. Ist die Checkbox gesetzt, dann wird in der Broker-Startseite der HTML-Client angeboten.</p>
+<p>Wird der HTML-Client aktiviert, muss sichergestellt werden, dass alle Fenster, die in der Application vom Benutzer erreicht werden auch vollständig vom HTML-Client unterstützt werden.</p>
+<p>(Siehe auch <a href="../html-client/index.html">HTML-Client</a>)</p>
+<h4 id="disable-form-navigation-html-client"><strong>Disable Form Navigation (HTML Client)</strong></h4>
+<p>Mit dieser Checkbox kann die Form-Navigation im HTML Client deaktiviert werden. Es ist dem User damit nicht mehr möglich, zwischen Forms zu wechseln. Der Applikations-Workflow muss entsprechend vom Entwickler vorgegeben werden.</p>
+<h4 id="service-name"><strong>Service Name</strong></h4>
+<p>Name des Services unter dem der Broker erreichbar ist.</p>
+<h4 id="service-address"><strong>Service Address</strong></h4>
+<p>Wenn Sie in der Checkbox <strong>Service Address</strong> einen Haken setzen, können Sie im dazu gehörigen Textfeld manuell die Adresse angeben, über welche die Applikation zu erreichen ist.</p>
+<h4 id="directory"><strong>Directory</strong></h4>
+<p>Hier wird das Web-Verzeichnis angegeben, in welches die vom Broker benötigten Dateien kopiert werden sollen. Über den Button <img src="../media/button-more.png" alt="button-more.png"> haben Sie auch die Möglichkeit, das Verzeichnis über einen Auswahldialog zu suchen.</p>
+<h4 id="configuration"><strong>Configuration</strong></h4>
+<p>Hier kann die Applikation manuell erweitert werden.</p>
+<h2 id="registerkarte-design">Registerkarte Design</h2>
+<p><img src="media/application-registerkarte-design.png" alt="application-registerkarte-design.png"></p>
+<p>Auf dieser Registerkarte werden allgemeine Design-Einstellungen für die Anwendung vorgenommen. Beispiele dafür sind:</p>
+<ul>
+<li>Start- und Hintergrundbild</li>
+<li>Größe auf dem Bildschirm</li>
+<li>Icon der Anwendung</li>
+<li>Unterstützung von Transparenz</li>
+<li>Standardfarben (z.B. Hintergrundfarbe der Menüs)</li>
+<li>Anwendungstitel</li>
+</ul>
+<h4 id="docklayoutxml">DockLayoutXml</h4>
+<p>Dieses XML ist das initiale Layout für das Docking-Framework des Java-Clients. Beendet ein Benutzer den Java-Client, speichert sich dieser das aktuelle Layout auf dem Client-Rechner. Beim nächsten Programm-Start liest er es wieder ein. Ist kein Layout gespeichert – z.B. beim ersten Start der Anwendung oder nach dem Zurücksetzen des Layouts durch den Benutzer – dann zieht diese Einstellung aus der Application.</p>
+<p>Das XML muss durch den Java-Client erzeugt und darf nicht von Hand bearbeitet werden. Mit den folgenden Schritten können Sie das XML aktualisieren:</p>
+<ul>
+<li>Am Client-Rechner das Layout der Anwendung zurücksetzen. Wenn die Anwendung keinen Befehl dafür kennt, dann im Ordner *<strong>%USERPROFILE%\FSJavaClient*</strong> den entsprechenden Ordner löschen.</li>
+<li>Die Anwendung neu starten.</li>
+<li>Alle Fenster wie gewünscht anordnen. Dabei können auch Fenster aus dem Arbeitsbereich in einen Docking-Bereich platziert werden. Es sollten ausschließlich die notwendigen Fenster angeordnet werden, um unnötige Informationen zu verhindern.</li>
+<li>Achten Sie darauf, dass sich die gewünschten Fenster im Vordergrund befinden.</li>
+<li>Beenden Sie die Anwendung.</li>
+<li>Das Layout wird jetzt vom Client gespeichert. Es befindet sich im entsprechenden  Ordner unter *<strong>%USERPROFILE%\FSJavaClient*</strong></li>
+<li>Öffnen Sie die Datei <strong>docking.xml</strong> mit einem Editor und fügen Sie deren Inhalt in das Property <strong>DockLayoutXml</strong> ein.</li>
+</ul>
+<h2 id="registerkarte-frameset">Registerkarte Frameset</h2>
+<p><img src="media/application-registerkarte-frameset.png" alt="application-registerkarte-frameset.png"></p>
+<p>Wenn in der Checkbox <strong>Use General Frame Set</strong> ein Haken gesetzt ist, wird ein Standard-Frameset verwendet. Dieses Standard-Frameset können Sie mit dem Button General Frame Set modifizieren.</p>
+<p>Wenn in der Checkbox <strong>Use General Frame Set</strong> kein Haken gesetzt ist, können Sie ein eigenes Frame Set im Textfeld <strong>Frame Set</strong> definieren. In der Combobox legen Sie den Frame fest, in dem Formulare standardmäßig geöffnet werden, wenn für ein solches nicht explizit angegeben wird, in welchem Frame es geöffnet werden soll.</p>
+<h2 id="registerkarte-authentication">Registerkarte Authentication</h2>
+<p><img src="media/application-registerkarte-authentication.png" alt="application-registerkarte-authentication.png"></p>
+<p>Wenn die Benutzer der Anwendung authentifiziert werden sollen, können Sie auf dieser Registerkarte das Authentifizierungssystem von Framework Studio aktivieren und die nötigen Einstellungen vornehmen.</p>
+<p>Zum Aktivieren der Authentifizierung muss in der Checkbox <strong>Enable Authentication</strong> ein Haken gesetzt werden.</p>
+<p>Im Bereich <strong>Default Login</strong> wird der Standardbenutzer angegeben, der automatisch von der Anwendung am Authentifizierungsdienst angemeldet wird, bis sich der Benutzer mit eigenem Namen und Passwort angemeldet hat. Programmbereiche, die diesem Default-Benutzer zur Verfügung gestellt werden, können also von allen noch nicht an der Anwendung angemeldeten Benutzern eingesehen werden. Dazu muss insbesondere das Login-Fenster gehören.</p>
+<h4 id="default-user-name">Default User Name</h4>
+<p>Name des Standardbenutzers</p>
+<h4 id="default-user-password">Default User Password</h4>
+<p>Passwort des Standardbenutzers</p>
+<p>Im Bereich <strong>Application Identity</strong> werden Eigenschaften festgelegt, mit denen sich die Anwendung am Authentifizierungsdienst (als Service) anmeldet.</p>
+<h4 id="service-name-1">Service Name</h4>
+<p>Unter diesem Namen wird die Anwendung im Authentifizierungsdienst angezeigt.</p>
+<h4 id="service-id">Service ID</h4>
+<p>Über diese Nummer (vom Typ <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSSystemGuid.html">Guid</a>) wird die Anwendung eindeutig identifiziert. Wenn diese Nummer geändert wird, betrachtet der Authentifizierungsdienst diese Anwendung als eine andere Anwendung, auch wenn der Name identisch ist.</p>
+<p>Mit dem Button <strong>New Guid</strong> kann automatisch eine neue, eindeutige ID generiert werden.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Wenn Benutzern Rollen für eine Anwendung zugeordnet wurden und anschließend die Anwendung eine neue ID bekommt und somit als eine andere Anwendung am Authentifizierungsdienst erkannt wird, dann gelten die Rollen der Benutzer nicht für die Anwendung mit der neuen ID!</p>
+</div>
+<h4 id="service-description">Service Description</h4>
+<p>In diesem Feld können Sie eine Beschreibung der Anwendung angeben. Diese Beschreibung wird im Verwaltungswerkzeug für den Authentifizierungsdienst angezeigt.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

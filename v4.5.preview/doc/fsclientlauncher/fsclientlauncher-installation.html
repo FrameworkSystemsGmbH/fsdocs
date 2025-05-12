@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Installation </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Installation ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/preview/docs/doc/fsclientlauncher/fsclientlauncher-installation.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="installation">Installation</h1>
+
+<h2 id="system-voraussetzungen">System-Voraussetzungen</h2>
+<p>Betriebssystem (jeweils 32 Bit oder 64 Bit):</p>
+<ul>
+<li>Windows 8 – oder höher</li>
+<li>Windows 7 SP1</li>
+<li>Windows Vista SP2</li>
+<li>Windows Server 2012 – oder höher</li>
+<li>Windows Server 2008 R2 SP1</li>
+<li>Windows Server 2008 SP2</li>
+</ul>
+<p>Software:</p>
+<ul>
+<li>Microsoft .NET Framework Version 4.5 oder höher</li>
+</ul>
+<h2 id="standard-installer">Standard-Installer</h2>
+<p>Der Standard-Installer liefert eine einfache Benutzeroberfläche zur Installation des Programms.
+Für eine automatische Softwareverteilung kann der Installer auch per Kommandozeile im Silent-Modus ausgeführt werden.</p>
+<p>Der Standard-Installer ist im <a href="../../articles/requirements-package.html">Requirements-Paket</a> enthalten und steht auch als separater Download zur Verfügung.</p>
+<h3 id="standard-installation-ausführen">Standard Installation ausführen</h3>
+<p><code>FSCL_4.X.Y_Setup_x64.exe</code> ausführen und der Installations-Routine folgen.
+Diese Installations-Routine beinhaltet die 32-Bit Version der Java-Runtime.</p>
+<p>Die <code>FSCL_4.X.Y_Setup_x64.exe</code> ist ausschließlich für 64 Bit Betriebssysteme vorgesehen.
+Die <code>FSCL_4.X.Y_Setup_x86.exe</code> ist ausschließlich für 32 Bit Betriebssysteme vorgesehen.</p>
+<h3 id="kommandozeilen-parameter">Kommandozeilen-Parameter</h3>
+<p>Die Setup-Routine kann mit folgenden Kommandozeilen-Parametern aufgerufen werden. Damit ist eine Automatisierung der Installation möglich.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"></th>
+<th style="text-align: left;"></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>-uninstall</code></td>
+<td style="text-align: left;">Deinstallation ausführen</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>-s</code></td>
+<td style="text-align: left;">Silent-Installation / Update ohne Benutzerinteraktion. Das Programm erkennt die installierte Version und führt bei Bedarf ein Update durch. Es sind Administrationsrechte notwendig.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>-s -uninstall</code></td>
+<td style="text-align: left;">Silent-Deinstallation ohne Benutzerinteraktion. Es sind Administrationsrechte notwendig.</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>-l &lt;logfile&gt;</code></td>
+<td style="text-align: left;">Erzeugt ein Logfile zur Analyse von Problemen bei der Ausführung des Installers</td>
+</tr>
+</tbody>
+</table>
+<h2 id="msi-installer">MSI-Installer</h2>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Der MSI-Insaller wird nicht mehr angeboten.
+Bitte verwenden Sie den Standard-Installer.
+(Siehe auch <a href="../../articles/release-4-4.html#abk%C3%BCndigung-des-msi-installers-f%C3%BCr-den-fs-client-launcher">Abkündigung des MSI-Installers für den FS Client Launcher</a>)</p>
+</div>
+<p>Dieser Installer bietet bis auf Progress-Anzeigen keinerlei Benutzeroberfläche an und arbeitet somit vollständig automatisch.</p>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Ist der Client Launcher auf einem System mittels des Standard-Installers installiert worden, sollte dieser nicht durch eine MSI-Installation aktualisiert werden!
+In diesem Fall muss zuerst die alte Version deinstalliert werden!</p>
+</div>
+<h3 id="msi-installation-ausführen">MSI Installation ausführen</h3>
+<p><code>FSCL_4.X.Y_Setup_x64.msi</code> direkt oder per Kommandozeile ausführen.
+Diese Installations-Routine beinhaltet die 32-Bit Version der Java-Runtime.</p>
+<p>Die <code>FSCL_4.X.Y_Setup_x64.msi</code> ist ausschließlich für 64 Bit Betriebssysteme vorgesehen.
+Die <code>FSCL_4.X.Y_Setup_x86.msi</code> ist ausschließlich für 32 Bit Betriebssysteme vorgesehen.</p>
+<h3 id="kommandozeilen-parameter-nur-installation">Kommandozeilen-Parameter (nur Installation)</h3>
+<p>Die Setup-Routine kann mit mit allen Parametern des MSI-Systems manipuliert werden. Nachfolgend die wichtigsten.
+| | |
+|:----|:----------|
+| <code>/q</code> | Silent-Installation / Update ohne Benutzerinteraktion. Das Programm erkennt die installierte Version und führt bei Bedarf ein Update durch. Es sind Administrationsrechte notwendig. |
+| <code>/L*v &lt;logfile&gt;</code> | Erzeugt ein Logfile zur Analyse von Problemen bei der Ausführung des Installers. |</p>
+<h3 id="deinstallation">Deinstallation</h3>
+<p>MSI-Pakete können ausschließlich über die Systemsteuerung oder <code>Msiexec.exe</code> deinstalliert werden:
+<code>Msiexec.exe /x FSCL_4.X.Y_Setup_x64.msi /q /L*v &lt;logfile&gt;</code></p>
+<p>Die folgenden Parameter sind dabei optional:
+| | |
+|:----|:----------|
+| <code>/q</code> | Silent-Installation / Update ohne Benutzerinteraktion. Das Programm erkennt die installierte Version und führt bei Bedarf ein Update durch. Es sind Administrationsrechte notwendig. |
+| <code>/L*v &lt;logfile&gt;</code> | Erzeugt ein Logfile zur Analyse von Problemen bei der Ausführung des Installers. |</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

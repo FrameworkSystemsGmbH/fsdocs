@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Programmierung mit MLKeys </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Programmierung mit MLKeys ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/preview/docs/doc/mlkey/programmierung.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="programmierung-mit-mlkeys">Programmierung mit MLKeys</h1>
+
+<h2 id="klasse-mlkeys">Klasse MLKeys</h2>
+<p>Framework Studio generiert aus dem Wörtebuch eine Klasse <code>MLKeys</code>, die alle MLKeys beinhaltet. Sie wird im Compile-Schritt <strong>Ressource</strong> compiliert und steht somit in der kompletten Applikation zur Verfügung.</p>
+<p>Sie erbt die MLKeys aus dem Basis-Package - so z.B. auch die <code>SYS_</code>-Keys aus dem System-Package.</p>
+<p>Die Klasse wird z.B. folgendermaßen verwendet:</p>
+<p><code>this.Global.GetMLText(</code><strong><code>MLKeys.LBL_Amount</code></strong><code>);</code></p>
+<p>Alle Quellcodes, die mit MLKeys arbeiten, greifen auf diese Klasse zu - sowohl selbst geschriebener Methoden-Code als auch der von Framework Studio generierte Code. Dadurch findet der CSharp-Compiler alle Probleme, die im Zusammenhang mit MLKeys auftreten können:</p>
+<ul>
+<li>Compile-Error, wenn ein MLKey nicht mehr existiert. Auch wenn diese z.B. in einem Metadatentypen oder einem Form-Control verwendet werden.</li>
+<li>Eine Obsolete-Warning, wenn ein mit einer Obsolete-Message versehener MLKey verwendet wird. Die Obsolete-Message wird als <code>Obsolete</code>-Attribut vor den MLKey generiert.</li>
+<li>Eine Warning, wenn in einem Customizing-Package ein identischer MLKey definiert ist.</li>
+</ul>
+<p>Die generierte <code>MLKeys</code>-Klasse sieht in etwa so aus:</p>
+<pre><code class="lang-csharp">public class MLKeys : BasisPackage_MLKeys
+{
+    public static readonly MLKey LBL_Amount = new MLKey(&quot;LBL_Amount&quot;);
+    public static readonly MLKey LBL_Article = new MLKey(&quot;LBL_Article&quot;);
+    public static readonly MLKey TTT_Article = new MLKey(&quot;TTT_Article&quot;);
+    public static readonly MLKey MSG_0da9815a719049ae806d3c0ba7d824ff = new MLKey(&quot;MSG_0da9815a719049ae806d3c0ba7d824ff&quot;);
+    public static readonly MLKey MSG_0f2ad9d4385b49fc9667ed7eff2d925f = new MLKey(&quot;MSG_0f2ad9d4385b49fc9667ed7eff2d925f&quot;);
+
+    [Obsolete(&quot;Please use LBL_Amount&quot;)]
+    public static readonly MLKey LBL_Amount2 = new MLKey(&quot;LBL_Amount2&quot;);
+}
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Es sollten keine eigenen MLKey-Instanzen aus Strings erzeugt werden. Diese können vom Compiler nicht validiert werden.</p>
+</div>
+<h2 id="code-editor">Code Editor</h2>
+<p>Der <strong>Code-Editor</strong> bietet diverse Unterstützung bei der Arbeit mit der Klasse <code>MLKeys</code>.</p>
+<ol>
+<li><p>Im <strong>Intellisense</strong> werden alle MLKeys angeboten und im jeweiligen Tooltip wird zur besseren Orientierung der deutsche Text angezeigt.</p>
+<p><img src="media/mlkey-intellisense.png" alt="Intellisense"></p>
+</li>
+<li><p>Fährt man mit der Maus über einen MLKey, dann wird ein <strong>Info-Tooltip</strong> mit dem deutschen Text angezeigt.</p>
+<p><img src="media/mlkey-code-tooltip.png" alt="Tooltip"></p>
+</li>
+<li><p>Wird auf einem MLKey der Befehl <strong>Go To Definition</strong> ausgeführt, dann öffnet sich der <a href="woerterbuch.html">Multilanguage Text Editor</a> und es wird der entsprechende Eintrag selektiert.</p>
+</li>
+</ol>
+<h2 id="methoden-am-global-object">Methoden am Global-Object</h2>
+<p>Das GlobalObject bietet mehrere Methoden an, mit denen ein MLKey in ein Text überführt werden kann.</p>
+<ul>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_">GetMLText(mlkey)</a></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_String_">GetMLText(mlkey, iso)</a></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.GetMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_GetMLKeyText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_">GetMLKeyText(mlkey)</a></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLText(mlkey, args)</a></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLKeyText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(mlkey, args)</a></li>
+</ul>
+<p>Für die Format-Funktionen wird die Client-Culture verwendet. Für die Verwendung einer spezifischen Culture gibt es entsprechende Überladungen:</p>
+<ul>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLText_System_IFormatProvider_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLText(culture, mlkey, args)</a></li>
+<li><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IGlobalObjects.FormatMLKeyText.html#FrameworkSystems_FrameworkBase_GlobalObj_IGlobalObjects_FormatMLKeyText_System_IFormatProvider_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_Object___">FormatMLKeyText(culture, mlkey, args)</a></li>
+</ul>
+<h2 id="cglobal-entrypoint">cGlobal EntryPoint</h2>
+<p>In der Klasse <code>cGlobal</code> gibt es einen zentralen Entry-Point <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.GlobalGetMLText.html#FrameworkSystems_FrameworkBase_GlobalObj_IcGlobalBase_GlobalGetMLText_FrameworkSystems_FrameworkExceptions_MultiLanguage_MLKey_System_String_">GlobalGetMLText</a>. Dieser wird JEDES MAL aufgerufen, wenn aus einem MLKey ein Text erzeugt wird.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

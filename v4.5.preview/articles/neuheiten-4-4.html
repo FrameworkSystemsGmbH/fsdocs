@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Neuheiten Framework Studio 4.4 </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Neuheiten Framework Studio 4.4 ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/preview/docs/articles/neuheiten-4-4.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="neuheiten-framework-studio-44">Neuheiten Framework Studio 4.4</h1>
+
+<p>Informationen zu aktuellen Versionen und korrigierten Fehlern finden Sie in den <a href="release-4-4.html">Release-Informationen</a>.</p>
+<h2 id="neue-requirements">Neue Requirements</h2>
+<h4 id="kein-internet-explorer-11-mehr">Kein Internet Explorer 11 mehr</h4>
+<p>Der Internet Explorer 11 wird nicht mehr unterstützt.</p>
+<p>Folgende Features können nur noch mit aktuellen Browsern wie z.B. Edge, Chrome oder Firefox genutzt werden:</p>
+<ul>
+<li>Client Start Page</li>
+<li>Mit Framework Studio generierte Online-Hilfe</li>
+<li>Mobile Client</li>
+</ul>
+<h4 id="windows-client-betriebssysteme">Windows Client-Betriebssysteme</h4>
+<p>Am <a href="requirements.html#client-rechner">Client-</a> und <a href="requirements.html#entwicklungs-rechner">Entwicklungs-Rechner</a> wird nur noch <strong>Windows 10</strong> unterstützt.
+Ältere Windows-Versionen werden nicht mehr unterstützt.</p>
+<h4 id="client-launcher">Client Launcher</h4>
+<p>Mit der Version 4.4 gibt es einen neuen <a href="../doc/fsclientlauncher/fsclientlauncher-common.html">Client-Launcher</a>. Dieser bietet eine <a href="../doc/fsclientlauncher/fsclientlauncher-configuration.html#java-settings">experimentelle Unterstützung für Java 11 (64 Bit)</a>.</p>
+<p>Darüber hinaus gibt es ein paar kleinere <a href="#fs-client-launcher">Neuerungen</a>.
+Ein Update auf diese Version ist aber nicht zwingend nötig.
+Bei Bedarf kann weiterhin der Client-Launcher mit der Version 4.2.16 verwendet werden.</p>
+<h2 id="umbau-der-code-generierung-und-des-compiles">Umbau der Code Generierung und des Compiles</h2>
+<p>Die Code-Generierung und der FS Compile wurden grundlegend überarbeitet.
+Hieraus ergeben sich folgende Neuheiten:</p>
+<ol>
+<li><p>Für jeden Namespace und Typen gibt es nur noch eine DLL, welche generiert und kompiliert wird.</p>
+<ul>
+<li>Die Link-Schichten sind obsolet und werden zukünftig nicht mehr generiert.</li>
+<li>Auch die Context-Versionen sind nicht mehr notwendig.</li>
+<li>Die Anzahl der Assemblies hat sich stark reduziert, womit das debuggen komfortabler und der Compile schneller ist.</li>
+<li>Der Code aller Schichten muss und kann vor Ort komplett erstellt werden.</li>
+</ul>
+</li>
+<li><p>Die Debug DLLs, welche mit dem FrameworkCompiler kompiliert wurden, werden nicht mehr in das Repository geschrieben.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Zum Debuggen kann und muss zwingend der betroffene Code lokal debuggable kompiliert werden.</p>
+<p>Das bietet den entscheidenden Vorteil, dass Visual Studio beim Debuggen zuverlässig die richtigen cs-Dateien findet.
+Debug-Informationen, die vom FrameworkCompiler erzeugt wurden, zeigten immer auf einen absoluten Dateipfad, der auf dem eigenen Rechner nicht mehr stimmt.</p>
+</div>
+<p>Es gibt bei den <a href="../doc/allgemein/options.html#ide-registerkarte">Options</a> die Möglichkeit einen automatischen Debug Compile zu aktivieren. Des Weiteren wurde der <a href="../doc/ide/start.html#login">Login</a>-Dialog, sowie der <a href="../doc/ide/compile-menu.html#get-dlls">GetDLLs</a> Dialog um die gleiche Option &quot;AutoDebug DLLs&quot; erweitert. Wird beispielsweise beim Login die AutoDebug-Option auf &quot;All&quot; gesetzt, werden alle Compile Object Types beim Login automatisch debuggable kompiliert. Nähere Informationen finden Sie in den entsprechenden Dialog-Dokumentationen.</p>
+<p>Bei importierten oder versiegelten Package-Version kann man sich jetzt mit einem normalen Benutzer anmelden und debuggable kompilieren.</p>
+</li>
+<li><p>Die Optionen <strong>Debug</strong> und <strong>DebugAll</strong> sind überarbeitet worden.</p>
+<ul>
+<li>Debug bedeutet, dass die Services, Components, CustomControls und Forms-Elemente des aktuellen Packages und der Base-Packages debuggable kompiliert werden.</li>
+<li>Im Gegensatz hierzu kompiliert <strong>DebugAll</strong> alle Element-Typen debuggable. Beachten Sie, dass vor allem Interfaces und DBTables aufwendig und somit mehr Zeit benötigen, um debuggable kompiliert zu werden.</li>
+</ul>
+</li>
+</ol>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Im Zuge der Änderungen an der Code-Generierung und der Zusammenlegung der Code-Dateien in eine DLL, können zirkulären Referenzen auftreten.
+Des Weiteren kann es sein, dass nun fehlende Referenzen ergänzt werden müssen.
+Etwaige Fehler müssen in der IDE behoben werden. Nachfolgende Maintenance Routine kann gegebenenfalls beim Lösen der Fehlern unterstützen.</p>
+</div>
+<h3 id="maintenance-routine-für-referenzen-und-konstruktoren">Maintenance Routine für Referenzen und Konstruktoren</h3>
+<p>Im <a href="../doc/ide/start.html#maintenance-mode">Maintenance-Mode</a> stehen speziell für den Update auf die Version 4.4 neue Cleanup-Routinen zur Verfügung.</p>
+<ul>
+<li><p><a href="../doc/maintenance/constructor-cleanup.html">Constructor Cleanup</a>:
+Ungültige Konstruktor Deklarationen in Components werden in eine gültige Form überführt.
+Dies ist notwendig, da der Compile in der FS Version 4.4 ungültige Deklarationen als Error ausgibt.</p>
+</li>
+<li><p><a href="../doc/maintenance/references-cleanup.html">References Cleanup</a>:
+Entfernt nicht existente externe User-Referenzen und stellt externe <code>$GAC</code>-Referenzen auf <code>$DotNetDirectory</code> um.</p>
+</li>
+</ul>
+<h2 id="devexpress-xtrareports">DevExpress® XtraReports™</h2>
+<p>Mit der Version 4.4 bietet Framework Studio experimentelle Unterstützung für <strong>DevExpress® XtraReports™ 21.1</strong> an.
+Hierbei handelt es sich um eine alternative Reporting-Lösung, die zunächst parallel mit Crystal Reports eingesetzt werden kann, diese langfristig allerdings ersetzen soll.
+Einige Vorteile der neuen Lösung sind z.B.:</p>
+<ul>
+<li>Erhöhte Performance, sowohl im Druck als auch beim Design</li>
+<li>Keine Installation einer separaten Runtime notwendig</li>
+<li>Kein Erwerb von Nutzer-Lizenzen notwendig</li>
+<li>Datenquellen müssen nicht über xsd-Dateien abgewickelt werden, sondern werden direkt auf Basis der Objekte selbst gebildet</li>
+<li>Langfristig Support für von Windows losgelöste Entwicklung (.NET Core)</li>
+<li>Technisch zugänglichere Plattform (Custom Controls, Custom Designer u.Ä.)</li>
+<li>Dadurch die Möglichkeit, Reports direkt im Browser anzupassen</li>
+</ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Dieses Release beinhaltet noch <em>keine vollwertige Funktionalität.</em>
+Sie können sich bereits mit der neuen Lösung auseinandersetzen und Nutzungserfahrungen sammeln, ein produktiver Einsatz ist allerdings <em>ausdrücklich</em> noch nicht vorgesehen.
+Eine Beibehaltung der aktuellen Dateiformate und API in Versionen vor dem vollständigen Release wird angestrebt, aber nicht garantiert.</p>
+</div>
+<p>Im <a href="../doc/reporting/report-document-type.html">Report Document Type</a> wurden Anpassungen vorgenommen, die gleichzeitiges Führen von Crystal- und DevExpress®-Dateien für den selben logischen Report erlauben.
+Jeder Report kann jetzt gleichzeitig einen Crystal Report und einen DevExpress® Report besitzen. Die beiden Dateien sind unabhängig voneinander editier-, lösch- und ersetzbar.</p>
+<p>Falls ein Report Document Type gedruckt werden soll, der gleichzeitig einen Crystal- und einen DevExpress® Report beinhaltet, wird auf Basis des Flags Global.ReportingSoftware entschieden, welcher der beiden genutzt werden soll. Das Flag lässt sich im Use-Code überschreiben.</p>
+<p>Falzmarken und in den Report eingebettete Subreports wurden mit eigenen Custom Controls gelöst.</p>
+<p>Um bei der Konvertierung mit dem originalen Crystal Report vergleichen zu können, wurde ein Button im Designer geschaffen, welcher diesen schreibgeschützt öffnet.</p>
+<h3 id="report-migration-summary">Report Migration Summary</h3>
+<p>Für die Migration der Crystal Reports zu DevExpress® muss der zu erwartende Aufwand bewertet und die noch ausstehenden Reports gelistet werden können.
+Diese Übersicht kann über das Kontextmenü eines Namespaces oder für einen Report Document Type angezeigt werden.</p>
+<p>Nähere Informationen zur &quot;Report Migration Summary&quot; finden sich <a href="../doc/reporting/report-migration.html#report-migration-summary">hier</a></p>
+<h2 id="namespace-referenzen-überarbeitet">Namespace-Referenzen überarbeitet</h2>
+<p>Die Namespace-Referenzen arbeiten mit Compile Object Types.
+Diese entsprechen den Compile-Schritten.
+So sind z.B. die Object Types <em>Service</em>, <em>Service Proxy</em>, <em>Service Host</em> und <em>FSTransformation</em> zum Compile Object Type <em>Service</em> zusammengefasst.</p>
+<p>Der Dialog für die <a href="../doc/ide/references.html">Namespace-Referenzen</a> wurde überarbeitet:</p>
+<ul>
+<li>Es werden jetzt alle Referenzen für alle Typen in einer Liste angezeigt.</li>
+<li>Die Liste bietet eine Übersicht der wichtigsten Detail-Informationen.</li>
+<li>Die Usings werden als Freitext-Feld bearbeitet.</li>
+<li>Bei der Auswahl von <code>$GAC</code>-Referenzen werden diese, wenn möglich auf <code>$DotNetDirectory</code> korrigiert.</li>
+</ul>
+<h2 id="individueller-code---code-files">Individueller Code - Code files</h2>
+<p>Für die Definition von individuellem Code steht ein neues Element <a href="../doc/code-file/codefile.html#code-file">Code File</a> zur Verfügung.
+Der Code einer Code file muss eine Klasse beinhalten, in welcher Methoden, Konstruktoren, Properties etc. definiert werden können.
+Es können mehrere Klassen, jedoch keine Namespaces, in eine Code file definiert werden.
+Aufgrund gängiger Konventionen sollte ein Code File jedoch nur eine Klasse beinhalten und der Name des Code Files identisch mit dem Namen der Klasse sein.
+Ferner ist der identische Namen für die Intellisense notwendig.</p>
+<p>Für ein Code file muss ein Compile Step festgelegt werden.
+Dieser bestimmt mit welchem Object Typ der Code kompiliert wird und somit in welchem Namespace sich das Code file befindet.</p>
+<p>Soll der individuelle Code auch in einem anderen Namespace zur Verfügung stehen, muss hierfür eine Referenz angelegt werden.
+Diese muss auf den Namespace des Code files und auf dessen Compile step verweisen.
+Ein Beispiel hierzu findet sich <a href="../doc/code-file/codefile.html#referenz-beispiel">hier</a>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Der Compile step sollte zu einem späteren Zeitpunkt nicht geändert werden, da ansonsten bestehende Referenzen auf das Code file ungültig werden und der Compile Fehler generieren wird.
+Die Compile Fehler können verhindert werden, indem der ObjectType der Referenzen ebenfalls angepasst wird.</p>
+</div>
+<h2 id="rest-endpoint-für-service-hosts">REST Endpoint für Service Hosts</h2>
+<p>Standardmäßig bietet ein Service Host den ausgewählten Service bzw. dessen Service Contract nach außen hin über WCF und damit das SOAP-Protokoll an. Moderne Applikationen und allen voran Webapplikationen in Borwsern oder auf mobilen Endgeräten unterstützen mittlerweile jedoch oft kein SOAP mehr und bevorzugen deshalb die Kommunikation über JSON.</p>
+<p>Framework Studio bietet die Möglichkeit, den Service Host so zu konfigurieren, dass vollständig automatisch ein zusätzlicher Endpoint generiert wird, mit dem die im Service Contract propagierten Methoden auch über JSON und damit über einen normalen HTTP-Request angesprochen werden können.</p>
+<p>Eine detaillierte Beschreibung dieser neuen Funktionalität befindet sich <a href="../doc/webservices/rest-endpoint.html">HIER</a>.</p>
+<h2 id="placeholder-für-editfields-und-comboboxen">Placeholder für Editfields und Comboboxen</h2>
+<p>Für Editfields und Comboboxen steht ein neues Property <a class="xref" href="../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.CaptionAsPlaceholder.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_CaptionAsPlaceholder">CaptionAsPlaceholder</a> zur Verfügung. Wenn dieses Property auf <code>true</code> gesetzt wird, zeigt das Editfield oder die Combobox die Caption als Placeholder an, solange das Control leer ist bzw. keinen Datensatz anzeigt. Auf diese Weise können zusammenhängende Daten ggf. übersichtlicher dargestellt werden:</p>
+<p><img src="media/placeholder.png" alt="Adresse"></p>
+<h3 id="hinweise">Hinweise</h3>
+<ul>
+<li>Placeholder funktionieren sowohl im Java Client als auch im HTML Client.</li>
+<li>Die Farbe des Placeholders ist fest auf <code>RGB(180, 180, 180)</code> bzw. <code>#b4b4b4</code> gesetzt.</li>
+<li>Befindet sich das Control in einem FieldPanel, so wird kein extra Label generiert, wenn <a class="xref" href="../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.CaptionAsPlaceholder.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_CaptionAsPlaceholder">CaptionAsPlaceholder</a> auf <code>true</code> gesetzt ist.</li>
+</ul>
+<h2 id="bilder-unterstützung-für-html-editfields">Bilder Unterstützung für HTML Editfields</h2>
+<p>Editfields mit dem Editor Type HTML können nun Inline-Bilder anzeigen.
+Diese Bilder können aus der Zwischenablage im Java-Client oder mithilfe eines <code>&lt;img/&gt;</code> Tags eingefügt werden.</p>
+<p>Reports, die mit DevExpress® erstellt werden, unterstützen diese Bilder.
+Crystal Reports unterstützt diese Bilder leider nicht.</p>
+<p>Genaueres unter <a href="../doc/form/control/editfield.html">Editfield</a>.</p>
+<h2 id="fs-client-launcher">FS Client Launcher</h2>
+<p>Im Client-Launcher gibt es folgende Neuerungen:</p>
+<ul>
+<li>Die <a href="../doc/fsclientlauncher/fsclientlauncher-common.html">Online-Hilfe</a> kann aus dem Konfigurations-Dialog mit F1 aufgerufen werden.</li>
+<li>Anzeige des Splash Screen der Application</li>
+<li>Für Version 4.4 Anwendungen gibt es eine <a href="../doc/fsclientlauncher/fsclientlauncher-configuration.html#java-settings">Experimentelle Unterstützung für Java 11 (64 Bit)</a></li>
+<li>Der Pfad des <code>.jarcache</code> Ordners hat sich von <code>%userprofile%\FSClientLauncher\.jarcache\</code> zu <code>%localappdata%\FSClientLauncher\.jarcache\</code> geändert.
+Durch die Verwendung von <code>%localappdata%</code> wird bei serverbasierten Benuzter-Profilen der Jar-Cache nicht mehr zum Server synchronisiert.
+Beim ersten Start nach dem Update wird der alte <code>.jarcache</code> Ordner einmalig an die neue Stelle verschoben.</li>
+</ul>
+<h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
+<ul>
+<li><p>Für Comboboxen und Listboxen kann die <a class="xref" href="../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.ControlDesignViewModel.DisabledBackColor.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_ControlDesignViewModel_DisabledBackColor">DisabledBackColor</a> definiert werden.</p>
+</li>
+<li><p>In Methoden-Parametern und Rückgabetypen können die <a href="https://docs.microsoft.com/dotnet/csharp/language-reference/builtin-types/value-tuples">C# 7 Tuple-Types</a> verwendet werden.</p>
+</li>
+<li><p>Bei den <a href="../doc/access-units/access-units.html#description">Access Units</a> wurde die Ansicht der verbundenen AccessUnits verbessert.
+Es werden nun neben den Parents auch die AccessUnit-Children angezeigt.
+Zudem können die AccessUnit-Parents bearbeitet werden.</p>
+</li>
+<li><p>Die RowID und RowVersion sind nun zwei unabhängige Mechanismen.
+Dies bedeutet, dass die FSROWID als eindeutiger und alleiniger Primary Key für Update- und Delete-Bedingung gilt.
+Die RowVersion wird weiterhin für die Concurrency-Violation Überprüfung verwendet.
+Dabei ist es nebensächlich, ob der Primary Key eine ROWID oder ein individueller PK ist.</p>
+</li>
+<li><p>Analog zur GlobalOnBeforeSaveAction() gibt es auch eine <a class="xref" href="../api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.GlobalOnAfterSaveAction.html#FrameworkSystems_FrameworkBase_GlobalObj_IcGlobalBase_GlobalOnAfterSaveAction_FrameworkSystems_FrameworkBase_DevFrameworkObject_">GlobalOnAfterSaveAction()</a>, welche jedoch nach der SaveAction aufgerufen wird.</p>
+</li>
+<li><p>Im <a href="../doc/comp/static-cache.html">StaticCache</a> steht eine neue Methode <a class="xref" href="../api/FrameworkSystems.FrameworkBase.IStaticCache.ContainsKey.html#FrameworkSystems_FrameworkBase_IStaticCache_ContainsKey_System_Object_">ContainsKey(pk)</a> zur Verfügung.</p>
+</li>
+<li><p>Für Checkboxen wurde der <a href="../doc/form/control/grid.html#grid-filter">Tabellenfilter</a> auf Checked/Unchecked (bzw. Aktiviert/Deaktiviert) geändert. Gibt es Datensätze mit Null-Werten, werden diese bei der Checkbox-Filterung als Unchecked gewertet.</p>
+</li>
+<li><p>Im Package Manager ist es möglich <a href="../doc/package-manager/package-version.html#warnings">Warnings</a>, welcher der Compiler ignorieren soll, anzugeben.
+Des Weiteren kann auch das Level der Warnings angegeben werden.
+Die Einstellung wird an die Customizing-Packages vererbt.
+Sie kann ausschließlich durch <em>Nissen &amp; Velten</em> am <em>eNVenta</em> Package (bzw. einem anderen Default-Package) geändert werden.</p>
+</li>
+<li><p>Im Publish, Run und Publish2go Wizard kann nun auch das Icon für die Anwendung gesetzt werden.</p>
+</li>
+<li><p>Es ist nun möglich, im <a href="../doc/mlkey/woerterbuch.html#dependencies-von-mlkeys-suchen">Wörterbuch</a> nach Dependencies für MLKeys zu suchen.</p>
+</li>
+<li><p>Es ist nun möglich, auf der <a href="../doc/fsclientlauncher/fsclientlauncher-common.html">Client Start Page</a> die Client-Option <strong>Java Web Start</strong> während des <a href="../doc/publish-wizards/publish-wizard.html#applications">Publish Vorganges</a> ein oder aus zu blenden. Standardmäßig ist der <strong>Java Web Start</strong> nun deaktiviert.</p>
+</li>
+<li><p>Es ist nun möglich an dem <a href="../doc/ide/application.html#disable-form-navigation-html-client">Application-Element</a> die Form-Navigation im HTML Client zu deaktivieren.</p>
+</li>
+<li><p>Bei den Relation-Properties (Components) steht in der Registerkarte <a href="../doc/comp/tab_properties.html#registerkarte-load-command">Load Command</a> nun ein CodeEditor mit entsprechender Intellisense zur Verfügung.</p>
+</li>
+<li><p>Es ist nun möglich, den Code im <a href="../doc/editors/editor-cs.html">C# Editor</a>, mit dem Shortcut <code>SHIFT + ALT + F</code> den Code zu <a href="../doc/editors/editor-cs.html#code-formatting">formattieren</a>.</p>
+</li>
+<li><p>Es ist nun möglich, Grid-Columns per Action zu verschieben.
+Dafür gibt es zwei neue Methoden(<strong>MoveBefore</strong> / <strong>MoveAfter</strong>) an der <a class="xref" href="../api/FrameworkSystems.FrameworkControls.Actions.GridColumnControlAction.html">GridColumnControlAction</a>
+und zwei neue Methoden(<strong>InsertBefore</strong> / <strong>InsertAfter</strong>) an der <a class="xref" href="../api/FrameworkSystems.FrameworkControls.Actions.GridControlAction.html">GridControlAction</a>.</p>
+</li>
+<li><p>Der Text in einem <a href="../doc/documentation/editor.html">Dokumentations-Editor</a> wird jetzt auf Rechtschreibfehler überprüft.
+Gefundene Rechtschreibfehler werden rot unterstrichen.
+Es werden die Sprachen Deutsch (de), Englisch (en), Französisch (fr) und Italienisch (it) unterstützt.</p>
+</li>
+<li><p>Es ist nun möglich, Dokumentationen abhängig von den Lizenzeinstellungen zu exportieren.
+Dafür wurden neue Checkboxen im <a href="../doc/documentation/export-wizards.html#wizard-optionen">Export Wizard</a> hinzugefügt und die Parameter der <a href="../doc/fsconsole/fsconsole.html#uselicense">FSConsole</a> erweitert.</p>
+</li>
+<li><p>Das Einfügen von <a href="../doc/documentation/editor.html#link">Links</a> im <a href="../doc/documentation/editor.html">Dokumentations-Editor</a> wurde überarbeitet.
+Es kann nun mithilfe von Autocomplete nach existierenden Dokumentationen gesucht werden.</p>
+</li>
+<li><p>Es ist nun möglich, Url-Links aus der Zwischenablage mit STRG+V, Rechte-Maustaste-&gt;Edit-&gt;Paste oder dem <a href="../doc/documentation/editor.html#link">Link einbinden Dialog</a> im <a href="../doc/documentation/editor.html">Dokumentations-Editor</a> einzufügen.</p>
+</li>
+<li><p>Es ist nun möglich, Bilder aus der Zwischenablage mit STRG+V, Rechte-Maustaste-&gt;Edit-&gt;Paste oder dem <a href="../doc/documentation/editor.html#bild-einbinden">Bild einbinden Dialog</a> im <a href="../doc/documentation/editor.html">Dokumentations-Editor</a> einzufügen.</p>
+</li>
+<li><p>Es ist nun möglich, Tooltips im <a href="../doc/documentation/editor.html#panel-tooltip">Dokumentationsfenster</a> zu bearbeiten.</p>
+</li>
+<li><p>Es ist nun möglich, <a href="../doc/documentation/docml.html#headline">Headlines</a> im <a href="../doc/documentation/editor.html">Dokumentationsfenster</a> zu nutzen.</p>
+</li>
+<li><p>Am <a class="xref" href="../api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.html"><strong>cGlobal</strong></a> wurde der neuer EntryPoint <strong>OnLicenseGranted</strong> geschaffen, mit dem man Lizenz-Freigabe programmatisch einschränken kann, obwohl die Lizenz-Datei dies erlaubt.
+Parallel dazu wurde die neue Methode <strong>LicenseGrantedInFile</strong> am <a class="xref" href="../api/FrameworkSystems.FrameworkBase.AccessControl.AUHelper.html"><strong>AUHelper</strong></a> geschaffen.</p>
+</li>
+<li><p>Noch nicht abgespeicherte Tabs werden nun mit einem Stern <code>*</code> gekennzeichnet.</p>
+</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

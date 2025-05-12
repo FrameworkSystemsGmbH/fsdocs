@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>FS-Datentypen </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="FS-Datentypen ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/preview/docs/doc/konzepte/fs-types.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="fs-types">
+<h1 id="fs-datentypen">FS-Datentypen</h1>
+
+<p>FS-Datentypen verhalten sich fast genauso wie die .NET-Datentypen mit ähnlich lautenden Namen. Der Unterschied zu den .NET-Datentypen besteht darin, dass sie einen Null-Wert verstehen.</p>
+<p>Die FS-Datentypen sind die Basis für die Metadatentypen. Sie können aber auch als Datentyp für Properties oder einfach frei im Code verwendet werden. Sie sollten immer dann verwendet werden, wenn die Null-Information nicht verloren gehen darf.</p>
+<p>Mit diesen Datentypen ist es möglich, Null-Werte aus einer Datenbank auszuwerten und auch wieder in die Datenbank zurückzuschreiben. Außerdem können z.B. Datenfelder in Forms, die eine Zahl oder ein Datum enthalten, komplett leer sein, was z.B. bei Suchfeldern wichtig ist.</p>
+<p>Bei den FS-Datentypen handelt es sich ebenfalls um Structs. Die Wertzuweisungen zwischen verschiedenen FS-Datentypen erfolgen also ByValue – wie bei den .NET-Datentypen auch. Variablen und Properties von einem FS-Datentyp können genauso verwendet werden wie Variablen und Properties von .NET-Datentypen. Es können auch Zuweisungen zwischen den verschiedenen Datentypen erfolgen. Es erfolgt in den meisten Fällen eine implizite Konvertierung der Datentypen. Die Null-Information geht dabei aber verloren.</p>
+<h2 id="properties-der-fs-datentypen">Properties der FS-Datentypen</h2>
+<p><strong>Value:</strong> (Property) Wert des FS-Datentyps als .NET-Datentyp. D.h.: FSdecimal.Value liefert einen Wert vom Typ dezimal. Dieser Wert kann sowohl gelesen als auch geschrieben werden. Ist der Wert der Variable Null, liefert Value den in der folgenden Tabelle angegebenen Wert aus der Spalte Null-Value zurück. Das Setzen des Wertes der Variable auf einen Null-Value hat aber <strong>nicht</strong> zur Folge, dass die Variable Null wird. Einzige Ausnahme ist FSstring: IsNull bedeutet Value=““ und Value=““ bedeutet IsNull.</p>
+<p><u>Beispiel:</u></p>
+<pre><code class="lang-csharp">FSdecimal decVar1 = 0;
+
+// Wert auf 0 oder Null prüfen
+if (decVar1.Value == 0)
+{ … }
+
+// Variante ohne Value
+if (decVar1.IsNull || decVar1 == 0 )
+{ … }
+
+// Wert zuweisen:
+decVar1 = 5;
+
+//oder
+decVar1.Value = 5;
+</code></pre>
+<h3 id="isnull-property">IsNull (Property)</h3>
+<p>Ist vom Typ <code>bool</code>.</p>
+<p>Gibt an, ob der Wert der Variable Null ist. Um einem FS-Datentypen explizit ein Null zuzuweisen, gibt es zwei Möglichkeiten:</p>
+<p>Sie weisen dem Property <em><strong>IsNull</strong></em> <code>true</code> zu, oder
+Sie weisen der Variable <code>FSxxx.Null</code> zu</p>
+<pre><code class="lang-csharp">FSdecimal decVar1 = 0;
+
+// Wert nur auf Null prüfen
+if (decVar1.IsNull)
+{ … }
+
+// Wert auf Null setzen
+decVar1.IsNull = true;
+
+// oder
+decVar1 = FSdecimal.Null;
+</code></pre>
+<h3 id="null-statisches-property">Null (Statisches Property)</h3>
+<p>Liefert eine Variable mit einem Null-Wert.</p>
+<pre><code class="lang-csharp">// Variable mit Null initialisieren
+FSdecimal decVar2 = FSdecimal.Null;
+</code></pre>
+<p>Es folgt eine Tabelle mit allen FS-Datentypen und deren Null-Value.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">.NET-Datentyp</th>
+<th style="text-align: left;">FS-Datentyp</th>
+<th style="text-align: left;">Null-Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">bool</td>
+<td style="text-align: left;"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSbool.html">FSBool</a></td>
+<td style="text-align: left;">false</td>
+</tr>
+<tr>
+<td style="text-align: left;">byte</td>
+<td style="text-align: left;"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSbyte.html">FSbyte</a></td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">DateTime</td>
+<td style="text-align: left;"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.html">FSDateTime</a></td>
+<td style="text-align: left;">DateTime.MinValue</td>
+</tr>
+<tr>
+<td style="text-align: left;">decimal</td>
+<td style="text-align: left;"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSdecimal.html">FSdecimal</a></td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">double</td>
+<td style="text-align: left;"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSdouble.html">FSdouble</a></td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">float</td>
+<td style="text-align: left;"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSfloat.html">FSfloat</a></td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">int</td>
+<td style="text-align: left;"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSint.html">FSint</a></td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">long</td>
+<td style="text-align: left;"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSlong.html">FSlong</a></td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">short</td>
+<td style="text-align: left;"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSshort.html">FSshort</a></td>
+<td style="text-align: left;">0</td>
+</tr>
+<tr>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;"><a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSstring.html">FSstring</a></td>
+<td style="text-align: left;"><code>String.Empty</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="hasvalue-property">HasValue (Property)</h3>
+<p>Ist vom Typ <code>bool</code>.</p>
+<p>Man kann mit <a href="#isnull-property">IsNull</a> prüfen, ob ein FSType (<a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSstring.html">FSstring</a>, <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSdecimal.html">FSdecimal</a>, …) <code>null</code> ist. Wenn das Gegenteil geprüft werden soll, kann das Property <a href="#hasvalue-property">HasValue</a> verwendet werden. So wird der Code deutlich lesbarer, vor allem dann, wenn das zu prüfende Property tief verschachtelt ist.</p>
+<p><u>Beispiel:</u></p>
+<pre><code class="lang-csharp">// herkömmlicher Weg (Das Ausrufezeichen wird schnell überlesen):
+if (!this.oOrder.oCustomer.sCompany1.IsNull)
+
+// neuer Weg:
+if (this.oOrder.oCustomer.sCompany1.HasValue)
+</code></pre>
+<h3 id="fsdatetimenow">FSDateTime.Now</h3>
+<p>Statisches Property am Typ <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.html">FSDateTime</a>, welches das aktuelle System-Datum sekundengenau zurückgibt.</p>
+<p>Wenn man mit der Datenbank oder auch mit Benutzer-Eingaben arbeitet, werden in der Regel sekundengenaue Werte verarbeitet. Wenn man mit dem <code>System.DateTime.Now</code> arbeitet, erhält man einen um mehrere Zehnerpotenzen genaueren Wert. Bei Vergleichen mit Benutzereingaben weichen diese dann von <code>System.DateTime.Now</code> ab.</p>
+<p>Es wird daher empfohlen, alle Daten, die mit dem aktuellen Datum initialisiert werden sollen, mit <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.Metadatatype.FSDateTime.Now.html#FrameworkSystems_FrameworkBase_Metadatatype_FSDateTime_Now">FSDateTime.Now</a> zu initialisieren.</p>
+<p><u>Beispiel:</u></p>
+<pre><code class="lang-csharp">// Variable mit sekundengenauem Wert der aktuellen Zeit initialisieren
+FSDateTime dtMyDate = FSDateTime.Now;
+</code></pre>
+<p>Wenn mit genaueren Werten gearbeitet werden soll, ist die folgende Initialisierung ebenfalls möglich:</p>
+<pre><code class="lang-csharp">// Variable möglichst genau mit der aktuellen Zeit initialisieren
+FSDateTime dtMyAccurateDate = DateTime.Now;
+</code></pre>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

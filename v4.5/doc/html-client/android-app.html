@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/28/docs/doc/html-client/android-app.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/dev/docs/doc/html-client/android-app.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -111,9 +111,26 @@
 <h5>Note</h5>
 <p>Auch auf neueren Geräten ab Android 8.0 empfehlen wir, die aktuellste Version von Google Chrome zu installieren, um die breiteste Unterstützung von Features und die fehlerfreie Darstellung der App zu garantieren.</p>
 </div>
+<h3 id="mobile-client-bug-mit-android-10">Mobile Client Bug mit Android 10</h3>
+<p>Wir haben seit dem 14.05.2025 mehrere Kunden, die uns ein Problem mit der Mobile Client App in Verbindung mit Android 10 gemeldet haben.
+Den Fehler konnten wir mit den folgenden Mobile Client Versionen reproduzieren: 1.0.51, 1.0.53, 1.0.54, 1.0.55.</p>
+<p>Da viele Mobile Client Versionen betroffen sind und die letzte Mobile Client Version am 05.05.2025 im PlayStore bereitgestellt wurde, der Fehler aber erst am 14.05. das erste Mal auftrat, gehen wir von einem Fehler im Zusammenhang mit Google Chrome/Android WebView aus.</p>
+<p>Google Chrome und Android WebView haben beide am 14.05.2025 Updates erhalten.
+Die Updates der Android WebView mit Versionen höher 136.0.7103.60 haben das genannte Fehlverhalten auf Android 10.</p>
+<p><strong>Fehlverhalten:</strong>
+Sobald die Tastatur für eine Eingabe auf den Geräten geöffnet wird, wird ein weißer Balken oberhalb der Tastatur angezeigt. Dieser verkleinert den sichtbaren Bereich der App enorm. Das Arbeiten ist hiermit nur schwer möglich.</p>
+<p>Der rot markierte Bereich zeigt den weißen Balken.</p>
+<p><img src="media/MobileClient_Bug.png" alt="Mobile Client Bug"></p>
+<p><strong>Workaround:</strong>
+Über die geöffnete Tastatur können Sie Einstellungen an der Tastatur vornehmen, welche den weißen Balken entfernt.
+Dafür müssen Sie auf das Icon mit den vier schwarzen Kästchen klicken.</p>
+<p><img src="media/MobileClient_FloatingIcon.png" alt="Mobile Client Floating"></p>
+<p>Anschließend können Sie nun &quot;Floating&quot; aktivieren. Dies löst die Tastatur aus der Verankerung. Es kann jederzeit die Floating-Eigenschaft wieder über den gleichen Weg zurückgesetzt werden.</p>
+<p><img src="media/MobileClient_Floating.png" alt="Mobile Client Floating"></p>
 <h2 id="einrichten-eines-brokers">Einrichten eines Brokers</h2>
 <p>Es muss natürlich definiert werden, mit welchem Broker sich der Mobile Client verbinden soll. Nach dem Start der App wird der Login angezeigt. Über den Button „+ New“ können beliebig viele Broker zur Liste hinzugefügt werden.</p>
-<p><img src="media/app-broker-1.png" alt="App-Broker1"> <img src="media/app-broker-2.png" alt="App-Broker2"> <img src="media/app-broker-3.png" alt="App-Broker3"></p>
+<p><img src="media/app-broker-1.png" alt="App-Broker1"></p>
+<p><img src="media/app-broker-2.png" alt="App-Broker2"> <img src="media/app-broker-3.png" alt="App-Broker3"></p>
 <p>Es ist auch möglich, Urls von Development Brokern hinzuzufügen. Dabei ist zu beachten, dass der Mobile Client nur auf den Development Broker zugreifen kann, wenn dieser über das Netzwerk erreichbar ist. Dazu muss Framework Studio mit Administrator-Rechten ausgeführt werden. Ob der Development Broker vom Netzwerk aus zugreifbar ist, kann über das Tray-Icon geprüft werden:</p>
 <p><img src="media/broker-public-access.png" alt="public Access"></p>
 

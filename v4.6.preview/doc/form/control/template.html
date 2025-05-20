@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Template Control </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Template Control ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.6/preview/docs/doc/form/control/template.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="template-control">Template Control</h1>
+
+<ul>
+<li><p><a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.TemplateControlDesignViewModel.html">Properties/Events</a></p>
+</li>
+<li><p><a class="xref" href="../../../api/FrameworkSystems.FrameworkControls.Actions.TemplateControlAction.html">Actions</a></p>
+</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Dieses Control funktioniert nur im <a href="../../html-client/index.html">Mobile-Client</a>. Im Java-Client wird das Control nicht angezeigt.</p>
+</div>
+<p><img src="../media/template.png" alt="Template Control"></p>
+<h2 id="template-editor">Template Editor</h2>
+<p>Der Template Editor bietet die Möglichkeit, das HTML/CSS Template für das Template Control sprachabhängig zu definieren. Dabei können Template DataSources definiert werden, auf welche aus dem HTML heraus mittels Template Variablen verwiesen wird. So können sehr einfach Businessdaten ins HTML eingebettet und formatiert werden.</p>
+<p>Der Editor kann im Property-Grid über das Property <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.TemplateControlDesignViewModel.Template.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_TemplateControlDesignViewModel_Template">Template</a> geöffnet werden.</p>
+<p><img src="../media/template-editor.png" alt="Template Editor"></p>
+<h3 id="allgemein">Allgemein</h3>
+<h4 id="dropdown-für-sprachauswahl">Dropdown für Sprachauswahl</h4>
+<p>Das HTML und CSS eines Template Controls kann, wenn gewünscht, für jede Sprache einzeln definiert werden. Ist für eine Sprache kein Template definiert, wird auf Deutsch zurückgegriffen.</p>
+<h4 id="button-validate">Button <strong>Validate</strong></h4>
+<p>Über diesen Button können die im HTML eingebetteten Template Variablen und Template MLKeys überprüft werden. Es werden folgende Fälle geprüft:</p>
+<ul>
+<li>Ist der Template MLKey parsebar und ist der MLKey-Name gültig?</li>
+<li>Ist die Template Variable parsebar?</li>
+<li>Passt das angegebene Format zum Datentyp?</li>
+<li>Zeigt die Template Variable auf eine existierende Template DataSource?</li>
+<li>Ist jeder Template DataSource eine valide DataSource zugeordnet</li>
+<li>Ist die DataSource einer Template DataSource weder <code>private</code> noch <code>internal</code></li>
+</ul>
+<h3 id="template-datasources">Template DataSources</h3>
+<p>Auf der rechten Seite der Registerkarte <strong>HTML</strong> befindet sich die Liste der definierten Template DataSources. Jede Template DataSource zeigt auf ein Property des Forms in dem sich das Template Control befindet.</p>
+<p>Im Beispiel hat das Form ein Property <code>oAddress</code> vom Typ cdAddress (eine Component), welches wiederum einige Unterproperties hat. Wie im Bild zu sehen, verweist die Template DataSource <code>Street</code> auf das Property <code>sStreet</code> von <code>oAddress</code>.</p>
+<p>Der Name einer Template DataSource muss eindeutig sein. Aus dem HTML kann nun mittels einer <a href="#template-variablen">Template Variable</a> auf die Template DataSource zugegriffen und der Wert wie gewünscht im HTML formatiert werden.</p>
+<h3 id="html">HTML</h3>
+<p>Auf der linken Seite der Registerkarte <strong>HTML</strong> befindet sich der HTML-Codeeditor, in dem das HTML für das Template Control definiert werden kann.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Das benutzerdefinierte HTML wird zur Laufzeit vom HTML Client (Angular) compiliert und optimiert. Grobe Fehler wie z.B. nicht geschlossene Tags oder invalides HTML können zu Anzeigefehlern führen, die unter Umständen auch andere Bereiche des HTML Clients betreffen. Templates sollten vor dem produktiven Einsatz in allen verfügbaren Browsern ausgiebig getestet werden.</p>
+</div>
+<h4 id="button-use-base">Button <strong>Use Base</strong></h4>
+<p>Mit dem Button Use Base kann das HTML Template z.B. nach einem Customizing wieder auf die Basis zurückgesetzt werden.</p>
+<h4 id="button-template-variable">Button <strong>Template Variable</strong></h4>
+<p>Mit dem Button Template Variable kann eine neue <a href="#template-variablen">Template Variable</a> erstellt, oder eine bestehende geändert werden.</p>
+<h4 id="button-mlkey">Button <strong>MLKey</strong></h4>
+<p>Mit dem Button MLKey wird das <a href="../../mlkey/woerterbuch.html">MLKey-Wörterbuch</a> geöffnet. Dort kann ein neuer <a href="#template-mlkey">Template MLKey</a> erstellt, oder ein bestehender geändert werden.</p>
+<h4 id="html-aufbau">HTML Aufbau</h4>
+<p>Der benutzerdefinierte HTML Code wird im HTML Client in ein <code>&lt;div&gt;</code>-Tag mit der CSS-Klasse <strong><code>tpl</code></strong> verpackt. Es ist also nicht unbedingt nötig, um den eigenen HTML Code ein <code>&lt;div&gt;</code>-Tag als Container zu implementieren.</p>
+<p>Der generierte Code aus dem Beispiel sieht im HTML Client z.B. so aus:</p>
+<pre><code class="lang-html">&lt;hc-tpl-ctrl-content class=&quot;ng-star-inserted&quot;&gt;
+    &lt;div class=&quot;tpl&quot;&gt;
+        &lt;div class=&quot;wrapper&quot;&gt;
+            &lt;div class=&quot;icon&quot;&gt;
+                &lt;img class=&quot;img&quot; src=&quot;data:image/png;base64,iVBORw...&quot;&gt;
+            &lt;/div&gt;
+            &lt;div class=&quot;text&quot;&gt;
+                &lt;span class=&quot;header&quot;&gt;Adresse&lt;/span&gt;
+                &lt;span&gt;Max Mustermann&lt;/span&gt;
+                &lt;span&gt;Musterstraße 7a&lt;/span&gt;
+                &lt;span&gt;78333 Musterstadt&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/hc-tpl-ctrl-content&gt;
+</code></pre>
+<p>Das <code>&lt;div&gt;</code>-Tag mit der CSS-Klasse <code>tpl</code> kann im <a href="#css">CSS</a> wie gewünscht angepasst werden, ohne einen eigenen Container oder eine eigene CSS-Klasse verwenden zu müssen.</p>
+<h4 id="placeholder">Placeholder</h4>
+<p>Die Konstante <code>%FILESURL%</code> kann im HTML verwendet werden, um zur Laufzeit die Broker-Url zu erhalten. Dadurch können z.B. in <code>&lt;img&gt;</code>-Tags auf Bilder, welche als Ressourcen im Framework Studio hinterlegt wurden, zugegriffen werden.</p>
+<p>Dynamische Bilder können über eine binäre Template-Variable realisiert werden. (siehe Abschnitt <a href="#images-im-template">Images im Template</a>)</p>
+<h3 id="template-variablen">Template Variablen</h3>
+<p>Über den Button Template Variable öffnet sich der <strong>Template Variable Editor</strong>. Befindet sich der Cursor im Codeeditor auf einer bestehenden Template Variable, wird diese im Editor vorselektiert.</p>
+<p><img src="../media/template-var-editor.png" alt="Template Variable"></p>
+<p>Auf der linken Seite werden alle zur Verfügung stehenden Template DataSources aufgelistet. Auf der rechten Seite kann für die Template Variable ein passendes Format und/oder FormatPattern definiert werden.</p>
+<p>Durch die Aufteilung in Template DataSources und Template Variablen werden die Daten und deren Formatierung im HTML strikt voneinander getrennt. Beispielsweise könnte der Wert einer Template DataSource im englischen HTML anders formatiert werden als im deutschen HTML.</p>
+<p>Template Variablen werden im HTML-Code wie folgt angezeigt:</p>
+<p><code>{{ ds:[Name]|f:[Format]|fp:[FormatPattern]|pv:[PreviewValue] }}</code></p>
+<p>Dabei verweist <code>[Name]</code> auf den Namen der zugehörigen Template DataSource, <code>[Format]</code> und <code>[FormatPattern]</code> definieren das im Template Variable Editor ausgewählte Format und FormatPattern.</p>
+<p><code>PreviewValue</code> ist derjenige Wert, der für die Template Variable angezeigt wird, wenn das Template auf der Registerkarte <code>Preview</code> zur Vorschau gerendert wird. Der Wert wird zur Laufzeit ignoriert.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Es wird empfohlen, Template Variablen und Template MLKeys immer über den jeweiligen  Editor zu ändern, um Syntaxfehler zu vermeiden.</p>
+</div>
+<h3 id="template-mlkey">Template MLKey</h3>
+<p>Template MLKeys werden im HTML-Code wie folgt angezeigt:</p>
+<p><code>{{ mlkey:[MLKey-Name] }}</code></p>
+<p>Dabei verweist <code>[MLKey-Name]</code> auf den Namen des zugehörigen MLKeys. Zum Beispiel &quot;SYS_OK&quot;.</p>
+<h3 id="css">CSS</h3>
+<p>Das benutzerdefinierte HTML kann mittels CSS im CSS-Codeeditor auf der Registerkarte <strong>CSS</strong> beliebig angepasst werden.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-css">.tpl {
+    display: flex;
+    flex-direction: column;
+    background-color: lightyellow;
+    border: 0.1rem solid gray;
+    border-radius: 0.3rem;
+}
+
+.tpl[tpldisabled] {
+    background-color: grey;
+}
+
+.wrapper {
+    flex: 1;
+    display: flex;
+    justify-content: left;
+    padding: 1rem;
+    padding-left: 1.5rem;
+    line-height: 1.7rem;
+}
+
+.icon {
+    flex: 0 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: left;
+    padding-left: 1.5rem;
+    line-height: 1.7rem;
+}
+
+.img {
+    max-height: 6rem
+}
+
+.header {
+    font-weight: bold;
+    margin-bottom: 0.3rem;
+}
+</code></pre>
+<p>Wie im Kapitel HTML beschrieben, wird ein ListItem mit einem <code>&lt;div&gt;</code>-Tag der CSS-Klasse <code>tpl</code> umgeben. Im CSS-Code kann somit über den CSS-Selector <code>.tpl</code> auf das Element zugegriffen werden.</p>
+<h3 id="globales-css-für-template-controls">Globales CSS für Template Controls</h3>
+<p>Es ergiebt durchaus Sinn, grundelegende Styles von Template Controls global zu definieren. Sie könnten z.B. eine einheitliche Border oder Hintergrundfarbe besitzen. Für diesen Zweck existiert der globale CSS Editor für Template Controls am <code>FSGeneral.Controls.BaseControl</code>.</p>
+<p><img src="../media/basecontrol-global-css.png" alt="BaseControl"></p>
+<p>Über das Property <code>TemplateControl</code> unter der Kategorie <code>Global CSS</code> öffnet sich der CSS Editor.</p>
+<p><img src="../media/templatecontrol-global-css-editor.png" alt="GlobalCssEditor"></p>
+<p>Die globalen Styles können je Sprache definiert werden. Ist für eine Sprache kein CSS definiert, wird auf Deutsch zurückgegriffen. Alle globalen Styles werden vom individuellen CSS am Control überschrieben, wie das folgende Beispiel zeigt:</p>
+<p><strong>Globales CSS:</strong></p>
+<pre><code class="lang-css">.tpl {
+    color: white;
+    background-color: green;
+}
+</code></pre>
+<p><strong>CSS an Template Control <code>TPL1</code>:</strong></p>
+<pre><code class="lang-css">.tpl {
+    background-color: blue;
+}
+</code></pre>
+<p>Die global definierte grüne Hintergrundfarbe wird im CSS von Template Control <code>TPL1</code> überschrieben. Somit hat dies eine blaue Hintergrundfarbe und weißen Text.</p>
+<h3 id="rem-anstatt-pixel">REM anstatt Pixel</h3>
+<p>Im CSS sollten Größenangaben ausschließlich mit <code>rem</code> angegeben werden. Der HTML Client skaliert die gesamte Anzeige anhand der vom Browser vorgegebenen Schriftgröße. Im HTML Client wird global für das HTML- und das BODY-Tag folgendes definiert:</p>
+<pre><code class="lang-CSS">html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.4rem;
+}
+</code></pre>
+<p>In Desktop-Browsern wie z.B. Chrome, Firefox oder Edge ist der Standardwert der Schriftgröße <code>16px</code>. <code>1rem</code> ist per Definition genauso groß wie die Schriftgröße des HTML-Tags, also im Standardfall erst einmal <code>16px</code>. Setzt man nun die <code>font-size</code> des HTML-Tags auf <code>62.5%</code>, ergibt sich eine Schriftgröße von <code>10px</code>, womit <code>1rem</code> nun ebenfalls <code>10px</code> groß ist.</p>
+<p>Da meist in Desktop-Browsern entwickelt und getestet wird, ergibt diese Anpassung Sinn, da es viel einfacher zu verstehen ist, mit Faktor 10, als mit Faktor 16 zu arbeiten. <code>0.5rem</code> sind <code>5px</code>, <code>5rem</code> sind <code>50px</code> usw.</p>
+<p>Deshalb wird im BODY-Tag auch die Schriftgröße auf <code>1.4rem</code> gesetzt, was letztenendes <code>14px</code> sind. Dies spiegelt die Standardschriftgröße des HTML Clients wieder.</p>
+<p>Probleme können nun enstehen, wenn REM- und Pixelwerte gemischt werden!</p>
+<p>Ein Beispiel:</p>
+<pre><code class="lang-CSS">.tpl .remClass {
+    width: 10rem;
+}
+
+.tpl .pxClass {
+    width: 100px;
+}
+</code></pre>
+<p>Nehmen wir an, es gibt zwei HTML-Elemente im Template mit den Klassen <code>remClass</code> und <code>pxClass</code>. Liefert der Browser eine Standardgröße von <code>16px</code>, besteht kein Problem, die beiden Elemente sind exakt gleich groß, da <code>65.5% von 16px = 10px</code>. Damit sind <code>10rem</code> exakt <code>100px</code>.</p>
+<p>Anders sieht es aber aus, wenn z.B. ein mobiler Browser eine Standardschriftgröße von <code>14px</code> liefert. <code>62.5% von 14px = 8.75px</code>, damit sind <code>10rem</code> exakt <code>87.5px</code> und die beiden HTML-Elemente sind plötzlich unterschiedlich groß. Dies kann je nach Gerät und verwendetem Browser zu unvorhersehbaren Skalierungsfehlern führen.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Es wird ausdrücklich empfohlen, im HTML/CSS des Template Controls <code>rem</code> als Größeneinheit zu verwenden.</p>
+</div>
+<h3 id="iseditable">IsEditable</h3>
+<p>Im CSS kann auch ein Style für das Template hinterlegt werden, wenn <code>IsEditable</code> auf <code>false</code> gesetzt wird. Wird ein Template Control im Designer oder per Action auf isEditable = false gesetzt, so wird am <code>&lt;div&gt;</code>-Tag <code>tpl</code> das HTML-Attribut <code>tpldisabled</code> hinzugefügt:</p>
+<pre><code class="lang-html">```html
+&lt;hc-tpl-ctrl-content class=&quot;ng-star-inserted&quot;&gt;
+    &lt;div class=&quot;tpl&quot; tpldisabled&gt;
+        [...]
+    &lt;/div&gt;
+&lt;/hc-tpl-ctrl-content&gt;
+</code></pre>
+<p>Im CSS-Code kann über den Attribute-Selector <code>.tpl[tpldisabled]</code> genau dieser Fall abgefragt werden. Im Beispiel wird der Hintergrund des Templates auf grau gesetzt.</p>
+<h3 id="preview">Preview</h3>
+<p><img src="../media/template-preview.png" alt="Template Editor"></p>
+<p>Wenn der HTML-Code gültig ist, wird auf der Registerkarte &quot;Preview&quot; eine gerenderte Vorschau des Templates angezeigt.</p>
+<p>Für die Vorschau werden die PreviewValues für die einzelnen Template Variablen verwendet. Sollte ein PreviewValue nicht gesetzt sein, wird stattdessen der DataSource Name angezeigt. Template MLKeys zeigen den im Wörterbuch hinterlegten Text an.</p>
+<h4 id="preview-size">Preview Size</h4>
+<p>Mit der Preview Size kann im Editor die Größe der Vorschau geändert werden. Damit kann sehr einfach überprüft werden, wie sich das Template in unterschiedlichen Größen verhält. Diese Einstellung hat keinen Einfluss auf die Laufzeit.</p>
+<h4 id="fallback-auf-die-standardsprache">Fallback auf die Standardsprache</h4>
+<p>Sollte für die im Template Editor ausgewählte Sprache (z.B. Englisch) kein HTML oder CSS vorhanden sein, so wird das HTML oder CSS der Standardsprache (Deutsch) verwendet. So kann z.B. für &quot;Englisch&quot; nur das HTML überschrieben werden. im Preview und zur Laufzeit wird dann das englische HTML mit dem deutschen CSS kombiniert.</p>
+<h2 id="images-im-template">Images im Template</h2>
+<p><img src="../media/template.png" alt="TemplateImages"></p>
+<p>Eine Besonderheit ist das Anzeigen von Bildern in einem Template Control mittels <code>&lt;img /&gt;</code>, wenn dieses über ein <code>byte[]</code> aus der Datenbank gebunden werden soll. Ein Anwendungsfall wäre z.B. das Anzeigen von Icons.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-html">&lt;img class=&quot;img&quot; src=&quot;data:{{ ds:MimeType }};base64,{{ ds:Image }}&quot; /&gt;
+</code></pre>
+<p>Um ein Bild an ein HTML img-Tag zu binden sind zwei Template Variablen notwendig. Das <code>byte[]</code> mit den Bildinformationen alleine reicht abhängig vom genutzten Browser nicht immer aus (siehe Hinweis). Es muss zusätzlich der HTML Mime-Type spezifiziert werden, sodass der Browser weiß, um welches Bildformat es sich handelt.</p>
+<p><strong><code>{{ ds:MimeType }}</code></strong> ist eine Template Variable vom typ <code>FSstring</code> oder <code>string</code> und gibt z.B. den Mime-Type <code>&quot;image/png&quot;</code> oder <code>&quot;image/jpg&quot;</code> zurück.</p>
+<p><strong><code>{{ ds:Image }}</code></strong> ist eine Template Variable vom Type <code>FSByteArray</code> oder <code>byte[]</code>. Binärdaten werden als Base64-String zum Client übertragen. Da das HTML <code>src</code>-Attribut Base64 versteht, ist keine weitere Formatierung der Daten nötig.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Die Angabe des Mime-Types ist in den meisten Browsern wie Chrome, Firefox, Safari oder Edge (auch auf mobilen Geräten) nicht zwingend nötig. Manche proprietären Browser auf mobilen Geräten haben jedoch Schwierigkeiten, ohne die Angabe des Mime-Types, das Bild korrekt darzustellen. Sollten diese Browser keine Rolle für die Anwendung spielen, kann auch folgendes HTML genutzt werden:</p>
+<pre><code class="lang-html">&lt;img class=&quot;img&quot; src=&quot;data:;base64,{{ ds:Image }}&quot; /&gt;
+</code></pre>
+<p>Das Semicolon vor <code>base64</code> ist ohne die Angabe des Mime-Types zwingend notwendig.</p>
+</div>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

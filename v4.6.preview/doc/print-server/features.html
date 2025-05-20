@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Features im Print-Server </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Features im Print-Server ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.6/preview/docs/doc/print-server/features.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="features-im-print-server">Features im Print-Server</h1>
+
+<h2 id="konsole">Konsole</h2>
+<p>Sie können den Print-Service auch als Konsole-Anwendung starten. Dazu kann einfach die Datei <code>PrintService.exe</code> gestartet werden.</p>
+<p>Ein PrintService darf generell nur einmal gestartet sein. Also entweder als Dienst oder mit der Konsole. Bevor Sie die Konsole-Anwendung starten, stellen Sie sicher, dass der Dienst gestoppt oder deaktiviert ist.</p>
+<p>Anmerkung: Es ist aber durchaus möglich VERSCHIEDENE PrintServices auf einem Rechner parallel zu betreiben. Jeder dieser Services darf aber nur einmal laufen.</p>
+<p>Beim Start mit der Konsole werden detaillierte Informationen zum Status und zu den Print-Jobs ausgegeben. Das kann sehr hilfreich sein, um z.B. das Verhalten des PrintServices oder auch Fehler zu analysieren.</p>
+<p>Die Ausgaben auf der Konsole haben denselben Inhalt wie die Protokoll-Datei. Wenn der Service als Konsole-Anwendung gestartet wird, werden die Informationen sowohl in der Konsole als auch, wenn konfiguriert, in der Protokoll-Datei ausgegeben.</p>
+<h2 id="prüfungen-beim-start">Prüfungen beim Start</h2>
+<p>Der PrintService führt beim Start Überprüfungen durch.</p>
+<ol>
+<li><p>Sind Drucker verfügbar?</p>
+<p>Es wird geprüft, ob die angegebenen Drucker auch als Windows-Drucker verfügbar sind. Der Print-Server registriert ja alle Drucker im Repository. Diese werden dann von der Applikation (z.B. eNVenta) verwendet. Wenn ein Drucker nicht verfügbar ist, wird eine Warnung in das Ereignis-Protokoll geschrieben, Es wird eine Information in die Protokoll-Datei geschrieben und der Drucker wird mit dem Präfix <code>##ERROR##</code> in das Repository geschrieben.</p>
+<p>So können Sie auch in der Anwendung sehen, wenn der Print-Service einen Drucker nicht ansprechen kann.</p>
+<p>Wenn der Drucker aufgrund technischer Probleme nicht korrekt arbeitet, kann der PrintService keinen Fehler erzeugen. Das schlägt dann ggf. erst bei der Verarbeitung des Druckjobs auf.</p>
+</li>
+<li><p>Sind die Print-Adapter richtig konfiguriert?</p>
+<ul>
+<li><p><strong>Crystal Adapter</strong>: Beim Start wird geprüft, ob die Crystal-Komponente angesprochen werden kann. Wenn z.B. nicht die korrekte Runtime installiert ist, dann wird eine Fehlermeldung generiert. Diese landet in der Protokoll-Datei und als Warnung im Ereignis-Protokoll.</p>
+</li>
+<li><p><strong>Word, Excel Adapter</strong>: Es wird geprüft, ob Word oder Excel verfügbar ist. Bei der Prüfung wird die Version in die Protokoll-Datei geschrieben. Im Fehlerfall wird in die Protokoll-Datei geschrieben und es wird eine Warnung in das Ereignis-Protokoll geschrieben. Wenn Sie kein Word oder Excel verwenden, dann können die entsprechenden Adapter auch aus der Config-Datei entfernt werden. Entsprechende Print-Jobs werden in diesem Fall ignoriert.</p>
+</li>
+<li><p><strong>PDF-Adapter</strong>: Es wird geprüft, ob die in der Config definierte Programm-Datei existiert. Wenn nicht, wird die Protokoll-Datei geschrieben und eine Warnung in das Ereignis-Protokoll. Wenn Sie keine PDF-Dateien verarbeiten, dann können Sie diesen Adapter auch aus der Config-Datei entfernen. Entsprechende Print-Jobs werden in diesem Fall ignoriert.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="druck-in-einen-ordner">Druck in einen Ordner</h2>
+<p>Wenn man mit dem Link <strong>Choose Folder</strong> den Drucker in einen <code>[Folder]</code> geändert hat, können Sie im Anschluss den Pfad manuell bearbeiten.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Bei der Angabe des Ordners können auch <strong>UNC-Pfade</strong> (z.B. <code>\\Server\Freigabe\</code>) verwendet werden. Es ist zwingend darauf zu achten, dass der Dienst mit einem Benutzer läuft, der entsprechende Schreib-Rechte für diese Freigabe hat.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p><strong>Netzlaufwerke</strong> sind hingegen NICHT zu empfehlen, weil diese – wenn der Print-Service als Dienst gestartet wird – evtl. nicht zur Verfügung stehen.</p>
+</div>
+<p>Durch die Verwendung von Platzhaltern kann der Pfad dynamisch aufgebaut werden.</p>
+<p>Folgende Platzhalter können verwendet werden:</p>
+<table>
+<thead>
+<tr>
+<th>Platzhalter</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{date}</td>
+<td>Datum des Drucks mit dem Format <code>yyyy-MM-dd</code> <br> z.B. 2012-05-30</td>
+</tr>
+<tr>
+<td>{time}</td>
+<td>Zeit des Drucks im Format <code>HHmmss</code> <br> z.B. 121037 (für 12:10:37)</td>
+</tr>
+<tr>
+<td>{owner}</td>
+<td>Benutzer, der den Druck durchgeführt hat.</td>
+</tr>
+</tbody>
+</table>
+<p>Der Dateiname wird folgendermaßen generiert:</p>
+<ul>
+<li>Crystal Report Adapter
+<ul>
+<li>Dateiname: <code>&lt;ReportName&gt;_&lt;PrintJob-ID&gt;.PDF</code></li>
+<li>Beispiel: <code>Invoice_61b7ad1bb4304b40a7758f02f888e614.PDF</code></li>
+</ul>
+</li>
+</ul>
+<p>Wenn nicht bereits im Ordner verwendet, werden dem Dateinamen noch die Platzhalter in der folgenden Reihenfolge vorangestellt: <code>{date}_{time}_{owner}_&lt;dateiname&gt;</code></p>
+<h3 id="beispiel-konfiguration">Beispiel-Konfiguration</h3>
+<p>Es soll pro Tag ein neuer Ordner angelegt werden und darunter pro Mitarbeiter ein weiterer eigener Ordner.</p>
+<p>Konfigurierter Ordner (Folder):</p>
+<ul>
+<li><code>\\Fileserver1\Ausdrucke\{date}\Server1\{owner}\</code></li>
+</ul>
+<p>Es werden z.B. folgende Ordner generiert:</p>
+<ul>
+<li><code>\\Fileserver1\Ausdrucke\2012-05-30\Server1\User1\</code></li>
+<li><code>\\Fileserver1\Ausdrucke\2012-05-30\Server1\User2\</code></li>
+</ul>
+<p>Es werden die Dateien im folgenden Format angelegt:</p>
+<ul>
+<li><code>{time}_&lt;ReportName&gt;_&lt;PrintJob-ID&gt;.PDF</code>  (<code>{date}</code> und <code>{owner}</code> werden schon im Ordner verwendet und deshalb nicht in den Dateinamen gepackt)</li>
+</ul>
+<p>Beispiele für Dateien</p>
+<ul>
+<li><code>121037_Invoice_61b7ad1bb4304b40a7758f02f888e614.PDF</code></li>
+<li><code>182026_CallList_2a0af0b92b7f418483b5ab0801727453.PDF</code></li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

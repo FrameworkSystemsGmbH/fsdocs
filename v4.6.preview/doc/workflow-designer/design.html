@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Design des Workflows </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Design des Workflows ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.6/preview/docs/doc/workflow-designer/design.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="design-des-workflows">Design des Workflows</h1>
+
+<p>Nachdem der Workflow geöffnet wurde, wird dieser auf der Registerkarte <strong>Designer</strong> grafisch dargestellt und bearbeitet. Um den Workflow und dessen Elemente zu bearbeiten, müssen Sie das entsprechende Element markieren; anschließend können Sie im Property-Grid oder über das Context-Menu Einstellungen ändern. Es gibt zum einen den Workflow selber, der markiert wird, in dem Sie auf den Hintergrund klicken und die Workflow-Elemente; das können Forms oder andere Workflows sein.</p>
+<p>Weiterhin gibt es noch Links, welche die einzelnen Workflow-Elemente verbinden und Branches und Switches, mit denen es möglich ist, Links zu verzweigen und mit Bedingungen zu versehen.</p>
+<p>Um neue Workflow-Elemente in einem Workflow zu erstellen, müssen Sie ein Form oder einen Workflow per Drag &amp; Drop auf die Design-Fläche ziehen. Wie was auf den Workflow gezogen wird, ist in den folgenden Abschnitten beschrieben.</p>
+<h2 id="workflow-properties">Workflow-Properties</h2>
+<p><img src="media/workflow-properties.png" alt="Properties eines Workflows"></p>
+<h4 id="designsize">DesignSize</h4>
+<p>Größe des Design-Bereiches. Dieser Wert kann in den Properties nicht geändert werden. Um die Größe zu ändern, kann der Design-Bereich markiert und mit der Maus vergrößert oder verkleinert werden.</p>
+<h4 id="name">Name</h4>
+<p>Bezeichnung des ausgewählten Workflows.</p>
+<h4 id="startinstance">StartInstance</h4>
+<p>(Workflow-Form)
+Gibt an, welches Form beim Start des Workflows angezeigt werden soll.</p>
+<p>Alternativ können Sie in den Properties des Workflow-Forms <strong>IsStartinstance</strong> auf True setzen.</p>
+<h4 id="startmethod">StartMethod</h4>
+<p>Gibt an, welche Form-Methode aufgerufen werden soll, wenn beim Start des Workflows ein Form angezeigt werden soll. Es werden die Methoden des unter <strong>StartInstance</strong> eingestellten Forms angeboten.</p>
+<p>Wird der Workflow so aufgerufen, dass gezielt ein Form mit einer Methode gestartet werden soll, ist diese Angabe hier hinfällig.</p>
+<h4 id="isstartable">IsStartable</h4>
+<p>(True, False)
+Wollen Sie den ausgewählten Workflow zu einer Startinstanz für Ihre Applikation machen, müssen Sie hier True auswählen. Default: False.</p>
+<h4 id="safeinitialize">SafeInitialize</h4>
+<p>(True, False)
+Gibt an, ob beim Start der Anwendung der Safe-Initialize-Modus aktiviert werden soll. Diese Einstellung kann nur an einem Start-Workflow vorgenommen werden.</p>
+<p>Der Safe-Initialize-Modus dient dazu, z.B. in einer Update-Situation Fehlermeldungen zu unterbinden. Über <code>this.Global.SafeInitializing</code> kann der Status dieses Modus abgefragt werden. Der Modus muss mithilfe der Funktion <code>this.Global.EndSafeInitialize()</code> nach dem Start der Anwendung zurückgesetzt werden.</p>
+<h4 id="basefullname">BaseFullName</h4>
+<p>Dieses Property ist für spätere Erweiterungen vorgesehen und zurzeit ohne Funktion.</p>
+<h4 id="checkedoutdatestring">CheckedOutDateString</h4>
+<p>(Schreibgeschützt)
+Datum des letzten Checkouts.</p>
+<h4 id="checkedoutusername">CheckedOutUserName</h4>
+<p>(Schreibgeschützt)
+Benutzer, der den Workflow zuletzt bearbeitet und eingecheckt hat. Wenn Sie den Workflow gerade ausgecheckt haben, steht Ihr Benutzername in diesem Feld.</p>
+<h2 id="workflow-form">Workflow-Form</h2>
+<p><img src="media/workflow-form.png" alt="Form im Workflow"></p>
+<p>Die Forms werden in der Registerkarte <strong>Design</strong> auf der linken Seite des Fensters angeboten und können von dort aus in den Workflow gezogen werden.</p>
+<p>Ein Form kann als Start-Instance und/oder Entrance-Instance definiert werden.</p>
+<p>Wenn ein Workflow gestartet wird, gibt es zwei Möglichkeiten, wie entschieden wird, welches Form aufgerufen werden soll:</p>
+<p>Beim Aufruf wird nichts angegeben, d.h. es wird nur der Workflow gestartet, ohne dass ihm gesagt wird, was er machen soll. Dann wird das Form gestartet, das als Start-Instance definiert ist.</p>
+<p>Beim Aufruf des Workflows wird gesagt, welches Form gestartet werden soll. Das lässt sich aber nur mit Forms machen, die als Entrance-Instance definiert sind. (Weitere Einzelheiten dazu sind im Workflow-Link erklärt.)</p>
+<p>Wenn Sie das erste Form in den Workflow ziehen, wird es automatisch als Start-Instance definiert.</p>
+<h3 id="workflow-form-properties">Workflow-Form Properties</h3>
+<p>Die Eigenschaften des Workflow-Elements werden im Property-Grid definiert.</p>
+<p><img src="media/workflow-properties-in-form.png" alt="Properties eines Forms im Workflow"></p>
+<h4 id="frame">Frame</h4>
+<p>Gibt an, in welchem Frame das Fenster angezeigt werden soll. Es werden hier alle Frames angezeigt, die im Frameset in der Configuration definiert sind. Wird das Form als modaler Dialog angezeigt, hat diese Einstellung keine Auswirkung.</p>
+<p>(siehe Property IsModal)</p>
+<h4 id="isentranceinstance">IsEntranceInstance</h4>
+<p>(True, False)</p>
+<p>Gibt an, ob es sich bei diesem Form um eine Entrance-Instance handelt. Forms, die als Entrance-Instance definiert sind, können beim Aufruf des Workflows direkt angesprochen werden. Andere Forms können nur innerhalb des Workflows, indem sie sich befinden, angesprochen werden.</p>
+<h4 id="ismodal">IsModal</h4>
+<p>(true, false)</p>
+<p>Gibt an, ob das Form als modaler Dialog geöffnet werden soll.</p>
+<p>Wird ein Form von einem anderen modalen Dialog geöffnet, wird dieses immer modal angezeigt – egal was bei IsModal angegeben ist.</p>
+<h4 id="isstartinstance">IsStartInstance</h4>
+<p>(True, False)</p>
+<p>Gibt an, ob das Form eine Start-Instance sein soll. Wird der Workflow geöffnet und kein Form direkt angesprochen, wird das Form geöffnet, das als Start-Instance definiert ist.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Es kann maximal ein Form als Start-Instance gekennzeichnet sein.</p>
+</div>
+<h4 id="location">Location</h4>
+<p>(schreibgeschützt)
+Position des Forms innerhalb des Workflows. In den Properties kann dieser Wert nicht verändert werden. Um die Position zu verändern, muss das Form im Design-Panel mit der Maus verschoben werden.</p>
+<h4 id="name-1">Name</h4>
+<p>Name des Workflow-Elements. Wenn das Form in den Workflow gezogen wird, wird der Name des Forms vorbelegt.</p>
+<h4 id="size">Size</h4>
+<p>(schreibgeschützt)
+Größe des Forms im Workflow. In den Properties kann der Wert nicht verändert werden. Um die Größe des Forms zu ändern, muss diese im Designer mit der Maus geändert werden.</p>
+<h4 id="basefullname-1">BaseFullName</h4>
+<p>Dieses Property ist für spätere Erweiterungen vorgesehen und zurzeit ohne Funktion.</p>
+<h3 id="workflow-forms-events">Workflow-Forms Events</h3>
+<p>Im Event-Teil des Property-Grids können die Workflow-Events des Forms mit den Workflow-Events des Workflows, in dem sich das Form befindet, verbunden werden. Das ist aus folgendem Grund notwendig: Wenn dieser Workflow in einen anderen Workflow eingebunden wird und dort wollen Sie auf ein Workflow-Event aus dem Form reagieren, dann ist es notwendig dieses Form-Event nach außen weiter zu reichen. Das passiert hier in dieser Zuordnung.</p>
+<p><img src="media/workflow-events.png" alt="Events eines Forms im Workflow"></p>
+<p>In dieser Liste werden alle Workflow-Events des Forms aufgelistet.</p>
+<h4 id="firedevent">FiredEvent</h4>
+<p>Soll das Workflow-Event eines Forms im Workflow selber nach außen angeboten werden, muss das Event des Forms mit einem Event aus dem Workflow verbunden werden.</p>
+<p>Diese Zuordnung kann in FiredEvent vorgenommen werden.</p>
+<h2 id="workflow-im-workflow">Workflow im Workflow</h2>
+<p><img src="media/workflow-in-workflow.png" alt="Workflow im Workflow"></p>
+<p>Die Workflows werden in der Registerkarte <strong>Namespaces</strong> angeboten (dort wo sie auch verwaltet werden). Von dort aus können sie per Drag &amp; Drop in die Design-Fläche gezogen werden.</p>
+<h3 id="workflow-im-workflow-properties">Workflow im Workflow Properties</h3>
+<p>Die Eigenschaften des Workflow-Elements werden auf der Registerkarte Property definiert.</p>
+<p><img src="media/workflow-in-workflow-properties.png" alt="Properties eines Workflows im Workflow"></p>
+<h4 id="isentranceinstance-1">IsEntranceInstance</h4>
+<p>(true, false)
+Gibt an, ob das Workflow-Element als Entrance-Instance fungieren soll. Wenn ja, dann ist es möglich diesen Workflow (das Element) von außen direkt anzusprechen (analog zu den Forms).</p>
+<h4 id="location-1">Location</h4>
+<p>(schreibgeschützt)
+Position des Workflows innerhalb des Workflows. In den Properties kann dieser Wert nicht verändert werden. Um die Position zu verändern, ist es erforderlich diesen Workflow im Design-Panel mit der Maus zu verschieben.</p>
+<h4 id="name-2">Name</h4>
+<p>Name des Workflow-Elements. Dieser Wert wird automatisch mit dem Namen des Workflows, der hineingezogen wird, vorbelegt.</p>
+<h4 id="size-1">Size</h4>
+<p>(schreibgeschützt)
+Größe des Workflows im Workflow. In den Properties kann der Wert nicht verändert werden. Um die Größe des Workflows zu ändern, wird diese im Designer mit der Maus geändert.</p>
+<h4 id="basefullname-2">BaseFullName</h4>
+<p>Dieses Property ist für spätere Erweiterungen vorgesehen und zurzeit ohne Funktion.</p>
+<h3 id="workflow-im-workflow-events">Workflow im Workflow Events</h3>
+<p>Auch Workflows können wie die Forms Workflow-Events besitzen. Wenn diese nach außen weitergereicht werden sollen, funktioniert das genau wie bei den Forms. (<a href="#workflow-forms-events">Workflow-Forms Events</a>)</p>
+<h2 id="link">Link</h2>
+<p><img src="media/workflow-link.png" alt="Workflow Links"></p>
+<p>Ein Link dient zum Verbinden zweier Workflow-Elemente. Er hat als Ausgangspunkt ein Workflow-Event von einem Workflow-Element. Als Ziel hat er ein anderes Workflow-Element.</p>
+<p>Auf der Registerkarte <strong>Design</strong> wird der Link angeboten. Ziehen Sie ihn per Drag &amp; Drop auf das Ausgangs-Element. Anschließend ziehen Sie das Ende des Pfeils auf das Ziel-Element.</p>
+<p>Es öffnet sich ein Dialog, in dem Sie genau einstellen können, wie sich der Link verhalten soll.</p>
+<p>Sie können diesen Dialog auch später wieder öffnen, um Änderungen am Link durchzuführen. Im Context-Menu des Links wird dazu der Befehl <strong>Properties</strong> angeboten.</p>
+<h3 id="link-properties">Link-Properties</h3>
+<p><img src="media/workflow-link-properties.png" alt="Link Properties"></p>
+<h4 id="name-3">Name</h4>
+<p>Name des Links. Dieser wird immer mit <em>Link1</em> vorbelegt.</p>
+<h4 id="source">Source</h4>
+<p>(schreibgeschützt)
+Name des Ausgangs-Elements.</p>
+<h4 id="sourceevent">SourceEvent</h4>
+<p>In dieser Combobox werden alle Workflow-Events des Ausgangs-Elements angeboten. Sie müssen hier auswählen, auf welches der Link reagieren soll.</p>
+<h4 id="container">Container</h4>
+<p>In dieser Combobox werden alle FormContainer- und DashboardContainer-Steuerelemente des Quellformulars angezeigt. Wird ein Wert ungleich <code>null</code> eingestellt, so wird das Zielformular in diesem Container erstellt und angezeigt. In diesem Fall ist jedoch keine automatische Fokussierung möglich.</p>
+<h4 id="target">Target</h4>
+<p>Gibt das Ziel-Element an. Das kann hier nachträglich noch geändert oder auch genauer angegeben werden. Die Combobox zeigt alle Workflow-Elemente des Workflows an. Zusätzlich werden für jeden Workflow die als Entrance-Instance definierten Elemente angezeigt.</p>
+<p><img src="media/workflow-link-target.png" alt="Link-Target"></p>
+<p>Sie können z.B. gezielt ein Form ansprechen. Wenn Sie das machen, gibt es auch die Möglichkeit an dem Form eine Methode anzustoßen.</p>
+<h4 id="target-method">Target Method</h4>
+<p>Ist in Target ein Form angegeben, werden in der Combobox alle public-Methoden des Forms angeboten und Sie können eine Methode auswählen, die angestoßen werden soll.</p>
+<p><img src="media/workflow-target-method.png" alt="Target Method"></p>
+<p>Hat die Methode Parameter, werden diese in der Tabelle unter der Methode aufgelistet. Es wird der Name das Parameters und der Typ des Parameters angezeigt.</p>
+<p><img src="media/workflow-param-uebergabe.png" alt="Parameter-Übergabe"></p>
+<p>In der dritten Spalte geben Sie an, welcher Wert übergeben werden soll. In der Combobox werden alle public Membervariablen des Forms mit deren Properties angegeben. Sie können einen Wert aus der Liste angeben.</p>
+<p>Wenn es sich bei dem Parameter um eine Zahl oder einen String handelt, können Sie auch bestimmte Werte angeben. Z.B.</p>
+<p><img src="media/workflow-param-uebergabe2.png" alt="Parameter-Übergabe"></p>
+<p>Löschen können Sie einen Link über das Context-Menu des Links mit dem Befehl <strong>Delete</strong>.</p>
+<h4 id="instanceid">InstanceID</h4>
+<p>Um mehrere Instanzen eines Formulars anlegen zu können, muss am Quellformular ein Property vom Datentyp string oder FSstring angelegt werden. Dieses Property enthält die Instanz ID des nächsten Formulars, welches mittels Workflow-Event erstellt wird. Genau dann, wenn diese Instanz ID beim Aufruf des Workflow Events mit keiner bereits existierenden übereinstimmt, wird eine neue Instanz erzeugt.</p>
+<p>Das Property, welches die neue ID darstellt, wird in diesem Feld innerhalb der Workflow-Link Eigenschaften angegeben. Wird das Feld leer gelassen, so gilt die Instanz-ID des Workflows.</p>
+<h4 id="create-target">Create Target</h4>
+<p>Nur wenn dieser Wert auf „true“ steht wird für den Fall, dass das Formular (unter Berücksichtigung der InstanceID) noch nicht instanziiert wurde, ein neues Formular erzeugt.</p>
+<h4 id="autofocus">AutoFocus</h4>
+<p>Steht dieser Wert auf <code>true</code>, so wird der Fokus nach Aufruf des Workflow-Events in das Zielformular gesetzt.</p>
+<h2 id="branch">Branch</h2>
+<p><img src="media/workflow-branch.png" alt="Workflow-Branch"></p>
+<p>Mit einem Branch können Sie einen Link mit einer Bedingung versehen oder verzweigen.</p>
+<p>Ein Branch hat immer einen Link als Eingang und einen oder zwei Links als Ausgang. Welcher der Ausgänge aufgerufen wird, wird mit der Bedingung im Branch ermittelt. Die Bedingung ist ein boolscher Ausdruck. Je nachdem, wie das Ergebnis dieses boolschen Ausdrucks ist, wird der True-Zweig oder der False-Zweig aufgerufen. Indem nur einer dieser beiden Zweige verwendet wird, können Sie einen Link mit einer Bedingung erstellen.</p>
+<p>Einen Branch binden Sie ein, indem Sie ihn per Drag &amp; Drop in den Workflow ziehen. Das Symbol befindet sich im unteren Teil der Registerkarte <strong>Design</strong>.</p>
+<p>Anschließend erstellen Sie einen Link von der Quelle zum Branch.</p>
+<p>Über das Context-Menu des Branchs können Sie den Property-Dialog öffnen. In ihm wird die Bedingung festgelegt.</p>
+<p><img src="media/workflow-branch-editor.png" alt="Workflow Branch Editor"></p>
+<p>Im linken Teil des Fensters befinden sich alle Properties, die das Quellobjekt anbietet. Aus diesen Properties kann die Bedingung zusammengesetzt werden. Darunter befindet sich eine Liste der Operatoren. Mit einem Doppelklick in eine der beiden Listen wird der entsprechende Text in die Bedingung eingefügt. Der Text wird dabei an die Stelle des Cursors gesetzt.</p>
+<p>Es muss eine Bedingung herauskommen, die von .NET verarbeitet werden kann. Es wird später daraus folgender Code erstellt:</p>
+<pre><code class="lang-csharp">if (Bedingung)
+{ True-Link }
+else
+{ False-Link }
+</code></pre>
+<p>Wenn die Bedingung fertiggestellt ist, können die Links vom Branch zum Ziel (zu den Zielen) definiert werden.</p>
+<p>Dazu ziehen Sie einen neuen Link auf den Branch und den Pfeil des Links auf das Ziel. Es öffnet sich wie bereits beschrieben der Property-Dialog des Links. Als Source-Event kann jetzt <code>true</code> oder <code>false</code> ausgewählt werden. Es können jetzt noch weitere Links mit true oder false definiert werden. Beim Ausführen werden dann, wenn die Bedingung wahr ist, alle Links aufgerufen, die als Source-Event <code>true</code> besitzen und wenn die Bedingung falsch ist, alle Links, die als Source-Event <code>false</code> haben.</p>
+<p>Wird am Ziel eine Target-Method mit Parameter aufgerufen, können dieser Methode Werte aus der Quelle vor dem Branch mitgegeben werden.</p>
+<h2 id="switch">Switch</h2>
+<p><img src="media/workflow-switch.png" alt="Workflow-Switch"></p>
+<p>Mit einem Switch kann ein Link mehrfach verzweigt werden.</p>
+<p>Ein Switch hat einen Link als Eingang und kann mehrere Links als Ausgang besitzen. Im Switch wird ein Property des Quell-Elements ausgewertet. Je nachdem, welchen Wert dieses Property besitzt, wird einer der Ausgänge angesprochen.</p>
+<p>Einen Switch binden Sie ein, indem Sie Ihn per Drag &amp; Drop in den Workflow ziehen. Das Symbol befindet sich im unteren Teil der Registerkarte <strong>Design</strong>.</p>
+<p>Anschließend müssen Sie einen Link vom Quell-Element in den Switch ziehen.</p>
+<p>Über das Context-Menu des Switches gelangen Sie in einen Dialog, in dem Sie die Einstellungen des Switches festlegen können.</p>
+<p><img src="media/workflow-switch-editor.png" alt="Workflow Switch Editor"></p>
+<p>Unter <strong>Object</strong> können Sie ein Property aus dem Quell-Element angeben. Für dieses Property wird anschließend unter Events festgelegt, welche Werte ausgewertet werden sollen. Jeder dieser Werte stellt einen Ausgang aus dem Switch dar. Es können Zahlen und Zeichenketten eingegeben werden.</p>
+<p>Jetzt müssen noch die Links vom Switch zu den Zielen definiert werden. Ziehen Sie dazu einen Link auf den Switch und verbinden Sie das Ende des Links mit dem Ziel. Als Source-Event werden jetzt die unter <strong>Event</strong> hinterlegten Einträge angeboten.</p>
+<p>Der Quellcode, der aus diesen Angaben generiert wird, sieht in etwa so aus:</p>
+<pre><code class="lang-csharp">switch Form.Property
+{
+    case Event1:
+    {
+        Link 1
+    }
+    case Event2:
+    {
+        Link 2
+    }
+    default:
+    {
+        Link 3
+    }
+}
+</code></pre>
+<h2 id="global-events">Global Events</h2>
+<p>Mit Global Events können Events an alle geöffneten Workflows gesendet werden.</p>
+<p>Global Events werden auf der Registerkarte <strong>Namespaces</strong> abgelegt und mit Drag &amp; Drop in den Designer gezogen werden. Auf der Registerkarte <strong>Namespaces</strong> werden direkt unter dem Event zwei Einträge angeboten:
+Das Event, das aufgerufen werden kann und
+der Event Handler, mit dem Sie auf das Event reagieren können.</p>
+<p><img src="media/workflow-global-events.png" alt="Global Event im Registerkarte Namespaces"></p>
+<h3 id="global-events-aufrufen">Global Events aufrufen</h3>
+<p><img src="media/workflow-global-events-aufruf.png" alt="Global Event Aufruf"></p>
+<p>Um ein Global Event aufzurufen, ist es nötig den ersten Eintrag per Drag &amp; Drop in den Workflow zu ziehen. Anschließend wird ein Link vom aufrufenden Element in das Global Event gezogen. In den <strong>Link-Properties</strong> kann dann am Global Event eine Methode Init angegeben werden.</p>
+<p>Diese Methode enthält alle im Global Event definierten Parameter. So können Sie dem Global Event alle am aufrufenden Element zur Verfügung stehenden Properties übergeben.</p>
+<p>(<a href="#link-properties">Link-Properties</a>)</p>
+<h3 id="auf-global-events-reagieren">Auf Global Events reagieren</h3>
+<p><img src="media/workflow-global-events-handler.png" alt="Global Event Handler"></p>
+<p>Um auf ein Global Event zu reagieren, ist es erforderlich aus der Registerkarte <strong>Namespaces</strong> den zweiten Eintrag unter dem Global Event per Drag &amp; Drop in den Workflow zu ziehen (gevXxxHandler).</p>
+<p>Den Event Handler erkennen Sie an dem Strich links am Oval und der Inschrift gevXxxHandler.</p>
+<p>Anschließend wird ein Link vom Global Event Handler in des Ziel-Element gezogen. In den <strong>Link-Properties</strong> können Sie bei einem Methoden-Aufruf am Ziel-Element als Parameter alle Parameter aus dem Global Event übergeben. In der Combobox für die Parameter werden die Parameter unter dem Eintrag „e“ angezeigt.</p>
+<p><img src="media/workflow-global-events-handler-params.png" alt="Global Event Handler Parameter-Übergabe"></p>
+<p>(<a href="#link-properties">Link-Properties</a>)</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

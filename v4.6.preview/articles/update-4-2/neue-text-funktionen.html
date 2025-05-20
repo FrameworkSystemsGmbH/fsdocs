@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Neue Text-Funktionen </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Neue Text-Funktionen ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.6/preview/docs/articles/update-4-2/neue-text-funktionen.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="neue-text-funktionen">Neue Text-Funktionen</h1>
+
+<p>In Framework Studio 4.2 wurden im Zuge der Umstellung auf die <a href="../../doc/mlkey/woerterbuch.html">MLKeys</a> auch die Text-Zugriffe auf Text-Collections und DevMLStrings überarbeitet.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Auch wenn keine <a href="mlkey-migration.html">MLKey-Migration</a> ausgeführt wird, muss die <strong>Convert Messages</strong> Routine trotzdem ausgeführt werden, damit die Verarbeitung der Fremdsprachen-Texte korrekt funktioniert.</p>
+<p>Siehe Abschnitt <a href="#migration-auf-version-42">Migration auf Version 4.2</a></p>
+</div>
+<p>Bei der Verwendung von <code>this.Global.SelectedLanguage</code> erfolgt kein Fallback auf andere Sprachen. Aus diesem Grund sollte dies nicht mehr verwendet werden. Für das ermitteln des Textes wurden deshalb einfachere Varianten geschaffen, die ohne explizite Angabe der Sprache arbeiten. Andere Stellen erhalten jetzt stattdessen das komplette <code>this.Global</code> um daraus die Sprach-Hierarchie inkl. Fallbacks zu ermitteln.</p>
+<p>Die Text-Ermittlungen benötigen auch immer einen Zugriff auf das GlobalObject, damit die <a href="../../doc/mlkey/programmierung.html#cglobal-entrypoint">zentralen Einsprungpunkte</a> immer angelaufen werden.</p>
+<h2 id="text-collection">Text-Collection</h2>
+<p>Soll für einen bestimmten Text-Collection-Eintrag der Text ermittelt werden, dann erfolgt dies idealerweise über die <strong>Factory</strong>-Klasse. Dort wird eine Methode <code>GetText(global, id)</code> angeboten. Diese Methode Liefert den Text in der aktuellen Sprache / Sprach-Hierarchie, welche über das GlobalObject festgelegt ist.</p>
+<pre><code class="lang-csharp">string sText = ctTextCollFactory.GetText(this.Global,7);
+</code></pre>
+<p>Wird der Text in einer bestimmten Sprache benötigt, dann muss über die Methode <code>Get(global, id)</code> der Text-Collection-Eintrag ermittelt und an diesem mit der Methode <code>GetText(iso)</code> der gewünschte Text ermittelt werden.</p>
+<pre><code class="lang-csharp">string sText = ctTextCollFactory.Get(this.Global,7).GetText(sIsoCode);
+</code></pre>
+<h2 id="text-collection-eintrag">Text-Collection-Eintrag</h2>
+<p>Manchmal wird auch mit bestimmten Einträgen der Text-Collection gearbeitet. Dieser bietet die folgenden Möglichkeiten, den Text zu ermitteln.</p>
+<p>Das Property <code>Text</code> liefert den Text in der aktuellen Sprache / Sprach-Hierarchie, welche über das GlobalObject festgelegt ist.</p>
+<pre><code class="lang-csharp">string sText = oTextCollEntry.Text;
+</code></pre>
+<p>Die Methode <code>GetText(iso)</code> liefert den Text in einer gewünschten Sprache. Dabei erfolgt kein Fallback auf eine andere Sprache. Ist in der angegebenen Sprache kein Text formuliert, wird <code>String.Empty</code> zurückgegeben.</p>
+<pre><code class="lang-csharp">string sText = oTextCollEntry.GetText(sIsoCode);
+</code></pre>
+<p>Über das Property <code>Value</code> wird ein Objekt mit dem Typ <code>DevMLString</code> zurückgegeben. Dieses hat aber selber keinen Bezug zum GlobalObject, weshalb ihm zur Ermittlung der Texte ein GlobalObject übergeben werden muss. Es sollten wenn möglich die o.g. Wege zur Ermittlung der Texte benutzt werden. Das Property <code>Value</code> ist nur in Ausnahme-Fällen zu verwenden.</p>
+<h2 id="devmlstring">DevMLString</h2>
+<p>Zur Ermittlung eines Textes muss ein GlobalObject übergeben werden. Es gibt dazu die folgenden Möglichkeiten:</p>
+<pre><code class="lang-csharp">// Text in aktueller Sprache / Sprach-Hierarchie
+string sText1 = oDevMLString.GetString(this.Global);
+string sText2 = oDevMLString[this.Global];
+
+// Text in bestimmter Sprache
+string sText3 = oDevMLString.GetString(this.Global, sIsoCode);
+</code></pre>
+<h2 id="obsolete-schnittstellen">Obsolete Schnittstellen</h2>
+<p>Am DevMLString wurden einige Properties/Methoden auf Obsolete gesetzt, weil sie kein GlobalObject verwenden. Beim Compile werden betroffene Stellen als Warning ausgegeben.</p>
+<pre><code class="lang-csharp">// Diese Aufrufe sind Obsolete!!!
+string sText1 = oDevMLString.GetString(sIsoCode);
+string sText2 = oDevMLString[sIsoCode];
+string sText2 = oDevMLString.German;
+</code></pre>
+<p>Die Methode <code>GetDefinedLanguagesAsIso()</code> macht keinen Sinn mehr, weil die Texte nicht mehr dieser Stelle definiert sind. Nach der Umstellung auf den MLKey wird als Iso-Code nur noch der Wert <code>&quot;_key&quot;</code> zurückgegeben.</p>
+<h2 id="migration-auf-version-42">Migration auf Version 4.2</h2>
+<p>Um eine saubere Funktion der Fremdsprachen-Texte zu gewährleisten, müssen diese Aufrufe mit dem Update auf die Version 4.2 umgestellt werden. Ein sehr großer Teil der Aufrufe wird mit der <a href="mlkey-migration.html#3-convert-messages">Convert-Messages Routine in der MLKey-Migration</a> automatisch umgesetzt. Es bleiben aber einige wenige Stellen übrig, die manuell nachgearbeitet werden müssen. Sie werden beim Compile durch die Obsolete-Warning erkannt.</p>
+<p>Im folgenden werden ein paar Code-Beispiele aufgeführt, die verdeutlichen, wie die Umstellung zu erfolgen hat.</p>
+<table>
+<thead>
+<tr>
+<th>Alter Code</th>
+<th>neuer Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ctAbcFactory.Get(this.Global,7).Value[this.Global.SelectedLanguage]</code></td>
+<td><code>ctAbcFactory.GetText(this.Global,7)</code></td>
+</tr>
+<tr>
+<td><code>ctAbcFactory.Get(this.Global,7).Value[sIsoCode]</code></td>
+<td><code>ctAbcFactory.Get(this.Global,7).GetText(sIsoCode)</code></td>
+</tr>
+<tr>
+<td><code>oTextCollEntry.Value[Global.SelectedLanguage]</code></td>
+<td><code>oTextCollEntry.Text</code></td>
+</tr>
+<tr>
+<td><code>oTextCollEntry.Value.GetString(sIsoCode)</code> <br> <code>oTextCollEntry.Value[sIsoCode]</code></td>
+<td><code>oTextCollEntry.GetText(sIsoCode)</code></td>
+</tr>
+<tr>
+<td><code>oTextCollEntry.Value.German</code></td>
+<td><code>oTextCollEntry.GetText(&quot;de&quot;)</code></td>
+</tr>
+<tr>
+<td><code>oDevMLString.GetString(sIsoCode)</code> <br> <code>oDevMLString[sIsoCode]</code></td>
+<td><code>oDevMLString.GetString(this.Global, sIsoCode)</code></td>
+</tr>
+<tr>
+<td><code>oDevMLString.German</code></td>
+<td><code>oDevMLString.GetString(this.Global, &quot;de&quot;)</code></td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

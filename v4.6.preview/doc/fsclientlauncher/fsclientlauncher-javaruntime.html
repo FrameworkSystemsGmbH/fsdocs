@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Java-Runtime </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Java-Runtime ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.6/preview/docs/doc/fsclientlauncher/fsclientlauncher-javaruntime.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="java-runtime">Java-Runtime</h1>
+
+<h2 id="lizenz">Lizenz</h2>
+<p>Der FS Client Launcher verwendet OpenJDK-Builds von <a href="https://www.azul.com/downloads/#zulu">Azul.com</a>.
+Diese sind frei verwendbar - siehe auch <a href="https://www.azul.com/products/core/openjdk-terms-of-use/">Terms of Use von Azul</a></p>
+<p>Aktuell werden folgende Versionen verwendet:</p>
+<ul>
+<li>Java 8 Update 392</li>
+<li>Java 11.0.21 (für den experimetallen Einsatz)</li>
+</ul>
+<p>Eine abweichende <a href="fsclientlauncher-configuration.html#java-laufzeitumgebung">Laufzeitumgebung kann konfiguriert</a> werden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Prozessoren, die auf der ARM-Architektur basieren, werden von den ausgelieferten Runtimes nicht unterstützt!</p>
+</div>
+<h2 id="sicherheit">Sicherheit</h2>
+<p>Die Sicherheits-Risiken durch den Einsatz einer veralteten Java-Runtime begründen sich durch die enge Integration der Runtime in das System.
+Dabei spielen insbesondere 3 Aspekte eine wesentliche Rolle:</p>
+<p>1.) Integration der installierten Java-Runtime in den Internet-Explorer.
+Dadurch werden Angriffe über entsprechend präparierte Webseiten ermöglicht.
+Für den Einsatz von Java Web Start ist die Aktivierung dieser Integration zwingend erforderlich.</p>
+<p>2.) Java Web Start selber stellt eine entscheidende Lücke dar, weil damit eine fast beliebige Anwendung / jnlp-Datei aus dem Internet gestartet werden kann.
+Code-Signierung kann das verhindern - sofern der Benutzer aufmerksam genug ist und nicht jedem Herausgeber blind vertraut.</p>
+<p>3.) Globale Erreichbarkeit der Installierten Java-Runtime für alle Java-Programme.
+Das wird z.B. durch die Umgebungs-Variable <code>java_home</code> erreicht.</p>
+<p>Der Client-Launcher besitzt seine eigene Java-Runtime.
+Diese wird in keiner Weise im System registriert.
+Damit weiß das System und Insbesondere die Browser nichts von dieser Runtime.</p>
+<p>Der Start einer Anwendung erfolgt mithilfe eines eigenen Dateiformats.</p>
+<p>Die oben genannten Sicherheits-Risiken bestehen damit nicht.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

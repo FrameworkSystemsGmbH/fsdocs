@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Benutzer-Verwaltung </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Benutzer-Verwaltung ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/docs/doc/package-manager/manage-useres.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="benutzer-verwaltung">Benutzer-Verwaltung</h1>
+
+<p>Die Benutzer-Verwaltung erreicht man im Package-Manager über das Menü <strong>Tools</strong> / <strong>Manage Users</strong>.</p>
+<p><img src="media/edit-users.png" alt="Edit Users"></p>
+<h2 id="benutzer-anlegen">Benutzer anlegen</h2>
+<p>Mit dem Button <img src="../media/icon-new.png" alt="new"> (<strong>New</strong>) können Sie einen neuen Benutzer anlegen. Der neue Benutzer erscheint in der Liste mit den Benutzern und kann dann bearbeitet werden.</p>
+<h2 id="benutzer-bearbeiten">Benutzer bearbeiten</h2>
+<p>Sie können die Daten eines Benutzers bearbeiten, indem Sie diesen in der Liste auswählen. Die Daten werden dann in den rechten Teil des Fensters eingespielt und können bearbeitet werden.</p>
+<h3 id="name">Name</h3>
+<p>Name des Benutzers. Mit diesem Namen meldet sich der Entwickler beim Start von <strong>Framework Studio</strong> am Repository an.</p>
+<p>Der Benutzername kann auch noch geändert werden, wenn der Benutzer bereits Elemente bearbeitet hat.</p>
+<h3 id="password--confirm-password">Password / Confirm Password</h3>
+<p>In diesen Feldern kann das Passwort des Benutzers festgelegt oder geändert werden.</p>
+<p>Um die Änderungen zu speichern, drücken Sie den Button <img src="../media/icon-save.png" alt="save"> Save.</p>
+<h3 id="fcuser-frameworkcompiler-mode">FCUser (FrameworkCompiler Mode)</h3>
+<p>Ist die Checkbox gesetzt, arbeitet der angegebene Benutzer wie der <strong>FrameworkCompiler</strong> mit dem Unterschied, dass dieser Benutzer auch auschecken darf. Das bedeutet, dass dieser Benutzer beim Kompilieren den <strong>Saved Code</strong> und die <strong>Assemblies</strong> für den <strong>FrameworkCompiler</strong> in das Repository zurückschreiben darf.</p>
+<p>Der <strong>FrameworkCompiler Mode</strong> wurde für folgende Anwendungsfälle konzipiert:</p>
+<ol>
+<li>Durchführen eines Kompiliervorgangs als FrameworkCompiler mit der direkten Möglichkeit, Korrekturen durchführen zu können – auch in Kombination mit dem Compile Manager (<a href="../ide/compile-menu.html#compile-manager">Compile Manager</a>). Das ist z.B. bei einem Package-Update sehr vorteilhaft.</li>
+<li>Arbeiten im Ein-Benutzer-Betrieb. So können z.B. auch Korrekturen durchgeführt werden, ohne am Ende mit dem FrameworkCompiler erneut kompilieren zu müssen.</li>
+</ol>
+<p>Bei der Arbeit mit einem Benutzer im FrameworkCompiler Mode (FCUser) müssen einige Richtlinien beachtet werden:</p>
+<ol>
+<li>Es sollte nur einen FCUser geben. Mit diesem können Sie sich aber durchaus zur selben Zeit an verschiedenen Package-Versionen anmelden.</li>
+<li>Wenn mit einem FCUser an einer Package-Version gearbeitet wird, dann sollte dies der einzige Benutzer sein, der an dieser Package-Version arbeitet. Weil der FCUser generierten Code zurückschreibt, der sich ggf. auch auf von ihm ausgecheckte Elemente bezieht, kann das für andere Benutzer zu Fehlern führen.</li>
+<li>In der Zeit, in der mit einem FCUser gearbeitet wird, darf kein FrameworkCompiler laufen. Andernfalls kann es dazu führen, dass sich FCUser und FrameworkCompiler die generierten Codes und Assemblies gegenseitig zerstören.</li>
+<li>Am Ende der Arbeit sollten wieder alle Elemente eingecheckt und der FrameworkCompiler-Vorgang abgeschlossen werden. FrameworkStudio gibt beim Beenden eine entsprechende Warnmeldung aus.</li>
+</ol>
+<p>Beenden Sie FrameworkStudio als angemeldeter FCUser ohne &quot;Complete FrameworkCompiler&quot;, wird folgende Warnung angezeigt.</p>
+<p><img src="media/fcuser-close-dialog.png" alt="fcuser-close-dialog"></p>
+<p>Diese Meldung soll darauf hinweisen, dass der FCUser entgegen unserer Anwendungsfälle verwendet wird. (Diese Warnung gibt <strong>keine</strong> Auskunft über etwaige Fehler beim Complete FrameworkCompiler.)</p>
+<h2 id="benutzer-löschen">Benutzer löschen</h2>
+<p>Um einen Benutzer zu löschen, wird dieser markiert und anschließend der Button   (Delete) gedrückt. Das Löschen müssen Sie jetzt noch mit dem Button <img src="../media/icon-save-all.png" alt="save-all"> (Save All) bestätigen.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Ein Benutzer kann nur dann gelöscht werden, wenn er noch keine Elemente bearbeitet hat. Sollten Sie versuchen einen Benutzer zu löschen, der bereits gearbeitet hat, erscheint eine Fehlermeldung.</p>
+</div>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

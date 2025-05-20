@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Anwendung Starten / Fehlersuche </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Anwendung Starten / Fehlersuche ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/docs/doc/ide/anwendung-starten.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="anwendung-starten--fehlersuche">Anwendung Starten / Fehlersuche</h1>
+
+<h2 id="hintergrundinformationen">Hintergrundinformationen</h2>
+<h3 id="application-broker">Application-Broker</h3>
+<p>Das Brokerverzeichnis für den Application-Broker wird mit dem Button <img src="../media/button-broker.png" alt="button-broker.png"> <strong>Broker Management</strong> im Application Dialog erzeugt.</p>
+<p>Dabei werden die folgenden Dateien in das Verzeichnis kopiert:</p>
+<ul>
+<li>Alle Ressourcen der Anwendung (z.B. Bilder)</li>
+<li>Java-Client</li>
+<li>Framework Studio Laufzeit-Assemblies</li>
+<li>Assemblies der Applikation (vom Benutzer <strong>FrameworkCompiler</strong>)</li>
+</ul>
+<p>Ein Request des Clients ruft im IIS eine ASP.net Seite auf. Der IIS kopiert dann automatisch alle benötigten Assemblies aus dem Brokerverzeichnis in ein temporäres Verzeichnis und verwendet dann diese temporären Kopien, um den Request zu verarbeiten. Der Vorteil des Kopierens liegt darin, dass die original Assemblies nicht direkt vom IIS verwendet werden und dadurch auch nicht blockiert werden.</p>
+<p><img src="media/application-broker-flow.png" alt="application-broker-flow.png"></p>
+<p>Auf diese Weise wird gewöhnlich der Echtbetrieb einer Anwendung realisiert.</p>
+<h3 id="development-broker">Development-Broker</h3>
+<p>Der Development-Broker benötig im Gegensatz zum produktiven Broker keinen IIS für die Ausführung der Anwendung.
+Er ist ein leichtgewichtiger Katana (OWIN) Webserver, der direkt aus Framework-Studio heraus gestartet wird.
+Über die darin integrierte WebAPI-Schnittstelle werden alle nötigen Informationen zum Ausführen der Anwendung angeboten.
+Der Host arbeitet direkt auf dem Compile-Verzeichnis der jeweiligen Anwendung.
+Wird aus Framework Studio heraus eine Applikation gestartet, wird der Broker automatisch gestartet.
+Wird ein Compile gestartet, wird der Broker automatisch beendet und neu gestartet. Das ist notwendig, da er im Gegensatz zum IIS die Assemblies sperrt.
+Man erkennt an einem Symbol in der Task-Leiste, ob der Broker gerade läuft.</p>
+<h3 id="compile-verzeichnis">Compile-Verzeichnis</h3>
+<p>Beim Kompilieren der Anwendung werden alle Dateien in dieses Verzeichnis geschrieben. Das aktuell verwendete Compile-Verzeichnis kann über den Menüpunkt <strong>Compile / Open Compile Directory in Explorer</strong> geöffnet werden.</p>
+<p>Auf einem Rechner wird pro Framework Studio Entwickler, pro Package und pro Package-Version je ein eigenes Compile-Verzeichnis verwendet. Falls das aktuell zu verwendende Verzeichnis beim Start von Framework Studio noch nicht existiert, wird es automatisch angelegt.</p>
+<p>In den Compile-Verzeichnissen existieren immer die folgenden Unterordner:</p>
+<ul>
+<li><strong>bin:</strong> Enthält alle Assemblies und ggf. Textdateien mit den benutzten Referenzen</li>
+<li><strong>src:</strong> Enthält alle Source Dateien, die von Framework Studio generiert wurden. Durch das Kompilieren dieser Dateien werden die Assemblies der Anwendung (im Verzeichnis bin) erzeugt.</li>
+</ul>
+<h2 id="anwendung-zum-testen-starten">Anwendung zum Testen starten</h2>
+<p>Wenn Sie Ihre Anwendung während der Entwicklung zum Testen starten wollen, verwenden Sie dazu den Development-Broker.</p>
+<p>Dieser wird mit den Menüpunkt <strong>Compile / Run</strong> (oder mit der Taste <strong>F5</strong>) mit den zuletzt im <a href="../publish-wizards/run-wizard.html">Run-Wizard</a> vorgenommenen Einstellungen gestartet.</p>
+<p>Wenn Sie die Einstellungen für den Start der Applikation (z.B. andere Business Datenbank verwenden) ändern möchten, öffnen Sie mit dem Menüpunkt <strong>Compile / Run…</strong> (oder der Tastenkombination <strong>Umschalt + F5</strong>) den <a href="../publish-wizards/run-wizard.html">Run-Wizard</a>. Dort können alle Einstellungen vorgenommen werden. Wenn Sie den Wizard anschließend mit <strong>Run</strong> beenden, wird die ausgewählte Applikation mit den vorgenommenen Einstellungen gestartet.</p>
+<h2 id="debugging">Debugging</h2>
+<p>Die Anwendung kann mit einem beliebigen .NET Debugger (z.B. Visual Studio) debuggt werden. Dazu müssen Sie die für Sie relevanten Teile der Anwendung <strong>Debuggable</strong> kompiliert haben (<a href="allgemeine-funktionalitaeten.html#compile">Compile</a>). Dadurch werden entsprechende .cs- und .pdb-Dateien in das Unterverzeichnis \src des Compileverzeichnisses (<a href="#compile-verzeichnis">Compile-Verzeichnis</a>) geschrieben. Nach dem Start der Anwendung muss der Debugger an den Prozess <strong>FSDevBrokerHost.exe</strong> angehängt werden (Visual Studio: Menüpunkt <strong>Debug / Attach to process</strong>). Gegebenenfalls müssen Sie noch die relevanten .cs-Dateien im Debugger öffnen, um beispielsweise einen Breakpoint setzen zu können.</p>
+<h2 id="protokollieren-der-xml-kommunikation">Protokollieren der XML-Kommunikation</h2>
+<p>In manchen Fällen ist es hilfreich, die Kommunikation zwischen Client und Broker zu analysieren. Dazu können sowohl die Anfragen des Clients (Request) als auch die Antworten des Brokers (Response) geloggt werden.</p>
+<p>Mit dem Menüpunkt <strong>Compile / Logging ...</strong> öffnen Sie den folgenden Dialog:</p>
+<p><img src="media/xml-kommunikation-dialog.png" alt="xml-kommunikation-dialog.png"></p>
+<p>Im Eingabefeld <strong>Directory</strong> wird das Verzeichnis angegeben, in das die Protokollierungsdaten geschrieben werden sollen. Das Verzeichnis wird beim Verlassen des Dialogs automatisch angelegt, wenn es noch nicht existiert. Der Benutzer Account, unter dem der IIS (Internet Information Services) läuft, muss Schreibzugriff auf dieses Verzeichnis haben.</p>
+<p>Es stehen vier Modi zur Auswahl:</p>
+<ul>
+<li><p><strong>No Logging:</strong> Die Protokollierung ist abgeschaltet (Standardeinstellung)</p>
+</li>
+<li><p><strong>Log only last request and last response:</strong> Es werden genau zwei Dateien in das angegebene Verzeichnis geschrieben. In der einen Datei wird jeweils die letzte Anfrage des Clients gespeichert, in der anderen Datei jeweils die letzte Antwort des Brokers.</p>
+</li>
+<li><p><strong>Log each request and response to a unique file:</strong> Jede Anfrage des Clients und jede Antwort des Brokers wird in eine eigene Datei (mit Zeitstempel und aufsteigender Nummerierung) in das angegebene Verzeichnis geschrieben.</p>
+</li>
+<li><p><strong>Log each request and response to a unique file, for each token a new folder:</strong> Für jede Sitzung wird ein eigener Ordner im angegebenen Verzeichnis angelegt, in dem für jede Anfrage des Clients und für jede Antwort des Brokers eine eigene Datei geschrieben wird.</p>
+</li>
+</ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Es werden unter Umständen sehr viele Dateien auf der Festplatte angelegt! Diese müssen manuell wieder gelöscht werden.</p>
+</div>
+<p>Die Log-Dateien können mit einem beliebigen XML-Viewer betrachtet werden.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

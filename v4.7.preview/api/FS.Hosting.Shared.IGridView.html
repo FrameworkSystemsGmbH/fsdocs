@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IGridView </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IGridView ">
+      
+      <meta name="description" content="Ein Grid zeigt immer Daten einer Collection an. Um mit den Daten zu arbeiten, muss auf die Collection zugegriffen werden, die an das entsprechende Grid gebunden ist.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/new/4.7/preview/apiSpec/new?filename=FS_Hosting_Shared_IGridView.md&amp;value=---%0Auid%3A%20FS.Hosting.Shared.IGridView%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="FS.Hosting.Shared.IGridView">
+
+
+
+  <h1 id="FS_Hosting_Shared_IGridView" data-uid="FS.Hosting.Shared.IGridView" class="text-break">
+Interface IGridView  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/fs/FS.Hosting.Shared/IGridView.cs/#L44"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="FS.html">FS</a>.<a class="xref" href="FS.Hosting.html">Hosting</a>.<a class="xref" href="FS.Hosting.Shared.html">Shared</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>FS.Hosting.Shared.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Ein Grid zeigt immer Daten einer Collection an. Um mit den Daten zu arbeiten, muss auf die
+Collection zugegriffen werden, die an das entsprechende Grid gebunden ist.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ComVisible(false)]
+public interface IGridView : IEnumerable&lt;DevFrameworkObject&gt;, IEnumerable</code></pre>
+  </div>
+
+
+
+
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.collections.generic.ienumerable-1.getenumerator">IEnumerable&lt;DevFrameworkObject&gt;.GetEnumerator()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="FS_Hosting_Shared_IGridView_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Wenn über den Client die Daten im Grid sortiert oder gefiltert werden, dann stimmt die
+Reihenfolge der Elemente in der Collection nicht mehr mit der Anzeige überein. Um auf die den
+Filterkriterien entsprechenden Elemente in der angezeigten Reihenfolge zugreifen zu können,
+stellt FrameworkStudio einen <strong>View</strong> zur Verfügung. Dieser kann am Grid mit der Funktion
+<strong><span class="xref">FrameworkSystems.FrameworkControls.Actions.GridControlAction.GetView</span></strong> abgerufen werden:</p>
+<pre><code class="lang-csharp">IGridView gridView = this.grdTableXyz.GetView();</code></pre>
+<p><strong>IGridView</strong> kann zum einen enumeriert werden, also zum Beispiel mit foreach durchlaufen
+werden. Zum anderen kann über den Index gezielt auf das x-te Element der Collection zugegriffen
+werden. IGridView arbeitet mit der Basis-Klasse DevFrameworkObject. Ggf. müssen die
+ermittelten Elemente mit dem entsprechenden Cast in das gewünschte Format konvertiert
+werden.</p>
+<pre><code class="lang-csharp">// Liste durchlaufen
+foreach(IcdCustomer oCustomer in gridView)
+{
+	// Satz verarbeiten
+	[...]
+}
+
+// gezielt einen Satz holen, Cast in entsprchenden Typ
+IcdCustomer oCustomer = (IcdCustomer) gridView[intIndex];</code></pre>
+</div>
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IGridView.Collection.html#FS_Hosting_Shared_IGridView_Collection">Collection</a></dt>
+    <dd><p>Gibt die (ungefilterte) Collection zurück, auf die der View aufsetzt.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IGridView.Count.html#FS_Hosting_Shared_IGridView_Count">Count</a></dt>
+    <dd><p>Anzahl der Records.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IGridView.Item.html#FS_Hosting_Shared_IGridView_Item_FS_Shared_BaseObjects_guid_">this[guid]</a></dt>
+    <dd><p>Gibt den Record mit der übergebenen ID zurück.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IGridView.Item.html#FS_Hosting_Shared_IGridView_Item_System_Int32_">this[int]</a></dt>
+    <dd><p>Gibt den Record zum angegebenen Index zurück.</p>
+</dd>
+  </dl>
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IGridView.IndexOf.html#FS_Hosting_Shared_IGridView_IndexOf_FS_Hosting_Shared_IDevFrameworkObject_">IndexOf(IDevFrameworkObject)</a></dt>
+    <dd><p>Liefert den Index des übergebenen Objektes im View.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IGridView.IndexOf.html#FS_Hosting_Shared_IGridView_IndexOf_FS_Shared_BaseObjects_guid_">IndexOf(guid)</a></dt>
+    <dd><p>Liefert den Index der übergebenen Objekt-ID im View.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IGridView.ObjectRowIDOf.html#FS_Hosting_Shared_IGridView_ObjectRowIDOf_System_Int32_">ObjectRowIDOf(int)</a></dt>
+    <dd><p>Ermittelt die rowID des enthaltnenen Records zum dem angegebenen Index.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IGridView.RedoSortAndFilter.html#FS_Hosting_Shared_IGridView_RedoSortAndFilter">RedoSortAndFilter()</a></dt>
+    <dd><p>Wendet die Sortierung und die Filter erneut an - z.B. nachdem Änderungen an der Collection vorgenommen wurden.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IGridView.ResetSortAndFilter.html#FS_Hosting_Shared_IGridView_ResetSortAndFilter">ResetSortAndFilter()</a></dt>
+    <dd><p>Setzt die Sortierung und die Filter zurück.</p>
+</dd>
+  </dl>
+
+  <h2 class="section" id="events">Events
+</h2>
+
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IGridView.EntriesSortedOrFiltered.html">EntriesSortedOrFiltered</a></dt>
+    <dd><p>Mit diesem Event kann man die sortierte/gefilterte Liste der ObjectRowIDs anpassen.</p>
+</dd>
+  </dl>
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

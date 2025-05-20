@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Interface IDevFrameworkObject </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Interface IDevFrameworkObject ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/new/4.7/preview/apiSpec/new?filename=FS_Hosting_Shared_IDevFrameworkObject.md&amp;value=---%0Auid%3A%20FS.Hosting.Shared.IDevFrameworkObject%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="FS.Hosting.Shared.IDevFrameworkObject">
+
+
+
+  <h1 id="FS_Hosting_Shared_IDevFrameworkObject" data-uid="FS.Hosting.Shared.IDevFrameworkObject" class="text-break">
+Interface IDevFrameworkObject  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/fs/FS.Hosting.Shared/IDevFrameworkObject.cs/#L11"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="FS.html">FS</a>.<a class="xref" href="FS.Hosting.html">Hosting</a>.<a class="xref" href="FS.Hosting.Shared.html">Shared</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>FS.Hosting.Shared.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"></div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[ComVisible(false)]
+public interface IDevFrameworkObject : IDevFrameworkBaseObject, INotifyPropertyChanged</code></pre>
+  </div>
+
+
+
+
+
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.AdoptValues.html#FS_Hosting_Shared_IDevFrameworkBaseObject_AdoptValues_FS_Hosting_Shared_IDevFrameworkBaseObject_">IDevFrameworkBaseObject.AdoptValues(IDevFrameworkBaseObject)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.AdoptValues.html#FS_Hosting_Shared_IDevFrameworkBaseObject_AdoptValues_FS_Hosting_Shared_IDevFrameworkBaseObject_FS_Hosting_Shared_AdoptMode_">IDevFrameworkBaseObject.AdoptValues(IDevFrameworkBaseObject, AdoptMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.Clone.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Clone">IDevFrameworkBaseObject.Clone()</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.Clone.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Clone_FS_Hosting_Shared_AdoptMode_">IDevFrameworkBaseObject.Clone(AdoptMode)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.GetDefaultLabel.html#FS_Hosting_Shared_IDevFrameworkBaseObject_GetDefaultLabel_System_String_">IDevFrameworkBaseObject.GetDefaultLabel(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.GetPropertyMdt.html#FS_Hosting_Shared_IDevFrameworkBaseObject_GetPropertyMdt_System_String_">IDevFrameworkBaseObject.GetPropertyMdt(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.AcceptChanges.html#FS_Hosting_Shared_IDevFrameworkBaseObject_AcceptChanges">IDevFrameworkBaseObject.AcceptChanges()</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.GetProperty.html#FS_Hosting_Shared_IDevFrameworkBaseObject_GetProperty_System_String_">IDevFrameworkBaseObject.GetProperty(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.SetProperty.html#FS_Hosting_Shared_IDevFrameworkBaseObject_SetProperty_System_String_System_Object_">IDevFrameworkBaseObject.SetProperty(string, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.ComponentProperties.html#FS_Hosting_Shared_IDevFrameworkBaseObject_ComponentProperties">IDevFrameworkBaseObject.ComponentProperties</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.IsComponentProperty.html#FS_Hosting_Shared_IDevFrameworkBaseObject_IsComponentProperty_System_String_">IDevFrameworkBaseObject.IsComponentProperty(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.IsFrozen.html#FS_Hosting_Shared_IDevFrameworkBaseObject_IsFrozen">IDevFrameworkBaseObject.IsFrozen</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.CanFreeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_CanFreeze">IDevFrameworkBaseObject.CanFreeze()</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Freeze">IDevFrameworkBaseObject.Freeze()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.componentmodel.inotifypropertychanged.propertychanged">INotifyPropertyChanged.PropertyChanged</a>
+    </div>
+  </dd></dl>
+
+
+
+
+  <h2 id="FS_Hosting_Shared_IDevFrameworkObject_remarks">Remarks</h2>
+  <div class="markdown level0 remarks"><p>Alle Business-Objekte, die im Developement Framework verwendet
+werden sollen, müssen dieses Interface einbinden.</p>
+</div>
+
+  <h2 class="section" id="properties">Properties
+</h2>
+
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.IsDeleted.html#FS_Hosting_Shared_IDevFrameworkObject_IsDeleted">IsDeleted</a></dt>
+    <dd><p>Gibt an, ob das Objekt gelöscht wurde.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.IsMarkedForDeletion.html#FS_Hosting_Shared_IDevFrameworkObject_IsMarkedForDeletion">IsMarkedForDeletion</a></dt>
+    <dd><p>Wenn true, ist das Objekt zum Löschen vorgemerkt. Vor einem Save wird an der Collection <span class="xref">FS.Hosting.Shared.IDevFrameworkObjectColl.DeleteMarkedObjects()</span>
+aufgerufen und so dann an allen markierten Objekten Delete aufgerufen.
+Wenn <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Save.html#FS_Hosting_Shared_IDevFrameworkObject_Save">Save()</a> direkt am Objekt aufgerufen wird, wird <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.DeleteMarkedObject.html#FS_Hosting_Shared_IDevFrameworkObject_DeleteMarkedObject">DeleteMarkedObject()</a>
+am Objekt aufgerufen.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.IsModified.html#FS_Hosting_Shared_IDevFrameworkObject_IsModified">IsModified</a></dt>
+    <dd><p>Gibt an, ob das Objekt geändert wurde.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.ObjectRowID.html#FS_Hosting_Shared_IDevFrameworkObject_ObjectRowID">ObjectRowID</a></dt>
+    <dd><p>Eindeutige ID vom Typ guid des Objektes.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.State.html#FS_Hosting_Shared_IDevFrameworkObject_State">State</a></dt>
+    <dd><p>Aktueller Status des IDevFrameworkObjects.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.StateBeforeFirstSaveEntryInTransaction.html#FS_Hosting_Shared_IDevFrameworkObject_StateBeforeFirstSaveEntryInTransaction">StateBeforeFirstSaveEntryInTransaction</a></dt>
+    <dd><p>Der Wert von <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.State.html#FS_Hosting_Shared_IDevFrameworkObject_State">State</a> vor dem ersten Save.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.StateBeforeUpdate.html#FS_Hosting_Shared_IDevFrameworkObject_StateBeforeUpdate">StateBeforeUpdate</a></dt>
+    <dd><p>Der Wert von <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.State.html#FS_Hosting_Shared_IDevFrameworkObject_State">State</a> vor dem letzten Update.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.TrackVersion.html#FS_Hosting_Shared_IDevFrameworkObject_TrackVersion">TrackVersion</a></dt>
+    <dd><p>Bei der Änderung eines generated Properties wird dieser Wert hochgezählt.</p>
+</dd>
+  </dl>
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Delete.html#FS_Hosting_Shared_IDevFrameworkObject_Delete">Delete()</a></dt>
+    <dd><p>Löscht den verknüpften Datensatz aus der Datenbank.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.DeleteMarkedObject.html#FS_Hosting_Shared_IDevFrameworkObject_DeleteMarkedObject">DeleteMarkedObject()</a></dt>
+    <dd><p>Führt die Löschung eines per <span class="xref">FS.Hosting.Shared.IDevFrameworkObject.MarkForDeletion()</span> markierten Objekts durch.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.GetPropertyOrgValue.html#FS_Hosting_Shared_IDevFrameworkObject_GetPropertyOrgValue_System_String_">GetPropertyOrgValue(string)</a></dt>
+    <dd><p>Ermittelt den OrgValue des Properties <code class="paramref">propertyName</code>.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.GetTableName.html#FS_Hosting_Shared_IDevFrameworkObject_GetTableName">GetTableName()</a></dt>
+    <dd><p>Gibt den Tabellennamen zurück.
+Dabei wird nur die erste Tabelle berücksichtigt.
+Im Falle einer Join-Component muss <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.GetTableName.html#FS_Hosting_Shared_IDevFrameworkObject_GetTableName_System_String_">GetTableName(string)</a> verwendet werden.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.GetTableName.html#FS_Hosting_Shared_IDevFrameworkObject_GetTableName_System_String_">GetTableName(string)</a></dt>
+    <dd><p>Gibt den Tabellennamen eines bestimmten Properties zurück. Falls es das Property nicht
+gibt bzw. das Property nicht mit einer Datenbankspalte verknüpft ist,
+wird <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string.empty">Empty</a> zurückgegeben.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Load.html#FS_Hosting_Shared_IDevFrameworkObject_Load">Load()</a></dt>
+    <dd><p>Lädt Daten in das Objekt anhand der übergebenen <code class="paramref">loadCondition</code>. Falls mehr als
+ein Datensatz gelesen wird, wird der Erste verwendet.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Load.html#FS_Hosting_Shared_IDevFrameworkObject_Load_System_String_">Load(string)</a></dt>
+    <dd><p>Lädt Daten in das Objekt anhand der übergebenen <code class="paramref">loadCondition</code>. Falls mehr als
+ein Datensatz gelesen wird, wird der Erste verwendet.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Load.html#FS_Hosting_Shared_IDevFrameworkObject_Load_System_String_System_String_">Load(string, string)</a></dt>
+    <dd><p>Lädt Daten in das Objekt anhand der übergebenen <code class="paramref">loadCondition</code>. Falls mehr als
+ein Datensatz gelesen wird, wird der Erste verwendet.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Load.html#FS_Hosting_Shared_IDevFrameworkObject_Load_System_String_System_String_System_String_">Load(string, string, string)</a></dt>
+    <dd><p>Lädt Daten in das Objekt anhand der übergebenen <code class="paramref">loadCondition</code>. Falls mehr als
+ein Datensatz gelesen wird, wird der Erste verwendet.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.RollbackChanges.html#FS_Hosting_Shared_IDevFrameworkObject_RollbackChanges">RollbackChanges()</a></dt>
+    <dd><p>Überschreibt alle aktuellen Werte mit den Werten, die durch den Loadbefehl bzw.
+einen Aufruf von AcceptChanges festgehalten worden sind.
+Sollte in allen Subclasses überschrieben werden!</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Save.html#FS_Hosting_Shared_IDevFrameworkObject_Save">Save()</a></dt>
+    <dd><p>Speichert diese Component in der Datenbank ab. Das entsprechende SqlStatement
+muss in der SaveAction zusammengebaut und ausgeführt werden.
+Falls keine gestartete Transaktion existiert,
+wird automatisch eine Transaktion aufgebaut. In diesem Fall wird
+anschliessend ein Commit ausgeführt.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Save.html#FS_Hosting_Shared_IDevFrameworkObject_Save_FS_Hosting_Shared_SaveEntryPoints_">Save(SaveEntryPoints)</a></dt>
+    <dd><p>Speichert diese Component in der Datenbank ab. Das entsprechende SqlStatement
+muss in der SaveAction zusammengebaut und ausgeführt werden.
+Falls keine gestartete Transaktion existiert,
+wird automatisch eine Transaktion aufgebaut. In diesem Fall wird
+anschliessend ein Commit ausgeführt.
+Verknüpfung zwischen Properties und DB-Columns erfolgt über Repository.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.SaveCallEntryPointsAllways.html#FS_Hosting_Shared_IDevFrameworkObject_SaveCallEntryPointsAllways">SaveCallEntryPointsAllways()</a></dt>
+    <dd><p>Ruft <a class="xref" href="FS.Hosting.Shared.IDevFrameworkObject.Save.html#FS_Hosting_Shared_IDevFrameworkObject_Save">Save()</a> auf und stellt dabei sicher, dass alle EntryPoints aufgerufen werden.</p>
+</dd>
+  </dl>
+
+
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

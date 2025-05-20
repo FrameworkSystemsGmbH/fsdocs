@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Session Logging Analyzer </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Session Logging Analyzer ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/docs/doc/session-logging/session-logging-analyzer.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="session-logging-analyzer">Session Logging Analyzer</h1>
+
+<p>Jede Application speichert automatisch Informationen in der Tabelle <a href="../tables/tblrep_sessionlogging.html">tblRep_SessionLogging</a> im Runtime-Repository.
+Es werden pro Session aggregierte Daten über die Anzahl und Dauer der ausgeführten Broker-Anfragen und die Datenbank-Befehle gespeichert.
+Mit dem Session Logging Analyzer können diese Daten ausgewertet werden.</p>
+<p>Im Session-Logging werden die Daten aggregiert.
+So lassen sich sehr gut statistische Aussagen auch über viele Sessions und lange Zeiträume treffen.
+Die Aussagen können maximal auf Session-Ebene heruntergebrochen werden.</p>
+<p>Einzelne Requests und auch exakte Zeitpunkte (z.B. von auftretenden Blockaden) sind nicht zu greifen.
+Dafür muss das deutlich detailliertere <a href="session-trace-analyzer.html">Session Trace</a> verwendet werden.</p>
+<p><img src="media/session-logging-analyzer.png" alt="Session Logging Analyzer"></p>
+<h2 id="einlesen-der-daten">Einlesen der Daten</h2>
+<p>Mit dem Button <strong>Login</strong> kann man sich an einem Runtime-Repository anmelden. Wird der Session Logging Analyzer über den <a href="../publish-wizards/run-wizard.html">Run Wizard</a>, <a href="../publish-wizards/publish-wizard.html">Publish Wizard</a> oder <a href="../publish-wizards/publish2go-wizard.html">Publish2Go-Wizard</a> gestartet, dann wird die Verbindung zum im Setting definierten Runtime-Repository automatisch hergestellt.</p>
+<p>Anschließend kann man mit dem Button <strong>Load from DB</strong> die Daten einlesen.
+Über die Datums-Felder kann vor dem Einlesen der Zeitraum eingeschränkt werden.
+Standardmäßig sind die letzten 30 Tage voreingestellt.</p>
+<p>Mit dem Button <strong>Load from Files</strong> können exportierte Daten eingelesen werden.
+Dabei können aus einem Ordner auch mehrere Dateien gleichzeitig ausgewählt werden.
+Dafür ist kein Login  notwendig.</p>
+<p>Mit jedem Einlese-Vorgang werden die aktuellen Daten verworfen.</p>
+<h2 id="export-der-daten">Export der Daten</h2>
+<p>Mit dem Button <strong>Export to File</strong> können die Daten aus dem Repository in eine Datei exportiert werden.
+Es ist sinnvoll, die Daten auf diese weise zu archivieren, bevor sie dauerhaft aus der Tabelle  <a href="../tables/tblrep_sessionlogging.html">tblRep_SessionLogging</a> gelöscht werden.
+Auf diese Weise lassen sich die Daten auch ganz einfach transportieren.</p>
+<p>Über die Datums-Felder muss vor dem Export der Zeitraum eingeschränkt werden.
+Standardmäßig sind die letzten 30 Tage voreingestellt.</p>
+<p>Der Export erfolgt immer direkt aus der Datenbank in die Datei.
+Die aktuell eingelesenen Daten landen nicht im Export.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<ul>
+<li>Es ist sinnvoll, monatsweise Exports zu erstellen und diese z.B. im Format <code>yyyy-mm-KundenName.sessionlogging</code> zu speichern.</li>
+<li>Die Export-Dateien lassen sich sehr gut zippen.</li>
+</ul>
+</div>
+<p>Um den Datenschutz zu gewährleisten ist die Checkbox <strong>Anonymous Export</strong> standardmäßig gesetzt.
+Sie bewirkt, dass alle Daten, die auf den Benutzer schließen können anonymisiert werden.
+In der Export-Datei werden nur noch Hash-Codes angezeigt.
+Das betrifft z.B.</p>
+<ul>
+<li>Name des Benutzers (UserName, ClientUser)</li>
+<li>Name und IP des Client-Rechners (ClientMachine)</li>
+</ul>
+<h2 id="löschen-der-daten">Löschen der Daten</h2>
+<p>Im Laufe der Zeit sammeln sich in der Tabelle <a href="../tables/tblrep_sessionlogging.html">tblRep_SessionLogging</a> sehr viele Datensätze an.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Grundsätzlich können auch ältere Daten interessante Informationen enthalten, wenn z.B. beurteilt werden soll, wie sich die Performance des Systems im Laufe der Zeit entwickelt hat.
+Vor dem endgültigen Löschen aus der Datenbank sollte daher ein Export vorgenommen werden (siehe oben).</p>
+</div>
+<p>Alte Datensätze müssen direkt per SQL auf der Datenbank gelöscht werden.</p>
+<p>Das folgende SQL-Statement löscht Sätze, die älter sind als 6 Monate.
+Es werden auf einen Schlag nur 1.000 Zeilen gelöscht, weil ansonsten die Transaktion zu groß und die Tabelle zu lange für laufende Sessions blockiert werden könnte.
+Das Statement muss so oft ausgeführt werden, bis keine Sätze mehr gelöscht wurden.</p>
+<p>Die Anzahl der Monate und die Anzahl der zu löschenden Zeilen kann bei Bedarf angepasst werden.</p>
+<pre><code class="lang-SQL">-- SQL-Server:
+DELETE TOP (1000) FROM tblRep_SessionLogging WHERE SL_SessionStart &lt; DATEADD(month, DATEDIFF(month, 0, getdate()) - 6, 0);
+
+-- Oracle:
+DELETE FROM tblRep_SessionLogging WHERE SL_SessionStart &lt; ADD_MONTHS(TRUNC(SYSDATE,'MM'), -6) AND ROWNUM &lt;= 1000;
+</code></pre>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

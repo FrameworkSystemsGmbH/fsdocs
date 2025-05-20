@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>LabelOfControl Cleanup </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="LabelOfControl Cleanup ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/docs/doc/form/label-of-control-cleanup.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="labelofcontrol-cleanup">LabelOfControl Cleanup</h1>
+
+<p>LabelOfControl Cleanup ist eine Wartungs-Routine mit der die veraltete Control-Eigenschaft LabelOfControl am Label-Control bereinigt werden kann.</p>
+<p>Sie kann in der IDE über das Menu <strong>Tools / Checks / LabelOfControl Cleanup</strong> aufgerufen werden.</p>
+<p><img src="media/label-of-control-cleanup.png" alt="LabelOfControl Cleanup"></p>
+<p>Mit dem Button <strong>Analyze</strong> wird lediglich eine Analyse durchgeführt und die gefundenen Controls in einer Liste ausgegeben.
+Bitte führen sie zuerst die Analyse durch und prüfen sie ggf. stichprobenartig ob die gelisteten Controls plausible Treffer sind.</p>
+<p>Mit dem Button <strong>Cleanup</strong> wir die Bereinigung durchgeführt.</p>
+<p>Die Routine</p>
+<ul>
+<li>durchsucht alle Forms nach Label-Controls, an denen die Eigenschaft <strong>LabelOfControl</strong> gesetzt ist,</li>
+<li>checkt die betroffenen Forms aus,</li>
+<li>überträgt die <strong>Caption</strong> und den <strong>Tooltip</strong> des zugeordneten Controls, sofern diese nicht bereits am Label-Control überschrieben sind,</li>
+<li>entfernt die Eigenschaft <strong>LabelOfControl</strong> vom Label-Control und</li>
+<li>speichert das Form.</li>
+</ul>
+<p>Nach dem Cleanup müssen die verarbeiteten Form kompiliert und eingecheckt werden.</p>
+<h2 id="hintergrund">Hintergrund</h2>
+<p>Das Property <strong>LabelOfControl</strong> wird seit der Version 4.0 nicht mehr im Form-Designer angeboten.</p>
+<p>Mit dem neuen Layout zur Version 4.0 wurde die Eigenschaft <strong>LabelOfControl</strong> überflüssig.
+Die Beschriftungen der Controls wurden durch automatisch erzeugte Labels abgelöst.
+Bei der Konvertierung des Layouts wurden deshalb die alten Label-Controls größtenteils nicht in das neue Layout übernommen.</p>
+<p>In einigen speziellen Fällen, wurden die Labels aber gezielt übernommen und mit ihnen auch die Eigenschaft <strong>LabelOfControl</strong>.
+Im Hintergrund hat das immer noch dafür gesorgt, dass die <strong>Caption</strong> und der <strong>Tooltip</strong> des zugeordneten Controls in das Label-Control übernommen wurde.
+Andere Funktionen, wie das automatische Ausblenden mit dem zugeordneten Control haben nicht mehr funktioniert.</p>
+<p>Mit dem Umbau des Data-Bindings zur Version 4.3 musste auch dieses Feature entfernt werden.
+Das hat zur Folge, dass jetzt bei betroffenen Labels die Beschriftungen nicht mehr gezogen werden.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

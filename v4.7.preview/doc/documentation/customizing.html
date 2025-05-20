@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Customizing </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Customizing ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/docs/doc/documentation/customizing.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="customizing">Customizing</h1>
+
+<p>Sections sind nur in Dokumentationen von Forms und Documentation-Elementen verfügbar und dienen dazu, längere Texte in Abschnitte zu unterteilen, die in Customizations dieser Elemente ausgetauscht oder ergänzt werden können.</p>
+<h5 id="beispiel"><strong>Beispiel:</strong></h5>
+<p>Eine Dokumentation eines Forms in Package <strong>P1</strong> sieht wie folgt aus:</p>
+<p><img src="media/customizing-beispiel1.png" alt="Dokumentation mit zwei Sections"></p>
+<p>Es ist zu sehen, dass der Text in zwei Sections unterteilt ist, die jeweils mit einer einmaligen ID ausgestattet sind. Wird dieses Form nun in einem Package <strong>P2</strong> gecustomized und an der Funktion des Forms Änderungen vorgenommen, die danach nicht mehr mit der Dokumentation aus der Basis übereinstimmen, muss die Dokumentation der Customization ebenfalls angepasst werden. Meistens ist es jedoch der Fall, dass nur einzelne Teile oder nur wenige Sätze aus der bisherigen Dokumentation geändert werden müssen, um die Dokumentation zu korrigieren.</p>
+<p>Im konkreten Beispiel könnte im gecustomizten Form die Möglichkeit geschaffen worden sein, Auftragspositionen auch kopieren zu können. Diese Information sollte nun in die Dokumentation des neuen gecustomizten Forms eingefügt werden. Praktisch wäre natürlich eine Ergänzung nach dem ersten Satz <em>„…editiert oder gelöscht werden.“</em>. Während in einem einzelnen Package die Sections funktionslos sind, stellen sie beim Customizing von Forms oder Documentation-Elementen einen Einsprungpunkt für zusätzliche Dokumentationen bereit. Um die zusätzliche Information in die Dokumentation einzufügen, muss im gecustomizten Form eine neue Section über den Button in der Werkzeugleiste erstellt werden:</p>
+<p>Customizing einer Section:</p>
+<p><img src="media/customizing-einer-section1.png" alt="customizing-einer-section1"></p>
+<p>Framework Studio erkennt, dass das Form gecustomized wurde und listet in der Combobox <strong>Base Section</strong> alle in der Basis verfügbaren Section-ID’s auf. Über das <a href="editor.html#panel-other">Panel Other</a> des Editors kann zur Kontrolle der zu editierenden Section(-ID) die Basis-Dokumentation des Formulars angezeigt werden.</p>
+<p>Im Dialog für die Section-Auswahl gibt es drei Möglichkeiten, eine Section zu überschreiben:</p>
+<h5 id="override"><strong>Override</strong></h5>
+<p>Die Section aus der Basis wird durch den neuen Text ersetzt.</p>
+<h5 id="before"><strong>Before</strong></h5>
+<p>Der neue Text wird beim Rendern der Dokumentation des gecustomizten Formulars <strong>vor</strong> dem Text aus der Basis eingefügt.</p>
+<h5 id="after"><strong>After</strong></h5>
+<p>Der neue Text wird beim Rendern der Dokumentation des gecustomizten Formulars <strong>nach</strong> dem Text aus der Basis eingefügt.</p>
+<p>Wird der Dialog geschlossen, wird eine neue Section erstellt, die ein <strong>customize</strong>-Attribut beinhaltet, in der die ausgewählte Customizing-Methode steht.</p>
+<p><img src="media/customizing-einer-section2.png" alt="customizing-einer-section2"></p>
+<p>Die zusätzliche Information (Auftragspositionen können kopiert werden) kann nun eingegeben werden. Wird eine Vorschau der Dokumentation gerendert, erscheint der neue Text an der gewünschten Stelle in der Basis-Dokumentation (in diesem Fall hinter dem ersten Satz aus der Basis).</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

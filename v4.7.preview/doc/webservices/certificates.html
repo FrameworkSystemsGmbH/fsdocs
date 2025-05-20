@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>SSL Zertifikate </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="SSL Zertifikate ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/docs/doc/webservices/certificates.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="ssl-zertifikate">SSL Zertifikate</h1>
+
+<h2 id="allgemein">Allgemein</h2>
+<h3 id="einleitung">Einleitung</h3>
+<p>Wenn ein Webservice veröffentlicht wird, sollte dieser mit einer SSL-Verschlüsselung, also einer HTTPS-Verbindung,  gesichert werden. Insbesondere dann, wenn der Dienst über das Internet zugänglich ist, ist die Absicherung der kommunizierten Daten essenziell.</p>
+<p>SSL bietet dafür zwei äußerst wichtige Dinge:</p>
+<ol>
+<li>Die Kommunikation wird verschlüsselt und die Daten sind auf ihrem Weg zwischen Server und Client nicht durch fremde Instanzen einzusehen</li>
+<li>Durch ein vertrauenswürdiges Zertifikat wird die Identität des Servers sichergestellt. Das verhindert, dass sich jemand in die Kommunikationen einklinkt und sich als der angesprochene Server ausgibt (MITM-Attacke)</li>
+</ol>
+<h3 id="zertifikate-von-öffentlichen-anbietern">Zertifikate von öffentlichen Anbietern</h3>
+<p>Es ist empfehlenswert, für den Webserver ein vertrauenswürdiges Zertifikat über einen offiziellen Anbieter oder ein Hosting-Unternehmen zu erwerben. Diese Zertifikate gibt es in allen möglichen Ausführungen und Sicherheitsstufen. Bei diesem Prozess wird Ihre Firma verifiziert. Wenn außenstehende Clients mit Ihrem Webserver kommunizieren, können Sie sich sicher sein, dass alles in Ordnung ist, da die Daten des Zertifikats erstens öffentlich einsehbar sind und zweitens durch die Signierungsstelle verifiziert wurden.</p>
+<p>Wenn Sie ein Zertifikat erworben haben, muss dies auf dem Server installiert werden. Der Anbieter des Zertifikats stellt in der Regel passende Anleitungen zur Verfügung. Wichtig für die Einbindung des Zertifikats in einen Framework Studio Service Host ist dabei der Fingerabdruck. Dieser ist Bestandteil des Zertifikats und identifiziert dieses eindeutig auf dem System.</p>
+<h3 id="self-signed-zertifikate">Self-Signed Zertifikate</h3>
+<p>SSL-Zertifikate sind nicht billig und es wäre unangebracht für den Entwicklungsprozess einer Firma potenziell mehrere SSL-Zertifikate zu kaufen, nur um sie intern in Testszenarien zu nutzen.</p>
+<p>Abhilfe schaffen dabei die sogenannten Self-Signed-Zertifikate. Diese sind exakt dasselbe wie gekaufte SSL-Zertifikate, nur dass sie nicht von einer öffentlichen Zertifizierungsstelle verifiziert wurden. Würde man einen öffentlichen Webserver mit einem Self-Signed-Zertifikat ausstatten, könnten Clients nicht mit dem Server kommunizieren, da diese das Zertifikat nicht anerkennen (mangels öffentlicher Verifizierung).</p>
+<p>Die nachfolgenden Abschnitte befassen sich daher mit dem Thema, wie Self-Signed-Zertifikate dennoch für den hausinternen Gebrauch verwendet und ggf. auch als Vorbereitung auf ein &quot;echtes&quot; SSL-Zertifikat genutzt werden können.</p>
+<h2 id="fs-webservice-mit-ssl-unterstützung-publishen">FS-Webservice mit SSL-Unterstützung publishen</h2>
+<p>Um einen Service Host auf die Nutzung eines SSL-Zertifikats vorzubereiten, wird dieses tatsächlich erst einmal gar nicht benötigt. Der Service Host selbst muss vom Zertifikat überhaupt nichts wissen. Ausschlaggebend für eine erfolgreiche SSL-Kommunikation ist das Registrieren des Zertifikats auf dem Port, unter dem der Service Host nach außen erreichbar ist.</p>
+<p>Siehe <a href="#registrieren-von-ssl-zertifikaten">Registrieren von SSL-Zertifikaten</a></p>
+<p>Ganz ohne Änderungen an der Konfiguration des Service Hosts geht es aber dann doch nicht. Framework Studio macht dies jedoch extrem einfach. Um einen Service Host für die Kommunikation über einen SSL-Tunnel vorzubereiten, muss einfach die Checkbox <code>SSL</code> im Publish Wizard angehakt werden.</p>
+<p><img src="media/cert_publish_wizard.png" alt="Publish Wizard"></p>
+<p>Dies ändert nicht nur die Url des Service Hosts von <code>HTTP</code> auf <code>HTTPS</code>, sondern nimmt auch automatisch die nötigen Änderungen an der Konfiguration des Service Hosts vor, um eine sichere Kommunikation zu gewährleisten.</p>
+<p>Wenn ein bestehender Service Host von <code>HTTP</code> auf <code>HTTPS</code> gestellt werden soll, muss dieser mit der aktivierten Checkbox neu gepublished werden. Eine manuelle Änderung der Konfiguration des gepublishten Service Hosts ist zwar grundsätzlich möglich, wird aber auf Grund des vorhandenen Automatismus nicht empfohlen.</p>
+<h2 id="self-signed-zertifikat-nutzen">Self-Signed-Zertifikat nutzen</h2>
+<h3 id="erstellen-mit-powershell">Erstellen mit Powershell</h3>
+<p>Für das Erstellen eines Self-Signed-Zertifikats wird die Powershell benötigt. Diese muss <strong>mit Adminrechten</strong> gestartet werden, da das erstellte Zertifikat in den systemweiten Zertifikatspeicher geladen werden muss. Zwischen den einzelnen Schritten darf die Powershell nicht geschlossen werden, da Variablen angelegt werden, auf die später wieder zugegriffen wird.</p>
+<p>Ein neues Zertifikat wird mit folgendem Befehl erstellt:</p>
+<pre><code class="lang-ps">$cert = New-SelfSignedCertificate -Subject &quot;CN=[NAME]&quot; -DnsName &quot;[DOMAIN]&quot; -CertStoreLocation Cert:\LocalMachine\My -HashAlgorithm SHA1 -FriendlyName &quot;Framework Studio Development Certificate&quot;
+</code></pre>
+<p><strong>Beispiel:</strong></p>
+<p><img src="media/cert_powershell_1.png" alt="Zertifikat erstellen"></p>
+<p>Die Platzhalter <code>[NAME]</code> und <code>[DOMAIN]</code> müssen dabei entsprechend durch die gewünschten Werte ersetzt werden.</p>
+<table>
+<thead>
+<tr>
+<th>Platzhalter</th>
+<th>Beschreibung</th>
+<th>Beispiele</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[NAME]</code></td>
+<td>Der im Zertifikatspeicher angezeigte Name des Zertifikats. Es können auch Namen mit Leerzeichen verwendet werden.</td>
+<td><code>Server123</code>, <code>Server 123 Dev</code>, <code>WebServer SSL Development</code></td>
+</tr>
+<tr>
+<td><code>[DOMAIN]</code></td>
+<td>Muss exakt diejenige Domain sein, unter welcher der Service von außen erreichbar ist. Es können auch Domain-Wildcards verwendet werden.</td>
+<td>Wenn der Service Host z.B. unter <code>https://Server123.de:1234/TestServiceHost/</code> erreichbar ist, muss als Domain <code>Server123.de</code> angegeben werden.</td>
+</tr>
+</tbody>
+</table>
+<p>Wenn der Befehl ausgeführt wird, passieren mehrere Dinge:</p>
+<ol>
+<li>Ein neues Self-Signed-Zertifikat mit Public- und Private-Key wird erstellt</li>
+<li>Es wird in die Variable <code>$cert</code> gespeichert</li>
+<li>Es wird in den persönlichen Bereich des systemweiten Zertifikatspeichers geladen</li>
+</ol>
+<p>Um das Zertifikat später auf einem Port registrieren zu können, wird dessen Fingerabdruck benötigt. Durch folgenden Befehl werden die Informationen des neuen Zertifikats ausgegeben:</p>
+<pre><code class="lang-ps">$cert
+</code></pre>
+<p><strong>Beispiel:</strong></p>
+<p><img src="media/cert_powershell_2.png" alt="Zertifikat-Info ausgeben"></p>
+<p>Der Fingerabdruck ist ein 40 Zeichen langer Hex-String (rot markiert). Dieser wird später noch benötigt.</p>
+<h3 id="exportieren-des-client-zertifikats-für-andere-rechner-optional">Exportieren des Client-Zertifikats für andere Rechner (Optional)</h3>
+<p>Dieser Schritt wird nur benötigt, wenn der Service Host von einem anderen Rechner aus angesprochen werden soll. Wird der Service Host z.B. nur lokal auf einem Entwicklungsrechner benutzt, dann ist das im letzten Abschnitt neu erstellte Server-Zertifikat ausreichend.</p>
+<pre><code class="lang-ps">Export-Certificate -Cert $cert -FilePath &quot;NV324.cer&quot;
+</code></pre>
+<p><strong>Beispiel:</strong></p>
+<p><img src="media/cert_powershell_3.png" alt="Client-Zertifikat exportieren"></p>
+<p>Dieser Befehl exportiert das neue Zertifikat als Datei im angegebenen Ordner. Wird wie im Beispiel nur der Dateiname angegeben, wird das Zertifikat im aktuell von der Powershell genutzten Ordner abgelegt.</p>
+<p>Beim Export wird ausschließlich der Public-Key des Zertifikats gespeichert. Greift ein Rechner auf den Service Host zu, kann der Public-Key mit dem Private-Key des Server-Zertifikats validiert werden.</p>
+<p>Das Importieren des Client-Zertifikats wird <a href="#importieren-des-zertifikats-auf-einem-client-optional">hier</a> beschrieben.</p>
+<h3 id="verschieben-des-zertifikats-in-den-korrekten-zertifikatspeicher">Verschieben des Zertifikats in den korrekten Zertifikatspeicher</h3>
+<p>Nach dem Erstellen des Server-Zertifikats befindet sich dieses im persönlichen Bereich des systemweiten Zertifikatspeichers. Da es sich aber um ein Self-Signed-Zertifikat handelt, kann der Rechner einem solchen Zertifikat noch nicht vertrauen. Um dies zu ändern, muss das Zertifikat in den Bereich der vertrauenswürdigen Stammzertifikate verschoben werden.</p>
+<p>Dazu muss in der Powershell der Befehl <code>mmc</code> eingegeben werden. Es öffnet sich die Windows Management Console ebenfalls <strong>mit Adminrechten</strong>.</p>
+<p><img src="media/cert_mmc_blank.png" alt="Windows Management Console 1"></p>
+<p>Im Menü <code>File</code> den Eintrag <code>Add/Remove Snap-In...</code> auswählen.</p>
+<p>Danach den Eintrag <code>Certificates</code> auswählen und den Button <code>Add</code> drücken.</p>
+<p><img src="media/cert_mmc_add.png" alt="Windows Management Console 2"></p>
+<p><code>Computer account</code> auswählen.</p>
+<p><img src="media/cert_mmc_local.png" alt="Windows Management Console 3"></p>
+<p><code>Local computer</code> auswählen.</p>
+<p><img src="media/cert_mmc_move.png" alt="Zertifikat verschieben"></p>
+<p>Das im <a href="#erstellen-mit-powershell">vorherigen Abschnitt</a> erstellte Server-Zertifikat befindet sich unter <code>Certificates (Local Computer)</code> -&gt; <code>Personal</code> -&gt; <code>Certificates</code>. Dieses muss nun in den Bereich <code>Trusted Root Certification Authorities</code> -&gt; <code>Certificates</code> verschoben werden. Damit ist das Self-Signed-Zertifikat nun systemweit als vertrauenswürdig eingestuft und kann vom Service Host verwendet werden.</p>
+<h2 id="registrieren-von-ssl-zertifikaten">Registrieren von SSL-Zertifikaten</h2>
+<p>Um das Zertifikat nun nutzen zu können, muss es auf dem Port registriert werden, auf dem der Service Host zu erreichen ist. Im <a href="#fs-webservice-mit-ssl-unterst%C3%BCtzung-publishen">obigen Abschnitt</a> ist im Publish Wizard der Port 1234 angegeben.</p>
+<p>Mit folgendem Befehl kann das Zertifikat nun auf dem gewünschten Port registriert werden:</p>
+<pre><code class="lang-ps">netsh http add sslcert ipport=0.0.0.0:[PORT] certhash=[THUMBPRINT] certstorename=root
+</code></pre>
+<p><strong>Beispiel:</strong></p>
+<p><img src="media/cert_ssl_add.png" alt="Zertifikat registrieren"></p>
+<table>
+<thead>
+<tr>
+<th>Platzhalter</th>
+<th>Beschreibung</th>
+<th>Beispiele</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[PORT]</code></td>
+<td>Der Port unter dem der Service Host erreichbar ist.</td>
+<td><code>1234</code>, <code>5000</code>, <code>8888</code></td>
+</tr>
+<tr>
+<td><code>[THUMBPRINT]</code></td>
+<td>Der Fingerabdruck des Zertifikats, welcher im <a href="#erstellen-mit-powershell">Erstellprozess</a> in der Powershell ausgegeben wurde.</td>
+<td><code>BAF167BA54F5B508F0B50B2A646D1551BFD3A5C5</code></td>
+</tr>
+</tbody>
+</table>
+<p>Anschließend ist der Service Host unter seiner im Publish Wizard angegebenen HTTPS-Url im Browser ansprechbar und dem Self-Signed-Zertifikat wird vertraut.</p>
+<p><img src="media/cert_secure_service.png" alt="HTTPS Service"></p>
+<h2 id="deregistrieren-von-sll-zertifikaten">Deregistrieren von SLL-Zertifikaten</h2>
+<p>Wird ein Service Host nicht mehr genutzt oder soll ein anderes Zertifikat auf einem Port registriert werden, muss zuvor das alte Zertifikat vom Port deregistriert werden.</p>
+<p>Dies kann mit folgendem Befehl durchgeführt werden:</p>
+<pre><code class="lang-ps">netsh http delete sslcert ipport=0.0.0.0:[PORT]
+</code></pre>
+<p><img src="media/cert_ssl_delete.png" alt="Zertifikat deregistrieren"></p>
+<table>
+<thead>
+<tr>
+<th>Platzhalter</th>
+<th>Beschreibung</th>
+<th>Beispiele</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[PORT]</code></td>
+<td>Der Port unter dem der Service Host erreichbar ist.</td>
+<td><code>1234</code>, <code>5000</code>, <code>8888</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="importieren-des-zertifikats-auf-einem-client-optional">Importieren des Zertifikats auf einem Client (Optional)</h2>
+<p>Wenn der Service Host von einem anderen Rechner aus angesprochen werden soll, muss das im Abschnitt <a href="#exportieren-des-client-zertifikats-f%C3%BCr-andere-rechner-optional">Exportieren des Client-Zertifikats für andere Rechner (Optional)</a> exportierte Client-Zertifikat in den Zertifikatspeicher des Client-Rechners importiert werden.</p>
+<p><img src="media/cert_mmc_import.png" alt="Client-Zertifikat importieren"></p>
+<p>Auch hier muss wie beim Server auch darauf geachtet werden, dass das Zertifikat in den Bereich <code>Trusted Root Certification Authorities</code> -&gt; <code>Certificates</code> importiert wird. Danach kann der Service Host über <code>HTTPS</code> angesprochen werden.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

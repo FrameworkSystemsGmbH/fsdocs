@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Connection Pooling Protokoll </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Connection Pooling Protokoll ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/docs/doc/weitere-themen/connection-pooling-protokoll.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="connection-pooling-protokoll">Connection Pooling Protokoll</h1>
+
+<p>Das Connection-Pooling bietet die Möglichkeit, die Aktionen in einer Datei zu protokollieren. Damit können Probleme besser analysiert werden.</p>
+<p>Diese Protokollierung sollte nur vorrübergend eingesetzt werden, weil dadurch sehr große Datenmengen produziert werden - vor allem auf Broker mit hoher Last.</p>
+<p>Um die Protokollierung für das Connection-Pooling zu aktivieren, muss im ConnectionString die Eigenschaft <strong>FSPoolingDebugOutput</strong> ergänzt werden.</p>
+<p>Dies muss manuell nach dem Publish der Applikation erfolgen, weil diese Eigenschaft nicht im Publish-Dialog konfiguriert werden kann. Diese Angabe kann sowohl für die Runtime-Connection als auch für die <strong>Business</strong>-Connections gemacht werden.</p>
+<p>Beispiel für die Runtime-Connection:</p>
+<pre><code class="lang-xml">&lt;RuntimeDB ConnectionType=&quot;Oracle&quot; ConnectionString=&quot;Data Source=ORCLNV270;User ID=FSD35; Password=FSD35;Persist Security Info=False; Pooling=False; FSPoolingMin=5; FSPoolingMax=15; FSPoolingTimeout=60; FSPoolingDebugOutput=C:\temp\FSPool.txt; FSUseAnsiString=False&quot; /&gt;
+</code></pre>
+<p>Informationen zur Protokollierung</p>
+<pre><code class="lang-dos">2012-05-18 20:37:01.449 PID=9976    1;DB=DEV01.sysadm   Used 0  Free 0  #025EE953   CREATE Connection 1
+2012-05-18 20:37:01.454 PID=9976    1;DB=DEV01.sysadm   Used 1  Free 0  #025EE953   GET Connection 1
+2012-05-18 20:37:17.991 PID=9976    1;DB=DEV01.sysadm   Used 0  Free 1  #025EE953   FREE Connection 1
+</code></pre>
+<p>Eine Protokoll-Zeile beinhaltet die folgenden Felder:</p>
+<ul>
+<li><p>Datum/Uhrzeit</p>
+</li>
+<li><p>PID - Prozess-ID. Wichtig, wenn auf einem Rechner mehrere Anwendungen laufen, die in dieselbe Datei protokollieren</p>
+</li>
+<li><p>Pool-Information: eindeutige Nummer des Pools im Prozess; Datenbank</p>
+</li>
+<li><p>Used: Anzahl der gerade verwendeten Connections</p>
+</li>
+<li><p>Free: Anzahl der freien Connections im Pool</p>
+</li>
+<li><p>#xxxxxxxx: Eindeutige ID der Connection. Dabei handelt es sich um den HashCode des Connection-Objektes. Dieser kann dazu verwendet werden, die Aktionen einer Connection sauber zuzuordnen.</p>
+</li>
+<li><p>Aktion mit Connection-Nummer. Diese Nummer ist innerhalb des Pools eindeutig. Über diese Nummer können die Aktionen einander sauber zugeorndet werden und so z.B. analysiert werden, ob es zu einem &quot;GET Connection&quot; auch ein passendes &quot;FREE Connection&quot; oder &quot;DESTROY Connection&quot; gibt.</p>
+<ul>
+<li><p><strong>CREATE Connection 1:</strong> Eine Connection wird erzeugt. Die Information &quot;Free&quot; hängt hinterher, weil die Connection erst nach dieser Aktion in den Pool gepackt wird.</p>
+</li>
+<li><p><strong>GET Connection 1:</strong> Eine Connection wird verwendet. Wenn im Pool keine Connection zur Verfügung steht, dann wird direkt im Vorfeld eine neue Connection geöffnet (CREATE Connection)</p>
+</li>
+<li><p><strong>FREE Connection 1:</strong> Die Connection wird wieder freigegeben und steht dem Pool wieder zur Verfügung. Wenn</p>
+</li>
+<li><p><strong>DESTROY Connection 1:</strong> Die Connection wird beendet. Das passiert,</p>
+<ol>
+<li>wenn bei der Aktion FREE Connection die Anzahl der offenen Connection FSPoolingMax übersteigt, oder</li>
+<li>wenn bei einer Aktion (GET Connection oder FREE Connection) der Timeout einer freien  Connection erreicht ist.</li>
+</ol>
+</li>
+<li><p><strong>DISPOSE POOL:</strong> Der Pool wird geleert. Das passiert,</p>
+<ol>
+<li><p>wenn der Broker beendet wird, oder</p>
+</li>
+<li><p>wenn die letzte Broker-Sitzung beendet wird.</p>
+<p>Wenn bei dieser Aktion noch Connections in Verwendung sind (Used), dann wird für diese Connections der Callstack ausgegeben, mit dem sie verwendet wurden. So kann analysiert werden, wer eine Connection öffnet, sie aber nicht freigibt. Diese Connections werden nicht vom Pool geschlossen.
+Mit dieser Aktion wird der komplette Pool zurückgesetzt. Die Informationen &quot;Used&quot; und &quot;Free&quot; beginnen wieder bei 0. Das ist auch der Fall, wenn zuvor noch Connections geöffnet waren.</p>
+</li>
+</ol>
+</li>
+<li><p><strong>ESCALATION OF USED CONNECTIONS:</strong> Wenn die Anzahl der benutzten Connctions im Pool 30 übersteigt, dann werden einmalig pro Pool die momentan benutzten Connections mit den Callstacks, durch die sie geöffnet wurden, ausgegeben.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>Die einzelnen Felder sind mit Tabulator getrennt. So können Sie diese Daten sehr gut z.B. in Excel kopieren und weiter analysieren.</p>
+<p>Auf einem Rechner können mehrere Prozesse in dasselbe Protokoll schreiben, die Routine ist entsprechend abgesichert. Die Absicherung funktioniert NICHT auf Netzlaufwerken für mehrere Rechner!</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

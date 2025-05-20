@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>MLKey Migration </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="MLKey Migration ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/docs/articles/update-4-2/mlkey-migration.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="mlkey-migration">MLKey Migration</h1>
+
+<p>Ziel ist es, dass alle Texte aus den Records entfernt und in das Wörterbuch übertragen werden. Die Records erhalten dafür Verweise auf Einträge im Wörterbuch, die <strong>MLKeys</strong>.</p>
+<p>Generell teilt sich die Migration in zwei große Phasen auf:</p>
+<ol>
+<li><a href="#mlkeys-erzeugen-und-zuordnen">MLKeys erzeugen und zuordnen</a>: Diese Phase kann parallel zur Weiterentwicklung durchgeführt werden. Es werden zum Einen neue Einträge im Wörterbuch angelegt und zum Anderen vorgemerkt, wo diese später verwendet werden sollen.</li>
+<li><a href="#mlkeys-%C3%BCbertragen">MLKeys übertragen</a>: In dieser Phase werden primär die vorbereiteten Zuordnungen an die Elemente übertragen: angegebene Texte werden entfernt und statt dessen die gewünschten MLKeys eingetragen. Dazu müssen alle betroffenen Elemente ausgecheckt werden. Zusätzlich werden weitere Umstellungen (z.B. bestehende Messages und Exceptions) durchgeführt.</li>
+</ol>
+<h2 id="abwärts-kompatibilität">Abwärts-Kompatibilität</h2>
+<p>Texte, die bisher an den Records definiert sind, funktionieren auch weiterhin, weil jeder MLString neben dem MLKey explizit gesetzte Texte versteht. So kann man nach dem Update auf die Version 4.2 die Migration in aller Ruhe angehen.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In Kunden-Packages ist die Umstellung der eigenen Texte auf MLKeys empfohlen. Sie ist aber nicht zwingend notwendig.</p>
+</div>
+<p>Das hat aber langfristig einige Nachteile zur Folge - insbesondere in Hinblick auf die Mehrsprachigkeit der Anwendung:</p>
+<ul>
+<li>Der Language Export / Import funktioniert nur für das Wörterbuch. Individuelle Texte an Records werden nicht (mehr) berücksichtigt.</li>
+<li>Das Pflegen von Fremdsprachen an den Records ist sehr aufwändig. Die MLKeys aus dem Wörterbuch bringen hingegen die Übersetzungen automatisch in alle Bereiche der Anwendung.</li>
+</ul>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Funktionale Packages, die als Produkt an mehrere Kunden vertrieben werden, sollten in jedem Fall migriert werden.</p>
+</div>
+<h2 id="mlkeys-erzeugen-und-zuordnen">MLKeys erzeugen und zuordnen</h2>
+<p>Diese erste Phase der MLKey Migration dient zum Einen der Erzeugung der benötigten Einträge im Wörterbuch (MLKeys) und zum Anderen der Zuordnung, wo diese später verwendet werden sollen.</p>
+<p>Zentrales Werkzeug für diese Phase ist der Dialog <strong>Multilanguage Text Migration</strong>, welcher über das Menü <strong>Tools / Multilanguage Text Migration</strong> geöffnet werden kann.</p>
+<p><img src="media/ml-migration.png" alt="ML-Migration"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die im Grid angezeigten Sprachen und deren Reihenfolge können in den <a href="../../doc/allgemein/options.html#languages-in-designer">Options</a> mit der Einstellung <strong>Languages in designer</strong> eingestellt werden.</p>
+</div>
+<p>Alle durch den Benutzer definierten Zuordnungen werden in der Ressource <strong>Migration.xml</strong> im Verzeichnis <strong>FSGeneral/Resources/lang</strong> gespeichert, welche automatisch bei der ersten Benutzung angelegt wird.</p>
+<p>Ist diese Datei bei der Bearbeitung mit dem Multilanguage Text Migration Dialog nicht ausgecheckt, so wird beim Speichern mit dem Button <strong>Save</strong> automatisch die neueste Version ausgecheckt, die Änderungen ergänzt und anschließend sofort wieder eingecheckt. Dieses Verhalten ist dann hilfreich, wenn mehrere Benutzer gleichzeitig mit dem Multilanguage Text Migration Dialog arbeiten. Andernfalls empfiehlt es sich, die Datei vor Beginn der Arbeit auszuchecken und erst nach Beendigung der Arbeit wieder einzuchecken. So werden unnötige Checkin- und Checkout-Vorgänge vermieden.</p>
+<p>Beim Speichern werden außerdem ggf. ungespeicherte Änderungen am <a href="../../doc/mlkey/woerterbuch.html">Wörterbuch</a> gespeichert.</p>
+<h3 id="generelles-vorgehen">Generelles Vorgehen</h3>
+<p>Die zu leistende Arbeit besteht in erster Linie darin, logisch identische Begriffe zusammenzuführen und logisch unterschiedliche Begriffe, die ggf. in einzelnen Sprachen Überlappungen mit anderen Begriffen haben, zu trennen.</p>
+<p>Beispiel:</p>
+<p>Die Begriffe <em>Suche mit SQL</em>, <em>Suchen mit SQL</em>, <em>SQL Suche</em>, <em>SQL-Suche</em>, <em>Suchen SQL</em>, <em>Sql Suche</em> und weitere Varianten sollten zu einem einzigen Eintrag zusammengefasst werden.</p>
+<h4 id="1-load-data">(1) Load Data</h4>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Zunächst sollten Tooltips außen vor gelassen werden. Dazu darf die Checkbox <strong>Include Tooltips</strong> <strong>NICHT gesetzt</strong> sein, wenn mit dem Button <strong>Load Data</strong> alle im Package angegebenen Texte eingelesen werden.
+Erst wenn allen Texten ein MLKey zugeordnet wurde, werden die im Folgenden beschriebenen Schritte nach dem erneuten Laden der Daten <strong>inklusive Tooltips</strong> ein zweites Mal durchgeführt.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Wenn durch ein Basis-Package bereits Einträge im Wörterbuch existieren, so wird Framework Studio nach dem Laden automatisch einem mehrsprachigen Text aus dem Custom-Package den MLKey zuweisen, der mindestens in den angegebenen Sprachen die Texte in exakt der Schreibweise enthält.</p>
+</div>
+<p>Die mit dem Button <strong>Load Data</strong> eingelesenen Texte werden in einer Tabelle angezeigt. Die einzelnen Spalten haben folgende Bedeutung:</p>
+<ul>
+<li><strong>Record</strong>: Name des Elements, an dem der Text angegeben ist, z.B. <em>frmArticle</em>.</li>
+<li><strong>Element</strong>: Name des Unterelements, an dem der Text angegeben ist, z.B. <em>edtsName</em>.</li>
+<li><strong>Type</strong>: Typ des Unterelements, z.B. <em>FormControl</em>.</li>
+<li><strong>Property</strong>: Eigenschaft, an der der Text angegeben ist, z.B. <em>Caption</em>.</li>
+<li><strong>MLKey</strong>: Der MLKey, welcher zugeordnet werden soll, z.B. <em>LBL_Name</em>.</li>
+<li><strong>{Sprachen...}</strong>, z.B. <strong>German</strong>, <strong>English</strong> usw.: Der Text, welcher in der jeweiligen Sprache angegeben ist, z.B. <em>Name</em>.</li>
+</ul>
+<p>Die Spalten können durch anklicken der Spaltenüberschrift sortiert werden. Meist wird man nach deutschem Text sortiert arbeiten.</p>
+<p>Ein Doppelklick in die Spalten <strong>Record</strong> oder <strong>Element</strong> öffnet das Designerfenster für das Element und springt soweit möglich zum Unterelement. In allen anderen Spalten wird beim Doppelklick der Text der Zelle als Filterkriterium in das Feld <strong>Search:</strong> gesetzt.</p>
+<p>Für die Filterfunktion mit dem Feld <strong>Search:</strong> gelten folgende Regeln:</p>
+<ul>
+<li>Groß-Kleinschreibung wird ignoriert</li>
+<li>Es wird in allen Spalten gesucht</li>
+<li>Es werden nur die Zeilen angezeigt, die ALLE der durch ein Leerzeichen getrennten Buchstabenfolgen enthalten</li>
+<li>In Anführungsstriche <strong>&quot;</strong> gekapselte Buchstabenfolgen müssen genau so in der Zeile enthalten sein, damit diese angezeigt wird</li>
+</ul>
+<p>Beispiel:
+Die Suche nach <code>LBL_Quantity &quot; geliefert&quot;</code> zeigt nur die Zeilen an, welche <em>geliefert</em> mit einem führenden Leerzeichen und <em>LBL_Quantity</em> in irgendeiner Spalte enthalten.</p>
+<h4 id="2-auto-create-mlkeys">(2) Auto Create MLKeys</h4>
+<p>Nach dem Einlesen der Daten (zunächst ohne Tooltips, siehe <a href="#1-load-data">Load Data</a>) sollten einmalig mit dem Button <strong>Auto Create MLKeys</strong> alle automatisch erzeugbaren MLKeys in das Wörterbuch eingefügt werden. Automatisch erzeugt werden MLKeys dann, wenn es zu gleichen Texten in einer Sprachen keine abweichenden Texte in anderen Sprachen gibt.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Framework Studio weist danach automatisch den Zeilen einen MLKey zu, die nur Texte enthalten, welche zu einem MLKey aus dem Wörterbuch keinen Wiederspruch aufweisen.</p>
+</div>
+<h4 id="3-manuelle-zuweisungen">(3) Manuelle Zuweisungen</h4>
+<p>Ist die Checkbox <strong>Show only missing keys</strong> gesetzt, so wird die Anzeige aller Texte in der Tabelle auf die Einträge reduziert, welchen bisher noch kein MLKey zugewiesen wurde - die noch zu bearbeitenden Einträge.</p>
+<p>Im unteren Bereich des Multilanguage Migration Dialogs werden im Bereich <strong>Details</strong> zum aktuell in der Tabelle selektierten Eintrag alle Eigenschaften angezeigt. Ist bereits ein MLKey zugewiesen, werden die Texte des MLKeys in der Tabellenspalte <strong>In MLKey</strong> angezeigt.</p>
+<p>In der oberen Tabelle können auch mehrere Zeilen gleichzeitig ausgewählt werden. So kann mehreren Zeilen gleichzeitig ein MLKey zugewiesen werden. Für die Zuweisung stehen mehrere Optionen zur Verfügung:</p>
+<ul>
+<li>Mit dem Button <img src="media/btn-search-mlkey.png" alt="Lupe"> im Bereich <strong>Details</strong> kann ein bereits existierender MLKey ausgewählt werden, siehe <a href="../../doc/mlkey/woerterbuch.html#multilanguage-text-editor">Multilanguage Text Editor</a>, insbesondere <a href="../../doc/mlkey/woerterbuch.html#suchen-von-mlkeys">Suchen von MLKeys</a>.</li>
+<li>Wurde bereits ein MLKey zugewiesen, so wird ein weiterer Button <strong>Set ...</strong> angeboten, mit dem der zuletzt zugewiesene MLKey den aktuell selektierten Zeilen zugewiesen werden kann.</li>
+<li>Mit dem Button <img src="media/btn-add-mlkey.png" alt="Add"> im Bereich <strong>Details</strong> kann ein neuer MLKey  (basierend auf den selektierten Zeilen) erzeugt werden.</li>
+</ul>
+<p>Wenn beim Erzeugen eines neuen MLKeys mehrere Zeilen ausgewählt wurden und diese in einzelnen Sprachen abweichende Texte enthalten, so wird pro Sprache bei Bedarf der folgende Dialog geöffnet:</p>
+<p><img src="media/select-text.png" alt="ML-Migration"></p>
+<p>In diesem werden alle Varianten, sortiert nach Häufigkeit absteigend, aufgeführt. Durch Selektion und Bestätigung mit dem Button <strong>OK</strong> oder durch Doppelklick wird die Auswahl als Vorbelegung für den neuen MLKey verwendet (siehe <a href="../../doc/mlkey/woerterbuch.html#erfassen-neuer-mlkeys">Erfassen neuer MLKeys</a>).</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Bei der Zuweisung und Erzeugung von MLKeys sind die <a href="../../doc/mlkey/enventa-regeln.html">eNVenta Regeln für MLKeys</a> zu beachten.</p>
+</div>
+<p>Mit dem Button <strong>Rename MLKey</strong> ist es im Rahmen der Migration möglich, einen bestehenden MLKey umzubenennen. Alle manuellen Zuordnungen dieses MLKeys werden automatisch angepasst.</p>
+<h4 id="4-bereinigungen">(4) Bereinigungen</h4>
+<p>Im Wörterbuch werden sich durch die vorangegangenen Schritte (z.B. durch die von Framework Studio automatisch generierten MLKeys) einige Unsauberkeiten eingeschlichen haben. Daher sind die folgenden Maßnahmen empfehlenswert:</p>
+<p>Maßnahmen im Wörterbuch:</p>
+<ul>
+<li>Sortierung nach MLKey: Folgen aufeinander logisch identische Begriffe?</li>
+<li>Suche Nach <code>_1</code>, <code>_2</code>, <code>_3</code> usw: Sind diese Varianten nötig oder sollten anders benannt werden?</li>
+<li>Sortierung nach deutschem Text: Folgen aufeinander logisch identische Begriffe? In Custom-Packages sind dabei nur die MLKeys aus dem eigenen Package (zu erkennen an der Fettschreibung) und ihre Vorgänger und Nachfolger interessant.</li>
+</ul>
+<p>Außerdem können im Multilanguage Text Migration Dialog mit dem Button <strong>Find unused MLKeys</strong> alle MLKeys aus dem eigenen Package aufgelistet werden, welche im Wörterbuch existieren, jedoch nirgendwo zugeordnet sind. Diese gilt es, kritisch zu prüfen.</p>
+<h4 id="5-abschluss-phase-1">(5) Abschluss Phase 1</h4>
+<p>Wurden die vorigen Schritte (zunächst ohne Tooltips, danach mit Tooltips) abgeschlossen, so kann nun mit Phase 2 (<a href="#mlkeys-%C3%BCbertragen">MLKeys übertragen</a>) fortgefahren werden.</p>
+<h3 id="mlkeys-in-custom-packages">MLKeys in Custom-Packages</h3>
+<p>Im Customizing kann man grundsätzlich 2 verschiedene Arten von <strong>überschriebenen</strong> Texten unterscheiden:</p>
+<ol>
+<li><p>Texte, die eine ganz neue Bedeutung haben.</p>
+<p>Wenn z.B. ein relativ allgemeiner Metadatentyp in einem Component-Property verwendet wird, wird dort am Default-Label ein neuer Text formuliert.</p>
+<p>In diesen Fällen sollte auf jeden Fall ein entsprechender (ggf. neuer) MLKey zugeordnet werden.</p>
+</li>
+<li><p>Ändern eines bestehenden Textes.</p>
+<p>Es wird z.B. ein Metadatentyp customized und das Default-Label geändert - aus dem Begriff &quot;Angebot&quot; wird z.B. &quot;Offerte&quot;. Die Bedeutung bleibt aber dieselbe.</p>
+<p>In solchen Fällen gilt es zu prüfen, ob es evtl. ratsam ist, diese Änderung direkt im Wörterbuch vorzunehmen. So zieht diese für die gesamte Anwendung. Bei der Migration weist man dann diesen Einträgen den existierenden MLKey zu - auch wenn er identisch mit dem bereits zugeordneten MLKey aus dem Basis-Package sein sollte. In einem späteren Schritt der Migration wird eine redundante Zuordnung dann automatisch eliminiert.</p>
+</li>
+</ol>
+<h2 id="mlkeys-übertragen">MLKeys übertragen</h2>
+<p>Ist das Wörterbuch komplett vorbereitet (siehe <a href="#mlkeys-erzeugen-und-zuordnen">MLKeys erzeugen und zuordnen</a>), ist es an der Zeit, die MLKeys in die Records zu übertragen.</p>
+<p>In diesem Schritt werden alle Aktionen ausgeführt, die einen Checkout der Records zur Folge haben. So wird die ggf. erhebliche Menge an Checkouts auf das nötigste reduziert.</p>
+<h3 id="1-als-fcuser-anmelden">(1) Als FCUser anmelden</h3>
+<p>Weil nach der Konvertierung sehr viel kompiliert werden muss, ist es empfehlenswert als <strong>FCUser</strong> zu arbeiten. So kann direkt nach dem Kompilieren der <strong>Complete Framework Compiler</strong> aufgerufen werden und es ist kein zusätzlicher FrameworkCompiler nötig.</p>
+<ul>
+<li>Mit dem Benutzer FrameworkCompiler anmelden - mit Refresh Workspace. Get DLLs ist nicht notwendig.</li>
+<li>Framework Studio direkt wieder beenden.</li>
+<li>Jetzt als FCUser anmelden - mit Refresh Workspace. Das übernimmt den Workspace vom Benutzer FrameworkCompiler.</li>
+</ul>
+<h3 id="2-apply-mlkeys">(2) Apply MLKeys</h3>
+<p>Im Fenster <strong>Multilanguage Text Migration</strong>  mit dem Button <strong>Load Data</strong> (inkl. den Tooltips) alle Daten einlesen. Es sollte jetzt keine offenen Zuordnungen mehr geben - wenn man die Checkbox <strong>Show only missing keys</strong> setzt, dürfen keine Einträge angezeigt werden.</p>
+<p>Mit dem Button <strong>Apply MLKeys</strong> wird die Routine gestartet. Es werden alle zugeordneten MLKeys an die entsprechenden Properties der Records übertragen. Dabei werden ALLE in den jeweiligen Sprachen gesetzten Texte aus den Records entfernt. Somit ziehen ab diesem Zeitpunkt die Texte nur noch aus dem Wörterbuch.</p>
+<h3 id="3-convert-messages">(3) Convert Messages</h3>
+<p>Mit dem Button <strong>Convert Messages</strong> im Fenster <strong>Multilangage Text Migration</strong> wird die Routine gestartet. Für diese Routine müssen keine Daten eingelesen werden - das gilt auch, wenn sie zu einem späteren Zeitpunkt erneut gestartet wird.</p>
+<p>Es werden alle Methoden-Codes analysiert und nach Exceptions- und MessageBox-Aufrufen gesucht. Diese werden in das neue Message-Format umgewandelt und die Verweise auf die Text-Collections werden durch den entsprechenden MLKey ersetzt.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Die Routine <strong>Apply MLKeys</strong> muss zuvor ausgeführt worden sein, damit die Message-TextCollections sauber zugeordnete MLKeys besitzen.</p>
+</div>
+<p>Alter Exception-Code vor der Konvertierung:</p>
+<pre><code class="lang-csharp">#region Required for Exception Editor support. Do not modify manually.
+//Component type is required.
+//Severity: 0 ; Buttons: OK; Icon:Error
+throw new FrameworkApplicationException (String.Format(FSGeneral.ctMessagesFactory.Get(this.Global,3550).Value[Global.SelectedLanguage],new object []{}),0 );
+//&lt;ExceptionEditor TextColl=&quot;Messages&quot; ID =&quot;832e0e50c2b748068ba38a2c4422aaab&quot; Severity=&quot;0&quot; EHID=&quot;&quot;  &gt;&lt;/ExceptionEditor&gt;
+#endregion End of generated section
+</code></pre>
+<p>Neuer Exception-Code nach der Konvertierung:</p>
+<pre><code class="lang-csharp">// FSCodeMessage: Component type is required.
+throw new FrameworkApplicationException(MLUtil.GetMLKeyText(MLKeys.MSG_445559f2ca44452e8d49ca9515b3a83e), 0);
+</code></pre>
+<p>Es ist relativ wahrscheinlich, dass Warnings oder sogar Errors ausgegeben werden. Diese können erst einmal ignoriert werden. Es handelt sich dabei um inhaltliche Probleme und nicht um Compile-Errors. Die <strong>Convert Code Messages</strong> Routine kann zu einem späteren Zeitpunkt erneut ausgeführt und diese Probleme dann behoben werden.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Damit sind die Message-Text-Collections jetzt obsolete.
+Sie dürfen aber nicht gelöscht oder geleert werden, weil sie ggf. noch von Customizing-Packages referenziert werden.</p>
+</div>
+<h3 id="4-mlstrings-cleanup">(4) MLStrings Cleanup</h3>
+<p>Nachdem alle MLKeys übertragen wurden, können jetzt noch einige Bereinigungen durchgeführt werden.</p>
+<p>Über das Menü <strong>Tools / Checks / MLStrings Cleanup</strong> kann das Cleanup-Fenster geöffnet werden.</p>
+<p>Dort stehen mehrere Routinen zur Auswahl. Diese sollten einer nach der anderen ausgeführt werden. Dabei ist es ratsam zuerst den Button <strong>Analyze</strong> zu benutzen. Erst nach der Sichtung der Infos und Warnings wird die Routine mit dem Button <strong>Cleanup</strong> ausgeführt.</p>
+<ol>
+<li><p><strong>Clean MLKeys</strong></p>
+<p>Wird in einem Record (z.B. DBColumn, Form-Control) der MLKey mit demselben Wert überschrieben, wie er in der Basis (z.B. Metadatentyp, Basis-Package) definiert ist, dann wird diese Überschreibung entfernt.</p>
+</li>
+<li><p><strong>Transfer translations</strong></p>
+<p>Wurden trotz vererbtem MLKey Übersetzungen nur an Records gepflegt, dann wurden diese mit der Migration ggf. nicht in das Wörterbuch übertragen. Das wird mit dieser Routine nachgeholt.</p>
+<p>Wird an einem Record, der einen MLKey besitzt, eine Übersetzung gefunden und das Wörterbuch kennt diese noch nicht, wird diese in das Wörterbuch übertragen und der Text vom Record entfernt.</p>
+<p>Dabei gewinnt pro MLKey der erste Record. Wird ein weiterer Record mit gleichem MLKey aber einer anderen Übersetzung gefunden, dann wird dieser als Warning ausgegeben. Beim Cleanup verbleibt dieser Text am Record. Bei einem weiteren Lauf würde dieser Record mit der Routine Clean individual texts gefunden werden.</p>
+</li>
+<li><p><strong>Clean individual texts</strong></p>
+<p>Die MLKey-Migration berücksichtigt nur Texte, die mindestens in Deutsch und Englisch gepflegt sind. Sind an einem Record nur andere Sprachen definiert, dann wird dieser Text nicht migriert. Oftmals erben diese Records schon einen Text aus der Basis und es sind nur einige Übersetzungen gepflegt. Diese sollen hier bereinigt werden.</p>
+<p>Es werden Texte, die identisch mit dem Wörterbuch sind, entfernt. Vom Wörterbuch abweichende Texte werden als Warning ausgegeben und NICHT entfernt. Diese müssen in einem weiteren Schritt bearbeitet werden.</p>
+</li>
+<li><p><strong>Warnings bearbeiten</strong></p>
+<p>Jetzt müssen die aufgetretenen Warnings begutachtet und ggf. manuell bearbeitet werden.</p>
+</li>
+<li><p><strong>Clean individual texts</strong> mit <strong>Remove different</strong></p>
+<p>Wurden im vorherigen Schritt die Warnings begutachtet, können mit dieser Aktion alle abweichenden Texte entfernt werden.</p>
+</li>
+</ol>
+<h3 id="5-compile-und-checkin">(5) Compile und CheckIn</h3>
+<p>Jetzt müssen alle Änderungen compiliert werden. Menü <strong>Compile / Compile Changes</strong>.</p>
+<p>Nachdem der Compiler erfolgreich beendet wurde, werden alle Elemente eingecheckt. Dabei sollte ein CheckIn-Kommentar z.B. <code>MLKey Migration</code> angegeben werden.</p>
+<p>Zum Abschluss noch über den Compile-Manager den Button <strong>Complete Framework Compiler</strong> aufrufen.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>SQL-Grammatik </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="SQL-Grammatik ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/docs/doc/sql/grammatik.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="sql-grammatik">SQL-Grammatik</h1>
+
+<p>Im Folgenden ist die Grammatik beschrieben, die vom Framework Studio SQL-Parser verstanden wird. Alle an die Datenbank geschickten Befehle müssen dieser Grammatik genügen, ansonsten kommt es zu SqlParser-Exceptions.</p>
+<h2 id="grammatik-für-sql-kommandos">Grammatik für SQL-Kommandos</h2>
+<h4 id="select"><code>&lt;select&gt;</code></h4>
+<pre><code class="lang-sql">SELECT [DISTINCT] { * | &lt;resultColumn&gt;[,…n] }
+FROM { &lt;singleSource&gt; | &lt;joinSource&gt; }
+[ WHERE &lt;condition&gt; ]
+[ GROUP BY &lt;value&gt;[,…n] [HAVING &lt;condition&gt;]]
+[ {UNION [ALL] | INTERSECT | EXCEPT} &lt;select(ohne orderby)&gt; ]
+[ ORDER BY &lt;orderColumn&gt;[,…n] ]
+[ OFFSET &lt;integerValue&gt; ]
+[ LIMIT &lt;integerValue&gt; ]
+</code></pre>
+<h4 id="insert"><code>&lt;insert&gt;</code></h4>
+<pre><code class="lang-sql">INSERT INTO &lt;identifierChain&gt; ( &lt;identifier&gt;[,…n] )
+{
+    VALUES ( &lt;value&gt;[,…n] )
+| &lt;select&gt;
+}
+</code></pre>
+<h4 id="update"><code>&lt;update&gt;</code></h4>
+<pre><code class="lang-sql">UPDATE &lt;identifierChain&gt;
+SET {&lt;identifierChain&gt; = &lt;value&gt; } [,…n]
+[ WHERE &lt;condition&gt; ]
+</code></pre>
+<h4 id="delete"><code>&lt;delete&gt;</code></h4>
+<pre><code class="lang-sql">DELETE [FROM] &lt;identifierChain&gt;
+[ WHERE &lt;condition&gt; ]
+</code></pre>
+<h3 id="withquery"><code>&lt;withQuery&gt;</code></h3>
+<pre><code class="lang-sql">WITH &lt;identifier&gt; AS ( &lt;select(ohne orderby)&gt; ) [,…n]
+&lt;select&gt;
+</code></pre>
+<h2 id="grammatik-für-die-bestandteile-der-kommandos">Grammatik für die Bestandteile der Kommandos</h2>
+<h4 id="resultcolumn"><code>&lt;resultColumn&gt;</code></h4>
+<pre><code class="lang-sql">&lt;identifierChain&gt;.*
+    | &lt;value&gt; [AS &lt;identifier&gt;]
+</code></pre>
+<h4 id="singlesource"><code>&lt;singleSource&gt;</code></h4>
+<pre><code class="lang-sql">( &lt;singleSource&gt; )
+| &lt;identifierChain&gt; [ [AS] &lt;identifier&gt; ]
+</code></pre>
+<h4 id="joinsource"><code>&lt;joinSource&gt;</code></h4>
+<pre><code class="lang-sql">( &lt;joinSource&gt; )
+
+| { &lt;singleSource&gt; | &lt;joinSource&gt; }
+{ INNER | {LEFT | RIGHT | FULL} [OUTER] } JOIN
+{ &lt;singleSource&gt; | &lt;joinSource&gt; } ON &lt;condition&gt;
+</code></pre>
+<h4 id="condition"><code>&lt;condition&gt;</code></h4>
+<pre><code class="lang-sql">( &lt;condition&gt; )
+| NOT &lt;condition&gt;
+| &lt;condition&gt; {{ AND | OR } &lt;condition&gt;}[,…n]
+| &lt;value&gt; &lt;predicate2&gt;
+| EXISTS ( &lt;select&gt; )
+</code></pre>
+<h4 id="predicate2"><code>&lt;predicate2&gt;</code></h4>
+<pre><code class="lang-sql">{ = | != | &lt; | &lt;= | &gt; | &gt;= } &lt;value&gt;
+| IS [NOT] NULL
+| BETWEEN &lt;value&gt; AND &lt;value&gt;
+| IN ( &lt;select&gt; | &lt;value&gt; [,…n] )
+| LIKE &lt;value&gt;
+| LIKEESCAPE &lt;value&gt;
+</code></pre>
+<h4 id="value"><code>&lt;value&gt;</code></h4>
+<pre><code class="lang-sql">NULL
+| ( &lt;value&gt; )
+| { - | + } &lt;value&gt;
+| &lt;value&gt; { + | - | * | / | “||” } &lt;value&gt;
+| &lt;identifierChain&gt;
+| [&lt;identifierChain&gt;.] &lt;FunktionsName&gt; ( [ &lt;value&gt; [,…n] ] )
+| &lt;searchedCaseWhen&gt;
+| &lt;simpleCaseWhen&gt;
+| &quot;[[&quot; &lt;natives sql fragment&gt; &quot;]]&quot;
+| &lt;stringLiteral&gt;
+| &lt;integerValue&gt;
+| &lt;decimalValue&gt;
+</code></pre>
+<h4 id="searchedcasewhen"><code>&lt;searchedCaseWhen&gt;</code></h4>
+<pre><code class="lang-sql">CASE {WHEN &lt;condition&gt; THEN &lt;value&gt;}[,…n]
+[ ELSE &lt;value&gt; ] END
+&lt;simpleCaseWhen&gt;
+CASE &lt;value&gt;
+{WHEN {&lt;predicate2&gt; | &lt;value&gt;} THEN &lt;value&gt;}[,…n]
+[ ELSE &lt;value&gt; ] END
+</code></pre>
+<h4 id="ordercolumn"><code>&lt;orderColumn&gt;</code></h4>
+<pre><code class="lang-sql">&lt;value&gt; [ASC | DESC]
+</code></pre>
+<h4 id="identifierchain"><code>&lt;identifierChain&gt;</code></h4>
+<pre><code class="lang-sql">&lt;identifier&gt;[.&lt;identifier&gt;][,…n]
+</code></pre>
+<h4 id="identifier"><code>&lt;identifier&gt;</code></h4>
+<pre><code class="lang-sql">&quot;[&quot; &lt;beliebige Zeichenfolge&gt; &quot;]&quot;
+| &lt;Wort, mit einem Buchstaben beginnend&gt;
+</code></pre>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

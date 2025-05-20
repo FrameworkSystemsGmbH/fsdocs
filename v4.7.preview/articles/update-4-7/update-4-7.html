@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Update auf Version 4.7 </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Update auf Version 4.7 ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/docs/articles/update-4-7/update-4-7.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="update-auf-version-47">Update auf Version 4.7</h1>
+
+<p>Dieser Leitfaden stellt dar, wie ein Update auf die Version 4.7 durchgeführt wird.</p>
+<h2 id="update-der-lizenzdatenbank">Update der Lizenzdatenbank</h2>
+<p>Bei der Anmeldung an einem Repository in FS 4.7 kommt die Meldung, dass die Lizenzdatenbank upgedated werden muss.
+Dieses notwendige Update begründet sich in unserer Lizenzumstellung (<a href="../neuheiten-4-7.html#neue-fs-lizenz">siehe Neuheiten</a>).
+Nach dem Upgrade der Lizenzdatenbank kommt bei dem Versuch einer Anmeldung an einem Package die Meldung, dass die Lizenz nicht valide ist.
+Aus diesem Grund muss mit Hilfe der FrameworkStudioAdministration eine neue FS-Lizenz eingespielt werden, welche von uns bereitgestellt wird.
+Die neu benötigte Lizenz hat die Dateiendung <code>.fslx</code>.</p>
+<h2 id="update-einer-package-version">Update einer Package-Version</h2>
+<p>Für das Update einer Package-Version arbeiten Sie bitte die folgende Anleitung durch.</p>
+<ul>
+<li>Package-Manager 4.7 starten und an Repository anmelden</li>
+<li>Die Checkbox <strong>Show only applicable packages</strong> abhaken, weil die Package-Version noch nicht die Version 4.7 hat.</li>
+<li>Die gewünschte Package Version öffnen und den Button <strong>Lock</strong> drücken</li>
+<li>Mit dem Button <strong>Upgrade</strong> die Package-Version auf 4.7 upgraden</li>
+<li>In der Using-Hierarchy passende Version für die Basis-Packages auswählen</li>
+<li>Button <strong>UnLock</strong> drücken, um die Package-Version wieder freizugeben</li>
+</ul>
+<p>Compile-Wizard macht in der Regel keinen Sinn, weil es aufgrund der vielen Änderungen sowieso zu Compile-Fehlern kommen wird.
+Stattdessen wird jetzt mit dem FCUser weitergearbeitet.</p>
+<ul>
+<li>IDE starten und mit dem <a href="../../doc/package-manager/manage-useres.html#fcuser-frameworkcompiler-mode">FCUser</a> an der Package-Version anmelden. Die Checkbox <strong>Maintenance-Mode</strong> anhaken - <strong>Get Latest Version</strong> und <strong>Get Dlls sollten</strong> sollten angehakt sein.</li>
+<li>Nacheinander die folgenden Maintenance-Routinen ausführen
+<ol>
+<li>Menüpunkt <strong>Update</strong> / <strong>FS 4.7</strong> / <a href="../../doc/maintenance/namespace-cleanup.html"><strong>(1) Namespace CleanUp</strong></a></li>
+<li>Menüpunkt <strong>Update</strong> / <strong>FS 4.7</strong> / <a href="../../doc/maintenance/msgboxshow-cleanup.html"><strong>(2) MsgBox.Show() Cleanup</strong></a></li>
+<li>Menüpunkt <strong>Update</strong> / <strong>FS 4.7</strong> / <a href="../../doc/maintenance/remove-global-cleanup.html"><strong>(3) Remove Global Cleanup</strong></a></li>
+</ol>
+</li>
+<li>Menü Compile / Compile-Manager öffnen und alles kompilieren. Wenn dabei Fehler auftreten, diese korrigieren und anschließend weiter kompilieren.</li>
+</ul>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Es kann ggf. eine große Anzahl von neuen Warnings geben.
+Diese müssen jetzt oder zu einem späteren Zeitpunkt manuell nachgearbeitet werden.
+Nähere Details dazu finden Sie in den Beschreibungen der oben aufgeführten Cleanup-Routinen.</p>
+</div>
+<ul>
+<li>Über die Checked-Out-Suche alles einchecken - Check-In-Kommentare sind durch die Maintenance-Routinen bereits gefüllt.</li>
+<li>Im Compile-Manager den Button <strong>Complete FrameworkCompiler</strong> drücken. Die IDE schließt sich im Anschluss.</li>
+</ul>
+<p>Die Package-Version ist jetzt komplett upgedated und kompiliert.
+Bei Bedarf kann jetzt das nächste Package upgedatet werden.</p>
+<p>Zum Abschluss ist es empfehlenswert für alle upgedateten Package-Versionen noch einmal den Compile-Wizard über den Package-Manager auszuführen.
+So werden bei der ersten Benutzer-Anmeldung keine unnötigen Compiles ausgeführt.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

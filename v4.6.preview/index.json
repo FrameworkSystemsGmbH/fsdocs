@@ -6563,5 +6563,25 @@
     "href": "index.html",
     "title": "Framework Studio 4.6",
     "keywords": "Framework Studio 4.6 Andere Versionen können hier aufgerufen werden. Diese Seite gliedert sich in folgende Teile, die über die Navigation im oberen Bereich aufgerufen werden können: 1.) Framework Studio 4.6 Hier finden sie Neuheiten, Release-Listen, aktuelle Informationen und Systemvorrausetzungen 2.) Technische Dokumentation Alle Dokumentationen und Anleitungen für die Framework Studio IDE, Programmier-Themen und andere Programme. 3.) Api-Dokumentation Umfasst eine generierte Dokumentation der von Framework Studio bereitgestellten Klassen und Schnittstellen."
+  },
+  "intern/alerts.html": {
+    "href": "intern/alerts.html",
+    "title": "Alerts",
+    "keywords": "Alerts Wir verwenden verschiedene Alert-Boxen, um wichtige Inhalte hervorzuheben. TIP Tip Optional information to help a user be more successful NOTE Note Information the user should notice even if skimming IMPORTANT Important Essential information required for user success WARNING Warning Dangerous certain consequences of an action CAUTION Caution Negative potential consequences of an action In Liste eingebettet Hier ist ein Beispiel für eine Release-Liste. Dort werden z.B. NOTEs eingebaut. 0815: IDE - Es gab einen Fehler. und eine 2. Zeile Note Diese Box in eingerückt. Sie sollte hier korrekt platziert sein. Innerhalb einer Box gehen auch Listen wie man hier sieht. noch ein Punkt Tip Auch ein Code-Block kann in so einer Box eingebettet sein: // Ein String string s = \"Hallo\";"
+  },
+  "intern/code.html": {
+    "href": "intern/code.html",
+    "title": "Code",
+    "keywords": "Code Im Text inline Code. Platziert als Link auf eine andere Seite. C-Sharp public static class Extensions { /// <summary> /// Gibt zurück, ob die PropertyChangedEventArgs zum übergebenen Property passen. /// Das ist der Fall, wenn der PropertyName identisch ist oder wenn in den EventArgs kein Property-Name angegeben ist. /// </summary> /// <param name=\"propertyName\">Der zu prüfende Propery-Name.</param> [DocfxBrowsable] public static bool IsProperty(this PropertyChangedEventArgs args, string propertyName) { // Ein Kommentar im Code return string.IsNullOrEmpty(args?.PropertyName) || args.PropertyName == propertyName; } } Sql -- Sql-Server: UPDATE dbRun_MLStrings SET ML_SearchText = LEFT(ML_Text, 200); -- Oracle: UPDATE dbRun_MLStrings SET ML_SearchText = SUBSTR(ML_Text, 1, 200);"
+  },
+  "intern/index.html": {
+    "href": "intern/index.html",
+    "title": "Playground",
+    "keywords": "Playground Diese versteckte Seite demonstriert ein paar Beispiele, was die Doku alles kann. Beim Update auf eine neue docfx-Version können so ganz schnell alle Features getestet werden. Images Einbinden eines SVG-Bildes, welches mit Drawio erstellt wurde: Fussnoten 1 Und wenn man mal mehr Punkte hat, dann kann man auch sprechende Namen 2 verwenden. Es können auch ganz normal Nummern 3 verwendet werden. Die Fussnoten werden an das Ende der jeweiligen Seite gelistet. Man gelangt mit einem Klick auf die Note dorthin. Überschriften Ebene 1 hier steht ein Text Ebene 2 hier steht ein Text Ebene 3 hier steht ein Text Ebene 4 Die Überschrift der Ebene 4 kann auch frei verwendet werden - wie z.B. in den Release-Listen. Ebene 5 Es gibt die Ebene 5, diese wird aber so gut wie nie verwendet. Listen Listen mit Boppeln am Anfang. Ebene 1 Ebene 1 Ebene 2 Ebene 2 Ebene 3 Ebene 3 Ebene 4 Ebene 4 Ebene 5 Ebene 5 Man kann das auch mit Nummern schreiben. Ebene 1 Ebene 1 Ebene 2 Ebene 2 Ebene 3 Ebene 3 Ebene 4 Ebene 4 Ebene 5 Ebene 5 können theoretisch auch in der Überschrift platziert werden. Die Nummer taucht aber rechts in der Topic-Liste auf :-(.↩ heiß eigentlich [^blub] wird aber automatisch nummeriert.↩ Das ist im Code die Nummer [^2].↩"
+  },
+  "intern/preview-sql.html": {
+    "href": "intern/preview-sql.html",
+    "title": "Preview SQL",
+    "keywords": "Preview SQL Um sich an einem Package mit der Preview Version von Framework Studio anmelden zu können, muss folgendes Skript im Framework Studio Repository ausgeführt werden: Spalte hinzufügen ALTER TABLE tblRep_Label ADD Lbl_AllowPreview char(1) NULL; AllowPreview Wert setzen Allgemeines SQL Skript UPDATE tblRep_Label SET Lbl_AllowPreview = 1 WHERE Lbl_ID = 'VERSION ID aus PackageManager' SQL Skript für FSDemo/FSDemoCustomize UPDATE tblRep_Label SET Lbl_AllowPreview = 1 WHERE Lbl_ID = 'b9bef8c2ecf44271b126cf2478212000' OR '02fd3df9807a4f3b81f31a2f4d2232ca'"
   }
 }

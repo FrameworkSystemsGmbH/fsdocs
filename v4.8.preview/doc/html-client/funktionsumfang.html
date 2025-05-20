@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Funktionsumfang </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Funktionsumfang ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/docs/doc/html-client/funktionsumfang.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="funktionsumfang">Funktionsumfang</h1>
+
+<p>Der HTML-Client befindet sich noch in der agilen Entwicklung. Verglichen mit dem ausgereiften JavaClient ist der Funktionsumfang des HTML-Clients noch überschaubar. Neue Funktionen und die Unterstützung für weitere Controls werden kontinuierlich weiter entwickelt und veröffentlicht.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Wird in diesem Kapitel etwas nicht erwähnt, wie z.B. ein Property eines Controls, eine Action oder andere Client-Funktionalitäten, so muss davon ausgegangen werden, dass diese noch nicht unterstützt werden.</p>
+</div>
+<h2 id="handhabung-von-nicht-unterstützten-funktionalitäten">Handhabung von nicht unterstützten Funktionalitäten</h2>
+<p>Es gibt im Form Designer oder im Code Editor von Framework Studio keine Limitierungen, die den Entwickler auf den Funktionsumfang des HTML-Clients einschränken. Werden Controls, Actions oder anderweitige Funktionalitäten genutzt, die vom HTML-Client nicht unterstützt werden, so werden diese (so weit es möglich ist) vom Client ignoriert. Wenn z.B. ein Grid-Control in ein Form eingebaut wird, so wird dieses erst garnicht vom HTML-Client interpretiert. Dasselbe gilt für nicht unterstützte Properties an Controls.</p>
+<h2 id="frameset">Frameset</h2>
+<p>Der HTML-Client besitzt kein Frameset. Alle geöffneten Forms werden in einer einzigen Liste organisiert. Es ist irrelevant, welchem Frame ein Form in einem Workflow zugeordnet ist.</p>
+<h2 id="messagebox-und-exceptionbox">MessageBox und ExceptionBox</h2>
+<p>Werden vollständig unterstützt inkl. Buttons, Icons, DialogResult und EventHandler. Werden im Client als modale Popups angezeigt.</p>
+<h2 id="modale-forms">Modale Forms</h2>
+<p>Modale Forms, die das Wechseln zu einem anderen Form unterdrücken, werden vom HTML-Client vollflächig angezeigt. Dabei wird der Menü-Button ausgeblendet.</p>
+<p>Verhalten beim Drücken des „Zurück“-Button auf einem mobilen Gerät:</p>
+<ul>
+<li>Wenn am Form das Property IsCloseIconVisible auf true gesetzt ist, wird der modale Dialog geschlossen.</li>
+<li>Wird dem Form über die Action SetCloseButton ein Button zugewiesen, dessen Click-Event beim Schließen ausgelöst werden soll, wird dies beim Drücken des Zurück-Button ebenfalls ausgelöst.</li>
+</ul>
+<p>Ist das Property <code>HideModalHeader</code> am Form auf <code>true</code> gesetzt, so wird der Header mit dem Titel und ggf. dem Close Button komplett ausgeblendet, um mehr Platz für Controls zu schaffen. In diesem Fall muss das Schließen des Dialogs über einen eigens implementierten BUtton erfolgen, der am Form die Methode <code>Close()</code> aufruft.</p>
+<h2 id="drag--drop">Drag &amp; Drop</h2>
+<p>Drag &amp; Drop und alle damit verbundenen Events werden vom HTML Client nicht unterstützt.</p>
+<h2 id="shortcuts-und-tooltips">Shortcuts und ToolTips</h2>
+<p>Da für den HTML-Client die mobile Welt im Vordergrund steht, werden Shortcuts und ToolTips noch nicht unterstützt, da diese auf einem Handy bzw. Tablet keinen Sinn machen.</p>
+<h2 id="control-styles">Control Styles</h2>
+<p>Control Styles werden für alle im HTML-Client verfügbaren Controls unterstützt. Wird im Form Designer einem Control ein Control Style zugeordnet, so werden dessen Properties korrekt interpretiert bzw. die Property-Hierarchie beachtet.</p>
+<h2 id="actions">Actions</h2>
+<p>Es werden derzeit folgende Actions unterstützt:</p>
+<ul>
+<li>Beep (ab FS 4.4)</li>
+<li>BeepDouble (ab FS 4.4)</li>
+<li>BeepMultiple (ab FS 4.4)</li>
+<li>GetGeoLocation</li>
+<li>ScanBarcode</li>
+<li>SetCaption</li>
+<li>SetCloseButton</li>
+<li>SetEnabled</li>
+<li>SetImage</li>
+<li>SetTitle</li>
+<li>SetVisible</li>
+<li>TakePhoto</li>
+<li>PrintReport</li>
+<li>ViewDocument</li>
+</ul>
+<h3 id="viewdocument-action">ViewDocument Action</h3>
+<p>Die ViewDocument Action ist im HTML Client auf folgende Url-Schemen limitiert:</p>
+<ul>
+<li>fsbroker://*/*</li>
+<li>http://*/*</li>
+<li>https://*/*</li>
+<li>mailto:*</li>
+<li>geo:*</li>
+<li><a href="tel:%5C">\</a>*</li>
+<li>sms:*</li>
+</ul>
+<h2 id="zurück-button-auf-mobilen-geräten">Zurück-Button auf mobilen Geräten</h2>
+<p>Mobile Geräte (z.B. Android) besitzen teilweise einen Zurück-Button. Der HTML Client unterstützt diesen kontextabhängig. Es gibt drei Prioritätsebenen, die nacheinander durchlaufen werden. Wird in einer Ebene auf das Drücken des Zurück-Buttons reagiert, so werden die darunter liegenden Ebenen nicht mehr behandelt.</p>
+<p>Die Ebenen geordnet nach Priorität sind:</p>
+<ol>
+<li>Overlays</li>
+<li>Modale Dialoge</li>
+<li>Normale Anzeige</li>
+</ol>
+<h3 id="overlays">Overlays</h3>
+<p>Als Overlay definiert sich alles, was sich mit einem ausgegrauten Hintergrund über die restliche Anzeige legt, wie z.B. MessageBoxen oder die ComboBox-Auswahl. Wenn ein Overlay geöffnet ist und der Zurück-Button gedrückt wird, wird das Overlay geschlossen. Eine MessageBox kann nur durch den Zurück-Button geschlossen werden, wenn ein Abbrechen-Button vorhanden ist.</p>
+<h3 id="modale-dialoge">Modale Dialoge</h3>
+<p>Modale Dialoge können mit dem Zurück-Button geschlossen werden, wenn das Property IsCloseIconVisible am Form auf true gesetzt ist.
+Wurde dem Form über die Action SetCloseButton ein Button mit einem Click-Event zugeordnet, so wird beim Drücken des Zurück-Buttons das Click-Event ausgelöst.</p>
+<h3 id="normale-anzeige">Normale Anzeige</h3>
+<p>Befindet sich der HTML Client in einem normalen Form, wird beim Drücken des Zurück-Buttons das Beenden der Application angestoßen, was mit der Rückfrage, ob die Session beendet werden soll, einher geht.</p>
+<p>Befindet sich der HTML Client im Broker-Auswahldialog, wird die Anwendung ohne Rückfrage geschlossen.</p>
+<h2 id="szenarien-beim-schließen-des-letzten-forms">Szenarien beim Schließen des letzten Forms</h2>
+<p>Wird das letzte Form der Applikation geschlossen, so muss die Session beendet werden, da eine Applikation ohne Forms keinen Sinn ergibt. Allerdings müssen 2 Szenarien bei der Entwicklung bedacht werden, die auftreten können, wenn das letzte Form geschlossen wird:</p>
+<ol>
+<li><p>Das letzte Form hat <strong>keinen</strong> CloseButton zugewiesen und sendet beim Schließen somit <strong>keinen</strong> Request zum Broker. Wird dieses Form über das &quot;X&quot; (vorausgesetzt <code>IsCloseIconVisible</code> am Form ist auf auf <code>true</code> gesetzt) geschlossen, so wird eine Rückfrage angezeigt, ob die Session beendet werden soll. Wird diese mit &quot;Ja&quot; beantwortet, beendet der HTML Client die Session und zeigt die Broker-Auswahl an. Wird &quot;Nein&quot; ausgewählt, so bleibt das Form sowie die Applikation offen.</p>
+</li>
+<li><p>Das letzte Form hat einen CloseButton zugewiesen, über dessen Handler brokerseitig mit der CloseForm() Action das Form geschlossen wird.</p>
+<ul>
+<li>Wird im gleichen Request <strong>kein</strong> anderes Form geöffnet und existiert somit nach dem Request kein offenes Form, so wird die Applikation vom Client <strong>ohne Rückfrage</strong> geschlossen. Da das Schließen des Forms vom Broker ausgeht, hat der Client &quot;kein Mitspracherecht&quot; mehr. Eine Rückfrage müsste brokerseitig über eine MessageBox implementiert werden.</li>
+<li>Wird im gleichen Request ein neues Form geöffnet, so wird die Applikation nicht beendet und ganz normal das neue Form am Client angezeigt. Beispielsweise könnte nach dem Schließen des letzten Forms ein Login-Dialog angezeigt werden.</li>
+</ul>
+</li>
+</ol>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

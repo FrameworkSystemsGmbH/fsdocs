@@ -1,0 +1,555 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>FS Report Designer </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="FS Report Designer ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/docs/doc/reporting/report-designer.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="fs-report-designer">FS Report Designer</h1>
+
+<p>Der <strong>FS Report Designer</strong> ist für den Einsatz mit Framework Studio konzipiert.
+Es handelt sich um den DevExpress® Report Designer, welcher für diesen Zweck entsprechend optimiert und angepasst wurde.</p>
+<p>Standardmäßige Funktionalitäten sind in dieser Doku <em>nicht</em> eingeschlossen - hierzu sollte die <a href="https://docs.devexpress.com/XtraReports/1763/winforms-reporting/end-user-report-designer-for-winforms/gui/end-user-report-designer-with-a-standard-toolbar">offizielle Dokumentation von DevExpress®</a> beansprucht werden.
+Diese ist äußerst umfangreich, ist jedoch auf Englisch geschrieben.
+Für eine <a href="https://docs-devexpress-com.translate.goog/XtraReports/1763/winforms-reporting/end-user-report-designer-for-winforms/gui/end-user-report-designer-with-a-standard-toolbar?_x_tr_sl=auto&amp;_x_tr_tl=de&amp;_x_tr_hl=de&amp;_x_tr_pto=wapp">deutsche Übesetzung</a> können Sie <a href="https://translate.google.de/?sl=en&amp;tl=de&amp;op=websites">Google Translator</a> verwenden.
+Dieser funktioniert (leider) am besten mit Google Chrome.
+Dieser kann auch komplette Websites übersetzen.</p>
+<p>Der FS Report Designer kann über &quot;Edit Report&quot; im Report Document Type geöffnet werden.
+Durch die Integration in FS sind keine weiteren Einstellungen notwendig.</p>
+<p>Die Daten, welche im FS Report Designer verwendet werden können, werden durch die DataSource definiert.
+Hier müssen keine Haken gesetzt werden, da DevExpress® auf alle Daten zugreift und selbst nur die verwendeten Daten zieht.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Falls sich die Datenquellen oder die Komponenten ändern, die als Datenquelle genutzt werden, muss das Report Document und die betroffenen Interfaces der Datenquellen neu kompiliert werden. Dies zeigt Framework Studio an.</p>
+<p><img src="media/compile-message-box.PNG" alt="MessageBox Report Compile"></p>
+</div>
+<h2 id="allgemeine-verhaltensweisen-des-fsreportdesigners">Allgemeine Verhaltensweisen des FSReportDesigners</h2>
+<p>Regulär wird eine Report-Datei aus Framework-Studio heraus bearbeitet.
+Dabei startet Framework-Studio den Report-Designer für die entsprechende Datei und stellt sicher, dass die im <a href="report-document-type.html">Report DocumentType</a> definierten Datasources korrekt und vollständig angeboten werden.
+Wird der Report-Designer nach der Bearbeitung geschlossen, überträgt Framework Studio diese eine geänderte .repx-Datei (inklusive der darin enthaltenen Embedded Subreports) wieder zurück in den Report Document Type und in das Repository.</p>
+<p>Dadurch ergeben sich einige Besonderheiten beim Umgang mit Dateien.</p>
+<ul>
+<li><p>Die Registerkarte des initial durch Framework Studio geöffneten Haupt-Reports kann nicht geschlossen werden.
+Es muss der komplette Report Designer beendet werden.</p>
+</li>
+<li><p>Werden zusätzlich Dateien aus dem Datei-System geöffnet, dann werden diese als Readonly angezeigt.
+Gleiches gilt beim Öffnen eines Linked Subreports.</p>
+</li>
+<li><p>Werden Dateien als <strong>Readonly</strong> geöffnet, dann wird dies in der Registerkarte durch ein kleines Schloss gekennzeichnet und eine Meldung mit einem Hinweis angezeigt.
+Um möglichst viel Bedienkomfort zu gewährleisten ist die Bearbeitung nicht eingeschränkt.
+Bei Bedarf müssen vorgenommene Änderungen mit <em>Save As...</em> in eine neue Datei gespeichert werden.</p>
+</li>
+<li><p>Mit <strong>Save As...</strong> kann ein Embedded Subreport aus dem Haupt-Report &quot;herausgelöst&quot; und eine Kopie als eigenständige Datei gespeichert werden.
+Das Embedded Subreport Control des Haupt-Reports und der darin gespeicherte Subreport bleiben davon unberührt.</p>
+</li>
+<li><p>Eine <strong>New File</strong> Operation steht nicht zur Verfügung.
+Neue Dateien müssen aus Framework Studio heraus erzeugt werden.</p>
+</li>
+</ul>
+<h2 id="standalone-ausführung-der-fsreportdesignerexe">Standalone-Ausführung der FSReportDesigner.exe</h2>
+<p>Die FS-Customizations werden via eines Launchers (<em>FSReportDesigner.exe</em>) auf den standardmäßigen Report-Designer angewandt. Aus diesem Grund müssen DevExpress® Reports über diesen Launcher editiert werden.</p>
+<p>Die entsprechende .exe ist auf oberster Ebene im Installationsverzeichnis zu finden, also &quot;\Framework Studio X.Y.0.0\FSReportDesigner.exe&quot;.</p>
+<p>Diese .exe lässt sich auf beliebige Weise öffnen (unten genauer erläutert). Wenn die geöffnete Datei sich nicht in einem Report-Verzeichnis befindet und der Pfad zu diesem nicht als Argument angegeben wurde, erscheint folgende Meldung:</p>
+<p><img src="media/devexpress-designer-customizations-no-report-directory.png" alt="No report Directory"></p>
+<p><em>&quot;Yes&quot;</em> öffnet einen Verzeichnis-Auswahldialog, in dem sich ein Report-Verzeichnis auswählen lässt. Falls es sich um eine valide Auswahl handelt, wird der Report so gehandhabt, als ob er sich in diesem Verzeichnis befinden würde. Alle vom Report-Verzeichnis abhängigen Features stehen dann zur Verfügung.</p>
+<p><em>&quot;No&quot;</em> oder ein Abbruch der Auswahl startet den Designer völlig standalone. Custom Controls stehen noch zur Verfügung, aber Features, die von Interoperabilität mit anderen Report-Dateien abhängen sind nicht nutzbar.</p>
+<h3 id="direkter-aufruf">Direkter Aufruf</h3>
+<p>Bei einem direkten Aufruf der FSReportDesigner.exe, z.B. per Doppelklick, oder beim Aufruf mit einer ungültigen .repx-Datei, wird ein Auswahldialog für eine .repx geöffnet.</p>
+<p>Ein Öffnen einer .repx-Datei per Windows file association oder durch drag &amp; drop einer .repx-Datei auf die .exe öffnet die besagte Datei und verhält sich ansonsten identisch.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Bei einem Standalone-Aufruf des Report-Designers steht normalerweise keine Datenquelle zur Verfügung. Um sie trotzdem nutzen zu können, müssen die Argumente &quot;--type&quot;, &quot;--assembly&quot; und &quot;--folder&quot; angegeben sein.</p>
+</div>
+<h3 id="kommandozeilen-argumente">Kommandozeilen-Argumente</h3>
+<p>Der FSReportDesigner ist von der Kommandozeile aus granularer aufrufbar. Die folgenden Argumente stehen zur Verfügung:</p>
+<ul>
+<li><code>--report</code>: Muss in der Kommandozeile angegeben werden. Definiert den voll qualifizierten Pfad zu der zu editierenden .repx-Datei.</li>
+<li><code>--type</code>: Der voll qualifizierte type name der Datenquelle, z.B. 'NV.ERP.MM.Sales.rptSalesDocument_Rptx'</li>
+<li><code>--assembly</code>: Der Name der assembly-Datei, die den bereits angegebenen Typen beinhaltet, in diesem Beispiel also 'NV.ERP.MM.Sales_RDT.dll'.</li>
+<li><code>--folder</code>: Das Verzeichnis, welches die benötigten Assembly-Dateien beinhaltet - üblicherweise '\bin\' im Compile-Verzeichnis.</li>
+<li><code>-l</code>/<code>--locked</code> (optional): Setzt den Report in einen readonly-modus, welcher Änderungen und das Speichern verhindert.</li>
+</ul>
+<h2 id="einstellungen-im-winforms-designer">Einstellungen im Winforms-Designer</h2>
+<p>Beim Öffnen eines Reports werden folgende Standardeinstellungen angewandt:</p>
+<ul>
+<li>Grid Snapping</li>
+<li>Einheit (tenths of a millimeter)</li>
+<li>A4</li>
+<li>Seitenränder</li>
+<li>Schriftart: Arial</li>
+<li>Schriftgröße: 8pt</li>
+</ul>
+<p>Weitere Details finden sich im Folgenden:</p>
+<h3 id="grid">Grid</h3>
+<p>Der Designer nutzt ein Raster (Grid), an welchem sich Controls per Snapping ausrichten, d.h. Objekte rasten an den Grid-Linien ein.</p>
+<p><img src="media/grid-snapping.png" alt="Grid Snapping"></p>
+<p>Einstellungen des Grids, wie dessen Größe, Snapping Mode und bei welchen Kästchen Snapping angewandt wird, werden von FS aus festgesetzt und an den Designer übergeben.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Änderungen der Grid-Einstellungen gehen beim erneuten Öffnen verloren und könnten zu Verschiebungen von Controls führen – wird deshalb nicht empfohlen.</p>
+</div>
+<h3 id="maße">Maße</h3>
+<p>Die Maßeinheit ist gleichermaßen auf Zehntelmillimeter festgesetzt, obwohl auch Pixel und Hunderstel-Inches unterstützt werden.</p>
+<h3 id="vererbung">Vererbung</h3>
+<p>Der Designer folgt einer hierarchischen Vererbung übergeordneter Controls an untergeordnete Controls.
+Solange eine Eigenschaft nicht überschrieben ist (sichtbar durch das gefüllte Kästchen neben der Eigenschaft in den Properties), wird es von den übergeordneten Controls übernommen.</p>
+<p>Dies erlaubt es, bspw. Schriftarten über den gesamten Report hinweg zu ändern.</p>
+<p><img src="media/override-font-property.png" alt="Überschriebenes Font Property"></p>
+<p>Um eine Überschreibung zu löschen, muss auf das Kästchen geklickt werden.
+Anschließend öffnet sich ein entsprechendes Kontextmenü, wo das Property mit ‚Reset‘ zurückgezusetzt werden kann.</p>
+<p><img src="media/reset-property.png" alt="Reset Property"></p>
+<h3 id="read-only">Read-only</h3>
+<p>Beim Öffnen eines Reports, ohne diesen vorher auszuchecken, wird dieser im Read-only-Modus geöffnet. Dies garantiert, dass keine Änderungen möglich sind.
+Lediglich das Layout des Reports ist sichtbar.</p>
+<p><img src="media/fs-report-designer.png" alt="Read only Report Designer"></p>
+<h2 id="fenster-im-designer">Fenster im Designer</h2>
+<p>In den folgenden Unterkapitel werden die einzelnene Oberflächenelemente des Designers aufgeführt.</p>
+<ul>
+<li>Field List</li>
+<li>Report Designer Analyzer</li>
+<li>Group and Sourt</li>
+<li>Properties</li>
+</ul>
+<p><img src="media/devexpress-oberfl%C3%A4che.png" alt="Oberflächen Übersicht über FSReportDesigner"></p>
+<h3 id="field-list-fenster">Field List Fenster</h3>
+<p>Hier werden alle Felder der Datenquelle angezeigt. Um diese zu nutzen, reicht es, sie auf den Report zu ziehen.</p>
+<p>Weiterhin lassen sich mit Rechtsklick <strong>Calculated Fields</strong> anlegen/bearbeiten und Report-Parameter pflegen.</p>
+<p>Die Field List verfügt über eine Volltextsuche, um benötigte Felder schnell zu finden.</p>
+<p>Zieht man von der Field List aus mit Rechts- statt Linksklick, werden nur die Namen der Felder auf den Report gelegt.
+Diese Funktion ist nützlich, um schnell eine Grundstruktur für Tabellenüberschriften erstellen zu können.</p>
+<h3 id="report-design-analyzer-fenster">Report Design Analyzer Fenster</h3>
+<p>Hier werden Fehler und Warnungen im Report angezeigt. Fehler führen zu einem Fehlschlag des Drucks, weshalb dieses Fenster vor dem Speichern immer überprüft werden sollte.</p>
+<h3 id="group-and-sort-fenster">Group and Sort Fenster</h3>
+<p>Dieses Fenster bietet eine Übersicht über alle Gruppierungen und Sortierungen, die aktuell im Einsatz sind, sowie deren Hierarchie.</p>
+<h3 id="properties-fenster">Properties Fenster</h3>
+<p>Das Property-Fenster listet alle Eigenschaften eines ausgewählten Controls auf.
+Ist kein Control ausgewählt, finden sich hier die Einstellungen des Reports selbst, da diese als Eigenschaften des Reports realisiert sind.</p>
+<h2 id="report-mit-bands-strukturieren">Report mit Bands strukturieren</h2>
+<p>Ein Report Layout besteht aus Bändern, die Report-Controls enthalten und deren Position auf den Dokumentseiten festlegen.
+Sie bilden die Struktur eines Reports.
+Verschiedene Bands haben verschiedene Funktionen und demnach auch verschiedene Eigenschaften, welche im folgenden Kapitel erörtert werden.</p>
+<p>Dies ist eine Übersicht über die verschiedenen Bands, welche zur Verfügung stehen:</p>
+<p><img src="media/devexpress-insert-bands.png" alt="Report Editor"></p>
+<p><strong>Ein leerer Report enthält die folgenden Bereiche:</strong></p>
+<ul>
+<li>Das Detail Band wird für jeden Datensatz in einer Datenquelle gedruckt, es sei denn, Sie haben die Daten gefiltert.</li>
+<li>Jeder Bericht sollte einen Detail Band enthalten, diesen können Sie nicht löschen.</li>
+<li>Die Bands TopMargin und BottomMargin. Diese Bänder werden auf jeder Dokumentseite einmal wiederholt.</li>
+</ul>
+<h3 id="topmargin-bottommargin">TopMargin/ BottomMargin</h3>
+<p>Noch über/unter dem Footer und Header sind diese Bands als Platzhalter gedacht, können aber trotzdem Controls beinhalten.</p>
+<p>Sie haben keine besonderen Eigenschaften.</p>
+<h3 id="reportheader-reportheaderfooter">ReportHeader/ ReportHeaderFooter</h3>
+<p>Der ReportHeader und der ReportFooter werden nur jeweils ein einziges Mal am Anfang bzw. Ende des Reports gedruckt. Sie verfügen über eine Eigenschaft <strong>Keep Together</strong>, sodass sie jeweils nur gedruckt werden, wenn sie auf eine Seite passen. Des Weiteren haben sie die Eigenschaft <strong>Page Break</strong>, um eine neue zusätzliche Seite vor bzw. nach ihnen zu veranlassen.</p>
+<h3 id="pageheader-pageheaderfooter">PageHeader/ PageHeaderFooter</h3>
+<p>Wie ReportHeader/ -Footer, nur einmal pro Seite.
+Sie verfügen über die Eigenschaft <strong>Print On</strong>, die es erlaubt beispielsweise nur zu drucken, falls kein Report Header auf derselben Seite ist.</p>
+<h3 id="detail">Detail</h3>
+<p>Das Detail Band hat besondere Eigenschaften. In ihm wird automatisch über eine Collection iteriert, falls diese als Data Member <strong>am Report selbst</strong> eingestellt ist.</p>
+<p>Der Data Member bezeichnet die primäre Collection, über die iteriert werden soll. Alle Bänder unter dem Detail Band müssen auch in der Datenquelle dem Data Member untergeordnet sein oder müssen ihre Felder mit vollem Namen qualifizieren.</p>
+<p>Als Beispiel: In diesem Report ist oSalesDocument.oSalesOrderColl als Data Member definiert.</p>
+<p>Um auf das direkt am oSalesDocument (also über dem Data Member) hängende decTaxRa-te1 zuzugreifen, muss voll über oSalesDocument.decTaxRate1 qualifiziert werden.</p>
+<p><img src="media/detail-band.png" alt="Detail Band"></p>
+<p>Das Gleiche gilt für Calculated Fields.</p>
+<p>Falls über eine dem Detail band untergeordnete Collection iteriert werden soll, muss ein Detail Report Band oder ein Subreport eingesetzt werden.
+<a href="https://docs.devexpress.com/XtraReports/DevExpress.XtraReports.UI.DetailBand.FillEmptySpace">FillEmptySpace</a> in Kombination mit GroupFooter.PrintAtBottom erlaubt es, Platzhalter zwischen Gruppen zu drucken, auch, wenn Gruppen auf einer neuen Seite anfangen sollen.</p>
+<h4 id="detail-report-band">Detail Report Band</h4>
+<p>Ein Detail Report Band erlaubt es, ein weiteres Detail unter einem bestehenden Detail band zu iterieren. Da DevExpress® Reports dazu konzipiert sind, nur ein Detail band zu haben, fungiert es quasi als aufgelöster Subreport, der nur in einem Report zum Einsatz kommt.</p>
+<p>Subreports sollten hingegen eingesetzt werden, falls er in mehreren Reports zum Einsatz kommen soll.</p>
+<p>Dem Detail Report Band muss ein Data Member zugewiesen werden:</p>
+<p><img src="media/detail-report-band.png" alt="Detail Report Band"></p>
+<p>Die Limitation eines Detail Report Bands ist es, dass die Data Source dessen immer unter der des Detail Reports liegt.
+Falls über eine separate Collection außerhalb dessen iteriert werden muss, sollte ein <strong>Embedded Subreport</strong> eingesetzt werden.</p>
+<h3 id="groupheader-groupheaderfooter">GroupHeader/ GroupHeaderFooter</h3>
+<p>Die GroupHeader/Footer Bands stellen die Gruppierungs- und Sortierungsfunktionalität bereit.
+Sie müssen nicht immer in Paaren erstellt werden – alleinstehende Header und Footer sind möglich.</p>
+<p>Beide Bands stehen in Relation zu ihrem Detail Band. Die Distanz (in Bändern) zum Detail Band sind im „Level“-Property festgesetzt.
+In der Gruppierung lassen sich mehrere Felder und Sortierungen kombinieren. Über den Smart Tag des Bands lässt sich unter „Group Fields“ ein Editor hierfür öffnen.</p>
+<p><img src="media/group-fields.png" alt="Group Fields"></p>
+<p>Gleichzeitig unterstützen Group Bands automatisches Sortieren auf Basis von Summierungen über ausgewählte Felder der Objekte in der Gruppierung. Auch für diese gibt es einen dedizierten Editor, welcher sich über „Sorting Summary“ öffnen lässt.</p>
+<p><img src="media/group-sorting-summary-editor.png" alt="Group Sorting Summary Editor"></p>
+<p>Das Ergebnis der jeweiligen Summe bestimmt daraufhin, in welcher Reihenfolge die einzelnen Gruppen gedruckt werden.
+Es wird empfohlen, die Positionen des Reports mit einer Gruppe zu umschließen.
+Gruppen bieten Features explizit für dieses Szenario an, z.B. „Repeat Every Page“. Diese Checkbox erlaubt Überschriften in dem Group Header zu platzieren und sie auf jeder Seite erneut zu drucken, unabhängig des Page Headers.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Nur die Detail- und Group Bands können zur Anzeige dynamischer Datenquelleninhalte verwendet werden.
+Andere Bands zeigen Titel, Zusammenfassungen und andere zusätzliche Informationen an.</p>
+</div>
+<h4 id="sorting-summary-in-group-bands">Sorting Summary in Group Bands</h4>
+<p>Group Bands bieten ein sog. Sorting Summary an.</p>
+<p><img src="media/group-header-sorting-summary.png" alt="Group Header Sorting Summary"></p>
+<p>Das Sorting Summary wird nicht genutzt, um z.B. eine Gesamtsumme darzustellen, sondern dient zur Bestimmung der <strong>Sortierreihenfolge</strong> innerhalb der Gruppe.
+Die folgende Konfiguration, beispielsweise, sortiert die Datensätze der Gruppe nach der jeweiligen Anzahl der ClientAddressLine-Datensätze:</p>
+<p><img src="media/group-sorting-summary-editor.png" alt="Group Summary Editor"></p>
+<h2 id="controls-und-custom-controls">Controls und Custom Controls</h2>
+<ul>
+<li><a href="devexpress-label-control.html">Wichtige Eigenschaften zu Labels finden sich hier</a></li>
+<li>Zusätzlich zum sehr umfangreichen Angebot von DevExpress® werden im FS Report Designer zusätzliche der Embedded Subreport und der Linked Subreport angeboten. Nähere Informationen hierzu finden Sie <a href="devexpress-subreport-control.html">hier</a>.</li>
+<li>Das Control <a href="devexpress-fold-marks-control.html">Fold Mark Settings</a> ermöglicht das Drucken von Falzmarken für Briefe am Rand der Seite.</li>
+<li>Für den Übertrag von Daten auf die vorherige Seite kann das <a href="devexpress-carry-forward-control.html">Carry Forward</a> genutzt werden.</li>
+</ul>
+<h2 id="expressions-calculated-fields-und-filterstrings">Expressions, Calculated Fields und FilterStrings</h2>
+<p><a href="https://docs.devexpress.com/XtraReports/403357/detailed-guide-to-devexpress-reporting/use-expressions/expressions-overview">DevExpress® Expressions</a> sind das Formel-Äquivalent von DevExpress®.
+Sie werden allerdings nicht zentral verwaltet, sondern sind immer Teil eines Properties.
+Expressions bestimmen entweder ein Property eines Calculated Fields, oder direkt den Wert eines Properties an einem Control.</p>
+<p>Für die spezielle Expression Language hat DevExpress® eine ausführliche <a href="https://docs.devexpress.com/XtraReports/120104/detailed-guide-to-devexpress-reporting/use-expressions/expression-language">Dokumentation</a>.</p>
+<h3 id="expressions-bei-properties">Expressions bei Properties</h3>
+<p>Ausgewählte Properties können ihren Wert direkt durch Expressions berechnet bekommen.
+Durch diese Funktionalität lassen sich bspw. dynamisch Schriftgrößen ändern oder die Unterdrückungsformeln von Crystal nachbilden.
+Um eine Expression zu editieren, kann der <code>f</code>-Button in dem entsprechenden Feld betätigt werden.</p>
+<p><img src="media/expression-property.png" alt="Expression Property"></p>
+<p>Dieser öffnet eine Übersicht über alle Properties des Controls, welche eine Expression besitzen können, und erlaubt es, sie zu editieren.</p>
+<p><img src="media/expression-editor.png" alt="Expression Editor"></p>
+<h3 id="calculated-fields">Calculated Fields</h3>
+<p><a href="https://docs.devexpress.com/XtraReports/4813/detailed-guide-to-devexpress-reporting/shape-report-data/use-calculated-fields/calculated-fields-overview">Calculated Fields</a> sind &quot;künstliche Felder&quot; mit einem Expression-Property, welches es erlaubt, einen Wert per Expression zu erhalten.
+Künstliches Feld bedeutet, dass kein Datenbankfelder (z.B. sName) diesem zugrunde liegt.
+Sie werden wie normale Datenbankfelder behandelt und lassen sich in allen Situationen verwenden, in welchen auch Datenbankfelder zum Einsatz kommen.
+Im Fenster <em>Field List</em> lassen sie sich erstellen und einer Datenquelle unterordnen.
+Über das Kontextmenü in der <em>Field List</em> kann man eine Übersicht über alle Calculated Fields öffnen.</p>
+<p><img src="media/edit-calculated-fields.png" alt="Edit Calculated Fields"></p>
+<p>Diese beinhaltet alle Calculated Fields und erlaubt es, diese zu verwalten.</p>
+<p><img src="media/calculated-fields-collection-editor.png" alt="Calculated Fields Collection Editor"></p>
+<h3 id="filter-strings">Filter Strings</h3>
+<p><a href="https://docs.devexpress.com/XtraReports/403357/detailed-guide-to-devexpress-reporting/use-expressions/expressions-overview#filterstring-editor">FilterStrings</a> erlauben es, die Datenquelle auf Basis einer Expression einzuschränken, wenn man einzelne Daten nicht nutzen möchte (z.B. um nur einen bestimmten Kunden unter Betracht zu ziehen).
+Da Detail Report Bands die Funktionalität von Subreports für Positionsdrucke ersetzen sollen und eine eigene Datenquelle besitzen, haben auch sie einen eigenen Filter String.</p>
+<p><img src="media/detail-report-tasks-menu.png" alt="Detail Report Tasks Menu"></p>
+<p>Die genaue Syntax von Filter Strings findet sich, wie die Syntax von Criteria, auf der <a href="https://docs.devexpress.com/XtraReports/403357/detailed-guide-to-devexpress-reporting/use-expressions/expressions-overview#filterstring-editor">offiziellen DevExpress®-Website</a>.</p>
+<h2 id="summen">Summen</h2>
+<p>DevExpress® bietet eine ausführliche Doku zu <a href="https://docs.devexpress.com/XtraReports/119436/detailed-guide-to-devexpress-reporting/shape-report-data/calculate-summaries/calculate-a-summary">Summen</a>. Im Folgenden wird auf die einzelnen Möglichkeiten kurz eingegangen.</p>
+<ul>
+<li>Innerhalb Groups kann summiert werden. Eine kurze Zusammenfassung hierzu findet sich <a href="report-designer.html#groupheader-groupheaderfooter">hier</a></li>
+</ul>
+<h3 id="zwischensummen">Zwischensummen</h3>
+<p>Besonders Zwischensummen aus mehreren verschiedenen Feldern setzen in Crystal viele Umstände voraus – es werden Funktionen für die Zwischenstände benötigt, welche am Ende manuell aufaddiert werden müssen.
+Diese Möglichkeit besteht auch in DevExpress® (<a href="report-designer.html#calculated-field-summen">Ansatz mit Hilfe eines Calculated Fields</a>), aber es bestehen weitere und <strong>bessere</strong> Optionen.</p>
+<p>Statt ein separates Calculated Field zu erstellen, kann man stattdessen ein eigenes Label erstellen, dessen Expression eines der nativen Summen-Expressions nutzt.
+Diese akzeptieren mehrere Datenbankfelder und Calculated Fields, was eine laufende Summe über mehrere Felder über eine Formel ermöglicht.</p>
+<h3 id="calculated-field-summen">Calculated Field-Summen</h3>
+<p>Die Berechnung von Summen über Calculated Fields ist nicht mehr die offiziell empfohlene Variante, aber immer noch nutzbar.
+Hierfür muss einfach ein neues Calculated Field angelegt werden, in wessen Expression die gewünschte Summe manuell berechnet wird.
+Dieses Calculated Field kann dann beliebig genutzt werden, um die errechnete Summe anzuzeigen.</p>
+<h2 id="tipps-und-tricks">Tipps und Tricks</h2>
+<p>In diesem Kapitel sind Tipps und Tricks aufgeführt, die den Umgang mit Reports in DevExpress® erleichtern können.</p>
+<h3 id="methode-globalonbeforeprintsubreport">Methode <code>GlobalOnBeforePrintSubreport</code></h3>
+<p>Am Global wurde die Methode <a href="https://frameworksystemsgmbh.github.io/fsdocs/v4.4/api/FrameworkSystems.FrameworkBase.GlobalObj.IcGlobalBase.GlobalOnBeforePrintSubreport.html#FrameworkSystems_FrameworkBase_GlobalObj_IcGlobalBase_GlobalOnBeforePrintSubreport_System_String_">GlobalOnBeforePrintSubreport</a> hinzugefügt.
+Diese Methode ermöglicht das Umlenken eines Subreports auf eine eigene Customization.</p>
+<h3 id="ausrichtung-vieler-labels">Ausrichtung vieler Labels</h3>
+<p>Werden mehrere Labels hinzugefügt, kann die Ausrichtung der Elemente aufwändig sein.
+DevExpress® bietet die <a href="https://docs.devexpress.com/XtraReports/402370/detailed-guide-to-devexpress-reporting/use-report-controls/manipulate-report-controls/convert-labels-to-table">Funktion &quot;Convert to Table&quot;</a> an, welche für eine Anordnung verwendet werden kann.</p>
+<ol>
+<li>Markieren Sie die entsprechenden Labels. Diese dürfen sich horizontal nicht überschneiden.</li>
+<li>Über das Kontextmenü (Rechtsklick) können Sie die Funktion &quot;Convert to Table&quot; ausführen.</li>
+</ol>
+<p>Nun sind alle Labels auf einer Höhe ausgerichtet.
+Sollten Sie keine Tabelle benötigen, kann auf gleichem Weg die Tabelle wieder in einzelne Labels umgewandelt werden.
+Die Anordnung und Ausrichtung bleiben bestehen.</p>
+<p>Vorgehensweise für die Konvertierung einer Tabelle in einzelne Labels:</p>
+<ol>
+<li>Markieren Sie die Tabelle über das &quot;Vier-Pfeile&quot;-Icon am oberen linken Rand der Tabelle.</li>
+<li>Über das Kontextmenü (Rechtsklick) können Sie die Funktion &quot;Convert to Labels&quot; ausführen.</li>
+</ol>
+<h3 id="minimale-höhe-in-einer-band">Minimale Höhe in einer Band</h3>
+<p>Ziehen Sie den unteren Rand eines Bands über die darin enthaltenen Controls.
+DevExpress® verkleinert das Band auf die minimale Höhe, welche die Felder im Band benötigen.</p>
+<ol>
+<li>Größe des Bands über das letzte Control ziehen:
+<img src="media/detail-band-resize-example.png" alt="Detail Band Resize Example"></li>
+<li>Die Höhe des Detail Bands ist nun direkt unter dem letzten Label &quot;sColor&quot;.
+<img src="media/detail-band-resize-example2.png" alt="Detail Band Resize Example"></li>
+</ol>
+<h2 id="how-to-use-detail-band-reports---embedded-subreports">How to use: Detail Band Reports - Embedded Subreports</h2>
+<p>In diesem Kapitel werden detaillierte Anwendungsfälle der Detail Reports und Subreports vorgestellt und ausführlich beschrieben.
+Die Beispiele basieren auf dem Repository FSDemo und können mithilfe dessen nachgestellt werden.</p>
+<h3 id="vorbereitung">Vorbereitung</h3>
+<p>Das Beispiel basiert auf FSDemo, weshalb zunächst ein neues FSDemo-Repository angelegt werden muss.
+Anschließend muss dieses FSDemo mit dem User &quot;user1&quot; gestartet werden.
+Es genügt die Anmeldung am Default-Package.</p>
+<ol>
+<li>An der Form <code>frmCompany</code> ein Event zum Print-Button &quot;OnClick&quot;-Event hinzufügen und folgenden Code in die Methode einfügen.</li>
+</ol>
+<pre><code class="lang-csharp">protected virtual void FE_btnPrint_OnClick(FrameworkButtonClickEventArgs e)
+{
+  var rpt = new rptCompanyList(this.Global, rptCompanyList.Reports.SideBySide, ExportFormat.PDF);
+  rpt.oCompanyColl = this.oCompanyColl;
+
+  var articleColl = FS.Demo.Article.cdArticleCollFactory.Create(this.Global);
+  articleColl.Load();
+  rpt.oArticleColl = articleColl;
+
+  rpt.Print();
+}
+</code></pre>
+<ol start="2">
+<li>Das Property <em>Visibility</em> des Print-Buttons auf <em>Visible</em> setzen.</li>
+<li>Einen Report <code>rptCompanyList</code> im Namespace <em>Company</em> anlegen.</li>
+<li>Dem Report in der Registerkarte <em>DataSource</em> die DataSources oArticleColl und oCompanyColl zuweisen.</li>
+<li>Anschließend in der Registerkarte <em>Report Files</em> einen neuen DevExpress® Report anlegen. Im Beispiel wurde dieser &quot;SideBySide&quot; genannt. Möchten Sie den Report anders benennen, müssen Sie im Methoden Code der <code>FE_btnPrint_OnClick</code> den Namen entsprechend anpassen.</li>
+</ol>
+<p><strong>Anzeige des Reports:</strong></p>
+<ol>
+<li>Starten Sie die Applikation mit F5.</li>
+<li>Navigieren Sie in der gestarteten FSDemo-Applikation zum Kunden.</li>
+<li>Klicken Sie auf die Lupe, um entsprechende Datensätze zu laden.</li>
+<li>Über das Print-Icon können Sie sich nun den fertigen Report ansehen.</li>
+</ol>
+<h3 id="detail-report-anlegen">Detail Report anlegen</h3>
+<p>Dieses Tutorial soll veranschaulichen, wie hierarchische Daten in einem Report mit verschachtelten Detail Report Bands angezeigt werden können.</p>
+<ol>
+<li>Einen Report mit Hilfe des FSReportDesigners öffnen.</li>
+<li>Im Fenster <em>Report Explorer</em> den report auswählen und das Property <em>Data Member</em> auf oCompanyColl setzen.</li>
+<li>Anschließend, falls kein Detail Band vorhanden ist, dies mit Rechtsklick auf dem Report über &quot;Insert Band&quot; - &quot;Detail&quot; hinzufügen.</li>
+<li>Im nächsten Schritt Rechtsklick auf das Detail Band im Report. Im daraufhin geöffneten Kontextmenü kann über &quot;Insert Detail Report&quot; eine Datenquelle ausgewählt werden (siehe Abbildung).</li>
+</ol>
+<p><img src="media/detail-band-insert-detail-report.png" alt="Kontextmenü Insert Detail Report"></p>
+<p>Die angebotenen Datenquellen im Kontextmenü beim letzten Schritt befinden sich eine Ebene <strong>unter</strong> dem Data Member des Haupt-Reports.
+Über das Fenster <em>Report Explorer</em> kann der Haupt-Report (hier <code>report</code>) ausgewählt werden und anschließend in den Properties der Data Member eingesehen werden (siehe folgenden Screenshot).</p>
+<p><img src="media/report-datamember-example.png" alt="Data Member des Reports"></p>
+<p>Sobald eine Datenquelle ausgewählt wurde, wird im Report im oberen Teil des Detail Reports der komplette Datenpfad angezeigt.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Falls dem Report über die DataSource zwei Collections übergeben wurden, kann im Haupt-Report der Data Member auf eine andere Collection geändert werden.
+Dies wird jedoch <strong>nicht empfohlen</strong>, da hierdurch bestehende DetailReports auf falsche Datenfelder verweisen können.
+Sind die Datenfelder in der neu zugewiesenen Collection nicht vorhanden, führt dies zu Fehlern.</p>
+</div>
+<h3 id="detail-report-strukturieren-und-felder-hinzufügen">Detail Report strukturieren und Felder hinzufügen</h3>
+<p>Klickt man auf ein Detail Report wird automatisch im Fenster <em>Field List</em> die zugehörige Datenquelle ausgewählt.
+Dies ist im folgenden Screenshot dargestellt.</p>
+<p><img src="media/detail-report-example.png" alt="DetailReport Data Member"></p>
+<p>Im Baum der <em>Field List</em> kann nun der Eintrag oContactColl aufgeklappt und einzelne Felder auf das Detail Report Band gezogen werden.</p>
+<p>Wie im Bild ebenfalls zu sehen, wurde mit einem ReportHeader und einem ReportFooter gearbeitet.
+Diese können über Rechtsklick auf dem DetailReport hinzugefügt werden.
+Sie werden einmalig am Anfang bzw. am Ende des Detail Reports gedruckt.
+Im Beispiel dient dies zur besseren Übersicht im gedruckten Report.
+Im folgenden Screenshot sehen Sie, welche weiteren Auswahlmöglichkeiten zur Verfügung stehen.</p>
+<p><img src="media/detail-report-insert-header.png" alt="Header im Detail Band"></p>
+<p>Der fertige Report sieht wie folgt aus:</p>
+<p><img src="media/devexpress-detailband-ergebnis.png" alt="Ansicht gedruckter Report - Ansprechpartner"></p>
+<h3 id="iterieren-über-collections-außerhalb-des-detail-bands">Iterieren über Collections außerhalb des Detail Bands</h3>
+<p>Ist das Ziel über Daten zu iterieren, welche im ReportHeader, PageHeader, ReportFooter, oder PageFooter angezeigt werden sollen, muss dies über einen Subreport realisiert werden.</p>
+<p>Als Beispiel sollen die ID, der Name und die Farbe aller Artikel ausgegeben werden.
+Auf dem nachfolgenden Screenshot sehen Sie das fertige Ergebnis des Reports im FSReportDesigner.
+Auf der linken Seite befindet sich der Haupt-Report &quot;SideBySide&quot;.
+Auf der rechten  Seite ist der Embedded Subreport mit den Daten zu den einzelnen Artikeln.</p>
+<p><img src="media/embedded-subreport-example.png" alt="Embedded Subreport im Header anlegen"></p>
+<p>Die Vorgehensweise ist wie folgt:</p>
+<ol>
+<li>Zunächst muss ein <strong>Embedded Subreport Control</strong> auf den Report gezogen werden. Im Beispiel wird dies auf den ReportHeader gezogen.</li>
+<li>Ggf. kann zunächst der Namen des Controls geändert werden.</li>
+<li>Anschließend muss der Embedded Subreport mit Doppelklick geöffnet werden. Dieser befindet sich im Bild auf der rechten Seite. Die Fenster auf der rechten Seite zeigen die Details des Embedded Subreports an.</li>
+<li>Nach dem Öffnen des Subreports müssen Sie in das Fenster <em>Report Explorer</em> wechseln und dort, wie bei Schritt 2 im Bild, den Subreport auswählen.</li>
+<li>Anschließend kann im Properties Fenster der Data Member ausgewählt werden (Schritt 3 im Bild). Im Beispiel wurde hier die zweite Collection oArticleColl ausgewählt, welche per DataSource dem Haupt-Report zugewiesen wurde.</li>
+<li>Als letzten Schritt können Sie nun über das Fenster <em>Field List</em> verschiedene Datenfelder auf den Report ziehen. Im Bild sind sID, sName und sColor hinzugefügt worden.</li>
+<li>Speichern und fertig.</li>
+</ol>
+<p><strong>Ergebnis:</strong> Einmalig auf der ersten Seite im Report wird nun die Liste der Artikel mit den Daten ID, Name und Farbe ausgegeben.</p>
+<h3 id="kombination-der-verschiedenen-möglichkeiten">Kombination der verschiedenen Möglichkeiten</h3>
+<p>Auf dem nachfolgenden Screenshot sehen Sie die Zusammenfassung der bereits erklärten Beispiele, welche zusätzlich farblich aufbereitet wurden.
+Dies dient einer besseren Übersichtlichkeit.
+Des Weiteren wurde ein DetailReport hinzugefügt, welcher über die Bestellungen der Firma iteriert.
+Die zugehörige Überschrift lautet &quot;Bestellungen&quot; und ist gelb.
+Diesen DetailReport können Sie als Übung selbst hinzufügen und sich am bereits erstellten Ansprechpartner-DetailReport orientieren.</p>
+<p>Auf dem Report werden folgende Informationen angezeigt:</p>
+<ul>
+<li>Embedded Subreport im ReportHeader: Iteration über die verschiedenen Artikel</li>
+<li>DetailReport oCompanyColl.oContactColl: Iteration über die Ansprechpartner</li>
+<li>DetailReport oCompanyColl.oSalesOrderMasterColl: Iteration über die verschiedenen Bestellungen</li>
+</ul>
+<p><strong>Report im FSReportDesigner:</strong>
+<img src="media/devexpress-report-example.png" alt="Ergebnis Report im Designer"></p>
+<p><strong>Ergebnis:</strong></p>
+<p><img src="media/devexpress-report-finish.png" alt="Ergebnis kombinierter Report"></p>
+<h3 id="datenanzeige-direkt-im-detail-band">Datenanzeige direkt im Detail Band</h3>
+<p>Auch im Detail können Daten bspw. der Firma ausgegeben werden. Diese wurden nachträglich zum Detail Band, welches über die Bestellungen iteriert, hinzugefügt.
+Die Firmendaten haben einen grauen Hintergrund.</p>
+<p><strong>Report im FSReportDesigner:</strong></p>
+<p><img src="media/devexpress-daten-im-detail.png" alt="Firmendaten im Detail"></p>
+<p><strong>Ergebnis:</strong></p>
+<p><img src="media/devexpress-firma-in-detail-band.png" alt="Ergebnis"></p>
+<h3 id="daten-in-mehreren-spalten-anzeigen">Daten in mehreren Spalten anzeigen</h3>
+<p>Innerhalb des DetailReports mit dem Data Member &quot;oCompanyColl.oSalesOrderMasterColl&quot;, in welcher bereits die Bestellungen durchlaufen werden, legen wir nun einen weiteren DetailReport an.</p>
+<ol>
+<li>Über das Detail Band der &quot;Bestellungen&quot; kann über das Contextmenü &quot;Insert Detail Report&quot; - &quot;oSalesOrderDetailColl&quot; ausgewählt werden.</li>
+<li>Nachdem man einen ReportHeader und das Label &quot;Positionen&quot; hinzugefügt hat, sieht der Report wie im folgenden Screenshot aus. Rot umrandet ist der neu angelegte Detail Report.
+<img src="media/devexpress-multi-column.png" alt="Multi Column"></li>
+<li>In diesem Screenshot kann man des Weiteren sehen, wie ein Report in Spalten aufgeteilt werden kann.
+Im Fenster <em>Properties</em> ist dies markiert.
+Zusätzlich sollte die Einstellung <em>Layout</em> bei den <em>Multi-Column-Options</em> auf <strong>&quot;First Accross, then down&quot;</strong> gesetzt werden.
+Ansonsten werden die Positionen nur nebeneinander angezeigt, wenn beispielsweise am Ende der Seite kein Platz mehr für alle Positionen untereinander vorhanden ist.</li>
+<li>Anschließend das Control &quot;Panel&quot; auf das Detail ziehen und die gewünschten Datenfelder zum Panel per Drag&amp;Drop hinzufügen.</li>
+</ol>
+<p><strong>Der fertige Report mit Panel und Multi Column im FSReportDesigner:</strong></p>
+<p><img src="media/devexpress-report-multicolumn.png" alt="Report  mit MultiColumns Ergebnis im FSReport Designer"></p>
+<p><strong>Ergebnis:</strong></p>
+<p><img src="media/devexpress-report-final.png" alt="Report mit MultiColumns Ergebnis"></p>
+<h3 id="ansprechpartner-im-embedded-subreport">Ansprechpartner im Embedded Subreport</h3>
+<p>Es gibt die Möglichkeiten die Anzeige der Bestellungen und Ansprechpartner nicht über Detail Reports, sondern mittels Embedded Subreports zu lösen.
+Ziel ist, dass die Ansprechpartner neben den Bestellungen und Positionen angezeigt werden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die nachfolgende Vorgehensweise ist auf Basis des obigen Reports. Die Überschriften sind im Embedded Subreport mit grünem Hintergrund versehen.</p>
+</div>
+<ol>
+<li>Im Detail Band unterhalb der Firmen Infos (grauer Hintergrund) zwei Embedded Subreports hinzufügen.</li>
+<li>Diese nebeneinander anordnen.</li>
+<li>Den linken Report in <code>embeddedSubreportControl_Contact</code> umbenennen.</li>
+<li>Den rechten Report umbenennen in <code>embeddedSubreportControl_Orders</code>.</li>
+<li>Den linken Report öffnen, ein Detail Report über das Kontextmenü &quot;Insert Detail Report&quot; - &quot;oContactColl&quot; hinzufügen und wie im Screenshot mit Daten aus der &quot;oCompanyColl.oContactColl&quot; füllen:
+<img src="media/devexpress-embedded-contact.png" alt="Embedded Report Contact"></li>
+<li>Anschließend im Fenster <em>Field List</em> die &quot;Parameters&quot; auswählen und über Rechtsklick einen neuen Parameter hinzufügen.</li>
+<li>Diesen wie im folgenden Screenshot anlegen (Type: Guid; Name &quot;Company_ROWID&quot;).
+<img src="media/devexpress-company-parameter.png" alt="Embedded Report Contact Parameter"></li>
+<li>Als letzten Schritt muss im Embedded Subreport im Fenster <em>Report Explorer</em> der oberste Report ausgewählt werden. Im Bild heißt dieser &quot;Report2&quot;. Im Fenster <em>Properties</em> in der Registerkarte <em>data</em> beim Property &quot;Filter Strings&quot; folgende Formel angeben: <code>[ROWID] = ?Company_ROWID</code>
+<img src="media/devexpress-embedded-filter-string-editor.png" alt="Filter String Editor"></li>
+<li>Anschließend den Embedded Report speichern und schließen.</li>
+<li>Am <code>embeddedSubreportControl_Contact</code> im Haupt-Report auf das Zahnrad-Icon klicken und anschließend <em>Edit Parameter Bindings...</em> auswählen (siehe Screenshot).
+<img src="media/devexpress-edit-parameter-bindings.png" alt="Parameter Bindings hinzufügen"></li>
+<li>Im nun geöffneten <em>Parameter Binding Collection Editor</em> auf den Button <em>Sync</em> klicken.
+Hiermit wird der im Subreport angelegte Parameter automatisch hinzugefügt.
+Im rechten PropertyGrid muss nun bei <em>Binding</em> auf die ROWID der oCompanyColl verwiesen werden.
+<img src="media/devexpress-parameter-binding-editor.png" alt="Parameter Binding Collection Editor"></li>
+<li>Das Fenster mit Ok schließen.</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Nur wenn sie zusätzlich zum Parameter auch den <strong>Filter String</strong> anlegen, wird nach der ROWID gefiltert. Ansonsten werden bspw. für alle Firmen alle Ansprechpartner untereinander angezeigt.</p>
+</div>
+<p>Auf diesem Screenshot ist zu sehen, wie nun der embedded Subreport auf dem finalen Report aussieht:</p>
+<p><img src="media/devexpress-final-embedded-contact.png" alt="Finaler Report mit Embedded Subreport contact"></p>
+<h3 id="bestellungen-und-positionen-im-embedded-subreport">Bestellungen und Positionen im Embedded Subreport</h3>
+<p>Um auch die Bestellungen und die Positionen ebenfalls mit Embedded Subreports abbilden zu können, ist keine neue Funktion notwendig.
+Mit den bisherigen Beispielen können Sie sich nun selbst ausprobieren oder der Anleitung weiter folgen.</p>
+<p>Die Vorgehensweise ist wie folgt:</p>
+<ol>
+<li>Falls noch kein entsprechender Embedded Subreport unterhalb der Firmeninfos hinzugefügt wurde, muss dies nun getan werden. Der Embedded Subreport sollte in keinem Detail Report, sondern direkt im Detail Band eingebunden werden.</li>
+<li>Den Subreport in <code>embeddedSubreportControl_Orders</code> umbenennen.</li>
+<li>Subreport embeddedSubreportControl_Orders öffnen.</li>
+<li>Anschließend den Report mit folgenden Controls befüllen:
+<img src="media/devexpress-embedded-orders.png" alt="Embedded Subreport Orders"></li>
+<li>Zusätzlich muss noch ein Parameter <code>Company_ROWID</code> hinzugefügt werden.</li>
+<li>Nennen Sie den hier hinzugefügten Embedded Subreport bitte ebenfalls <code>embeddedSubreportControl_OrderPos</code>, da dieser im Folgenden so genannt wird.</li>
+<li>Anschließend müssen im Report <code>embeddedSubreportControl_Orders</code> auf das oberste Report Element im <em>Report Explorer</em> klicken und den Filter String auf
+<code>[ROWID] = ?Company_ROWID</code>
+setzen.</li>
+<li>Als letzten Schritt müssen Sie zurück in den Haupt-Report und beim Control <code>embeddedSubreportControl_Orders</code> auf das Zahnrad-Icon klicken und <em>Edit Parameter Bindings</em> auswählen.
+Im nun geöffneten Fenster können Sie wieder über den Button <em>Sync</em> den Parameter aus dem Embedded Report ziehen und müssen nur das Binding auf &quot;oCompanyColl.ROWID&quot; setzen.</li>
+<li>Die erste Ebene ist nun vollständig.</li>
+</ol>
+<p>Als nächstes wird erklärt, wie Sie die Positionen anzeigen können.</p>
+<ol>
+<li>Navigieren Sie in den <code>embeddedSubreportControl_Orders</code> Report und von dort in den <code>embeddedSubreportControl_OrderPos</code> Subreport.</li>
+<li>In diesem müssen Sie zwei Detail Reports hinzufügen. Diese müssen wie im folgenden Bild angeordnet sein:
+<img src="media/devexpress-embedded-orderpos.png" alt="Embedded Subreport OrderPos"></li>
+<li>Des Weiteren müssen diesmal zwei Parameter angelegt werden. Diese sind beide wieder vom <em>Type: GUID</em> und lauten: <em>Company_ROWID</em> und <em>Order_ROWID</em></li>
+<li>Als nächstes muss erneut ein Filter String zum obersten Report Element hinzugefügt werden. Dieser lautet wie folgt: <code>[ROWID] = ?Company_ROWID</code></li>
+<li>Nun navigieren Sie zum <code>embeddedSubreportControl_Orders</code> und legen am <code>embeddedSubreportControl_OrderPos</code> Control die beiden Parameter Bindings an.
+Das Binding der Company_ROWID ist identisch zu den Beispiele zuvor.
+Das Binding der Order_ROWID lautet: oCompanyColl.oSalesOrderMasterColl.ROWID
+<img src="media/devexpress-embedded-orderpos-parameters.png" alt="Parameter Binding im embeddedSubreportControl_OrderPos"></li>
+</ol>
+<p><strong>Der finale Report sieht nun wie folgt aus:</strong>
+<img src="media/devexpress-finaler-report-example.png" alt="Finaler Report"></p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Neuheiten Framework Studio 4.8 </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Neuheiten Framework Studio 4.8 ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/docs/articles/neuheiten-4-8.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="neuheiten-framework-studio-48">Neuheiten Framework Studio 4.8</h1>
+
+<p>Informationen zu aktuellen Versionen und korrigierten Fehlern finden Sie in den <a href="release-4-8.html">Release-Informationen</a>.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Dieses Dokument zeigt die Neuerungen beim Update von Version 4.7 auf 4.8.
+Beim Update von einer älteren Version beachten Sie bitte auch die Hinweise und Neuerungen der älteren Version (<a href="neuheiten-4-7.html">Neuheiten 4.7</a>).</p>
+</div>
+<h2 id="crystal-reports-abgekündigt">Crystal Reports abgekündigt</h2>
+<p>Crystal Reports wird nicht mehr unterstützt.</p>
+<p>Alle Reports müssen auf DevExpress® umgestellt werden.
+Für noch nicht umgestellte Reports werden beim Compile der Package-Version entsprechende Warnings generiert und ausgegeben:</p>
+<pre><code class="lang-csharp">#warning Crystal Reports are no longer supported. Please convert the Report File to DevExpress.
+</code></pre>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Nicht umgestellte Reports können in der Anwendung nicht mehr ausgedruckt werden.
+Bei Customizing-Reports wird ggf. auf die DevExpress-Variante des Basis-Packages zurückgefallen, wodurch das Customizing unwirksam wird.</p>
+</div>
+<p>In der IDE können die Crystal Reports für die Migration angezeigt werden.
+Siehe auch <a href="../doc/reporting/report-document-type.html#registerkarte-report-files">Report Document Type</a>.</p>
+<h2 id="skiasharp-library-eingebunden">SkiaSharp Library eingebunden</h2>
+<p>Die <a href="https://www.nuget.org/packages/SkiaSharp"><strong>SkiaSharp</strong> Library</a> ist eingebunden und kann zum Erstellen und Bearbeiten von Pixel-Grafiken verwendet werden.</p>
+<p>Bei <strong>SkiaSharp</strong> handelt es sich um eine Cross-Plattform Grafik-API, welche auf der <a href="https://skia.org/">Skia-Engine von Google</a> basiert.</p>
+<p>Eine Referenz auf die <code>SkiaSharp.dll</code> und ein using auf den Namespace <code>SkiaSharp</code> ziehen automatisch in den folgenden Compile-Schritten:</p>
+<ul>
+<li>Services</li>
+<li>Components</li>
+<li>UnitTests</li>
+<li>Forms</li>
+</ul>
+<p>Bisher war es üblich, für Pixel-Grafiken die Klasse <a href="https://learn.microsoft.com/dotnet/api/system.drawing.graphics">System.Drawing.Graphics</a> zu verwenden.
+Diese basiert auf GDI+ und wird deshalb nur auf Windows Betriebssystemen unterstütz.
+Für einen zukünfitgen Einsatz von .net auf z.B. Lunix-Servern muss dies abgelöst werden.
+<strong>SkiaSharp</strong> bietet diese Möglichkeit.</p>
+<h2 id="komponentenbaukasten---modular-components">Komponentenbaukasten - Modular Components</h2>
+<p>Es wurde ein neues Element hinzugefügt. Die Doku mit allen Besonderheiten und etwaigen Anwendungsfällen findet sich hier: <a href="../doc/modcomp/modcomp.html">Modular Components</a></p>
+<h3 id="icons">Icons</h3>
+<p>In den Modular Components wurden für Properties und Methods die Icons erneuert, sie orientieren sich an den offiziellen Visual Studio Icons. Dies ermöglicht eine schnellere Übersicht, welches AccessLevel das Property oder die Methode hat.</p>
+<ul>
+<li>public: Property bzw. Method-Zeichen</li>
+<li>internal: mit Herz</li>
+<li>protected: mit Stern</li>
+<li>private: mit Schloss</li>
+</ul>
+<p><img src="media/classViewIcons.png" alt="Methods Properties Icons"></p>
+<p>CodeFiles haben spezifische Icons für den ausgewählten Compile Step erhalten.</p>
+<p><img src="media/compilestepIcons.png" alt="CodeFile Icons"></p>
+<h2 id="access-unit-tree-überarbeitet">Access Unit Tree überarbeitet</h2>
+<p>Der Access Unit Tree in der <a href="../doc/runtime-administration/runtime-administration-roles.html">Runtime Administration</a> und im Runtime License Manager wurden überarbeitet. Letzterer findet Anwendung bei den <a href="../doc/access-units/laufzeitlizenzen.html">Laufzeitlizenzen</a> und im <a href="../doc/publish-wizards/run-wizard.html#runtime-licenses">Publish Wizard</a>.</p>
+<p>Neben einem neuen Tree-Control mit vielen eingebauten Features, wie Sortierung, gibt es jetzt über <code>STRG + F</code> eine weitere Suchfunktion. Näheres ist <a href="../doc/access-units/laufzeitlizenzen.html#registerkarte-access-unit-tree">hier</a> beschrieben.</p>
+<h2 id="grafische-transformationen-überarbeitet">Grafische Transformationen überarbeitet</h2>
+<p>Die <a href="../doc/transformationen/transformationen.html#graphische-transformation">Grafischen Transformationen</a> wurden überarbeitet.
+Neben einem neuen Tree-Control mit vielen eingebauten Features wie Filtern und Sortieren gibt es weitere Verbesserungen:</p>
+<ul>
+<li>Im Service-Release-Modus können jetzt Zuordnungen bearbeitet werden.</li>
+<li>Die Farben für Zuordnung und Selektion sind jetzt deutlich dezenter.
+Im Customizing werden Zuordnungen aus der Basis mit einem grauen Hintergrund versehen.
+So können die Änderungen im Customizing besser erfasst werden.</li>
+<li>Beim Öffnen einer Transformation wird die erste Ebene aufgeklappt.</li>
+<li>Es gibt eine Extra Spalte &quot;Assigned&quot;.
+Diese bietet den Vorteil, dass so in einem großen Tree danach gefiltert werden kann.</li>
+</ul>
+<h2 id="sql-parser-abgesichert">SQL-Parser abgesichert</h2>
+<p>Der Sql-Parser hat bisher ungültige bestandteile Bestandteile von SQL-Statements ignoriert ohne dabei einen Fehler zu werfen.
+Insbesondere unvollständige Identifier, Zeichen-Ketten oder Kommentare wurden nicht erkannt.
+Das konnte dazu führen, dass unvollständige SQL-Statements verarbeitet wurden - ggf. ohne eine Fehlermeldung.</p>
+<p>Einige Beispiele:</p>
+<pre><code class="lang-sql">-- unvollständiger Identifier [Spalte1 :
+SELECT 1 FROM Tabelle ORDER BY [Spalte1, [Spalte2]
+
+-- Spontane Sonderzeichen wie z.B. #  pasen zu keiner Syntax und wurden ignoriert.
+SELECT 1 FROM Tabelle # ORDER BY [Spalte1, [Spalte2]
+
+-- Kommentar nicht richtig beendet - Where Bedingung wurde ignoriert.
+SELECT 1 FROM Tabelle /* Ein Kommentar * / WHERE [Spalte] = 7
+</code></pre>
+<p>Derartige falsche Statements führen jetzt zu ensprchenden SQL-Fehlern.</p>
+<h2 id="java-21">Java 21</h2>
+<p>Die <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html#java-runtime">Java Version</a> des Java-Clients wurde auf Java 21 aktualisiert.
+Entsprechend dessen muss zwingend die neuste Version des <a href="requirements.html#client-launcher">FSClientLaunchers</a> <a href="../doc/fsclientlauncher/fsclientlauncher-installation.html">installiert</a> werden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Java 21 unterstützt nur noch <strong>64-Bit</strong> Systeme.</p>
+</div>
+<h3 id="lookandfeel---flatlaf">LookAndFeel - FlatLAF</h3>
+<p>Seit Java 17 gibt es keinen Zugang mehr zu den Windows LookAndFeel UIComponents.
+Das hat zur Folge, dass das Java eigene Metal-LookAndFeel standardmäßig aktiv ist.
+Da das Metal-LookAndFeel aber teilweise unschön aussieht, wurde das open-source LookAndFeel <code>FlatLAF</code> eingebunden.
+Die Darstellung einiger Controls im Java-Client hat sich daher verändert.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Das an den Java-Client übergebene <code>lookAndFeel</code> Argument wird nun nicht mehr ausgewertet und hat keinen Einfluss auf die Oberfläche.</p>
+</div>
+<h3 id="browser-control-fxbrowser-entfernt">Browser-Control FxBrowser entfernt</h3>
+<p>Im Zuge des Updates auf Java 21 wurde der FxBrowser von JavaFx ausgebaut.
+Der JxBrowser ist somit das einzige in FS integrierte Browser-Control.
+Die eingebundene Java 21 Runtime, die durch den FSClientLauncher ausgerollt wird, enthält damit nicht mehr die JavaFx Componenten.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Die aktuelle Implementierung von JxBrowser in FS unterstützt kein <strong>Linux</strong> oder <strong>macOS</strong>.
+Auf diesen Betriebssystemen wird dementsprechend das Browser-Control nicht funktionieren.</p>
+</div>
+<h2 id="broker-launch-endpoint">Broker-Launch Endpoint</h2>
+<p>Der <code>/api/fsclient</code>-Endpoint, der für den Download der <code>.fsclient</code>-Datei genutzt wird, wurde abgeändert.
+Der Parameter <code>dl</code> wurde entfernt und stattdessen ein neuer Endpoint geschaffen.
+Ursprünglich wurde der Parameter eingebaut, um Content-Management-Systemen, wie SharePoints o.ä., die mit dem Startlink aus der <a href="../doc/fsclientlauncher/fsclientlauncher-common.html#startpage">Startpage</a> nicht zurechtgekommen sind, eine Möglichkeit zu bieten den Client zu starten.
+In diesen Systemen hinterlegte Links müssen auf den neuen <a href="../doc/fsclientlauncher/fsclientlauncher-common.html#broker-launch-endpoint">Endpoint</a> <code>/api/launch</code> abgeändert werden.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

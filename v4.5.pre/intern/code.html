@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Alerts </title>
+      <title>Code </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Alerts ">
+      <meta name="title" content="Code ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -12,11 +12,11 @@
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
-      <meta name="searchOption" content="noindex">
+      
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/28.1/docs/playground/alerts.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/29/docs/intern/code.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,58 +85,33 @@
         </div>
 
         <article data-uid="">
-<h1 id="alerts">Alerts</h1>
+<h1 id="code">Code</h1>
 
-<p>Wir verwenden verschiedene Alert-Boxen, um wichtige Inhalte hervorzuheben.</p>
-<h4 id="tip">TIP</h4>
-<div class="TIP">
-<h5>Tip</h5>
-<p>Optional information to help a user be more successful</p>
-</div>
-<h4 id="note">NOTE</h4>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Information the user should notice even if skimming</p>
-</div>
-<h4 id="important">IMPORTANT</h4>
-<div class="IMPORTANT">
-<h5>Important</h5>
-<p>Essential information required for user success</p>
-</div>
-<h4 id="warning">WARNING</h4>
-<div class="WARNING">
-<h5>Warning</h5>
-<p>Dangerous certain consequences of an action</p>
-</div>
-<h4 id="caution">CAUTION</h4>
-<div class="CAUTION">
-<h5>Caution</h5>
-<p>Negative potential consequences of an action</p>
-</div>
-<h2 id="in-liste-eingebettet">In Liste eingebettet</h2>
-<p>Hier ist ein Beispiel für eine Release-Liste. Dort werden z.B. NOTEs eingebaut.</p>
-<ul>
-<li><p>0815: <strong>IDE</strong> - Es gab einen Fehler.<br>
-und eine 2. Zeile</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Diese Box in eingerückt. Sie sollte hier korrekt platziert sein.</p>
-<ul>
-<li>Innerhalb einer Box gehen auch Listen</li>
-<li>wie man hier sieht.</li>
-</ul>
-</div>
-</li>
-<li><p>noch ein Punkt</p>
-</li>
-</ul>
-<div class="TIP">
-<h5>Tip</h5>
-<p>Auch ein Code-Block kann in so einer Box eingebettet sein:</p>
-<pre><code class="lang-csharp">// Ein String
-string s = &quot;Hallo&quot;;
+<p>Im Text <code>inline</code> Code.
+Platziert als <a href="index.html"><code>Link</code></a> auf eine andere Seite.</p>
+<h2 id="c-sharp">C-Sharp</h2>
+<pre><code class="lang-c#">public static class Extensions
+{
+    /// &lt;summary&gt;
+    /// Gibt zurück, ob die PropertyChangedEventArgs zum übergebenen Property passen.
+    /// Das ist der Fall, wenn der PropertyName identisch ist oder wenn in den EventArgs kein Property-Name angegeben ist.
+    /// &lt;/summary&gt;
+    /// &lt;param name=&quot;propertyName&quot;&gt;Der zu prüfende Propery-Name.&lt;/param&gt;
+    [DocfxBrowsable]
+    public static bool IsProperty(this PropertyChangedEventArgs args, string propertyName)
+    {
+        // Ein Kommentar im Code
+        return string.IsNullOrEmpty(args?.PropertyName)
+            || args.PropertyName == propertyName;
+    }
+}
 </code></pre>
-</div>
+<h2 id="sql">Sql</h2>
+<pre><code class="lang-Sql">-- Sql-Server:
+UPDATE dbRun_MLStrings SET ML_SearchText = LEFT(ML_Text, 200);
+-- Oracle:
+UPDATE dbRun_MLStrings SET ML_SearchText = SUBSTR(ML_Text, 1, 200);
+</code></pre>
 
 </article>
 

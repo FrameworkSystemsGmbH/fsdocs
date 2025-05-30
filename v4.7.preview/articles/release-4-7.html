@@ -87,20 +87,59 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
-<h2 id="4751-08052025">4.7.5.1 (08.05.2025)</h2>
+<h2 id="476-06062025">4.7.6 (06.06.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.7.5.1_Setup_x64</li>
+<li>FS_4.7.6_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="hinweis">Hinweis</h4>
-<p>Die ausgelieferte <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html#java-runtime">JRE</a> unterstützt keine ARM-Prozessoren.
-Dies ist auch in den <a href="requirements.html#client-rechner">Requirements</a> dokumentiert.</p>
+<h4 id="hinweise">Hinweise</h4>
+<ul>
+<li>Die <a href="../doc/pbe/pbe.html">PBE</a> in FS wurde aktualisiert.</li>
+<li>Die ausgelieferte <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html#java-runtime">JRE</a> unterstützt keine ARM-Prozessoren.
+Dies ist auch in den <a href="requirements.html#client-rechner">Requirements</a> dokumentiert.</li>
+</ul>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Events klickbarer Links im JxBrowser, die durch dynamische Änderungen des Doms nach dem ersten Laden hinzugefügt wurden, werden nun auch korrekt gefeuert.</li>
+</ul>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
-<li>2025047832 - <strong>Publish2Go</strong>: Bei einer Datenbank-Connection kann es, z.B. im
+<li><p>2025047832 - <strong>Publish2Go</strong>: Bei einer Datenbank-Connection kann es, z.B. im
 Publish2Go, zu einer Fehlermeldung kommen: System.TypeLoadException: Error
-loading provider assembly.</li>
+loading provider assembly.</p>
+</li>
+<li><p>2025057952 - <strong>Package-Manager</strong>: Wenn beim Export einer Package-Version die
+Checkbox <code>Include Base Packages</code> gesetzt ist und eine base Package-Version
+ein HotFix ist, wird für diese sowhol SR, als auch Full Package Export
+angeboten. Der Export ist aber immer ein Full-Export.</p>
+</li>
+<li><p>2025057859 - <strong>IDE</strong>: Wird eine Component kopiert, bei der in einem Property
+Control-Types zugeordnet sind, dann lässt sich die eingefügte Kopie nicht
+speichern.<br>
+Es wird eine SQL-Fehlermeldung angezeigt: <em>Der Wert NULL kann in die
+CTFCP_CT_ID-Spalte, dbo.tblRep_ControlTypeForCP-Tabelle nicht eingefügt
+werden.</em></p>
+</li>
+<li><p>2025057958 - <strong>IDE</strong>: Beim CheckOut kann es zu einer UnhandledException
+kommen, wenn im Hintergrund Code für die CodeAnalysis/Intellisense generiert
+wird. Dies tritt nur in seltenen Fällen auf, wenn sich Aufrufe des
+asynchronen Codeeditors mit dem synchronen Framework Studio überschneiden.</p>
+</li>
+<li><p>2025047833 - <strong>Data Provider</strong>: Bei Insert und Update SQL-Statements, welche
+von FrameworkStudio generiert werden, werden keine Parametergrößen
+angegeben. Dadurch entstehen sehr viele unterschiedliche Statements, die vom
+SQL-Server nicht wiedererkannt werden. Dies führt zu Performanceverlusten.</p>
+</li>
+<li><p>2025057919 - <strong>HtmlClient</strong>: Bei der MobileClient App auf einem Android 10
+Betriebssystem kommt es zu Layoutfehlverhalten, wenn durch Klick auf ein
+Editfield die Tastatur geöffnet wird. Ein weißer Balken zeichnet sich über
+der Tastatur und verkleinert den Arbeitsbereich der App extrem.</p>
+</li>
+<li><p>2025057942 - <strong>Package Merge</strong>: Bei Form-Dokumentationen und Dokumentationen
+wird beim PackageMerge die Target-Dokumentation mit der Source-Dokumentation
+überschrieben. Es findet also kein Merge der Dokumentation statt.</p>
+</li>
 </ul>
 <h2 id="475-02052025">4.7.5 (02.05.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
@@ -109,7 +148,7 @@ loading provider assembly.</li>
 <li>FS4.5.28_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <ul>
 <li>Bei der <a href="../doc/ide/registerkarten.html#registerkarte-search">Search</a> in der IDE kann nun mit einem Doppelklick ein ObjectType für die Suche ausgewählt werden. Anschließend wird das Popup-Menü automatisch geschlossen.</li>
 </ul>
@@ -120,7 +159,7 @@ loading provider assembly.</li>
 <li>DevExpress wurde auf die Version 24.2.6 aktualisiert.</li>
 <li>Der HTML Client wurde auf Capacitor 7 upgedatet.</li>
 </ul>
-<h4 id="hinweis-1">Hinweis</h4>
+<h4 id="hinweis">Hinweis</h4>
 <p>Es gibt einen neuen Artikel zum Thema &quot;<a href="frequently-asked-questions.html#devexpress-exception-scriptitemizeopentype-in-usp10dll-nicht-gefunden">DevExpress Exception <code>ScriptItemizeOpenType</code> in <code>Usp10.dll</code> nicht gefunden</a>&quot; in unserem FAQ Bereich.
 Dieser Fehler wurde uns nun häufiger gemeldet, deshalb möchten wir Sie bitten unsere derzeitigen <a href="requirements.html">Requirements</a> mit Ihren Systemen zu vergleichen. Testen und führen Sie notwendige Updates durch, falls dies möglich ist.</p>
 <h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
@@ -188,7 +227,7 @@ Das entspricht Chromium 132.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/">https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="neuerungen-1">Neuerungen</h4>
+<h4 id="neuerungen-2">Neuerungen</h4>
 <ul>
 <li>Der <a href="../doc/sql/grammatik.html#withquery">Sql-Parser</a> versteht jetzt <code>WITH</code>-Statements, auch bekannt als <em>Common Table Expression (CTE)</em>.</li>
 <li>Neue Client-Action <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript.html#FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_System_String_"><code>BrowserControlAction.ExecuteJavaScript()</code></a></li>
@@ -239,7 +278,7 @@ Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
 <li>DevExpress wurde auf die Version 24.2.3 aktualisiert.</li>
 <li>Der HTML Client wurde auf Angular 19.1.1 upgedatet.</li>
 </ul>
-<h4 id="neuerungen-2">Neuerungen</h4>
+<h4 id="neuerungen-3">Neuerungen</h4>
 <ul>
 <li>Bei Klicken auf einen Link im <code>Errors and Warnings</code> Tab wird dieser farblich hervorgehoben, um zu visualisieren, dass der Link bereits besucht wurde.</li>
 <li>Bei den Aktionen <code>Open</code>, <code>Save</code> (im FS Report Designer), sowie <code>Choose Report</code> wird nun das Verzeichnis der tatsächlichen Report-Datei geöffnet, statt das Haupt-Reportverzeichnis.</li>
@@ -384,7 +423,7 @@ dass die Datenbankverknüpfungen im Crystal Report Designer gelöscht sind.</p>
 <p>Wenn Sie die Version 4.7.0 Beta 3, 2 oder 1 installiert haben, müssen Sie diese zuerst deinstallieren.
 Ein Update von diesen Versionen ist nicht möglich.</p>
 </div>
-<h4 id="neuerungen-3">Neuerungen</h4>
+<h4 id="neuerungen-4">Neuerungen</h4>
 <p>Siehe <a href="neuheiten-4-7.html">Neuheiten Framework Studio 4.7</a>.</p>
 <h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#4612-06122024">Framework Studio 4.6.12</a> enthalten.

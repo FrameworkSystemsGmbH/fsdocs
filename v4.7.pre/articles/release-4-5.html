@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/5.1/docs/articles/release-4-5.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/6/docs/articles/release-4-5.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,20 +87,59 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-45">Release-Information Framework Studio 4.5</h1>
 
-<h2 id="45281-08052025">4.5.28.1 (08.05.2025)</h2>
+<h2 id="4529-06062025">4.5.29 (06.06.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.5.28.1_Setup_x64</li>
+<li>FS_4.5.29_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="hinweis">Hinweis</h4>
-<p>Die ausgelieferte <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html#java-runtime">JRE</a> unterstützt keine ARM-Prozessoren.
-Dies ist auch in den <a href="requirements.html#client-rechner">Requirements</a> dokumentiert.</p>
+<h4 id="hinweise">Hinweise</h4>
+<ul>
+<li>Die <a href="../doc/pbe/pbe.html">PBE</a> in FS wurde aktualisiert.</li>
+<li>Die ausgelieferte <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html#java-runtime">JRE</a> unterstützt keine ARM-Prozessoren.
+Dies ist auch in den <a href="requirements.html#client-rechner">Requirements</a> dokumentiert.</li>
+</ul>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Events klickbarer Links im JxBrowser, die durch dynamische Änderungen des Doms nach dem ersten Laden hinzugefügt wurden, werden nun auch korrekt gefeuert.</li>
+</ul>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
-<li>2025047832 - <strong>Publish2Go</strong>: Bei einer Datenbank-Connection kann es, z.B. im
+<li><p>2025047832 - <strong>Publish2Go</strong>: Bei einer Datenbank-Connection kann es, z.B. im
 Publish2Go, zu einer Fehlermeldung kommen: System.TypeLoadException: Error
-loading provider assembly.</li>
+loading provider assembly.</p>
+</li>
+<li><p>2025057952 - <strong>Package-Manager</strong>: Wenn beim Export einer Package-Version die
+Checkbox <code>Include Base Packages</code> gesetzt ist und eine base Package-Version
+ein HotFix ist, wird für diese sowhol SR, als auch Full Package Export
+angeboten. Der Export ist aber immer ein Full-Export.</p>
+</li>
+<li><p>2025057859 - <strong>IDE</strong>: Wird eine Component kopiert, bei der in einem Property
+Control-Types zugeordnet sind, dann lässt sich die eingefügte Kopie nicht
+speichern.<br>
+Es wird eine SQL-Fehlermeldung angezeigt: <em>Der Wert NULL kann in die
+CTFCP_CT_ID-Spalte, dbo.tblRep_ControlTypeForCP-Tabelle nicht eingefügt
+werden.</em></p>
+</li>
+<li><p>2025057958 - <strong>IDE</strong>: Beim CheckOut kann es zu einer UnhandledException
+kommen, wenn im Hintergrund Code für die CodeAnalysis/Intellisense generiert
+wird. Dies tritt nur in seltenen Fällen auf, wenn sich Aufrufe des
+asynchronen Codeeditors mit dem synchronen Framework Studio überschneiden.</p>
+</li>
+<li><p>2025047833 - <strong>Data Provider</strong>: Bei Insert und Update SQL-Statements, welche
+von FrameworkStudio generiert werden, werden keine Parametergrößen
+angegeben. Dadurch entstehen sehr viele unterschiedliche Statements, die vom
+SQL-Server nicht wiedererkannt werden. Dies führt zu Performanceverlusten.</p>
+</li>
+<li><p>2025057919 - <strong>HtmlClient</strong>: Bei der MobileClient App auf einem Android 10
+Betriebssystem kommt es zu Layoutfehlverhalten, wenn durch Klick auf ein
+Editfield die Tastatur geöffnet wird. Ein weißer Balken zeichnet sich über
+der Tastatur und verkleinert den Arbeitsbereich der App extrem.</p>
+</li>
+<li><p>2025057942 - <strong>Package Merge</strong>: Bei Form-Dokumentationen und Dokumentationen
+wird beim PackageMerge die Target-Dokumentation mit der Source-Dokumentation
+überschrieben. Es findet also kein Merge der Dokumentation statt.</p>
+</li>
 </ul>
 <h2 id="4528-02052025">4.5.28 (02.05.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
@@ -116,7 +155,7 @@ loading provider assembly.</li>
 <li>DevExpress wurde auf die Version 24.2.6 aktualisiert.</li>
 <li>Der HTML Client wurde auf Capacitor 7 upgedatet.</li>
 </ul>
-<h4 id="hinweis-1">Hinweis</h4>
+<h4 id="hinweis">Hinweis</h4>
 <p>Es gibt einen neuen Artikel zum Thema &quot;<a href="frequently-asked-questions.html#devexpress-exception-scriptitemizeopentype-in-usp10dll-nicht-gefunden">DevExpress Exception <code>ScriptItemizeOpenType</code> in <code>Usp10.dll</code> nicht gefunden</a>&quot; in unserem FAQ Bereich.
 Dieser Fehler wurde uns nun häufiger gemeldet, deshalb möchten wir Sie bitten unsere derzeitigen <a href="requirements.html">Requirements</a> mit Ihren Systemen zu vergleichen. Testen und führen Sie notwendige Updates durch, falls dies möglich ist.</p>
 <h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
@@ -176,7 +215,7 @@ Das entspricht Chromium 132.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/">https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <ul>
 <li>Der <a href="../doc/sql/grammatik.html#withquery">Sql-Parser</a> versteht jetzt <code>WITH</code>-Statements, auch bekannt als <em>Common Table Expression (CTE)</em>.</li>
 </ul>
@@ -222,7 +261,7 @@ Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
 <li>DevExpress wurde auf die Version 24.2.3 aktualisiert.</li>
 <li>Der HTML Client wurde auf Angular 19.1.1 upgedatet.</li>
 </ul>
-<h4 id="neuerungen-1">Neuerungen</h4>
+<h4 id="neuerungen-2">Neuerungen</h4>
 <ul>
 <li>Bei Klicken auf einen Link im <code>Errors and Warnings</code> Tab wird dieser farblich hervorgehoben, um zu visualisieren, dass der Link bereits besucht wurde.</li>
 <li>Bei den Aktionen <code>Open</code>, <code>Save</code> (im FS Report Designer), sowie <code>Choose Report</code> wird nun das Verzeichnis der tatsächlichen Report-Datei geöffnet, statt das Haupt-Reportverzeichnis.</li>
@@ -293,7 +332,7 @@ der Speicherbutton nicht aktiv.</p>
 <li>FS_4.5.23_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-2">Neuerungen</h4>
+<h4 id="neuerungen-3">Neuerungen</h4>
 <ul>
 <li>Im <a href="../doc/ide/allgemeine-funktionalitaeten.html#element-history-browser">Element History Browser</a>, sowie im <a href="../doc/ide/allgemeine-funktionalitaeten.html#method-history-browser">Method History Browser</a> wurde der Monaco eigene <a href="../doc/editors/editor-diff.html">Diff-Editor</a> eingebaut.
 Der Vergleich mit einem externen Tool ist dennoch möglich.</li>
@@ -358,7 +397,7 @@ mal in die Methode OnServiceHostExit().</p>
 <li>FS_4.5.21_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-3">Neuerungen</h4>
+<h4 id="neuerungen-4">Neuerungen</h4>
 <ul>
 <li>Das Anlegen eines neuen Repositorys funktioniert jetzt auch mit den strengeren Password-Regeln in SQL-Server 2022.</li>
 </ul>
@@ -406,7 +445,7 @@ Das entspricht Chromium 127.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2024/v7-40-0.html">https://jxbrowser-support.teamdev.com/release-notes/2024/v7-40-0.html</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="neuerungen-4">Neuerungen</h4>
+<h4 id="neuerungen-5">Neuerungen</h4>
 <ul>
 <li>Die <em>Include Base Packages</em> Funktion im Package-Export über den <a href="../doc/package-manager/export.html#include-base-packages">Package-Manager</a> und die <a href="../doc/fsconsole/fsconsole.html#includebasepackages-mode">FSConsole</a> bzw. <a href="../doc/pbe/aktionen.html#knoten-export">PBE</a> wurde überarbeitet.</li>
 </ul>
@@ -434,7 +473,7 @@ werden sollen.</p>
 <li>FS_4.5.19_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-5">Neuerungen</h4>
+<h4 id="neuerungen-6">Neuerungen</h4>
 <ul>
 <li><a href="../doc/resources/reference-check.html">Referenz-Prüfung für Ressourcen</a></li>
 <li><a class="xref" href="../api/FS.Hosting.Shared.GlobalObj.ContentDownloadManager.html">Über eine neue API können im Broker Inhalte bereitgestellt werden. Diese können vom Client heruntergeladen werden.</a></li>
@@ -524,7 +563,7 @@ Dieser arbeitet mit Java 8 Update 202, welche aber einen extrem veralteten Siche
 Wenn Sie die Installation einer alten Version vorziehen, muss zuerst der aktuelle FS Client Launcher deinstalliert werden - ein &quot;Rückwärts-Update&quot; funktioniert nicht.</li>
 </ol>
 <p>Wir werden diesen Fehler weiter beobachten. Sobald Java das fixt, liefern wir einen aktualisierten FS Client Launcher aus.</p>
-<h4 id="neuerungen-6">Neuerungen</h4>
+<h4 id="neuerungen-7">Neuerungen</h4>
 <ul>
 <li><p>Neues Kapitel in der Doku: <a href="../doc/konzepte/form-databinding.html">Databinding in Forms</a></p>
 </li>
@@ -592,7 +631,7 @@ name: dataTreeRecord</em></p>
 <li>FS_4.5.17_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-7">Neuerungen</h4>
+<h4 id="neuerungen-8">Neuerungen</h4>
 <ul>
 <li>Zum Customizen muss für das Basis-Package keine PKL-Lizenz mehr eingespielt werden.
 Die Prüfung wurde entfernt.
@@ -641,7 +680,7 @@ Service-Release-Modus befindet.</p>
 <li>DevExpress wurde auf Version 23.2.5 upgedated.</li>
 <li>Es gibt einen neuen <a href="frequently-asked-questions.html">FAQ</a> Bereich in unserer Online-Dokumentation. Hier werden wir laufend Themen ergänzen.</li>
 </ul>
-<h4 id="neuerungen-8">Neuerungen</h4>
+<h4 id="neuerungen-9">Neuerungen</h4>
 <ul>
 <li>Für einen Form-Container funktioniert im Java-Client jetzt die Focus-Steuerung.
 Das umfasst das Navigieren durch die Controls, das Reagieren auf Shortcuts in beiden Richtungen und die SetFocus-Action im inneren Form.</li>
@@ -757,7 +796,7 @@ Zeichen &quot;[&quot;, &quot;]&quot; oder &quot;\&quot; enthält.</p>
 <li>DevExpress wurde auf Version 23.2.3 upgedated.</li>
 <li>Der Monaco Code-Editor wurde auf Version 0.44.0 upgedated.</li>
 </ul>
-<h4 id="neuerungen-9">Neuerungen</h4>
+<h4 id="neuerungen-10">Neuerungen</h4>
 <ul>
 <li>Im <a href="../doc/ide/start.html#checkbox-show-only-applicable-packages-and-versions">Login Dialog</a> gibt es eine neue Checkbox, mit welcher die Packages und Versions gefiltert werden können.</li>
 <li>Es gibt eine neue Auto Debug DLLs Option: <code>Service, Component, Form</code>, siehe <a href="../doc/allgemein/options.html#auto-debug-dlls">Options</a>.</li>
@@ -794,7 +833,7 @@ SR-Methode ein Leerzeichen enthalten ist.</p>
 <ul>
 <li>Der HTML Client wurde auf Angular 17.1.1 upgedated</li>
 </ul>
-<h4 id="neuerungen-10">Neuerungen</h4>
+<h4 id="neuerungen-11">Neuerungen</h4>
 <ul>
 <li>Im Package Manager können an der Package Version die <a href="../doc/package-manager/package-version.html#base-workspaces-freezed-since">Basis-Workspaces fixiert</a> werden.</li>
 <li>Mit Hilfe von <a href="../doc/package-manager/hotfix-branch.html">Hotfix-Branches</a> ist es möglich, parallel zum laufenden Service-Release Änderungen vorzunehmen und diese kurzfristig auszuliefern.</li>
@@ -836,7 +875,7 @@ und DocML nutzen fälschlicherweise immer die Standardwerte.</p>
 <li>DevExpress wurde auf Version 23.1.6 upgedated.</li>
 <li>Die Bibliothek Oracle.ManagedDataAccess wurde von Version 21.8.0 auf die neuste Version 21.12.0 aktualisiert.</li>
 </ul>
-<h4 id="neuerungen-11">Neuerungen</h4>
+<h4 id="neuerungen-12">Neuerungen</h4>
 <ul>
 <li>Es wurde eine weitere &quot;Open compiled code in ...&quot; Option ergänzt. Nähere Informationen finden Sie <a href="../doc/allgemein/options.html">hier</a>.</li>
 </ul>
@@ -867,7 +906,7 @@ Das entspricht Chromium 118.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2023/v7-36.html">https://jxbrowser-support.teamdev.com/release-notes/2023/v7-36.html</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="neuerungen-12">Neuerungen</h4>
+<h4 id="neuerungen-13">Neuerungen</h4>
 <ul>
 <li>Beim Löschen von Form-Methoden gibt es jetzt eine Prüfung, ob diese Methode in einem Control-Event verwendet wird.</li>
 </ul>
@@ -935,7 +974,7 @@ Kapitel zwar über den Index aber nicht über die Suche gefunden.</p>
 <li>FS_4.5.9_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-13">Neuerungen</h4>
+<h4 id="neuerungen-14">Neuerungen</h4>
 <ul>
 <li>Neue Maintenance-Routine <a href="../doc/maintenance/devexpress-rft-comment-cleanup.html">DevExpress Rtf Comment Cleanup</a>.</li>
 </ul>
@@ -967,7 +1006,7 @@ wenn er gecustomized wurde.</p>
 <li>DevExpress wurde auf Version 23.1.4 upgedated.</li>
 <li>Der HTML Client wurde auf Angular 16.2 upgedated. Das Scrolling bei vielen offenen Forms wurde im Browser und auf Tablets verbessert.</li>
 </ul>
-<h4 id="neuerungen-14">Neuerungen</h4>
+<h4 id="neuerungen-15">Neuerungen</h4>
 <ul>
 <li>In der IDE werden nun vor einem Compile alle ungespeicherten Elemente automatisch gespeichert.</li>
 </ul>
@@ -1194,7 +1233,7 @@ anfangen kann.</em></p>
 <li>FS_4.5.5_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-15">Neuerungen</h4>
+<h4 id="neuerungen-16">Neuerungen</h4>
 <ul>
 <li>Für Text-Resourcen steht die Auswahl eines Encoding bereit.
 Das Encoding wird bei neu hinzugefügten Resourcen und auch bei bereits bestehenden automatisch ermittelt.
@@ -1267,7 +1306,7 @@ Mit dem Update von DevExpress Web-Designers auf .net 6 haben wir diesen so umges
 <li>FS_4.5.3_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-16">Neuerungen</h4>
+<h4 id="neuerungen-17">Neuerungen</h4>
 <ul>
 <li>Am GridView gibt es ein neues Event <a class="xref" href="../api/FS.Hosting.Shared.IGridView.EntriesSortedOrFiltered.html">EntriesSortedOrFiltered</a>.</li>
 </ul>

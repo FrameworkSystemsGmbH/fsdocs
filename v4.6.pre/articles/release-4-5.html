@@ -114,6 +114,17 @@ Checkbox <code>Include Base Packages</code> gesetzt ist und eine base Package-Ve
 ein HotFix ist, wird für diese sowhol SR, als auch Full Package Export
 angeboten. Der Export ist aber immer ein Full-Export.</p>
 </li>
+<li><p>2025068000 - <strong>Package-Manager</strong>: Wird eine Package-Version, welche sich im
+SR-Modus befindet, mit dem Compile-Wizard compiliert, dann kann es
+passieren, dass Saved Codes nicht vollständig erzeugt werden. In der Folge
+kommt es in Customizing-Packages zu Compile-Fehlern.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Im SR-Modus werden jetzt immer alle Namespaces compiliert, damit ggf.
+fehlende Saved Codes erzeugt werden. Dadurch kann es höhere Compile-Zeiten
+geben.</p>
+</div>
+</li>
 <li><p>2025057859 - <strong>IDE</strong>: Wird eine Component kopiert, bei der in einem Property
 Control-Types zugeordnet sind, dann lässt sich die eingefügte Kopie nicht
 speichern.<br>

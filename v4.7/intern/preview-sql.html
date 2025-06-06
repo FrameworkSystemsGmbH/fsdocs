@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Alerts </title>
+      <title>Preview SQL </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Alerts ">
+      <meta name="title" content="Preview SQL ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -12,11 +12,11 @@
       <link rel="stylesheet" href="../public/main.css">
       <meta name="docfx:navrel" content="../toc.html">
       <meta name="docfx:tocrel" content="toc.html">
-      <meta name="searchOption" content="noindex">
+      
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.6/release/17/docs/playground/alerts.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/6/docs/intern/preview-sql.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,58 +85,23 @@
         </div>
 
         <article data-uid="">
-<h1 id="alerts">Alerts</h1>
+<h1 id="preview-sql">Preview SQL</h1>
 
-<p>Wir verwenden verschiedene Alert-Boxen, um wichtige Inhalte hervorzuheben.</p>
-<h4 id="tip">TIP</h4>
-<div class="TIP">
-<h5>Tip</h5>
-<p>Optional information to help a user be more successful</p>
-</div>
-<h4 id="note">NOTE</h4>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Information the user should notice even if skimming</p>
-</div>
-<h4 id="important">IMPORTANT</h4>
-<div class="IMPORTANT">
-<h5>Important</h5>
-<p>Essential information required for user success</p>
-</div>
-<h4 id="warning">WARNING</h4>
-<div class="WARNING">
-<h5>Warning</h5>
-<p>Dangerous certain consequences of an action</p>
-</div>
-<h4 id="caution">CAUTION</h4>
-<div class="CAUTION">
-<h5>Caution</h5>
-<p>Negative potential consequences of an action</p>
-</div>
-<h2 id="in-liste-eingebettet">In Liste eingebettet</h2>
-<p>Hier ist ein Beispiel für eine Release-Liste. Dort werden z.B. NOTEs eingebaut.</p>
-<ul>
-<li><p>0815: <strong>IDE</strong> - Es gab einen Fehler.<br>
-und eine 2. Zeile</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Diese Box in eingerückt. Sie sollte hier korrekt platziert sein.</p>
-<ul>
-<li>Innerhalb einer Box gehen auch Listen</li>
-<li>wie man hier sieht.</li>
-</ul>
-</div>
-</li>
-<li><p>noch ein Punkt</p>
-</li>
-</ul>
-<div class="TIP">
-<h5>Tip</h5>
-<p>Auch ein Code-Block kann in so einer Box eingebettet sein:</p>
-<pre><code class="lang-csharp">// Ein String
-string s = &quot;Hallo&quot;;
+<p>Um sich an einem Package mit der Preview Version von Framework Studio anmelden zu können, muss folgendes Skript im Framework Studio Repository ausgeführt werden:</p>
+<h2 id="spalte-hinzufügen">Spalte hinzufügen</h2>
+<pre><code class="lang-sql">ALTER TABLE tblRep_Label ADD Lbl_AllowPreview char(1) NULL;
 </code></pre>
-</div>
+<h2 id="allowpreview-wert-setzen">AllowPreview Wert setzen</h2>
+<h3 id="allgemeines-sql-skript">Allgemeines SQL Skript</h3>
+<pre><code class="lang-sql">UPDATE tblRep_Label
+SET Lbl_AllowPreview = 1
+WHERE Lbl_ID = 'VERSION ID aus PackageManager'
+</code></pre>
+<h3 id="sql-skript-für-fsdemo-und-fsdemocustomize-packages">SQL Skript für FSDemo und FSDemoCustomize Packages</h3>
+<pre><code class="lang-sql">UPDATE tblRep_Label
+SET Lbl_AllowPreview = 1
+WHERE Lbl_P_ID IN ('9a7c2d2d05e54ae6a97a9f2b919d6648', 'fde6193cb96842aaaf0d5e005b1a0c8d')
+</code></pre>
 
 </article>
 

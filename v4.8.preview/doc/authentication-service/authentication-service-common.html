@@ -125,8 +125,8 @@ Empfehlung: <code>C:\Programme\enventa Group\FS AuthService\</code></p>
 <li><p>Jetzt müssen Sie die Konfiguration des Services festlegen.
 Führen Sie dazu im Zielordner das Programm <code>AuthenticationServiceConfigEditor.exe</code> aus.
 Dieses Programm bearbeitet den Inhalt der Konfigurations-Datei <code>AuthenticationService.exe.config</code>.</p>
-<p>Sie erhalten das folgende Bild:
-<img src="media/image4.png" alt="Authentication Service Configuration Editor tab General"></p>
+<p>Sie erhalten das folgende Bild:</p>
+<p><img src="media/General.png" alt="Authentication Service Configuration Editor tab General"></p>
 </li>
 <li><p>Geben Sie im Abschnitt <strong>Database Connection</strong> die gewünschte Verbindung zu der Datenbank an, in welcher der Service die Benutzerdaten ablegen soll.
 Standardmäßig wird dazu das Repository Ihrer Anwendung verwendet.
@@ -164,24 +164,24 @@ Dabei sollte der Benutzer-Account des Dienstes wieder der von vorher sein – gg
 </li>
 <li><p>Speichern Sie die Änderungen mit <em>Save Changes</em> ab.</p>
 </li>
-<li><p>Auf der Registerkarte <strong>Application Security</strong> können erweiterte Sicherheitsanforderungen, die für Ihre Anwendungen gelten sollen, konfiguriert werden.</p>
-<p><img src="media/image5.png" alt="Authentication Service Configuration Editor"></p>
+<li><p>Auf der Registerkarte <strong>Application Security</strong> können erweiterte Sicherheitsanforderungen und die gewünschte Form der Authentification, die für Ihre Anwendungen gelten sollen, konfiguriert werden.</p>
+<p><img src="media/ApplicationSecurity.png" alt="Authentication Service Configuration Editor"></p>
 <p>Mit <em>Set Default</em> werden die Standardeinstellungen dieser Registerkarte wiederhergestellt.</p>
 </li>
-<li><p>Im Bereich <em><strong>General Settings</strong></em> können Sie zunächst die vom Authentifizierungsdienst geduldete Maximallänge für Benutzernamen ändern (Einstellung <em>Maximum username length)</em>.</p>
-<p>Das Eingabefeld <strong>Domain controller</strong> muss leer bleiben, wenn die Authentifizierung beim Start der Endanwendung nicht automatisch mit den angemeldeten Windows-Benutzern erfolgen soll.
+<li><p>Im Bereich <em><strong>General Settings</strong></em> können Sie zunächst die vom Authentifizierungsdienst geduldete Maximallänge für Benutzernamen ändern (Einstellung <em>Maximum username length)</em>.
+Mit dem Schalter <strong>Enable advanced security</strong> legen Sie fest, ob die erweiterten Sicherheitseinstellungen in der <em><strong>User Password Authentication</strong></em> grundsätzlich aktiviert werden sollen. Wenn Sie diese nicht aktivieren, sind alle weiteren darin enthaltenden Einstellungen des Abschnittes bedeutungslos.</p>
+<p>Im darauf folgenden Abschnitt <em><strong>OpenID Connect Authentication</strong></em> kann die Authentification per OpenIDConnect konfiguriert werden. Hierfür sind <strong>Identity Provider URL</strong> und <strong>ClientID</strong> erforderlich. Das <strong>ClientSecret</strong> ist empfohlen, aber nicht zwingend notwendig. Optional sind zudem der <strong>Scope</strong> (default, wenn nicht angegeben, ist 'openid profile email') und <strong>Claim</strong> (default, wenn nicht angegeben, ist 'email'). Das <strong>Label for Claim</strong> ist optional und wird, wenn angegeben, in die Runtime Administration übernommen.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Beachten Sie hierbei die jeweiligen Anforderungen des Identity Providers, den Sie nutzen wollen. Dieser kann teilweise andere Scopes oder Claims bzw. ein valides ClientSecret voraussetzen.</p>
+</div>
+<p><em><strong>Domain Authentication</strong></em> widerrum ermöglicht Windows-Authentifizierung. Es ist entweder eine Authentification per Domain oder OpenID Connect möglich.
+Das Eingabefeld <strong>Domain controller</strong> muss leer bleiben, wenn die Authentifizierung beim Start der Endanwendung nicht automatisch mit den angemeldeten Windows-Benutzern erfolgen soll.
 Andernfalls muss hier der zu verwendende Domain Controller (DC) angegeben werden (z.B. mydc.mycompany.com).</p>
 <p>Das Eingabefeld <strong>Domain</strong> muss ebenfalls leer bleiben, wenn die Authentifizierung beim Start der Endanwendung nicht automatisch mit dem angemeldeten Windows-Benutzer erfolgen soll.
 Andernfalls muss hier in Großbuchstaben der Name der Domäne angegeben werden (z.B. MYDOMAIN).
 Die Authentifizierung über die Domäne kann nur dann funktionieren, wenn Client und Authentication Service zur angegebenen Domäne gehören.</p>
-<p>Mit dem Schalter <strong>Enable advanced security</strong> legen Sie fest, ob die erweiterten Sicherheitseinstellungen grundsätzlich aktiviert werden sollen.
-Wenn Sie diese nicht aktivieren, sind alle weiteren Einstellungen auf dieser Registerkarte bedeutungslos und Sie können mit 10. fortfahren.</p>
-<p>Die Einstellungen im Einzelnen:</p>
-<p>Bereich <strong>General Settings</strong>:</p>
-<ul>
-<li><strong>Log level</strong>: funktionslos (für spätere Erweiterungen vorgesehen).</li>
-</ul>
-<p>Bereich <strong>Password Complexity</strong>:</p>
+<p>Bereich <em><strong>User Password Authentication</strong></em> zur Authentification per Benutzername-Passwort-Kombination enthält folgende Einstellungen im Einzelnen:</p>
 <ul>
 <li><strong>Enforce character</strong>: Erzwingt, dass in jedem Passwort mindestens ein Buchstabe vorkommen muss.</li>
 <li><strong>Enforce upper and lower</strong>: Erzwingt, dass in jedem Passwort mindestens ein Groß- und ein Kleinbuchstabe vorkommen muss.</li>
@@ -191,9 +191,6 @@ Wenn Sie diese nicht aktivieren, sind alle weiteren Einstellungen auf dieser Reg
 <li><strong>Exclusion list</strong>: Durch Leerzeichen getrennt können Sie hier Worte definieren, die im Passwort (unabhängig von der Groß-Kleinschreibung) nicht vorkommen dürfen. <code>username</code> steht dabei für den Namen des Benutzers.</li>
 <li><strong>Contains excluded</strong>: Wenn diese Checkbox gesetzt ist, werden alle Passworte abgelehnt, in denen eines der Worte aus der <strong>Exclusion list</strong> vorkommt. Ist die Checkbox nicht gesetzt, werden nur die Passworte abgelehnt, die mit einem Wort aus der <strong>Exclusion list</strong> übereinstimmen.</li>
 <li><strong>Prohibit recent</strong>: Wenn ein Benutzer sein Passwort ändert, können die letzten x Passworte des Benutzers als neues Passwort gesperrt werden.</li>
-</ul>
-<p>Bereich <strong>Password Validity</strong>:</p>
-<ul>
 <li><strong>Minimum change period</strong>: Minimale Gültigkeitsdauer von Passworten in Tagen.</li>
 <li><strong>Maximum change period</strong>: Maximale Gültigkeitsdauer von Passworten in Tagen.</li>
 <li><strong>Maximum failed logins</strong>: Anzahl der nicht erfolgreichen Anmeldeversuche, nach welcher der Benutzerzugang temporär gesperrt wird.</li>
@@ -205,7 +202,7 @@ Wenn Sie diese nicht aktivieren, sind alle weiteren Einstellungen auf dieser Reg
 <li><p>Auf der Registerkarte <strong>Runtime Supervisor</strong> kann angegeben werden, an welchem Runtime Supervisor sich der Authentication Service registrieren soll.</p>
 </li>
 </ol>
-<p><img src="media/image6.png" alt="Authentication Service Configuration Editor Registerkarte Runtime ">Supervisor</p>
+<p><img src="media/RuntimeSupervisor.png" alt="Authentication Service Configuration Editor Registerkarte Runtime Supervisor"></p>
 <p>Checkbox <strong>Enable</strong>: Diese Checkbox muss gesetzt werden, damit der Runtime Supervisor aktiviert wird.</p>
 <p><strong>Runtime Supervisor Url:</strong> Hier können der Server und der Port angegeben werden. Die vollständige URL wird automatisch aufgebaut. Mit dem Button <strong>Test</strong> kann versucht werden, ob eine Verbindung zum Runtime Supervisor aufgebaut werden kann.</p>
 <p>Nähere Informationen dazu sind in der Dokumentation des <a href="../runtimesupervisor/runtimesupervisor-common.html">Runtime Supervisor</a> zu finden.</p>
@@ -217,7 +214,7 @@ Wenn Sie diese nicht aktivieren, sind alle weiteren Einstellungen auf dieser Reg
 <li><p>Sie erhalten folgendes Bild:</p>
 </li>
 </ol>
-<p><img src="media/image7.png" alt="Startup Account for Authentication Service"></p>
+<p><img src="media/StartupAccount.png" alt="Startup Account for Authentication Service"></p>
 <p>Geben Sie hier den Benutzer an, mit welchem der Dienst ausgeführt werden soll.</p>
 <p>Es wird empfohlen nach Möglichkeit einen Domain-User anzugeben, da die System-Konten standardmäßig nicht über die notwendigen Rechte verfügen.
 Wählen Sie dazu <em>User</em> aus und geben Sie in <em>User credentials</em> die Benutzerdaten an.</p>
@@ -228,7 +225,7 @@ Wählen Sie dazu <em>User</em> aus und geben Sie in <em>User credentials</em> di
 <li>Überprüfen Sie ggf. ob der Dienst erfolgreich installiert wurde.
 Im oberen Teil des Fensters sollten Sie folgendes Bild sehen:</li>
 </ol>
-<p><img src="media/image8.png" alt="Authentication Service Configuration Editor Registerkarte General"></p>
+<p><img src="media/RunningService.png" alt="Authentication Service Configuration Editor Registerkarte General"></p>
 <ol start="16">
 <li>Mögliche Gründe für das Fehlschlagen der Installation:</li>
 </ol>

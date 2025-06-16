@@ -233,7 +233,7 @@ Wenn noch nie ein FrameworkCompiler gelaufen ist, dann wird (never) ausgegeben.<
 <p>Diese Information wird generiert, wenn man den Compiler aus dem Package-Manager heraus startet, oder mit dem Programm FSConsole.exe durchführt.</p>
 </div>
 <h3 id="checkbox-maintenance-mode">Checkbox Maintenance Mode</h3>
-<p>Ist diese Checkbox gesetzt, wird Framework Studio im Wartungsmodus gestartet (siehe Maintenance Mode).</p>
+<p>Ist diese Checkbox gesetzt, wird Framework Studio im Wartungsmodus gestartet (siehe <a href="../maintenance/maintenance-mode.html">Maintenance Mode</a>).</p>
 <h3 id="button-login-eingabetaste">Button Login (Eingabetaste)</h3>
 <p>Mit diesem Button erfolgt die Anmeldung am Repository. Auf einem Repository kann sich ein Benutzer nur einmal an einem Label (Package Version) anmelden. Ein Benutzer kann sich dagegen gleichzeitig an verschiedenen Labels anmelden. Dabei wird pro Benutzer nur eine Framework Studio Lizenz verbraucht. Wenn Sie mit mehreren Benutzern in einem Label entwickeln möchten, ist es erforderlich, dass sich jeder mit einem anderen Namen an dem Repository anmeldet. Wenn noch eine Anmeldung mit diesem Benutzer existiert, erscheint eine entsprechende Meldung.</p>
 <p><img src="media/start-alert-login-konflikt.png" alt="Login-Konflikt"></p>
@@ -242,15 +242,6 @@ Wenn noch nie ein FrameworkCompiler gelaufen ist, dann wird (never) ausgegeben.<
 <p>Nach erfolgreicher Anmeldung öffnet sich das Hauptfenster von <strong>Framework Studio</strong>.</p>
 <h3 id="button-cancel-escape-taste">Button Cancel (Escape-Taste)</h3>
 <p>Damit wird der Anmeldevorgang abgebrochen und es wird wieder die Repository-Auswahl angezeigt.</p>
-<h2 id="maintenance-mode">Maintenance Mode</h2>
-<p>Um Framework Studio im Wartungsmodus zu starten, muss im Login-Dialog die Checkbox <strong>Maintenance Mode</strong> gesetzt werden (siehe Login).</p>
-<p>Die im Folgenden beschriebenen Funktionalitäten stehen dann in <strong>Framework Studio</strong> zur Verfügung.</p>
-<h3 id="upgrade-workflow-parameters">Upgrade Workflow Parameters</h3>
-<p>In älteren Framework Studio Versionen (bis einschließlich 2.5) wurden Parameter in Methodenaufrufen von Workflow-Links anhand ihrer Bezeichnung identifiziert. Das hatte zur Folge, dass durch Umbenennung eines Parameters die Verknüpfung zerstört wurde. An solche Parameter wurde dann automatisch der Wert &quot;null&quot; übergeben. Da dies meist keinen Kompilierfehler verursacht hat, wurden dadurch ausgelöste Probleme erst spät erkannt.</p>
-<p>Mit dem Menüpunkt <strong>Tools / Upgrade all old workflow parameters</strong> wird ein Vorgang gestartet, der dafür sorgt, dass alle Parameter zukünftig über ihre Position identifiziert werden. Ein nachträgliches Umbenennen von Parametern ist dann zukünftig problemlos möglich.</p>
-<p>Der Vorgang kann nicht mit dem Benutzer <strong>FrameworkCompiler</strong> ausgeführt werden, da alle Workflows zur Bearbeitung ausgecheckt werden. Dieser Vorgang findet im Hintergrund statt, ohne dass der Benutzer Statusmeldungen erhält.</p>
-<p>Ist der Vorgang beendet, erscheint eine Meldung mit dem Hinweis auf die automatisch erzeugte Protokoll-Datei. In dieser Protokoll-Datei wird auch festgehalten, welche Links an einen Parameter ein &quot;null&quot; übergeben. Diese Links sollten daraufhin überprüft werden, ob durch den oben beschriebenen Fehler bereits ein Parameter abhandengekommen ist.</p>
-<p>Im Anschluss müssen alle Workflows manuell eingecheckt werden. Dazu bietet es sich an, nach ausgecheckten Elementen zu suchen (siehe <a href="registerkarten.html#registerkarte-search">Registerkarte Search</a>), da dort über das Kontextmenü alle Elemente in einem Vorgang eingecheckt werden können.</p>
 
 </article>
 

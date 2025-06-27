@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/29/docs/doc/html-client/android-app.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/30/docs/doc/html-client/android-app.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -88,33 +88,69 @@
 <h1 id="android-app">Android App</h1>
 
 <p>Für die volle Integration des HTML-Clients in die mobile Welt, stellen wir im Google Play Store den Client als Android App zur Verfügung. Die App basiert auf demselben Sourcecode wie die Browser-Version. Einzelne Features greifen im Gegensatz zu einem Browser aber direkt auf die Hardware des mobilen Geräts zu und integrieren sich dadurch besser in die App.</p>
-<p><strong>Name der App</strong>:</p>
+<h4 id="name-der-app">Name der App</h4>
 <p>Framework Studio Mobile Client</p>
-<p><strong>Store Link</strong>:</p>
+<h4 id="store-link">Store Link</h4>
 <p><a href="https://play.google.com/store/apps/details?id=com.fs.htmlclient">https://play.google.com/store/apps/details?id=com.fs.htmlclient</a></p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Apple verweigert Apps per Richtlinie, dynamische Benutzeroberflächen von einer extenen Quelle (Broker) zu laden und am Client aufzubauen. Durch diese Limitierung sind wir leider nicht in der Lage, den Framework Studio Mobile Client auf IOS bereitzustellen.</p>
+<p>Apple verweigert Apps per Richtlinie, dynamische Benutzeroberflächen von einer externen Quelle (Broker) zu laden und am Client aufzubauen. Durch diese Limitierung sind wir leider nicht in der Lage, den Framework Studio Mobile Client auf IOS bereitzustellen.</p>
 </div>
 <h2 id="apk-für-direkte-installation">APK für direkte Installation</h2>
 <p>Für Geräte, die keinen Zugriff auf den Play Store haben, bieten wir die Mobile Client App auch direkt als APK an. Unter folgendem Link stehen alle APK's der einzelnen Releases zum Download bereit:</p>
 <p><a href="https://github.com/FrameworkSystemsGmbH/HtmlClient/releases">https://github.com/FrameworkSystemsGmbH/HtmlClient/releases</a></p>
 <h2 id="systemvoraussetzungen">Systemvoraussetzungen</h2>
 <p>Unterstützt werden Handys und Tablets mit Android 8.0 oder höher.</p>
-<p>Der Framework Studio Mobile Client ist eine App basierend auf dem Ionic Capacitor Framework, welches HTML-Applikationen mit Hardware-Unterstützung auf mobile Endgeräte bringt. Ist auf dem Endgerät Google Chrome nicht installiert, so wird zur Anzeige der HTML-Applikation die integrierte Android WebView verwendet. Diese basiert wie Google Chrome ebenfalls auf der Chromium Engine, ist aber auf vielen - vor allem älteren - Endgeräten nur in einer sehr betagten Version verfügbar. Dies kann ggf. zu Fehlern führen.</p>
-<p>Es gelten folgende Regeln:</p>
-<ul>
-<li>Ist Google Chrome installiert, wird dessen Chromium Engine für die Ausführung des Framework Studio Mobile Client verwendet</li>
-<li>Ist Google Chrome nicht installiert, wird die Android WebView verwendet</li>
-</ul>
+<p>Der Framework Studio Mobile Client ist eine App basierend auf dem Ionic Capacitor Framework, welches HTML-Applikationen mit Hardware-Unterstützung auf mobile Endgeräte bringt.
+Zur Anzeige der HTML-Applikation wird die im System konfigurierte <code>Android System WebView</code> genutzt.
+Diese basiert wie Google Chrome auf der Chromium Engine.
+Die Android System WebView wird typischerweise über die App-Updates aktualisiert.
+Dies ist bei älteren Geräten, bzw. Geräten, die alte Android Versionen nutzen, oft nicht der Fall.
+Das kann gegebenenfalls zu Problemen in der Darstellung führen oder ein Starten der App ganz verhindern.</p>
+<p>Beim Start der App kommt deshalb eine Meldung, falls eine WebView Version kleiner 130 erkannt wurde.
+Bei Schließen der Meldung wird der Start der App fortgesetzt.
+Bei Nutzung einer WebView, die älter als Version 130 ist, können wir allerdings nicht garantieren, dass die App korrekt funktioniert.</p>
+<p><img src="media/app-webview.png" alt="outdated-webview"></p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Um die Darstellung und Funktion der App sicherzustellen, verwenden Sie eine Android System WebView Version 130 oder höher.</p>
+</div>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Auch auf neueren Geräten ab Android 8.0 empfehlen wir, die aktuellste Version von Google Chrome zu installieren, um die breiteste Unterstützung von Features und die fehlerfreie Darstellung der App zu garantieren.</p>
+<p>Von Android 7 bis Android 9 wurde Google Chrome als WebView genutzt, das ist seit Android 10 allerdings nicht mehr der Fall. Dennoch empfehlen wir grundsätzlich auch die aktuellste Version von <code>Google Chrome</code> zu installieren.</p>
+</div>
+<h3 id="webview-version-herausfinden">WebView Version herausfinden</h3>
+<p>Es gibt zwei Möglichkeiten herauszufinden, welche <code>Android System WebView</code> Version installiert ist:</p>
+<ol>
+<li>In den Einstellungen unter <code>Apps</code> oder <code>Apps &amp; Benachrichtigungen</code> die Android System WebView auswählen.
+Hier dann unter <code>Erweitert</code> zur Versionsangabe scrollen.
+Das gibt Ihnen aber nur die installierte Version, was in den meisten Fällen auch die genutzte Version ist.</li>
+<li>Um auf Nummer sicher zu gehen, welche Version tatsächlich genutzt wird, müssen Sie in die Entwickleroptionen gehen, allerdings müssen diese erst aktiviert werden.
+Hierfür müssen Sie in den Einstellungen meist unter <code>Telefoninfo</code> oder <code>Geräteinfo</code> die <code>Softwareinformationen</code> öffnen und mind. 10x auf die <code>Buildnummer</code> tippen.
+Dann navigieren Sie in den Einstellungen unter <code>Entwickleroptionen</code> zur <code>WebView-Implementierung</code>.
+Hier sollte die aktuell ausgewählte WebView inkl. Version angegeben sein.</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Da jede Android Version ein leicht anderes Design und Handling für die Einstellungen hat, ist es möglich, dass die Anleitung für Sie nicht zu 100% zutrifft. Im Zweifel können Sie googlen, wie das für Ihre Android Version gemacht wird.</p>
+</div>
+<h3 id="webview-version-aktualisieren">WebView Version aktualisieren</h3>
+<p>Sollten Sie eine veraltete WebView Version haben, gibt es mehrere Möglichkeiten:</p>
+<ol>
+<li>Versuchen sie über den PlayStore alle App-Updates herunterzuladen.</li>
+<li>Sollte das die WebView nicht aktualisiert haben, kann es sein, dass Sie eine alte Android Version nutzen, die nicht mehr mit Updates versorgt wird.
+In diesem Fall können Sie sich die <code>Android System WebView Beta</code> über den PlayStore herunterladen. Sie können sie dann in den Entwickleroptionen, wie in <a href="#webview-version-herausfinden">Punkt 2 oben</a>, auswählen.</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die Android System WebView Beta ist ab Android 10 verfügbar.</p>
 </div>
 <h2 id="einrichten-eines-brokers">Einrichten eines Brokers</h2>
 <p>Es muss natürlich definiert werden, mit welchem Broker sich der Mobile Client verbinden soll. Nach dem Start der App wird der Login angezeigt. Über den Button „+ New“ können beliebig viele Broker zur Liste hinzugefügt werden.</p>
-<p><img src="media/app-broker-1.png" alt="App-Broker1"></p>
-<p><img src="media/app-broker-2.png" alt="App-Broker2"> <img src="media/app-broker-3.png" alt="App-Broker3"></p>
+<p><img src="media/app-broker-1.png" alt="App-Broker1"> <img src="media/app-broker-2.png" alt="App-Broker2"></p>
+<p>Nachdem ein Broker hinzugefügt wurde, kann sich mit ihm verbunden werden.
+Über den Stift-Button kann ein bestehender Broker bearbeitet oder gelöscht werden.</p>
+<p><img src="media/app-broker-3.png" alt="App-Broker3"> <img src="media/app-broker-4.png" alt="App-Broker4"></p>
 <p>Es ist auch möglich, Urls von Development Brokern hinzuzufügen. Dabei ist zu beachten, dass der Mobile Client nur auf den Development Broker zugreifen kann, wenn dieser über das Netzwerk erreichbar ist. Dazu muss Framework Studio mit Administrator-Rechten ausgeführt werden. Ob der Development Broker vom Netzwerk aus zugreifbar ist, kann über das Tray-Icon geprüft werden:</p>
 <p><img src="media/broker-public-access.png" alt="public Access"></p>
 

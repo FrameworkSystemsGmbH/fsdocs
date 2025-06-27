@@ -123,16 +123,19 @@ Diese verarbeitet die restlichen Schritte und startet im Hintergrund.</li>
 <p><img src="media/oidc-config-entraid.png" alt="oicd-config"></p>
 <p>Im Abschnitt <strong>OpenID Connect Authentication</strong> werden alle nötigen Einstellungen vorgenommen.</p>
 <p>Es kann genau ein Identity-Provider konfiguriert werden.</p>
-<p>Möchte man dem Benutzer eine Auswahl verschiedener Identity-Provider bieten, dann muss z.B. <a href="oidc-keycloack.html">Keycloak</a> eingesetzt werden.
+<p>Möchte man dem Benutzer eine Auswahl verschiedener Identity-Provider bieten, dann muss z.B. KeyCloak<!--[Keycloak](oidc-keycloack.md)--> eingesetzt werden.
 Der Authentication-Service wird mit Keycloak verbunden. Innerhalb von Keycloak können dann weitere Identity-Provider konfiguriert (Stichwort <em>Federation</em>) und die unterschiedlichen Identitäten der Benutzer verbunden werden.</p>
 <p><img src="media/oidc-idp-federation.drawio.svg" alt="oidc-federation"></p>
 <p>Die Einstellungen können je nach Anbieter variieren.
 Folgende Identity-Provider wurden getestet:</p>
 <ul>
-<li><a href="oidc-keycloack.html">Keycloak</a></li>
-<li><a href="oidc-microsoft.html">Microsoft Entra ID</a></li>
-<li><a href="oidc-google.html">Google</a></li>
+<li>KeyCloak</li>
+<li>Microsoft Entra ID</li>
+<li>Google</li>
 </ul>
+<!-- * [Keycloak](oidc-keycloack.md)
+* [Microsoft Entra ID](oidc-microsoft.md)
+* [Google](oidc-google.md) -->
 <h4 id="identity-provider-url">Identity Provider URL</h4>
 <p>Die Adresse des Identity Providers.</p>
 <p>Mit dem Link <strong>Test well-known</strong> kann geprüft werden, ob die Seite korrekt reagiert.

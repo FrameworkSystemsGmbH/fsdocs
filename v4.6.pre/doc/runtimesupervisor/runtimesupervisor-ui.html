@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Benutzeroberfl&#228;che </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Benutzeroberfl&#228;che ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.6/release/19/docs/doc/runtimesupervisor/runtimesupervisor-ui.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="benutzeroberfläche">Benutzeroberfläche</h1>
+
+<h2 id="layout">Layout</h2>
+<p><img src="media/image19.png" alt="Web Application – Layout"></p>
+<p>Nach dem Login wird das Runtime Supervisor Dashboard angezeigt, in dem die wichtigsten Daten der Framework Studio Runtime zusammengefasst sind. Sind noch keine Observables registriert, wird einzig der Runtime Supervisor Windows Service angezeigt.</p>
+<h3 id="hauptmenü">Hauptmenü</h3>
+<p><strong>Dashboard:</strong></p>
+<p>Unterhalb des Menüpunktes “Dashboard” werden Unteransichten für die verschiedenen Observable-Typen angezeigt. Diese werden auch nur dann angezeigt, wenn sich tatsächlich auch Observables am Runtime Supervisor registriert haben. Existiert in der Framework Studio Runtime z.B. kein Document Service (wie in <strong>Abbildung 19</strong>), wird dieser auch nicht angezeigt. Nach einer Neuinstallation wird also - wie auch im Dashboard - erst einmal nur der Runtime Supervisor Service angezeigt.</p>
+<p>Je Observable-Typ wird rechts neben der Bezeichnung die Anzahl der am Runtime Supervisor registrierten Observables dieses Typs angezeigt. Diese Zahl beinhaltet alle Observables, unabhängig davon, ob sie gerade online oder offline sind.</p>
+<p><strong>Events:</strong></p>
+<p>Über den Menüpunkt “Events” kann die globale Event-Ansicht des Runtime Supervisor erreicht werden. Siehe Kapitel <a href="#events">Events</a>.</p>
+<p><strong>Settings:</strong></p>
+<p>Über den Menüpunkt “Settings” können alle Einstellungen für den Runtime Supervisor vorgenommen werden. Siehe Kapitel <a href="#settings">Settings</a>.</p>
+<h3 id="toolbar">Toolbar</h3>
+<p>Die Toolbar ist ein kontextabhängiges Menü, bestehend aus ein oder mehreren Dropdown-Controls. Das in <strong>Abbildung 19</strong> gezeigt Dropdown-Control ist statisch und steht jederzeit zur Verfügung. Es beinhaltet folgende Menüpunkte:</p>
+<p><strong>Change Password:</strong></p>
+<p>Ruft den Dialog zum Ändern des Passworts des angemeldeten Benutzers auf (siehe Kapitel <a href="#passwort-%C3%A4ndern">Passwort ändern</a>).</p>
+<p><strong>Logout:</strong></p>
+<p>Meldet den derzeit angemeldeten Benutzer ab und leitet auf die Login-Seite weiter.</p>
+<h3 id="responsive-design">Responsive Design</h3>
+<p><img src="media/image20.png" alt="Web Application - Responsive Design"></p>
+<p>Um den Runtime Supervisor auch auf kleineren Endgeräten wie Smartphones oder Tablets gut bedienbar zu machen, wurde die Web Application mit einem Responsive Design versehen. Ab einer Bildschirmauflösung von unter 768 Pixeln in der Breite, wird die Seite “zusammengeklappt” und das Hauptmenü ist über einen Button rechts oben auf der Seite (siehe <strong>Abbildung</strong>) zu erreichen. Die Toolbar wird dann linksbündig angezeigt.</p>
+<h2 id="passwort-ändern">Passwort ändern</h2>
+<p>Über die Toolbar ist der Menüpunkt “Change Password” erreichbar. Dieser ruft folgenden Dialog zum Ändern des Passworts des aktuell angemeldeten Benutzers auf:</p>
+<p><img src="media/image21.png" alt="Web Application - Passwort ändern"></p>
+<p>Um das Passwort zu ändern, müssen das derzeitige Passwort sowie das neue Passwort und dessen Wiederholung eingegeben werden. Nach einem Klick auf den Button “Ok” wird eine Bestätigung der Änderung angezeigt.</p>
+<h2 id="dashboard">Dashboard</h2>
+<p><img src="media/image22.png" alt="Web Application – Dashboard"></p>
+<p>Das Dashboard besteht aus einer Übersicht über alle am Runtime Supervisor registrierten Observables. Diese sind gruppiert nach Typ.</p>
+<p><strong>Name:</strong></p>
+<p>Der Name des Observables wird als Link angezeigt. Durch einen Klick kann die Detail-Ansicht des jeweiligen Observables aufgerufen werden (siehe Kapitel <a href="#detailansicht">Detailansicht</a>).</p>
+<p><strong>Server:</strong></p>
+<p>Der Server auf dem das Observable läuft.</p>
+<p><strong>Version:</strong></p>
+<p>Die Version des Observables.</p>
+<p><strong>Status:</strong></p>
+<p>Online-Status des Observables.</p>
+<p>Tooltip: Zeitpunkt der Registrierung am Runtime Supervisor.</p>
+<p><strong>Run As:</strong></p>
+<p>Information darüber, wie das Observable ausgeführt wird. Die Optionen sind:</p>
+<ul>
+<li>Als Windows Service (Windows-Symbol)</li>
+<li>Als IIS Application (Wolken-Symbol)</li>
+<li>Als Konsolenapplikation (Konsolenfenster-Symbol)</li>
+</ul>
+<p>Tooltip: Beschreibung der Ausführungsart.</p>
+<p><strong>User:</strong></p>
+<p>Benutzer, mit dem das Observable auf dem System ausgeführt wird.</p>
+<p><strong>New Events:</strong></p>
+<p>Zeigt an, wie viele unbestätigte Events es zu einem Observable gibt, gruppiert nach Event-Art. Gibt es für eine Event-Art keine neuen Einträge, wird das Symbol ausgegraut angezeigt.</p>
+<p>Tooltip für jedes Symbol: Beschreibung der Event-Art.</p>
+<h2 id="gruppierte-ansicht">Gruppierte Ansicht</h2>
+<p><img src="media/image23.png" alt="Gruppierte Ansicht eines Observable-Typen"></p>
+<p>Die gruppierte Ansicht beinhaltet im oberen Teil der Seite den Ausschnitt des Dashboards für den im Hauptmenü ausgewählten Observable-Typ. Im unteren Teil wird eine Event-Tabelle angezeigt, die alle Events für alle Observables des ausgewählten Typs beinhaltet.</p>
+<p>Somit können Sie sich z.B. schnell ein Überblick über alle laufenden Framework Studio Broker verschaffen.</p>
+<p>Mehr Informationen zum Umgang mit der Event-Tabelle und deren Filterfunktion erfahren Sie im Kapitel <strong>Events</strong>.</p>
+<h2 id="detailansicht">Detailansicht</h2>
+<p><img src="media/image24.png" alt="Observable – Detailansicht"></p>
+<p>Diese Ansicht kann erreicht werden, indem im Dashboard, in einer gruppierten Ansicht oder in einer Event-Tabelle auf den Namen eines Observables geklickt wird.</p>
+<h3 id="erweiterte-toolbar">Erweiterte Toolbar</h3>
+<p>Über das erweiterte Dropdown-Control (Stift) kann das Observable vom Runtime Supervisor gelöscht werden. Das Observable kann sich danach jederzeit wieder am Runtime Supervisor registrieren.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Wird ein Observable gelöscht, werden auch alle zugehörigen Events aus der Datenbank entfernt!</p>
+</div>
+<h3 id="tab-status">Tab „Status“</h3>
+<p>Dieser Tab Listet allgemeine Informationen über das Observable auf. Diese sind für alle Observable-Typen identisch.</p>
+<h4 id="panel-information">Panel “Information”</h4>
+<p>Dieses Panel enthält die wichtigsten Daten zur Identifikation des Observables.</p>
+<p><strong>Database ID:</strong></p>
+<p>Registriert sich ein Observable am Runtime Supervisor, wird für dieses eine einmalige ID generiert, mit der es in der Datenbank identifiziert werden kann. Das Observable selbst hat keine Kenntnis und keinen Einfluss auf diese Guid.</p>
+<p><strong>Client ID:</strong></p>
+<p>Diese ID wird auf dem Rechner des Observables generiert. Sie ist u.a. auch abhängig von der Domain und dem Rechnernamen, auf dem das Observable läuft. Dies hat zur Folge, dass z.B. zwei Authentication Services, die zwar die gleiche ID haben, jedoch auf unterschiedlichen Rechnern laufen, vom Runtime Supervisor unterschieden werden können.</p>
+<p><strong>Name:</strong></p>
+<p>Der Anzeigename des Observables.</p>
+<p><strong>Version:</strong></p>
+<p>Die Version des Observables wird aus der ausführenden Assembly gelesen (z.B. PrintService.exe).</p>
+<p><strong>API Version:</strong></p>
+<p>Dies ist die Version der Schnittstelle zwischen dem Observable und dem Runtime Supervisor. Ist die API-Version eines Observables größer als die des Runtime Supervisors, kann dieser nicht mit dem Observable kommunizieren und sollte upgedatet werden.</p>
+<p>Ältere Observables können hingegen problemlos auch mit einem neueren Runtime Supervisor kommunizieren.</p>
+<p><strong>Type:</strong></p>
+<p>Der Typ des Observables (Authentication Service, Print Service, etc.)</p>
+<p><strong>Server:</strong></p>
+<p>Der Server, auf dem das Observable ausgeführt wird.</p>
+<p><strong>Domain:</strong></p>
+<p>Die Domain, in der das Observable ausgeführt wird.</p>
+<h4 id="panel-status">Panel “Status”</h4>
+<p>Dieses Panel gibt Auskunft über den Status des Observables und dessen Verbindung zum Runtime Supervisor.</p>
+<p><strong>Status:</strong></p>
+<p>Zeigt den Online-Status an. Dieser wird vom Runtime Supervisor in Echtzeit überwacht.</p>
+<p><strong>Connection ID:</strong></p>
+<p>Die ASP.NET SignalR Connection ID. Diese kann bei der Fehlersuche hilfreich sein und wird in diversen Events angegeben.</p>
+<p><strong>Console:</strong></p>
+<p>Gibt an, ob das Observable als Konsolenanwendung ausgeführt wird oder nicht. Das kann dann hilfreich sein, wenn z.B. ein Print Service auf einem Server in der Konsole läuft und der Benutzer aus Versehen abgemeldet wird, was ein Beenden des Print Service zur Folge hat.</p>
+<p><strong>Registered:</strong></p>
+<p>Der Zeitpunkt, an dem sich das Observable beim Runtime Supervisor registriert hat. Ein Observable registriert sich bei jedem Neustart erneut am Runtime Supervisor.</p>
+<p><strong>Shutdown:</strong></p>
+<p>Der Zeitpunkt, an dem das Observable beendet wurde.</p>
+<p><strong>Shutdown Reason:</strong></p>
+<p>Der Grund des Beendens des Observables. Kann die Werte “Regular Shutdown” und “Unexpected Disconnect” annehmen.</p>
+<h4 id="panel-system">Panel “System”</h4>
+<p>Dieses Panel gibt Auskunft über die Hardware des Rechners, auf dem das Observable läuft.</p>
+<p><strong>CPU:</strong></p>
+<p>Gibt Auskunft über den Prozessor des Rechners.</p>
+<p><strong>CPU Architecture:</strong></p>
+<p>Gibt Auskunft über die Architektur des Prozessors.</p>
+<p><strong>CPU Speed:</strong></p>
+<p>Geschwindigkeit des Prozessors.</p>
+<p><strong>Physical Cores:</strong></p>
+<p>Anzahl der Rechenkerne des Prozessors.</p>
+<p><strong>Logical Cores:</strong></p>
+<p>Anzahl der logischen Prozessoren des Rechners. Gibt an, ob Hyperthreading unterstützt wird oder nicht.</p>
+<p><strong>Installed Memory:</strong></p>
+<p>Menge des Arbeitsspeichers des Rechners in MB.</p>
+<h4 id="panel-software">Panel “Software”</h4>
+<p>Dieses Panel gibt Auskunft über das Betriebssystem des Rechners, auf dem das Observable läuft. Auch Informationen zum Programm selbst sind hier aufgelistet.</p>
+<p><strong>OS:</strong></p>
+<p>Gibt an, welches Betriebssystem auf dem Rechner installiert ist.</p>
+<p><strong>OS Service Pack:</strong></p>
+<p>Gibt an, welches Service Pack auf dem Rechner installiert ist.</p>
+<p><strong>OS 64 Bit:</strong></p>
+<p>Gibt an, ob das Betriebssystem 64 Bit-fähig ist.</p>
+<p><strong>User:</strong></p>
+<p>Der Name des Users, mit dem das Observable ausgeführt wird.</p>
+<p><strong>Application Path:</strong></p>
+<p>Das Ausführungsverzeichnis des Observables.</p>
+<p><strong>Application Exe:</strong></p>
+<p>Die ausführende Assembly des Observables (z.B. PrintService.exe).</p>
+<h4 id="panel-volumes">Panel “Volumes”</h4>
+<p><img src="media/image25.png" alt="Observable Volumes"></p>
+<p>In diesem Panel werden alle lokalen Partitionen des Rechners angezeigt, auf dem das Observable läuft. Entfernbare Geräte wie USB-Sticks, CD-Laufwerke und auch Netzlaufwerke werden nicht angezeigt.</p>
+<p><strong>Drive:</strong></p>
+<p>Der Laufwerksbuchstabe der Partition.</p>
+<p><strong>Label:</strong></p>
+<p>Der Name der Partition (kann undefiniert sein).</p>
+<p><strong>Size:</strong></p>
+<p>Die Größe der Partition in GB.</p>
+<p><strong>Free:</strong></p>
+<p>Der freie Speicherplatz der Partition in GB.</p>
+<p><strong>Used:</strong></p>
+<p>Der belegte Speicherplatz der Partition in GB.</p>
+<p><strong>Status:</strong></p>
+<p>Die Statusleiste zeigt den belegten Speicherplatz der Partition in Prozent an. Überschreitet der Wert 90%, wird der Balken in rot angezeigt.</p>
+<h3 id="tab-events">Tab “Events”</h3>
+<p><img src="media/image26.png" alt="Observable Events"></p>
+<p>Dieser Tab enthält, wie auch die gruppierte Ansicht, eine Event-Tabelle. In dieser werden ausschließlich die Events des ausgewählten Observables angezeigt.</p>
+<p>Mehr Informationen zum Umgang mit der Event-Tabelle und deren Filterfunktion erfahren Sie in Kapitel <strong>Events</strong>.</p>
+<h3 id="tab-runtime--configuration">Tab “Runtime &amp; Configuration”</h3>
+<p><img src="media/image27.png" alt="Informationen zur Laufzeit und Konfiguration des Observables"></p>
+<p>Dieser Tab beinhaltet alle Informationen zur Laufzeit und Konfiguration eines Observables. Diese Informationen sind speziell auf den einzelnen Observable-Typ zugeschnitten, können sich also zwischen unterschiedlichen Observable-Typen unterscheiden.</p>
+<p>Während der Authentication Service beispielsweise seine Einstellungen zur Sicherheit bekannt gibt, listet der Print Service seine konfigurierten Drucker und Adapter auf. Der Broker hingegen zeigt an, in welchem IIS Application Pool er gerade läuft usw.</p>
+<p>Auch Informationen zum laufenden Prozess, belegten Ports oder genutzten Datenbankverbindungen werden hier aufgelistet, falls verfügbar.</p>
+<h2 id="events">Events</h2>
+<p><img src="media/image28.png" alt="Web Application – Events"></p>
+<p>Auf dieser Seite werden alle Events von allen am Runtime Supervisor registrierten Observables zusammengefasst angezeigt. Damit ist sie die zentrale Anlaufstelle, wenn es darum geht, herauszufinden, ob es Fehler in der Framework Studio Runtime gegeben hat.</p>
+<h3 id="event-tabelle">Event Tabelle</h3>
+<p><strong>Combobox “records per page”:</strong></p>
+<p>Über diese Combobox kann ausgewählt werden, wie viele Events je Seite in der Tabelle angezeigt werden sollen. Der Standardwert kann über die Settings (siehe Kapitel <a href="#web-application">Web Application</a>) eingestellt werden.</p>
+<p><strong>Navigation:</strong></p>
+<p>Mit den Buttons in der Mitte über der Tabelle kann durch diese navigiert werden. Es kann zu einer bestimmten Seite gesprungen werden, oder mit den Buttons “Previous” und “Next” durch die Tabelle geblättert werden.</p>
+<p><strong>Button “Page”:</strong></p>
+<p>Mit diesem Button können alle als “Neu” markierten Events auf der derzeit angezeigten Seite bestätigt werden.</p>
+<p><strong>Button “All”:</strong></p>
+<p>Mit diesem Button können alle als “Neu” markierten Events in der gesamten Tabelle (also absolut alle Events des Runtime Supervisor!) bestätigt werden.</p>
+<p><strong>Plus “+” Symbol:</strong></p>
+<p>Über diesen Button kann ein Event aufgeklappt werden, um den gesamten Mitteilungstext einsehen zu können.</p>
+<p><strong>Level:</strong></p>
+<p>Zeigt den Error Level des Events.</p>
+<p><strong>Timestamp:</strong></p>
+<p>Zeigt an, wann das Event eingetreten ist.</p>
+<p><strong>Name:</strong></p>
+<p>Der Name des Observables, an dem das Event eingetreten ist.</p>
+<p><strong>Server:</strong></p>
+<p>Der Server, auf dem das betroffene Observable läuft.</p>
+<p><strong>Message:</strong></p>
+<p>Eine auf 100 Zeichen beschränkte Vorschau des Mitteilungstextes.</p>
+<p><strong>New:</strong></p>
+<p>Zeigt an, ob das Event bestätigt wurde (grau) oder nicht (grün).</p>
+<h3 id="event-filter">Event Filter</h3>
+<p><img src="media/image29.png" alt="Web Application – Event Filter"></p>
+<p>Über den Button “Show Filter” über der Event-Tabelle kann ein Filter-Formular eingeblendet werden, mit dem nach Events gesucht werden kann (siehe Abbildung).</p>
+<p><strong>Error Level:</strong></p>
+<p>Gibt an, nach welchen Event-Arten gesucht werden soll.</p>
+<p><strong>From:</strong></p>
+<p>Das Datum und die Uhrzeit ab dem nach Events gesucht werden soll.</p>
+<p><strong>To:</strong></p>
+<p>Das Datum und die Uhrzeit bis zu dem nach Events gesucht werden soll.</p>
+<p><strong>Name:</strong></p>
+<p>Der Name des Observables, zu dem nach Events gesucht werden soll.</p>
+<p><strong>Server:</strong></p>
+<p>Es wird nach allen Events zu Observables gesucht, die auf diesem Server laufen.</p>
+<p><strong>Message:</strong></p>
+<p>Es wird nach Events gesucht, die im Mitteilungstext die angegebene Zeichenfolge enthalten.</p>
+<p><strong>Events:</strong></p>
+<p>Gibt an, ob nach bestätigten, unbestätigten oder beiden Events gesucht werden soll.</p>
+<p><strong>Button “Apply”:</strong></p>
+<p>Startet die Suche und aktualisiert die Event-Tabelle.</p>
+<p><strong>Button “Clear”:</strong></p>
+<p>Leert das Filter-Formular und stellt den Standardzustand der Event-Tabelle wieder her.</p>
+<h2 id="settings">Settings</h2>
+<p>Die Einstellungen des Runtime Supervisor sollten direkt nach der Installation überprüft werden. Für weitergehende Informationen zum Thema <em>Settings</em> siehe Kapitel <a href="runtimesupervisor-features.html#aktualisierung-der-settings">Aktualisierung der Settings</a>.</p>
+<h3 id="windows-service">Windows Service</h3>
+<p><img src="media/image30.png" alt="Settings - Windows Service"></p>
+<p><strong>Delete confirmed events after:</strong></p>
+<p>In verschiedenen Framework Studio Runtimes können unterschiedlich viele Events auftreten. Der Informationsgehalt dieser ist jedoch meist nur für kurze Zeit aktuell, sodass die Events normalerweise nach einiger Zeit gelöscht werden können, um die Datenbank des Runtime Supervisor nicht unnötig aufzublähen.</p>
+<p>Im Textfeld kann die Anzahl Tage angegeben werden, nach denen ein Event-Eintrag verfällt und aus der Datenbank gelöscht werden kann.</p>
+<p>Um das automatische Löschen zu deaktivieren (nicht empfohlen), kann der Wert “0” angegeben werden.</p>
+<p>Standard: 30 Tage</p>
+<p>Mindestwert: 3 Tage</p>
+<p><strong>Run the delete task at:</strong></p>
+<p>Gibt an, um wieviel Uhr die nicht mehr benötigten Events tatsächlich aus der Datenbank gelöscht werden. Dieser Task läuft täglich.</p>
+<p>Standard: 02:00 Uhr</p>
+<p><strong>Confirm incoming events of type:</strong></p>
+<p>Nicht jedes Event, welches an den Runtime Supervisor gemeldet wird, ist von so hohem Informationsgehalt, dass eine manuelle Bestätigung seitens des IT-Verantwortlichen notwendig ist. Meist sind das Events vom Typ “Information”.</p>
+<p>Über die Button kann eingestellt werden, für welche Event-Typen der Runtime Supervisor beim Erfassen eines Events dieses von vornherein schon auf “bestätigt” setzen soll (das Event wird dann in der Event-Tabelle nicht grün angezeigt).</p>
+<p>Standard: “Information”</p>
+<h3 id="web-application">Web Application</h3>
+<p><img src="media/image31.png" alt="Settings - Web Application"></p>
+<p><strong>Web Application Root:</strong></p>
+<p>Diese Einstellung ist wichtig, wenn das Alerting-System verwendet wird. Die eingegebene URL muss auf die Web Application des Runtime Supervisor zeigen. Wird ein Event per eMail versendet, beinhaltet diese einen Link zum betroffenen Observable. Dadurch kann aus dem eMail-Programm heraus direkt zur Runtime Supervisor Web Application gesprungen werden. Die Adresse, die für diese Links verwendet wird, ist die im Textfeld eingegebene.</p>
+<p>Ist der Web Server, auf dem die Web Application läuft, von extern über die gleiche URL erreichbar, wie auf dem Server selbst (das ist meistens der Fall, wenn sich der Web Server in der gleichen Domain befindet, wie die Client-Rechner), kann die URL über den Button “Current” eingestellt werden.</p>
+<p><strong>Number of records per page in events grid:</strong></p>
+<p>Gibt die Anzahl der Events an, die in der Event-Tabelle standardmäßig angezeigt werden soll.</p>
+<p>Standard: 25</p>
+<p><strong>Number of records per page in observable types grid:</strong></p>
+<p>Gibt die Anzahl der Events an, die in der Event-Tabelle in der Observable-Typ-Übersicht standardmäßig angezeigt werden soll.</p>
+<p>Standard: 10</p>
+<p><strong>Number of records per page in observable details grid:</strong></p>
+<p>Gibt die Anzahl der Events an, die in der Event-Tabelle in der Detailansicht eines Observables angezeigt werden soll.</p>
+<p>Standard: 10</p>
+<h3 id="smtp">SMTP</h3>
+<p><img src="media/image32.png" alt="Settings – SMTP"></p>
+<p>Soll das automatische Alerting-System des Runtime Supervisor genutzt werden, muss dies über die SMTP-Einstellungen aktiviert werden. Sind die SMTP-Daten korrekt angegeben und sind im Reiter “Alerting” aktive Empfänger eingetragen, versendet der Runtime Supervisor beim Eingang eines Events eine eMail an jeden Empfänger, der für den Event-Typ des Events freigeschaltet ist.</p>
+<p><strong>Enabled:</strong></p>
+<p>Aktiviert oder deaktiviert das Versenden von eMails beim Eingang von Events.</p>
+<p><strong>Server or IP:</strong></p>
+<p>Der Name oder die IP des zu verwendenden Mailservers.</p>
+<p><strong>Security:</strong></p>
+<p>Die Verschlüsselung, die zum Versenden der eMails genutzt werden soll. Wird die Auswahl geändert, wird im Feld „Port“ der zur Verschlüsselungsart zugehörige Standardport eingetragen</p>
+<p><strong>Verschlüsselung</strong></p>
+<p><strong>Port</strong></p>
+<p>None</p>
+<p>25</p>
+<p>STARTTLS</p>
+<p>587</p>
+<p>SSL/TLS</p>
+<p>465</p>
+<p><strong>Port:</strong></p>
+<p>Der Port, der zum Versenden der eMails genutzt werden soll.</p>
+<p><strong>User:</strong></p>
+<p>Der Benutzer, mit dem die eMail vom Mailserver aus versendet werden soll.</p>
+<p><strong>Password:</strong></p>
+<p>Das zum User zugehörige Passwort.</p>
+<p><strong>Domain:</strong></p>
+<p>Die Domain, in der sich der angegebene Benutzer befindet.</p>
+<p><strong>Sender Mail Address:</strong></p>
+<p>Die eMail-Adresse, die zum Versenden der eMails genutzt werden soll.</p>
+<p><strong>Sender Name:</strong></p>
+<p>Der Anzeigename des Versenders der eMail (wird nicht von allen eMail Clients unterstützt).</p>
+<p><strong>Send mail as HTML:</strong></p>
+<p>Die eMails werden im HTML-Format optisch etwas aufgewertet versendet (wird nicht von allen eMail Clients unterstützt).</p>
+<h3 id="alerting">Alerting</h3>
+<p><img src="media/image33.png" alt="Settings – Alerting"></p>
+<p>In diesem Reiter sind alle Empfänger aufgelistet, die beim Eingang eines Events am Runtime Supervisor per eMail benachrichtigt werden.</p>
+<p><strong>Active:</strong></p>
+<p>Zeigt an, ob der Empfänger aktiviert ist. Nur aktivierte Empfänger bekommen eMails vom Runtime Supervisor.</p>
+<p><strong>Mail:</strong></p>
+<p>Die eMail-Adresse, an die Benachrichtigungen versendet werden.</p>
+<p><strong>Name:</strong></p>
+<p>Der Name des Empfängers</p>
+<p><strong>Configuration:</strong></p>
+<p>Zeigt an, für welche Event-Typen der Empfänger benachrichtigt wird. Im Beispiel in Abbildung 33 bekommt der Empfänger für alle Event-Typen außer “Information” eine eMail.</p>
+<p><strong>Button “Edit”:</strong></p>
+<p>Über diesen Button können die Einstellungen des Empfängers geändert werden.</p>
+<p><strong>Button “Delete”:</strong></p>
+<p>Löscht den Empfänger aus der Liste.</p>
+<p><strong>Button “Add Receiver”:</strong></p>
+<p>Öffnet einen modalen Dialog zum Anlegen eines neuen Empfängers.</p>
+<p><img src="media/image34.png" alt="Settings - Empfänger hinzufügen"></p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -121,9 +121,13 @@ Oder es wird eine derived Modular Component über das Derive-Command im Namespac
 Stattdessen können im Feld <strong>Interfaces</strong> mehrere Basis-Interfaces definiert werden.</p>
 <p>Im Customizing kann die BaseClass nicht geändert werden.
 Das Feld <strong>BaseClass</strong> zeigt den Wert aus dem Basis-Package an.</p>
-<p>Im Property-Kontextmenü gibt es ebenfalls die neue Funktion: <strong>Property (Override)</strong>.
-Mit welcher Properties aus der Basisklasse überschrieben werden können.
-Properties haben eine Checkbox <strong>Override</strong> erhalten, welche beim Überschreiben eines Properties automatisch angehakt wird.</p>
+<p>Im Property-Kontextmenü gibt es ebenfalls zwei Funktionen:</p>
+<ul>
+<li><strong>Property (Override)</strong>, mit welcher Properties aus der Basisklasse überschrieben werden können und</li>
+<li><strong>Abstract Property</strong>, durch diese ein Property als abstrakt deklariert wird und somit keine Implementierung enthält.
+Dadruch werden die erbenden Klassen dazu verpflichtet, das Property zu implementieren.</li>
+</ul>
+<p>Properties haben eine ComboBox <strong>Virtual Modifier</strong> zur Auswahl zwischen <strong>Virtual</strong>, <strong>Override</strong> und <strong>Abstract</strong>, um Vererbungs- und Implementierungsverhalten zu steuern - sprich das Überschreiben eines Properties oder Implementieren eines Abstract Properties.</p>
 <p><img src="media/propertyoverride.png" alt="Property override Kontextmenü"></p>
 <p>Auch bei &quot;Method (override)&quot; werden Methoden aus der Basis aufgeführt.</p>
 <p>Auf dem folgenden Screenshot wird der General Tab einer Class-Modular Component abgebildet.</p>
@@ -148,6 +152,7 @@ Dabei wird nur das jeweilige Interface und nicht dessen Basis-Interface(s) betra
 </ul>
 <h4 id="abstract-class">Abstract Class</h4>
 <p>Durch das Setzen der Checkbox <strong>Abstract Class</strong> kann eine Klasse als <code>abstract</code> definiert werden.</p>
+<p>In dieser lassen sich abstrakte Methoden und Properties anlegen.</p>
 <p>Im Customizing kann diese Einstellung nicht geändert werden.</p>
 <h3 id="funktionale-einschränkungen">Funktionale Einschränkungen</h3>
 <p>Funktionen, welche aus Components bekannt sind, jedoch nicht für Modular Components umgesetzt wurden:</p>
@@ -159,7 +164,7 @@ Dabei wird nur das jeweilige Interface und nicht dessen Basis-Interface(s) betra
 <ul>
 <li>Type (nicht änderbar im Customizing)
 <ul>
-<li>Class, ClassWithInterface, Interface</li>
+<li>Class, Interface</li>
 </ul>
 </li>
 <li>Compile Step (nicht änderbar im Customizing)
@@ -172,10 +177,10 @@ Dabei wird nur das jeweilige Interface und nicht dessen Basis-Interface(s) betra
 <li>Attributes (²)<br>
 Attribute werden im Customizing über die Packages hinweg summiert und im UseCode an das Interface beziehungsweise an die Klasse generiert. Beim Typ <em>Class With Interface</em> erhält das Interface keine Attribute.</li>
 </ul>
-<p>(²) wird an die Klasse (bei Type <em>Class</em> und <em>ClassWithInterface</em>) oder an das Interface (bei Type <em>Interface</em>) im UseCode generiert.</p>
+<p>(²) wird an die Klasse (bei Type <em>Class</em>) oder an das Interface (bei Type <em>Interface</em>) im UseCode generiert.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Bei Type <em>ClassWithInterface</em> und Compile Step <em>Component</em> wird das Interface in die Interface-Schicht generiert. Die zugehörige Klasse kommt in die Component-Schicht.
+<p>Bei Compile Step <em>Component</em> wird das Interface in die Interface-Schicht generiert. Die zugehörige Klasse kommt in die Component-Schicht.
 Bei Type <em>Class</em> und <em>Interface</em> wird es in den ausgewählten Compile Step generiert.</p>
 </div>
 <h3 id="properties">Properties</h3>
@@ -224,6 +229,11 @@ Bei Type <em>Class</em> und <em>Interface</em> wird es in den ausgewählten Comp
 <td style="text-align: center;">-</td>
 </tr>
 <tr>
+<td style="text-align: left;">AbstractProp</td>
+<td style="text-align: center;">x</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
 <td style="text-align: left;">Attributes</td>
 <td style="text-align: center;">x</td>
 <td style="text-align: center;">x³</td>
@@ -250,6 +260,10 @@ Bei Type <em>Class</em> und <em>Interface</em> wird es in den ausgewählten Comp
     }
  }
 </code></pre>
+<h4 id="abstract-property">Abstract Property</h4>
+<p>Bei Abstract Properties wird kein Getter und Setter generiert. Die Implementierung erfolgt in der erbenden Klasse.</p>
+<pre><code class="lang-csharp">public abstract FSstring Stuff;
+</code></pre>
 <h4 id="fields">Fields</h4>
 <p>Fields können nicht gecustomized werden.
 Attribute werden somit immer im Code des jeweiligen Packages definiert.</p>
@@ -259,7 +273,6 @@ Attribute werden somit immer im Code des jeweiligen Packages definiert.</p>
 <tr>
 <th style="text-align: left;">Methoden</th>
 <th style="text-align: center;">Class</th>
-<th style="text-align: center;">Class With Interface</th>
 <th style="text-align: center;">Interface</th>
 </tr>
 </thead>
@@ -267,48 +280,50 @@ Attribute werden somit immer im Code des jeweiligen Packages definiert.</p>
 <tr>
 <td style="text-align: left;">Constructor</td>
 <td style="text-align: center;">x</td>
-<td style="text-align: center;">x</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr>
 <td style="text-align: left;">* Constructor - Attributes</td>
 <td style="text-align: center;">-</td>
 <td style="text-align: center;">-</td>
-<td style="text-align: center;">-</td>
 </tr>
 <tr>
 <td style="text-align: left;">protected Method</td>
-<td style="text-align: center;">x</td>
 <td style="text-align: center;">x</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr>
 <td style="text-align: left;">* protected Method Attributes</td>
 <td style="text-align: center;">x</td>
-<td style="text-align: center;">x</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr>
 <td style="text-align: left;">internal Method</td>
-<td style="text-align: center;">x</td>
 <td style="text-align: center;">x</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr>
 <td style="text-align: left;">* internal Method Attributes</td>
 <td style="text-align: center;">x</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;">abstract Method</td>
 <td style="text-align: center;">x</td>
 <td style="text-align: center;">-</td>
 </tr>
 <tr>
 <td style="text-align: left;">Attributes</td>
 <td style="text-align: center;">x</td>
-<td style="text-align: center;">x</td>
 <td style="text-align: center;">x<sup>(1)</sup></td>
 </tr>
 </tbody>
 </table>
-<p>(1) Attribute werden bei Properties und Methods beim Typ Interface an den CodeCode des jeweiligen Packages, wo sie definiert wurden, im Code geschrieben. Dies verhält sich anders bei Class und ClassWithInterface. Hier werden die Attribute im UseCode an Properties und Methods gesammelt generiert.</p>
+<p>(1) Attribute werden bei Properties und Methods beim Typ Interface an den CodeCode des jeweiligen Packages, wo sie definiert wurden, im Code geschrieben. Dies verhält sich anders bei Class. Hier werden die Attribute im UseCode an Properties und Methods gesammelt generiert.</p>
+<h4 id="abstract-method">Abstract Method</h4>
+<p>Bei einer abstrakten Methode kann kein Methoden-Body geschrieben werden.</p>
+<pre><code class="lang-csharp">public virtual FSstring Stuff();
+</code></pre>
 <h4 id="testmethod">TestMethod</h4>
 <p>Beim Typen UnitTest gibt es im Bereich der Methods das spezielle TestMethod-Command.
 Dieses Command fügt automatisch das Attribute &quot;[TestMethod]&quot; hinzu. TestMethods sind nicht virtual.</p>

@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/6/docs/doc/runtime-administration/runtime-administration-user.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/7/docs/doc/runtime-administration/runtime-administration-user.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -150,34 +150,12 @@
 <p>Dem Benutzer <em>Admin</em> werden beim Start des Authentifizierungsdienstes automatisch die Rollen <em>ManageUsers</em> und <em>ManageRoles</em> zugeordnet.</p>
 </div>
 <h2 id="benutzer-verwalten-registerkarte-users">Benutzer verwalten (Registerkarte Users)</h2>
-<p>Mit dem Button <strong>New</strong> auf der Hauptregisterkarte <strong>Users</strong> wird ein neuer Benutzer angelegt.</p>
-<p><img src="media/image6.png" alt="New User"></p>
-<p>Wenn Sie <strong>Advanced Security</strong> aktiviert haben (siehe Installationsanleitung <strong>Authentication</strong> <strong>Service</strong>), sind weitere Eingabefelder sichtbar.</p>
-<p><img src="media/image7.png" alt="New User (Advanced Security)"></p>
-<p>Wenn Sie <strong>Domain</strong> und <strong>Domain Controller</strong> angegeben haben (ebenfalls beschrieben in der Installationsanleitung <strong>Authentication Service</strong>), ist zusätzlich ein Eingabefeld für den Domänenbenutzer (<strong>Domain user</strong>) sichtbar</p>
-<p><img src="media/image8.png" alt="Edit User)"></p>
-<p>**User:**Name des Benutzers.</p>
-<p><strong>Password:</strong> Passwort des Benutzers</p>
-<p>**Confirm:**Passwortwiederholung. Dieses Feld muss nur angegeben werden, wenn das Passwort neu festgelegt oder geändert wurde.</p>
-<p><strong>Domain user:</strong> Nur wenn der <strong>Authentication Service</strong> mit <strong>Domain</strong> und <strong>Domain Controller</strong> konfiguriert wurde, wird dieses Eingabefeld angezeigt. Darin kann der Benutzer mit einem Domänenbenutzer verknüpft werden. Das zu verwendende Format ist <em>Domäne</em>\<em>Benutzer</em>. Wird eine Applikation auf einem Windows System gestartet, an dem der Domänenbenutzer angemeldet ist, so wird automatisch der zugeordnete Benutzer angemeldet. Ein Domänenbenutzer kann nur einem Benutzer zugeordnet werden.</p>
-<p><strong>Enable:</strong> Wenn die Checkbox gesetzt ist, ist der Benutzerzugang freigeschaltet.</p>
-<p><strong>Valid from:</strong> Wenn die Checkbox gesetzt ist, kann ein Datum angegeben werden, ab dem der Benutzerzugang gültig ist.</p>
-<p><strong>Valid to:</strong> Wenn die Checkbox gesetzt ist, kann ein Datum angegeben werden, bis zu dem der Benutzerzugang gültig ist.</p>
-<p><strong>Change password required:</strong> Wenn die Checkbox gesetzt ist, muss der Benutzer bei der ersten Anmeldung sein Passwort ändern.</p>
-<p><strong>Enable Advanced Security:</strong> Ist diese Checkbox gesetzt, gelten die erweiterten Sicherheitsanforderungen, wie sie am <strong>Authentication Service</strong> definiert sind.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Die erweiterten Sicherheitseinstellungen dürfen typischer Weise nicht für den Benutzer aktiviert werden, der als Standardbenutzer für den Login an Applikationen vorgesehen ist (Standardbezeichnung <strong>anonymous</strong>), da dessen Passwort zeitlich unbegrenzt gültig sein muss.</p>
-</div>
+<p>Mit dem Button <strong>New</strong> auf der Hauptregisterkarte <strong>Users</strong> wird ein neuer Benutzer angelegt.
+Es öffnet sich der Dialog <a href="edit-user.html">New User</a>.</p>
 <p>Mit dem Button <strong>Delete</strong> wird der aktuell ausgewählte Benutzer gelöscht.</p>
 <p><img src="media/image9.png" alt="User Delete"></p>
-<p>Mit dem Button <strong>Edit</strong> werden die Eigenschaften des aktuell ausgewählten Benutzers geändert.</p>
-<p><img src="media/image10.png" alt="Edit User"></p>
-<p>Wenn Sie <strong>Advanced Security</strong> aktiviert haben (siehe Installationsanleitung <strong>Authentication</strong> <strong>Service</strong>), sind weitere Eingabefelder sichtbar.</p>
-<p><img src="media/image11.png" alt="Edit User (Advanced Security)"></p>
-<p>Wenn Sie <strong>Domain</strong> und <strong>Domain Controller</strong> angegeben haben (ebenfalls beschrieben in der Installationsanleitung <strong>Authentication Service</strong>), ist zusätzlich ein Eingabefeld für den Domänenbenutzer (<strong>Domain user</strong>) sichtbar.</p>
-<p><img src="media/image8.png" alt="text"></p>
-<p>Bis auf den Benutzernamen können hier alle Angaben, wie bei der Funktion <strong>New <strong>beschrieben</strong>,</strong> angegeben werden.</p>
+<p>Mit dem Button <strong>Edit</strong> werden die Eigenschaften des aktuell ausgewählten Benutzers geändert.
+Es öffnet sich der Dialog <a href="edit-user.html">Edit User</a>.</p>
 <p>Mit dem Button <strong>Copy</strong> kann ein neuer Benutzer angelegt werden, der bis auf den Namen und das Passwort die gleichen Eigenschaften wie der aktuell ausgewählte Benutzer erhält.</p>
 <h2 id="gruppen-verwalten-registerkarte-groups">Gruppen Verwalten (Registerkarte Groups)</h2>
 <p>Mit dem Button <strong>New</strong> auf der Registerkarte <strong>Groups</strong> wird eine neue Gruppe angelegt, mit dem Button <strong>Edit</strong> kann die ausgewählte Gruppe bearbeitet werden. Mit beiden Buttons öffnet sich ein Dialog, in dem der Name der Gruppe und eine Beschreibung eingegeben werden kann.</p>

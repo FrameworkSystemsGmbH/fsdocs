@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Funktionsweise </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Funktionsweise ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.6/release/19/docs/doc/runtimesupervisor/runtimesupervisor-features.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="funktionsweise">Funktionsweise</h1>
+
+<p>In den nachfolgenden Kapiteln wird ein Einblick in die Funktionsweise des Runtime Supervisor gegeben. Viele Prozesse laufen vollständig automatisiert ab, wie z.B. das Senden von Event Logs von einem Observable an den Runtime Supervisor, das Versenden von eMails beim Eingang eines bestimmten Event Logs oder die Verbindungsüberwachung in Echtzeit. Um diese Prozesse besser verstehen zu können, werden nachfolgend die wichtigsten Prozesse auf technischer Ebene erläutert.</p>
+<h2 id="identifikation-von-observables">Identifikation von Observables</h2>
+<p>Der Runtime Supervisor muss Observables eindeutig zuordnen können. Ein Print Service hat z.B. eine ID in Form einer Guid. Diese ist jedoch für den Runtime Supervisor nicht eindeutig. Wird dieser Print Service z.B. mit derselben Konfiguration auf einem anderen Server gestartet (zum Test), sollte dieser vom Runtime Supervisor auch als eigenständiger Print Service erkannt werden, da der Print Service auf dem anderen Server gleichzeitig gestartet werden könnte.</p>
+<p>Abhilfe schafft die sogenannte „Client ID“, mit der sich ein Observable am Runtime Supervisor registriert. Diese ist ein 32 Bit langer MD5-Hashwert, der sich je nach Observable-Typ aus unterschiedlichen Bausteinen zusammensetzt. Nachfolgende Liste gibt Aufschluss darüber:</p>
+<p><strong>Broker:</strong></p>
+<p>Domain + Server + Install Name + Application Name + Application Pool Name</p>
+<p><strong>Service Host:</strong></p>
+<p>Domain + Server + Install Name + Service Host Name</p>
+<p><strong>Authentication Service:</strong></p>
+<p>Domain + Server + Authentication Service ID</p>
+<p><strong>Print Service:</strong></p>
+<p>Domain + Server + Print Service ID</p>
+<p><strong>Document Service:</strong></p>
+<p>Domain + Server + Document Service ID</p>
+<p>Der „Install Name“ ist der Name der Installation, der beim Publish in Framework Studio angegeben wird. Der „Application Name“ ist der Name der Framework Studio Application, die gepublisht wird. Sollte der Rechner, auf dem ein Observable läuft, nicht in einer Domäne registriert sein, wird diese nicht in den Hashwert mit aufgenommen.</p>
+<h2 id="registrierung-von-observables">Registrierung von Observables</h2>
+<p>Wie in Kapitel <strong>5</strong> erläutert wurde, benötigt ein Observable ausschließlich die URL des Runtime Supervisor Windows Service, um sich erfolgreich am Runtime Supervisor registrieren zu können und die Überwachung durch diesen zu initiieren.</p>
+<p><img src="media/image40.png" alt="Registrierungsvorgang eines Observables"></p>
+<p>Wenn ein Observable konfiguriert wurde, sich mit dem Runtime Supervisor in Verbindung zu setzen, startet dieses beim Programmstart einen Prozess, der versucht, den Runtime Supervisor zu erreichen und sich an diesem zu registrieren. Hierfür wird die URL verwendet, die zuvor konfiguriert wurde.</p>
+<p>Das Observable startet nun den ersten Versuch, mit dem Runtime Supervisor Kontakt aufzunehmen. Bei diesem Request werden alle Daten übertragen, die nötig sind, um das Observable am Runtime Supervisor anzulegen. Diese Daten beinhalten hauptsächlich alle statischen Werte, die sich zur Laufzeit des Observables nicht ändern können (z.B. das Betriebssystem). Ist dem Runtime Supervisor das Observable mit der übertragenen Client ID schon bekannt, werden alle Daten entsprechend aktualisiert. Wurde der Registrierungsvorgang vom Runtime Supervisor erfolgreich bearbeitet, bekommt das Observable eine entsprechende Antwort.</p>
+<p>Erhält das Observable die Antwort, dass alles fehlerfrei bearbeitet wurde, wird der Registrierungsprozess auch an diesem abgeschlossen. Die Verbindung für die Überwachung seitens des Runtime Supervisor ist somit aufgebaut.</p>
+<p>Erhält das Observable die Antwort, dass ein Fehler aufgetreten ist oder erhält es nach einem Timeout sogar gar keine Antwort (Runtime Supervisor nicht erreichbar), dann wird in einem Intervall von 30 Sekunden immer wieder versucht, den Runtime Supervisor zu erreichen. Beim ersten Fehlversuch wird zudem ein entsprechender Eintrag in das Windows Event Log geschrieben. Verbindet sich ein Observable also nicht mit dem Runtime Supervisor, kann das Windows Event Log über den Grund Aufschluss geben.</p>
+<h2 id="parallelität">Parallelität</h2>
+<p>Observables wie z.B. ein Authentication Service müssen neben der Kommunikation mit dem Runtime Supervisor auch “ihren eigenen Job machen”. Es kann natürlich sein, dass während des Abarbeitens eines Prozesses, der in Verbindung mit dem Runtime Supervisor steht, auch kritische Fehler auftreten. Diese potenziellen Fehler dürfen allerdings keinen Einfluss auf die eigentliche Aufgabe des Observables haben.</p>
+<p>Scheitert z.B. ein Authentication Service auf Grund eines Fehlers dabei, sich am Runtime Supervisor zu registrieren, darf dieser Fehler nicht zur Folge haben, dass der Authentication Service abstürzt und seinen eigentlichen Job nicht mehr machen kann. Deswegen laufen alle Prozesse, die in Zusammenhang mit dem Runtime Supervisor stehen, völlig losgelöst von den Hautprozessen der Observables.</p>
+<h2 id="überwachung-der-verbindung">Überwachung der Verbindung</h2>
+<p>Nachdem ein Observable erfolgreich am Runtime Supervisor registriert wurde, besteht ab diesem Zeitpunkt eine dauerhafte Verbindung. Diese Verbindung basiert auf ASP.NET SignalR. Eine SignalR-Verbindung wird automatisch auf drei Ebenen überwacht und generiert Events, die vom Runtime Supervisor und dem Observable verarbeitet werden können (z.B. ein Verbindungsabbruch).</p>
+<p>Die drei Ebenen der Verbindung sind die folgenden:</p>
+<p><strong>Physisch:</strong></p>
+<p>Die physikalische Verbindung ist das Kabel selbst. Wird der Netzwerkstecker gezogen, bricht die physische Verbindung ab.</p>
+<p><strong>Transport:</strong></p>
+<p>Die Transport-Verbindung ist in den meisten Fällen die TCP-Verbindung. Sie kann auch erhalten bleiben, wenn die darunter liegende physische Verbindung kurz unterbrochen wird (Packet Loss).</p>
+<p><strong>Logisch:</strong></p>
+<p>Die logische Verbindung wird von SignalR selbst aufrechterhalten. Sie wird mit einer ID versehen und kann auch längere Unterbrechungen der physischen Verbindung oder auch der Transport-Verbindung überstehen. So kann ein Observable z.B. innerhalb von 30 Sekunden nach dem Ziehen des Netzwerksteckers mit dem Runtime Supervisor „reconnected“ werden, ohne die logische Verbindung zu unterbrechen.</p>
+<p>Eine ausführliche Beschreibung der Funktionsweise einer SignalR-Verbindung würde den Rahmen dieser Dokumentation sprengen. Eine sehr gute Erklärung auf technischer Ebene bietet die ASP.Net SignalR Dokumentation von Microsoft. Diese finden Sie unter folgendem Link:</p>
+<p><a href="http://www.asp.net/signalr">http://www.asp.net/signalr</a></p>
+<h2 id="verarbeiten-von-event-logs">Verarbeiten von Event Logs</h2>
+<p>Wenn an einem Observable ein Event auftritt, resultiert dies meist aus einem unbehandelten Fehler bei der Ausführung des Programms. Diese Events wurden bisher dezentral in die vom Observable-Typ abhängigen Logs geschrieben (meist das Windows Event Log). Ist der Runtime Supervisor für ein Observable konfiguriert, wird dieses nach erfolgreicher Registrierung versuchen, Event Logs ausschließlich an den Runtime Supervisor zu schicken. Für den Fall, dass der Runtime Supervisor nicht verfügbar ist, oder beim Verarbeiten des Event Logs ein Fehler auftritt, gibt es Fallbacks, die garantieren, dass keine Event Logs „verloren gehen“.</p>
+<h3 id="log-store">Log Store</h3>
+<p><img src="media/image41.png" alt="Verarbeitung von Event Logs"></p>
+<p>Tritt ein Event am Observable auf, wird diesem eine ID in Form einer Guid gegeben (hier im Text und in Abbildung <strong>41</strong> vereinfacht dargestellt). Das Event bekommt im Beispiel die ID 1. Es wird sofort vom Obvservable versucht, dieses Event über die bestehende SignalR-Verbindung an den Runtime Supervisor zu schicken. Dieser könnte zu diesem Zeitpunkt im schlechtesten Fall nicht erreichbar sein oder einen Fehler bei der Verarbeitung des Events produzieren. Im ersten Fall bekommt das Observable keine Antwort (Timeout). Im zweiten Fall bekommt das Observable die Antwort, dass sein Event nicht ordnungsgemäß verarbeitet wurde.</p>
+<p>In beiden Fällen wird das Event (ID 1) in den sogenannten “Log Store” geschrieben. Dieser beinhaltet alle Event Logs, die am Observable aufgetreten sind, jedoch noch nicht vom Runtime Supervisor verarbeitet wurden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Der Timestamp, der zu jedem Event Log im Runtime Supervisor gespeichert wird, ist der Zeitpunkt, zu dem das Event am Observable aufgetreten ist.</p>
+</div>
+<p>Nun tritt kurz darauf (innerhalb von 30 Sekunden) ein zweites Event ein (ID 2). Es wird wieder versucht, dieses sofort an den Runtime Supervisor zu schicken. Zuvor wird jedoch überprüft, ob sich noch nicht verarbeitete Events im Log Store befinden. Ist dies der Fall (ID 1), so werden alle Events aus dem Log Store mit dem neu aufgetretenen Event an den Runtime Supervisor geschickt. Im Beispiel also Event 1 (aus dem Log Store) und Event 2. Nun kann der Fall eintreten, dass nur eines der beiden Events erfolgreich am Runtime Supervisor verarbeitet wird. Beim Versuch, Event 2 in die Datenbank zu schreiben könnte z.B. ein Fehler auftreten.</p>
+<p>In diesem Fall sendet der Runtime Supervisor in seiner Antwort an das Observable alle ID’s mit, die erfolgreich verarbeitet wurden. Das Observable stellt also fest, dass Event 1 nun erfolgreich verarbeitet wurde, Event 2 jedoch nicht. Die Folge ist, dass Event 2 nun in den Log Store geschrieben wird. Event 1 wurde erfolgreich verarbeitet und wird aus dem Log Store entfernt.</p>
+<p>Tritt nun erst einmal kein weiteres Event am Observable auf, wird alle 30 Sekunden überprüft, ob sich Events im Log Store befinden. Ist dies der Fall, wird alle 30s versucht, diese an den Runtime Supervisor zu schicken. Im Beispiel wird Event 2 nach 30s nochmals zum Runtime Supervisor geschickt und erfolgreich verarbeitet. Danach ist der Log Store am Observable leer.</p>
+<h3 id="fallback">Fallback</h3>
+<p>Event Logs dürfen nicht einfach verloren gehen, nur weil der Runtime Supervisor vielleicht nicht erreichbar ist oder selbst beim Verarbeiten auf einen Fehler stößt. Eine logische Folge aus dieser Situation wäre, dass der Log Store am Observable immer größer und niemals abgearbeitet wird. Im schlechtesten Fall läuft der Arbeitsspeicher des Rechners langsam mit Event Logs voll.</p>
+<h4 id="beenden-des-observables">Beenden des Observables</h4>
+<p>Das Observable kann jederzeit beendet werden. Z.B. beim Update eines Authentication Service muss z.B. der Windows Service neu installiert werden. Zu diesem Zeitpunkt könnten sich jedoch noch nicht verarbeitete Event Logs im Log Store befinden.</p>
+<p>Das Observable bekommt aber mit, wenn es heruntergefahren wird. Es wird dann noch einmal versucht, die Events aus dem Log Store an den Runtime Supervisor zu senden. Schlägt dies fehl, werden alle nicht verarbeiteten Events in das bisherige Log des Observables geschrieben (meist das Windows Event Log).</p>
+<h4 id="sendeintervall">Sendeintervall</h4>
+<p>Normalerweise werden die Events aus dem Log Store auch dann noch einmal zum Runtime Supervisor geschickt, wenn ein neues Event auftritt. Ist letzteres nicht der Fall, wird alle 30s überprüft, ob sich nicht verarbeitete Events im Log Store befinden und diese nochmals an den Runtime Supervisor geschickt.</p>
+<p>Kann ein Event innerhalb von 10 Minuten, aus welchem Grund auch immer, nicht am Runtime Supervisor verarbeitet werden, so wird dieses automatisch aus dem Log Store entfernt und in das Standard-Log des Observables geschrieben (Windows Event Log).</p>
+<p>Die Überprüfung, ob sich Events, die älter als 10 Minuten sind, im Log Store befinden, erfolgt jede Minute einmal.</p>
+<h2 id="versenden-von-emails">Versenden von eMails</h2>
+<p>Das Versenden von eMails durch den Runtime Supervisor erfolgt über den .NET SMTP Client. Beim Eingang eines Event Logs am Runtime Supervisor wird überprüft, ob SMTP für den Runtime Supervisor aktiviert wurde (siehe Kapitel <a href="runtimesupervisor-ui.html#smtp">SMTP</a>). Ist dies der Fall, dann werden alle Empfänger überprüft, die für den Event Log Level (Error, Warning, etc.) des eingegangenen Events eine Nachricht erhalten sollen (siehe Kapitel <a href="runtimesupervisor-ui.html#alerting">SMTP</a>). Anschließend wird die eMail generiert und an jeden Empfänger versendet.</p>
+<h3 id="generierung-der-emails">Generierung der eMails</h3>
+<p><img src="media/image42.png" alt="eMail vom Runtime Supervisor in Outlook"></p>
+<p>Der Betreff der eMail beinhaltet Typ und Name des Observables. Im Text erscheint an erster Stelle das Event Log mit seinem Event Log Level und der Uhrzeit, zu der das Event am Observable aufgetreten ist. Danach kommt der eigentliche Text des Event Logs.</p>
+<p>An jede eMail vom Runtime Supervisor wird eine Zusammenfassung des Observables angehängt, zu dem das Event Log gehört.</p>
+<p>Der Link zur Seite des Observables in dieser Zusammenfassung wird nur generiert, wenn in den “Web Application Settings” des Runtime Supervisor die URL für “Web Application Root” definiert wurde (Siehe Kapitel <a href="runtimesupervisor-ui.html#web-application">Web Application</a>).</p>
+<h2 id="aktualisierung-dynamischer-daten">Aktualisierung dynamischer Daten</h2>
+<p>Jedes Observable sendet Daten an den Runtime Supervisor, die sich zur Laufzeit ändern können. So kann sich z.B. der verfügbare Speicherplatz der lokalen Partitionen ändern. Diese dynamischen Daten werden periodisch an den Runtime Supervisor übertragen. Das Sendeintervall beträgt 5 Minuten. Statische Daten, wie z.B. Informationen über die Hardware des Rechners, sind von diesem Vorgang ausgeschlossen.</p>
+<h2 id="aktualisierung-der-settings">Aktualisierung der Settings</h2>
+<p>In der Web Application des Runtime Supervisor können im Bereich Settings (siehe Kapitel <a href="runtimesupervisor-ui.html#settings">Settings</a>) Einstellungen vorgenommen werden. Es kann während der Laufzeit des Runtime Supervisor Windows Service z.B. ein neuer Empfänger für eMails eingetragen werden.</p>
+<p>Einstellungen für die Web Application werden sofort übernommen und angewendet. Wenn z.B. die Einstellung „Number of records per page in events grid“ geändert wird und danach in die Event-Tabelle gewechselt wird, ist die neue Anzahl der Einträge auf einer Seite der Tabelle zu sehen.</p>
+<p>Für den Windows Service gilt dies nicht! Der Windows Service arbeitet mit sehr vielen parallelen Prozessen und kann deshalb nicht einfach auf Knopfdruck sämtliche Einstellungen übernehmen, ungeachtet dessen, was die Prozesse gerade verarbeiten.</p>
+<p>Der Windows Service kümmert sich deswegen im Intervall von 5 Minuten selbst darum, die in der Datenbank gespeicherten Settings zu aktualisieren. D.h., wird in der Web Application eine Einstellung geändert, die den Windows Service betrifft (z.B. die SMTP-Einstellungen) und werden diese gespeichert, heißt das erst einmal, dass sie korrekt in die Datenbank geschrieben werden. Ab diesem Zeitpunkt können also maximal 5 Minuten vergehen, bis der Windows Service die gespeicherten Einstellungen auch übernimmt. Im konkreten Fall kann es also sein, dass nach dem Speichern der SMTP-Einstellungen der Windows Service trotzdem noch für maximal 5 Minuten eMails über den zuvor aktiven SMTP-Server verschickt.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

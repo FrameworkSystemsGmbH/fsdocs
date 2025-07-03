@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>New User / Edit User </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="New User / Edit User ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/7/docs/doc/runtime-administration/edit-user.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="new-user--edit-user">New User / Edit User</h1>
+
+<p>Dieser Dialog dient zum Erstellen und Bearbeiten eines Benutzers im <a href="runtime-administration-user.html">Authentication and Authorisation Tool</a></p>
+<p>Beim Erstellen eines neuen Benutzers (<strong>New User</strong>) muss der <strong>Username</strong> angegeben werden.</p>
+<p>Beim Bearbeiten eines bestehenden Benutzers (<strong>Edit User</strong>) können außer dem <strong>Username</strong> alle Einstellungen geändert werden.</p>
+<p>Das folgende Bild zeigt den Dialog mit allen möglichen Einstellungen:</p>
+<p><img src="media/edit-user.png" alt="New User"></p>
+<p>Je nach Konfiguration des Authentication-Service kann der Umfang jedoch stark eingeschränkt sein.
+2 Beispiele:</p>
+<ul>
+<li><p>Einfache Passwort-Authentifizierung</p>
+<p><img src="media/edit-user-password.png" alt="New User"></p>
+</li>
+<li><p>OpenID-Connect-Authentifizierung</p>
+<p><img src="media/edit-user-oidc.png" alt="New User OIDC"></p>
+</li>
+</ul>
+<p>Im folgenden sind alle Einstellungen beschrieben.</p>
+<h2 id="general">General</h2>
+<p>Dieser Bereich umfasst allgemeine Einstellungen für den Benutzer.</p>
+<h4 id="username"><strong>Username</strong></h4>
+<p>Name des Benutzers.
+Dieser muss eindeutig sein.</p>
+<p>Der Name muss bei der Erstellung eines neuen Benutzers vergeben werden.
+Beim Bearbeiten eines Benutzers kann dieses Feld nicht mehr bearbeitet werden.</p>
+<h4 id="checkbox-enable-advanced-security">Checkbox <strong>Enable Advanced Security</strong></h4>
+<p>Diese Checkbox wird nur angeboten, wenn <em>Advanced Security</em> im Authentication-Service aktiviert ist.</p>
+<p>Ist die Checkbox gesetzt, dann werden für diesen Benutzer die folgenden Funktionen freigeschaltet:</p>
+<ul>
+<li>Es gelten für die Passwort Authentication erweiterte Sicherheitsanforderungen, welche am <strong>Authentication Service</strong> definiert sind.</li>
+<li>Die Checkbox <strong>Change Password required</strong> kann gesetzt werden.</li>
+<li>Über die Checkbox <strong>Enable User</strong> kann ein Benutzer aktiviert / deaktiviert werden</li>
+<li>Mit <strong>Valid from</strong> und/oder <strong>Valid to</strong> kann die Gültigkeit des Benutzers eingeschränkt werden.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die erweiterten Sicherheitseinstellungen dürfen typischer Weise nicht für den Benutzer aktiviert werden, der als Standardbenutzer für den Login an Applikationen vorgesehen ist (Standardbezeichnung <strong>anonymous</strong>), da dessen Passwort zeitlich unbegrenzt gültig sein muss.</p>
+</div>
+<h4 id="checkbox-enable-user">Checkbox <strong>Enable User</strong></h4>
+<p>Nur verfügbar, wenn <em>Advanced Security</em> aktiv ist.</p>
+<p>Wenn die Checkbox gesetzt ist, ist der Benutzerzugang freigeschaltet.
+Wird der Haken entfernt ist der Benutzer für Anmeldungen gesperrt.</p>
+<h4 id="valid-from--valid-to"><strong>Valid from</strong> / <strong>Valid to</strong></h4>
+<p>Nur verfügbar, wenn <em>Advanced Security</em> aktiv ist.</p>
+<p>Hier kann angegeben werden, in welchem Zeitraum der Benutzer aktiv ist.
+Mit dem Setzen der Checkbox kann jeweils ein Datum angegeben werden und es erfolgt bei der Anmeldung eine Prüfung.
+Außerhalb des Zeitraums ist der Benutzer für Anmeldungen gesperrt.</p>
+<h2 id="openid-connect-authentication">OpenID Connect Authentication</h2>
+<p>Dieser Bereich ist nur sichtbar wenn im Authentication-Service <a href="../authentication-service/oidc.html#einrichtung">OpenID Connect konfiguriert</a> ist.
+Es müssen der <strong>Identity-Provider</strong> und die <strong>Client-ID</strong> spezifiziert sein.</p>
+<h4 id="email-address"><strong>Email Address</strong></h4>
+<p>Hier wird die Identität des Benutzers im entsprechenden Identity-Provider definiert.
+In der Regel handelt es sich dabei um die Email-Adresse des Benutzers.
+Im Authentication-Service kann über die Einstellung <strong>Claim</strong> auch ein abweichender Wert definiert werden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Eine Änderung des <strong>Claim</strong> hat KEINE Auswirkung auf die gespeicherten Indentitäten.
+Diese müssen ggf. nachgearbeitet werden.</p>
+</div>
+<p>Die Beschriftung dieses Feldes kann im Authentication-Service über die Einstellung <strong>Label for Claim</strong> gändert werden.</p>
+<p>Die Identität muss eindeutig sein - sie kann nur einem Benutzer zugeordnet werden.</p>
+<h2 id="domain-authentication">Domain Authentication</h2>
+<p>Dieser Bereich ist nur sichtbar wenn im <strong>Authentication-Service</strong> die Domain-Authentication konfiguriert ist.
+Es müssen die <strong>Domain</strong> und der <strong>Domain Controller</strong>  spezifiziert sein.</p>
+<h4 id="domain-user"><strong>Domain user</strong></h4>
+<p>In diesem Feld kann der Benutzer mit einem Domänenbenutzer verknüpft werden.
+Das zu verwendende Format ist <em>Domäne</em>\<em>Benutzer</em>.
+Wird eine Applikation auf einem Windows System gestartet, an dem der Domänenbenutzer angemeldet ist, so wird automatisch der zugeordnete Benutzer angemeldet.</p>
+<p>Der Domänenbenutzer muss eindeutig sein - er kann nur einem Benutzer zugeordnet werden.</p>
+<h2 id="password-authentication">Password Authentication</h2>
+<p>In diesem Bereich wird das Passwort des Benutzers angegeben.</p>
+<h4 id="checkbox-enable-password-authentication">Checkbox <strong>Enable Password Authentication</strong></h4>
+<p>Nur verfügbar, wenn <em>OpenID Connect Authentication</em> aktiviert ist.</p>
+<p>Wird dem Benutzer eine Identität für OpenID Connect zugewiesen, dann kann durch das Entfernen des Hakens Passwort-Authentifizierung deaktiviert werden.
+Das stellt sicher, dass eine Sperre des Benutzers im Identity-Provider nicht durch einen Fallback auf die Passwort-Authentifizierung umgangen werden kann.</p>
+<p>Durch setzen des Hakens kann die Passwort-Authentifizierung jederzeit wieder reaktiviert werden.
+Das (alte) Passwort bleibt im Hintergrund gespeichert.</p>
+<p>Wird am Authentication-Service die Konfiguration für die OpenID Connect Authentication entfernt, dann hat diese Checkbox keine Funktion mehr.
+In diesem Fall ist die Passwort-Authentifizierung wieder mit den (alten) Passworten aktiv.</p>
+<h4 id="password--confirm"><strong>Password</strong> / <strong>Confirm</strong></h4>
+<p>Passwort des Benutzers und die Passwortwiederholung.</p>
+<p>Diese Felder müssen nur angegeben werden, wenn das Passwort neu festgelegt oder geändert wurde.</p>
+<h4 id="checkbox-change-password-required">Checkbox <strong>Change password required:</strong></h4>
+<p>Nur verfügbar, wenn <em>Advanced Security</em> aktiv ist.</p>
+<p>Wenn die Checkbox gesetzt ist, muss der Benutzer bei der ersten/nächsten Anmeldung sein Passwort ändern.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

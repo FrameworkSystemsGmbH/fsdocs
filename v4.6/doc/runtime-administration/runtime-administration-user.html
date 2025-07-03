@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Benutzer verwalten / Authentication and Authorisation Tool </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Benutzer verwalten / Authentication and Authorisation Tool ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.6/release/19/docs/doc/runtime-administration/runtime-administration-user.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="benutzer-verwalten--authentication-and-authorisation-tool">Benutzer verwalten / Authentication and Authorisation Tool</h1>
+
+<h2 id="allgemeines">Allgemeines</h2>
+<p>Benutzer können in Gruppen organisiert werden. Jeder Benutzer kann in mehreren Gruppen enthalten sein. Jeder Gruppe können mehrere Rollen zugeordnet sein. Ein Benutzer kann mit einem Windows Domänenbenutzer verknüpft werden.</p>
+<p>Gruppen haben einen eindeutigen Schlüssel, der vor dem Anwender versteckt wird. Auch Rollen haben einen eindeutigen Schlüssel, der aus Gründen der Abwärtskompatibilität beim Anlegen einer neuen Rolle einmalig manuell angegeben werden kann. Ansonsten wird auch der Schlüssel der Rollen vor dem Anwender versteckt.</p>
+<p>Durch die Verwendung von eindeutigen Schlüsseln für Gruppen und Rollen können diese umbenannt werden, ohne dass Zuordnungen verloren gehen.</p>
+<p>Wenn eine Endanwendung dem <strong>Authentication Service</strong> mehrere Geschäftseinheiten (<strong>Units</strong>) mitteilt, so können Benutzerrechte für jede Geschäftseinheit individuell vergeben werden.</p>
+<p>Wenn Sie das <strong>Authentication and Authorisation Tool</strong> starten, sehen Sie folgendes Fenster.</p>
+<p><img src="media/image5.png" alt="Authentication and Authorisation Tool"></p>
+<p><strong>Bedienkonzept:</strong></p>
+<p>Es gibt drei Hauptregisterkarten <em><strong>Users</strong></em>, <em><strong>Groups</strong></em> und <em><strong>Roles</strong></em> (siehe 1 in obigem Screenshot), die alle nach dem gleichen System aufgebaut sind:</p>
+<p>Im linken Bereich (siehe 2 im Screenshot) wird das Element ausgewählt, welches konfiguriert werden soll (hier: Benutzer „Admin“).</p>
+<p>Im mittleren Bereich (siehe 3) befinden sich zwei weitere Registerkarten, auf denen jeweils die Verknüpfungen des links ausgewählten Elements mit den anderen Elementen definiert werden (hier Gruppen und Rollen).</p>
+<p>Im rechten Bereich (4) werden Eigenschaften des links ausgewählten Elements angezeigt.</p>
+<p>Im Screenshot können durch Setzen der Checkboxen im Bereich 3 dem links ausgewählten Benutzer „Admin“ Rollen zugeordnet werden. Durch Wechseln der Registerkarte im mittleren Bereich können Sie definieren, welchen Gruppen der Benutzer „Admin“ zugeordnet sein soll.</p>
+<p>In allen Listendarstellungen gibt es einen Tooltip, der Details zu dem Element anzeigt, sowie die Maus für mehr als 5 Sekunden darüber still gehalten wird.</p>
+<p>Außerdem kann durch Doppelklick auf ein Element in einer Listendarstellung in Bereich 3 die Sichtweise gewechselt werden: Das geklickte Element wird im Auswahlbereich (2) geöffnet.</p>
+<p>Über jeder Listenansicht gibt es ein Eingabefeld mit der Bezeichnung <strong>Filter</strong>. In der Listenansicht werden nur die Elemente angezeigt, die den als Filter eingegebenen Text enthalten. Ob ein Buchstabe groß oder klein geschrieben wird, ist dabei unerheblich. So ist ein schnelles Finden von Elementen möglich.</p>
+<p>Folgende Sonderzeichen können in Filter-Eingabefeldern allein oder vor dem eigentlichen Filtertext angegeben werden:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>+</td>
+<td>Nur neu angelegte Elemente anzeigen</td>
+</tr>
+<tr>
+<td>-</td>
+<td>Nur gelöschte Elemente anzeigen (diese werden sonst ausgeblendet)</td>
+</tr>
+<tr>
+<td>*</td>
+<td>Nur geänderte Elemente anzeigen</td>
+</tr>
+<tr>
+<td>!</td>
+<td>Nur zugeordnete Elemente anzeigen (dieses Sonderzeichen macht nur bei Listenansichten mit Checkbox Sinn)</td>
+</tr>
+</tbody>
+</table>
+<p>Die Filter-Eingabefelder zeigen die jeweils gültigen Sonderzeichen im Tooltip an.</p>
+<p>Beispiel:</p>
+<p>Filter „!Lo“ bedeutet, alle Elemente, deren Checkbox gesetzt ist und welche die Zeichen „Lo“ enthalten.</p>
+<p>Wenn Änderungen an einem Benutzer durchgeführt werden und diese Änderungen noch nicht gespeichert wurden, wird der Benutzer mit einem Sternchen in Klammern (*) gekennzeichnet. Neu hinzugefügte Benutzer, die noch nicht gespeichert wurden, werden mit einem Plus in Klammern (+) gekennzeichnet.</p>
+<p>Mit dem Button <strong>Save All</strong> werden alle Änderungen gespeichert.</p>
+<p>Mit dem Button <strong>Reload All</strong> werden alle aktuellen Änderungen verworfen und alle Daten neu vom Authentifizierungsdienst geladen.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Das neue Einlesen der Daten mit dem Button <strong>Reload All</strong> ist auch dann notwendig, wenn Sie im <strong>Role Management Tool</strong> relevante Änderungen an Rollen durchgeführt haben, also beispielsweise neue Rollen angelegt oder die Bezeichnung geändert haben.</p>
+</div>
+<p><strong>Allgemeine Hinweise:</strong></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Der Authentifizierungsdienst selbst wird unter der Bezeichnung <em>AuthenticationService</em> mit den Rollen <em>ManageUsers</em> und <em>ManageRoles</em> aufgeführt. Jedem Benutzer, der das <strong>Authentication and Authorisation Tool</strong> starten will, muss die Rolle <em>ManageUsers</em> zugeordnet sein, jedem Benutzer, der das <strong>Role Management Tool</strong> starten will, muss die Rolle <em>ManageRoles</em> zugeordnet sein!</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Dem Benutzer <em>Admin</em> werden beim Start des Authentifizierungsdienstes automatisch die Rollen <em>ManageUsers</em> und <em>ManageRoles</em> zugeordnet.</p>
+</div>
+<h2 id="benutzer-verwalten-registerkarte-users">Benutzer verwalten (Registerkarte Users)</h2>
+<p>Mit dem Button <strong>New</strong> auf der Hauptregisterkarte <strong>Users</strong> wird ein neuer Benutzer angelegt.
+Es öffnet sich der Dialog <a href="edit-user.html">New User</a>.</p>
+<p>Mit dem Button <strong>Delete</strong> wird der aktuell ausgewählte Benutzer gelöscht.</p>
+<p><img src="media/image9.png" alt="User Delete"></p>
+<p>Mit dem Button <strong>Edit</strong> werden die Eigenschaften des aktuell ausgewählten Benutzers geändert.
+Es öffnet sich der Dialog <a href="edit-user.html">Edit User</a>.</p>
+<p>Mit dem Button <strong>Copy</strong> kann ein neuer Benutzer angelegt werden, der bis auf den Namen und das Passwort die gleichen Eigenschaften wie der aktuell ausgewählte Benutzer erhält.</p>
+<h2 id="gruppen-verwalten-registerkarte-groups">Gruppen Verwalten (Registerkarte Groups)</h2>
+<p>Mit dem Button <strong>New</strong> auf der Registerkarte <strong>Groups</strong> wird eine neue Gruppe angelegt, mit dem Button <strong>Edit</strong> kann die ausgewählte Gruppe bearbeitet werden. Mit beiden Buttons öffnet sich ein Dialog, in dem der Name der Gruppe und eine Beschreibung eingegeben werden kann.</p>
+<p>Mit dem Button <strong>Delete</strong> wird die aktuell ausgewählte Gruppe gelöscht.</p>
+<h2 id="rollen-verwalten-registerkarte-roles">Rollen Verwalten (Registerkarte Roles)</h2>
+<p>In der Combobox <strong>Service</strong> wird der Service ausgewählt, dessen Rollen verwaltet werden sollen.</p>
+<p>Auf dieser Registerkarte können nur die Zuordnungen zu Gruppen und Benutzern verwaltet werden (siehe 3.1). Zum Anlegen, Umbenennen und Löschen von Rollen wird das <strong>Role Management Tool</strong> (siehe 4) verwendet.</p>
+<h2 id="services-verwalten-registerkarte-services">Services Verwalten (Registerkarte Services)</h2>
+<p>Die Registerkarte <strong>Services</strong> ist in vier Spalten organisiert. Analog zu den anderen Registerkarten wird in der ersten Spalte das Element ausgewählt, welches konfiguriert werden soll. In diesem Fall der gewünschte Service.</p>
+<p><img src="media/image12.png" alt=": Runtime Administration (Authentication and Authorisation Tool)"></p>
+<p>In der zweiten Spalte werden die Eigenschaften des ausgewählten Services angezeigt.</p>
+<p>Die Spalten drei und vier sind nicht von Interesse, wenn der ausgewählte Service keine Geschäftseinheiten (<strong>Units</strong>) besitzt. In diesem Fall enthalten die Spalten keinerlei Daten.</p>
+<p>Wenn der ausgewählte Service bei der Registrierung am Authentifizierungsdienst Geschäftseinheiten mitgeteilt hat, so werden in der dritten Spalte alle Geschäftseinheiten aufgelistet. In diesem Fall wird zu der in der dritten Spalte ausgewählten Geschäftseinheit deren Eigenschaften in der vierten Spalte angezeigt. Dort kann außerdem eine Geschäftseinheit, die als veraltet (obsolete) markiert ist (siehe 0), mit dem Button <strong>Delete Obsolete Unit</strong> gelöscht werden.</p>
+<p><img src="media/image13.png" alt="Delete unit?"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Wenn für diese Unit Rollen zu Benutzern oder Gruppen zugeordnet waren, gehen diese Zuordnungen dabei unwiderruflich verloren!</p>
+</div>
+<p>Mit dem Button <strong>Delete Service</strong> wird der aktuell ausgewählte Service am Authentifizierungsdienst vollständig entfernt.</p>
+<p><img src="media/image14.png" alt=": Service Delete"></p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Wenn Rollen von diesem Service Benutzern oder Gruppen zugeordnet waren, gehen diese Zuordnungen unwiderruflich verloren!</p>
+</div>
+<p>Mit dem Button <strong>Copy mappings from…</strong> können für den ausgewählten Service Rollen-Zuordnungen von einem anderen Service übernommen werden. Bestehende Zuordnungen werden dabei überschrieben. Dazu muss der Service ausgewählt werden, von dem die Rollen-Zuordnungen kopiert werden sollen. Hat der ausgewählte Service mehrere Geschäftseinheiten, so können auch aus diesem Service selbst Rollen-Zuordnungen von einer Geschäftseinheit in eine andere kopiert werden.</p>
+<p><img src="media/image15.png" alt=": Role Management Tool – Service Selector"></p>
+<p>Nach der Auswahl des Services, aus dem kopiert werden soll, erscheint der Dialog <strong>Copy role mappings from…</strong>, in dem die genauen Optionen für den Kopiervorgang festgelegt werden.</p>
+<p><img src="media/image16.png" alt=": Copy role mappings from …"></p>
+<p>Mit den Checkboxen <strong>User-Role mappings</strong> und <strong>Group-Role mappings</strong> wird festgelegt, ob Benutzer-Rollen Zuordnungen und Gruppen-Rollen Zuordnungen kopiert werden sollen.</p>
+<p>Der Bereich <strong>Units</strong> ist komplett deaktiviert, falls weder der als Quelle noch der als Ziel ausgewählte Service über mehrere Geschäftseinheiten verfügt. Andernfalls gibt es zwei Kopiermodi zur Auswahl:</p>
+<ul>
+<li><strong>All Units:</strong> In diesem Modus werden für alle Units, die in beiden Versionen existieren, die Zuordnungen eins zu eins übertragen. Achtung: Alle Zuordnungen (egal für welche Unit), die vorher im Ziel existiert haben, werden dabei gelöscht. Dieser Modus steht nur zur Auswahl, wenn sowohl der als Quelle, als auch der als Ziel ausgewählte Service mehrere Mandanten enthält.</li>
+<li><strong>One Unit:</strong> In diesem Modus werden Zuordnungen aus der Geschäftseinheit <strong>Source Unit</strong> in die Geschäftseinheit <strong>Target Unit</strong> kopiert. Alle zuvor existierenden Zuordnungen zur Target Unit werden dabei gelöscht. Alle anderen Geschäftseinheiten im Ziel Service werden dabei nicht verändert. Die Geschäftseinheiten <strong>Source Unit</strong> und <strong>Target Unit</strong> müssen ggf. über die entsprechenden Buttons <strong>Select</strong> ausgewählt werden. Erst dann wird der Button <strong>Start</strong> aktiviert.</li>
+</ul>
+<p>Mit dem Button <strong>Start</strong> wird der Vorgang gestartet. Gegebenenfalls erhalten Sie Hinweismeldungen, wenn Rollen oder Geschäftseinheiten aus dem als Quelle ausgewählten Service im Ziel Service nicht existieren. Mit dem Button <strong>Cancel</strong> wird die Konfiguration der Kopieroptionen und damit auch der Kopiervorgang abgebrochen.</p>
+<h2 id="arbeiten-mit-mehreren-geschäftseinheiten-units">Arbeiten mit mehreren Geschäftseinheiten (Units)</h2>
+<p>Seit <strong>Framework Studio 3.7</strong> kann eine Framework Studio Endanwendung dem Authentifizierungsdienst Geschäftseinheiten (Units) mitteilen. Diese werden im <strong>Authentication and Authorization Tool</strong> auf der Registerkarte <strong>Services</strong> für den ausgewählten Service angezeigt (siehe 3.5).</p>
+<p>Wird eine Unit beim Start eines Services dem Authentifizierungsdienst nicht mehr mitgeteilt, so wird diese als veraltet (<strong>obsolete</strong>) markiert. Erst dann kann eine Unit endgültig (mit den Button <strong>Delete Obsolete Unit</strong>, siehe 3.5) aus dem Authentifizierungsdienst gelöscht werden. Bis dahin bleiben alle Zuordnungen zu dieser Unit erhalten.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Im Broker werden die Geschäftseinheiten nicht bei jedem Anwendungsstart geprüft und an den Authentifizierungsdienst übermittelt, sondern nur beim ersten Start der Anwendung. Sollen diese erneut geprüft und der Authentifizierungsdienst über Änderungen informiert werden, muss daher ggf. der genutzte Application Pool im IIS neu gestartet werden.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Als veraltet gekennzeichnete Units werden in der Vorbelegung der Unit Filter für die Rollenzuordnung ausgeblendet. Über den Button <strong>Filter Units</strong> ist ein Einblenden jederzeit möglich. In diesem Fall wird der Name der Unit in Spaltenüberschriften in Klammern gesetzt.</p>
+</div>
+<p><img src="media/image17.png" alt=": Runtime Administration (Authentication and Authorisation Tool)"></p>
+<p>Wenn ein Service mehrere Units hat, werden in allen Ansichten, in denen Rollen mit Benutzern oder Rollen mit Gruppen verknüpft werden, aus den Listenansichten mit Checkboxen <strong>Tabellen</strong> mit Checkboxen.</p>
+<p>In der ersten Spalte wird immer der Name des zu verknüpfenden Elements (im obigen Screenshot der Name der Rolle) angezeigt. Darauf folgen Spalten für alle Units, die im Dialog <strong>Select Units</strong> ausgewählt wurden. Voreingestellt werden alle Units angezeigt, die nicht als veraltet (obsolete) gekennzeichnet sind. Der Dialog wird mit dem Button <strong>Filter Units</strong> geöffnet.</p>
+<p><img src="media/image18.png" alt="Select Units"></p>
+<p>Eine Sonderstellung hat die (immer als erste Unit dargestellt) vom System automatisch generierte Unit mit der Bezeichnung <strong>General</strong>. Ist für einen Benutzer oder ein Gruppenmitglied bei dieser Unit für eine Rolle ein Haken gesetzt, so bedeutet dies, dass ihm an allen Units diese Rolle zugewiesen ist, an denen ihm irgend eine Rolle explizit zugeordnet ist.</p>
+<p>Beispiel:</p>
+<table>
+<thead>
+<tr>
+<th>Rollen</th>
+<th>O.General</th>
+<th>1. Unit A</th>
+<th>2. Unit B</th>
+<th>3. Unit C</th>
+<th>4. Unit D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>General Usage</td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td></td>
+</tr>
+<tr>
+<td>Buyer</td>
+<td>x</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Administrator</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+<p>Der Benutzer kann sich an Unit 1, Unit 3 und Unit 4 anmelden, da er für diese Units explizit einer Rolle zugewiesen ist. An diesen Units ist ihm durch die Zuordnung der <em>General Unit</em> auch die Rolle <em>Buyer</em> zugeordnet. Die Rechte bei der Anmeldung sind also:</p>
+<ul>
+<li>Unit 1: General Usage, Buyer</li>
+<li>Unit 2: Keine Rechte</li>
+<li>Unit 3: General Usage, Buyer</li>
+<li>Unit 4: Buyer, Administrator</li>
+</ul>
+<p>In den Tabellenansichten werden die Units von <strong>0. bis 9. durchnummeriert</strong> dargestellt. Diese Nummer stellt die Ziffer dar, mit der Sie, in der aktuell ausgewählten Zeile, den Wert der Checkbox in der durch die Nummer identifizierten Unit wechseln können. Mit der Taste <strong>Leertaste</strong> werden alle angezeigten Units, außer der General Unit, geschaltet.</p>
+<p>Beispiel:</p>
+<table>
+<thead>
+<tr>
+<th>Rollen</th>
+<th>O.General</th>
+<th>1. Unit A</th>
+<th>2. Unit B</th>
+<th>3. Unit C</th>
+<th>4. Unit D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>General Usage</td>
+<td></td>
+<td>x</td>
+<td></td>
+<td>x</td>
+<td></td>
+</tr>
+<tr>
+<td>Buyer</td>
+<td>x</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Administrator</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td>x</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>Zeile „General Usage“: Taste 4 wird gedrückt =&gt; Unit D ist zusätzlich ausgewählt</li>
+<li>Zeile „Buyer“: Taste 0 wird gedrückt =&gt; General ist nicht mehr ausgewählt</li>
+<li>Zeile „Administrator“: Leertaste wird gedrückt =&gt; Alle Units (außer General) sind ausgewählt</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Diese Shortcuts ermöglichen es im Zusammenspiel mit der Unit-Filterfunktion, für ausgewählte Units die gleichen Einstellungen zu vorzunehmen.</p>
+</div>
+<p>Beispiel:</p>
+<p>Ein Benutzer hat grundsätzlich Rechte an den Units A, B, C und D. Ihm sollen viele Rollen zugeordnet werden. Diese Rollen sollen genau gleich an den Units A, B und D gesetzt werden, also nicht an Unit C. Nun können Sie mit dem Button <strong>Filter Units</strong> die Units A, B, und D zur Darstellung auswählen. Nun selektieren Sie nach und nach die gewünschten Rollen und drücken die Leertaste. Auf diese Weise werden jeweils die Checkboxen für die Units A, B, und D gesetzt. Unit C bleibt unberührt, da diese nicht angezeigt wird.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

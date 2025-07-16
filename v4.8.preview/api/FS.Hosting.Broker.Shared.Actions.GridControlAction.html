@@ -379,6 +379,11 @@ bei <code>false</code> wird die Zelle gesperrt.</p>
   <dl class="jumplist">
     <dt><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridControlAction.SetColumnCaption.html#FS_Hosting_Broker_Shared_Actions_GridControlAction_SetColumnCaption_System_Int32_System_String_">SetColumnCaption(int, string)</a></dt>
     <dd><p>Setzt die Spaltenüberschrift der Spalte Nummer <strong>ColumnPos</strong> auf den Wert <strong>value</strong>.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Im Gegensatz zu den anderen Methoden beginnt die Zählung der <code class="paramref">columnPos</code> bei 0 und nicht bei 1.
+Dieses inkonsistene Verhalten bleibt aus Kompatibilitätsgründen bestehen.</p>
+</div>
 </dd>
   </dl>
   <dl class="jumplist">

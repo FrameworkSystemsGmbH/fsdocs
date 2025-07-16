@@ -91,16 +91,25 @@
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.5.31_Setup_x64</li>
+<li>FS_4.5.31_RuntimeAdministration</li>
 <li>FS4.5.31_AuthService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h4>
+<p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.42.0 auf Version 7.43.4 aktualisiert.
+Das entspricht Chromium 138.</p>
+<p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2025/v7-43-4.html">https://jxbrowser-support.teamdev.com/release-notes/2025/v7-43-4.html</a></p>
+<p>Es sind keine besonderen Aktionen erforderlich.
+Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
 <h4 id="neuerungen">Neuerungen</h4>
 <ul>
 <li><p>Die <a href="../doc/authentication-service/oidc.html">OpenID Connect</a> Implementierung wurde um den <a href="../doc/authentication-service/oidc-flow.html#refresh-flow">Refresh-Flow</a> ergänzt.</p>
 <div class="IMPORTANT">
 <h5>Important</h5>
-<p>Zur Nutzung des Refresh-Flows muss der Authentication Service ab der Version 4.5.31 genutzt werden!</p>
+<p>Zur Nutzung des Refresh-Flows müssen der Authentication Service und die Runtime Administration ab der Version 4.5.31 genutzt werden!</p>
 </div>
+</li>
+<li><p>Lizenzen, die durch den MobileClient über die Android App genutzt werden, werden bei jedem Start der App, über alle Broker verteilt, wieder freigegeben.</p>
 </li>
 </ul>
 <h2 id="4530-04072025">4.5.30 (04.07.2025)</h2>
@@ -272,7 +281,7 @@ Threading-Problemen und leeren Ergebnissen führen.</p>
 <li>FS_4.5.26_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-1">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.41.5 auf Version 7.42.0 aktualisiert.
 Das entspricht Chromium 132.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/">https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/</a></p>
@@ -365,7 +374,7 @@ Es handelt sich um einen Fehler in DevExpress:
 <li>FS_4.5.24_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="update-jxbrowser-für-javaclient-1">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-2">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.40.0 auf Version 7.41.5 aktualisiert.
 Das entspricht Chromium 131.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2024/v7-41-5/">https://teamdev.com/jxbrowser/release-notes/2024/v7-41-5/</a></p>
@@ -502,7 +511,7 @@ Code-Editor erst mit mehreren Tagen Verzögerung zieht.</p>
 <ul>
 <li>DevExpress wurde auf Version 24.1.4 upgedated.</li>
 </ul>
-<h4 id="update-jxbrowser-für-javaclient-2">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-3">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.38.0 auf Version 7.40.0 aktualisiert.
 Das entspricht Chromium 127.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2024/v7-40-0.html">https://jxbrowser-support.teamdev.com/release-notes/2024/v7-40-0.html</a></p>
@@ -798,7 +807,7 @@ Die enhaltenen Java-Runtimes wurden auf die neusten Sicherheitsupdates aktualisi
 </div>
 <p>Aufgrund von Änderungen bei unserem Zertifikat-Anbieter DigiCert haben wir ein neues Zertifikat erhalten und mussten alle unsere Jar-Dateien neu signieren.
 Deshalb müssen ggf. auch eigene Custom Controls neu signiert werden, weil es ansonsten beim Start der Anwendung über Java Web Start zu Fehlermendungen kommt.</p>
-<h4 id="update-jxbrowser-für-javaclient-3">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-4">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.36 auf Version 7.38 aktualisiert.
 Das entspricht Chromium 122.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2024/v7-38-0.html">https://jxbrowser-support.teamdev.com/release-notes/2024/v7-38-0.html</a></p>
@@ -963,7 +972,7 @@ Online-Hilfe werden ggf. zu wenige Ergebnisse angezeigt.</p>
 <li>FS_4.5.11_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="update-jxbrowser-für-javaclient-4">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-5">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.33.2 auf Version 7.36 aktualisiert.
 Das entspricht Chromium 118.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2023/v7-36.html">https://jxbrowser-support.teamdev.com/release-notes/2023/v7-36.html</a></p>
@@ -1140,7 +1149,7 @@ Darüber hinaus müssen <strong>alle Package-Versionen</strong> auf einen aktuel
 Anschließend kann die Package-Version wieder in den SR-Modus versetzt werden.</p>
 <h4 id="einschränkungen-für-report-scripting">Einschränkungen für Report-Scripting</h4>
 <p>Aus Sicherheitsgründen wurde das <a href="../doc/reporting/devexpress-scripting.html">Scripting für DevExpress-Reports</a> eingeschränkt und abgesichert.</p>
-<h4 id="update-jxbrowser-für-javaclient-5">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-6">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.30.2 auf Version 7.33.2 aktualisiert.
 Das entspricht Chromium 114.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2023/v7-33-2.html">https://jxbrowser-support.teamdev.com/release-notes/2023/v7-33-2.html</a></p>
@@ -1408,7 +1417,7 @@ können.</p>
 <p>Auf Grund von Bug 2023022188 muss beim Publish2Go das Runtime Repository nochmals upgedated werden.</p>
 <p>Beim Publishen einer Applikation erscheint dann ggf. die Warnung <code>&quot;The selected runtime repository is not prepared for this version of Publish2Go. You have to prepare the runtime repository before you can publish.&quot;</code>.</p>
 <p>Um diese Situation zu lösen, muss im Publish2Go Wizard unter <code>Connection Groups</code> die <code>RuntimeConnection</code> ausgewählt werden und mit dem Button <code>Prepare Runtime Repository</code> die fehlenden Scripte ausgeführt werden.</p>
-<h4 id="update-jxbrowser-für-javaclient-6">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-7">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.27 auf Version 7.30.2 aktualisiert.
 Das entspricht Chromium 108.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2023/v7-30-2.html">https://jxbrowser-support.teamdev.com/release-notes/2023/v7-30-2.html</a></p>

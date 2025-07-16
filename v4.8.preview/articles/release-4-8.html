@@ -87,6 +87,28 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-48">Release-Information Framework Studio 4.8</h1>
 
+<h2 id="480-preview-20250716">4.8.0 Preview 20250716</h2>
+<h3 id="dependency-injection-in-fs">Dependency Injection in FS</h3>
+<p>Für die Verwendung von Dependency Injection in FS steht nun der erste Teil der neuen Infrasturktur bereit.</p>
+<p>Hierfür gibt es unternadem die folgenden neuen Klassen:</p>
+<ul>
+<li><a class="xref" href="../api/FS.Hosting.Shared.FSServiceProvider.html">FSServiceProvider</a>: Stellt sowohl den Zugriff auf den derzeit verwendbaren ServiceProvider (<a class="xref" href="../api/FS.Hosting.Shared.FSServiceProvider.Current.html#FS_Hosting_Shared_FSServiceProvider_Current">Current</a>) bereit, als auch Methoden, um einen Scope zu erstellen oder einen bereits vorhandenen Scope zu verwenden - <a class="xref" href="../api/FS.Hosting.Shared.FSServiceProvider.CreateOrUseScope.html#FS_Hosting_Shared_FSServiceProvider_CreateOrUseScope">CreateOrUseScope</a>.
+Über z.B. <code>FSServiceProvider.Current.GetRequiredService&lt;IRuntimeLicensePermissionEvaluator&gt;().Granted(AU)</code> kann auf den entsprechenden Service zugegriffen werden und überprüft werden, ob die übergebene AccessUnit lizensiert ist.</li>
+<li><a class="xref" href="../api/FS.Hosting.Shared.IFSServiceRegistrar.html">IFSServiceRegistrar</a>: Dieses Interface ermöglicht das Registrieren von eigenen Services am genannten ServiceProvider. Elemente im Bereich der Interface/Components/Services werden nach diesem Interface durchsucht und die Methode <a class="xref" href="../api/FS.Hosting.Shared.IFSServiceRegistrar.RegisterServices.html#FS_Hosting_Shared_IFSServiceRegistrar_RegisterServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_">RegisterServices(IServiceCollection)</a> aufgerufen.</li>
+</ul>
+<p><strong>Definition &quot;Scope&quot;:</strong>
+Bei Dependency Injection wird zwischen verschiedenen Scopes - die Lebensdauer eines registrierten Services/Klasse - unterschieden. Bei Verwendung der bereitgestellten Dependency Injection Infrastruktur von FS ist es wichtig zu wissen, dass dieser Scope</p>
+<ul>
+<li>das zu verarbeitende Event/einen Request im Broker umfasst bzw.</li>
+<li>bei den Services innerhalb einer Servicemethode erstellt wird.</li>
+</ul>
+<p>Der Scope bezieht sich deshalb <strong>nicht</strong> auf die Session.</p>
+<h3 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h3>
+<p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 8.4.0 auf Version 8.9.1 aktualisiert.
+Das entspricht Chromium 138.</p>
+<p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2025/v8-9-1/">https://teamdev.com/jxbrowser/release-notes/2025/v8-9-1/</a></p>
+<p>Es sind keine besonderen Aktionen erforderlich.
+Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
 <h2 id="480-preview-20250702">4.8.0 Preview 20250702</h2>
 <ul>
 <li>In <a href="../doc/modcomp/modcomp.html">Modular Component Klassen</a> können <strong>abstract Properties</strong> und <strong>Methoden</strong> definiert werden.</li>
@@ -198,7 +220,7 @@ Die eingebundene Java 21 Runtime, die durch den FSClientLauncher ausgerollt wird
 <li><a href="neuheiten-4-8.html#grafische-transformationen-%C3%BCberarbeitet">Access Unit Tree überarbeitet</a></li>
 <li><a href="neuheiten-4-8.html#grafische-transformationen-%C3%BCberarbeitet">Grafische Transformationen überarbeitet</a></li>
 </ul>
-<h4 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-1">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.42.0 auf Version 8.4.0 aktualisiert.
 Das entspricht Chromium 133.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2025/v8-4-0/">https://teamdev.com/jxbrowser/release-notes/2025/v8-4-0/</a></p>
@@ -254,7 +276,7 @@ Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
 <li>Neue Client-Action <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript.html#FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_System_String_"><code>BrowserControlAction.ExecuteJavaScript()</code></a></li>
 <li>Der Java-Client wurde auf Java 21 upgedatet.</li>
 </ul>
-<h4 id="update-jxbrowser-für-javaclient-1">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-2">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.41.5 auf Version 7.42.0 aktualisiert.
 Das entspricht Chromium 132.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/">https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/</a></p>
@@ -300,7 +322,7 @@ produziert und der Exception-Editor erkennt diesen Code nicht korrekt.</li>
 <li>DevExpress wurde auf die Version 24.2.3 aktualisiert.</li>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 131.3.10 upgedatet.</li>
 </ul>
-<h4 id="update-jxbrowser-für-javaclient-2">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-3">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.40.0 auf Version 7.41.5 aktualisiert.
 Das entspricht Chromium 131.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2024/v7-41-5/">https://teamdev.com/jxbrowser/release-notes/2024/v7-41-5/</a></p>

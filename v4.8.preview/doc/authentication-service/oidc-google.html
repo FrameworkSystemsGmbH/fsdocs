@@ -87,6 +87,65 @@
         <article data-uid="">
 <h1 id="openid-connect-mit-google">OpenID Connect mit Google</h1>
 
+<p>Google bietet eine kostenlose Möglichkeit, eine Benutzer-Authentifizierung mithilfe von OpenID Connect zu betreiben.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Dieses Beispiel zeigt lediglich exemplarisch, dass auch andere Provider wie z.B. Google, Facebook oder Github verwendet werden können.
+Für den Einsatz im kommerziellen Betrieb - vor allem in größeren Unternehmen - wird die Verwendung von kommerziellen Lösungen wie <a href="oidc-microsoft.html">Microsoft Entra ID</a> oder <a href="oidc-keycloack.html">Keycloak</a> empfohlen.</p>
+</div>
+<h2 id="einrichtung">Einrichtung</h2>
+<p>Die Authentifizierung ist für eigene Applikationen gedacht, die in Google erstellt und dort betrieben werden.</p>
+<p>Jeder Google-Account besitzt ein kostenloses Kontingent.
+Das ist vollkommen ausreichend für Tests und kleinere Anwendungen.</p>
+<p>Unter <a href="https://console.cloud.google.com/">https://console.cloud.google.com/</a> können sie eigene Projekte erstellen und verwalten.</p>
+<ul>
+<li><p>Erstellen sie zuerst ein neues Projekt.
+Verwenden sie dafür einen sprechenden Namen - dieser muss weltweit einmalig sein.</p>
+</li>
+<li><p>In diesem Projekt gehen sie in den Bereich <strong>Verwaltung</strong> / <strong>APIs und Dienste</strong>.</p>
+</li>
+<li><p>Dort in den Bereich <strong>Anmeldedaten</strong>.</p>
+</li>
+<li><p><strong>+ Anmeldedaten erstellen</strong> / <strong>OAuth-Client-ID</strong>.</p>
+</li>
+<li><p>Wenn noch nicht geschehen, dann werden Sie dazu aufgefordert den Zustimmungsbildschirm zu konfigurieren.
+Dabei geht es darum, was dem Benutzer angezeigt werden soll, wenn später die Login-Seite von Google angezeigt wird.
+Folgen sie diesem Link und treffen die notwendigen Einstellungen.</p>
+</li>
+<li><p>Erneut <strong>+ Anmeldedaten erstellen</strong> / <strong>OAuth-Client-ID</strong> aufrufen - jetzt kann die Client-ID erstellt werden.</p>
+<ul>
+<li>Anwendungs-Typ: <strong>Desktopanwendung</strong><br>
+=&gt; Dadurch wird authomatisch <code>http://localhost</code> als Redirect-URL akzeptiert.</li>
+<li>Beim <strong>Erstellen</strong> erhalten wird ein Dialog mit wichtigen Informationen angezeigt, die Sie für die Einrichtung des Authentication-Service benötigen.
+<ul>
+<li><strong>Client-ID</strong></li>
+<li>Clientschlüssel - dieser muss in das Feld <strong>Client-Secret</strong> geschrieben werden.<br>
+Die Clientschlüssel haben bei Google <strong>kein Ablauf-Datum</strong>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Nachdem sie den Client erzeugt haben, können in <strong>Zielgruppe</strong> die Benutzer gepflegt werden.</p>
+<p>Der eigene Benutzer kann sich immer an der &quot;Test-App&quot; anmelden.
+Sie können bei Bedarf weitere &quot;Testnutzer&quot; hinzufügen.</p>
+<p>Durch eine Veröffentlichung gewährt Google ALLEN Google-Nutzern &quot;zugriff&quot; auf diese App.
+Das bedeutet, Sie können die Email-Adresse JEDES Google-Benutzers in der Runtime-Administration pflegen.</p>
+<p>Eine Veröffentlichung beinhaltet ggf. auch eine Überprüfung der App durch Google.
+Sie können diese App im Test-Modus behalten und brauchen diese nicht zu veröffentlichen.
+In diesem Fall können und müssen Sie die zulässigen Testnutzer explizit pflegen.</p>
+<h2 id="konfiguration-im-authentication-service">Konfiguration im Authentication-Service</h2>
+<p>Im <a href="oidc.html#einrichtung">AuthenticationServiceConfigEditor</a> müssen folgende Einstellungen getroffen werden.</p>
+<ul>
+<li><strong>Identity Provider Url</strong>: <code>https://accounts.google.com/</code></li>
+<li><strong>Client ID</strong>: die Client-ID der Google-App (siehe oben)</li>
+<li><strong>Client Secret</strong>: der Clientschlüssel der Google-App (siehe oben)</li>
+<li><strong>Client Secret Expiration</strong>: nicht angeben - Clientschlüssel haben bei Google kein Ablauf-Datum</li>
+<li><strong>Scope</strong>: <code>openid</code></li>
+<li><strong>Claim</strong>: <code>email</code> - damit wird die Email-Adresse des Google-Nutzers zur Identifikation verwendet</li>
+</ul>
+<p>Das folgende Bild zeigt beispielhaft die <a href="oidc.html#einrichtung">Konfiguration</a> eines Authentication-Service für Google:</p>
+<p><img src="media/oidc-config-google.png" alt="config"></p>
 
 </article>
 

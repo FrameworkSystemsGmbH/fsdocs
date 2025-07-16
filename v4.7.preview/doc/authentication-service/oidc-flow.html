@@ -148,7 +148,7 @@ Dabei werden die von Identity-Provider bereitgestellten kryptographischen Schlü
 Damit wird der entsprechende Benutzer ermittelt und ein XML-Token erstellt.
 Mit diesem XML-Token kann die Anwendung den Benutzer identifizieren.</p>
 </li>
-<li><p>Der Refresh-Token wird in <a href="xref:FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData">SessionData</a> gespeichert. Damit kann beim nächsten Start der Anwendung der <a href="#refresh-flow">Refresh-Flow</a> angewendet werden.</p>
+<li><p>Der Refresh-Token wird in <a class="xref" href="../../api/FS.Hosting.Shared.SessionDataModel.ISessionData.html">SessionData</a> gespeichert. Damit kann beim nächsten Start der Anwendung der <a href="#refresh-flow">Refresh-Flow</a> angewendet werden.</p>
 </li>
 <li><p>Die Anwendung startet mit dem angemeldeten Benutzer.</p>
 </li>
@@ -160,7 +160,7 @@ Mit diesem XML-Token kann die Anwendung den Benutzer identifizieren.</p>
 </li>
 <li><p>Der Broker fragt beim Authentication Service nach den Einstellungen für OpenID Connect.</p>
 </li>
-<li><p>Der Broker prüft dann, ob es in <a href="xref:FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData">SessionData</a> einen gespeicherten Refresh-Token für den Client gibt.</p>
+<li><p>Der Broker prüft dann, ob es in <a class="xref" href="../../api/FS.Hosting.Shared.SessionDataModel.ISessionData.html">SessionData</a> einen gespeicherten Refresh-Token für den Client gibt.</p>
 </li>
 <li><p>Der Broker leitet den Refresh-Token an den Authentication-Service weiter, welcher die nächsten Schritte für die Authentifizierung übernimmt.</p>
 </li>
@@ -186,7 +186,7 @@ Dabei werden die von Identity-Provider bereitgestellten kryptographischen Schlü
 Damit wird der entsprechende Benutzer ermittelt und ein XML-Token erstellt.
 Mit diesem XML-Token kann die Anwendung den Benutzer identifizieren.</p>
 </li>
-<li><p>Der aktualisierte Refresh-Token wird in <a href="xref:FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData">SessionData</a> gespeichert.</p>
+<li><p>Der aktualisierte Refresh-Token wird in <a class="xref" href="../../api/FS.Hosting.Shared.SessionDataModel.ISessionData.html">SessionData</a> gespeichert.</p>
 </li>
 <li><p>Die Anwendung startet mit dem angemeldeten Benutzer.</p>
 </li>

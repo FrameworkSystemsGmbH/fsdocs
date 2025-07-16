@@ -130,24 +130,29 @@ Dieser wird für eine sofortige Anmeldung ohne Nutzerinteraktion genutzt.</p>
 <h5>Note</h5>
 <p>Die Passwort-Anmeldung funktioniert nur, wenn für den <a href="../runtime-administration/edit-user.html#password-authentication">Benutzer die Passwort-Authentifizierung</a> aktiv ist.</p>
 </div>
+<h2 id="voraussetzungen">Voraussetzungen</h2>
+<p>Für die Nutzung von OpenID Connect muss die <code>RuntimeAdministration 4.5.30+</code> und der <code>AuthenticationService 4.5.30+</code> genutzt werden.
+Außerdem muss ein Repository-Update durchgeführt werden, beachten Sie hierfür die <a href="../../articles/update-4-5/open-id-connect.html">Update-Dokumentation</a>.</p>
+<p>Für die Nutzung mit Refresh-Tokens bzw. des <a href="oidc-flow.html#refresh-flow">Refresh-Flows</a> muss mind. die <code>RuntimeAdministration 4.5.31+</code> und der <code>AuthenticationService 4.5.31+</code> genutzt werden.</p>
 <h2 id="einrichtung">Einrichtung</h2>
 <p>Die Konfiguration des Authentication-Service erfolgt im <a href="authentication-service-common.html#installation">AuthenticationServiceConfigEditor</a>.</p>
 <p><img src="media/oidc-config-entraid.png" alt="oicd-config"></p>
 <p>Im Abschnitt <strong>OpenID Connect Authentication</strong> werden alle nötigen Einstellungen vorgenommen.</p>
 <p>Es kann genau ein Identity-Provider konfiguriert werden.</p>
-<p>Möchte man dem Benutzer eine Auswahl verschiedener Identity-Provider bieten, dann muss z.B. KeyCloak<!--[Keycloak](oidc-keycloack.md)--> eingesetzt werden.
-Der Authentication-Service wird mit Keycloak verbunden. Innerhalb von Keycloak können dann weitere Identity-Provider konfiguriert (Stichwort <em>Federation</em>) und die unterschiedlichen Identitäten der Benutzer verbunden werden.</p>
+<p>Möchte man dem Benutzer eine Auswahl verschiedener Identity-Provider bieten, dann muss z.B. <a href="oidc-keycloack.html">Keycloak</a> eingesetzt werden.
+Der Authentication-Service wird mit Keycloak verbunden. Innerhalb von Keycloak können dann weitere Identity-Provider konfiguriert (Stichwort <em>Federation</em>/<em>Identity Brokering</em>) und die unterschiedlichen Identitäten der Benutzer verbunden werden.</p>
 <p><img src="media/oidc-idp-federation.drawio.svg" alt="oidc-federation"></p>
 <p>Die Einstellungen können je nach Anbieter variieren.
 Folgende Identity-Provider wurden getestet:</p>
 <ul>
-<li>KeyCloak</li>
-<li>Microsoft Entra ID</li>
-<li>Google</li>
+<li><a href="oidc-keycloack.html">Keycloak</a></li>
+<li><a href="oidc-microsoft.html">Microsoft Entra ID</a></li>
+<li><a href="oidc-google.html">Google</a></li>
 </ul>
-<!-- * [Keycloak](oidc-keycloack.md)
-* [Microsoft Entra ID](oidc-microsoft.md)
-* [Google](oidc-google.md) -->
+<h4 id="oidc-active">Oidc Active</h4>
+<p>Checkbox, mit der gesteuert werden kann, ob OpenID Connect verwendet werden soll.
+Ist die Einstellung nicht gesetzt, oder wird der Dialog das erste mal überhaupt geöffnet, zieht der default-Wert <code>true</code>.
+Es kann hilfreich sein, diese Checkbox zu Beginn der Einrichtung aktiv zu deaktivieren, da die Pflege des <a href="#claim">Claims</a> in der <a href="../runtime-administration/runtime-administration-common.html">Runtime-Administration</a> erst möglich ist, wenn die <a href="#identity-provider-url">Identity Provider URL</a> und die <a href="#client-id">Client-ID</a> gesetzt sind, diese beiden Werte in Kombination aber auch als Bedingung für die Nutzung von OpenID Connect zählen.</p>
 <h4 id="identity-provider-url">Identity Provider URL</h4>
 <p>Die Adresse des Identity Providers.</p>
 <p>Mit dem Link <strong>Test well-known</strong> kann geprüft werden, ob die Seite korrekt reagiert.
@@ -200,11 +205,23 @@ Zur Erhöhung der Sicherheit wird jedoch der Einsatz empfohlen.</p>
 <h5>Caution</h5>
 <p>Verliert das Client Secret die Gültigkeit, schlägt die Authentifizierung fehl und es kann sich niemand mehr an der Anwendung anmelden.</p>
 </div>
+<h4 id="client-secret-expiration">Client Secret Expiration</h4>
+<p>Wenn das Client Secret gesetzt ist, wird empfohlen die Client Secret Expiration ebenfalls zu setzen.</p>
+<p>Der Auth-Service prüft 1x täglich, das Client Secret, anhand bestimmter Zeitspannen, noch gültig ist, bzw. bald ablaufen würde.</p>
+<p>Dabei gilt folgende Regelung:</p>
+<ol>
+<li>mehr als 90 Tage gültig -&gt; keine Meldung.</li>
+<li>weniger als 90 Tage gültig -&gt; Info-Meldung.</li>
+<li>weniger als 30 Tage gültig -&gt; Warnungs-Meldung.</li>
+<li>weniger als 7 Tage gültig -&gt; Error-Meldung.</li>
+<li>Secret abgelaufen -&gt; Error-Meldung.</li>
+</ol>
+<p>Die Meldungen werden als <code>Trace</code> ausgegeben und können im Runtime-Supervisor oder in der Windows-Ereignisanzeige eingesehen werden.</p>
 <h4 id="scope">Scope</h4>
 <p>Definiert die Informationen, die der Identity-Provider im Token zur Verfügung stellen soll.</p>
 <p>Standard-Wert: <code>openid profile email</code></p>
 <p>Je nach Anbieter sind hier ggf. unterschiedliche Angaben notwendig.
-Meißt muss jedoch <code>openid</code> enthalten sein, damit die Authentifizierung korrekt funktioniert.</p>
+Meist muss jedoch <code>openid</code> enthalten sein, damit die Authentifizierung korrekt funktioniert.</p>
 <h4 id="claim">Claim</h4>
 <p>Der vom Identity-Provider erstellte JWT-Token beinhaltet verschiedene Informationen - sogenannte Claims.</p>
 <p>Hier kann angegeben werden, welcher Claim für die eindeutige Identifikation eines Benutzers verwendet werden soll.

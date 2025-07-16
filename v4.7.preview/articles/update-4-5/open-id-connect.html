@@ -87,13 +87,13 @@
         <article data-uid="">
 <h1 id="openid-connect---update">OpenID Connect - Update</h1>
 
-<p>Für den neuen Authentication-Service muss ein Update des Repositories erfolgen.</p>
-<p>Je nachdem mit welchem dieser Repositories der Authentication Service läuft, erfolgt der Update auf unterschieliche Weise.
+<p>Für die Nutzung von <a href="../../doc/authentication-service/oidc.html">OpenID Connect</a> mit dem neuen Authentication-Service muss ein Update des Repositories erfolgen.</p>
+<p>Je nachdem mit welchem dieser Repositories der Authentication Service läuft, erfolgt das Update auf unterschiedliche Weise.
 Es gibt 2 verschiedene Arten von Repositories:</p>
 <ol>
 <li><p><strong>Runtime-Repository</strong>:
 Wird im Publish-Wizard angelegt und umfasst lediglich die für die Laufzeit benötigten Tabellen.
-In der Regel wird der Authentication-Service mit so einem Repository betrieben</p>
+In der Regel wird der Authentication-Service mit so einem Repository betrieben.</p>
 </li>
 <li><p><strong>Entwicklungs-Repository</strong>:
 Wird mit der Framework Studio IDE angelegt und enthält Entwicklungs-Packages. Die Laufzeit-Tabellen sind darin auch enthalten.
@@ -103,7 +103,7 @@ Darin wird ein Authentication-Service eher zu Testzwecken betrieben.</p>
 <h2 id="update-runtime-repository">Update Runtime-Repository</h2>
 <p>Starten Sie in der aktuellen IDE den <a href="../../doc/publish-wizards/publish-wizard.html">Publish- oder den Run-Wizard</a> oder in einem mit der aktuellen IDE erstellten <a href="../../doc/publish-wizards/publish2go-export-wizard.html">Publish2Go-Paket</a> die <a href="../../doc/publish-wizards/publish2go-wizard.html">Publish2Go.exe</a>.</p>
 <p>Im Abschnitt <strong>Connection Groups</strong> wählen Sie den die <strong>Runtime-Connection</strong> aus.
-Mit dem Button <strong>Prepare Runtime Repository</strong> Starten Sie die Udpate-Routine.</p>
+Mit dem Button <strong>Prepare Runtime Repository</strong> starten Sie die Update-Routine.</p>
 <p>Es wird das folgende Update-Script angezeigt:</p>
 <ul>
 <li><code>….12.15 OpenIDConnect</code></li>
@@ -140,11 +140,11 @@ CREATE INDEX authU_IdpClaimValue ON authRun_User (authU_IdpClaimValue);
 
 INSERT INTO tblRep_VersionScripts (VS_ID, VS_Name, VS_InstallationDate)
 VALUES ('4.5.0.0 2022.12.15 OpenIDConnect', '4.5.0.0 2022.12.15 OpenIDConnect.ora', SYSDATE);
-INSERT INTO [tblRep_VersionScripts] ([VS_ID], [VS_Name], [VS_InstallationDate])
+INSERT INTO tblRep_VersionScripts (VS_ID, VS_Name, VS_InstallationDate)
 VALUES ('4.6.0.0 2023.12.15 OpenIDConnect', '4.6.0.0 2023.12.15 OpenIDConnect.ora', SYSDATE);
-INSERT INTO [tblRep_VersionScripts] ([VS_ID], [VS_Name], [VS_InstallationDate])
+INSERT INTO tblRep_VersionScripts (VS_ID, VS_Name, VS_InstallationDate)
 VALUES ('4.7.0.0 2024.12.15 OpenIDConnect', '4.7.0.0 2024.12.15 OpenIDConnect.ora', SYSDATE);
-INSERT INTO [tblRep_VersionScripts] ([VS_ID], [VS_Name], [VS_InstallationDate])
+INSERT INTO tblRep_VersionScripts (VS_ID, VS_Name, VS_InstallationDate)
 VALUES ('4.8.0.0 2025.12.15 OpenIDConnect', '4.8.0.0 2025.12.15 OpenIDConnect.ora', SYSDATE);
 </code></pre>
 

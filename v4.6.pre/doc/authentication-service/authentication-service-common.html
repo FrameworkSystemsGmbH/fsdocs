@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.6/release/19/docs/doc/authentication-service/authentication-service-common.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.6/release/20/docs/doc/authentication-service/authentication-service-common.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -128,31 +128,35 @@ Dieses Programm bearbeitet den Inhalt der Konfigurations-Datei <code>Authenticat
 <p>Sie erhalten das folgende Bild:</p>
 <p><img src="media/General.png" alt="Authentication Service Configuration Editor tab General"></p>
 </li>
-<li><p>Geben Sie im Abschnitt <strong>Database Connection</strong> die gewünschte Verbindung zu der Datenbank an, in welcher der Service die Benutzerdaten ablegen soll.
+</ol>
+<h3 id="database-connection">Database Connection</h3>
+<p>Geben Sie im Abschnitt <strong>Database Connection</strong> die gewünschte Verbindung zu der Datenbank an, in welcher der Service die Benutzerdaten ablegen soll.
 Standardmäßig wird dazu das Repository Ihrer Anwendung verwendet.
 Mit <em>Test connection</em> können Sie prüfen, ob die angegebene Verbindung zur Datenbank hergestellt werden kann.</p>
-</li>
-<li><p>Geben Sie im Abschnitt <strong>Service</strong> die folgenden Daten ein:</p>
-<ol>
-<li>Bei <em>Name</em> ggf. einen anderen Namen für den Service.</li>
-<li>Die <em>ID</em> müssen Sie mit <em>Generate ID</em> neu erzeugen. Dabei wird eine absolut eindeutige Guid generiert.</li>
-<li>Die <em>URL</em> können Sie mit <em>Set Default</em> auf den eigenen Rechnernamen setzen.
+<h3 id="service">Service</h3>
+<p>Geben Sie im Abschnitt <strong>Service</strong> die folgenden Daten ein:</p>
+<h4 id="name">Name</h4>
+<p>Geben Sie ggf. einen anderen Namen für den Service an.</p>
+<h4 id="id">ID</h4>
+<p>Die <em>ID</em> müssen Sie mit <em>Generate ID</em> neu erzeugen. Dabei wird eine absolut eindeutige Guid generiert.</p>
+<h4 id="url">URL</h4>
+<p>Die <em>URL</em> können Sie mit <em>Set Default</em> auf den eigenen Rechnernamen setzen.
 Dort ist z.B. auch eine IP-Adresse möglich.
 Es kann ein anderer Port als <code>20001</code> verwendet werden.
-Dann müssen die Konfigurationen der Clients, die mit dem Service kommunizieren sollen, auf den geänderten Port angepasst werden.</li>
-<li>Für <em>Private Key</em> und <em>Public Key</em> müssen Sie mit <em>Generate Keypair</em> ein neues Schlüsselpaar generieren.</li>
-</ol>
-</li>
-<li><p>Abschnitt <strong>Windows-Service</strong>
-Hier können nur Änderungen vorgenommen werden, solange der Service nicht installiert worden ist.</p>
+Dann müssen die Konfigurationen der Clients, die mit dem Service kommunizieren sollen, auf den geänderten Port angepasst werden.</p>
+<h4 id="private-key--public-key">Private Key / Public Key</h4>
+<p>Für <em>Private Key</em> und <em>Public Key</em> müssen Sie mit <em>Generate Keypair</em> ein neues Schlüsselpaar generieren.</p>
+<h3 id="windows-service">Windows-Service</h3>
+<p>Hier können nur Änderungen vorgenommen werden, solange der Service nicht installiert worden ist.</p>
 <p>Ändern Sie diese Einstellungen auch niemals manuell in der <code>AuthenticationService.exe.config</code>.
 Ansonsten kann der Authentication-Service dem Windows-Dienst nicht mehr zugeordnet werden.</p>
-<ul>
-<li><strong>Service Name</strong>: Unter diesem Namen wird der Service in den Windows-Diensten registriert.
+<h4 id="service-name">Service Name</h4>
+<p>Unter diesem Namen wird der Service in den Windows-Diensten registriert.
 In dem Feld können Sie einen Namens-Zusatz angeben.
-Das ist vor allem dann notwendig, wenn Sie mehrere Authentication-Services auf einem Rechner installieren, da der Name in den Windows-Diensten eindeutig sein muss.</li>
-<li><strong>Description</strong>: Diese wird als Description in den Windows-Diensten gespeichert.</li>
-</ul>
+Das ist vor allem dann notwendig, wenn Sie mehrere Authentication-Services auf einem Rechner installieren, da der Name in den Windows-Diensten eindeutig sein muss.</p>
+<h4 id="description">Description</h4>
+<p>Dieses Feld wird als Description in den Windows-Diensten gespeichert.</p>
+<h4 id="nachträgliche-änderung">Nachträgliche Änderung</h4>
 <p>Wenn Sie diese Einstellung nachträglich ändern möchten, dann müssen Sie:</p>
 <ul>
 <li>den Dienst mit dem Link <strong>stop Service</strong> beenden,</li>
@@ -161,59 +165,78 @@ Das ist vor allem dann notwendig, wenn Sie mehrere Authentication-Services auf e
 <li>den Dienst mit dem Link <strong>install Service</strong> wieder installieren.
 Dabei sollte der Benutzer-Account des Dienstes wieder der von vorher sein – ggf. vor der ganzen Aktion merken.</li>
 </ul>
-</li>
-<li><p>Speichern Sie die Änderungen mit <em>Save Changes</em> ab.</p>
-</li>
-<li><p>Auf der Registerkarte <strong>Application Security</strong> können erweiterte Sicherheitsanforderungen und die gewünschte Form der Authentification, die für Ihre Anwendungen gelten sollen, konfiguriert werden.</p>
+<p>Speichern Sie die Änderungen mit <em>Save Changes</em> ab.</p>
+<h2 id="registerkarte-application-security">Registerkarte Application Security</h2>
+<p>Auf der Registerkarte <strong>Application Security</strong> können erweiterte Sicherheitsanforderungen und die gewünschte Form der Authentification, die für Ihre Anwendungen gelten sollen, konfiguriert werden.</p>
 <p><img src="media/ApplicationSecurity.png" alt="Authentication Service Configuration Editor"></p>
+<h3 id="general-settings">General Settings</h3>
+<h4 id="maximum-username-length">Maximum username length</h4>
+<p>Hier können Sie die vom Authentifizierungsdienst geduldete Maximallänge für Benutzernamen ändern.</p>
+<h4 id="set-defaults">Set Defaults</h4>
 <p>Mit <em>Set Default</em> werden die Standardeinstellungen dieser Registerkarte wiederhergestellt.</p>
-</li>
-<li><p>Im Bereich <em><strong>General Settings</strong></em> können Sie zunächst die vom Authentifizierungsdienst geduldete Maximallänge für Benutzernamen ändern (Einstellung <em>Maximum username length)</em>.
-Mit dem Schalter <strong>Enable advanced security</strong> legen Sie fest, ob die erweiterten Sicherheitseinstellungen in der <em><strong>User Password Authentication</strong></em> grundsätzlich aktiviert werden sollen. Wenn Sie diese nicht aktivieren, sind alle weiteren darin enthaltenden Einstellungen des Abschnittes bedeutungslos.</p>
-<p>Im darauf folgenden Abschnitt <em><strong>OpenID Connect Authentication</strong></em> kann die Authentification per OpenIDConnect konfiguriert werden. Hierfür sind <strong>Identity Provider URL</strong> und <strong>ClientID</strong> erforderlich. Das <strong>ClientSecret</strong> ist empfohlen, aber nicht zwingend notwendig. Optional sind zudem der <strong>Scope</strong> (default, wenn nicht angegeben, ist 'openid profile email') und <strong>Claim</strong> (default, wenn nicht angegeben, ist 'email'). Das <strong>Label for Claim</strong> ist optional und wird, wenn angegeben, in die Runtime Administration übernommen.</p>
+<h4 id="enable-advanced-security">Enable advanced Security</h4>
+<p>Mit dem Schalter <strong>Enable advanced security</strong> legen Sie fest, ob die erweiterten Sicherheitseinstellungen in der <a href="#user-password-authentication">User Password Authentication</a> grundsätzlich aktiviert werden sollen. Wenn Sie diese nicht aktivieren, sind alle weiteren darin enthaltenden Einstellungen des Abschnittes bedeutungslos.</p>
+<h3 id="openid-connect-authentication">OpenID Connect Authentication</h3>
+<p>Im darauf folgenden Abschnitt <em><strong>OpenID Connect Authentication</strong></em> kann die Authentification per OpenIDConnect konfiguriert werden.
+Beachten Sie die <a href="oidc.html#einrichtung">Dokumentation für die Einrichtung von OpenID Connect</a>.
+Mit <strong>Oidc Active</strong> kann man steuern, ob OpenID Connect verwendet werden soll (default, wenn nicht angegeben, ist <code>true</code>).
+Hierfür sind <strong>Identity Provider URL</strong> und <strong>ClientID</strong> erforderlich. Das <strong>ClientSecret</strong> ist empfohlen, aber nicht zwingend notwendig.
+Falls ein <strong>ClientSecret</strong> genutzt wird, wird auch empfohlen die <strong>Client Secret Expiration</strong> zu setzen.
+Optional sind zudem der <strong>Scope</strong> (default, wenn nicht angegeben, ist 'openid profile email') und <strong>Claim</strong> (default, wenn nicht angegeben, ist 'email'). Das <strong>Label for Claim</strong> ist optional und wird, wenn angegeben, in die Runtime Administration übernommen.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>Beachten Sie hierbei die jeweiligen Anforderungen des Identity Providers, den Sie nutzen wollen. Dieser kann teilweise andere Scopes oder Claims bzw. ein valides ClientSecret voraussetzen.</p>
 </div>
-<p><em><strong>Domain Authentication</strong></em> widerrum ermöglicht Windows-Authentifizierung. Es ist entweder eine Authentification per Domain oder OpenID Connect möglich.
-Das Eingabefeld <strong>Domain controller</strong> muss leer bleiben, wenn die Authentifizierung beim Start der Endanwendung nicht automatisch mit den angemeldeten Windows-Benutzern erfolgen soll.
+<h3 id="domain-authentication">Domain Authentication</h3>
+<p>Die Domain Authentication widerrum ermöglicht Windows-Authentifizierung. Es ist entweder eine Authentification per Domain oder OpenID Connect möglich.</p>
+<h4 id="domain-controller">Domain controller</h4>
+<p>Das Eingabefeld <strong>Domain controller</strong> muss leer bleiben, wenn die Authentifizierung beim Start der Endanwendung nicht automatisch mit den angemeldeten Windows-Benutzern erfolgen soll.
 Andernfalls muss hier der zu verwendende Domain Controller (DC) angegeben werden (z.B. mydc.mycompany.com).</p>
+<h4 id="domain">Domain</h4>
 <p>Das Eingabefeld <strong>Domain</strong> muss ebenfalls leer bleiben, wenn die Authentifizierung beim Start der Endanwendung nicht automatisch mit dem angemeldeten Windows-Benutzer erfolgen soll.
 Andernfalls muss hier in Großbuchstaben der Name der Domäne angegeben werden (z.B. MYDOMAIN).
 Die Authentifizierung über die Domäne kann nur dann funktionieren, wenn Client und Authentication Service zur angegebenen Domäne gehören.</p>
+<h3 id="user-password-authentication">User Password Authentication</h3>
 <p>Bereich <em><strong>User Password Authentication</strong></em> zur Authentification per Benutzername-Passwort-Kombination enthält folgende Einstellungen im Einzelnen:</p>
-<ul>
-<li><strong>Enforce character</strong>: Erzwingt, dass in jedem Passwort mindestens ein Buchstabe vorkommen muss.</li>
-<li><strong>Enforce upper and lower</strong>: Erzwingt, dass in jedem Passwort mindestens ein Groß- und ein Kleinbuchstabe vorkommen muss.</li>
-<li><strong>Enforce special character</strong>: Erzwingt, dass in jedem Passwort mindestens ein Sonderzeichen vorkommen muss. Welche Zeichen als Sonderzeichen erkannt werden, definieren Sie im Textfeld <strong>Special characters</strong>.</li>
-<li><strong>Enforce number</strong>: Erzwingt, dass in jedem Password mindestens eine Ziffer vorkommen muss.</li>
-<li><strong>Minimum length</strong>: Legt die Mindestlänge für Passworte fest.</li>
-<li><strong>Exclusion list</strong>: Durch Leerzeichen getrennt können Sie hier Worte definieren, die im Passwort (unabhängig von der Groß-Kleinschreibung) nicht vorkommen dürfen. <code>username</code> steht dabei für den Namen des Benutzers.</li>
-<li><strong>Contains excluded</strong>: Wenn diese Checkbox gesetzt ist, werden alle Passworte abgelehnt, in denen eines der Worte aus der <strong>Exclusion list</strong> vorkommt. Ist die Checkbox nicht gesetzt, werden nur die Passworte abgelehnt, die mit einem Wort aus der <strong>Exclusion list</strong> übereinstimmen.</li>
-<li><strong>Prohibit recent</strong>: Wenn ein Benutzer sein Passwort ändert, können die letzten x Passworte des Benutzers als neues Passwort gesperrt werden.</li>
-<li><strong>Minimum change period</strong>: Minimale Gültigkeitsdauer von Passworten in Tagen.</li>
-<li><strong>Maximum change period</strong>: Maximale Gültigkeitsdauer von Passworten in Tagen.</li>
-<li><strong>Maximum failed logins</strong>: Anzahl der nicht erfolgreichen Anmeldeversuche, nach welcher der Benutzerzugang temporär gesperrt wird.</li>
-<li><strong>Lock time</strong>: Zeit (im Format Stunden:Minuten:Sekunden), die ein Benutzerzugang gesperrt wird, wenn die maximale Anzahl von nicht erfolgreichen Anmeldeversuchen erreicht ist.</li>
-</ul>
-</li>
-<li><p>Speichern Sie Ihre Änderungen mit <strong>Save Changes</strong>.</p>
-</li>
-<li><p>Auf der Registerkarte <strong>Runtime Supervisor</strong> kann angegeben werden, an welchem Runtime Supervisor sich der Authentication Service registrieren soll.</p>
-</li>
-</ol>
+<h4 id="enforce-character">Enforce character</h4>
+<p>Erzwingt, dass in jedem Passwort mindestens ein Buchstabe vorkommen muss.</p>
+<h4 id="enforce-upper-and-lower">Enforce upper and lower</h4>
+<p>Erzwingt, dass in jedem Passwort mindestens ein Groß- und ein Kleinbuchstabe vorkommen muss.</p>
+<h4 id="enforce-special-character">Enforce special character</h4>
+<p>Erzwingt, dass in jedem Passwort mindestens ein Sonderzeichen vorkommen muss. Welche Zeichen als Sonderzeichen erkannt werden, definieren Sie im Textfeld <strong>Special characters</strong>.</p>
+<h4 id="enforce-number">Enforce number</h4>
+<p>Erzwingt, dass in jedem Password mindestens eine Ziffer vorkommen muss.</p>
+<h4 id="minimum-length">Minimum length</h4>
+<p>Legt die Mindestlänge für Passworte fest.</p>
+<h4 id="exclusion-list">Exclusion list</h4>
+<p>Durch Leerzeichen getrennt können Sie hier Worte definieren, die im Passwort (unabhängig von der Groß-Kleinschreibung) nicht vorkommen dürfen. <code>username</code> steht dabei für den Namen des Benutzers.</p>
+<h4 id="contains-excluded">Contains excluded</h4>
+<p>Wenn diese Checkbox gesetzt ist, werden alle Passworte abgelehnt, in denen eines der Worte aus der <strong>Exclusion list</strong> vorkommt. Ist die Checkbox nicht gesetzt, werden nur die Passworte abgelehnt, die mit einem Wort aus der <strong>Exclusion list</strong> übereinstimmen.</p>
+<h4 id="prohibit-recent">Prohibit recent</h4>
+<p>Wenn ein Benutzer sein Passwort ändert, können die letzten x Passworte des Benutzers als neues Passwort gesperrt werden.</p>
+<h4 id="minimum-change-period">Minimum change period</h4>
+<p>Minimale Gültigkeitsdauer von Passworten in Tagen.</p>
+<h4 id="maximum-change-period">Maximum change period</h4>
+<p>Maximale Gültigkeitsdauer von Passworten in Tagen.</p>
+<h4 id="maximum-failed-logins">Maximum failed logins</h4>
+<p>Anzahl der nicht erfolgreichen Anmeldeversuche, nach welcher der Benutzerzugang temporär gesperrt wird.</p>
+<h4 id="lock-time">Lock time</h4>
+<p>Zeit (im Format Stunden:Minuten:Sekunden), die ein Benutzerzugang gesperrt wird, wenn die maximale Anzahl von nicht erfolgreichen Anmeldeversuchen erreicht ist.</p>
+<p>Speichern Sie Ihre Änderungen mit <strong>Save Changes</strong>.</p>
+<h2 id="registerkarte-runtime-supervisor">Registerkarte Runtime Supervisor</h2>
+<p>Auf der Registerkarte <strong>Runtime Supervisor</strong> kann angegeben werden, an welchem Runtime Supervisor sich der Authentication Service registrieren soll.</p>
 <p><img src="media/RuntimeSupervisor.png" alt="Authentication Service Configuration Editor Registerkarte Runtime Supervisor"></p>
-<p>Checkbox <strong>Enable</strong>: Diese Checkbox muss gesetzt werden, damit der Runtime Supervisor aktiviert wird.</p>
-<p><strong>Runtime Supervisor Url:</strong> Hier können der Server und der Port angegeben werden. Die vollständige URL wird automatisch aufgebaut. Mit dem Button <strong>Test</strong> kann versucht werden, ob eine Verbindung zum Runtime Supervisor aufgebaut werden kann.</p>
+<h4 id="checkbox-enable">Checkbox Enable</h4>
+<p>Diese Checkbox muss gesetzt werden, damit der Runtime Supervisor aktiviert wird.</p>
+<h4 id="runtime-supervisor-url">Runtime Supervisor Url</h4>
+<p>Hier können der Server und der Port angegeben werden. Die vollständige URL wird automatisch aufgebaut. Mit dem Button <strong>Test</strong> kann versucht werden, ob eine Verbindung zum Runtime Supervisor aufgebaut werden kann.</p>
 <p>Nähere Informationen dazu sind in der Dokumentation des <a href="../runtimesupervisor/runtimesupervisor-common.html">Runtime Supervisor</a> zu finden.</p>
-<ol start="12">
-<li><p>Speichern Sie Ihre Änderungen mit <strong>Save Changes</strong>.</p>
-</li>
+<p>Speichern Sie Ihre Änderungen mit <strong>Save Changes</strong>.</p>
+<h2 id="installation-fortfahren">Installation fortfahren</h2>
+<ol>
 <li><p>Jetzt müssen Sie das Programm als Dienst im Betriebssystem registrieren. Klicken Sie dazu den Link <strong>install Service</strong></p>
 </li>
 <li><p>Sie erhalten folgendes Bild:</p>
-</li>
-</ol>
 <p><img src="media/StartupAccount.png" alt="Startup Account for Authentication Service"></p>
 <p>Geben Sie hier den Benutzer an, mit welchem der Dienst ausgeführt werden soll.</p>
 <p>Es wird empfohlen nach Möglichkeit einen Domain-User anzugeben, da die System-Konten standardmäßig nicht über die notwendigen Rechte verfügen.
@@ -221,18 +244,18 @@ Wählen Sie dazu <em>User</em> aus und geben Sie in <em>User credentials</em> di
 <p>Der <em>User</em> muss im Format <code>Domain\User</code> angegeben werden.</p>
 <p>Je nach Konfiguration des Systems kann ggf. auch eines der Systemkonten verwendet werden.</p>
 <p>Diese Routine erzeugt einige Protokoll-Dateien über den Installationsverlauf im Zielordner. Diese sind kein Problem.</p>
-<ol start="15">
-<li>Überprüfen Sie ggf. ob der Dienst erfolgreich installiert wurde.
-Im oberen Teil des Fensters sollten Sie folgendes Bild sehen:</li>
-</ol>
+</li>
+<li><p>Überprüfen Sie ggf. ob der Dienst erfolgreich installiert wurde.
+Im oberen Teil des Fensters sollten Sie folgendes Bild sehen:</p>
 <p><img src="media/RunningService.png" alt="Authentication Service Configuration Editor Registerkarte General"></p>
-<ol start="16">
-<li>Mögliche Gründe für das Fehlschlagen der Installation:</li>
-</ol>
+</li>
+<li><p>Mögliche Gründe für das Fehlschlagen der Installation:</p>
 <ul>
 <li>Die Konfiguration ist fehlerhaft. Prüfen Sie die Angaben*.*</li>
 <li>Der angegebene Benutzer hat nicht die notwendigen Rechte. Prüfen Sie ggf. das Ereignisprotokoll.</li>
 </ul>
+</li>
+</ol>
 <h2 id="deinstallation">Deinstallation</h2>
 <div class="WARNING">
 <h5>Warning</h5>

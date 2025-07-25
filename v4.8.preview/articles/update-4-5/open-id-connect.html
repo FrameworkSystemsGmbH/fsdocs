@@ -100,6 +100,10 @@ Wird mit der Framework Studio IDE angelegt und enthält Entwicklungs-Packages. D
 Darin wird ein Authentication-Service eher zu Testzwecken betrieben.</p>
 </li>
 </ol>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Wenn das Repository aktualisiert wird, sollten auch der Authentication Service und die Runtime Administration aktualisiert werden.</p>
+</div>
 <h2 id="update-runtime-repository">Update Runtime-Repository</h2>
 <p>Starten Sie in der aktuellen IDE den <a href="../../doc/publish-wizards/publish-wizard.html">Publish- oder den Run-Wizard</a> oder in einem mit der aktuellen IDE erstellten <a href="../../doc/publish-wizards/publish2go-export-wizard.html">Publish2Go-Paket</a> die <a href="../../doc/publish-wizards/publish2go-wizard.html">Publish2Go.exe</a>.</p>
 <p>Im Abschnitt <strong>Connection Groups</strong> wählen Sie den die <strong>Runtime-Connection</strong> aus.
@@ -119,6 +123,10 @@ Mit dem Button <strong>Prepare Runtime Repository</strong> starten Sie die Updat
 <h2 id="update-manuell">Update Manuell</h2>
 <p>Mit den folgenden SQL-Befehlen kann das Update manuell ausgeführt werden.
 Diese Befehle funktionieren in gleicher Weise für beide Arten von Repositories.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Die Scripte für Versionen, die größer sind als Ihre derzeit eigesetzte, müssen ebenfalls ausgeführt werden, da es sonst bei einem Versionsupdate zu Problemen kommt.</p>
+</div>
 <pre><code class="lang-sql">-- SQL-Server
 ALTER TABLE authRun_User ADD authU_IdpClaimValue VARCHAR(320);
 ALTER TABLE authRun_User ADD authU_PasswordDisabled CHAR(1);

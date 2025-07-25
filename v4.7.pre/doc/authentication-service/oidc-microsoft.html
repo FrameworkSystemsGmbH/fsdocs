@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/7/docs/doc/authentication-service/oidc-microsoft.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/8/docs/doc/authentication-service/oidc-microsoft.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,6 +87,81 @@
         <article data-uid="">
 <h1 id="openid-connect-mit-microsoft-entra-id">OpenID Connect mit Microsoft Entra ID</h1>
 
+<p>Microsoft Entra ID unterstützt OpenID Connect (OIDC) vollständig und wird häufig zur Authentifizierung von Benutzern in Webanwendungen, mobilen Apps und APIs verwendet.
+OIDC baut auf OAuth 2.0 auf und ermöglicht es Clients, die Identität des Benutzers anhand von Entra ID ausgestellten Tokens zu verifizieren.</p>
+<p>Das folgende Bild zeigt beispielhaft die <a href="oidc.html#einrichtung">Konfiguration</a> eines Authentication-Service für Microsoft Entra ID:</p>
+<p><img src="media/oidc-config-entraid.png" alt="config"></p>
+<h2 id="einrichtung">Einrichtung</h2>
+<h3 id="anwendung-registrieren">Anwendung registrieren</h3>
+<ol>
+<li><p>Gehen Sie zu <a href="https://entra.microsoft.com/#view/Microsoft_AAD_RegisteredApps/ApplicationsListBlade">Microsoft Entra Admin Center → „App-Registrierungen“</a></p>
+</li>
+<li><p>Klicken Sie auf „Neue Registrierung“.</p>
+</li>
+<li><p>Füllen Sie die Felder aus:</p>
+<ul>
+<li><p>Name: Ein beliebiger Name</p>
+</li>
+<li><p>Unterstützte Kontotypen: Meist &quot;Nur Konten in diesem Organisationsverzeichnis&quot;</p>
+</li>
+<li><p>Umleitungs-URI (Redirect URI): <a href="https://localhost/login-callback">https://localhost/login-callback</a></p>
+</li>
+</ul>
+</li>
+<li><p>Klicken Sie auf Registrieren.</p>
+</li>
+</ol>
+<p>Detaillierte Anleitung: <a href="https://learn.microsoft.com/de-de/entra/identity-platform/quickstart-register-app">Anwendung registrieren (Microsoft-Dokumentation)</a></p>
+<h3 id="wichtige-einstellungen">Wichtige Einstellungen</h3>
+<h4 id="client-id-und-mandanten-id">Client-ID und Mandanten-ID</h4>
+<ul>
+<li>Nach der Registrierung finden Sie unter „Übersicht“:
+<ul>
+<li>Anwendungs-ID (Client-ID)</li>
+<li>Verzeichnis-ID (Mandanten-ID)</li>
+</ul>
+</li>
+</ul>
+<p>Diese werden für die OIDC-Konfiguration benötigt.</p>
+<h4 id="client-secret">Client-Secret</h4>
+<ol>
+<li>Gehen Sie zu „Zertifikate &amp; Geheimnisse“</li>
+<li>Klicken Sie auf „Neues Geheimnis“</li>
+<li>Vergeben Sie eine Beschreibung und ein Ablaufdatum</li>
+<li>Das Secret muss kopiert und gesichert abgespeichert werden!</li>
+</ol>
+<p>Detaillierte Anleitung: <a href="https://learn.microsoft.com/de-de/entra/identity-platform/quickstart-register-app#add-a-client-secret">Client-Secret hinzufügen</a></p>
+<h2 id="relevante-hinweise">Relevante Hinweise</h2>
+<p>Bei unseren Tests sind uns einige Eigenheiten und Probleme, auf die man stoßen kann, aufgefallen.</p>
+<h3 id="idp-url">IdP URL</h3>
+<p>Microsoft bietet für OIDC zwei verschiedene Versionen / Endpoints an, welche jeweils einen anderen Funktionalitätsumfang bieten.</p>
+<p>Wenn Sie mit Refresh-Tokens arbeiten wollen, nutzen Sie für die <a href="oidc.html#einrichtung">Einrichtung</a> als IdP URL <code>https://login.microsoftonline.com/{tenant-id}/v2.0/</code>.
+Ersetzen Sie hierbei <code>{tenant-id}</code> durch Ihre Mandanten-ID.</p>
+<p>Der alte Legacy Endpoint nutzt folgende IdP-URL: <code>https://login.microsoftonline.com/{tenant-id}/</code>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Sowohl <a href="https://learn.microsoft.com/de-de/entra/identity-platform/id-token-claims-reference">Microsoft</a> als auch wir, empfehlen, den <code>v2.0</code>-Endpoint zu nutzen.</p>
+</div>
+<h3 id="claims">Claims</h3>
+<p>Bei den Claims gibt es zwischen den Endpoints ebenfalls Unterschiede.</p>
+<ul>
+<li>Bei Nutzung des <code>v2.0</code>-Endpoints muss für die Email der Scope <code>email</code> angegeben werden.</li>
+<li>Bei Nutzung des Legacy-Endpoints muss für die Email der Scope <code>upn</code> angegeben werden.</li>
+</ul>
+<h3 id="scopes">Scopes</h3>
+<p>Wenn Sie Refresh-Token nutzen wollen, ist es bei den Scopes wichtig zu beachten, dass der Scope <code>offline_access</code> angegeben wird.</p>
+<p>Wir empfehlen generell die Scopes <code>openid profile email offline_access</code> zu nutzen.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Refresh-Tokens funktionieren nur mit dem <code>v2.0</code>-Endpoint in Verbindung mit dem Scope <code>offline_access</code>.</p>
+</div>
+<h2 id="weiterführende-links">Weiterführende Links</h2>
+<p>Weiterführende Links</p>
+<ul>
+<li><a href="https://learn.microsoft.com/de-de/entra/identity-platform/v2-protocols-oidc">Microsoft Entra ID + OpenID Connect Übersicht</a></li>
+<li><a href="https://learn.microsoft.com/de-de/entra/identity-platform/v2-oauth2-auth-code-flow">OIDC Flow Diagramme (MSDN)</a></li>
+<li><a href="https://learn.microsoft.com/de-de/entra/identity-platform/id-token-claims-reference">ID Token Claims Referenz</a></li>
+</ul>
 
 </article>
 

@@ -2,21 +2,21 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Aktuelle Installations-Pakete </title>
+      <title>Fax-Drucker und DevExpress </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Aktuelle Installations-Pakete ">
+      <meta name="title" content="Fax-Drucker und DevExpress ">
       
       
-      <link rel="icon" href="../favicon.ico">
-      <link rel="stylesheet" href="../public/docfx.min.css">
-      <link rel="stylesheet" href="../public/main.css">
-      <meta name="docfx:navrel" content="../toc.html">
-      <meta name="docfx:tocrel" content="toc.html">
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
       
-      <meta name="docfx:rel" content="../">
+      <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/docs/articles/aktuelle-pakete.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/docs/doc/reporting/devexpress-fax-printers.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../public/docfx.min.js"></script>
+      <script type="module" src="./../../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -43,8 +43,8 @@
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../index.html">
-            <img id="logo" class="svg" src="../logo.svg" alt="">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
             
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -85,60 +85,28 @@
         </div>
 
         <article data-uid="">
-<h1 id="aktuelle-installations-pakete">Aktuelle Installations-Pakete</h1>
+<h1 id="fax-drucker-und-devexpress">Fax-Drucker und DevExpress</h1>
 
-<p>In dieser Liste sind alle aktuellen verfügbaren Installations-Pakete aufgeführt.</p>
-<table>
-<thead>
-<tr>
-<th>Paket</th>
-<th>Version</th>
-<th>Name der Zip-Datei</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Framework Studio IDE</td>
-<td><strong>4.7</strong>.8</td>
-<td>FS_4.7.8_Setup_x64</td>
-</tr>
-<tr>
-<td><a href="requirements-package.html">Requirements-Paket</a> 64 Bit</td>
-<td><strong>4.5</strong>.15</td>
-<td>FS_4.5.15_Requirements_x64</td>
-</tr>
-<tr>
-<td>Runtime Administration</td>
-<td><strong>4.5</strong>.31</td>
-<td>FS_4.5.31_RuntimeAdministration</td>
-</tr>
-<tr>
-<td>Authentication-Service</td>
-<td><strong>4.5</strong>.31</td>
-<td>FS4.5.31_AuthService</td>
-</tr>
-<tr>
-<td><a href="../doc/print-server/installation.html">Print-Service</a></td>
-<td><strong>4.5</strong>.28</td>
-<td>FS4.5.28_PrintService</td>
-</tr>
-<tr>
-<td>FSClient Launcher 32 Bit</td>
-<td><strong>4.5</strong>.15</td>
-<td>FSCL_4.5.15_Setup_x86</td>
-</tr>
-<tr>
-<td>FSClient Launcher 64 Bit</td>
-<td><strong>4.5</strong>.15</td>
-<td>FSCL_4.5.15_Setup_x64</td>
-</tr>
-<tr>
-<td>Runtime Supervisor</td>
-<td><strong>4.4</strong>.11</td>
-<td>RS_4.4.11_Setup_x64</td>
-</tr>
-</tbody>
-</table>
+<h2 id="drucker-warteschlange">Drucker-Warteschlange</h2>
+<p>Druckaufträge erhalten in der Drucker-Warteschlange einen Namen.
+Einige Fax-Systeme können mit ihrem Drucker-Treiber diesen Namen auswerten und so die Fax-Nummer und weitere Daten extrahieren.</p>
+<p>Framework Studio bietet die Möglichkeit diesen Namen zu beeinflussen.
+Dazu gehen sie wie folgt vor:</p>
+<ul>
+<li>Legen Sie im Report-Designer ein neues Label mit dem Namen <code>FSPrintQueueDocumentName</code> an. (Der Name muss exakt stimmen)</li>
+<li>Für den Text des Labels können Sie eine Expression definieren und so z.B. die Fax-Nummer des Empfängers einbinden.</li>
+<li>Das Label kann auf unsichtbar gestellt werden - sodass es nicht angedruckt wird. (Die <code>Visible</code> Eigenschaft)</li>
+</ul>
+<p>Wird der Report verarbeitet und an den Print-Server gesendet, dann scannt Framework Studio den Report nach diesem Feld.
+Der berechnete Text wird in den Document-Name übernommen.</p>
+<p>Der Print-Server übernimmt diesen Namen für die Drucker-Warteschlange.</p>
+<p>Dieses Feature steht zur Verfügung ab Framework Studio 4.5.31, 4.6.20, 4.7.8 (01.08.2025).
+Der Print-Service benötigt kein Update.</p>
+<h2 id="verstecktes-feld">Verstecktes Feld</h2>
+<p>Eine andere übliche Methode ist das Einbetten der Fax-Informationen mithilfe eines &quot;versteckten&quot; Feldes mit weißem Text.
+Bei vielen Fax-Systemen muss der Druckauftrag dafür mit der Postscript-Technik erzeugt werden.</p>
+<p>DevExpress unterstützt jedoch diese Technik nicht.
+Intern nutzt DevExpress die Druck-API von dotnet, welche auf GDI+ basiert.</p>
 
 </article>
 
@@ -157,7 +125,7 @@
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
         </div>
       </div>
     </footer>

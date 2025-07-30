@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/7/docs/doc/authentication-service/oidc.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/8/docs/doc/authentication-service/oidc.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -92,6 +92,7 @@
 Benutzer benötigen kein extra Passwort für die Anmeldung an der Anwendung.</p>
 <h2 id="ablauf-einer-authentifizierung">Ablauf einer Authentifizierung</h2>
 <p>Für den Anwender läuft die Anmeldung folgendermaßen ab:</p>
+<h3 id="normale-anmeldung">Normale Anmeldung</h3>
 <ol>
 <li><strong>Start der Anwendung</strong></li>
 <li>Die <strong>Anmelde-Seite des Anbieters</strong> wird geöffnet.
@@ -104,7 +105,18 @@ Diese verarbeitet die restlichen Schritte und startet im Hintergrund.</li>
 <li>Im Browser wird eine <strong>Bestätigungs-Seite</strong> angezeigt, welche (technisch bedingt) vom Benutzer geschlossen werden muss.
 <img src="media/oidc-login-sucess-page.png" alt="alt text"></li>
 </ol>
-<p>Eine detaillierte Beschreibung des Ablaufs finden Sie <a href="oidc-flow.html">hier</a>.</p>
+<p>Eine detaillierte Beschreibung des Ablaufs finden Sie <a href="oidc-flow.html#login-flow">hier</a>.</p>
+<h3 id="anmeldung-mit-refresh-token">Anmeldung mit Refresh-Token</h3>
+<p>Hat sich der Benutzer bereits einmal angemeldet, wird ein <code>Refresh-Token</code> gespeichert.
+Dieser wird für eine sofortige Anmeldung ohne Nutzerinteraktion genutzt.</p>
+<p>Für den Anwender läuft die Anmeldung folgendermaßen ab:</p>
+<ol>
+<li><strong>Start der Anwendung</strong></li>
+<li>Der Broker erkennt, dass ein <strong>Refresh-Token</strong> vorhanden ist und authentifiziert den Benutzer im Hintergrund.</li>
+<li>Die <strong>Anwendung startet mit angemeldetem Benutzer</strong>.</li>
+</ol>
+<p>Eine detaillierte Beschreibung des Ablaufs finden Sie <a href="oidc-flow.html#refresh-flow">hier</a>.</p>
+<h3 id="fehlerbehandlung">Fehlerbehandlung</h3>
 <p>Ist eine Authentifizierung nicht möglich, dann zeigt der Java-Client den folgenden Dialog:</p>
 <p><img src="media/oidc-client-retry.png" alt="client retry"></p>
 <p>Gründe dafür könnten z.B. sein:</p>
@@ -118,24 +130,29 @@ Diese verarbeitet die restlichen Schritte und startet im Hintergrund.</li>
 <h5>Note</h5>
 <p>Die Passwort-Anmeldung funktioniert nur, wenn für den <a href="../runtime-administration/edit-user.html#password-authentication">Benutzer die Passwort-Authentifizierung</a> aktiv ist.</p>
 </div>
+<h2 id="voraussetzungen">Voraussetzungen</h2>
+<p>Für die Nutzung von OpenID Connect muss die <code>RuntimeAdministration 4.5.30+</code> und der <code>AuthenticationService 4.5.30+</code> genutzt werden.
+Außerdem muss ein Repository-Update durchgeführt werden, beachten Sie hierfür die <a href="../../articles/update-4-5/open-id-connect.html">Update-Dokumentation</a>.</p>
+<p>Für die Nutzung mit Refresh-Tokens bzw. des <a href="oidc-flow.html#refresh-flow">Refresh-Flows</a> muss mind. die <code>RuntimeAdministration 4.5.31+</code> und der <code>AuthenticationService 4.5.31+</code> genutzt werden.</p>
 <h2 id="einrichtung">Einrichtung</h2>
 <p>Die Konfiguration des Authentication-Service erfolgt im <a href="authentication-service-common.html#installation">AuthenticationServiceConfigEditor</a>.</p>
 <p><img src="media/oidc-config-entraid.png" alt="oicd-config"></p>
 <p>Im Abschnitt <strong>OpenID Connect Authentication</strong> werden alle nötigen Einstellungen vorgenommen.</p>
 <p>Es kann genau ein Identity-Provider konfiguriert werden.</p>
-<p>Möchte man dem Benutzer eine Auswahl verschiedener Identity-Provider bieten, dann muss z.B. KeyCloak<!--[Keycloak](oidc-keycloack.md)--> eingesetzt werden.
-Der Authentication-Service wird mit Keycloak verbunden. Innerhalb von Keycloak können dann weitere Identity-Provider konfiguriert (Stichwort <em>Federation</em>) und die unterschiedlichen Identitäten der Benutzer verbunden werden.</p>
+<p>Möchte man dem Benutzer eine Auswahl verschiedener Identity-Provider bieten, dann muss z.B. <a href="oidc-keycloack.html">Keycloak</a> eingesetzt werden.
+Der Authentication-Service wird mit Keycloak verbunden. Innerhalb von Keycloak können dann weitere Identity-Provider konfiguriert (Stichwort <em>Federation</em>/<em>Identity Brokering</em>) und die unterschiedlichen Identitäten der Benutzer verbunden werden.</p>
 <p><img src="media/oidc-idp-federation.drawio.svg" alt="oidc-federation"></p>
 <p>Die Einstellungen können je nach Anbieter variieren.
 Folgende Identity-Provider wurden getestet:</p>
 <ul>
-<li>KeyCloak</li>
-<li>Microsoft Entra ID</li>
-<li>Google</li>
+<li><a href="oidc-keycloack.html">Keycloak</a></li>
+<li><a href="oidc-microsoft.html">Microsoft Entra ID</a></li>
+<li><a href="oidc-google.html">Google</a></li>
 </ul>
-<!-- * [Keycloak](oidc-keycloack.md)
-* [Microsoft Entra ID](oidc-microsoft.md)
-* [Google](oidc-google.md) -->
+<h4 id="oidc-active">Oidc Active</h4>
+<p>Checkbox, mit der gesteuert werden kann, ob OpenID Connect verwendet werden soll.
+Ist die Einstellung nicht gesetzt, oder wird der Dialog das erste mal überhaupt geöffnet, zieht der default-Wert <code>true</code>.
+Es kann hilfreich sein, diese Checkbox zu Beginn der Einrichtung aktiv zu deaktivieren, da die Pflege des <a href="#claim">Claims</a> in der <a href="../runtime-administration/runtime-administration-common.html">Runtime-Administration</a> erst möglich ist, wenn die <a href="#identity-provider-url">Identity Provider URL</a> und die <a href="#client-id">Client-ID</a> gesetzt sind, diese beiden Werte in Kombination aber auch als Bedingung für die Nutzung von OpenID Connect zählen.</p>
 <h4 id="identity-provider-url">Identity Provider URL</h4>
 <p>Die Adresse des Identity Providers.</p>
 <p>Mit dem Link <strong>Test well-known</strong> kann geprüft werden, ob die Seite korrekt reagiert.
@@ -145,24 +162,24 @@ Der Authentications-Service verwendet dieselbe URL für die Ermittlung der Detai
 <details>
 <summary>Beispiel für die Ausgabe einer funktionierenden Seite:</summary>
 <pre><code class="lang-json">{
-  &quot;token_endpoint&quot;: &quot;https://login.microsoftonline.com/a17fecad-0a16-459f-af15-e057e29c8836/oauth2/token&quot;,
+  &quot;token_endpoint&quot;: &quot;https://login.microsoftonline.com/a17fecad-0a16-459f-af15-e057e29c8836/oauth2/v2.0/token&quot;,
   &quot;token_endpoint_auth_methods_supported&quot;: [&quot;client_secret_post&quot;, &quot;private_key_jwt&quot;, &quot;client_secret_basic&quot;],
-  &quot;jwks_uri&quot;: &quot;https://login.microsoftonline.com/common/discovery/keys&quot;,
+  &quot;jwks_uri&quot;: &quot;https://login.microsoftonline.com/common/discovery/v2.0/keys&quot;,
   &quot;response_modes_supported&quot;: [&quot;query&quot;, &quot;fragment&quot;, &quot;form_post&quot;],
   &quot;subject_types_supported&quot;: [&quot;pairwise&quot;],
   &quot;id_token_signing_alg_values_supported&quot;: [&quot;RS256&quot;],
-  &quot;response_types_supported&quot;: [&quot;code&quot;, &quot;id_token&quot;, &quot;code id_token&quot;, &quot;token id_token&quot;,&quot;token&quot;],
-  &quot;scopes_supported&quot;: [&quot;openid&quot;],
-  &quot;issuer&quot;: &quot;https://sts.windows.net/a17fecad-0a16-459f-af15-e057e29c8836/&quot;,
-  &quot;microsoft_multi_refresh_token&quot;: true,
-  &quot;authorization_endpoint&quot;: &quot;https://login.microsoftonline.com/a17fecad-0a16-459f-af15-e057e29c8836/oauth2/authorize&quot;,
-  &quot;device_authorization_endpoint&quot;: &quot;https://login.microsoftonline.com/a17fecad-0a16-459f-af15-e057e29c8836/oauth2/devicecode&quot;,
+  &quot;response_types_supported&quot;: [&quot;code&quot;, &quot;id_token&quot;, &quot;code id_token&quot;, &quot;token id_token&quot;],
+  &quot;scopes_supported&quot;: [&quot;openid&quot;, &quot;profile&quot;, &quot;email&quot;, &quot;offline_access&quot;],
+  &quot;issuer&quot;: &quot;https://login.microsoftonline.com/a17fecad-0a16-459f-af15-e057e29c8836/v2.0&quot;,
+  &quot;request_uri_parameter_supported&quot;: false,
+  &quot;userinfo_endpoint&quot;: &quot;https://graph.microsoft.com/oidc/userinfo&quot;,
+  &quot;authorization_endpoint&quot;: &quot;https://login.microsoftonline.com/a17fecad-0a16-459f-af15-e057e29c8836/oauth2/v2.0/authorize&quot;,
+  &quot;device_authorization_endpoint&quot;: &quot;https://login.microsoftonline.com/a17fecad-0a16-459f-af15-e057e29c8836/oauth2/v2.0/devicecode&quot;,
   &quot;http_logout_supported&quot;: true,
   &quot;frontchannel_logout_supported&quot;: true,
-  &quot;end_session_endpoint&quot;: &quot;https://login.microsoftonline.com/a17fecad-0a16-459f-af15-e057e29c8836/oauth2/logout&quot;,
-  &quot;claims_supported&quot;: [&quot;sub&quot;, &quot;iss&quot;, &quot;cloud_instance_name&quot;, &quot;cloud_instance_host_name&quot;, &quot;cloud_graph_host_name&quot;, &quot;msgraph_host&quot;, &quot;aud&quot;, &quot;exp&quot;, &quot;iat&quot;, &quot;auth_time&quot;, &quot;acr&quot;, &quot;amr&quot;, &quot;nonce&quot;, &quot;email&quot;, &quot;given_name&quot;, &quot;family_name&quot;, &quot;nickname&quot;],
+  &quot;end_session_endpoint&quot;: &quot;https://login.microsoftonline.com/a17fecad-0a16-459f-af15-e057e29c8836/oauth2/v2.0/logout&quot;,
+  &quot;claims_supported&quot;: [&quot;sub&quot;, &quot;iss&quot;, &quot;cloud_instance_name&quot;, &quot;cloud_instance_host_name&quot;, &quot;cloud_graph_host_name&quot;, &quot;msgraph_host&quot;, &quot;aud&quot;, &quot;exp&quot;, &quot;iat&quot;, &quot;auth_time&quot;, &quot;acr&quot;, &quot;nonce&quot;, &quot;preferred_username&quot;, &quot;name&quot;, &quot;tid&quot;, &quot;ver&quot;, &quot;at_hash&quot;, &quot;c_hash&quot;, &quot;email&quot;],
   &quot;check_session_iframe&quot;: &quot;https://login.microsoftonline.com/a17fecad-0a16-459f-af15-e057e29c8836/oauth2/checksession&quot;,
-  &quot;userinfo_endpoint&quot;: &quot;https://login.microsoftonline.com/a17fecad-0a16-459f-af15-e057e29c8836/openid/userinfo&quot;,
   &quot;kerberos_endpoint&quot;: &quot;https://login.microsoftonline.com/a17fecad-0a16-459f-af15-e057e29c8836/kerberos&quot;,
   &quot;tenant_region_scope&quot;: &quot;EU&quot;,
   &quot;cloud_instance_name&quot;: &quot;microsoftonline.com&quot;,
@@ -188,11 +205,23 @@ Zur Erhöhung der Sicherheit wird jedoch der Einsatz empfohlen.</p>
 <h5>Caution</h5>
 <p>Verliert das Client Secret die Gültigkeit, schlägt die Authentifizierung fehl und es kann sich niemand mehr an der Anwendung anmelden.</p>
 </div>
+<h4 id="client-secret-expiration">Client Secret Expiration</h4>
+<p>Wenn das Client Secret gesetzt ist, wird empfohlen die Client Secret Expiration ebenfalls zu setzen.</p>
+<p>Der Auth-Service prüft 1x täglich, das Client Secret, anhand bestimmter Zeitspannen, noch gültig ist, bzw. bald ablaufen würde.</p>
+<p>Dabei gilt folgende Regelung:</p>
+<ol>
+<li>mehr als 90 Tage gültig -&gt; keine Meldung.</li>
+<li>weniger als 90 Tage gültig -&gt; Info-Meldung.</li>
+<li>weniger als 30 Tage gültig -&gt; Warnungs-Meldung.</li>
+<li>weniger als 7 Tage gültig -&gt; Error-Meldung.</li>
+<li>Secret abgelaufen -&gt; Error-Meldung.</li>
+</ol>
+<p>Die Meldungen werden als <code>Trace</code> ausgegeben und können im Runtime-Supervisor oder in der Windows-Ereignisanzeige eingesehen werden.</p>
 <h4 id="scope">Scope</h4>
 <p>Definiert die Informationen, die der Identity-Provider im Token zur Verfügung stellen soll.</p>
 <p>Standard-Wert: <code>openid profile email</code></p>
 <p>Je nach Anbieter sind hier ggf. unterschiedliche Angaben notwendig.
-Meißt muss jedoch <code>openid</code> enthalten sein, damit die Authentifizierung korrekt funktioniert.</p>
+Meist muss jedoch <code>openid</code> enthalten sein, damit die Authentifizierung korrekt funktioniert.</p>
 <h4 id="claim">Claim</h4>
 <p>Der vom Identity-Provider erstellte JWT-Token beinhaltet verschiedene Informationen - sogenannte Claims.</p>
 <p>Hier kann angegeben werden, welcher Claim für die eindeutige Identifikation eines Benutzers verwendet werden soll.
@@ -205,20 +234,21 @@ Der Inhalt dieses Claims muss in der <a href="../runtime-administration/edit-use
 <details>
 <summary>Beispiel für die Claims im einem JWT-Token:</summary>
 <pre><code class="lang-json">{
-  &quot;aud&quot;: &quot;11e438c0-7191-4fea-8ce7-5d034bfe4139&quot;,
-  &quot;iss&quot;: &quot;https://sts.windows.net/a17fecad-0a16-459f-af15-e057e29c8836/&quot;,
-  &quot;iat&quot;: 1749814520,
-  &quot;nbf&quot;: 1749814520,
-  &quot;exp&quot;: 1749818420,
-  &quot;amr&quot;: [&quot;pwd&quot;, &quot;rsa&quot;, &quot;mfa&quot;],
-  &quot;family_name&quot;: &quot;Name&quot;,
-  &quot;given_name&quot;: &quot;User&quot;,
-  &quot;ipaddr&quot;: &quot;227.75.217.95&quot;,
-  &quot;name&quot;: &quot;Name, User&quot;,
-  &quot;oid&quot;: &quot;faed83c8-dcd3-498d-99a4-cb734d1c14f1&quot;,
-  &quot;sid&quot;: &quot;f016a89d-64d8-4002-9826-3d92c0f99ed6&quot;,
-  &quot;unique_name&quot;: &quot;User.Name@my-company.com&quot;,
-  &quot;upn&quot;: &quot;User.Name@my-company.com&quot;
+    &quot;aud&quot;:&quot;11e438c0-7191-4fea-8ce7-5d034bfe4139&quot;, 
+    &quot;iss&quot;:&quot;https://login.microsoftonline.com/a17fecad-0a16-459f-af15-e057e29c8836/v2.0&quot;, 
+    &quot;iat&quot;:1749814520, 
+    &quot;nbf&quot;:1749814520, 
+    &quot;exp&quot;:1749818420, 
+    &quot;email&quot;:&quot;User.Name@my-company.com&quot;, 
+    &quot;name&quot;:&quot;Name, User&quot;, 
+    &quot;oid&quot;:&quot;faed83c8-dcd3-498d-99a4-cb734d1c14f1&quot;, 
+    &quot;preferred_username&quot;:&quot;User.Name@my-company.com&quot;, 
+    &quot;rh&quot;:&quot;1.BXvAzdCUtNhyx0I70Pz4wNEtKMU4aD2L-V12gvHHkWVGfilauk8AB.&quot;,
+    &quot;sid&quot;:&quot;f016a89d-64d8-4002-9826-3d92c0f99ed6&quot;, 
+    &quot;sub&quot;:&quot;byjXHZAhntUu8IesnnJr06G5H8sRga7PeXvjKr8VKrL&quot;,
+    &quot;tid&quot;:&quot;a17fecad-0a16-459f-af15-e057e29c8836&quot;, 
+    &quot;uti&quot;:&quot;X1-gaij5kUhHImq6dWL5CA&quot;, 
+    &quot;ver&quot;:&quot;2.0&quot;,
 }
 </code></pre>
 </details>

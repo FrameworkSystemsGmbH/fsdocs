@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/30-fix1/docs/doc/authentication-service/oidc-flow.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/31/docs/doc/authentication-service/oidc-flow.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,41 +87,46 @@
         <article data-uid="">
 <h1 id="openid-connect-flows">OpenID Connect Flows</h1>
 
+<h2 id="login-flow">Login-Flow</h2>
 <p><img src="media/oidc-login-flow.drawio.svg" alt="login-flow"></p>
 <ul>
-<li>Der Java-Client startet und meldet dem Broker im ersten Request dass er OpenID Connect kann.</li>
-<li>Der Broker fragt beim Authentication Service nach den Einstellungen für OpenID Connect und meldet diese an den Java-Client zurück.
-Diese sind
+<li><p>Der Java-Client startet und meldet dem Broker im ersten Request dass er OpenID Connect kann.</p>
+</li>
+<li><p>Der Broker fragt beim Authentication Service nach den Einstellungen für OpenID Connect und meldet diese an den Java-Client zurück.
+Diese sind</p>
 <ul>
 <li>die Auth-Url des Identity-Providers,</li>
 <li>die Client-ID und</li>
 <li>die Scopes.</li>
 </ul>
 </li>
-<li>Der Java-Client startet einen lokalen HTTP-Server für den Aufruf der Callback-Seite.
-Diese hat folgende Url: <code>http://localhost:&lt;port&gt;/login-callback</code></li>
-<li>Der Java-Client ruft über den Standard-Browser die Anmelde-Seite des Identity-Providers auf.
+<li><p>Der Java-Client startet einen lokalen HTTP-Server für den Aufruf der Callback-Seite.
+Diese hat folgende Url: <code>http://localhost:&lt;port&gt;/login-callback</code></p>
+</li>
+<li><p>Der Java-Client ruft über den Standard-Browser die Anmelde-Seite des Identity-Providers auf.
 Dabei kommt die Auth-Url zum Einsatz.
-Übergeben werden der Seite
+Übergeben werden der Seite</p>
 <ul>
 <li>die Client-ID,</li>
 <li>eine im Client erzeugte Code-Challenge und</li>
 <li>die URL der Callback-Seite.</li>
 </ul>
 </li>
-<li>Bei erfolgreicher Anmeldung leitet der Identity-Provider uns zur Callback-Seite weiter.
+<li><p>Bei erfolgreicher Anmeldung leitet der Identity-Provider uns zur Callback-Seite weiter.
 Dieser wird ein Anmelde-Code übergeben, mit dem die nächsten Schritte vollzogen werden können.
-Der Anmelde-Code wird ausgelesen und der lokale HTTP-Server wieder beendet.</li>
-<li>Der Java-Client schickt für die weitere Anmeldung die folgenden Informationen zum Broker:
+Der Anmelde-Code wird ausgelesen und der lokale HTTP-Server wieder beendet.</p>
+</li>
+<li><p>Der Java-Client schickt für die weitere Anmeldung die folgenden Informationen zum Broker:</p>
 <ul>
 <li>den Anmelde-Code,</li>
 <li>die Code-Challenge und</li>
 <li>die URL der Callback-Seite.</li>
 </ul>
 </li>
-<li>Der Broker leitet diese Informationen an den Authentication-Service weiter, welcher die nächsten Schritte für die Authentifizierung übernimmt.</li>
-<li>Am Identity-Provider wird der Token-Endpoint aufgerufen, um den Anmelde-Code in einen JWT-Token umzuwandeln.
-Dem Endpoint werden folgenden Informationen übergeben:
+<li><p>Der Broker leitet diese Informationen an den Authentication-Service weiter, welcher die nächsten Schritte für die Authentifizierung übernimmt.</p>
+</li>
+<li><p>Am Identity-Provider wird der Token-Endpoint aufgerufen, um den Anmelde-Code in einen JWT-Token umzuwandeln.
+Dem Endpoint werden folgende Informationen übergeben:</p>
 <ul>
 <li>der Anmelde-Code,</li>
 <li>die Callback-Url,</li>
@@ -129,15 +134,67 @@ Dem Endpoint werden folgenden Informationen übergeben:
 <li>die Code-Challenge und</li>
 <li>wenn konfiguriert das Client-Secret.</li>
 </ul>
-</li>
-<li>Der JWT-Token wird validiert.
-Es wird sowohl die inhaltliche als auch die kryptographische Korrektheit geprüft.
-Dabei werden die von Identity-Provider bereitgestellten kryptographischen Schlüssel verwendet.</li>
-<li>Aus dem JWT-Token wird der Claim (in der Regel die Email-Adresse) ausgelesen.
-Damit wird der entsprechende Benutzer ermittelt und ein XML-Token erstellt.
-Mit diesem XML-Token kann die Anwendung den Benutzer identifizieren.</li>
-<li>Die Anwendung startet mit dem angemeldeten Benutzer.</li>
+<p>Der Identity-Provider liefert folgende Informationen:</p>
+<ul>
+<li>den JWT-Token - dieser hat nur eine begrenzte Gültigkeit</li>
+<li>einen Refresh-Token für die Ermittlung eines neuen JWT-Token - dieser ist in der Regel viele Tage gültig.</li>
 </ul>
+</li>
+<li><p>Der JWT-Token wird validiert.
+Es wird sowohl die inhaltliche als auch die kryptographische Korrektheit geprüft.
+Dabei werden die von Identity-Provider bereitgestellten kryptographischen Schlüssel verwendet.</p>
+</li>
+<li><p>Aus dem JWT-Token wird der Claim (in der Regel die Email-Adresse) ausgelesen.
+Damit wird der entsprechende Benutzer ermittelt und ein XML-Token erstellt.
+Mit diesem XML-Token kann die Anwendung den Benutzer identifizieren.</p>
+</li>
+<li><p>Der Refresh-Token wird in <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData.html">SessionData</a> gespeichert. Damit kann beim nächsten Start der Anwendung der <a href="#refresh-flow">Refresh-Flow</a> angewendet werden.</p>
+</li>
+<li><p>Die Anwendung startet mit dem angemeldeten Benutzer.</p>
+</li>
+</ul>
+<h2 id="refresh-flow">Refresh-Flow</h2>
+<p><img src="media/oidc-refresh-flow.drawio.svg" alt="refresh-flow"></p>
+<ul>
+<li><p>Der Java-Client startet und meldet dem Broker im ersten Request dass er OpenID Connect kann.</p>
+</li>
+<li><p>Der Broker fragt beim Authentication Service nach den Einstellungen für OpenID Connect.</p>
+</li>
+<li><p>Der Broker prüft dann, ob es in <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData.html">SessionData</a> einen gespeicherten Refresh-Token für den Client gibt.</p>
+</li>
+<li><p>Der Broker leitet den Refresh-Token an den Authentication-Service weiter, welcher die nächsten Schritte für die Authentifizierung übernimmt.</p>
+</li>
+<li><p>Am Identity-Provider wird der Token-Endpoint aufgerufen, um den Refresh-Token in einen neuen JWT-Token umzuwandeln.
+Dem Endpoint werden folgende Informationen übergeben:</p>
+<ul>
+<li>der Refresh-Token,</li>
+<li>die Client-ID,</li>
+<li>der Scope und</li>
+<li>wenn konfiguriert das Client-Secret.</li>
+</ul>
+<p>Der Identity-Provider liefert folgende Informationen:</p>
+<ul>
+<li>den JWT-Token und</li>
+<li>einen (ggf. aktualisierten) Refresh-Token.</li>
+</ul>
+</li>
+<li><p>Der JWT-Token wird validiert.
+Es wird sowohl die inhaltliche als auch die kryptographische Korrektheit geprüft.
+Dabei werden die von Identity-Provider bereitgestellten kryptographischen Schlüssel verwendet.</p>
+</li>
+<li><p>Aus dem JWT-Token wird der Claim (in der Regel die Email-Adresse) ausgelesen.
+Damit wird der entsprechende Benutzer ermittelt und ein XML-Token erstellt.
+Mit diesem XML-Token kann die Anwendung den Benutzer identifizieren.</p>
+</li>
+<li><p>Der aktualisierte Refresh-Token wird in <a class="xref" href="../../api/FrameworkSystems.FrameworkBase.SessionDataModel.ISessionData.html">SessionData</a> gespeichert.</p>
+</li>
+<li><p>Die Anwendung startet mit dem angemeldeten Benutzer.</p>
+</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Wenn die Authentifizierung mit dem Refresh-Token fehlschlägt, erfolgt die Anmeldung über den normalen <a href="#login-flow">Login-Flow</a>.</p>
+</div>
 
 </article>
 

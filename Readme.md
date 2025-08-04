@@ -1,6 +1,6 @@
 # Framework Studio Dokumentation
 
-* [Version 4.8 (In Arbeit)](v4.8/index.html) \| [Preview](v4.8.pre/index.html)
+* [Version 4.8 (In Arbeit)](v4.8.preview/index.html)
 * [Version 4.7](v4.7/index.html) \| [Preview](v4.7.pre/index.html)
 * [Version 4.5](v4.5/index.html) \| [Preview](v4.5.pre/index.html)
 

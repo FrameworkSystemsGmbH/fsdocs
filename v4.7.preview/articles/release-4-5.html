@@ -91,7 +91,13 @@
 <h4 id="neuerungen">Neuerungen</h4>
 <ul>
 <li>Alte JxBrowser Versionen werden nun nach 30 Tagen automatisch gelöscht.</li>
+<li>Beim Publish2Go wird nun zusätzlich eine readme.txt erstellt, welche die Packages, Applications und Services ausgibt, welche im P2Go enthalten sind. Zusätzliche enthaltene Informationen sind z.B. das Compile-Date, das Erstellungsdatum des P2Go und die verwendete FS-Version.</li>
+<li>Bei <code>FrameworkApplicationExceptions</code> wird der MLKey zur Exception hinzugefügt, wenn dieser vorhanden ist.</li>
 </ul>
+<h4 id="messagebox-verhaltensänderung-im-htmlclientmobileclient">MessageBox Verhaltensänderung im HtmlClient/MobileClient</h4>
+<p>Das Verhalten der MessageBox im HtmlClient/MobileClient unterschied sich bisher zum JavaClient.
+So war immer der letzte Button fokussiert und die Angabe des DefaultButtons hatte keine Auswirkung. Ersteres wurde an den JavaClient angepasst und letzteres wurde nun implementiert.
+Ist nun kein DefaultButton angegeben, wird der erste Button in der MessageBox fokussiert. Ist ein DefaultButton angegeben, wird dieser fokussiert.</p>
 <h4 id="updates">Updates</h4>
 <ul>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 138.0.170 upgedatet.</li>

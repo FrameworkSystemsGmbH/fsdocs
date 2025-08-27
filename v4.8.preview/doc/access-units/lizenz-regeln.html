@@ -126,6 +126,9 @@ Eine Lizenz in einem Customizing-Package kann diese Knoten nicht nachträglich e
 <li><p>Graue hinterlegte Checkboxen <img src="media/check-au-base-denied.png" alt="base-denied"> bedeuten, dass die Lizenz eines Basis-Packages diesen Knoten nicht erlaubt.<br>
 In der eigenen Lizenz werden die oben beschriebenen Regeln zwar normal angewendet – durch die Basis-Lizenz verbotene Knoten lassen sich jedoch so nicht freischalten. (siehe auch <a href="#kombination-von-lizenzen">Kombination von Lizenzen</a>)</p>
 </li>
+<li><p>Die Auflösung einer Lizenz erfolgt immer mit dem Baum aus Sicht des jeweiligen Packages inkl. der darunterliegenden Basis-Packages.
+Knoten aus darüber liegenden Customizing-Packages werden nicht berücksichtigt.</p>
+</li>
 </ul>
 <h2 id="kombination-von-lizenzen">Kombination von Lizenzen</h2>
 <div class="TIP">
@@ -133,24 +136,74 @@ In der eigenen Lizenz werden die oben beschriebenen Regeln zwar normal angewende
 <p>Faustformel</p>
 <ul>
 <li><img src="media/check-au-denied.png" alt="denied"> verboten gewinnt.</li>
-<li>Ein Customizing-Package kann keine Basis-Lizenz freischalten.</li>
+<li>Customzing kümmert sich um seine eigenen Knoten.</li>
+<li>Customizing kann keine Basis-Lizenz freischalten.</li>
 </ul>
 </div>
 <p>Bei mehreren Packages wird für jedes Package eine eigene Lizenz erstellt.
-Diese werden dann zur Laufzeit kombiniert.
+Diese werden zur Laufzeit kombiniert.
 Dabei gelten die folgenden Regeln:</p>
 <ul>
-<li><p>Erst wenn alle Lizenzen einen Knoten erlauben (<img src="media/check-au-allowed.png" alt="allowed">/<img src="media/check-au-allowed-inherited.png" alt="allowed-inherited">), ist dieser lizenziert.<br>
-Verbietet hingegen auch nur eine Lizenz einen Knoten oder hat keine Informationen darüber, dann ist dieser Knoten verboten.</p>
-<div class="TIP">
-<h5>Tip</h5>
-<p>In kundenspezifischen Packages kann meist einfach der oberste Knoten erlaubt werden.</p>
-</div>
+<li><p>Eine Customizing-Lizenz muss Knoten, die bereits durch die Basis-Lizenz erlaubt sind, nicht erneut aktiv erlauben.
+Die Erlaubnis aus der Basis-Lizenz bleibt bestehen.</p>
 </li>
-<li><p>Ein Customizing-Package kann für ein Basis-Package einen Knoten nicht nachträglich lizenzieren.<br>
-Das gilt auch dann, wenn eine Access-Unit des Basis-Packages zusätzlich in einem anderen Teil der <a href="access-unit-hierarchie.html">Access Unit Hierarchie</a> platziert wird.</p>
+<li><p>Eine Customizing-Lizenz kann jedoch Knoten, die durch die Basis-Lizenz erlaubt sind, explizit verbieten.
+In diesem Fall gilt das Verbot aus der Customizing-Lizenz.</p>
+</li>
+<li><p>Ein Customizing-Package kann für ein Basis-Package einen Knoten nicht nachträglich lizenzieren, wenn dieser in der Basis-Lizenz verboten ist.
+Das gilt auch dann, wenn eine Access-Unit des Basis-Packages zusätzlich in einem anderen Teil</p>
+</li>
+<li><p>Neue Knoten müssen in der Customizing-Lizenz erlaubt werden.
+Das gilt auch dann, wenn die neue Access-Unit in einen Teil-Baum eingehängt wird, der bereits durch das Basis-Package lizensiert ist.</p>
 </li>
 </ul>
+<p>Die folgende Tabelle zeigt, wie die Kombination von Basis- und Customizing-Lizenzen das Ergebnis beeinflusst:</p>
+<table>
+<thead>
+<tr>
+<th>Basis-Lizenz</th>
+<th>Customizing-Lizenz</th>
+<th>Ergebnis der Kombination</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><img src="media/check-au-allowed.png" alt="allowed"> <img src="media/check-au-allowed-inherited.png" alt="allowed-inherited"> erlaubt</td>
+<td><img src="media/check-au-explicit-none.png" alt="explicit-none"> <img src="media/check-au-none.png" alt="none"> nicht gesetzt</td>
+<td><img src="media/check-au-allowed.png" alt="allowed"> erlaubt</td>
+</tr>
+<tr>
+<td><img src="media/check-au-allowed.png" alt="allowed"> <img src="media/check-au-allowed-inherited.png" alt="allowed-inherited"> erlaubt</td>
+<td><img src="media/check-au-allowed.png" alt="allowed"> <img src="media/check-au-allowed-inherited.png" alt="allowed-inherited"> erlaubt</td>
+<td><img src="media/check-au-allowed.png" alt="allowed"> erlaubt</td>
+</tr>
+<tr>
+<td><img src="media/check-au-allowed.png" alt="allowed"> <img src="media/check-au-allowed-inherited.png" alt="allowed-inherited"> erlaubt</td>
+<td><img src="media/check-au-denied.png" alt="denied"> <img src="media/check-au-denied-inherited.png" alt="denied-inherited"> verboten</td>
+<td><img src="media/check-au-denied.png" alt="denied"> verboten</td>
+</tr>
+<tr>
+<td><img src="media/check-au-denied.png" alt="denied"> <img src="media/check-au-denied-inherited.png" alt="denied-inherited"> verboten</td>
+<td><em>egal, was gesetz ist</em></td>
+<td><img src="media/check-au-denied.png" alt="denied"> verboten</td>
+</tr>
+<tr>
+<td><em>kein Knoten</em></td>
+<td><img src="media/check-au-explicit-none.png" alt="explicit-none"> <img src="media/check-au-none.png" alt="none"> nicht gesetzt</td>
+<td><img src="media/check-au-denied.png" alt="denied"> verboten</td>
+</tr>
+<tr>
+<td><em>kein Knoten</em></td>
+<td><img src="media/check-au-allowed.png" alt="allowed"> <img src="media/check-au-allowed-inherited.png" alt="allowed-inherited"> erlaubt</td>
+<td><img src="media/check-au-allowed.png" alt="allowed"> erlaubt</td>
+</tr>
+<tr>
+<td><em>kein Knoten</em></td>
+<td><img src="media/check-au-denied.png" alt="denied"> <img src="media/check-au-denied-inherited.png" alt="denied-inherited"> verboten</td>
+<td><img src="media/check-au-denied.png" alt="denied"> verboten</td>
+</tr>
+</tbody>
+</table>
 
 </article>
 

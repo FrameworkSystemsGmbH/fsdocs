@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/8/docs/doc/access-units/laufzeitlizenzen.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/9/docs/doc/access-units/laufzeitlizenzen.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -207,16 +207,18 @@ Diese Datei enthält für jede Package-Version der Applikation eine Lizenz.</p>
 <p>In der Spalte <strong>Name</strong> werden alle Access Units hierarchisch dargestellt. Access Units mit einem Schlüsselsymbol <img src="../media/icon-access-unit.png" alt="icon-access-unit">, Form Access Units mit einem Schlüssel auf einem Form <img src="media/icon-access-unit-in-form.png" alt="access-unit-in-form">.</p>
 <p>In den übrigen Spalten symbolisieren spezielle Checkboxen das erteilte Recht für die einzelnen Zugriffsarten (<strong>ACC</strong> = Access, <strong>ACD</strong> = AccessDerived, <strong>UPD</strong> = Update, <strong>INS</strong> = Insert, <strong>Del</strong> = Delete, Bedeutung der Zugriffsarten: <a href="access-units.html">Access Units</a>).</p>
 <p>Die speziellen Checkboxen können verschiedene Symbole darstellen:</p>
-<p><img src="media/icon-leere-checkbox.png" alt="leere-checkbox"> <strong>Leere Checkbox:</strong> Keine Angabe durch den Benutzer. Der Anwendung wird diese Zugriffsart für die AccessUnit verwehrt.</p>
-<p><img src="media/icon-blaue-haken.png" alt="blauer-haken"> <strong>Blauer Haken:</strong> Die Zugriffsart der AccessUnit wird explizit erlaubt.</p>
-<p><img src="media/icon-roter-waagerechter-strich.png" alt="Roter waagerechter Strich"> <strong>Roter waagerechter Strich:</strong> Die Zugriffsart der AccessUnit wird explizit verweigert.</p>
-<p><img src="media/icon-gelbes-prozentzeichen.png" alt="Gelbes Prozentzeichen"> <strong>Gelbes Prozentzeichen:</strong> Zu dieser Zugriffsart der AccessUnit wird explizit keine Angabe durch den Benutzer gemacht. Der Anwendung wird diese Zugriffsart verwehrt.</p>
-<p><img src="media/icon-grauer-haken.png" alt="Grauer Haken"> <strong>Grauer Haken:</strong> Die Zugriffsart der AccessUnit wird erlaubt, weil diese AccessUnit ein Unterelement einer AccessUnit ist, für welche die Zugriffsart erlaubt wird (hierarchisch erlaubt).</p>
-<p><img src="media/icon-grauer-waagerechter-strich.png" alt="Grauer waagerechter Strich"> <strong>Grauer waagerechter Strich:</strong> Die Zugriffsart der AccessUnit wird verweigert, weil diese AccessUnit ein Unterelement einer AccessUnit ist, für welche die Zugriffsart verweigert wird und diese AccessUnit nicht unter einer anderen AccessUnit hängt, für welche die Zugriffsart erlaubt wird (hierarchisch verboten).</p>
-<p>Wenn eine Checkbox mit <strong>grauem Hintergrund</strong> <img src="media/icon-leere-checkbox.png" alt="leere-checkbox"> dargestellt wird, so bedeutet dies, dass das repräsentierte Zugriffsrecht bereits durch eine der verwendeten Basislizenzen verweigert wird.</p>
+<p><img src="media/check-au-none.png" alt="leere-checkbox"> <strong>Leere Checkbox:</strong> Keine Angabe durch den Benutzer. Der Anwendung wird diese Zugriffsart für die AccessUnit verwehrt.</p>
+<p><img src="media/check-au-allowed.png" alt="blauer-haken"> <strong>Blauer Haken:</strong> Die Zugriffsart der AccessUnit wird explizit erlaubt.</p>
+<p><img src="media/check-au-denied.png" alt="Roter waagerechter Strich"> <strong>Roter waagerechter Strich:</strong> Die Zugriffsart der AccessUnit wird explizit verweigert.</p>
+<p><img src="media/check-au-explicit-none.png" alt="Gelbes Prozentzeichen"> <strong>Gelbes Prozentzeichen:</strong> Zu dieser Zugriffsart der AccessUnit wird explizit keine Angabe durch den Benutzer gemacht. Der Anwendung wird diese Zugriffsart verwehrt.</p>
+<p><img src="media/check-au-allowed-inherited.png" alt="Grauer Haken"> <strong>Grauer Haken:</strong> Die Zugriffsart der AccessUnit wird erlaubt, weil diese AccessUnit ein Unterelement einer AccessUnit ist, für welche die Zugriffsart erlaubt wird (hierarchisch erlaubt).</p>
+<p><img src="media/check-au-denied-inherited.png" alt="Grauer waagerechter Strich"> <strong>Grauer waagerechter Strich:</strong> Die Zugriffsart der AccessUnit wird verweigert, weil diese AccessUnit ein Unterelement einer AccessUnit ist, für welche die Zugriffsart verweigert wird und diese AccessUnit nicht unter einer anderen AccessUnit hängt, für welche die Zugriffsart erlaubt wird (hierarchisch verboten).</p>
+<p><img src="media/check-au-base-denied.png" alt="base-denied"> Wenn eine Checkbox mit <strong>grauem Hintergrund</strong> dargestellt wird, so bedeutet dies, dass das repräsentierte Zugriffsrecht bereits durch eine der verwendeten Basislizenzen verweigert wird.</p>
 <p>Sie können in der Lizenz für das aktuelle Package diese Zugriffsart trotzdem erlauben. Die Endanwendung wird diese Zugriffsart jedoch nur erlaubt bekommen, wenn andere Basislizenzen verwendet werden, die diese Zugriffsart ebenfalls ermöglichen.</p>
 <p>Mit dem Menüeintrag <strong>Parents</strong> im Kontextmenü einer Access Unit erhält man eine Liste aller Access Units, die die ausgewählte Access Unit als Unterelement enthalten. Wählt man aus der Liste eine Access Unit aus, wird direkt dorthin gesprungen.</p>
 <p>Im Access Unit Tree kann mit der <strong>Multiplikationstaste</strong> * der komplette Teilbaum der ausgewählten AccessUnit aufgeklappt werden, mit der <strong>Subtraktionstaste</strong> - wird der Teilbaum wieder kollabiert.</p>
+<h3 id="lizenzregeln">Lizenzregeln</h3>
+<p>Die Regeln zur Vergabe, Vererbung und Kombination von Laufzeitlizenzen sind im separaten Kapitel beschrieben: <a href="lizenz-regeln.html">Regeln für Laufzeitlizenzen</a></p>
 <h2 id="registerkarte-license-parameters">Registerkarte License Parameters</h2>
 <p><img src="media/registerkarte-license-parameters.png" alt="Registerkarte License parameters"></p>
 <p>Diese Registerkarte beinhaltet alle allgemeinen Eigenschaften der ausgewählten Lizenz:</p>

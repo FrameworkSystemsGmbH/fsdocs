@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/8-fix1/docs/articles/release-4-7.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/9/docs/articles/release-4-7.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,18 +87,76 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
-<h2 id="478-hotfix-1-06082025">4.7.8 Hotfix 1 (06.08.2025)</h2>
+<h2 id="479-05092025">4.7.9 (05.09.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.7.8_fix_1_Setup_x64</li>
+<li>FS_4.7.9_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Alte JxBrowser Versionen werden nun nach 30 Tagen automatisch gelöscht.</li>
+<li>Beim Publish2Go wird nun zusätzlich eine readme.txt erstellt, welche die Packages, Applications und Services ausgibt, die im P2Go enthalten sind. Zusätzliche enthaltene Informationen sind z.B. das Compile-Date, das Erstellungsdatum des P2Go und die verwendete FS-Version.</li>
+<li>Bei <code>FrameworkApplicationExceptions</code> wird der MLKey zur Exception hinzugefügt, wenn dieser vorhanden ist.</li>
+</ul>
+<h4 id="messagebox-verhaltensänderung-im-htmlclientmobileclient">MessageBox Verhaltensänderung im HtmlClient/MobileClient</h4>
+<p>Das Verhalten der MessageBox im HtmlClient/MobileClient unterschied sich bisher zum JavaClient.
+So war immer der letzte Button fokussiert und die Angabe des DefaultButtons hatte keine Auswirkung. Ersteres wurde an den JavaClient angepasst und letzteres wurde nun implementiert.
+Ist nun kein DefaultButton angegeben, wird der erste Button in der MessageBox fokussiert. Ist ein DefaultButton angegeben, wird dieser fokussiert.</p>
+<h4 id="updates">Updates</h4>
+<ul>
+<li>Das CefSharp Browser-Control in der IDE wurde auf Version 138.0.170 upgedatet.</li>
+</ul>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
-<li>2025088341 - <strong>JavaClient/IDE</strong>: Durch das Update des JxBrowsers und des
+<li><p>2025078300 - <strong>Java-Client</strong>: Es werden zu viele und teilweise irrelevante
+Log-Ausgaben in die Client Launcher Console geschrieben.</p>
+</li>
+<li><p>2025088341 - <strong>JavaClient/IDE</strong>: Durch das Update des JxBrowsers und des
 CefSharpBrowsers können der JavaClient und die IDE nicht im
 Administratormodus gestartet werden. Grund hierfür ist eine Änderung in
-Chromium 138.</li>
+Chromium 138.</p>
+</li>
+<li><p>2025078291 - <strong>IDE</strong>: In mehreren GridViews ist nach einer Umstellung der
+dahinterliegenden Controls die alphabetische Sortierung nicht mehr möglich.
+Die betroffenen Oberflächen sind unteranderem die Repository-Auswahl und die
+Query Tabpage, DependsOn und ControlType-Auswahl bei den Components.</p>
+</li>
+<li><p>2025088344 - <strong>IDE</strong>: Beim Start der IDE verwenden wir den HttpListener für
+die Suche nach freien Ports. Dieser HttpListener kann URL-Reservierungen
+ausführen, welche Administratorenrechte benötigen. Ohne Adminrechte kommt es
+bei einem solchen Fall zu einer Access Denied Fehlermeldung.</p>
+</li>
+<li><p>2025088422 - <strong>IDE</strong>: Im Paste Dialog werden bei den Comboboxen unterhalb
+<code>Needed Types</code> die Einträge nicht sortiert. Dies erschwert die Suche.</p>
+</li>
+<li><p>2025088440 - <strong>IDE</strong>: Wenn in den Optionen im VisualStudio-Pfad ein nicht
+unterstütztes Zeichen ist (z.B. ein Zeilenumbruch), kann kein Dev-Broker mit
+Service mehr gestartet werden.<br>
+Außerdem kommt es zu einem Absturz von FS, wenn dann versucht wird über den
+<code>...</code>-Button in den Optionen einen neuen Pfad auszuwählen.</p>
+</li>
+<li><p>2025088337 - <strong>Framework</strong>: Wird an einer Component die Methode
+<code>GetFetchNext()</code> aufgerufen, dann wird an dieser Component die Methode
+<code>OnBeforeLoad(..)</code> nicht aufgerufen. Überschreibungen dieser Methode greifen
+somit nicht. Bei allen anderen Load-Methoden erfolgt der Aufruf.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die Korrektur stellt eine Verhaltensänderung dar. Dieses &quot;Fehlverhalten&quot;
+gibt es schon immer und bestehender Code könnte darauf ausgelegt sein.
+Eigene Überschreibungen von OnBeforeLoad() müssen daher ggf. gesichtet und
+auf mögliche Konflikte mit GetFetchNext()-Aufrufen überprüft werden.</p>
+</div>
+</li>
+<li><p>2025088386 - <strong>Runtime Administration</strong>: Enthält eine Runtime-Lizenz Einträge
+mit &quot;Denied&quot; oder &quot;Explicite None&quot;, dann wird diese zur Laufzeit ggf. nicht
+korrekt aufgelöst. In der Folge kann es passieren, dass dadurch Funktionen
+nicht zur Verfügung stehen. Der Runtime-License-Manager zeigt die Lizenz
+hingegen korrekt an.</p>
+<p>Hinweis: In der Online-Dokumentation von Framework Studio werden die <a href="https://frameworksystemsgmbh.github.io/fsdocs/v4.7/doc/access-units/lizenz-regeln.html">Regeln für
+Laufzeitlizenzen</a>
+jetzt detailliert beschrieben.</p>
+</li>
 </ul>
 <h2 id="478-01082025">4.7.8 (01.08.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
@@ -120,7 +178,7 @@ Das entspricht Chromium 138.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2025/v7-43-4.html">https://jxbrowser-support.teamdev.com/release-notes/2025/v7-43-4.html</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <ul>
 <li><p>Die <a href="../doc/authentication-service/oidc.html">OpenID Connect</a> Implementierung wurde um den <a href="../doc/authentication-service/oidc-flow.html#refresh-flow">Refresh-Flow</a> ergänzt.</p>
 </li>
@@ -164,7 +222,7 @@ bei Oracle auf Fehler.</p>
 <li>FS4.5.30_AuthService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-1">Neuerungen</h4>
+<h4 id="neuerungen-2">Neuerungen</h4>
 <ul>
 <li><p>Als Anmeldeverfahren, zur Authentifizierung der Nutzer, kann nun <a href="../doc/authentication-service/oidc.html">OpenID Connect</a> genutzt werden.</p>
 <div class="IMPORTANT">
@@ -199,7 +257,7 @@ nicht geändert werden.</p>
 <li>Die ausgelieferte <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html#java-runtime">JRE</a> unterstützt keine ARM-Prozessoren.
 Dies ist auch in den <a href="requirements.html#client-rechner">Requirements</a> dokumentiert.</li>
 </ul>
-<h4 id="neuerungen-2">Neuerungen</h4>
+<h4 id="neuerungen-3">Neuerungen</h4>
 <ul>
 <li>Events klickbarer Links im JxBrowser, die durch dynamische Änderungen des Doms nach dem ersten Laden hinzugefügt wurden, werden nun auch korrekt gefeuert.</li>
 </ul>
@@ -264,11 +322,11 @@ wird beim PackageMerge die Target-Dokumentation mit der Source-Dokumentation
 <li>FS4.5.28_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-3">Neuerungen</h4>
+<h4 id="neuerungen-4">Neuerungen</h4>
 <ul>
 <li>Bei der <a href="../doc/ide/registerkarten.html#registerkarte-search">Search</a> in der IDE kann nun mit einem Doppelklick ein ObjectType für die Suche ausgewählt werden. Anschließend wird das Popup-Menü automatisch geschlossen.</li>
 </ul>
-<h4 id="updates">Updates</h4>
+<h4 id="updates-1">Updates</h4>
 <ul>
 <li>Der HTML Client, die StartPage und das HelpSystem wurden auf Angular 19.2.6 upgedatet.</li>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 135.0.170 upgedatet.</li>
@@ -343,7 +401,7 @@ Das entspricht Chromium 132.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/">https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="neuerungen-4">Neuerungen</h4>
+<h4 id="neuerungen-5">Neuerungen</h4>
 <ul>
 <li>Der <a href="../doc/sql/grammatik.html#withquery">Sql-Parser</a> versteht jetzt <code>WITH</code>-Statements, auch bekannt als <em>Common Table Expression (CTE)</em>.</li>
 <li>Neue Client-Action <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript.html#FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_System_String_"><code>BrowserControlAction.ExecuteJavaScript()</code></a></li>
@@ -389,12 +447,12 @@ Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
 <li>FS_4.7.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-1">Updates</h4>
+<h4 id="updates-2">Updates</h4>
 <ul>
 <li>DevExpress wurde auf die Version 24.2.3 aktualisiert.</li>
 <li>Der HTML Client wurde auf Angular 19.1.1 upgedatet.</li>
 </ul>
-<h4 id="neuerungen-5">Neuerungen</h4>
+<h4 id="neuerungen-6">Neuerungen</h4>
 <ul>
 <li>Bei Klicken auf einen Link im <code>Errors and Warnings</code> Tab wird dieser farblich hervorgehoben, um zu visualisieren, dass der Link bereits besucht wurde.</li>
 <li>Bei den Aktionen <code>Open</code>, <code>Save</code> (im FS Report Designer), sowie <code>Choose Report</code> wird nun das Verzeichnis der tatsächlichen Report-Datei geöffnet, statt das Haupt-Reportverzeichnis.</li>
@@ -539,7 +597,7 @@ dass die Datenbankverknüpfungen im Crystal Report Designer gelöscht sind.</p>
 <p>Wenn Sie die Version 4.7.0 Beta 3, 2 oder 1 installiert haben, müssen Sie diese zuerst deinstallieren.
 Ein Update von diesen Versionen ist nicht möglich.</p>
 </div>
-<h4 id="neuerungen-6">Neuerungen</h4>
+<h4 id="neuerungen-7">Neuerungen</h4>
 <p>Siehe <a href="neuheiten-4-7.html">Neuheiten Framework Studio 4.7</a>.</p>
 <h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#4612-06122024">Framework Studio 4.6.12</a> enthalten.

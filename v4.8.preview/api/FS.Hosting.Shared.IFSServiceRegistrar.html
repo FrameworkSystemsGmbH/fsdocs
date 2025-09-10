@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Interface IFSServiceRegistrar ">
       
-      
+      <meta name="description" content="Erm&#246;glicht das Registrieren von Services im DI-Container. Dazu wird eine Routine beim Application Startup ausgef&#252;hrt, die alle ModComps, die den IFSServiceRegistrar implementieren, sammelt und deren  aufruft.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="FS_Hosting_Shared_IFSServiceRegistrar" data-uid="FS.Hosting.Shared.IFSServiceRegistrar" class="text-break">
-Interface IFSServiceRegistrar  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/IFSServiceRegistrar.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Interface IFSServiceRegistrar  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/IFSServiceRegistrar.cs/#L11"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,10 @@ Interface IFSServiceRegistrar  <a class="header-action link-secondary" title="Vi
   <dl><dt>Assembly</dt><dd>FS.Hosting.Shared.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"></div>
+  <div class="markdown summary"><p>Ermöglicht das Registrieren von Services im DI-Container.
+Dazu wird eine Routine beim Application Startup ausgeführt, die alle ModComps,
+die den IFSServiceRegistrar implementieren, sammelt und deren <a class="xref" href="FS.Hosting.Shared.IFSServiceRegistrar.RegisterServices.html#FS_Hosting_Shared_IFSServiceRegistrar_RegisterServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_">RegisterServices(IServiceCollection)</a> aufruft.</p>
+</div>
   <div class="markdown conceptual"></div>
 
   <div class="codewrapper">
@@ -120,7 +123,8 @@ Interface IFSServiceRegistrar  <a class="header-action link-secondary" title="Vi
 
   <dl class="jumplist">
     <dt><a class="xref" href="FS.Hosting.Shared.IFSServiceRegistrar.RegisterServices.html#FS_Hosting_Shared_IFSServiceRegistrar_RegisterServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_">RegisterServices(IServiceCollection)</a></dt>
-    <dd></dd>
+    <dd><p>Registriert anwendungsspezifische Services in der bereitgestellten <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.iservicecollection">IServiceCollection</a>.</p>
+</dd>
   </dl>
 
 

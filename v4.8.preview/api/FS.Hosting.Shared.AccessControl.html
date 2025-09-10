@@ -101,19 +101,103 @@ Geschäftseinheiten, Laufzeitlizensierung und Packages an. Sie ist über <a clas
 </dd>
     </dl>
     <dl class="jumplist">
-      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.PackageInfo.html">AUHelper.PackageInfo</a></dt>
-      <dd><p>Diese Klasse beinhaltet die Informationen eines Packages. Die Liste der Packages kann mit der Methode
-<a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.GetPackages.html#FS_Hosting_Shared_AccessControl_AUHelper_GetPackages">GetPackages()</a> ermittelt werden.</p>
-</dd>
-    </dl>
-    <dl class="jumplist">
       <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.AccessUnit.html">AccessUnit</a></dt>
       <dd><p>Die AccessUnit Klasse enthält die ID und Name einer AccessUnit.</p>
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.ApplicationRole.html">ApplicationRole</a></dt>
+      <dd><p>Stellt eine Rolle innerhalb einer Anwendung dar, die mit bestimmten Diensten und Einheiten verbunden ist.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.AuthenticationResult.html">AuthenticationResult</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.IAuGrantable_Extensions.html">IAuGrantable_Extensions</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.IFSAuthenticationScope_Extensions.html">IFSAuthenticationScope_Extensions</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.IPackageInfoResolver_Extensions.html">IPackageInfoResolver_Extensions</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.LicenseSerializer.html">LicenseSerializer</a></dt>
       <dd><p>Die LicenseSerializer Klasse implementiert einen Serialisierter für die License und License2 Klassen.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.PackageInfo.html">PackageInfo</a></dt>
+      <dd><p>Diese Klasse beinhaltet die Informationen eines Packages.
+Die Liste der Packages kann über die Extension-Method <a class="xref" href="FS.Hosting.Shared.AccessControl.IPackageInfoResolver_Extensions.GetPackageInfosWithoutSystemPackage.html#FS_Hosting_Shared_AccessControl_IPackageInfoResolver_Extensions_GetPackageInfosWithoutSystemPackage_FS_Hosting_Shared_AccessControl_IPackageInfoResolver_">GetPackageInfosWithoutSystemPackage(IPackageInfoResolver)</a>
+im <span class="xref">FS.Hosting.Shared.AccessControl.IPackageInfoResolver</span> ermittelt werden.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.UserTokenInfo.html">UserTokenInfo</a></dt>
+      <dd></dd>
+    </dl>
+    <h3 id="interfaces">
+Interfaces
+</h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.IAccessUnitHierarchyResolver.html">IAccessUnitHierarchyResolver</a></dt>
+      <dd><p>[Injectable]</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.IAuGrantable.html">IAuGrantable</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.IFSAuthentication.html">IFSAuthentication</a></dt>
+      <dd><p>[Injectable]</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.IFSAuthenticationScope.html">IFSAuthenticationScope</a></dt>
+      <dd><p>[Injectable]
+Regelt die Authentication im laufenden Request.</p>
+<p>Einmal initialisiert blieben diese Informationen (Token, AcessUnits) während des kompletten Requests gültig -
+auch wenn z.B. der Token währenddessen in einen Timeout läuft.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.IFSAuthenticationService.html">IFSAuthenticationService</a></dt>
+      <dd><p>[Injectable]</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.IFSAuthorization.html">IFSAuthorization</a></dt>
+      <dd><p>[Injectable]</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.IRegisterUnitsProvider.html">IRegisterUnitsProvider</a></dt>
+      <dd><p>[Injectable]
+Stellt eine Schnittstelle zum Bereitstellen von Geschäftseinheiten bereit.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.IRuntimeLicensePermissionEvaluator.html">IRuntimeLicensePermissionEvaluator</a></dt>
+      <dd><p>[Injectable]
+Prüft die Lizensierung von AccessUnits.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.IRuntimeLicensePermissionProvider.html">IRuntimeLicensePermissionProvider</a></dt>
+      <dd><p>[Injectable]
+Ein Provider für die Lizenz-Prüfung von AccessUnits.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.IRuntimeLicenseVerifier.html">IRuntimeLicenseVerifier</a></dt>
+      <dd><p>[Injectable]</p>
 </dd>
     </dl>
     <h3 id="enums">
@@ -121,8 +205,16 @@ Enums
 </h3>
     <dl class="jumplist">
       <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.AUPermissionType.html">AUPermissionType</a></dt>
-      <dd><p>Das AUPermissionType Enum kann z.B. in <a class="xref" href="FS.Hosting.Shared.AccessControl.AUHelper.Granted.html#FS_Hosting_Shared_AccessControl_AUHelper_Granted_FS_Hosting_Shared_AccessControl_AccessUnit_FS_Hosting_Shared_AccessControl_AUPermissionType_">Granted(AccessUnit, AUPermissionType)</a> verwendet werden.</p>
+      <dd><p>Das AUPermissionType Enum kann z.B. in <a class="xref" href="FS.Hosting.Shared.AccessControl.AccessUnit.html">Granted(AccessUnit, AUPermissionType)</a> verwendet werden.</p>
 </dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.AuGrantedResult.html">AuGrantedResult</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.AuthenticationResult.AuthenticationStatus.html">AuthenticationResult.AuthenticationStatus</a></dt>
+      <dd></dd>
     </dl>
 
 

@@ -89,7 +89,7 @@
 
 
   <h1 id="FS_Hosting_Shared_FSServiceProvider" data-uid="FS.Hosting.Shared.FSServiceProvider" class="text-break">
-Class FSServiceProvider  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L6"><i class="bi bi-code-slash"></i></a>
+Class FSServiceProvider  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L7"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -171,8 +171,31 @@ Wenn es bereits einen aktiven Scope gibt, wird dieser verwendet.</p>
 </dd>
   </dl>
   <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.FSServiceProvider.CreateScope.html#FS_Hosting_Shared_FSServiceProvider_CreateScope_FS_Hosting_Shared_GlobalObj_IGlobalObjects_">CreateScope(IGlobalObjects)</a></dt>
+    <dd><p>Erzeugt einen neuen Service-Scope, welcher von <a class="xref" href="FS.Hosting.Shared.FSServiceProvider.Current.html#FS_Hosting_Shared_FSServiceProvider_Current">Current</a> verwendet wird.
+Das übergebene <code class="paramref">global</code> wird im <a class="xref" href="FS.Hosting.Shared.GlobalObj.GlobalContext.html">GlobalContext</a> gesetzt.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.FSServiceProvider.CreateUserControlledScope.html#FS_Hosting_Shared_FSServiceProvider_CreateUserControlledScope">CreateUserControlledScope()</a></dt>
+    <dd><p>Erzeugt einen neuen benutzerkontrollierten Service-Scope.
+Damit <a class="xref" href="FS.Hosting.Shared.FSServiceProvider.Current.html#FS_Hosting_Shared_FSServiceProvider_Current">Current</a> diesen Scope verwendet, muss dieser mit <a class="xref" href="FS.Hosting.Shared.FSServiceProvider.UseScope.html#FS_Hosting_Shared_FSServiceProvider_UseScope_FS_Hosting_Shared_IUserControlledScope_">UseScope(IUserControlledScope)</a> aktiviert werden.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
     <dt><a class="xref" href="FS.Hosting.Shared.FSServiceProvider.Initialize.html#FS_Hosting_Shared_FSServiceProvider_Initialize_System_IServiceProvider_">Initialize(IServiceProvider)</a></dt>
     <dd><p>Initialisiert den FSServiceProvider mit dem übergebenen Root Service-Provider.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.FSServiceProvider.UseScope.html#FS_Hosting_Shared_FSServiceProvider_UseScope_FS_Hosting_Shared_IUserControlledScope_">UseScope(IUserControlledScope)</a></dt>
+    <dd><p><a class="xref" href="FS.Hosting.Shared.FSServiceProvider.Current.html#FS_Hosting_Shared_FSServiceProvider_Current">Current</a> verwendet den mit <a class="xref" href="FS.Hosting.Shared.FSServiceProvider.CreateUserControlledScope.html#FS_Hosting_Shared_FSServiceProvider_CreateUserControlledScope">CreateUserControlledScope()</a> erstellten ServiceProvider-Scope.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.FSServiceProvider.UseScope.html#FS_Hosting_Shared_FSServiceProvider_UseScope_FS_Hosting_Shared_IUserControlledScope_FS_Hosting_Shared_GlobalObj_IGlobalObjects_">UseScope(IUserControlledScope, IGlobalObjects)</a></dt>
+    <dd><p><a class="xref" href="FS.Hosting.Shared.FSServiceProvider.Current.html#FS_Hosting_Shared_FSServiceProvider_Current">Current</a> verwendet den mit <a class="xref" href="FS.Hosting.Shared.FSServiceProvider.CreateUserControlledScope.html#FS_Hosting_Shared_FSServiceProvider_CreateUserControlledScope">CreateUserControlledScope()</a> erstellten ServiceProvider-Scope und
+<a class="xref" href="FS.Hosting.Shared.GlobalObj.GlobalContext.html">GlobalContext</a> verwendet das übergebene <code class="paramref">global</code>.</p>
 </dd>
   </dl>
   <dl class="jumplist">

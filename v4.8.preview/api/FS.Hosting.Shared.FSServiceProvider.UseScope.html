@@ -91,7 +91,7 @@
 
 
 <h1 id="FS_Hosting_Shared_FSServiceProvider_UseScope_" data-uid="FS.Hosting.Shared.FSServiceProvider.UseScope*" class="text-break">
-Method UseScope  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L67"><i class="bi bi-code-slash"></i></a>
+Method UseScope  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L72"><i class="bi bi-code-slash"></i></a>
 </h1>
 
 <div class="facts text-secondary">
@@ -121,7 +121,7 @@ Method UseScope  <a class="header-action link-secondary" title="View source" hre
 
 <h3 id="FS_Hosting_Shared_FSServiceProvider_UseScope_System_IServiceProvider_" data-uid="FS.Hosting.Shared.FSServiceProvider.UseScope(System.IServiceProvider)">
   UseScope(IServiceProvider)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L67"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L72"><i class="bi bi-code-slash"></i></a>
 </h3>
 
 <div class="markdown level1 summary"><p><a class="xref" href="FS.Hosting.Shared.FSServiceProvider.Current.html#FS_Hosting_Shared_FSServiceProvider_Current">Current</a> verwendet den Service-Provider eines bestehenden Service-Scopes.</p>
@@ -135,6 +135,83 @@ Method UseScope  <a class="header-action link-secondary" title="View source" hre
 <h4 class="section">Parameters</h4>
 <dl class="parameters">
   <dt><code>scopedServiceProvider</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider">IServiceProvider</a></dt>
+  <dd></dd>
+</dl>
+
+<h4 class="section">Returns</h4>
+<dl class="parameters">
+  <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></dt>
+  <dd></dd>
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<a id="FS_Hosting_Shared_FSServiceProvider_UseScope_" data-uid="FS.Hosting.Shared.FSServiceProvider.UseScope*"></a>
+
+<h3 id="FS_Hosting_Shared_FSServiceProvider_UseScope_FS_Hosting_Shared_IUserControlledScope_" data-uid="FS.Hosting.Shared.FSServiceProvider.UseScope(FS.Hosting.Shared.IUserControlledScope)">
+  UseScope(IUserControlledScope)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L108"><i class="bi bi-code-slash"></i></a>
+</h3>
+
+<div class="markdown level1 summary"><p><a class="xref" href="FS.Hosting.Shared.FSServiceProvider.Current.html#FS_Hosting_Shared_FSServiceProvider_Current">Current</a> verwendet den mit <a class="xref" href="FS.Hosting.Shared.FSServiceProvider.CreateUserControlledScope.html#FS_Hosting_Shared_FSServiceProvider_CreateUserControlledScope">CreateUserControlledScope()</a> erstellten ServiceProvider-Scope.</p>
+</div>
+<div class="markdown level1 conceptual"></div>
+
+<div class="codewrapper">
+  <pre><code class="lang-csharp hljs">public static IDisposable UseScope(IUserControlledScope scope)</code></pre>
+</div>
+
+<h4 class="section">Parameters</h4>
+<dl class="parameters">
+  <dt><code>scope</code> <a class="xref" href="FS.Hosting.Shared.IUserControlledScope.html">IUserControlledScope</a></dt>
+  <dd></dd>
+</dl>
+
+<h4 class="section">Returns</h4>
+<dl class="parameters">
+  <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></dt>
+  <dd></dd>
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+<a id="FS_Hosting_Shared_FSServiceProvider_UseScope_" data-uid="FS.Hosting.Shared.FSServiceProvider.UseScope*"></a>
+
+<h3 id="FS_Hosting_Shared_FSServiceProvider_UseScope_FS_Hosting_Shared_IUserControlledScope_FS_Hosting_Shared_GlobalObj_IGlobalObjects_" data-uid="FS.Hosting.Shared.FSServiceProvider.UseScope(FS.Hosting.Shared.IUserControlledScope,FS.Hosting.Shared.GlobalObj.IGlobalObjects)">
+  UseScope(IUserControlledScope, IGlobalObjects)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L115"><i class="bi bi-code-slash"></i></a>
+</h3>
+
+<div class="markdown level1 summary"><p><a class="xref" href="FS.Hosting.Shared.FSServiceProvider.Current.html#FS_Hosting_Shared_FSServiceProvider_Current">Current</a> verwendet den mit <a class="xref" href="FS.Hosting.Shared.FSServiceProvider.CreateUserControlledScope.html#FS_Hosting_Shared_FSServiceProvider_CreateUserControlledScope">CreateUserControlledScope()</a> erstellten ServiceProvider-Scope und
+<a class="xref" href="FS.Hosting.Shared.GlobalObj.GlobalContext.html">GlobalContext</a> verwendet das übergebene <code class="paramref">global</code>.</p>
+</div>
+<div class="markdown level1 conceptual"></div>
+
+<div class="codewrapper">
+  <pre><code class="lang-csharp hljs">public static IDisposable UseScope(IUserControlledScope scope, IGlobalObjects global)</code></pre>
+</div>
+
+<h4 class="section">Parameters</h4>
+<dl class="parameters">
+  <dt><code>scope</code> <a class="xref" href="FS.Hosting.Shared.IUserControlledScope.html">IUserControlledScope</a></dt>
+  <dd></dd>
+  <dt><code>global</code> <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.html">IGlobalObjects</a></dt>
   <dd></dd>
 </dl>
 

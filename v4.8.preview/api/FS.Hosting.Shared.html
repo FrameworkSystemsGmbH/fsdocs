@@ -117,6 +117,10 @@ um solche Link-Kommandos zu erstellen und auszuwerten.</p>
 </dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.FSApplicationException.html">FSApplicationException</a></dt>
+      <dd></dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="FS.Hosting.Shared.FSCache.html">FSCache</a></dt>
       <dd></dd>
     </dl>
@@ -134,6 +138,11 @@ da der Client diesbezüglich in kurzen, zeitlichen Abständen Anfragen an den Se
     <dl class="jumplist">
       <dt><a class="xref" href="FS.Hosting.Shared.FrameworkQueryOptions.html">FrameworkQueryOptions</a></dt>
       <dd></dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.IDBConnectionScope_Extensions.html">IDBConnectionScope_Extensions</a></dt>
+      <dd><p>Erweiterungsmethoden für <a class="xref" href="FS.Hosting.Shared.IDBConnectionScope.html">IDBConnectionScope</a>, um Datenbankverbindungen zu erhalten.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="FS.Hosting.Shared.PropertyNotFoundException.html">PropertyNotFoundException</a></dt>
@@ -155,6 +164,38 @@ soweit dieser existiert.</p>
     <h3 id="interfaces">
 Interfaces
 </h3>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.IDBConnectionFactory.html">IDBConnectionFactory</a></dt>
+      <dd><p>[Injectable]
+Schnittstelle für eine Factory, die FrameworkDataConnection-Objekte erzeugt.
+Implementierungen dieser Schnittstelle ermöglichen die Erstellung von Datenbankverbindungen
+basierend auf einer angegebenen Datenquelle oder einer konfigurierten ConnectionGroup.</p>
+<p>Hiermit erzeugte Connections müssen manuell disposed werden.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.IDBConnectionScope.html">IDBConnectionScope</a></dt>
+      <dd><p>[Injectable]
+Schnittstelle für einen Datenbank-Verbindungskontext.
+Ermöglicht die Verwaltung und Bereitstellung von
+Datenbankverbindungen innerhalb eines definierten Scopes, z.B. für die Dauer einer Anfrage/Request.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.IDBPerformanceCounter.html">IDBPerformanceCounter</a></dt>
+      <dd><p>Schnittstelle für die Erfassung von Leistungsdaten bei Datenbankzugriffen.
+Stellt Zähler und Zeitmessungen für Verbindungs- und Ausführungsoperationen bereit.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.IDBPerformanceCounterStore.html">IDBPerformanceCounterStore</a></dt>
+      <dd><p>[Injectable]
+Verwaltet Informationen über die DB Performance pro SessionId.
+Fügt neue <a class="xref" href="FS.Hosting.Shared.IDBPerformanceCounter.html">IDBPerformanceCounter</a>-Instanzen hinzu oder aktualisiert bestehende,
+indem die Werte des hinzuzufügenden Zählers mit dem vorhandenen gemerged werden.
+Ermöglicht das Abrufen der Leistungsdaten für eine bestimmte SessionId.</p>
+</dd>
+    </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="FS.Hosting.Shared.IDevFrameworkBaseObject.html">IDevFrameworkBaseObject</a></dt>
       <dd></dd>
@@ -181,6 +222,12 @@ Interfaces
       <dd></dd>
     </dl>
     <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.IFSAppStartupHook.html">IFSAppStartupHook</a></dt>
+      <dd><p>[Injectable]
+Dieser Hook wird beim Start der Application ausgeführt.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
       <dt><a class="xref" href="FS.Hosting.Shared.IFSCache.html">IFSCache</a></dt>
       <dd><p>Infrastruktur zum mehrstufige Cachen von Informationen.</p>
 <p>Siehe auch <a href="../doc/konzepte/fscache.html">FSCache</a>.</p>
@@ -188,7 +235,10 @@ Interfaces
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="FS.Hosting.Shared.IFSServiceRegistrar.html">IFSServiceRegistrar</a></dt>
-      <dd></dd>
+      <dd><p>Ermöglicht das Registrieren von Services im DI-Container.
+Dazu wird eine Routine beim Application Startup ausgeführt, die alle ModComps,
+die den IFSServiceRegistrar implementieren, sammelt und deren <a class="xref" href="FS.Hosting.Shared.IFSServiceRegistrar.RegisterServices.html#FS_Hosting_Shared_IFSServiceRegistrar_RegisterServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_">RegisterServices(IServiceCollection)</a> aufruft.</p>
+</dd>
     </dl>
     <dl class="jumplist">
       <dt><a class="xref" href="FS.Hosting.Shared.IFrameworkBarcodeScanInfo.html">IFrameworkBarcodeScanInfo</a></dt>
@@ -246,6 +296,11 @@ die über den Primärschlüssel vom Typ TPK eindeutig identifiziert werden könn
 Der Cache implementiert IEnumerable&lt;TObj&gt;.
 Der Cache ist NICHT Thread-Save.
 Methoden dürfen nur aus dem Thread des übergebenen GlobalObjects heraus aufgerufen werden.</p>
+</dd>
+    </dl>
+    <dl class="jumplist">
+      <dt><a class="xref" href="FS.Hosting.Shared.IUserControlledScope.html">IUserControlledScope</a></dt>
+      <dd><p>Wird von der Methode <a class="xref" href="FS.Hosting.Shared.FSServiceProvider.CreateUserControlledScope.html#FS_Hosting_Shared_FSServiceProvider_CreateUserControlledScope">CreateUserControlledScope()</a> zurückgegeben und steuert die Lebensdauer eines Service-Scopes.</p>
 </dd>
     </dl>
     <h3 id="enums">

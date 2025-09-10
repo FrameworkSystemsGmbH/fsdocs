@@ -89,7 +89,7 @@
 
 
   <h1 id="FS_Hosting_Shared_GlobalObj_IGlobalObjects" data-uid="FS.Hosting.Shared.GlobalObj.IGlobalObjects" class="text-break">
-Interface IGlobalObjects  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/GlobalObj/GlobalObjects.cs/#L1093"><i class="bi bi-code-slash"></i></a>
+Interface IGlobalObjects  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/GlobalObj/GlobalObjects.cs/#L933"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -176,12 +176,6 @@ Mit der Methode <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects
 </dd>
   </dl>
   <dl class="jumplist">
-    <dt><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.RequestCancellationToken.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_RequestCancellationToken">RequestCancellationToken</a></dt>
-    <dd><p>Dieser CancellationToken wird abgebrochen wenn der aktuelle Request beendet bzw. das GlobalObject disposed wird.
-Wird der aktuelle Token mit dem Ende des Requests abgebrochen wird anschließend ein neuer Token für den nachfolgenden Request zurückgegeben.</p>
-</dd>
-  </dl>
-  <dl class="jumplist">
     <dt><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.SafeInitializing.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_SafeInitializing">SafeInitializing</a></dt>
     <dd><p>Gibt zurück, ob der Safe-Initialize-Modus aktiv ist.
 Dieser Modus wird mithilfe einer Einstellung im Start-Workflow aktiviert.</p>
@@ -224,11 +218,6 @@ sondern aus dem View, der die Originaltabelle mit der Historientabelle vereint.<
 </h2>
 
   <dl class="jumplist">
-    <dt><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CancelRequestCancellationToken.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_CancelRequestCancellationToken">CancelRequestCancellationToken()</a></dt>
-    <dd><p>Bricht den aktuellen <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.RequestCancellationToken.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_RequestCancellationToken">RequestCancellationToken</a> ab und startet sofort einen neuen für den folgenden Request.</p>
-</dd>
-  </dl>
-  <dl class="jumplist">
     <dt><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.ClearDynamicDragSources.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ClearDynamicDragSources">ClearDynamicDragSources()</a></dt>
     <dd></dd>
   </dl>
@@ -262,12 +251,6 @@ in die neue Sitzung übernommen und es ist kein erneuter Login erforderlich.</p>
     <dd><p>Schließt die Anwendung unmittelbar. Es wird keine weitere Prüfung durchgeführt und der
 Benutzer hat keine Möglichkeit die Aktion abzubrechen. Am Client wird dabei die übergebene
 Message ausgegeben.</p>
-</dd>
-  </dl>
-  <dl class="jumplist">
-    <dt><a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.CloseConnection.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_CloseConnection">CloseConnection()</a></dt>
-    <dd><p>Schließt die Connections.</p>
-<p>Im Service-Context sollte diese Methode am Ende eines Requests aufgerufen werden, damit die DB-Connections nicht dauerhaft blockiert werden.</p>
 </dd>
   </dl>
   <dl class="jumplist">

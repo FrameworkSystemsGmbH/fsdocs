@@ -91,7 +91,7 @@
 
 
 <h1 id="FS_Hosting_Shared_FSServiceProvider_CreateScope_" data-uid="FS.Hosting.Shared.FSServiceProvider.CreateScope*" class="text-break">
-Method CreateScope  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L47"><i class="bi bi-code-slash"></i></a>
+Method CreateScope  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L50"><i class="bi bi-code-slash"></i></a>
 </h1>
 
 <div class="facts text-secondary">
@@ -121,7 +121,7 @@ Method CreateScope  <a class="header-action link-secondary" title="View source" 
 
 <h3 id="FS_Hosting_Shared_FSServiceProvider_CreateScope" data-uid="FS.Hosting.Shared.FSServiceProvider.CreateScope">
   CreateScope()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L47"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L50"><i class="bi bi-code-slash"></i></a>
 </h3>
 
 <div class="markdown level1 summary"><p>Erzeugt einen neuen Service-Scope, welcher von <a class="xref" href="FS.Hosting.Shared.FSServiceProvider.Current.html#FS_Hosting_Shared_FSServiceProvider_Current">Current</a> verwendet wird.</p>
@@ -146,8 +146,60 @@ Method CreateScope  <a class="header-action link-secondary" title="View source" 
 
 
 <h4 class="section" id="FS_Hosting_Shared_FSServiceProvider_CreateScope_remarks">Remarks</h4>
-<div class="markdown level1 remarks"><p>Bei verschachtelten Aufrufen erzeugt diese Methode jeweils einen neuen Service-Scope. Dieser gilt dann bis zum Dispose.
+<div class="markdown level1 remarks"><p> Bei verschachtelten Aufrufen erzeugt diese Methode jeweils einen neuen Service-Scope. Dieser gilt dann bis zum Dispose.
 Ist das nicht gewünscht, dann <a class="xref" href="FS.Hosting.Shared.FSServiceProvider.CreateOrUseScope.html#FS_Hosting_Shared_FSServiceProvider_CreateOrUseScope">CreateOrUseScope()</a> verwenden.</p>
+<p> Innerhalb des <code>using</code>-Blocks dürfen keine asynchronen Tasks gestartet werden, die über diesen Block hinaus laufen.
+Mit dem Dispose des Scopes wird dieser zerstört und die Tasks können ihn nicht mehr verwenden. </p>
+</div>
+
+<h4 class="section">Exceptions</h4>
+<dl class="parameters">
+  <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.invalidoperationexception">InvalidOperationException</a></dt>
+  <dd><p>Wird ausgelöst, wenn kein <a class="xref" href="FS.Hosting.Shared.FSServiceProvider.Initialize.html#FS_Hosting_Shared_FSServiceProvider_Initialize_System_IServiceProvider_">Initialize(IServiceProvider)</a> durchgeführt wurde.</p>
+</dd>
+</dl>
+
+
+
+<a id="FS_Hosting_Shared_FSServiceProvider_CreateScope_" data-uid="FS.Hosting.Shared.FSServiceProvider.CreateScope*"></a>
+
+<h3 id="FS_Hosting_Shared_FSServiceProvider_CreateScope_FS_Hosting_Shared_GlobalObj_IGlobalObjects_" data-uid="FS.Hosting.Shared.FSServiceProvider.CreateScope(FS.Hosting.Shared.GlobalObj.IGlobalObjects)">
+  CreateScope(IGlobalObjects)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L88"><i class="bi bi-code-slash"></i></a>
+</h3>
+
+<div class="markdown level1 summary"><p>Erzeugt einen neuen Service-Scope, welcher von <a class="xref" href="FS.Hosting.Shared.FSServiceProvider.Current.html#FS_Hosting_Shared_FSServiceProvider_Current">Current</a> verwendet wird.
+Das übergebene <code class="paramref">global</code> wird im <a class="xref" href="FS.Hosting.Shared.GlobalObj.GlobalContext.html">GlobalContext</a> gesetzt.</p>
+</div>
+<div class="markdown level1 conceptual"></div>
+
+<div class="codewrapper">
+  <pre><code class="lang-csharp hljs">public static IDisposable CreateScope(IGlobalObjects global)</code></pre>
+</div>
+
+<h4 class="section">Parameters</h4>
+<dl class="parameters">
+  <dt><code>global</code> <a class="xref" href="FS.Hosting.Shared.GlobalObj.IGlobalObjects.html">IGlobalObjects</a></dt>
+  <dd></dd>
+</dl>
+
+<h4 class="section">Returns</h4>
+<dl class="parameters">
+  <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.idisposable">IDisposable</a></dt>
+  <dd></dd>
+</dl>
+
+
+
+
+
+
+
+<h4 class="section" id="FS_Hosting_Shared_FSServiceProvider_CreateScope_FS_Hosting_Shared_GlobalObj_IGlobalObjects__remarks">Remarks</h4>
+<div class="markdown level1 remarks"><p> Bei verschachtelten Aufrufen erzeugt diese Methode jeweils einen neuen Service-Scope. Dieser gilt dann bis zum Dispose.
+Ist das nicht gewünscht, dann <a class="xref" href="FS.Hosting.Shared.FSServiceProvider.CreateOrUseScope.html#FS_Hosting_Shared_FSServiceProvider_CreateOrUseScope">CreateOrUseScope()</a> verwenden.</p>
+<p> Innerhalb des <code>using</code>-Blocks dürfen keine asynchronen Tasks gestartet werden, die über diesen Block hinaus laufen.
+Mit dem Dispose des Scopes wird dieser zerstört und die Tasks können ihn nicht mehr verwenden. </p>
 </div>
 
 <h4 class="section">Exceptions</h4>

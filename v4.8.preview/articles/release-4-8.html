@@ -87,7 +87,7 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-48">Release-Information Framework Studio 4.8</h1>
 
-<h2 id="480-preview-">4.8.0 Preview ???</h2>
+<h2 id="480-preview-20250829">4.8.0 Preview 20250829</h2>
 <ul>
 <li>Treten beim Start eines DevBrokers oder eines DevServices Exceptions auf – z.B. bei der Initialisierung des DI-Containers – werden diese im Output-Window ausgegeben, bevor sich der jeweilige Prozess wieder beendet.
 Darüber hinaus reagiert die IDE in so einem Fall jetzt sofort – es dauert keine 10 Sekunden mehr bis zur Fehlermeldung.</li>
@@ -105,10 +105,10 @@ Darüber hinaus reagiert die IDE in so einem Fall jetzt sofort – es dauert kei
 <h2 id="480-preview-20250716">4.8.0 Preview 20250716</h2>
 <h3 id="dependency-injection-in-fs">Dependency Injection in FS</h3>
 <p>Für die Verwendung von Dependency Injection in FS steht nun der erste Teil der neuen Infrasturktur bereit.</p>
-<p>Hierfür gibt es unternadem die folgenden neuen Klassen:</p>
+<p>Hierfür gibt es unter Anderem die folgenden neuen Klassen:</p>
 <ul>
 <li><a class="xref" href="../api/FS.Hosting.Shared.FSServiceProvider.html">FSServiceProvider</a>: Stellt sowohl den Zugriff auf den derzeit verwendbaren ServiceProvider (<a class="xref" href="../api/FS.Hosting.Shared.FSServiceProvider.Current.html#FS_Hosting_Shared_FSServiceProvider_Current">Current</a>) bereit, als auch Methoden, um einen Scope zu erstellen oder einen bereits vorhandenen Scope zu verwenden - <a class="xref" href="../api/FS.Hosting.Shared.FSServiceProvider.CreateOrUseScope.html#FS_Hosting_Shared_FSServiceProvider_CreateOrUseScope">CreateOrUseScope</a>.
-Über z.B. <code>FSServiceProvider.Current.GetRequiredService&lt;IRuntimeLicensePermissionEvaluator&gt;().Granted(AU)</code> kann auf den entsprechenden Service zugegriffen werden und überprüft werden, ob die übergebene AccessUnit lizensiert ist.</li>
+Über z.B. <code>FSServiceProvider.Current.GetRequiredService&lt;IRuntimeLicensePermissionEvaluator&gt;().Granted(AU)</code> kann auf den entsprechenden Service zugegriffen werden und überprüft werden, ob die übergebene AccessUnit lizenziert ist.</li>
 <li><a class="xref" href="../api/FS.Hosting.Shared.IFSServiceRegistrar.html">IFSServiceRegistrar</a>: Dieses Interface ermöglicht das Registrieren von eigenen Services am genannten ServiceProvider. Elemente im Bereich der Interface/Components/Services werden nach diesem Interface durchsucht und die Methode <a class="xref" href="../api/FS.Hosting.Shared.IFSServiceRegistrar.RegisterServices.html#FS_Hosting_Shared_IFSServiceRegistrar_RegisterServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_">RegisterServices(IServiceCollection)</a> aufgerufen.</li>
 </ul>
 <p><strong>Definition &quot;Scope&quot;:</strong>

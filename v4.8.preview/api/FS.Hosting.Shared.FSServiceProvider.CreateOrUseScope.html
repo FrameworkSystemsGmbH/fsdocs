@@ -91,7 +91,7 @@
 
 
 <h1 id="FS_Hosting_Shared_FSServiceProvider_CreateOrUseScope_" data-uid="FS.Hosting.Shared.FSServiceProvider.CreateOrUseScope*" class="text-break">
-Method CreateOrUseScope  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L61"><i class="bi bi-code-slash"></i></a>
+Method CreateOrUseScope  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L66"><i class="bi bi-code-slash"></i></a>
 </h1>
 
 <div class="facts text-secondary">
@@ -121,7 +121,7 @@ Method CreateOrUseScope  <a class="header-action link-secondary" title="View sou
 
 <h3 id="FS_Hosting_Shared_FSServiceProvider_CreateOrUseScope" data-uid="FS.Hosting.Shared.FSServiceProvider.CreateOrUseScope">
   CreateOrUseScope()
-  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L61"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/FSServiceProvider.cs/#L66"><i class="bi bi-code-slash"></i></a>
 </h3>
 
 <div class="markdown level1 summary"><p>Erzeugt einen neuen Service-Scope, welcher von <a class="xref" href="FS.Hosting.Shared.FSServiceProvider.Current.html#FS_Hosting_Shared_FSServiceProvider_Current">Current</a> verwendet wird.
@@ -149,6 +149,8 @@ Wenn es bereits einen aktiven Scope gibt, wird dieser verwendet.</p>
 <h4 class="section" id="FS_Hosting_Shared_FSServiceProvider_CreateOrUseScope_remarks">Remarks</h4>
 <div class="markdown level1 remarks"><p>Im Gegensatz zu <a class="xref" href="FS.Hosting.Shared.FSServiceProvider.CreateScope.html#FS_Hosting_Shared_FSServiceProvider_CreateScope">CreateScope()</a> erzeugt diese Methode bei verschachtelten Aufrufen keine
 verschachtelten Service-Scopes.</p>
+<p> Innerhalb des <code>using</code>-Blocks dürfen keine asynchronen Tasks gestartet werden, die über diesen Block hinaus laufen.
+Mit dem Dispose des Scopes wird dieser ggf. zerstört und die Tasks können ihn nicht mehr verwenden. </p>
 </div>
 
 <h4 class="section">Exceptions</h4>

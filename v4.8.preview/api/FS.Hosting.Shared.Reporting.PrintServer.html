@@ -6,7 +6,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <meta name="title" content="Class PrintServer ">
       
-      <meta name="description" content="Diese Klasse dient dazu die bestehenden Print-Server zu ermitteln und Transaktionen an einem Print-Server zu steuern.">
+      <meta name="description" content="Repr&#228;sentiert einen PrintServer mit seinen grundlegenden Eigenschaften.">
       <link rel="icon" href="../favicon.ico">
       <link rel="stylesheet" href="../public/docfx.min.css">
       <link rel="stylesheet" href="../public/main.css">
@@ -89,7 +89,7 @@
 
 
   <h1 id="FS_Hosting_Shared_Reporting_PrintServer" data-uid="FS.Hosting.Shared.Reporting.PrintServer" class="text-break">
-Class PrintServer  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/Reporting/PrintServer.cs/#L15"><i class="bi bi-code-slash"></i></a>
+Class PrintServer  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/Reporting/PrintServer.cs/#L12"><i class="bi bi-code-slash"></i></a>
   </h1>
 
   <div class="facts text-secondary">
@@ -97,7 +97,7 @@ Class PrintServer  <a class="header-action link-secondary" title="View source" h
   <dl><dt>Assembly</dt><dd>FS.Hosting.Shared.dll</dd></dl>
   </div>
 
-  <div class="markdown summary"><p>Diese Klasse dient dazu die bestehenden Print-Server zu ermitteln und Transaktionen an einem Print-Server zu steuern.</p>
+  <div class="markdown summary"><p>Repräsentiert einen PrintServer mit seinen grundlegenden Eigenschaften.</p>
 </div>
   <div class="markdown conceptual"></div>
 
@@ -148,39 +148,25 @@ Class PrintServer  <a class="header-action link-secondary" title="View source" h
 
 
 
-  <h2 class="section" id="methods">Methods
+  <h2 class="section" id="properties">Properties
 </h2>
 
   <dl class="jumplist">
-    <dt><a class="xref" href="FS.Hosting.Shared.Reporting.PrintServer.CommitTransaction.html#FS_Hosting_Shared_Reporting_PrintServer_CommitTransaction_FS_Shared_BaseObjects_guid_">CommitTransaction(guid)</a></dt>
-    <dd><p>Bestätigt die Print-Transaktion.</p>
+    <dt><a class="xref" href="FS.Hosting.Shared.Reporting.PrintServer.Name.html#FS_Hosting_Shared_Reporting_PrintServer_Name">Name</a></dt>
+    <dd><p>Gibt den Namen des PrintServers zurück.
+Der Name dient zur benutzerfreundlichen Identifikation des PrintServers.</p>
 </dd>
   </dl>
   <dl class="jumplist">
-    <dt><a class="xref" href="FS.Hosting.Shared.Reporting.PrintServer.CreateTransaction.html#FS_Hosting_Shared_Reporting_PrintServer_CreateTransaction">CreateTransaction()</a></dt>
-    <dd><p>Erzeugt eine neue Print-Transaktion.</p>
+    <dt><a class="xref" href="FS.Hosting.Shared.Reporting.PrintServer.PrintServerId.html#FS_Hosting_Shared_Reporting_PrintServer_PrintServerId">PrintServerId</a></dt>
+    <dd><p>Gibt die eindeutige ID des PrintServers zurück.
+Diese ID wird zur Identifikation des PrintServers in Druckoperationen verwendet.</p>
 </dd>
   </dl>
   <dl class="jumplist">
-    <dt><a class="xref" href="FS.Hosting.Shared.Reporting.PrintServer.GetPrintServers.html#FS_Hosting_Shared_Reporting_PrintServer_GetPrintServers_FS_Hosting_Shared_GlobalObj_IGlobalObjects_">GetPrintServers(IGlobalObjects)</a></dt>
-    <dd><p>Liefert eine Liste der im Runtime-Datenbank registrierten Print-Server zurück.</p>
-</dd>
-  </dl>
-  <dl class="jumplist">
-    <dt><a class="xref" href="FS.Hosting.Shared.Reporting.PrintServer.GetPrinters.html#FS_Hosting_Shared_Reporting_PrintServer_GetPrinters">GetPrinters()</a></dt>
-    <dd><p>Liefert eine Liste mit Druckern des Print-Servers, die in der Runtime-Datenbank registriert sind.
-Als gelöscht markierte Drucker werden nicht zurückgegeben.</p>
-</dd>
-  </dl>
-  <dl class="jumplist">
-    <dt><a class="xref" href="FS.Hosting.Shared.Reporting.PrintServer.GetPrinters.html#FS_Hosting_Shared_Reporting_PrintServer_GetPrinters_FS_Hosting_Shared_GlobalObj_IGlobalObjects_FS_Shared_BaseObjects_guid_">GetPrinters(IGlobalObjects, guid)</a></dt>
-    <dd><p>Liefert eine Liste mit Druckern des Print-Servers, die in der Runtime-Datenbank registriert sind.
-Als gelöscht markierte Drucker werden nicht zurückgegeben.</p>
-</dd>
-  </dl>
-  <dl class="jumplist">
-    <dt><a class="xref" href="FS.Hosting.Shared.Reporting.PrintServer.RollbackTransaction.html#FS_Hosting_Shared_Reporting_PrintServer_RollbackTransaction_FS_Shared_BaseObjects_guid_">RollbackTransaction(guid)</a></dt>
-    <dd><p>Rollt die Print-Transaktion zurück.</p>
+    <dt><a class="xref" href="FS.Hosting.Shared.Reporting.PrintServer.State.html#FS_Hosting_Shared_Reporting_PrintServer_State">State</a></dt>
+    <dd><p>Gibt den aktuellen Status des PrintServers zurück oder legt diesen fest.
+Der Status gibt Auskunft über den Betriebszustand des PrintServers.</p>
 </dd>
   </dl>
 

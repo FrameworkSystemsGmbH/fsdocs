@@ -94,11 +94,9 @@
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
-<p>Mehrere Kunden haben Abstürze beim Start von Framework Studio gemeldet.
-Die IDE beendet sich beim Anzeigen des Hauptfensters, im Ereignisprotokoll erscheint der Fehlercode 0xc06d007e.
-Der Fehlercode von Windows ist sehr unspezifisch.
-Wir haben jedoch bei CefSharp Hinweise gefunden, dass es Probleme mit dem CefSharp Browser-Control in Version 138.0.170 in Kombination mit älteren Windows Versionen geben kann.</p>
-<p>Aus diesem Grund haben wir mit dieser Verion 4.5.32 Fix 2 das CefSharp Browser-Control auf die ältere, funktionierende Version 135.0.170 zurückgestuft und hoffen, dass der Fehler behoben ist.</p>
+<ul>
+<li>2025098532 - <strong>IDE</strong>: Mit dem Update des CefSharp Browser-Controls auf die Version 138.0.170 mit dem Patchday vom 05.09.2025 kann es passieren, dass die IDE beim Start abstürzt. Der Fehler tritt auf Windows Server 2016 und 2019 auf, wenn über die Console gearbeitet wird. Über Remotedesktop funktioniert die IDE.</li>
+</ul>
 <h2 id="4532-fix-1-15092025">4.5.32 Fix 1 (15.09.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>

@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/9/docs/articles/release-4-7.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/9-fix1/docs/articles/release-4-7.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,6 +87,16 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
+<h2 id="479-fix-1-17092025">4.7.9 Fix 1 (17.09.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.9_Fix_1_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li>2025098532 - <strong>IDE</strong>: Mit dem Update des CefSharp Browser-Controls auf die Version 138.0.170 mit dem Patchday vom 05.09.2025 kann es passieren, dass die IDE beim Start abstürzt. Der Fehler tritt auf Windows Server 2016 und 2019 auf, wenn über die Console gearbeitet wird. Über Remotedesktop funktioniert die IDE.</li>
+</ul>
 <h2 id="479-05092025">4.7.9 (05.09.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -107,7 +117,7 @@ Ist nun kein DefaultButton angegeben, wird der erste Button in der MessageBox fo
 <ul>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 138.0.170 upgedatet.</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025078300 - <strong>Java-Client</strong>: Es werden zu viele und teilweise irrelevante
 Log-Ausgaben in die Client Launcher Console geschrieben.</p>
@@ -187,7 +197,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li><p><a href="../doc/reporting/devexpress-fax-printers.html">DevExpress - Fax-Drucker über die Drucker-Warteschlange steuern</a></p>
 </li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025078189 - <strong>Broker</strong>: Bei hoher Speicherauslastung im Broker kann es zu
 Memory-Leaks kommen. Grund dafür sind Finalizer an den FS-Objekten.</p>
@@ -231,7 +241,7 @@ bei Oracle auf Fehler.</p>
 </div>
 </li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025068079 - <strong>Broker</strong>: Bei einem Restart mit &quot;angemeldet bleiben&quot; wird der
 UserToken nicht aktualisiert.</p>
@@ -261,7 +271,7 @@ Dies ist auch in den <a href="requirements.html#client-rechner">Requirements</a>
 <ul>
 <li>Events klickbarer Links im JxBrowser, die durch dynamische Änderungen des Doms nach dem ersten Laden hinzugefügt wurden, werden nun auch korrekt gefeuert.</li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025047832 - <strong>Publish2Go</strong>: Bei einer Datenbank-Connection kann es, z.B. im
 Publish2Go, zu einer Fehlermeldung kommen: System.TypeLoadException: Error
@@ -336,7 +346,7 @@ wird beim PackageMerge die Target-Dokumentation mit der Source-Dokumentation
 <h4 id="hinweis-1">Hinweis</h4>
 <p>Es gibt einen neuen Artikel zum Thema &quot;<a href="frequently-asked-questions.html#devexpress-exception-scriptitemizeopentype-in-usp10dll-nicht-gefunden">DevExpress Exception <code>ScriptItemizeOpenType</code> in <code>Usp10.dll</code> nicht gefunden</a>&quot; in unserem FAQ Bereich.
 Dieser Fehler wurde uns nun häufiger gemeldet, deshalb möchten wir Sie bitten unsere derzeitigen <a href="requirements.html">Requirements</a> mit Ihren Systemen zu vergleichen. Testen und führen Sie notwendige Updates durch, falls dies möglich ist.</p>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025037564 - <strong>IDE</strong>: Werden Component- oder DataContract-Properties gelöscht,
 welche in grafischen Transformationen zugeordnet sind, dann fällt diese
@@ -375,7 +385,7 @@ der Fehler &quot;Error while receiving data from broker!&quot; im Browser angeze
 <li>FS_4.7.4_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025037573 - <strong>Java-Client</strong>: Die Tabreihenfolge für Controls unterhalb eines
 Tabbed Windows funktioniert nicht. Die Controls lassen sich nicht
@@ -406,7 +416,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>Der <a href="../doc/sql/grammatik.html#withquery">Sql-Parser</a> versteht jetzt <code>WITH</code>-Statements, auch bekannt als <em>Common Table Expression (CTE)</em>.</li>
 <li>Neue Client-Action <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript.html#FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_System_String_"><code>BrowserControlAction.ExecuteJavaScript()</code></a></li>
 </ul>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025027380 - <strong>Java Client</strong>: Wenn an einer Registerkarte das Event
 <code>OnFirstSelect</code> implementiert ist, dann kann es passieren, dass bei der
@@ -457,7 +467,7 @@ Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
 <li>Bei Klicken auf einen Link im <code>Errors and Warnings</code> Tab wird dieser farblich hervorgehoben, um zu visualisieren, dass der Link bereits besucht wurde.</li>
 <li>Bei den Aktionen <code>Open</code>, <code>Save</code> (im FS Report Designer), sowie <code>Choose Report</code> wird nun das Verzeichnis der tatsächlichen Report-Datei geöffnet, statt das Haupt-Reportverzeichnis.</li>
 </ul>
-<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025017196 - <strong>Reporting</strong>: Im WebDesigner ist der Expression Editor nicht
 nutzbar, da weder Formeln angezeigt noch bearbeitet werden können.</p>
@@ -503,7 +513,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <ul>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 131.3.10 upgedatet.</li>
 </ul>
-<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024127052 - <strong>Java-Client</strong>: Der Fokus eines neu geöffneten Forms geht
 verloren, wenn während des Öffnens ein Event (z.B. SelectedTabPageChanged)
@@ -562,7 +572,7 @@ DB-Korrekturskript nicht mehr verwendet werden.</p>
 <li>FS_4.7.0_Fix_2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
 <ul>
 <li>2024127026 - <strong>Framework</strong>: Wird bei einem Aufruf von <code>Clone()</code> oder <code>AdoptValue()</code> ein
 <code>AdoptMode.NoHistory</code> übergeben, dann wird dieser nicht in den <code>Clone()</code> der Unterobjekte
@@ -575,7 +585,7 @@ nicht korrekt.</li>
 <li>FS_4.7.0_Fix_1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024126996 - <strong>FS-Broker</strong>: Wird im Publish-Setting ein Load-Balancing konfiguriert,
 dann zieht dieses nicht. Die Application startet in diesem Broker anstatt auf die
@@ -599,7 +609,7 @@ Ein Update von diesen Versionen ist nicht möglich.</p>
 </div>
 <h4 id="neuerungen-7">Neuerungen</h4>
 <p>Siehe <a href="neuheiten-4-7.html">Neuheiten Framework Studio 4.7</a>.</p>
-<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#4612-06122024">Framework Studio 4.6.12</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

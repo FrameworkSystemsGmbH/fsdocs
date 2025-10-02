@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/9-fix1/docs/articles/release-4-7.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/10/docs/articles/release-4-7.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,15 +87,58 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
-<h2 id="479-fix-1-17092025">4.7.9 Fix 1 (17.09.2025)</h2>
+<h2 id="4710-06102025">4.7.10 (06.10.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.7.9_Fix_1_Setup_x64</li>
+<li>FS_4.7.10_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Die Generierung des Ordnernamens für das <a href="../doc/ide/anwendung-starten.html#compile-verzeichnis">Compile-Verzeichnis</a> wurde angepasst, sodass bei zu großer Länge ein Teil durch einen kurzen Hash ersetzt wird.</li>
+<li><a href="../doc/reporting/devexpress-fax-printers.html">DevExpress Fax-Steuerung</a> - das Label kann im SubReport platziert werden.</li>
+<li>Bei der Maintenance Routine <a href="../doc/maintenance/code-replace-cleanup.html">Code Replace Cleanup</a> wird der Replace Text nun als Multitline Text angezeigt.</li>
+</ul>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
-<li>2025098532 - <strong>IDE</strong>: Mit dem Update des CefSharp Browser-Controls auf die Version 138.0.170 mit dem Patchday vom 05.09.2025 kann es passieren, dass die IDE beim Start abstürzt. Der Fehler tritt auf Windows Server 2016 und 2019 auf, wenn über die Console gearbeitet wird. Über Remotedesktop funktioniert die IDE.</li>
+<li><p>2025098475 - <strong>Broker</strong>: Wenn im Text oder im DetailText eines
+FrameworkProgress bestimmte Zeichen, die im XML nicht erlaubt sind (z.B.
+ASCII Steuerzeichen), enthalten sind, kommt es zu einer Exception.</p>
+</li>
+<li><p>2025098461 - <strong>IDE</strong>: Im Service-Release Modus können an einem MDT Format und
+Format-Pattern nicht geändert werden. Die Datentypen hingegen lassen sich
+ändern, was zu Laufzeitfehlern führen kann.</p>
+</li>
+<li><p>2025098477 - <strong>IDE</strong>: Im &quot;Choose Namespace&quot;/&quot;Change base&quot;-Dialog ist der
+Bestätigungsbutton &quot;Choose&quot; an der Stelle, an welcher Dialoge normalerweise
+mit &quot;Cancel&quot; abgebrochen werden.</p>
+</li>
+<li><p>2025098488 - <strong>IDE</strong>: Die Code-Dokumentation, die über die Intellisense in FS
+angezeigt wird, versteht <code>&lt;paramref name=&quot;...&quot;/&gt;</code> und <code>&lt;see langword=&quot;...&quot;/&gt;</code>
+nicht. Dadurch werden die dort enthaltenen Texte nicht angezeigt.</p>
+</li>
+<li><p>2025098489 - <strong>IDE</strong>: Wird bei einer View-Definition mit einem Union-Select
+das Preview-Fenster angezeigt, dann wird das &quot;TOP 50&quot; nicht korrekt auf das
+Statement angewendet. In der Folge werden ggf. sehr viele Datensätze
+eingelesen bis hin zum Einfrieren der IDE.</p>
+</li>
+<li><p>2025098532 - <strong>IDE</strong>: Mit dem Update des CefSharp Browser-Controls auf die
+Version 138.0.170 mit dem Patchday vom 05.09.2025 kann es passieren, dass
+die IDE beim Start abstürzt. Der Fehler tritt auf Windows Server 2016 und
+2019 auf, wenn über die Console oder TeamViewer gearbeitet wird. Über
+Remotedesktop funktioniert die IDE.</p>
+</li>
+<li><p>2025098503 - <strong>Code-Generierung</strong>: ServiceHost Methoden erhalten bei der
+Code-Generierung keinen umschließenden SourceTag und werden deshalb bei der
+Search und im Errors und Warnings Fenster nicht korrekt verlinkt.</p>
+</li>
+<li><p>2025098473 - <strong>Package Manager</strong>: Ein Package setzt auf 2 unabhänigen
+Customzing-Packages auf, in denen jeweils eine Component aus dem gemeinsamen
+Basis-Package customized ist. In diesem Package wurde die Component
+ebenfalls customized und dann wieder gelöscht. Wird das Package zu einem
+späteren Zeitpunkt in den Service-Release-Modus versetzt, dann wird am Ende
+des Compiles eine Fehlermeldung ausgegeben: &quot;<em>Error in Transfer Saved Code&quot;</em></p>
+</li>
 </ul>
 <h2 id="479-05092025">4.7.9 (05.09.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
@@ -103,7 +146,7 @@
 <li>FS_4.7.9_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <ul>
 <li>Alte JxBrowser Versionen werden nun nach 30 Tagen automatisch gelöscht.</li>
 <li>Beim Publish2Go wird nun zusätzlich eine readme.txt erstellt, welche die Packages, Applications und Services ausgibt, die im P2Go enthalten sind. Zusätzliche enthaltene Informationen sind z.B. das Compile-Date, das Erstellungsdatum des P2Go und die verwendete FS-Version.</li>
@@ -188,7 +231,7 @@ Das entspricht Chromium 138.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2025/v7-43-4.html">https://jxbrowser-support.teamdev.com/release-notes/2025/v7-43-4.html</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="neuerungen-1">Neuerungen</h4>
+<h4 id="neuerungen-2">Neuerungen</h4>
 <ul>
 <li><p>Die <a href="../doc/authentication-service/oidc.html">OpenID Connect</a> Implementierung wurde um den <a href="../doc/authentication-service/oidc-flow.html#refresh-flow">Refresh-Flow</a> ergänzt.</p>
 </li>
@@ -232,7 +275,7 @@ bei Oracle auf Fehler.</p>
 <li>FS4.5.30_AuthService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-2">Neuerungen</h4>
+<h4 id="neuerungen-3">Neuerungen</h4>
 <ul>
 <li><p>Als Anmeldeverfahren, zur Authentifizierung der Nutzer, kann nun <a href="../doc/authentication-service/oidc.html">OpenID Connect</a> genutzt werden.</p>
 <div class="IMPORTANT">
@@ -267,7 +310,7 @@ nicht geändert werden.</p>
 <li>Die ausgelieferte <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html#java-runtime">JRE</a> unterstützt keine ARM-Prozessoren.
 Dies ist auch in den <a href="requirements.html#client-rechner">Requirements</a> dokumentiert.</li>
 </ul>
-<h4 id="neuerungen-3">Neuerungen</h4>
+<h4 id="neuerungen-4">Neuerungen</h4>
 <ul>
 <li>Events klickbarer Links im JxBrowser, die durch dynamische Änderungen des Doms nach dem ersten Laden hinzugefügt wurden, werden nun auch korrekt gefeuert.</li>
 </ul>
@@ -332,7 +375,7 @@ wird beim PackageMerge die Target-Dokumentation mit der Source-Dokumentation
 <li>FS4.5.28_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-4">Neuerungen</h4>
+<h4 id="neuerungen-5">Neuerungen</h4>
 <ul>
 <li>Bei der <a href="../doc/ide/registerkarten.html#registerkarte-search">Search</a> in der IDE kann nun mit einem Doppelklick ein ObjectType für die Suche ausgewählt werden. Anschließend wird das Popup-Menü automatisch geschlossen.</li>
 </ul>
@@ -411,7 +454,7 @@ Das entspricht Chromium 132.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/">https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="neuerungen-5">Neuerungen</h4>
+<h4 id="neuerungen-6">Neuerungen</h4>
 <ul>
 <li>Der <a href="../doc/sql/grammatik.html#withquery">Sql-Parser</a> versteht jetzt <code>WITH</code>-Statements, auch bekannt als <em>Common Table Expression (CTE)</em>.</li>
 <li>Neue Client-Action <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript.html#FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_System_String_"><code>BrowserControlAction.ExecuteJavaScript()</code></a></li>
@@ -462,7 +505,7 @@ Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
 <li>DevExpress wurde auf die Version 24.2.3 aktualisiert.</li>
 <li>Der HTML Client wurde auf Angular 19.1.1 upgedatet.</li>
 </ul>
-<h4 id="neuerungen-6">Neuerungen</h4>
+<h4 id="neuerungen-7">Neuerungen</h4>
 <ul>
 <li>Bei Klicken auf einen Link im <code>Errors and Warnings</code> Tab wird dieser farblich hervorgehoben, um zu visualisieren, dass der Link bereits besucht wurde.</li>
 <li>Bei den Aktionen <code>Open</code>, <code>Save</code> (im FS Report Designer), sowie <code>Choose Report</code> wird nun das Verzeichnis der tatsächlichen Report-Datei geöffnet, statt das Haupt-Reportverzeichnis.</li>
@@ -607,7 +650,7 @@ dass die Datenbankverknüpfungen im Crystal Report Designer gelöscht sind.</p>
 <p>Wenn Sie die Version 4.7.0 Beta 3, 2 oder 1 installiert haben, müssen Sie diese zuerst deinstallieren.
 Ein Update von diesen Versionen ist nicht möglich.</p>
 </div>
-<h4 id="neuerungen-7">Neuerungen</h4>
+<h4 id="neuerungen-8">Neuerungen</h4>
 <p>Siehe <a href="neuheiten-4-7.html">Neuheiten Framework Studio 4.7</a>.</p>
 <h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#4612-06122024">Framework Studio 4.6.12</a> enthalten.

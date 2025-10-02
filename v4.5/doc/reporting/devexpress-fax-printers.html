@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/32-fix2/docs/doc/reporting/devexpress-fax-printers.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/33/docs/doc/reporting/devexpress-fax-printers.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -96,6 +96,14 @@ Dazu gehen sie wie folgt vor:</p>
 <li>Legen Sie im Report-Designer ein neues Label mit dem Namen <code>FSPrintQueueDocumentName</code> an. (Der Name muss exakt stimmen)</li>
 <li>Für den Text des Labels können Sie eine Expression definieren und so z.B. die Fax-Nummer des Empfängers einbinden.</li>
 <li>Das Label kann auf unsichtbar gestellt werden - sodass es nicht angedruckt wird. (Die <code>Visible</code> Eigenschaft)</li>
+</ul>
+<p>Das Label kann in einem SubReport (Embedded oder Linked) platziert werden.
+Dabei gilt:</p>
+<ul>
+<li>Wird im Hauptreport kein passendes Label gefunden, werden die SubReports durchsucht.</li>
+<li>Die Suche erfolgt rekursiv durch alle verschachtelten SubReports, bis ein Label gefunden wird.</li>
+<li>Befinden sich mehrere Labels mit dem Namen <code>FSPrintQueueDocumentName</code> auf derselben Ebene in verschiedenen SubReports, werden alle verarbeitet und das zuletzt gefundene Label gewinnt.
+Dieses Verhalten ist jedoch nicht deterministisch, daher sollte diese Konstellation vermieden werden.</li>
 </ul>
 <p>Wird der Report verarbeitet und an den Print-Server gesendet, dann scannt Framework Studio den Report nach diesem Feld.
 Der berechnete Text wird in den Document-Name übernommen.</p>

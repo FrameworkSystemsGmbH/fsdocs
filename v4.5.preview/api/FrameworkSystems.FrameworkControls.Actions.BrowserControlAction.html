@@ -249,6 +249,16 @@ public class BrowserControlAction : FrameworkControlAction, IFrameworkControlAct
 </dd>
   </dl>
   <dl class="jumplist">
+    <dt><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.BrowserControlAction.Navigate.html#FrameworkSystems_FrameworkControls_Actions_BrowserControlAction_Navigate_FrameworkSystems_FrameworkBase_BrowserNavigationParam_">Navigate(BrowserNavigationParam)</a></dt>
+    <dd><p>Nachdem die Cookies gesetzt werden, wird zur übergebenen URL navigiert.
+Diese Action kann nicht mit einer DataSource oder Content kombiniert werden. Da das DataSource-Binding vor den Actions ausgeführt wird
+und so die Cookies nicht gesetzt wären.
+Wird ein Cookie mit leerem Value übergeben, so wird dieses gelöscht.</p>
+<p>Die Cookies sind per default mit folgenden Security-Einstellungen konfiguriert: Secure, SameSite=Strict und HttpOnly.
+Sie können also nur via Https übermittelt werden, werden nur bei SameSite-Anfragen verschickt und sind des Weiteren nicht über JavaScript erreichbar.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
     <dt><a class="xref" href="FrameworkSystems.FrameworkControls.Actions.BrowserControlAction.ReloadPage.html#FrameworkSystems_FrameworkControls_Actions_BrowserControlAction_ReloadPage">ReloadPage()</a></dt>
     <dd><p>Aktuelle Seite erneut laden.</p>
 </dd>

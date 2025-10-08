@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Method ExecuteJavaScript </title>
+      <title>Method Navigate </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Method ExecuteJavaScript ">
+      <meta name="title" content="Method Navigate ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/new/4.7/preview/apiSpec/new?filename=FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_.md&amp;value=---%0Auid%3A%20FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript*%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/new/4.7/preview/apiSpec/new?filename=FS_Hosting_Broker_Shared_Actions_BrowserControlAction_Navigate_.md&amp;value=---%0Auid%3A%20FS.Hosting.Broker.Shared.Actions.BrowserControlAction.Navigate*%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -84,14 +84,14 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript*">
+        <article data-uid="FS.Hosting.Broker.Shared.Actions.BrowserControlAction.Navigate*">
 
 
 
 
 
-<h1 id="FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_" data-uid="FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript*" class="text-break">
-Method ExecuteJavaScript  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/fs/FS.Hosting.Broker.Shared/Actions/BrowserControlAction.cs/#L72"><i class="bi bi-code-slash"></i></a>
+<h1 id="FS_Hosting_Broker_Shared_Actions_BrowserControlAction_Navigate_" data-uid="FS.Hosting.Broker.Shared.Actions.BrowserControlAction.Navigate*" class="text-break">
+Method Navigate  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/fs/FS.Hosting.Broker.Shared/Actions/BrowserControlAction.cs/#L87"><i class="bi bi-code-slash"></i></a>
 </h1>
 
 <div class="facts text-secondary">
@@ -117,24 +117,29 @@ Method ExecuteJavaScript  <a class="header-action link-secondary" title="View so
 
 
 
-<a id="FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_" data-uid="FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript*"></a>
+<a id="FS_Hosting_Broker_Shared_Actions_BrowserControlAction_Navigate_" data-uid="FS.Hosting.Broker.Shared.Actions.BrowserControlAction.Navigate*"></a>
 
-<h3 id="FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_System_String_" data-uid="FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript(System.String)">
-  ExecuteJavaScript(string)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/fs/FS.Hosting.Broker.Shared/Actions/BrowserControlAction.cs/#L72"><i class="bi bi-code-slash"></i></a>
+<h3 id="FS_Hosting_Broker_Shared_Actions_BrowserControlAction_Navigate_FS_Hosting_Shared_BrowserNavigationParam_" data-uid="FS.Hosting.Broker.Shared.Actions.BrowserControlAction.Navigate(FS.Hosting.Shared.BrowserNavigationParam)">
+  Navigate(BrowserNavigationParam)
+  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/preview/fs/FS.Hosting.Broker.Shared/Actions/BrowserControlAction.cs/#L87"><i class="bi bi-code-slash"></i></a>
 </h3>
 
-<div class="markdown level1 summary"><p>Übergibt ein Skript, welches im Browser synchron ausgeführt wird.</p>
+<div class="markdown level1 summary"><p>Nachdem die Cookies gesetzt werden, wird zur übergebenen URL navigiert.
+Diese Action kann nicht mit einer DataSource oder Content kombiniert werden. Da das DataSource-Binding vor den Actions ausgeführt wird
+und so die Cookies nicht gesetzt wären.
+Wird ein Cookie mit leerem Value übergeben, so wird dieses gelöscht.</p>
+<p>Die Cookies sind per default mit folgenden Security-Einstellungen konfiguriert: Secure, SameSite=Strict und HttpOnly.
+Sie können also nur via Https übermittelt werden, werden nur bei SameSite-Anfragen verschickt und sind des Weiteren nicht über JavaScript erreichbar.</p>
 </div>
 <div class="markdown level1 conceptual"></div>
 
 <div class="codewrapper">
-  <pre><code class="lang-csharp hljs">public virtual void ExecuteJavaScript(string script)</code></pre>
+  <pre><code class="lang-csharp hljs">public virtual void Navigate(BrowserNavigationParam browserNavParam)</code></pre>
 </div>
 
 <h4 class="section">Parameters</h4>
 <dl class="parameters">
-  <dt><code>script</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.string">string</a></dt>
+  <dt><code>browserNavParam</code> <span class="xref">BrowserNavigationParam</span></dt>
   <dd></dd>
 </dl>
 
@@ -145,20 +150,6 @@ Method ExecuteJavaScript  <a class="header-action link-secondary" title="View so
 
 
 
-<h4 class="section" id="FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_System_String__remarks">Remarks</h4>
-<div class="markdown level1 remarks"><p>Das Script wird synchron ausgeführt und der Client wartet bis zur Beendigung des Scripts.
-So können z.B. bei einem Close-Form noch Aktionen an den Browser gesendet werden.</p>
-<pre><code class="lang-c#">protected void FE_btnClose_OnClick(FrameworkButtonClickEventArgs e)
-{
-    brwBrowser.ExecuteJavaScript(&quot;// my java script ...&quot;);
-    this.CloseForm();
-}
-</code></pre>
-<div class="CAUTION">
-<h5>Caution</h5>
-<p>Es dürfen keine <code>alert()</code>-Meldungen ausgelöst werden. Diese führen dazu, dass sich der Java Client aufhängt.</p>
-</div>
-</div>
 
 
 

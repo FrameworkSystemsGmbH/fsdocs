@@ -93,7 +93,8 @@ Gestartet wird der Publish-Wizard über den Menüeintrag <strong>Tools / Publish
 <p>Der Publish-Wizard arbeitet grundsätzlich wie bei Wizards üblich.
 Man kann sich mit den Buttons <strong>Back</strong> und <strong>Next</strong> durch die verschiedenen Einstellungen navigieren.</p>
 <p>Um gezielt eine bestimmte Einstellung zu ändern kann man diese auch direkt über den Baum anwählen.</p>
-<p><strong>Button Restore Default Settings:</strong> Sämtliche Einstellungen, die im Publish-Wizard definiert wurden, werden verworfen.
+<p><strong>Manage Settings:</strong> Öffnet den Setting Manager, mit dem vordefinierte, bzw. gespeicherte Settings verwaltet werden.</p>
+<p><strong>Button Set Setting Defaults:</strong> Sämtliche Einstellungen, die im Publish-Wizard definiert wurden, werden verworfen.
 Damit wird alles auf die Default-Einstellungen zurückgestellt.
 Die Default-Einstellungen werden aus der FSDomain gelesen.</p>
 <p><strong>Button Back, Next:</strong> Zur vorherigen bzw. nächsten Einstellung navigieren.</p>
@@ -124,11 +125,14 @@ Erfolgt keine Angabe, dann wird die Culture des Betriebssystems verwendet.</p>
 Bleiben diese Meldungen aus beendet der Broker die entsprechende Session nach dem definierten Timeout.
 Dadurch werden Lizenzen und Ressourcen freigegeben, wenn ein Benutzer z.B. seinen Rechner ausschaltet ohne den Client zuvor zu beenden.
 Der Standard-Wert ist 5 Minuten.</p>
+<h4 id="runtime-supervisor-url">Runtime Supervisor Url</h4>
+<p>Hier kann die Url des Runtime Supervisors angegeben werden.
+Dies ist notwendig, wenn eine Application oder ein Service mit Hilfe des Runtime Supervisors überwacht werden soll.</p>
 <h4 id="logging--tracing">Logging / Tracing</h4>
 <p>Hier kann definiert werden, ob und in welche Ordner protokolliert werden soll.</p>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>Beide Protokollierung erzeugen große Daten-Mengen.
+<p>Beide Protokollierungen erzeugen große Daten-Mengen.
 Die Protokolle sollten nur gezielt in konkreten Situationen aktiviert werden.</p>
 </div>
 <p><strong>Checkbox Session Trace</strong>: Diese Checkbox aktiviert das <a href="../session-logging/session-trace-analyzer.html">Session Trace</a>.
@@ -156,8 +160,18 @@ Dabei wird alles das deinstalliert, was unter dem angegebenen Installations-Name
 Gibt es mehrere externe Namen für einen Server, so müssen die Namen dort getrennt durch Zeilenumbrüche eingegeben werden.</p>
 <p>Mit dem Button <strong>OK</strong> werden alle Änderungen bestätigt und der Dialog geschlossen.
 Mit dem Button <strong>Cancel</strong> werden alle Änderungen verworfen.</p>
+<h4 id="button-reset-iis">Button Reset IIS</h4>
+<p>Hiermit wird der IIS mit Hilfe der Windows-Systemfunktion <code>iisreset.exe</code> zurückgesetzt.
+Dadurch werden alle aktiven Sessions verworfen.</p>
 <h4 id="button-session-logging-analyzer">Button Session Logging Analyzer</h4>
 <p>Dieser Button öffnen den <a href="../session-logging/session-logging-analyzer.html">Session Logging Analyzer</a> und meldet ihn automatisch am Runtime-Repository an.</p>
+<h4 id="session-logging-level">Session Logging Level</h4>
+<p>Dieser Wert gibt an, in welchem Umfang der Session Logging Analyzer Daten abspeichert.</p>
+<ul>
+<li>All = Defaultwert</li>
+<li>Minimal = Speichert keine TopRequests, TopCommands und TopTransactions ab. Diese Daten werden in zwei DB-Spalten kumuliert und verursachen meist die enorme Größe der SessionLogging-Tabelle. Die Aussagekraft der SessionLogs ist durch dieses Log-Level eingeschränkt. <a href="../session-logging/manuelle-requests-im-sessionanalyzer.html">Manuelle Request Logs</a>, welche beispielsweise in Services verwendet werden können, werden ebenfalls nicht mehr gelogged!</li>
+<li>None = Das Session Logging ist deaktiviert.</li>
+</ul>
 <h2 id="connection-groups">Connection Groups</h2>
 <p>Hier können die Verbindungseinstellungen für die verschiedenen Connection Groups definiert werden.
 Die RuntimeConnection ist die Verbindung zum Repository.</p>
@@ -228,7 +242,9 @@ Mit dem Button <strong>Reset</strong> wird das jeweilige Bild auf die Standardei
 <p><img src="media/publish_wizard_service_hosts.png" alt="Publish Wizard Service Host/General"></p>
 <p><strong>Servername:</strong> Name des Servers, auf dem der Dienst/Service Host installiert werden soll.</p>
 <p><strong>Port:</strong> Port, unter dem der Dienst bereitgestellt werden soll.</p>
-<p><strong>Hostname:</strong> Wenn das Häkchen gesetzt ist, kann der Name des ServiveHosts überschrieben werden. Dies hat Einfluss auf den Platzhalter %HOSTNAME% in der Base Address des Service Hosts und dessen Endpoints.</p>
+<p><strong>SSL:</strong> Flag, das steuert, ob der Service über http oder https läuft.</p>
+<p><strong>Hostname:</strong> Wenn Custom Name gesetzt ist, kann der Name des ServiceHosts überschrieben werden. Dies hat Einfluss auf den Platzhalter %HOSTNAME% in der Base Address des Service Hosts und dessen Endpoints.</p>
+<p><strong>Base Address:</strong> Aus den angegebenen Informationen zusammengesetzte Basis-URL des Service.</p>
 <p><strong>CORS Origin:</strong> Wenn ein Service gehostet wird, der direkt über JavaScript aus dem Browser angesprochen wird, kann hier der CORS Origin gesetzt werden, welcher per HTTP-Header an den Client geschickt wird. Bei jedem Response des Services wird der Header „Access-Control-Allow-Origin“ mit dem angegebenen Wert mitgeschickt.</p>
 <p><strong>Username:</strong> Gibt den Benutzer an, mit dem der Windows-Dienst für den Service Host installiert werden soll. Eine Domäne kann mit der Schreibweise „Domäne\Username“ angegeben werden.</p>
 <p>Es stehen auch die drei Systemkonten „Local Service“, „Local System“ und „Network Service“ zur Auswahl. Ist eines dieser Konten ausgewählt, ist kein Passwort erforderlich.</p>
@@ -238,11 +254,34 @@ Mit dem Button <strong>Reset</strong> wird das jeweilige Bild auf die Standardei
 <h5>Note</h5>
 <p>Benutzerdefiniertes XML wird weder von FS, noch während der Laufzeit geparst oder auf Validität/Wohlgeformtheit geprüft.</p>
 </div>
+<h4 id="runtime-supervisor">Runtime Supervisor</h4>
+<p><strong>Enable:</strong> Flag, das steuert, ob der Service über den Runtime-Supervisor überwacht wird.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die <a href="#runtime-supervisor-url">Runtime Supervisor Url</a> muss angegeben sein!</p>
+</div>
 <h4 id="trace-einstellungen-zur-protokollierung-tracing">Trace: Einstellungen zur Protokollierung (Tracing)</h4>
 <p><strong>Activate:</strong> Nur wenn diese Checkbox gesetzt ist, wird Protokollierung verwendet und es können weitere Einstellungen vorgenommen werden.</p>
 <p><strong>Output File:</strong> Datei, in die die Trace-Informationen geschrieben werden sollen. Mit dem Button   wird ein Dateiauswahl-Dialog geöffnet.</p>
 <p><strong>Trace Level:</strong> Über die Auswahlbuttons wird das Trace Level festgelegt.</p>
 <p><strong>Activity Tracing:</strong> Activity Tracing ein- oder ausschalten</p>
+<h4 id="post-publish-command">Post Publish Command</h4>
+<p>Mit Hilfe der Post Publish Commands können Custom-Befehle nach dem Publish ausgeführt werden.
+Die im Textfeld definierten Befehle werden mittels <code>cmd</code> ausgeführt.</p>
+<p>Mit dem <code>+</code>-Button können vordefinierte Platzhalter (z.B. Service Name, Service Directory, ...) in die Befehle eingebaut werden.</p>
+<p><strong>Do not auto start after publish:</strong> Über diese CheckBox kann gesteuert werden, ob der Service automatisch nach dem Publish gestartet werden soll.
+Die CheckBox ist synchron zur gleichnamigen CheckBox auf der <a href="#end">End-Page</a>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Werden in den Befehlen Änderungen an den Diensteinstellungen vorgenommen, so empfiehlt es sich den automatischen Start zu deaktivieren und sich innerhalb, bzw. am Ende der Post Publish Commands um einen sauberen Start des Service zu kümmern.</p>
+</div>
+<p><strong>Beispiel:</strong></p>
+<p>Diese Befehle definieren die recovery Einstellungen im Fehlerfall 1 und 2, sodass der Service nach 60 Sekunden neu gestartet wird.
+Zudem werden die Fehler jeden Tag zurückgesetzt.
+Danach wird der Service gestartet.</p>
+<pre><code class="lang-cmd">sc failure &quot;$(SvcWinName)&quot; reset= 86400 actions= restart/60000/restart/60000/none/0
+sc start &quot;$(SvcWinName)&quot;
+</code></pre>
 <h3 id="service-host---authentication">Service Host - Authentication</h3>
 <p>Hier werden die Authentifizierungseinstellungen zu einem Service Host vorgenommen.</p>
 <p><img src="media/publish_wizard_service_hosts_authentication.png" alt="Publish Wizard Service Host/ Authentication"></p>
@@ -265,8 +304,10 @@ Mit dem Button <img src="../media/icon-more.png" alt="icon-more.png">  wird ein
 Wenn einzelne Einträge ausgegraut dargestellt werden, sind nicht alle nötigen Konfigurationseinstellungen vorgenommen worden.
 In diesem Fall steht in Klammern hinter dem Namen der Applikation bzw. des Dienstes ein Hinweis, warum die Installation nicht möglich ist.
 Benutzen Sie den Button Publish um die Veröffentlichung zu starten.</p>
+<p>Bei Diensten wird die CheckBox <code>Do not auto start after publish</code> angezeigt.
+Mit der CheckBox kann gesteuert werden, ob der Service automatisch nach dem Publish gestartet werden soll.
+Die Checkbox ist synchron mit der gleichnamigen Checkbox auf der <a href="#service-host---general">Service Host General Page</a>.</p>
 <p><img src="media/publish_wizard_end.png" alt="End"></p>
-<p><strong>Save Setting:</strong> Mit diesem Button öffnen Sie den Dialog zum Speichern der aktuellen Einstellungen in der Datenbank.</p>
 <h2 id="auflistung-blockierender-prozesse-und-netzwerksitzungen">Auflistung blockierender Prozesse und Netzwerksitzungen</h2>
 <p>Beim Publish sowie beim Revoke wird überprüft, ob das Zielverzeichnis von einem Prozess oder einer Netzwerksitzung blockiert wird.
 Im GUI Modus werden diese Blockaden aufgelistet.

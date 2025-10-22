@@ -128,6 +128,13 @@ Das betrifft z.B.</p>
 <li>Name des Benutzers (UserName, ClientUser)</li>
 <li>Name und IP des Client-Rechners (ClientMachine)</li>
 </ul>
+<h2 id="log-level">Log Level</h2>
+<p>Dieser Wert kann im PublishWizard und Publish2Go Wizard definiert werden und gibt an, in welchem Umfang der Session Logging Analyzer Daten abspeichert.</p>
+<ul>
+<li>All = Defaultwert</li>
+<li>Minimal = Speichert keine TopRequests, TopCommands und TopTransactions ab. Diese Daten werden in zwei DB-Spalten kumuliert und verursachen meist die enorme Größe der SessionLogging-Tabelle. Die Aussagekraft der SessionLogs ist durch dieses Log-Level stark eingeschränkt. <a href="manuelle-requests-im-sessionanalyzer.html">Manuelle Request Logs</a>, welche beispielsweise in Services verwendet werden können, werden ebenfalls nicht mehr gelogged!</li>
+<li>None = Das Session Logging ist deaktiviert.</li>
+</ul>
 <h2 id="löschen-der-daten">Löschen der Daten</h2>
 <p>Im Laufe der Zeit sammeln sich in der Tabelle <a href="../tables/tblrep_sessionlogging.html">tblRep_SessionLogging</a> sehr viele Datensätze an.</p>
 <div class="TIP">

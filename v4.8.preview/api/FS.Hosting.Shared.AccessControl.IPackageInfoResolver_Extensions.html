@@ -152,7 +152,9 @@ Class IPackageInfoResolver_Extensions  <a class="header-action link-secondary" t
 
   <dl class="jumplist">
     <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.IPackageInfoResolver_Extensions.GetPackageInfosWithoutSystemPackage.html#FS_Hosting_Shared_AccessControl_IPackageInfoResolver_Extensions_GetPackageInfosWithoutSystemPackage_FS_Hosting_Shared_AccessControl_IPackageInfoResolver_">GetPackageInfosWithoutSystemPackage(IPackageInfoResolver)</a></dt>
-    <dd><p>Gibt alle PackageInfos zurück, außer dem SystemPackage.</p>
+    <dd><p>Gibt alle PackageInfos zurück, außer dem SystemPackage.
+Das erste Package ist immer das aktuelle Package, also das oberste CustomizationPackage.
+Das letzte Package ist immer das DefaultPackage.</p>
 </dd>
   </dl>
 

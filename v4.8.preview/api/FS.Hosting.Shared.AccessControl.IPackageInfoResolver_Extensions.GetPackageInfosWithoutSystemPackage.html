@@ -91,7 +91,7 @@
 
 
 <h1 id="FS_Hosting_Shared_AccessControl_IPackageInfoResolver_Extensions_GetPackageInfosWithoutSystemPackage_" data-uid="FS.Hosting.Shared.AccessControl.IPackageInfoResolver_Extensions.GetPackageInfosWithoutSystemPackage*" class="text-break">
-Method GetPackageInfosWithoutSystemPackage  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/AccessControl/IPackageInfoResolver_Extensions.cs/#L21"><i class="bi bi-code-slash"></i></a>
+Method GetPackageInfosWithoutSystemPackage  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/AccessControl/IPackageInfoResolver_Extensions.cs/#L23"><i class="bi bi-code-slash"></i></a>
 </h1>
 
 <div class="facts text-secondary">
@@ -121,10 +121,12 @@ Method GetPackageInfosWithoutSystemPackage  <a class="header-action link-seconda
 
 <h3 id="FS_Hosting_Shared_AccessControl_IPackageInfoResolver_Extensions_GetPackageInfosWithoutSystemPackage_FS_Hosting_Shared_AccessControl_IPackageInfoResolver_" data-uid="FS.Hosting.Shared.AccessControl.IPackageInfoResolver_Extensions.GetPackageInfosWithoutSystemPackage(FS.Hosting.Shared.AccessControl.IPackageInfoResolver)">
   GetPackageInfosWithoutSystemPackage(IPackageInfoResolver)
-  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/AccessControl/IPackageInfoResolver_Extensions.cs/#L21"><i class="bi bi-code-slash"></i></a>
+  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/fs/FS.Hosting.Shared/AccessControl/IPackageInfoResolver_Extensions.cs/#L23"><i class="bi bi-code-slash"></i></a>
 </h3>
 
-<div class="markdown level1 summary"><p>Gibt alle PackageInfos zurück, außer dem SystemPackage.</p>
+<div class="markdown level1 summary"><p>Gibt alle PackageInfos zurück, außer dem SystemPackage.
+Das erste Package ist immer das aktuelle Package, also das oberste CustomizationPackage.
+Das letzte Package ist immer das DefaultPackage.</p>
 </div>
 <div class="markdown level1 conceptual"></div>
 

@@ -404,7 +404,7 @@
 <ul>
 <li><strong>Bezeichner:</strong> <strong><code>[lnk]</code></strong></li>
 <li><strong>Leeres Tag:</strong> ja</li>
-<li><strong>Funktion:</strong> Erstellt einen Querverweis auf ein anderes Kapitel oder einen Hyperlink auf eine Url.</li>
+<li><strong>Funktion:</strong> Erstellt einen Querverweis auf ein anderes Kapitel, eine Headline im aktuellen Dokument oder einen Hyperlink auf eine Url.</li>
 </ul>
 <p><strong>Attributes:</strong></p>
 <table>
@@ -418,8 +418,14 @@
 </thead>
 <tbody>
 <tr>
+<td style="text-align: left;">anchor</td>
+<td style="text-align: center;">ja*</td>
+<td style="text-align: left;">Text einer Headline</td>
+<td style="text-align: left;">Anker auf eine Headline des aktuellen Dokuments</td>
+</tr>
+<tr>
 <td style="text-align: left;">src</td>
-<td style="text-align: center;">ja</td>
+<td style="text-align: center;">ja*</td>
 <td style="text-align: left;">• ID eines Forms oder Documentation-Elements <br>• Url mit führendem <code>http://</code></td>
 <td style="text-align: left;">Querverweis in der fertigen Dokumentation oder Hyperlink auf die angegebene Url</td>
 </tr>
@@ -431,10 +437,17 @@
 </tr>
 </tbody>
 </table>
+<p>* Die Attribute <code>src</code> und <code>anchor</code> schließen sich gegenseitig aus!</p>
 <p><strong>Beispiel:</strong></p>
 <pre><code class="lang-fs">[lnk src=&quot;f037492b790d24c5b9f16cb4120465e25&quot; text=&quot;Artikeldetails&quot;/]
 [lnk src=&quot;http://www.google.de/&quot; text=&quot;Suchen mit Google&quot;/]
+[lnk anchor=&quot;Weitere Informationen&quot; text=&quot;Weitere Informationen&quot;/]
 </code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Aus technischen Gründen haben die Anchor-Links in der Vorschau/Preview bzw. <code>View Render Chapter</code> keine Funktion.
+Ein Test muss in der exportierten Dokumentation stattfinden.</p>
+</div>
 <h4 id="index-entry">Index Entry</h4>
 <p><strong>Eigenschaften:</strong></p>
 <ul>
@@ -881,6 +894,10 @@
 [h3]Überschrift [i]h3[/i][/h3]
 [h2]Überschrift [s]h2[/s][/h2]
 </code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Mit einem <a href="#link">Link</a> kann ein Querverweis auf eine Headline im aktuellen Dokument erstellt werden.</p>
+</div>
 
 </article>
 

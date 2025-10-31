@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/10/docs/doc/webservices/rest-endpoint.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/11/docs/doc/webservices/rest-endpoint.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,13 +87,15 @@
         <article data-uid="">
 <h1 id="rest-endpoint-für-service-methoden">REST Endpoint für Service-Methoden</h1>
 
-<p>Standardmäßig bietet ein Service Host den ausgewählten Service bzw. dessen Service Contract nach außen hin über WCF und damit das SOAP-Protokoll an. Moderne Applikationen und allen voran Webapplikationen in Borwsern oder auf mobilen Endgeräten unterstützen mittlerweile jedoch oft kein SOAP mehr und bevorzugen deshalb die Kommunikation über JSON.</p>
+<p>Standardmäßig bietet ein Service Host den ausgewählten Service bzw. dessen Service Contract nach außen hin über WCF an.
+Damit nutzt der Service das SOAP-Protokoll.
+Moderne Applikationen und allen voran Webapplikationen in Browsern oder auf mobilen Endgeräten unterstützen mittlerweile jedoch oft kein SOAP mehr und bevorzugen deshalb die Kommunikation über JSON.</p>
 <p>Framework Studio bietet die Möglichkeit, den Service Host so zu konfigurieren, dass vollständig automatisch ein zusätzlicher Endpoint generiert wird, mit dem die im Service Contract propagierten Methoden auch über JSON und damit über einen normalen HTTP-Request angesprochen werden können.</p>
 <p>Um die vollständige Automatisierung dieser Funktionalität gewährleisten zu können, bedarf es einiger Regeln, die beachtet werden müssen. Diese betreffen vor allem die Kommunikation zwischen dem Client und dem generierten REST Endpoint des Service Hosts.</p>
 <h2 id="aktivieren-des-rest-endpoints">Aktivieren des REST-Endpoints</h2>
 <p>Der Service Host generiert den REST Endpoint, wenn die Checkbox <code>Generate REST Endpoint</code> aktiviert wird.</p>
 <p><img src="media/rest-service-host-flag.png" alt="Service Host REST-Endpoint"></p>
-<p>In der Konfigurationsdatei des Servic Hosts wird dadurch ein neuer Endpoint mit dem ausgewählten Contract registriert:</p>
+<p>In der Konfigurationsdatei des Service Hosts wird dadurch ein neuer Endpoint mit dem ausgewählten Contract registriert:</p>
 <pre><code class="lang-xml">&lt;endpoint name=&quot;rest&quot; address=&quot;api&quot; binding=&quot;webHttpBinding&quot; contract=&quot;App.IHelloServiceContract&quot; /&gt;
 </code></pre>
 <div class="WARNING">
@@ -104,7 +106,7 @@
 <h5>Tip</h5>
 <p>Der REST-Endpoint kann alternativ auch <a href="#individueller-rest-endpoint">individuell definiert</a> werden, wenn die Standard-Konfiguration den Anforderungen nicht genügt.</p>
 </div>
-<p>Der Endpoint hat fest den Namen <code>api</code> und wird immer auf der im Service Host angegebenen <code>Base Address</code> registiert.</p>
+<p>Der Endpoint hat fest den Namen <code>api</code> und wird immer auf der im Service Host angegebenen <code>Base Address</code> registriert.</p>
 <p>Ist die <code>Base Address</code> z.B.</p>
 <p><code>http://localhost:1234/HelloServiceHost</code></p>
 <p>dann wird der REST Endpoint unter</p>
@@ -168,11 +170,11 @@
 }
 </code></pre>
 <p>Am REST Endpoint ist diese Methode unter <code>http://localhost:1234/HelloServiceHost/api/sayhelloname</code> aufrufbar.</p>
-<p>Methoden mit Parametern müssen zwinged mit <code>HTTP POST</code> aufgerufen werden.</p>
+<p>Methoden mit Parametern müssen zwingend mit <code>HTTP POST</code> aufgerufen werden.</p>
 <p>Der Header <code>Content-Type</code> muss zwingend auf <code>application/json</code> gesetzt sein, da der Service Host eine JSON-Kommunikation erwartet.</p>
 <p>Um Encoding-Fehlern vorzubeugen, wird empfohlen, den Header <code>Content-Encoding</code> entsprechend des übertragenen Contents zu setzen (vorzugsweise <code>utf-8</code>).</p>
 <p>Der Header <code>Accept</code> muss auf <code>application/json</code> gesetzt sein oder diesen MIME-Type beinhalten (wird im Beispiel durch <code>*/*</code> abgedeckt), ansonsten führt der Response am Client zu einem Fehler.</p>
-<p>Methodenparameter müssen im HTTP-Content in einem JSON-Objekt übertragen werden. Url-Parameter werden nicht unterstützt. Jeder Methodenparameter wird als JSON-Property mit dem exakten Namen (Groß- und Kleinschreibung beatchen) übergeben.</p>
+<p>Methodenparameter müssen im HTTP-Content in einem JSON-Objekt übertragen werden. Url-Parameter werden nicht unterstützt. Jeder Methodenparameter wird als JSON-Property mit dem exakten Namen (Groß- und Kleinschreibung beachten) übergeben.</p>
 <p>Im Beispiel wäre das der Parameter <code>string name</code>. Der Parameter wird im JSON wie folgt übertragen:</p>
 <pre><code class="lang-json">{
     &quot;name&quot;: &quot;Max Mustermann&quot;
@@ -342,7 +344,7 @@
 </tbody>
 </table>
 <h3 id="json-format">JSON Format</h3>
-<p>JSON kann verschiedene Datentypen in unterschiedlichsten Formaten übertragen. Für eine Datums- und Zeitangabe gibt es im JSON z.B. keinerlei Spezifikation, wie diese Information dargestellt werden soll. Da es im JSON keinen dedizierten DateTime-Typ gibt, wird ein Datum meist als String repräsentiert. Wie genau dieser String letztenendes aussieht, hängt vom JSON-Serializer ab.</p>
+<p>JSON kann verschiedene Datentypen in unterschiedlichsten Formaten übertragen. Für eine Datums- und Zeitangabe gibt es im JSON z.B. keinerlei Spezifikation, wie diese Information dargestellt werden soll. Da es im JSON keinen dedizierten DateTime-Typ gibt, wird ein Datum meist als String repräsentiert. Wie genau dieser String letzten Endes aussieht, hängt vom JSON-Serializer ab.</p>
 <p>Der in WCF integrierte <code>DataContractJsonSerializer</code> von Microsoft überträgt den .NET-Typ <code>DateTime</code> z.B. so:</p>
 <pre><code class="lang-json">{
     &quot;datetime&quot;: &quot;/Date(1335205592410-0500)/&quot;
@@ -353,9 +355,9 @@
     &quot;datetime&quot;: &quot;2012-04-23T18:25:43.511Z&quot;
 }
 </code></pre>
-<p>Der Effekt ist, dass sich ggf. Server und Client nicht verstehen und letztenendes auf Fehler laufen, da sie einen unterschiedlichen &quot;JSON-Dialekt&quot; sprechen. Aus diesem Grund arbeitet der REST Endpoint in einem Framework Studio Service Host mit dem bekannten <a href="https://www.newtonsoft.com/json">JSON.NET Serializer</a>, der weltweit in millionen von Anwendungen zum Einsatz kommt. Das von diesem Serializer ausgegebene JSON ist kompatibel mit JavaScript und versteht im Umkehrschluss auch die meisten Dialekte, ohne dass der Entwickler selbst in den Serialisierungsprozess eingreifen muss.</p>
+<p>Der Effekt ist, dass sich ggf. Server und Client nicht verstehen und letzten Endes auf Fehler laufen, da sie einen unterschiedlichen &quot;JSON-Dialekt&quot; sprechen. Aus diesem Grund arbeitet der REST Endpoint in einem Framework Studio Service Host mit dem bekannten <a href="https://www.newtonsoft.com/json">JSON.NET Serializer</a>, der weltweit in Millionen von Anwendungen zum Einsatz kommt. Das von diesem Serializer ausgegebene JSON ist kompatibel mit JavaScript und versteht im Umkehrschluss auch die meisten Dialekte, ohne dass der Entwickler selbst in den Serialisierungsprozess eingreifen muss.</p>
 <h3 id="ref--und-out-parameter">ref- und out-Parameter</h3>
-<p>WCF unterstützt generell ref- und out-Parameter in Service Methoden. Dies mündet in der SOAP-Kommunikation letztenendes in mehreren Rückabewerten einer Methode. Der REST Endpoint unterstützt ref- und out-Parameter <strong>NICHT</strong>. Wenn mehr als ein Rückgabeparameter in einer Service-Methode nötig sind, wird empfohlen, einen DataContract für diesen Zweck zu erstellen und diesen als Rückgabetypen für die Methode zu verwenden (siehe Beispiel 3).</p>
+<p>WCF unterstützt generell ref- und out-Parameter in Service Methoden. Dies mündet in der SOAP-Kommunikation letzten Endes in mehreren Rückgabewerten einer Methode. Der REST Endpoint unterstützt ref- und out-Parameter <strong>NICHT</strong>. Wenn mehr als ein Rückgabeparameter in einer Service-Methode nötig sind, wird empfohlen, einen DataContract für diesen Zweck zu erstellen und diesen als Rückgabetypen für die Methode zu verwenden (siehe Beispiel 3).</p>
 <h2 id="individueller-rest-endpoint">Individueller Rest-Endpoint</h2>
 <p>Mit der Checkbox <strong>Generate REST Endpoint</strong> wird ein Endpoint mit Standard-Einstellungen definiert.
 Werden bei den Operationen große Datenmengen transportiert oder dauern die Operationen ungewöhnlich lange, dann kann es zu entsprechenden Fehlermeldungen oder Timeouts kommen.</p>
@@ -373,7 +375,7 @@ Damit das Verhalten identisch zum automatischen REST-Endpoint ist (<code>.../api
 <li><strong>Behavior</strong> darf nicht angegeben werden, darum kümmert sich der Automatismus.</li>
 </ol>
 <p><img src="media/rest-manual-endpoint.png" alt="rest-manual-endpoint"></p>
-<p>Die Binding Configurationen kann folgendermaßen definiert werden:</p>
+<p>Die Binding Configuration kann folgendermaßen definiert werden:</p>
 <ol>
 <li>Ein neues <strong>EndPoint Binding</strong> anlegen und den Namen vergeben (z.B. <code>RestEndPointBinding</code>)</li>
 <li>Bei <strong>Binding Type</strong> muss <code>webHttpBinding</code> definiert werden.</li>

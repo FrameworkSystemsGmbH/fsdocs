@@ -110,14 +110,6 @@ Wollen Sie den ausgewählten Workflow zu einer Startinstanz für Ihre Applikatio
 <p>(True, False)
 Gibt an, ob beim Start der Anwendung der Safe-Initialize-Modus aktiviert werden soll. Diese Einstellung kann nur an einem Start-Workflow vorgenommen werden.</p>
 <p>Der Safe-Initialize-Modus dient dazu, z.B. in einer Update-Situation Fehlermeldungen zu unterbinden. Über <code>this.Global.SafeInitializing</code> kann der Status dieses Modus abgefragt werden. Der Modus muss mithilfe der Funktion <code>this.Global.EndSafeInitialize()</code> nach dem Start der Anwendung zurückgesetzt werden.</p>
-<h4 id="basefullname">BaseFullName</h4>
-<p>Dieses Property ist für spätere Erweiterungen vorgesehen und zurzeit ohne Funktion.</p>
-<h4 id="checkedoutdatestring">CheckedOutDateString</h4>
-<p>(Schreibgeschützt)
-Datum des letzten Checkouts.</p>
-<h4 id="checkedoutusername">CheckedOutUserName</h4>
-<p>(Schreibgeschützt)
-Benutzer, der den Workflow zuletzt bearbeitet und eingecheckt hat. Wenn Sie den Workflow gerade ausgecheckt haben, steht Ihr Benutzername in diesem Feld.</p>
 <h2 id="workflow-form">Workflow-Form</h2>
 <p><img src="media/workflow-form.png" alt="Form im Workflow"></p>
 <p>Die Forms werden in der Registerkarte <strong>Design</strong> auf der linken Seite des Fensters angeboten und können von dort aus in den Workflow gezogen werden.</p>
@@ -131,10 +123,14 @@ Benutzer, der den Workflow zuletzt bearbeitet und eingecheckt hat. Wenn Sie den 
 <p><img src="media/workflow-properties-in-form.png" alt="Properties eines Forms im Workflow"></p>
 <h4 id="frame">Frame</h4>
 <p>Gibt an, in welchem Frame das Fenster angezeigt werden soll. Es werden hier alle Frames angezeigt, die im Frameset in der Configuration definiert sind. Wird das Form als modaler Dialog angezeigt, hat diese Einstellung keine Auswirkung.</p>
-<p>(siehe Property IsModal)</p>
+<p>(siehe Property <a href="#ismodal">IsModal</a>)</p>
 <h4 id="isentranceinstance">IsEntranceInstance</h4>
 <p>(True, False)</p>
 <p>Gibt an, ob es sich bei diesem Form um eine Entrance-Instance handelt. Forms, die als Entrance-Instance definiert sind, können beim Aufruf des Workflows direkt angesprochen werden. Andere Forms können nur innerhalb des Workflows, indem sie sich befinden, angesprochen werden.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Diese Einstellung beeinflusst, ob das Form als Traget eines <a href="#link">Workflow-Links</a> genutzt werden kann.</p>
+</div>
 <h4 id="ismodal">IsModal</h4>
 <p>(true, false)</p>
 <p>Gibt an, ob das Form als modaler Dialog geöffnet werden soll.</p>
@@ -154,8 +150,6 @@ Position des Forms innerhalb des Workflows. In den Properties kann dieser Wert n
 <h4 id="size">Size</h4>
 <p>(schreibgeschützt)
 Größe des Forms im Workflow. In den Properties kann der Wert nicht verändert werden. Um die Größe des Forms zu ändern, muss diese im Designer mit der Maus geändert werden.</p>
-<h4 id="basefullname-1">BaseFullName</h4>
-<p>Dieses Property ist für spätere Erweiterungen vorgesehen und zurzeit ohne Funktion.</p>
 <h3 id="workflow-forms-events">Workflow-Forms Events</h3>
 <p>Im Event-Teil des Property-Grids können die Workflow-Events des Forms mit den Workflow-Events des Workflows, in dem sich das Form befindet, verbunden werden. Das ist aus folgendem Grund notwendig: Wenn dieser Workflow in einen anderen Workflow eingebunden wird und dort wollen Sie auf ein Workflow-Event aus dem Form reagieren, dann ist es notwendig dieses Form-Event nach außen weiter zu reichen. Das passiert hier in dieser Zuordnung.</p>
 <p><img src="media/workflow-events.png" alt="Events eines Forms im Workflow"></p>
@@ -180,9 +174,7 @@ Position des Workflows innerhalb des Workflows. In den Properties kann dieser We
 <h4 id="size-1">Size</h4>
 <p>(schreibgeschützt)
 Größe des Workflows im Workflow. In den Properties kann der Wert nicht verändert werden. Um die Größe des Workflows zu ändern, wird diese im Designer mit der Maus geändert.</p>
-<h4 id="basefullname-2">BaseFullName</h4>
-<p>Dieses Property ist für spätere Erweiterungen vorgesehen und zurzeit ohne Funktion.</p>
-<h3 id="workflow-im-workflow-events">Workflow im Workflow Events</h3>
+<h3 id="workflow-in-workflow-events">Workflow in Workflow Events</h3>
 <p>Auch Workflows können wie die Forms Workflow-Events besitzen. Wenn diese nach außen weitergereicht werden sollen, funktioniert das genau wie bei den Forms. (<a href="#workflow-forms-events">Workflow-Forms Events</a>)</p>
 <h2 id="link">Link</h2>
 <p><img src="media/workflow-link.png" alt="Workflow Links"></p>

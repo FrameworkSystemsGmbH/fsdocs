@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>REST Endpoint f&#252;r Service-Methoden </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="REST Endpoint f&#252;r Service-Methoden ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/doc/webservices/rest-endpoint.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="rest-endpoint-für-service-methoden">REST Endpoint für Service-Methoden</h1>
+
+<p>Standardmäßig bietet ein Service Host den ausgewählten Service bzw. dessen Service Contract nach außen hin über WCF an.
+Damit nutzt der Service das SOAP-Protokoll.
+Moderne Applikationen und allen voran Webapplikationen in Browsern oder auf mobilen Endgeräten unterstützen mittlerweile jedoch oft kein SOAP mehr und bevorzugen deshalb die Kommunikation über JSON.</p>
+<p>Framework Studio bietet die Möglichkeit, den Service Host so zu konfigurieren, dass vollständig automatisch ein zusätzlicher Endpoint generiert wird, mit dem die im Service Contract propagierten Methoden auch über JSON und damit über einen normalen HTTP-Request angesprochen werden können.</p>
+<p>Um die vollständige Automatisierung dieser Funktionalität gewährleisten zu können, bedarf es einiger Regeln, die beachtet werden müssen. Diese betreffen vor allem die Kommunikation zwischen dem Client und dem generierten REST Endpoint des Service Hosts.</p>
+<h2 id="aktivieren-des-rest-endpoints">Aktivieren des REST-Endpoints</h2>
+<p>Der Service Host generiert den REST Endpoint, wenn die Checkbox <code>Generate REST Endpoint</code> aktiviert wird.</p>
+<p><img src="media/rest-service-host-flag.png" alt="Service Host REST-Endpoint"></p>
+<p>In der Konfigurationsdatei des Service Hosts wird dadurch ein neuer Endpoint mit dem ausgewählten Contract registriert:</p>
+<pre><code class="lang-xml">&lt;endpoint name=&quot;rest&quot; address=&quot;api&quot; binding=&quot;webHttpBinding&quot; contract=&quot;App.IHelloServiceContract&quot; /&gt;
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Der REST Endpoint basiert auf der in WCF integrierten <code>webHttpBinding</code>. In einem WCF-Service darf für einen Service Contract nur ein Binding eines bestimmten Typs registriert werden. Sollte am Service Host schon ein Endpoint mit einem <code>webHttpBinding</code> für den ausgewählten Contract existieren, so kann das automatische Generieren des REST Endpoints nicht verwendet werden bzw. wird beim Start des Service Host zu Fehlern führen.</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Der REST-Endpoint kann alternativ auch <a href="#individueller-rest-endpoint">individuell definiert</a> werden, wenn die Standard-Konfiguration den Anforderungen nicht genügt.</p>
+</div>
+<p>Der Endpoint hat fest den Namen <code>api</code> und wird immer auf der im Service Host angegebenen <code>Base Address</code> registriert.</p>
+<p>Ist die <code>Base Address</code> z.B.</p>
+<p><code>http://localhost:1234/HelloServiceHost</code></p>
+<p>dann wird der REST Endpoint unter</p>
+<p><code>http://localhost:1234/HelloServiceHost/api</code></p>
+<p>zu finden sein.</p>
+<p>Im Development Service ist der neue Endpoint auch in der Auflistung im System Tray zu sehen:</p>
+<p><img src="media/rest-devservice-endpoint-list.png" alt="DevService Endpoints"></p>
+<h2 id="aufrufen-von-service-methoden-am-rest-endpoint">Aufrufen von Service-Methoden am REST Endpoint</h2>
+<p>Das Aufrufen einer durch den REST Endpoint bereitgestellten Service Methode erfolgt über einen normalen HTTP-Request. Dabei gibt es einige Regeln, die beachtet werden müssen. Nachfolgend werden alle Spezialitäten der Kommunikation detailliert beschrieben und mit mehreren Beispielen transparent dargestellt.</p>
+<p>In den Beispielen wird ein Service namens &quot;HelloService&quot; verwendet. Dieser besteht aus 4 Methoden, die den Benutzer auf unterschiedliche Weise grüßen.</p>
+<p><img src="media/rest-service-host-methods.png" alt="Service Host Methoden"></p>
+<h3 id="separate-urls-für-service-methoden">Separate Urls für Service-Methoden</h3>
+<p>Um die Methoden am REST Endpoint voneinander unterscheiden zu können, besitzt jede Methode eine eigene Url. Ist der REST Endpoint beispielsweise unter</p>
+<p><code>http://localhost:1234/HelloServiceHost/api</code></p>
+<p>registriert, so werden die einzelnen Methoden wie folgt angesprochen:</p>
+<table>
+<thead>
+<tr>
+<th>Methodenname</th>
+<th>Url</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SayHello</td>
+<td><code>http://localhost:1234/HelloServiceHost/api/sayhello</code></td>
+</tr>
+<tr>
+<td>SayHelloComplex</td>
+<td><code>http://localhost:1234/HelloServiceHost/api/sayhellocomplex</code></td>
+</tr>
+<tr>
+<td>SayHelloFault</td>
+<td><code>http://localhost:1234/HelloServiceHost/api/sayhellofault</code></td>
+</tr>
+<tr>
+<td>SayHelloName</td>
+<td><code>http://localhost:1234/HelloServiceHost/api/sayhelloname</code></td>
+</tr>
+</tbody>
+</table>
+<p>Der Methodenname wird also als Url-Erweiterung am REST Endpoint genutzt. Auf Groß- und Kleinschreibung muss an dieser Stelle nicht geachtet werden.</p>
+<p>Um testweise HTTP-Requests auf den Service Host absetzen zu können, wird in den nachfolgenden Beispielen die App <strong>Postman</strong> genutzt. Sie ist kostenlos unter <a href="https://www.postman.com">https://www.postman.com</a> erhältlich.</p>
+<p><img src="media/rest-postman.png" alt="Postman"></p>
+<h3 id="beispiel-1-parameterlose-methoden">Beispiel 1: Parameterlose Methoden</h3>
+<pre><code class="lang-csharp">public virtual string SayHello()
+{
+    return &quot;Hello!&quot;;
+}
+</code></pre>
+<p>Am REST Endpoint ist diese Methode unter <code>http://localhost:1234/HelloServiceHost/api/sayhello</code> aufrufbar.</p>
+<p>Parameterlose Methoden können ausschließlich mit <code>HTTP GET</code> aufgerufen werden.</p>
+<p>Die Header <code>Content-Type</code> und <code>Content-Encoding</code> müssen nicht zwingend gesetzt sein, da bei parameterlosen Methoden im Request kein HTTP-Content übertragen wird.</p>
+<p>Der Header <code>Accept</code> muss auf <code>application/json</code> gesetzt sein oder diesen MIME-Type beinhalten (wird im Beispiel durch <code>*/*</code> abgedeckt), ansonsten führt der Response am Client zu einem Fehler.</p>
+<p><img src="media/rest-example-1.png" alt="Beispiel 1"></p>
+<p>Der Response hat ausschließlich den Content-Type <code>application/json</code> und das Content-Encoding <code>utf-8</code>. Somit kann der Response ohne Umwege z.B. vom im JavaScript integrierten JSON-Parser eingelesen werden.</p>
+<h3 id="beispiel-2-methoden-mit-parametern-einfache-datentypen">Beispiel 2: Methoden mit Parametern (einfache Datentypen)</h3>
+<pre><code class="lang-csharp">public virtual string SayHelloName(string name)
+{
+    return &quot;Hello &quot; + name + &quot;!&quot;;
+}
+</code></pre>
+<p>Am REST Endpoint ist diese Methode unter <code>http://localhost:1234/HelloServiceHost/api/sayhelloname</code> aufrufbar.</p>
+<p>Methoden mit Parametern müssen zwingend mit <code>HTTP POST</code> aufgerufen werden.</p>
+<p>Der Header <code>Content-Type</code> muss zwingend auf <code>application/json</code> gesetzt sein, da der Service Host eine JSON-Kommunikation erwartet.</p>
+<p>Um Encoding-Fehlern vorzubeugen, wird empfohlen, den Header <code>Content-Encoding</code> entsprechend des übertragenen Contents zu setzen (vorzugsweise <code>utf-8</code>).</p>
+<p>Der Header <code>Accept</code> muss auf <code>application/json</code> gesetzt sein oder diesen MIME-Type beinhalten (wird im Beispiel durch <code>*/*</code> abgedeckt), ansonsten führt der Response am Client zu einem Fehler.</p>
+<p>Methodenparameter müssen im HTTP-Content in einem JSON-Objekt übertragen werden. Url-Parameter werden nicht unterstützt. Jeder Methodenparameter wird als JSON-Property mit dem exakten Namen (Groß- und Kleinschreibung beachten) übergeben.</p>
+<p>Im Beispiel wäre das der Parameter <code>string name</code>. Der Parameter wird im JSON wie folgt übertragen:</p>
+<pre><code class="lang-json">{
+    &quot;name&quot;: &quot;Max Mustermann&quot;
+}
+</code></pre>
+<p><img src="media/rest-example-2.png" alt="Beispiel 2"></p>
+<p>Der Response hat ausschließlich den Content-Type <code>application/json</code> und das Content-Encoding <code>utf-8</code>. Somit kann der Response ohne Umwege z.B. vom im JavaScript integrierten JSON-Parser eingelesen werden.</p>
+<p>Hat eine Methode mehrere Parameter, so werden diese im JSON-Objekt ebenfalls als Properties hinzugefügt. Die Reihenfolge ist dabei nicht relevant.</p>
+<pre><code class="lang-csharp">public virtual string SayHelloMultiple(string name, int age, string city)
+</code></pre>
+<p>Diese Methode würde folgendes JSON-Objekt wie gewünscht verarbeiten, obwohl die Parameter vertauscht sind:</p>
+<pre><code class="lang-json">{
+    &quot;name&quot;: &quot;Max Mustermann&quot;,
+    &quot;city&quot;: &quot;Stockach&quot;,
+    &quot;age&quot;: 36
+}
+</code></pre>
+<h3 id="beispiel-3-methoden-mit-parametern-komplexe-datentypen">Beispiel 3: Methoden mit Parametern (komplexe Datentypen)</h3>
+<pre><code class="lang-csharp">public virtual dcHelloResult SayHelloComplex(dcHelloInput input)
+{
+    dcHelloResult result = new dcHelloResult()
+    {
+        sGreeting = &quot;Welcome!&quot;,
+        sFirstName = input.sFirstName,
+        sLastName = input.sLastName
+    };
+    return result;
+}
+</code></pre>
+<p>Für einen Methodenaufruf mit komplexen Datentypen wie z.B. DataContracts oder Arrays gelten dieselben Regeln wie für einen Methodenaufruf mit einfachen Datentypen. Der einzige Unterschied ist, dass der jeweilige Parameter als JSON-Objekt übertragen wird.</p>
+<p>Im Beispiel hat die Methode einen Parameter vom Typ <code>dcHelloInput</code> mit zwei Properties. Dieser DataContract sieht im Framework Studio folgendermaßen aus:</p>
+<p><img src="media/rest-datacontract-1.png" alt="dcHelloInput"></p>
+<p>Als Rückgabetyp dient der DataContract <code>dcHelloResult</code> mit drei Properties, welcher so definiert ist:</p>
+<p><img src="media/rest-datacontract-2.png" alt="dcHelloResult"></p>
+<p>Der Aufruf der Service-Methode gestaltet sich intuitiv wie folgt:</p>
+<p><img src="media/rest-example-3.png" alt="Beispiel 3"></p>
+<p>Hat eine Methode mehrere komplexe Parameter, so gilt dieselbe Nomenklatur wie in Beispiel 2.</p>
+<pre><code class="lang-csharp">public virtual string SayHelloComplexMultiple(
+    dcHelloInput input, dcHelloInput inputOther, string greeting)
+{
+    return $&quot;{greeting} {input.sFirstName} {input.sLastName}! &quot;
+        + $&quot;{greeting} {inputOther.sFirstName} {inputOther.sLastName}!&quot;;
+}
+</code></pre>
+<p>Diese Methode würde folgendes JSON-Objekt wie gewünscht verarbeiten:</p>
+<pre><code class="lang-json">{
+    &quot;input&quot;: {
+        &quot;sFirstName&quot;: &quot;Max&quot;,
+        &quot;sLastName&quot;: &quot;Mustermann&quot;
+    },
+    &quot;inputOther&quot;: {
+        &quot;sFirstName&quot;: &quot;Peter&quot;,
+        &quot;sLastName&quot;: &quot;Pan&quot;
+    },
+    &quot;greeting&quot;: &quot;Hi&quot;
+}
+</code></pre>
+<h3 id="beispiel-4-exceptions-und-faultcontracts">Beispiel 4: Exceptions und FaultContracts</h3>
+<pre><code class="lang-csharp">public virtual void SayHelloFault()
+{
+    dcFault fault = new dcFault()
+    {
+        sProp1 = &quot;Fault Property 1&quot;,
+        sProp2 = &quot;Fault Property 2&quot;
+    };
+    throw new FaultException&lt;dcFault&gt;(fault, &quot;OH NO!&quot;, new FaultCode(&quot;Custom Fault Code&quot;), &quot;Custom Fault Action&quot;);
+}
+</code></pre>
+<p>Tritt währende der Verarbeitung im Service eine Exception auf oder wird aus der Logik heraus eine FaultException geworfen, so werden auch diese im JSON an den Client übertragen. Die FaulException aus obigem Code stellt sich im JSON folgendermaßen dar:</p>
+<pre><code class="lang-json">{
+    &quot;Action&quot;: &quot;Custom Fault Action&quot;,
+    &quot;Code&quot;: {
+        &quot;IsPredefinedFault&quot;: true,
+        &quot;IsSenderFault&quot;: false,
+        &quot;IsReceiverFault&quot;: false,
+        &quot;Namespace&quot;: &quot;&quot;,
+        &quot;Name&quot;: &quot;Custom Fault Code&quot;,
+        &quot;SubCode&quot;: null
+    },
+    &quot;Reason&quot;: {
+        &quot;Translations&quot;: [
+            {
+                &quot;XmlLang&quot;: &quot;en-US&quot;,
+                &quot;Text&quot;: &quot;OH NO!&quot;
+            }
+        ]
+    },
+    &quot;Detail&quot;: {
+        &quot;sProp2&quot;: &quot;Fault Property 2&quot;,
+        &quot;sProp1&quot;: &quot;Fault Property 1&quot;
+    },
+    &quot;Exception&quot;: {
+        &quot;ClassName&quot;: &quot;System.ServiceModel.FaultException`1[App.dcFault]&quot;,
+        &quot;Message&quot;: &quot;OH NO!&quot;,
+        &quot;Data&quot;: {},
+        &quot;InnerException&quot;: null,
+        &quot;HelpURL&quot;: null,
+        &quot;StackTraceString&quot;: &quot;   at App.REST_HelloService.SayHelloFault()\r\n   at SyncInvokeSayHelloFault(Object , Object[] , Object[] )\r\n   at System.ServiceModel.Dispatcher.SyncMethodInvoker.Invoke(Object instance, Object[] inputs, Object[]&amp; outputs)\r\n   at System.ServiceModel.Dispatcher.DispatchOperationRuntime.InvokeBegin(MessageRpc&amp; rpc)\r\n   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage5(MessageRpc&amp; rpc)\r\n   at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)&quot;,
+        &quot;RemoteStackTraceString&quot;: null,
+        &quot;RemoteStackIndex&quot;: 0,
+        &quot;ExceptionMethod&quot;: &quot;8\nSayHelloFault\nApp_Svc, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\nApp.REST_HelloService\nVoid SayHelloFault()&quot;,
+        &quot;HResult&quot;: -2146233087,
+        &quot;Source&quot;: &quot;App_Svc&quot;,
+        &quot;WatsonBuckets&quot;: null,
+        &quot;code&quot;: [
+            {}
+        ],
+        &quot;reason&quot;: [
+            {}
+        ],
+        &quot;messageFault&quot;: null,
+        &quot;action&quot;: &quot;Custom Fault Action&quot;,
+        &quot;detail&quot;: {
+            &quot;sProp2&quot;: &quot;Fault Property 2&quot;,
+            &quot;sProp1&quot;: &quot;Fault Property 1&quot;
+        }
+    },
+    &quot;Message&quot;: &quot;OH NO!&quot;,
+    &quot;StackTrace&quot;: &quot;   at App.REST_HelloService.SayHelloFault()\r\n   at SyncInvokeSayHelloFault(Object , Object[] , Object[] )\r\n   at System.ServiceModel.Dispatcher.SyncMethodInvoker.Invoke(Object instance, Object[] inputs, Object[]&amp; outputs)\r\n   at System.ServiceModel.Dispatcher.DispatchOperationRuntime.InvokeBegin(MessageRpc&amp; rpc)\r\n   at System.ServiceModel.Dispatcher.ImmutableDispatchRuntime.ProcessMessage5(MessageRpc&amp; rpc)\r\n   at System.ServiceModel.Dispatcher.MessageRpc.Process(Boolean isOperationContextSet)&quot;
+}
+</code></pre>
+<p>Folgende Properties stehen zur Verfügung, um am Client ggf. eine adequate Fehlermeldung anzeigen zu können:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Typ</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Action</td>
+<td>String</td>
+<td>Beinhaltet die angegebene <code>FaulAction</code></td>
+</tr>
+<tr>
+<td>Code</td>
+<td>Object</td>
+<td>Beinhaltet den angegebenen <code>FaulCode</code> inkl. aller SubCodes</td>
+</tr>
+<tr>
+<td>Reason</td>
+<td>Object</td>
+<td>Beinhaltet den angegebenen <code>FaulReason</code>, ggf. mit allen übergebenen Übersetzungen</td>
+</tr>
+<tr>
+<td>Detail</td>
+<td>User Defined</td>
+<td>Beinhaltet das Objekt, welches vom Entwickler als Fault in die FaultException gegeben wurde. Im Beispiel die Variable <code>fault</code> vom Typ <code>dcFault</code></td>
+</tr>
+<tr>
+<td>Exception</td>
+<td>Object</td>
+<td>Beinhaltet die in Gänze serialisierte Exception mit allen Properties</td>
+</tr>
+<tr>
+<td>Message</td>
+<td>String</td>
+<td>Beinhaltet das <code>Message</code>-Property der Exception</td>
+</tr>
+<tr>
+<td>StackTrace</td>
+<td>String</td>
+<td>Beinhaltet das <code>StackTraceString</code>-Property der Exception</td>
+</tr>
+</tbody>
+</table>
+<h3 id="json-format">JSON Format</h3>
+<p>JSON kann verschiedene Datentypen in unterschiedlichsten Formaten übertragen. Für eine Datums- und Zeitangabe gibt es im JSON z.B. keinerlei Spezifikation, wie diese Information dargestellt werden soll. Da es im JSON keinen dedizierten DateTime-Typ gibt, wird ein Datum meist als String repräsentiert. Wie genau dieser String letzten Endes aussieht, hängt vom JSON-Serializer ab.</p>
+<p>Der in WCF integrierte <code>DataContractJsonSerializer</code> von Microsoft überträgt den .NET-Typ <code>DateTime</code> z.B. so:</p>
+<pre><code class="lang-json">{
+    &quot;datetime&quot;: &quot;/Date(1335205592410-0500)/&quot;
+}
+</code></pre>
+<p>JavaScript serialisiert ein Datum aber so:</p>
+<pre><code class="lang-json">{
+    &quot;datetime&quot;: &quot;2012-04-23T18:25:43.511Z&quot;
+}
+</code></pre>
+<p>Der Effekt ist, dass sich ggf. Server und Client nicht verstehen und letzten Endes auf Fehler laufen, da sie einen unterschiedlichen &quot;JSON-Dialekt&quot; sprechen. Aus diesem Grund arbeitet der REST Endpoint in einem Framework Studio Service Host mit dem bekannten <a href="https://www.newtonsoft.com/json">JSON.NET Serializer</a>, der weltweit in Millionen von Anwendungen zum Einsatz kommt. Das von diesem Serializer ausgegebene JSON ist kompatibel mit JavaScript und versteht im Umkehrschluss auch die meisten Dialekte, ohne dass der Entwickler selbst in den Serialisierungsprozess eingreifen muss.</p>
+<h3 id="ref--und-out-parameter">ref- und out-Parameter</h3>
+<p>WCF unterstützt generell ref- und out-Parameter in Service Methoden. Dies mündet in der SOAP-Kommunikation letzten Endes in mehreren Rückgabewerten einer Methode. Der REST Endpoint unterstützt ref- und out-Parameter <strong>NICHT</strong>. Wenn mehr als ein Rückgabeparameter in einer Service-Methode nötig sind, wird empfohlen, einen DataContract für diesen Zweck zu erstellen und diesen als Rückgabetypen für die Methode zu verwenden (siehe Beispiel 3).</p>
+<h2 id="individueller-rest-endpoint">Individueller Rest-Endpoint</h2>
+<p>Mit der Checkbox <strong>Generate REST Endpoint</strong> wird ein Endpoint mit Standard-Einstellungen definiert.
+Werden bei den Operationen große Datenmengen transportiert oder dauern die Operationen ungewöhnlich lange, dann kann es zu entsprechenden Fehlermeldungen oder Timeouts kommen.</p>
+<p>Es kann manuell ein REST-Endpoint mit individuellen Binding-Einstellungen definiert werden:</p>
+<ol>
+<li>Die Checkbox <strong>Generate REST Endpoint</strong> darf nicht mehr gesetzt sein.</li>
+<li>Es muss ein neuer <strong>EndPoint</strong> angelegt werden. Bei diesem muss als <strong>Name</strong> <code>rest</code> gesetzt sein.
+Dieser Name wird, wie beim automatischen REST-Endpoint, erkannt und so entsprechend für die JSON-Kommunikation konfiguriert.</li>
+<li>Wenn gewünscht, kann die <strong>Address</strong> angepasst werden.
+Die automatisch generierte Adresse bekommt am Ende den Namen des EndPoints - (<code>.../rest</code>).
+Damit das Verhalten identisch zum automatischen REST-Endpoint ist (<code>.../api</code>), muss die Address mit dem folgenden Wert überschrieben werden:<br>
+<code>http://%SERVER%:%PORT%/%HOSTNAME%/api</code></li>
+<li>Bei <strong>Binding</strong> muss <code>webHttpBinding</code> ausgewählt werden.</li>
+<li>Es kann eine eigene <strong>Binding Configuration</strong> angegeben werden. Diese muss zuvor im Register <strong>EndPoint Bindings</strong> erstellt werden (siehe unten).</li>
+<li><strong>Behavior</strong> darf nicht angegeben werden, darum kümmert sich der Automatismus.</li>
+</ol>
+<p><img src="media/rest-manual-endpoint.png" alt="rest-manual-endpoint"></p>
+<p>Die Binding Configuration kann folgendermaßen definiert werden:</p>
+<ol>
+<li>Ein neues <strong>EndPoint Binding</strong> anlegen und den Namen vergeben (z.B. <code>RestEndPointBinding</code>)</li>
+<li>Bei <strong>Binding Type</strong> muss <code>webHttpBinding</code> definiert werden.</li>
+<li>In den Registerkarten <strong>Default Properties</strong> und <strong>Reader Quotas Properties</strong> können die Größen entsprechend angepasst werden.</li>
+<li>Bei Bedarf können auch die verschiedenen Timeout-Zeiten erhöht werden.</li>
+</ol>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Im folgenden Screenshot wurde überall der maximale Wert <code>2147483647</code> angegeben - das sind 2 GB.
+Das ist bequem und man hat keine Sorge mehr, dass Nachrichten die Konfiguration sprengen.
+Das bedeutet aber, dass der Service praktisch keinen Schutz mehr vor zu großen Nachrichten hat.
+Ein Angreifer könnte diesen Umstand nutzen und dem Service schaden.</p>
+<p>Dasselbe gilt auch bei sehr großzügigen Timeout-Zeiten.</p>
+</div>
+<p><img src="media/rest-manual-endpoint-binding.png" alt="rest-manual-endpoint-binding"></p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

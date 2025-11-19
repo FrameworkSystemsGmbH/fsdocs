@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Diff-Editor </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Diff-Editor ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/doc/editors/editor-diff.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="diff-editor">Diff-Editor</h1>
+
+<p>Der Diff-Editor wird in FS im <a href="../ide/allgemeine-funktionalitaeten.html#element-history-browser">Element History Browser</a>, sowie im <a href="../ide/allgemeine-funktionalitaeten.html#method-history-browser">Method History Browser</a> verwendet.
+Der Aufbau und die Bedienung ist dabei immer gleich.
+Ergänzend zu den <a href="../ide/shortcuts.html#sprach%C3%BCbergreifend">sprachübergreifenden Shortcuts</a> gibt es auch spezifische <a href="../ide/shortcuts.html#diff-editor">Diff-Shortcuts</a>.</p>
+<h2 id="bedienelemente">Bedienelemente</h2>
+<p>Der Diff-Editor in FS beinhaltet den Monaco Diff-Editor und einige Buttons als Hilfscontrols.</p>
+<p><img src="media/diff-editor.png" alt="Bedienelemente des Diff-Editors"></p>
+<h3 id="editor">Editor</h3>
+<p>Der Editor besteht aus zwei einzelnen Monaco Code-Editoren, die standardmäßig in einer SplitPane angezeigt werden.
+Der Editor ist immer Read-Only und dient nur zum Vergleichen von bestehendem Code.
+Standardmäßig sind regions, in denen keine Changes sind mit einem Offset von 8 Zeilen collapsed.</p>
+<h3 id="buttons">Buttons</h3>
+<p>Die Buttons über dem Diff-Editor erleichtern die Arbeit mit dem Editor.</p>
+<h4 id="compare-in-external-tool">Compare in external tool</h4>
+<p>Mit dem <strong>Compare in external tool</strong> Button werden die Texte aus dem Editor im externen <a href="../allgemein/options.html#diff-tool">Diff Tool</a> angezeigt.
+Eventuell werden sie vorher noch mit zusätzlichen vorangestellten Infos bestückt.</p>
+<h4 id="next-change-next-change-alt--f5"><img src="media/ArrowDown.png" alt="Next Change"> Next Change (Alt + F5)</h4>
+<p>Mit dem <strong>Next Change</strong> Button kann direkt zur nächsten Änderung im Editor gesprungen werden.
+Alternativ kann der Shortcut <strong>Alt + F5</strong> genutzt werden, allerdings muss dazu der Fokus im Editor sein.</p>
+<h4 id="previous-change-previous-change-shift--alt--f5"><img src="media/ArrowUp.png" alt="Previous Change"> Previous Change (Shift + Alt + F5)</h4>
+<p>Mit dem <strong>Previous Change</strong> Button kann direkt zur vorherigen Änderung im Editor gesprungen werden.
+Alternativ kann der Shortcut <strong>Shift + Alt + F5</strong> genutzt werden, allerdings muss dazu der Fokus im Editor sein.</p>
+<h4 id="toggle-view-toggle-view"><img src="media/ToggleView.png" alt="Toggle View"> Toggle View</h4>
+<p>Mit dem <strong>Toggle View</strong> Button kann zwischen der Side-By-Side-View und der Inline-View gewechselt werden.
+Der Editor startet immer in der Side-By-Side-View, es sei denn der Editor ist schmaler als 1000px, dann wechselt er automatisch zur Inline-View.</p>
+<h4 id="toggle-unchanged-regions-toggle-unchanged-regions"><img src="media/ToggleUnchagedRegions.png" alt="Toggle Unchanged Regions"> Toggle Unchanged Regions</h4>
+<p>Mit dem <strong>Toggle Unchanged Regions</strong> Button können die regions, die keine changes enthalten collapsed oder expanded werden.
+Der Editor startet immer mit collapsed regions.</p>
+<h2 id="diff-review-pane">Diff Review Pane</h2>
+<p>Wenn der Fokus im Editor ist, kann mit <strong>F7</strong> bzw. <strong>Shift + F7</strong> die Diff Review Pane geöffnet werden.
+Diese Ansicht ermöglicht schnelles Navigieren zwischen den Änderungen und bietet eine kompakte Übersicht der Änderung.
+In der Diff Review Pane kann mit <strong>F7</strong> bzw. <strong>Shift + F7</strong> schnell zwischen den Änderungen gewechselt werden.
+Ist eine Zeile markiert kann mit Enter direkt zur entsprechenden Zeile im übergeordneten Diff-Editor gesprungen werden.
+Mit <strong>(Shift) Esc</strong> kann die Ansicht verlassen werden.</p>
+<p><img src="media/diff-review-pane.png" alt="Diff Review Pane"></p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Dependency Injection – Grundlagen </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Dependency Injection – Grundlagen ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/doc/konzepte/di-grundlagen.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="dependency-injection--grundlagen">Dependency Injection – Grundlagen</h1>
+
+<p>Dieses Kapitel beleuchtet die theoretischen Grundlagen von Dependency Injection (DI).
+Dabei werden zentrale Konzepte, Vorteile und typische Einsatzszenarien von DI erläutert.
+Das Ziel ist es, ein grundlegendes Verständnis für die Bedeutung und Anwendung von DI in der Softwareentwicklung zu vermitteln.</p>
+<p>Framework Studio spezifische Aspekte werden im Kapitel <strong><a href="dependency-injection.html">Dependency-Injection in Framework Studio</a></strong> behandelt.</p>
+<h2 id="1-einführung-warum-ist-dependency-injection-relevant">1. Einführung: Warum ist Dependency Injection relevant?</h2>
+<p>Dependency Injection (DI) ist ein zentrales Prinzip moderner Softwareentwicklung.
+Es hilft, die Kopplung zwischen Komponenten zu reduzieren, fördert die Testbarkeit und Flexibilität des Codes.</p>
+<p><strong>Probleme ohne DI:</strong></p>
+<ul>
+<li><strong>Enge Kopplung</strong>: Klassen sind fest miteinander verbunden.
+Änderungen an einer Klasse erfordern oft Anpassungen an vielen anderen Stellen.</li>
+<li><strong>Schwierige Testbarkeit</strong>: Abhängigkeiten sind fest im Code verdrahtet.
+Mocking oder das Ersetzen von Komponenten für Tests wird schwierig.</li>
+<li><strong>Wenig Wiederverwendbarkeit</strong>: Komponenten können außerhalb ihres ursprünglichen Kontexts nur schwer verwendet werden.</li>
+</ul>
+<h2 id="2-praktische-beispiele-ohne-dependency-injection">2. Praktische Beispiele ohne Dependency Injection</h2>
+<h3 id="klassisches-vorgehen-direkte-instanziierung">Klassisches Vorgehen: Direkte Instanziierung</h3>
+<pre><code class="lang-csharp">public class OrderService
+{
+    private readonly PaymentService _paymentService;
+    private readonly Logger _logger;
+
+    public OrderService()
+    {
+        _paymentService = new PaymentService();
+        _logger = new Logger();
+    }
+
+    public void ProcessOrder(Order order)
+    {
+        _logger.Log(&quot;Order processing started.&quot;);
+        _paymentService.ProcessPayment(order);
+        _logger.Log(&quot;Order processing finished.&quot;);
+    }
+}
+</code></pre>
+<h3 id="nachteile-dieses-ansatzes">Nachteile dieses Ansatzes</h3>
+<ul>
+<li><strong>Testbarkeit</strong>: Für Unit-Tests kann der <code>PaymentService</code> und <code>Logger</code> nicht einfach durch Mocks ersetzt werden.</li>
+<li><strong>Starre Architektur</strong>: Sollte z. B. ein anderer Logger benötigt werden, muss der Code angepasst und neu deployed werden.</li>
+<li><strong>Verletzung von SOLID-Prinzipien</strong>: Besonders das <strong>Open/Closed Principle</strong> und <strong>Dependency Inversion Principle</strong> werden missachtet.</li>
+</ul>
+<p><strong>Anmerkung:</strong> Framework Studio setzt auf Interfaces und <code>...Factory.Create()</code>.
+Das löst aber nicht das Problem, weil wir &quot;praktisch&quot; von den Klassen abhängen.</p>
+<h2 id="3-einführung-in-dependency-injection">3. Einführung in Dependency Injection</h2>
+<h3 id="grundidee-und-funktionsweise">Grundidee und Funktionsweise</h3>
+<p>DI trennt die Erzeugung und Verwendung von Abhängigkeiten.
+Die benötigten Komponenten werden der Klasse übergeben – meist beim Erstellen (Constructor Injection).</p>
+<ul>
+<li><strong>Dependency</strong>: Eine Komponente, die eine andere benötigt (z. B. OrderService benötigt PaymentService).</li>
+<li><strong>Injection</strong>: Die Abhängigkeit wird von außen bereitgestellt, anstatt sie selbst zu erzeugen.</li>
+</ul>
+<h3 id="arten-der-di">Arten der DI</h3>
+<ul>
+<li><p><strong>Constructor Injection</strong>: Empfehlung, da alle Abhängigkeiten beim Erstellen vorhanden sind.</p>
+<pre><code class="lang-csharp">public class OrderService
+{
+    private readonly IPaymentService _paymentService;
+    private readonly ILogger _logger;
+
+    public OrderService(IPaymentService paymentService, ILogger logger)
+    {
+        _paymentService = paymentService;
+        _logger = logger;
+    }
+
+    // ...
+}
+</code></pre>
+</li>
+<li><p><strong>Setter Injection</strong>: Abhängigkeiten werden über Set-Methoden zugewiesen.</p>
+<pre><code class="lang-csharp">public class OrderService
+{
+    public IPaymentService PaymentService { get; set; }
+    public ILogger Logger { get; set; }
+}
+</code></pre>
+</li>
+<li><p><strong>Interface Injection</strong>: Die Abhängigkeit wird durch eine Schnittstelle gesetzt (selten genutzt).</p>
+</li>
+</ul>
+<h2 id="4-alternativen-zu-dependency-injection">4. Alternativen zu Dependency Injection</h2>
+<details><summary>(Exkurs...)</summary>
+<ul>
+<li><p><strong>Service Locator</strong>: wird als Anti-Pattern betrachtet, Eine zentrale Instanz („Service Locator“) hält Referenzen auf alle Services. Wenn eine Klasse eine Abhängigkeit benötigt, fragt sie den Service Locator danach.</p>
+<pre><code class="lang-csharp">public class OrderService
+{
+    private readonly PaymentService _paymentService;
+    private readonly Logger _logger;
+
+    public OrderService()
+    {
+        _paymentService = ServiceLocator.Get&lt;PaymentService&gt;();
+        _logger = ServiceLocator.Get&lt;Logger&gt;();
+    }
+}
+</code></pre>
+<p><strong>Vor- und Nachteile:</strong></p>
+<ul>
+<li><strong>Vorteil</strong>: Einfach zu implementieren, überschaubar in kleinen Projekten.</li>
+<li><strong>Nachteil</strong>: Versteckte Abhängigkeiten, erschwerte Testbarkeit (Mocks schwer einzubringen), Code ist weniger transparent und lose gekoppelt.</li>
+</ul>
+</li>
+<li><p><strong>Manuelle Instanziierung / Factory Pattern</strong>: Abhängigkeiten werden direkt in der Klasse erzeugt oder über Factories bereitgestellt.</p>
+<pre><code class="lang-csharp">public class OrderService
+{
+    private readonly PaymentService _paymentService;
+
+    public OrderService()
+    {
+        _paymentService = PaymentServiceFactory.Create();
+    }
+}
+</code></pre>
+<p><strong>Vor- und Nachteile:</strong></p>
+<ul>
+<li><strong>Vorteil</strong>: Einfach, keine externe Infrastruktur nötig.</li>
+<li><strong>Nachteil</strong>: Enge Kopplung, schwierige Testbarkeit, nicht flexibel bei unterschiedlichen Implementierungen (z. B. für Tests).</li>
+</ul>
+</li>
+<li><p><strong>Singleton Pattern</strong>: Einzelne Services werden als Singleton implementiert und global bereitgestellt.</p>
+<pre><code class="lang-csharp">public class Logger
+{
+    private static Logger _instance = new Logger();
+    public static Logger Instance =&gt; _instance;
+
+    private Logger() { }
+}
+
+public class OrderService
+{
+    public void PlaceOrder(Order order)
+    {
+        Logger.Instance.Log(&quot;...&quot;);
+    }
+}
+
+</code></pre>
+<p><strong>Vor- und Nachteile:</strong></p>
+<ul>
+<li><strong>Vorteil</strong>: Globale Verfügbarkeit eines Services.</li>
+<li><strong>Nachteil</strong>: Globale Zustände sind oft schwer zu testen und führen zu versteckten Abhängigkeiten.</li>
+</ul>
+</li>
+</ul>
+</details>
+<h2 id="5-praxisbeispiel-mit-dependency-injection">5. Praxisbeispiel mit Dependency Injection</h2>
+<p>Wir nutzen weiterhin das Beispiel mit <code>OrderService</code>, <code>PaymentService</code> und <code>Logger</code>.</p>
+<h3 id="schrittweise-umwandlung-mit-di">Schrittweise Umwandlung mit DI</h3>
+<h4 id="1-definiere-die-interfaces">1. Definiere die Interfaces</h4>
+<pre><code class="lang-csharp">public interface IPaymentService
+{
+    void ProcessPayment(Order order);
+}
+
+public interface ILogger
+{
+    void Log(string message);
+}
+</code></pre>
+<h4 id="2-implementierungen">2. Implementierungen</h4>
+<pre><code class="lang-csharp">public class PaymentService : IPaymentService
+{
+    public void ProcessPayment(Order order)
+    {
+        // Zahlungslogik
+    }
+}
+
+public class Logger : ILogger
+{
+    public void Log(string message)
+    {
+        Console.WriteLine(message);
+    }
+}
+</code></pre>
+<h4 id="3-anwendung-von-constructor-injection">3. Anwendung von Constructor Injection</h4>
+<pre><code class="lang-csharp">public class OrderService
+{
+    private readonly IPaymentService _paymentService;
+    private readonly ILogger _logger;
+
+    public OrderService(IPaymentService paymentService, ILogger logger)
+    {
+        _paymentService = paymentService;
+        _logger = logger;
+    }
+
+    public void ProcessOrder(Order order)
+    {
+        _logger.Log(&quot;Order processing started.&quot;);
+        _paymentService.ProcessPayment(order);
+        _logger.Log(&quot;Order processing finished.&quot;);
+    }
+}
+</code></pre>
+<h4 id="4-vorteile-herausarbeiten">4. Vorteile herausarbeiten</h4>
+<ul>
+<li><p><strong>Flexibilität</strong>: Verschiedene Implementierungen (z. B. TestPaymentService, FileLogger) können leicht eingebunden werden.</p>
+</li>
+<li><p><strong>Testbarkeit</strong>: Durch die Verwendung von Interfaces können Mocks oder alternative Implementierungen verwendet werden.</p>
+<pre><code class="lang-csharp">[TestMethod]
+public void PlaceOrder_Should_Call_PaymentService_And_Logger()
+{
+    // Arrange
+    var paymentServiceMock = new Mock&lt;IPaymentService&gt;();
+    var loggerMock = new Mock&lt;ILogger&gt;();
+    var order = new Order();
+
+    var orderService = new OrderService(paymentServiceMock.Object, loggerMock.Object);
+
+    // Act
+    orderService.PlaceOrder(order);
+
+    // Assert
+    paymentServiceMock.Verify(ps =&gt; ps.ProcessPayment(order), Times.Once);
+    loggerMock.Verify(l =&gt; l.Log(&quot;Order placed&quot;), Times.Once);
+}
+</code></pre>
+</li>
+</ul>
+<h2 id="6-dependency-injection-frameworks-und-tools">6. Dependency Injection Frameworks und Tools</h2>
+<p>Es gibt verschiedene DI-Frameworks:</p>
+<ul>
+<li><strong>Microsoft.Extensions.DependencyInjection</strong> (Standard in ASP.NET Core)</li>
+<li><strong>Autofac</strong></li>
+<li><strong>Ninject</strong></li>
+<li>uvm ...</li>
+</ul>
+<p>Ein DI-Framework übernimmt viele Aufgaben:</p>
+<ul>
+<li><p><strong>Automatische Instanziierung und Bereitstellung von Abhängigkeiten</strong><br>
+Das Framework erstellt benötigte Objekte und versorgt Klassen mit deren Dependencies.
+Die Klassen sind nicht selbst für die Erzeugung verantwortlich.</p>
+</li>
+<li><p><strong>Verwaltung des Lebenszyklus (Scopes) der Objekte</strong><br>
+Das DI-Framework steuert, wie lange und in welchem Kontext Instanzen existieren (z. B. Singleton, Scoped, Transient).</p>
+</li>
+<li><p><strong>Konfiguration und Auflösung von Abhängigkeitsketten</strong><br>
+Das Framework stellt sicher, dass alle benötigten Services korrekt konfiguriert, registriert und bei Bedarf aufgelöst werden.
+Dies gilt auch bei komplexen Verschachtelungen.</p>
+</li>
+</ul>
+<p>In Framework Studio setzen wir auf den Microsoft-Standard.</p>
+<h3 id="beispiel-für-infrastruktur-und-fachliche-services">Beispiel für Infrastruktur und fachliche Services</h3>
+<pre><code class="lang-csharp">var services = new ServiceCollection();
+services.AddSingleton&lt;ILogger, Logger&gt;();                 // Infrastruktur
+services.AddScoped&lt;IOrderService, OrderService&gt;();        // Fachlicher Service
+services.AddTransient&lt;IPaymentService, PaymentService&gt;(); // Fachlicher Service
+</code></pre>
+<p><strong>Hinweis:</strong> Infrastruktur-Komponenten wie Logger werden typischerweise als Singleton registriert.</p>
+<h2 id="7-guideline-daten-objekte-über-factory-oder-repository-erzeugen">7. Guideline: Daten-Objekte über Factory oder Repository erzeugen</h2>
+<p>Daten-Objekte dürfen nicht über DI aufgelöst werden.</p>
+<p><strong>Nicht:</strong></p>
+<pre><code class="lang-csharp">public class SomeService
+{
+    private readonly Order _order;
+
+    public SomeService(Order order)
+    {
+        _order = order;
+    }
+}
+</code></pre>
+<p><strong>Stattdessen:</strong></p>
+<pre><code class="lang-csharp">public interface IOrderFactory
+{
+    Order Create();
+}
+</code></pre>
+<p>Die Factory wird über DI injiziert und erzeugt das Objekt.
+Dies erleichtert die Erweiterbarkeit und Testbarkeit, da die Erzeugungslogik gekapselt ist.</p>
+<p>Trennung von Logik und Daten ist wichtig.</p>
+<h2 id="8-idisposable-in-bezug-auf-die-lifetimes">8. <code>IDisposable</code> in Bezug auf die Lifetimes</h2>
+<p>Wenn ein Service <code>IDisposable</code> implementiert, sorgt das DI-Framework dafür, dass <code>Dispose</code> korrekt aufgerufen wird.
+Dies geschieht abhängig vom gewählten Lifetime.</p>
+<pre><code class="lang-csharp">public class Logger : ILogger, IDisposable
+{
+    public void Log(string message) { /* ... */ }
+    public void Dispose() { /* Ressourcen freigeben */ }
+}
+</code></pre>
+<ul>
+<li><strong>Singleton</strong>: Dispose wird beim Beenden der Anwendung aufgerufen.</li>
+<li><strong>Scoped</strong>: Dispose wird am Ende des Scope (z. B. Request) aufgerufen.</li>
+<li><strong>Transient</strong>: Dispose wird am Ende des Scope (z. B. Request) aufgerufen.
+(Wenn möglich vermeiden)</li>
+</ul>
+<h2 id="fazit-und-zusammenfassung">Fazit und Zusammenfassung</h2>
+<ul>
+<li>Dependency Injection fördert die Entkopplung und Testbarkeit.</li>
+<li>Die Wahl des passenden Lifetime ist entscheidend für Ressourcenmanagement.</li>
+<li>Fachliche Datenobjekte sollten über Factories/Repositories erzeugt werden.</li>
+<li>Infrastruktur und fachliche Services können einheitlich über DI verwaltet werden.</li>
+<li>DI macht den Code flexibel, wartbar und testbar – und ist ein zentraler Bestandteil moderner Softwareentwicklung mit C#.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

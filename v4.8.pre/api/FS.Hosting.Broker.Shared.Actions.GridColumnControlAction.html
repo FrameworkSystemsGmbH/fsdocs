@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Class GridColumnControlAction </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Class GridColumnControlAction ">
+      
+      <meta name="description" content="&#220;ber diese Klasse werden zur Laufzeit die Actions f&#252;r das Control Grid-Column angeboten.">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/new/4.8/release/0-beta1/apiSpec/new?filename=FS_Hosting_Broker_Shared_Actions_GridColumnControlAction.md&amp;value=---%0Auid%3A%20FS.Hosting.Broker.Shared.Actions.GridColumnControlAction%0Asummary%3A%20&#39;*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax&#39;%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="FS.Hosting.Broker.Shared.Actions.GridColumnControlAction">
+
+
+
+  <h1 id="FS_Hosting_Broker_Shared_Actions_GridColumnControlAction" data-uid="FS.Hosting.Broker.Shared.Actions.GridColumnControlAction" class="text-break">
+Class GridColumnControlAction  <a class="header-action link-secondary" title="View source" href="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/fs/FS.Hosting.Broker.Shared/Actions/GridColumnControlAction.cs/#L17"><i class="bi bi-code-slash"></i></a>
+  </h1>
+
+  <div class="facts text-secondary">
+    <dl><dt>Namespace</dt><dd><a class="xref" href="FS.html">FS</a>.<a class="xref" href="FS.Hosting.html">Hosting</a>.<a class="xref" href="FS.Hosting.Broker.html">Broker</a>.<a class="xref" href="FS.Hosting.Broker.Shared.html">Shared</a>.<a class="xref" href="FS.Hosting.Broker.Shared.Actions.html">Actions</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>FS.Hosting.Broker.Shared.dll</dd></dl>
+  </div>
+
+  <div class="markdown summary"><p>Über diese Klasse werden zur Laufzeit die Actions für das Control <a href="../doc/form/control/grid-column.html">Grid-Column</a> angeboten.</p>
+</div>
+  <div class="markdown conceptual"></div>
+
+  <div class="codewrapper">
+    <pre><code class="lang-csharp hljs">[Serializable]
+public class GridColumnControlAction : EditableControlAction, ISerializable, IFrameworkControlActionBase</code></pre>
+  </div>
+
+
+
+
+  <dl class="typelist inheritance">
+    <dt>Inheritance</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></div>
+      <div><a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlActionBase.html">FrameworkControlActionBase</a></div>
+      <div><a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.html">FrameworkControlAction</a></div>
+      <div><a class="xref" href="FS.Hosting.Broker.Shared.Actions.EditableControlAction.html">EditableControlAction</a></div>
+      <div><span class="xref">GridColumnControlAction</span></div>
+    </dd>
+  </dl>
+
+  <dl class="typelist implements">
+    <dt>Implements</dt>
+    <dd>
+      <div><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.runtime.serialization.iserializable">ISerializable</a></div>
+      <div><a class="xref" href="FS.Hosting.Shared.IFrameworkControlActionBase.html">IFrameworkControlActionBase</a></div>
+    </dd>
+  </dl>
+
+
+  <dl class="typelist inheritedMembers">
+    <dt>Inherited Members</dt>
+    <dd>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.EditableControlAction.SetEnabled.html#FS_Hosting_Broker_Shared_Actions_EditableControlAction_SetEnabled_System_Nullable_System_Boolean__">EditableControlAction.SetEnabled(bool?)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.EditableControlAction.SetFocus.html#FS_Hosting_Broker_Shared_Actions_EditableControlAction_SetFocus">EditableControlAction.SetFocus()</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetForeColor.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetForeColor_System_Nullable_System_Drawing_Color__">FrameworkControlAction.SetForeColor(Color?)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetBackColor.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetBackColor_System_Nullable_System_Drawing_Color__">FrameworkControlAction.SetBackColor(Color?)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetBorderColor.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetBorderColor_System_Nullable_System_Drawing_Color__">FrameworkControlAction.SetBorderColor(Color?)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetMinWidth.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetMinWidth_FS_Hosting_Shared_Metadatatype_FSint_">FrameworkControlAction.SetMinWidth(FSint)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetMinHeight.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetMinHeight_FS_Hosting_Shared_Metadatatype_FSint_">FrameworkControlAction.SetMinHeight(FSint)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetMinHeight.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetMinHeight_System_Nullable_System_Int32__">FrameworkControlAction.SetMinHeight(int?)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetMaxWidth.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetMaxWidth_FS_Hosting_Shared_Metadatatype_FSint_">FrameworkControlAction.SetMaxWidth(FSint)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetMaxHeight.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetMaxHeight_FS_Hosting_Shared_Metadatatype_FSint_">FrameworkControlAction.SetMaxHeight(FSint)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetMaxHeight.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetMaxHeight_System_Nullable_System_Int32__">FrameworkControlAction.SetMaxHeight(int?)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetToolTip.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetToolTip_System_String_">FrameworkControlAction.SetToolTip(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetFontFamily.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetFontFamily_System_String_">FrameworkControlAction.SetFontFamily(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetFontSize.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetFontSize_FS_Hosting_Shared_Metadatatype_FSint_">FrameworkControlAction.SetFontSize(FSint)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetFontSize.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetFontSize_System_Nullable_System_Int32__">FrameworkControlAction.SetFontSize(int?)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetFontBold.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetFontBold_FS_Hosting_Shared_Metadatatype_FSbool_">FrameworkControlAction.SetFontBold(FSbool)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetFontBold.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetFontBold_System_Nullable_System_Boolean__">FrameworkControlAction.SetFontBold(bool?)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetFontItalic.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetFontItalic_FS_Hosting_Shared_Metadatatype_FSbool_">FrameworkControlAction.SetFontItalic(FSbool)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetFontItalic.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetFontItalic_System_Nullable_System_Boolean__">FrameworkControlAction.SetFontItalic(bool?)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetFontUnderline.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetFontUnderline_FS_Hosting_Shared_Metadatatype_FSbool_">FrameworkControlAction.SetFontUnderline(FSbool)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetFontUnderline.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetFontUnderline_System_Nullable_System_Boolean__">FrameworkControlAction.SetFontUnderline(bool?)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.SetCaption.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_SetCaption_System_String_">FrameworkControlAction.SetCaption(string)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlAction.GetDefaultLabel.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlAction_GetDefaultLabel">FrameworkControlAction.GetDefaultLabel()</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlActionBase.SetVisible.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlActionBase_SetVisible_System_Boolean_">FrameworkControlActionBase.SetVisible(bool)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlActionBase.SetVisible.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlActionBase_SetVisible_System_Nullable_FS_Hosting_Shared_FSVisibility__">FrameworkControlActionBase.SetVisible(FSVisibility?)</a>
+    </div>
+    <div>
+      <a class="xref" href="FS.Hosting.Broker.Shared.Actions.FrameworkControlActionBase.HidePermanent.html#FS_Hosting_Broker_Shared_Actions_FrameworkControlActionBase_HidePermanent">FrameworkControlActionBase.HidePermanent()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object)">object.Equals(object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.equals#system-object-equals(system-object-system-object)">object.Equals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gethashcode">object.GetHashCode()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.gettype">object.GetType()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.memberwiseclone">object.MemberwiseClone()</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.referenceequals">object.ReferenceEquals(object, object)</a>
+    </div>
+    <div>
+      <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object.tostring">object.ToString()</a>
+    </div>
+  </dd></dl>
+
+
+
+
+
+  <h2 class="section" id="methods">Methods
+</h2>
+
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridColumnControlAction.MoveAfter.html#FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_MoveAfter_FS_Hosting_Broker_Shared_IGridColumnControlAction_">MoveAfter(IGridColumnControlAction)</a></dt>
+    <dd><p>Verschiebt das aktuelle Grid-Column hinter das übergebene <code class="paramref">afterControl</code>.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridColumnControlAction.MoveBefore.html#FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_MoveBefore_FS_Hosting_Broker_Shared_IGridColumnControlAction_">MoveBefore(IGridColumnControlAction)</a></dt>
+    <dd><p>Verschiebt das aktuelle Grid-Column vor das übergebene <code class="paramref">beforeControl</code>.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridColumnControlAction.SetCell.html#FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_SetCell_FS_Shared_BaseObjects_guid_">SetCell(guid)</a></dt>
+    <dd><p>Setzt den Fokus auf ein Feld.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridColumnControlAction.SetCellBackColor.html#FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_SetCellBackColor_FS_Shared_BaseObjects_guid_System_Nullable_System_Drawing_Color__">SetCellBackColor(guid, Color?)</a></dt>
+    <dd></dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridColumnControlAction.SetCellEditable.html#FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_SetCellEditable_FS_Shared_BaseObjects_guid_System_Boolean_">SetCellEditable(guid, bool)</a></dt>
+    <dd><p>Setzt die Editierbarkeit einer Grid-Zelle.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridColumnControlAction.SetCellForeColor.html#FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_SetCellForeColor_FS_Shared_BaseObjects_guid_System_Nullable_System_Drawing_Color__">SetCellForeColor(guid, Color?)</a></dt>
+    <dd></dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridColumnControlAction.SetMaxWidth.html#FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_SetMaxWidth_System_Nullable_System_Int32__">SetMaxWidth(int?)</a></dt>
+    <dd></dd>
+  </dl>
+  <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Broker.Shared.Actions.GridColumnControlAction.SetMinWidth.html#FS_Hosting_Broker_Shared_Actions_GridColumnControlAction_SetMinWidth_System_Nullable_System_Int32__">SetMinWidth(int?)</a></dt>
+    <dd></dd>
+  </dl>
+
+
+  <h2 id="seealso">See Also</h2>
+  <div class="seealso">
+      <div><a class="xref" href="FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridColDesignViewModel.html">GridColDesignViewModel</a></div>
+  </div>
+
+</article>
+
+
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

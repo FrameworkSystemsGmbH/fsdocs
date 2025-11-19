@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Laufzeitlizenzen </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Laufzeitlizenzen ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/doc/access-units/laufzeitlizenzen.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="laufzeitlizenzen">Laufzeitlizenzen</h1>
+
+<p>Mit dem Runtime License Manager werden Laufzeitlizenzen für die mit Framework Studio erstellte Anwendung erzeugt und verwaltet.
+Dieses Werkzeug wird über den Menüpunkt Tools / Runtime License Manager in Framework Studio oder im <a href="../package-manager/package-manager.html">Package Manager</a> gestartet.
+Außerdem wird das Tool über den Button Change configuration unter dem Navigationspunkt Runtime License sowohl im <strong><a href="../publish-wizards/run-wizard.html">Run Wizard</a></strong> als auch im <strong><a href="../publish-wizards/publish-wizard.html">Publish Wizard</a></strong> gestartet.</p>
+<h2 id="allgemeines--hintergrund">Allgemeines / Hintergrund</h2>
+<p>Laufzeitlizenzen werden im Repository gespeichert.
+Dort können für jede Package-Version beliebig viele Lizenzen abgelegt werden.</p>
+<p>Wenn eine Applikation gestartet werden soll, muss zuvor im Brokerverzeichnis die Datei FSLicense.xml erstellt werden.
+Diese Datei enthält für jede Package-Version der Applikation eine Lizenz.</p>
+<p>Mit dem Runtime License Manager wird gesteuert, welche der vorhandenen Lizenzen für die erstellten Applikationen und Service Hosts verwendet werden sollen.</p>
+<p>Wenn Sie den Runtime License Manager aus dem Run Wizard oder aus dem Publish Wizard heraus starten, werden die Einstellungen im aktuellen Setting gespeichert. Sollte für ein Package, von dem man der Besitzer ist, noch keine Lizenz existieren, wird für das Package automatisch eine Developer Lizenz erzeugt.</p>
+<p>Wenn Sie den Runtime License Manager über den Menüpunkt Tools / Runtime License Manager starten, werden die Einstellungen, welche Lizenzen verwendet werden sollen, nicht gespeichert.</p>
+<p>Runtime License Manager:</p>
+<p><img src="media/runtime-license-manager.png" alt="Runtime License Manager"></p>
+<p>Auf der linken Seite wird ein Baum dargestellt, der sogenannte Lizenzbaum. In diesem Baum werden auf der ersten Ebene hierarchisch sortiert alle Packages der Anwendung angezeigt. In den Unterknoten der Packages werden alle im Repository (zur aktuellen Package Version) abgelegten Lizenzen angezeigt.</p>
+<p>Wenn im Lizenzbaum durch einfachen Klick mit der Maus eine Lizenz ausgewählt wird, werden alle Details zu dieser Lizenz im rechten Fensterbereich dargestellt. Dort stehen die Registerkarten Access unit tree (<a href="#registerkarte-access-unit-tree">Registerkarte Access unit tree</a>), License parameters (<a href="#registerkarte-license-parameters">Registerkarte License Parameters</a>) und Language (<a href="#language">Registerkarte Language</a>) zur Auswahl.</p>
+<h3 id="buttons">Buttons</h3>
+<p>Im Runtime License Manager stehen folgende Buttons zur Verfügung:</p>
+<h4 id="new">New</h4>
+<p><img src="../media/icon-new.png" alt="icon-new"></p>
+<p>Anlegen einer neuen Lizenz für das aktive Package</p>
+<h4 id="save">Save</h4>
+<p><img src="../media/icon-save-blue.png" alt="icon-save-blue"></p>
+<p>Alle Änderungen an der ausgewählten Lizenz werden in die Datenbank gespeichert. Dieser Button ist nur aktiv, wenn die ausgewählte Lizenz seit dem letzten Laden oder Speichern geändert wurde.</p>
+<h4 id="copy">Copy</h4>
+<p><img src="../media/icon-copy.png" alt="icon-copy"></p>
+<p>Es wird eine Kopie einer Lizenz aus dem aktiven Package angelegt. Dieser Button ist nur aktiv, wenn eine Lizenz aus dem aktiven Package ausgewählt ist.</p>
+<h4 id="delete">Delete</h4>
+<p><img src="../media/icon-delete-black.png" alt="icon-delete"></p>
+<p>Die ausgewählte Lizenz wird aus der Datenbank gelöscht</p>
+<h4 id="refresh-all">Refresh all</h4>
+<p><img src="../media/icon-refresh.png" alt="icon-refresh"></p>
+<p>Alle Lizenzen des aktiven Packages werden aktualisiert. Dieser Schritt ist dann nötig, wenn sich die Access Unit Hierarchie (Access Unit Hierarchie) für eines der verwendeten Packages geändert hat, beispielsweise wenn eine neue Version eines Basispackages importiert wurde oder im aktiven Package neue Access Units eingecheckt wurden. Außerdem empfiehlt sich diese Aktion nach dem Upgrade von Lizenzen und nach dem Import von Lizenzen für das aktive Package.</p>
+<h4 id="import">Import</h4>
+<p><img src="media/icon-import.png" alt="import"></p>
+<p>Eine einzelne, zuvor in eine XML-Datei exportierte Lizenz wird importiert.</p>
+<h4 id="export">Export</h4>
+<p><img src="media/icon-export.png" alt="export"></p>
+<p>Die ausgewählte Lizenz wird in eine XML-Datei exportiert.</p>
+<h4 id="export-all">Export all</h4>
+<p><img src="media/icon-export-all.png" alt="export-all"></p>
+<p>Alle Lizenzen des aktiven Packages werden in je eine XML-Datei in einem gemeinsamen Ordner exportiert.</p>
+<h4 id="upgrade">Upgrade</h4>
+<p><img src="media/icon-access-unit-upgrade.png" alt="upgrade"></p>
+<p>Lizenzen, die im Repository für eine ältere Package Version (Label) des ausgewählten Packages gespeichert sind, können in die aktuelle Package Version kopiert werden. Siehe <a href="../html-client/lizenzen.html">Lizenz</a> aus einem anderen Label übertragen.</p>
+<h4 id="search">Search</h4>
+<p><img src="media/access-unit-search.png" alt="search"></p>
+<p>Startet den Dialog zum Suchen nach AccessUnits. Siehe Suche nach Access Units.</p>
+<h4 id="save-configuration">Save Configuration</h4>
+<p><img src="media/icon-save-configuration.png" alt="save-config"></p>
+<p>Die Lizenzauswahl wird in das aktuelle Setting gespeichert und der Runtime License Manager geschlossen. Siehe Konfiguration speichern. Dieser Button steht nur dann zur Verfügung, wenn der Runtime License Manager über den Run Wizard oder den Publish Wizard geöffnet wurde.</p>
+<h4 id="save-fslicensexml">Save FSLicense.xml</h4>
+<p><img src="media/icon-save-configuration.png" alt="save-fslicense"></p>
+<p>Die Xml-Datei <strong>FSLicense.xml</strong> wird im Brokerverzeichnis erzeugt, die für jedes Package der Anwendung eine Lizenz erhält, und der Runtime License Manager wird geschlossen. Siehe <a href="#konfiguration-speichern">Konfiguration speichern</a>. Dieser Button steht nur dann zur Verfügung, wenn der Runtime License Manager über den Menüpunkt Tools / Runtime License Manager gestartet wurde.</p>
+<h3 id="language">Language</h3>
+<p><img src="media/icon-language.png" alt="icon-language"></p>
+<p>Mit diesem Drop Down Button wird die Sprache ausgewählt, in der die Access Units im Access Unit Tree (<a href="#registerkarte-access-unit-tree">Registerkarte Access unit tree</a>) dargestellt werden. Zur Auswahl stehen alle Sprachen, die im Default Package definiert wurden und <internal name>, um den technischen Namen der AccessUnit darzustellen.</internal></p>
+<h3 id="lizenz-aus-einem-anderen-label-übertragen">Lizenz aus einem anderen Label übertragen</h3>
+<p>Wenn im Lizenzbaum ein Package ausgewählt ist, kann mit dem Button <img src="media/icon-access-unit-upgrade.png" alt="icon-upgrade"> Upgrade der Dialog zum Kopieren von Lizenzen aus einer anderen Version des Packages (Label) geöffnet werden.</p>
+<p>Runtime License Manager - Upgrade:</p>
+<p><img src="media/runtime-license-manager-upgrade.png" alt="Runtime License Manager - Upgrade"></p>
+<p>In der Combobox <strong>Source Label</strong> wird das Label ausgewählt, von dem Lizenzen kopiert werden sollen. Mit dem Button <strong>Upgrade</strong> werden die ausgewählten Lizenzen kopiert.</p>
+<p>Wird ein bereits gelöschtes Label ausgewählt, können Lizenzen mit dem Button <strong>Delete</strong> endgültig aus dem Repository entfernt werden.</p>
+<p>Beim Upgrade wird der Gültigkeitsbereich der Lizenzen (Version from und Version to) auf die aktuelle Packageversion erweitert, wenn diese eine gültige .NET Version ist (2 bis 4 natürliche Zahlen getrennt durch je einen Punkt) und die aktuelle Packageversion nicht durch den Versionsbereich abgedeckt ist. Andernfalls wird der Gültigkeitsbereich unverändert übernommen.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Beim Upgrade von Lizenzen aus einem Basispackage werden diese nicht verändert, wenn man nicht Besitzer des Packages ist. Neue Funktionalität ist also ggf. nicht freigeschaltet. Dazu muss eine neue Lizenz vom Hersteller des Basispackages eingespielt werden.</p>
+</div>
+<h3 id="suche-nach-access-units">Suche nach Access Units</h3>
+<p>Wenn im Lizenzbaum eine Lizenz ausgewählt ist, die keine Developer-Lizenz ist, kann mit dem Button <img src="media/icon-search.png" alt="icon-search"> Search der Dialog zum Suchen nach Access Units gestartet werden.</p>
+<p>Access Unit Search:</p>
+<p><img src="media/access-unit-search.png" alt="Access Unit Search"></p>
+<p>Im Textfeld <strong>Search for</strong> geben Sie den Suchtext an. Im Bereich <strong>Search in</strong> geben Sie an, wo nach diesem Text gesucht werden soll:</p>
+<h4 id="name">Name</h4>
+<p>Technischer Name der Access Unit, z.B. aufrmArticle</p>
+<h4 id="label">Label</h4>
+<p>Bezeichnung, die im Access Unit Tree angezeigt wird</p>
+<h4 id="description">Description</h4>
+<p>Beschreibung, die für die Access Unit hinterlegt wurde</p>
+<h4 id="id">ID</h4>
+<p>ID, die die Access Unit eindeutig identifiziert</p>
+<p>Mit der Checkbox <strong>Search Up</strong> legen Sie fest, ob von der aktuellen Position im <strong>Access Unit Tree</strong> aus aufwärts gesucht werden soll.</p>
+<p>Im Bereich Permissions kann nach bestimmten Zugriffsrechten gesucht werden. Durch setzen der Checkboxen Access, Access Derived, Update, Insert oder Delete werden Vergleiche für die jeweilige Zugriffsart aktiviert. Für jede Zugriffsart kann der Wert mit einem der folgenden verglichen werden:</p>
+<p><a href="media/access-unit-permissions-options.png">access-unit-permissions-options</a></p>
+<p>In der folgenden Übersicht wird für jede Option angegeben, auf welche Werte die Option einschränkt:</p>
+<h4 id="none">None</h4>
+<p>None und Explicit None</p>
+<h4 id="allowed">Allowed</h4>
+<p>Hierarchic Allowed und Explicit Allowed</p>
+<h4 id="denied">Denied</h4>
+<p>Hierarchic Denied und Explicit Denied</p>
+<h4 id="explicit-none">Explicit None</h4>
+<p>Explicit None</p>
+<h4 id="explicit-allowed">Explicit Allowed</h4>
+<p>Explicit Allowed</p>
+<h4 id="explicit-denied">Explicit Denied</h4>
+<p>Explicit Denied</p>
+<h4 id="gray">Gray</h4>
+<p>Alle Rechte, jedoch nur die, die durch eine verwendete Lizenz verboten sind. Das entspricht allen Checkboxen, die mit grauem Hintergrund dargestellt werden.</p>
+<p>Ändern Sie das Recht durch Anklicken oder über das Kontextmenü der Rechte-Checkbox.</p>
+<p>Mit dem Button <strong>Find Next</strong> wird die Suche gestartet, mit dem Button <strong>Done</strong> beenden Sie die Suche und schließen das Suchfenster.</p>
+<p>Die Suchergebnisse werden im <strong>Access Unit Tree</strong> blau und unterstrichen dargestellt.</p>
+<p>Mit dem Button <strong>Show List</strong> werden alle Access Units, die den Suchkriterien entsprechen in einer Liste angezeigt.</p>
+<p><img src="media/access-unit-matching.png" alt="Matching access units"></p>
+<p>In diesem Dialog kann mit dem Button <strong>Copy to clipboard</strong> (Tastenkombination <strong>Strg-C</strong>) die gesamte Liste mit Suchkriterien in die Zwischenablage kopiert werden. Mit dem Button <strong>Copy selected to clipboard</strong> werden alle ausgewählten Einträge in die Zwischenablage kopiert. Durch <strong>Doppelklick</strong> auf einen Eintrag wird dieser im Access Unit Tree ausgewählt.</p>
+<h3 id="konfiguration-speichern">Konfiguration speichern</h3>
+<p>Mit dem Button <img src="media/icon-save-configuration.png" alt="icon-save-config"> <strong>Save Configuration / Save FSLicense.xml</strong> werden die aktuell ausgewählten Lizenzen in das aktuelle Setting übernommen bzw. in die Datei <strong>FSLicense.xml</strong> geschrieben und anschließend der <strong>Runtime License Manager</strong> geschlossen.</p>
+<p>Diese Funktion kann nur dann aufgerufen werden, wenn im Lizenzbaum eine Lizenz des aktiven Packages ausgewählt ist. Außerdem muss für jedes Basispackage eine Lizenz im Lizenzbaum ausgewählt sein (gelbe Markierung).</p>
+<p>Wenn Sie für ein Basispackage eine andere Lizenz als die zurzeit gelb hinterlegte verwenden wollen, öffnen Sie das Kontextmenü der gewünschten Lizenz und wählen dort den Eintrag Use as Basic License aus.</p>
+<h2 id="registerkarte-access-unit-tree">Registerkarte Access unit tree</h2>
+<p><img src="media/registerkarte-access-unit-tree.png" alt="Registerkarte Access unit tree"></p>
+<p>Auf dieser Registerkarte werden alle Access Units im so genannten <strong>Access Unit Tree</strong> dargestellt. Der Access unit tree stellt die Hierarchie dar, in der die Access Units angeordnet sind.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Damit die Hierarchie auf dem aktuellen Stand ist, müssen an allen Packages, nach der letzten Änderung der Hierarchie des jeweiligen Packages, AccessUnits als FrameworkCompiler „recursive from root“ kompiliert worden sein!</p>
+</div>
+<p>Dabei ist zu beachten, dass die Hierarchie eines Packages sich nicht nur über den Access Unit Treeview (<a href="access-unit-hierarchie.html">Access Unit Hierarchie</a>) ändern lässt, sondern auch bei jedem Einchecken eines neuen Forms automatisch geändert wird.</p>
+<p>Importierte Packages müssen zur Aktualisierung der Hierarchie grundsätzlich nicht neu kompiliert werden, da dies bereits vor dem Export geschehen sein sollte.</p>
+<p>In der Spalte <strong>Name</strong> werden alle Access Units hierarchisch dargestellt. Access Units mit einem Schlüsselsymbol <img src="../media/icon-access-unit.png" alt="icon-access-unit">, Form Access Units mit einem Schlüssel auf einem Form <img src="media/icon-access-unit-in-form.png" alt="access-unit-in-form">.</p>
+<p>In den übrigen Spalten symbolisieren spezielle Checkboxen das erteilte Recht für die einzelnen Zugriffsarten (<strong>ACC</strong> = Access, <strong>ACD</strong> = AccessDerived, <strong>UPD</strong> = Update, <strong>INS</strong> = Insert, <strong>Del</strong> = Delete, Bedeutung der Zugriffsarten: <a href="access-units.html">Access Units</a>).</p>
+<p>Die speziellen Checkboxen können verschiedene Symbole darstellen:</p>
+<p><img src="media/check-au-none.png" alt="leere-checkbox"> <strong>Leere Checkbox:</strong> Keine Angabe durch den Benutzer. Der Anwendung wird diese Zugriffsart für die AccessUnit verwehrt.</p>
+<p><img src="media/check-au-allowed.png" alt="blauer-haken"> <strong>Blauer Haken:</strong> Die Zugriffsart der AccessUnit wird explizit erlaubt.</p>
+<p><img src="media/check-au-denied.png" alt="Roter waagerechter Strich"> <strong>Roter waagerechter Strich:</strong> Die Zugriffsart der AccessUnit wird explizit verweigert.</p>
+<p><img src="media/check-au-explicit-none.png" alt="Gelbes Prozentzeichen"> <strong>Gelbes Prozentzeichen:</strong> Zu dieser Zugriffsart der AccessUnit wird explizit keine Angabe durch den Benutzer gemacht. Der Anwendung wird diese Zugriffsart verwehrt.</p>
+<p><img src="media/check-au-allowed-inherited.png" alt="Grauer Haken"> <strong>Grauer Haken:</strong> Die Zugriffsart der AccessUnit wird erlaubt, weil diese AccessUnit ein Unterelement einer AccessUnit ist, für welche die Zugriffsart erlaubt wird (hierarchisch erlaubt).</p>
+<p><img src="media/check-au-denied-inherited.png" alt="Grauer waagerechter Strich"> <strong>Grauer waagerechter Strich:</strong> Die Zugriffsart der AccessUnit wird verweigert, weil diese AccessUnit ein Unterelement einer AccessUnit ist, für welche die Zugriffsart verweigert wird und diese AccessUnit nicht unter einer anderen AccessUnit hängt, für welche die Zugriffsart erlaubt wird (hierarchisch verboten).</p>
+<p><img src="media/check-au-base-denied.png" alt="base-denied"> Wenn eine Checkbox mit <strong>grauem Hintergrund</strong> dargestellt wird, so bedeutet dies, dass das repräsentierte Zugriffsrecht bereits durch eine der verwendeten Basislizenzen verweigert wird.</p>
+<p>Sie können in der Lizenz für das aktuelle Package diese Zugriffsart trotzdem erlauben. Die Endanwendung wird diese Zugriffsart jedoch nur erlaubt bekommen, wenn andere Basislizenzen verwendet werden, die diese Zugriffsart ebenfalls ermöglichen.</p>
+<p>Mit dem Menüeintrag <strong>Parents</strong> im Kontextmenü einer Access Unit erhält man eine Liste aller Access Units, die die ausgewählte Access Unit als Unterelement enthalten. Wählt man aus der Liste eine Access Unit aus, wird direkt dorthin gesprungen.</p>
+<p>Im Access Unit Tree kann mit der <strong>Multiplikationstaste</strong> * der komplette Teilbaum der ausgewählten AccessUnit aufgeklappt werden, mit der <strong>Subtraktionstaste</strong> - wird der Teilbaum wieder eingeklappt.
+Über das Kontextmenü der Name-Column kann auch Full Expand oder Full Collapse ausgewählt werden. Dies klappt den kompletten Baum auf. Expand/Collapse öffnet bzw. schließt nur den selektieren Teilbaum.</p>
+<p><img src="media/access-unit-contextmenu.png" alt="Kontextmenü AccessUnit Baum"></p>
+<p>Über den Shortcut <code>Strg + F</code> kann im AccessUnit-Baum nach einem Namen gesucht werden.
+Die gefundenen Elemente werden im Tree gelb markiert. Auf der Scrollbar werden alle gefundenen Elemente markiert.
+Für die Suche nach einem AccessUnit-Namen, wie aufrmArticle, muss die Sprache auf <code>&lt;internal Name&gt;</code> geändert werden.</p>
+<p><img src="media/access-unit-tree-search.png" alt="Search im Access Unit Baum"></p>
+<h3 id="lizenzregeln">Lizenzregeln</h3>
+<p>Die Regeln zur Vergabe, Vererbung und Kombination von Laufzeitlizenzen sind im separaten Kapitel beschrieben: <a href="lizenz-regeln.html">Regeln für Laufzeitlizenzen</a></p>
+<h2 id="registerkarte-license-parameters">Registerkarte License Parameters</h2>
+<p><img src="media/registerkarte-license-parameters.png" alt="Registerkarte License parameters"></p>
+<p>Diese Registerkarte beinhaltet alle allgemeinen Eigenschaften der ausgewählten Lizenz:</p>
+<h4 id="license-id">License ID</h4>
+<p>Automatisch generierte ID der Lizenz. Dieser Wert kann nicht geändert werden.</p>
+<h4 id="name-1">Name</h4>
+<p>Name der Lizenz. Dieser Name wird im Lizenzbaum angezeigt.</p>
+<h4 id="customer">Customer</h4>
+<p>Person oder Firma, für welche die Lizenz ausgestellt wurde.</p>
+<h4 id="type">Type</h4>
+<p>Typ der Lizenz. Zur Auswahl stehen <strong>Customer</strong>, <strong>Demo</strong>, <strong>Developer</strong> und <strong>Partner</strong>. Lediglich der Typ <strong>Developer</strong> hat eine besondere Bedeutung: Bei einer Developer-Lizenz werden alle Access Unit Rechte erteilt (soweit sie nicht durch andere Lizenzen für Basispackages gesperrt wurden). Daher steht die Registerkarte <strong>Access unit tree</strong> bei einer Developer-Lizenz nicht zur Verfügung. Die zweite Besonderheit einer Developer-Lizenz ist, dass die Authentifizierung deaktiviert wird, auch wenn die Applikation so konfiguriert wurde, dass Authentifizierung verwendet werden soll.</p>
+<h4 id="category">Category</h4>
+<p>Die Kategorie, der die Lizenz zugeordnet wurde. Kategorien können beliebig benannt werden, dürfen aber nur aus den Buchstaben A-Z, dem Trennstrich, dem Unterstrich und Ziffern bestehen. Groß-Klein-Schreibung ist dabei unerheblich. Wird keine Kategorie angegeben, so ist die Lizenz automatisch mit der Standardkategorie „Standard“ verknüpft.
+(<a href="#kategorien-f%C3%BCr-laufzeitlizenzen">Kategorien für Laufzeitlizenzen</a>)</p>
+<h4 id="user-limit">User Limit</h4>
+<p>Hier kann die Zahl der gleichzeitig aktiven Benutzer begrenzt werden.</p>
+<h4 id="valid-from">Valid from</h4>
+<p>Datum, ab dem die Lizenz gültig ist</p>
+<h4 id="valid-to">Valid to</h4>
+<p>Datum, an dem die Gültigkeit der Lizenz endet</p>
+<h4 id="version-from">Version from</h4>
+<p>Packageversion, ab der die Lizenz gültig ist. Die Version muss aus zwei bis vier natürlichen Zahlen getrennt durch je einen Punkt bestehen oder leer sein, um keine Einschränkung festzulegen.</p>
+<h4 id="version-to">Version to</h4>
+<p>Packageversion, bis zu der die Lizenz gültig ist. Die Version muss aus zwei bis vier natürlichen Zahlen getrennt durch je einen Punkt bestehen oder leer sein. Nicht angegebene Unterversionen werden mit eingeschlossen. <strong>Beispiel:</strong> Version 3.9.1 wird freigegeben, wenn die Versionsobergrenze (Version to) auf 3.9 festgelegt wurde.</p>
+<h4 id="package">Package</h4>
+<p>Name des Packages, für die die Lizenz erstellt wurde</p>
+<h4 id="version">Version</h4>
+<p>Version des Packages, für das die Lizenz erstellt wurde</p>
+<h3 id="kategorien-für-laufzeitlizenzen">Kategorien für Laufzeitlizenzen</h3>
+<h4 id="motivation">Motivation</h4>
+<p>Es gibt Anwendungsfälle, in denen nur ein Bruchteil einer kompletten Anwendung zum Einsatz kommen soll. Typische Beispiele sind Kassen oder Scanner. Sie nutzen nur einen sehr kleinen Umfang der Gesamtanwendung. Häufig kommen diese speziellen Arbeitsplätze in großer Zahl vor. Daher wünschen Endkunden für diese funktional stark eingeschränkten Anwendungen &quot;günstigere&quot; Lizenzen.</p>
+<h4 id="prinzip">Prinzip</h4>
+<p>Einer Laufzeitlizenz kann eine Kategorie zugeordnet werden. Zur Laufzeit wird pro Kategorie geprüft, ob die in der Lizenz angegebene Benutzerzahleinschränkung erfüllt ist. So können zwei unterschiedliche Lizenzen mit unterschiedlichem Funktionsumfang und abweichender Benutzerzahlbeschränkung, die abweichenden Kategorien zugeordnet sind, parallel eingesetzt werden.</p>
+<p><strong>Beispiel:</strong></p>
+<p>Lizenz „Scanner“ schaltet nur einen kleinen Funktionsumfang frei, ist der Kategorie „SCANNER“ zugeordnet und für 25 User ausgelegt.</p>
+<p>Lizenz „Standard“ schaltet die gesamte Anwendung frei, ist der Kategorie „STANDARD“ zugeordnet und für 10 User ausgelegt.</p>
+<p>Wenn Sie nun eine Applikation mit der Lizenz „Scanner“ veröffentlichen und eine weitere Applikation mit der Lizenz „Standard“, so können 25 Benutzer die eingeschränkte Applikation „Scanner“ starten und parallel dazu 10 Benutzer die andere Applikation in vollem Funktionsumfang. Insgesamt kann die Anwendung von 35 Benutzern parallel gestartet werden.</p>
+<h4 id="details">Details</h4>
+<p>Im <strong>Runtime License Manager</strong> kann auf der Registerkarte <strong>License Parameters</strong> der aktuell ausgewählten Lizenz im Textfeld <strong>Category</strong> eine Kategorie zugeordnet werden (<a href="#registerkarte-license-parameters">Registerkarte License Parameters</a>).</p>
+<p>Kategorien können beliebig benannt werden, dürfen aber nur aus den Buchstaben A-Z, dem Trennstrich, dem Unterstrich und Ziffern bestehen. Groß-Klein-Schreibung ist dabei unerheblich. Wird keine Kategorie angegeben, so ist die Lizenz automatisch mit der Standardkategorie <strong>Standard</strong> verknüpft.</p>
+<p>Eine Lizenz kann mit Lizenzen für Basispackages zusammen eingesetzt werden, die einer anderen Kategorie zugeordnet sind.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

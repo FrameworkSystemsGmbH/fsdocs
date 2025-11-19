@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>MsgBox.Show() Cleanup </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="MsgBox.Show() Cleanup ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/doc/maintenance/msgboxshow-cleanup.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="msgboxshow-cleanup">MsgBox.Show() Cleanup</h1>
+
+<p><strong>MsgBox.Show() Cleanup</strong> ist eine Maintenance-Routine, die die obsoleten Methodenaufrufe <code>MsgBox.Show(...)</code> durch <code>throw MsgBoxException(...)</code> ersetzt.</p>
+<p>Im Login-Dialog muss der <a href="../ide/start.html#checkbox-maintenance-mode">Maintenance-Mode</a> aktiviert werden, damit sie verfügbar ist.
+Die Routine kann in der IDE über das Menü <strong>Update</strong> / <strong>FS 4.7</strong> / <strong>(2) MsgBox.Show() Cleanup</strong> aufgerufen werden.</p>
+<p><img src="media/msgboxshow-cleanup.png" alt="msgboxshow-cleanup"></p>
+<p>Mit dem Button <strong>Analyze</strong> wird eine Analyse ohne Änderungen gestartet.
+Die Resultate werden in der Error-Liste ausgegeben.</p>
+<p>Der Button <strong>CleanUp</strong> führt die Änderungen aus.
+Dazu werden die betroffenen Forms ausgecheckt, geändert und gespeichert.</p>
+<p>Beim anschließenden Compile kann es zu etlichen &quot;unreachable Code&quot; Warnings kommen.
+Hinter dem MessageBox-Aufruf musste früher ggf. Code geschrieben werden, damit der C#-Compiler keinen Fehler produziert.
+Dieser Code wurde allerdings niemals ausgeführt.</p>
+<pre><code class="lang-csharp">protected int GetValue()
+{
+    if (this.value == 0)
+    {
+        // FSCodeMessage: Test
+        MsgBox.Show(MLUtil.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, null);
+        return 0;  // &lt;== wird niemals ausgeführt
+    }
+    else
+    {
+        return this.value;
+    }
+}
+</code></pre>
+<p>Nach der Umstellung auf <code>throw...</code> wird diese Code-Zeile korrekt als unerreichbar erkannt und vom C#-Compiler eine Warning generiert.
+Diese Stellen können entsprechend nachgearbeitet werden.</p>
+<pre><code class="lang-csharp">        // FSCodeMessage: Test
+        throw MsgBox.Exception(MLUtil.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, null);
+        return 0;  // &lt;== unreachable Code
+</code></pre>
+<p>Nach erfolgreichen Compile müssen die Forms eingecheckt werden.</p>
+<h2 id="beschreibung">Beschreibung</h2>
+<p>Wird in der Broker-Application wie bisher eine MessageBox ausgegeben, dann mündet der heute verwendete Aufruf <code>MsgBox.Show(...)</code> in einer Exception.</p>
+<pre><code class="lang-csharp">// FSCodeMessage: Test
+MsgBox.Show(MLUtil.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, null);
+</code></pre>
+<p>Dies hat folgende Nachteile:</p>
+<ul>
+<li>Der Aufruf dieser Methode verschleiert die Exception.</li>
+<li>Es gibt keine &quot;Unreachable code detected&quot;-Warning, wenn nach diesem Aufruf weiterer Code vorhanden ist.</li>
+<li>Bei Methoden, die einen Return-Wert haben, muss ein Fake-Return programmiert werden.</li>
+</ul>
+<p>Mit Framework Studio 4.7 wurde dieser Mechanismus deshalb optimiert.
+Der durch den <a href="../editors/editor-cs-code-messages.html">MessageBox-Wizard</a> generierte Code sieht nun wie folgt aus:</p>
+<pre><code class="lang-csharp">// FSCodeMessage: Test
+throw MsgBox.Exception(MLUtil.GetMLKeyText(MLKeys.LBL_Test), &quot;&quot;, MsgBoxButtons.OK, MsgBoxIcons.None, null);
+</code></pre>
+<p><code>MsgBox.Show()</code> wird weiterhin uneingeschränkt funktionieren, falls Sie den Code nicht konvertieren.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

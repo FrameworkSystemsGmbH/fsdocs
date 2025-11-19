@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Neuheiten Framework Studio 4.2 </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Neuheiten Framework Studio 4.2 ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/articles/neuheiten-4-2.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="neuheiten-framework-studio-42">Neuheiten Framework Studio 4.2</h1>
+
+<p>Informationen zu aktuellen Versionen und korrigierten Fehlern finden Sie in den <a href="release-4-2.html">Release-Informationen</a>.</p>
+<h2 id="neue-systemvoraussetzungen">Neue Systemvoraussetzungen</h2>
+<p>In dieser Version gibt es einige Anpassungen bei den <a href="requirements.html">Systemvoraussetzungen</a>. Im folgenden sind die wichtigsten <strong>Änderungen</strong> aufgeführt.</p>
+<h4 id="datenbank-server">Datenbank-Server</h4>
+<p>Es wird der <strong>Oracle Server 12.2</strong> oder höher (18c, 19c, ...) unterstützt.
+Ältere Versionen werden nicht mehr unterstützt.</p>
+<p>Es wird der <strong>SQL-Server 2012</strong> oder höher unterstützt.
+Ältere Version (z.B. SQL-Server 2008) werden nicht mehr unterstützt.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Ein Betrieb mit einer älteren Datenbank-Version ist nicht möglich.
+Ein Connect auf so einen Datenbank-Server führt unmittelbar zu einer entsprechenden Fehlermeldung.</p>
+</div>
+<h4 id="oracle-client">Oracle Client</h4>
+<p>Es wird nur noch der <strong>Oracle Managed</strong> Provider unterstützt.</p>
+<p>Der Oracle ODP Provider wird nicht mehr unterstützt. Framework Studio benötigt damit keinen separaten Oracle-Client mehr.</p>
+<h4 id="64-bit">64 Bit</h4>
+<p>Die folgenden Programme können nur noch auf 64-Bit Systemen installiert werden. Eine 32-Bit Installations-Routine wird nicht mehr angeboten:</p>
+<ul>
+<li>Framework Studio IDE / Package Manager</li>
+<li>Publish / Publish2Go</li>
+<li>Anwendungs-Broker</li>
+<li>Framework Studio Services</li>
+</ul>
+<p>32-Bit wird weiterhin unterstützt für:</p>
+<ul>
+<li>Client-Rechner</li>
+<li>Print-Server</li>
+</ul>
+<h4 id="net-framework-48">.NET Framework 4.8</h4>
+<p>Framework Studio setzt auf das .NET Framework 4.8 auf. Der Installer ist im Requirements-Paket enthalten und muss ggf. vor der Installation von Framework Studio ausgeführt werden.</p>
+<p>Alternativ kann der Installer auch direkt bei Microsoft heruntergeladen werden: <a href="https://dotnet.microsoft.com/download/dotnet-framework/net48">https://dotnet.microsoft.com/download/dotnet-framework/net48</a></p>
+<h4 id="betriebssysteme">Betriebssysteme</h4>
+<p>Mit dem Umstieg auf das .NET Framework 4.8 können einige ältere Windows Betriebssysteme nicht mehr unterstütz werden. Es werden aktuell folgende Betriebssysteme unterstützt:</p>
+<ul>
+<li><p><strong>Server</strong></p>
+<ul>
+<li>Windows Server 2012 R2 - oder höher</li>
+</ul>
+</li>
+<li><p><strong>Client / Entwicklungs-Rechner</strong></p>
+<ul>
+<li>Windows 10 (Version 18.03 - oder höher)</li>
+<li>Windows 8.1</li>
+</ul>
+</li>
+</ul>
+<p>Für die Endanwender-Rechner bzw. Terminal-Server gelten weiter die bisherigen Anforderungen.</p>
+<h2 id="c-7">C# 7</h2>
+<p>Mit dem Update auf das .net Framework 4.8 unterstützt Framework Studio auch die C# Sprach-Features bis zur Version 7.3. Eine Übersicht der Features bietet die Web-Seite:</p>
+<ul>
+<li><a href="https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7">https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7</a></li>
+</ul>
+<p>In der folgenden Liste werden einige Features genannt, die seit C# 6 hinzugekommen sind.
+Der Einsatz dieses Features ist in Framework-Studio empfehlenswert:</p>
+<ul>
+<li><a href="https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#out-variables">out variables</a> - inline-Deklaration (C# 7.0)</li>
+</ul>
+<p>Folgende Features können ggf. sinnvoll sein:</p>
+<ul>
+<li><a href="https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples">Tuples</a> (C# 7.0) - nur innerhalb von Methoden-Code (z.B. bei Linq-Queries), nicht als Parameter oder Rückgabe-Typ von Methoden</li>
+<li><a href="https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7-1#inferred-tuple-element-names">Inferred tuple element names</a> (C# 7.1)</li>
+<li><a href="https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7-3#tuples-support--and-">Tuples support == and !=</a> (C# 7.3)</li>
+<li><a href="https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#pattern-matching">Pattern matching</a> (C# 7.0)</li>
+<li><a href="https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#local-functions">Local functions</a> (C# 7.0) - aber nur sehr gut überlegt!!</li>
+</ul>
+<h2 id="mlkey-wörterbuch">MLKey Wörterbuch</h2>
+<p>Eine zentrale Neuerung in der Version 4.2 betrifft das Handling der fremdsprachigen Texte. Diese werden jetzt in einem <a href="../doc/mlkey/woerterbuch.html">zentralen Wörterbuch</a> verwaltet.</p>
+<p>Bisher wurden alle Texte am jeweiligen Element (z.B. Metadatentyp, ComponentProperty, FormControl) gepflegt. Jetzt werden an allen diesen Stellen Schlüssel (MLKeys) angegeben, die auf das zentrale Wörterbuch verweisen. Dadurch hat man erst einmal etwas mehr organisatorischen Aufwand, aber auf längerer Sicht betrachtet bringt diese Vorgensweise viele Vorteile:</p>
+<ul>
+<li>Redundanzen werden vermieden, weil existierende Texte wiederverwendet werden können und sollen. Dadurch erhält man zudem in der kompletten Anwendung durchgängige und einheitliche Bezeichnungen.</li>
+<li>Die fremdsprachigen Übersetzungen können sehr einfach und zentral gepflegt werden.</li>
+<li>Besonders im Customizing-Package ist das von großem Vorteil, weil jetzt nicht mehr die einzelnen Elemente ausgecheckt werden müssen.</li>
+<li>Das Wörterbuch kann auch im Service-Release bearbeitet werden.</li>
+<li>Der <a href="../doc/mlkey/import-export.html">Export und Import</a> von Texten ist sehr einfach. Es wird das standardisierte TMX-Format verwendet. Texte können so zwischen verschiedenen Packages und Versionen ausgetauscht werden. Auch eine Übersetzung durch Werkzeuge oder externe Dienstleister ist dadurch deutlich einfacher als bisher.</li>
+</ul>
+<p>Eine detailliert Beschreibung der Funktionalität finden sie im Kapitel <a href="../doc/mlkey/woerterbuch.html">MLKey</a>.</p>
+<p>Es ist sinnvoll, die Texte des eigenen Packages in das Wörterbuch zu überführen. Bitte beachten sie dazu die <a href="update-4-2/mlkey-migration.html">Hinweise und Anleitungen für die Migration</a>.</p>
+<h2 id="fremdsprachen-im-customizing-package">Fremdsprachen im Customizing-Package</h2>
+<p>Sprachen werden jetzt an der <a href="../doc/package-manager/package-version.html#register-languages">Package-Version</a> organisiert und können somit in Customizing-Packages ergänzt werden.</p>
+<h2 id="code-messages-überarbeitet">Code-Messages überarbeitet</h2>
+<p>Die vom Exception- und MessageBox-Wizard generierten <a href="../doc/editors/editor-cs-code-messages.html">Code-Messages</a> wurden überarbeitet.</p>
+<p><img src="../doc/editors/media/code-messages-example.png" alt="Code-Messages"></p>
+<p>Das bisherige Konstrukt mit <code>#region</code> wurde durch eine Variante mit einem einfachen eingefärbten Kommentar <code>// FSCodeMessage:</code> ersetzt. Das macht den Quellcode kompakter und leserlicher – ohne extra aufklappen zu müssen.</p>
+<p>Der XML-Teil, welcher bisher die Informationen für die Wizard-Dialoge beinhaltet hat, entfällt. In der Vergangenheit konnte es sein, dass die XML-Informationen vom Code abwichen. Der Wizard hat dann den Code ignoriert und einfach ersetzt. Dadurch konnten wichtige Infos – wie z.B. ein MessageBox EventHandler – verloren gehen. Die Informationen werden jetzt aus dem Code geparsed. Kann (z.B. aufgrund von manuellen Anpassungen) der Code nicht geparsed werden, kann er nicht mehr durch den Wizard bearbeitet werden.</p>
+<p>Die Code-Messages können einen <a href="../doc/mlkey/woerterbuch.html">MLKey aus dem Wörterbuch</a> verwenden. Die bisherige Variante mit TextCollection-Einträgen soll nach und nach durch die MLKeys ersetzt werden und so die ctMessage-TextCollections auslaufen.</p>
+<p>Bei MsgBox.Show() sind die Enum-Werte für Button und Icon leserlich ausgeschrieben. Bisher wurden dort nur die int-Werte verwendet.</p>
+<p>Die Konvertierung des bestehenden Codes in das neue Format erfolgt auf folgende Weise:</p>
+<ol>
+<li>Durch die <a href="update-4-2/mlkey-migration.html#3-convert-messages">MLKey-Konvertierungs-Routine</a> – diese setzt alle Code-Messages automatisch auf einen MLKey und/oder das neue Format um.</li>
+<li>Durch manuellen Aufruf des Exception- oder MsgBox-Wizards. Beim Speichern wird der Code durch die neue Variante ersetzt.</li>
+</ol>
+<p>Bei beiden Konvertierungen wird nur der Code betrachtet - der alte XML-Teil wird ignoriert.
+Neue Messages werden immer im neuen Format generiert. Dabei ist es egal, ob ein Textcollection-Eintrag oder ein MLKey verwendet wird.</p>
+<h2 id="neue-text-funktionen">Neue Text-Funktionen</h2>
+<p>In Framework Studio 4.2 wurden im Zuge der Umstellung auf die <a href="../doc/mlkey/woerterbuch.html">MLKeys</a> auch die <a href="update-4-2/neue-text-funktionen.html">Text-Zugriffe auf Text-Collections und DevMLStrings</a> überarbeitet.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Es muss eine Migration durchgeführt werden.</p>
+</div>
+<h2 id="actions-setenabled-und-setvisible-nullable">Actions SetEnabled und SetVisible nullable</h2>
+<p>Die Control-Actions <code>SetEnabled</code> und <code>SetVisible</code> haben neue Überladungen bekommen, welche das Zurücksetzen auf den im Property-Grid des Form-Designers eingestellten Wert ermöglichen.</p>
+<p>Dazu wurden folgende Überladungen ergänzt, bei denen der <code>null</code>-Wert zum Zurücksetzten verwendet werden kann:</p>
+<ul>
+<li><code>SetEnabled(bool? value)</code></li>
+<li><code>SetEnabled(FSbool value)</code></li>
+<li><code>SetVisible(FSVisibility? value)</code></li>
+</ul>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Achtung, falls Reflection verwendet wurde!</p>
+<p>Sollte eine der ursprünglichen Methoden aus irgend einem Grund per Reflection angesprochen worden sein, so kann es nun zu dem Problem kommen, dass nicht mehr eine eindeutige, sondern mehrere Überladungen der Methode gefunden werden. Die Überladungen <code>SetEnabled(bool value)</code> und <code>SetVisible(FSVisibility value)</code> wurden entfernt, da Aufrufe vom Compiler direkt auf die entsprechenden Nullable-Überladungen umgelenkt werden.</p>
+</div>
+<h2 id="forms-und-workflows-obsolete-setzen">Forms und Workflows Obsolete setzen</h2>
+<p>Soll ein Form oder ein Workflow nicht mehr verwendet werden, so können die für diese Elemente generierten Klassen mit dem <code>Obsolete</code> Attribut versehen werden. Dazu muss der Name des Elements mit <strong>_Obsolete</strong> enden.</p>
+<p>Beispiel: <code>wlfArticleDetail_Obsolete</code></p>
+<p>Der Compiler erzeugt dann bei Verwendung der Elemente Warnings in der Form <em>'wflArticleDetail_Obsolete' is obsolete: 'Workflow 'wflArticleDetail_Obsolete' will be deleted in future version.'</em>.</p>
+<h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
+<ul>
+<li>Die <a href="../doc/database/ml-column.html#sprache-zur-laufzeit-%C3%A4ndern">MLColumn-Sprache</a> kann zur Laufzeit beeinflusst werden.</li>
+<li>An den DBColumns können die <a href="../doc/database/dbtable.html#checkbox-override">Größen-Angaben überschrieben</a> werden, auch wenn ein Metadatentyp zugeordnet ist.</li>
+<li>Compare with previous in Method- und Element-History Browsern</li>
+<li><a href="../doc/database/ml-column.html#such-funktion">Such-Funktionalität für die ML-Columns</a></li>
+<li>Im Register <a href="../doc/access-units/access-units.html#description">AccessUnits</a> wird bei einer ungültigen Parent Beziehung ein Button 'Fix the parent Access Unit' angezeigt.
+Dieser löscht die ungültige Parent Beziehung und legt, falls kein anderer gültiger Parent vorhanden ist, die Access Unit unter Root.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

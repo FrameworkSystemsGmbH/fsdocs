@@ -87,6 +87,20 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
+<h2 id="4712-05122025">4.7.12 (05.12.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.12_Setup_x64</li>
+</ul>
+<h4 id="hinweis">Hinweis</h4>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Mit dem Umbau des Globals und der Ausführung der Maintenance-Routine <code>Remove Global Cleanup</code> wurden ggf. Codestellen, welche nicht automatisch korrigiert werden können, mit einem Kommentar versehen.
+Leider ist uns bis jetzt nicht aufgefallen, dass hierfür keine Dokumentation erfasst wurde.
+Eine manuelle Nacharbeit ist aber gegebenfalls notwendig und wichtig - vor allem wenn mit eigenen Globals gearbeitet wird.
+Wir empfehlen im Code nach <code>WARNINGGLOBAL</code> zu suchen. Sollte es Treffer in Ihrem Code geben, müssen Sie diese nacharbeiten.
+Erklärung zur Vorgehensweise finden Sie im <a href="../doc/maintenance/remove-global-cleanup.html">Maintenance Kapitel</a>.</p>
+</div>
 <h2 id="4711-07112025">4.7.11 (07.11.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -255,7 +269,7 @@ jetzt detailliert beschrieben.</p>
 <li>FS4.5.31_AuthService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="hinweis">Hinweis</h4>
+<h4 id="hinweis-1">Hinweis</h4>
 <div class="CAUTION">
 <h5>Caution</h5>
 <p>Wir empfehlen dringend den Authentication Service und die Runtime Administration auf die aktuelle Version 4.5.31 zu aktualisieren. Vor allem, wenn Sie das <a href="update-4-5/open-id-connect.html#update-runtime-repository">Runtime Repository aktualisieren</a>.</p>
@@ -422,7 +436,7 @@ wird beim PackageMerge die Target-Dokumentation mit der Source-Dokumentation
 <li>DevExpress wurde auf die Version 24.2.6 aktualisiert.</li>
 <li>Der HTML Client wurde auf Capacitor 7 upgedatet.</li>
 </ul>
-<h4 id="hinweis-1">Hinweis</h4>
+<h4 id="hinweis-2">Hinweis</h4>
 <p>Es gibt einen neuen Artikel zum Thema &quot;<a href="frequently-asked-questions.html#devexpress-exception-scriptitemizeopentype-in-usp10dll-nicht-gefunden">DevExpress Exception <code>ScriptItemizeOpenType</code> in <code>Usp10.dll</code> nicht gefunden</a>&quot; in unserem FAQ Bereich.
 Dieser Fehler wurde uns nun häufiger gemeldet, deshalb möchten wir Sie bitten unsere derzeitigen <a href="requirements.html">Requirements</a> mit Ihren Systemen zu vergleichen. Testen und führen Sie notwendige Updates durch, falls dies möglich ist.</p>
 <h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>

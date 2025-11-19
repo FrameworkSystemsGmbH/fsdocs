@@ -87,7 +87,13 @@
         <article data-uid="">
 <h1 id="remove-global-cleanup">Remove Global Cleanup</h1>
 
-<p>Im Login-Dialog muss der <a href="../ide/start.html#maintenance-mode">Maintenance-Mode</a> aktiviert werden, damit sie verfügbar ist.
+<p>Mit Framework Studio 4.7 möchten wir uns von der Konstruktor-Injection des Globals lösen.</p>
+<p>Der Umbau sieht vor, dass das Global nicht mehr im Konstruktor übergeben wird, sondern über ein sogenanntes <a href="https://learn.microsoft.com/de-de/dotnet/api/system.threading.asynclocal-1?view=netframework-4.8.1">Ambient Pattern/AsyncLocal</a>, in FS <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.GlobalContext.html">GlobalContext</a>, genannt, bereitgestellt wird.</p>
+<p>Dieser GlobalContext ermöglicht weiterhin den Zugriff auf <code>this.Global</code>.
+Beim Einstieg in einen Request setzt Framework Studio das Global und räumt dieses nach einem Request wieder ab.
+Vorteil des Umbaus ist, dass das Global von den Instanzen gelöst wird.</p>
+<h2 id="remove-global-cleanup---maintenance-routine">Remove Global Cleanup - Maintenance Routine</h2>
+<p>Im Login-Dialog muss der <a href="../ide/start.html#checkbox-maintenance-mode">Maintenance-Mode</a> aktiviert werden, damit sie verfügbar ist.
 Die Routine kann in der IDE über das Menü <strong>Update</strong> / <strong>FS 4.7</strong> / <strong>(3) Remove Global Cleanup</strong> aufgerufen werden.</p>
 <p>Änderungen:</p>
 <ul>
@@ -114,15 +120,113 @@ Die Routine kann in der IDE über das Menü <strong>Update</strong> / <strong>FS
 + FSstring sLogLevel = ctLogLevelFactory.GetText(this.shtLevel);
 </code></pre>
 </li>
-<li><p>Die Methoden <code>GetMLText()</code>, <code>FormatMLText()</code>, <code>GetMLKeyText()</code> und <code>FormatMLKeyText()</code> sind vom Global in die Klasse <a class="xref" href="../../api/FS.Hosting.Shared.MultiLanguage.MLUtil.html"><code>MLUtil</code></a> gewandert</p>
+<li><p>Die Methoden <code>GetMLText()</code>, <code>FormatMLText()</code>, <code>GetMLKeyText()</code> und <code>FormatMLKeyText()</code> sind vom Global in die Klasse <a class="xref" href="../../api/FS.Hosting.Shared.MultiLanguage.MLUtil.html"><code>MLUtil</code></a> gewandert:</p>
 <pre><code class="lang-diff">- throw new FrameworkApplicationException(this.Global.GetMLText(MLKeys.MSG_93a1ea2873804fcbb771d2b2a5305f85), 0);
 + throw new FrameworkApplicationException(MLUtil.GetMLText(MLKeys.MSG_93a1ea2873804fcbb771d2b2a5305f85), 0);
 
-- this.Global.FormatMLKeyText(MLKeys.MSG_ddb19cf4d65b4b98a178855bdbcb9112, oOfflineScannerParameterP.sIP, sTunnelString))
-+ MLUtil.FormatMLKeyText(MLKeys.MSG_ddb19cf4d65b4b98a178855bdbcb9112, oOfflineScannerParameterP.sIP, sTunnelString))
+- this.Global.FormatMLKeyText(MLKeys.MSG_ddb19cf4d65b4b98a178855bdbcb9112, oOfflineScannerParameterP.sIP, sTunnelString)
++ MLUtil.FormatMLKeyText(MLKeys.MSG_ddb19cf4d65b4b98a178855bdbcb9112, oOfflineScannerParameterP.sIP, sTunnelString)
 </code></pre>
 </li>
 </ul>
+<h2 id="manuelle-nacharbeiten">Manuelle Nacharbeiten</h2>
+<p>In 99% der Anwendungsfälle deckt der neu eingführte GlobalContext, die bisherige Verwendung von <code>this.Global</code> ab.
+Das bedeutet, dass nach Durchführung der Maintenance-Routine das Global aus den Konstruktoren entfernt wurde und keine weiteren Änderungen vorgenommen werden müssen.
+Zudem kann <code>this.Global</code> weiterhin verwendet werden, um auf das aktuelle Global zuzugreifen.</p>
+<p>In 1% der Fälle, in denen ein eigenes Global erstellt und in Methoden übergeben wird, reicht der von FS autom. bereitgestellte Context nicht aus.</p>
+<p>Diese Stellen werden zwar von der Maintenace-Routine erkannt, aber können nicht generisch korrigiert werden.
+Aus diesem Grund wird der ursprüngliche Code auskommentiert und mit dem Zusatz <code>WARNINGGLOBAL</code> markiert.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Der Code ist nach der Maintenance-Routine compilefähig, aber ggf. in seiner Funktion nicht mehr korrekt. Diese Codestellen müssen nachgearbeitet werden.</p>
+</div>
+<p>Beispiel für einen auskommentierten Code, welcher nachgearbeitet werden muss:</p>
+<pre><code class="lang-csharp">return new tcdCall_to_dcCall2(/*global WARNINGGLOBAL*/).Transform(oCall);
+</code></pre>
+<p>Wird einer Instanz ein eigenes Global übergeben, hat diese Instanz dieses Global gespeichert und arbeitet auch mit diesem.
+Mit dem Entfernen der Globals aus dem Konstruktor ist dieses Verhalten nicht mehr gegeben.
+Vor allem im Service-Bereich wird öfter mit eigenen Globals gearbeitet.
+(Anwendungsfälle sind meist sehr speziell, z.B.: Wenn mit fremden Mandanten im InterCompany-Bereich gearbeitet wird.)
+Hier muss nun explizit ein GlobalContext aufgespannt werden, welcher das eigens erstellte Global beinhaltet.
+Innerhalb des Contexts greifen dann neue Instanzen auf dieses erstellte Global zu.</p>
+<p><strong>Alter Dummy-Code mit auskommentiertem Global und WARNINGGLOBAL:</strong></p>
+<pre><code class="lang-csharp">public virtual dcCall2 GetCallById(string token, long callId)
+{
+  // Instanz eines selbst erstellten Globals
+  IFSGlobalObjects global = AppAccessHost.CreateGlobal(token);
+  try 
+  {
+    // eigenes Global wird übergeben
+    IcAppAccessHelper oHelper = cAppAccessHelperFactory.Create(/*global WARNINGGLOBAL*/);
+    
+    //oHelper-Instanz arbeitet mit diesem übergebenen Global
+    var oCall = oHelper.GetCallById(callId);
+    
+    // weiterer Code
+
+    return new tcdCall_to_dcCall2(/*global WARNINGGLOBAL*/).Transform(oCall);
+  }
+  finally {
+      // ...
+  }
+}
+</code></pre>
+<p><strong>Korrekt umgebauter Dummy-Code unter Verwendung des GlobalContexts:</strong></p>
+<pre><code class="lang-csharp">public virtual dcCall2 GetCallById(string token, long callId)
+{
+  // Instanz eines selbst erstellten Globals
+  IFSGlobalObjects global = (IFSGlobalObjects)FS.Hosting.Broker.Base.GlobalObjectManager.CreateGlobalObject(guid.NewGuid().Value);
+
+  // Der GlobalContext übernimmt nun das Setzen des Globals am Anfang des Requests und räumt das Global am Ende des Requests wieder ab.
+  // Im Fall, dass ich ein Global erstelle, muss ich mich um diesen GlobalContext kümmern.
+  // Sobald der GlobalContext mit dem using() aufgespannt wurde, können die auskommentierten Globals entfernt werden.
+  using(GlobalContext.Context(global))
+  {
+    try
+    {
+      IcAppAccessHelper oHelper = cAppAccessHelperFactory.Create();
+      
+      // oHelper-Instanz arbeitet nun mit dem Global aus dem GlobalContext
+      var oCall = oHelper.GetCallById(callId);
+      
+      // ... weiterer Code
+
+      return new tcdCall_to_dcCall2().Transform(oCall);
+    }
+    finally 
+    {
+      // ...
+    }
+  }
+}
+</code></pre>
+<h3 id="servicemethoden-mit-globalobject">Servicemethoden mit GlobalObject</h3>
+<p>Bei Servicemethoden mit der aktiven Option &quot;Generate GlobalObject&quot;, kümmert sich FS um das Aufspannen des GlobalContexts. Es kann weiterhin mit <code>this.Global</code> auf das Global zugegriffen werden.
+Der generierte Code sieht dann wie folgt aus:</p>
+<pre><code class="lang-csharp">public virtual void Operation()
+{
+  try
+  {
+    IFSGlobalObjects Global = (IFSGlobalObjects)FS.Hosting.Broker.Base.GlobalObjectManager.CreateGlobalObject(guid.NewGuid().Value);
+
+    try 
+    {
+      using(GlobalContext.Context(Global))
+      {
+        // geschriebener Code vom User
+      }  
+    }
+    finally {
+      ((GlobalObjects)Global).Dispose();
+    }
+  }
+  catch(Exception ex)
+  {
+    // ... Exception-Handling
+  }
+}
+
+</code></pre>
 
 </article>
 

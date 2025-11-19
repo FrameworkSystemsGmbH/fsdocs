@@ -123,11 +123,11 @@ Wird dieser Button gedrückt, hat dies zur Folge, dass die ungültige Beziehung 
 <p><strong>Form Designer Registerkarte Access Units:</strong></p>
 <p><img src="media/form-designer-access-unit.png" alt="Access Units"></p>
 <p>Aus dem Code heraus kann ein Zugriffsrecht einer AccessUnit von einem Form aus folgendermaßen abgefragt werden:</p>
-<pre><code class="lang-csharp">bool InsertGranted = Global.AUHelper.Granted(this.aufrmSalesOrder, AUPermissionType.Insert);
+<pre><code class="lang-cs">bool InsertGranted = FSServiceProvider.Current.GetRequiredService&lt;IFSAuthorization&gt;().IsGranted(this.aufrmSalesOrder, AUPermissionType.Insert);
 
-bool FormAccessGranted = Global.AUHelper.Granted(this.FormAccessUnit);
+bool FormAccessGranted = FSServiceProvider.Current.GetRequiredService&lt;IFSAuthorization&gt;().IsGranted(this.FormAccessUnit);
 
-bool AuSalesGranted = Global.AUHelper.Granted(AUList.auSales, AUPermissionType.Delete);
+bool AuSalesGranted = FSServiceProvider.Current.GetRequiredService&lt;IFSAuthorization&gt;().IsGranted(AUList.auSales, AUPermissionType.Delete);
 </code></pre>
 <p>Wenn kein <strong>AUPermissionType</strong> angegeben wird, wird automatisch <strong>Access</strong> abgeprüft. Auf die FormAccessUnit kann aus dem Form sowohl über ihren Namen als auch über FormAccessUnit zugegriffen werden. Über die Klasse <strong>AUList</strong> sind alle global verfügbaren AccessUnits ansprechbar.</p>
 

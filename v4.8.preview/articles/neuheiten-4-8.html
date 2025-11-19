@@ -91,7 +91,11 @@
 <div class="IMPORTANT">
 <h5>Important</h5>
 <p>Dieses Dokument zeigt die Neuerungen beim Update von Version 4.7 auf 4.8.
-Beim Update von einer älteren Version beachten Sie bitte auch die Hinweise und Neuerungen der älteren Version (<a href="neuheiten-4-7.html">Neuheiten 4.7</a>).</p>
+Beim Update von einer älteren Version beachten Sie bitte auch die Hinweise und Neuerungen der älteren Version (<a href="neuheiten-4-7.html">Neuheiten 4.7</a>). Für das Update auf Version 4.7 gibt es einen kleinen <a href="update-4-7/update-4-7.html">Leitfaden</a>.</p>
+</div>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Beachten Sie zudem den Update Leitfaden für das <a href="update-4-8/update-4-8.html">Update auf die 4.8</a>!</p>
 </div>
 <h2 id="crystal-reports-abgekündigt">Crystal Reports abgekündigt</h2>
 <p>Crystal Reports wird nicht mehr unterstützt.</p>
@@ -106,6 +110,17 @@ Bei Customizing-Reports wird ggf. auf die DevExpress-Variante des Basis-Packages
 </div>
 <p>In der IDE können die Crystal Reports für die Migration angezeigt werden.
 Siehe auch <a href="../doc/reporting/report-document-type.html#registerkarte-report-files">Report Document Type</a>.</p>
+<h2 id="dependency-injection">Dependency Injection</h2>
+<p>Für die Verwendung von Dependency Injection in FS wird nun Infrastruktur bereitsgestellt.
+Außerdem wurden einige Kern-Funktionalitäten bereits auf Dependency Injection umgebaut.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Beachten Sie die <a href="update-4-8/dependency-injection.html">Update Hinweise zu Dependency Injection</a>.</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Beachten Sie die umfassende Erklärung wie <a href="../doc/konzepte/dependency-injection.html">Dependency Injection in FS</a> funktioniert, sowie die technischen <a href="../doc/konzepte/di-grundlagen.html">Grundlagen zu Dependency Injecton</a>.</p>
+</div>
 <h2 id="skiasharp-library-eingebunden">SkiaSharp Library eingebunden</h2>
 <p>Die <a href="https://www.nuget.org/packages/SkiaSharp"><strong>SkiaSharp</strong> Library</a> ist eingebunden und kann zum Erstellen und Bearbeiten von Pixel-Grafiken verwendet werden.</p>
 <p>Bei <strong>SkiaSharp</strong> handelt es sich um eine Cross-Plattform Grafik-API, welche auf der <a href="https://skia.org/">Skia-Engine von Google</a> basiert.</p>
@@ -118,11 +133,11 @@ Siehe auch <a href="../doc/reporting/report-document-type.html#registerkarte-rep
 </ul>
 <p>Bisher war es üblich, für Pixel-Grafiken die Klasse <a href="https://learn.microsoft.com/dotnet/api/system.drawing.graphics">System.Drawing.Graphics</a> zu verwenden.
 Diese basiert auf GDI+ und wird deshalb nur auf Windows Betriebssystemen unterstütz.
-Für einen zukünfitgen Einsatz von .net auf z.B. Lunix-Servern muss dies abgelöst werden.
+Für einen zukünftigen Einsatz von .net auf z.B. Linux-Servern muss dies abgelöst werden.
 <strong>SkiaSharp</strong> bietet diese Möglichkeit.</p>
 <h2 id="komponentenbaukasten---modular-components">Komponentenbaukasten - Modular Components</h2>
-<p>Es wurde ein neues Element hinzugefügt. Die Doku mit allen Besonderheiten und etwaigen Anwendungsfällen findet sich hier: <a href="../doc/modcomp/modcomp.html">Modular Components</a></p>
-<h3 id="icons">Icons</h3>
+<p>Es wurde ein neues Element hinzugefügt. Die Doku mit allgemeinen Informationen und allen Besonderheiten findet sich hier: <a href="../doc/modcomp/modcomp.html">Modular Components</a></p>
+<h2 id="icons">Icons</h2>
 <p>In den Modular Components wurden für Properties und Methods die Icons erneuert, sie orientieren sich an den offiziellen Visual Studio Icons. Dies ermöglicht eine schnellere Übersicht, welches AccessLevel das Property oder die Methode hat.</p>
 <ul>
 <li>public: Property bzw. Method-Zeichen</li>
@@ -133,6 +148,8 @@ Für einen zukünfitgen Einsatz von .net auf z.B. Lunix-Servern muss dies abgel�
 <p><img src="media/classViewIcons.png" alt="Methods Properties Icons"></p>
 <p>CodeFiles haben spezifische Icons für den ausgewählten Compile Step erhalten.</p>
 <p><img src="media/compilestepIcons.png" alt="CodeFile Icons"></p>
+<p>Die <a href="../doc/code-file/codefile.html#classview">ClassView der CodeFiles</a> wurde ebenfalls überarbeitet.</p>
+<p><img src="../doc/code-file/media/codefile-classview.png" alt="CodeFile ClassView"></p>
 <h2 id="access-unit-tree-überarbeitet">Access Unit Tree überarbeitet</h2>
 <p>Der Access Unit Tree in der <a href="../doc/runtime-administration/runtime-administration-roles.html">Runtime Administration</a> und im Runtime License Manager wurden überarbeitet. Letzterer findet Anwendung bei den <a href="../doc/access-units/laufzeitlizenzen.html">Laufzeitlizenzen</a> und im <a href="../doc/publish-wizards/run-wizard.html#runtime-licenses">Publish Wizard</a>.</p>
 <p>Neben einem neuen Tree-Control mit vielen eingebauten Features, wie Sortierung, gibt es jetzt über <code>STRG + F</code> eine weitere Suchfunktion. Näheres ist <a href="../doc/access-units/laufzeitlizenzen.html#registerkarte-access-unit-tree">hier</a> beschrieben.</p>
@@ -168,7 +185,8 @@ SELECT 1 FROM Tabelle /* Ein Kommentar * / WHERE [Spalte] = 7
 Entsprechend dessen muss zwingend die neuste Version des <a href="requirements.html#client-launcher">FSClientLaunchers</a> <a href="../doc/fsclientlauncher/fsclientlauncher-installation.html">installiert</a> werden.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p>Java 21 unterstützt nur noch <strong>64-Bit</strong> Systeme.</p>
+<p>Ab FS 4.8 wird nur noch Java 21 unterstützt. <br>
+Java 21 unterstützt nur noch <strong>64-Bit</strong> Systeme.</p>
 </div>
 <h3 id="lookandfeel---flatlaf">LookAndFeel - FlatLAF</h3>
 <p>Seit Java 17 gibt es keinen Zugang mehr zu den Windows LookAndFeel UIComponents.
@@ -179,6 +197,9 @@ Die Darstellung einiger Controls im Java-Client hat sich daher verändert.</p>
 <h5>Note</h5>
 <p>Das an den Java-Client übergebene <code>lookAndFeel</code> Argument wird nun nicht mehr ausgewertet und hat keinen Einfluss auf die Oberfläche.</p>
 </div>
+<h3 id="anpassung-eigener-custom-controls">Anpassung eigener Custom Controls</h3>
+<p>Sollten Sie eigene Custom Controls implementiert haben, müssen diese auf Java 21 upgedated werden und neu eingebunden werden.
+Für die erforderliche Signierung der Custom Controls können Sie sich bei unserem Support melden.</p>
 <h3 id="browser-control-fxbrowser-entfernt">Browser-Control FxBrowser entfernt</h3>
 <p>Im Zuge des Updates auf Java 21 wurde der FxBrowser von JavaFx ausgebaut.
 Der JxBrowser ist somit das einzige in FS integrierte Browser-Control.
@@ -193,6 +214,15 @@ Auf diesen Betriebssystemen wird dementsprechend das Browser-Control nicht funkt
 Der Parameter <code>dl</code> wurde entfernt und stattdessen ein neuer Endpoint geschaffen.
 Ursprünglich wurde der Parameter eingebaut, um Content-Management-Systemen, wie SharePoints o.ä., die mit dem Startlink aus der <a href="../doc/fsclientlauncher/fsclientlauncher-common.html#startpage">Startpage</a> nicht zurechtgekommen sind, eine Möglichkeit zu bieten den Client zu starten.
 In diesen Systemen hinterlegte Links müssen auf den neuen <a href="../doc/fsclientlauncher/fsclientlauncher-common.html#broker-launch-endpoint">Endpoint</a> <code>/api/launch</code> abgeändert werden.</p>
+<h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
+<ul>
+<li>Änderungen an Methoden und Properties bei einem ausgecheckten Record werden durch die neue Spalte <code>Modified</code> angezeigt.</li>
+<li>Es wurden dynamisch erweiterbare <a href="../doc/fsclientlauncher/fsclientlauncher-common.html#app-argumente">App-Argumente</a> hinzugefügt, auf die, über die <a class="xref" href="../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.ClientInfos.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ClientInfos">ClientInfos</a> bzw. <a class="xref" href="../api/FS.Hosting.Shared.GlobalObj.IGlobalObjects.ClientInfosAppArgs.html#FS_Hosting_Shared_GlobalObj_IGlobalObjects_ClientInfosAppArgs">ClientInfosAppArgs</a> im Broker-Code, zugegriffen werden kann.</li>
+<li>Die <a href="../doc/fsclientlauncher/fsclientlauncher-common.html#allgemeine-informationen">StartPage</a> wurde visuell überarbeitet.</li>
+<li>Die IDE bietet ein neues Command <a href="../doc/ide/file-menu.html#restart-with-maintenance-mode">Restart with Maintenance Mode</a>.</li>
+<li>Wenn eine neue Package-Version eröffnet wird, wird das Datum und die Quell-Package-Version gespeichert.
+Diese Infos sind dann in der <a href="../doc/ide/allgemeine-funktionalitaeten.html#source-control-history">Source Control History</a> einsehbar.</li>
+</ul>
 
 </article>
 

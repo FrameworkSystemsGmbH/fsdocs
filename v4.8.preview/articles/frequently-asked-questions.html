@@ -101,6 +101,19 @@ Unter anderem werden wir hier auch bekannte Fehler-Stacktraces auflisten und der
 <li>Ggf. Speicherort auswählen und <code>OK</code> drücken</li>
 <li>Die erstellte Backup-Datei auf dem FTP hochladen und uns benachrichten, dass das Backup hochgeladen wurde.</li>
 </ol>
+<h2 id="framework-studio-stürzt-beim-initializing-ab---fehlercode-c06d007e">Framework Studio stürzt beim Initializing ab - Fehlercode c06d007e</h2>
+<p>Dies ist ein bekanntes Problem ab FS 4.5.34.
+Bei Verwendung von Framework Studio über die Console oder TeamViewer auf einem Windows Server 2016 oder Windows Server 2019 kommt es zu Abstürzen.</p>
+<p>Wir nutzen intern den CefSharp Browser, welcher wiederum auf Basis des Chromium Browsers arbeitet.
+Chromium hat die intern verwendete Windows SDK upgedatet und verwendet nun die Windows SDK Version 10.0.26100.1742.
+Die Datei d3dcompiler_47.dll im neuen SDK versucht Versionen der Universal C Runtime (UCRT) dynamisch zu laden, die auf
+älteren Systemen standardmäßig nicht vorhanden sind. Dies führt zu Abstürzen der Anwendung.</p>
+<p>Sollte Framework Studio auf Windows Server 2016/2019 mit Zugriff per Console oder TeamViewer abstürzen, so kopieren und ersetzen Sie die DLL im Programmverzeichnis durch die Version aus dem Compatibility Ordner:</p>
+<ul>
+<li>d3dcompiler_47.dll - Version 10.0.22621.2428</li>
+</ul>
+<p>Diese Änderung muss nach jeder Installation und jedem Update vorgenommen werden!</p>
+<p>Da Windows Server 2019 bereits seit Januar 2024 aus dem Mainstream-Support gefallen ist, wird es von CefSharp keine Lösung geben. Aus diesem Grund empfehlen auch wir das Update auf eine neuere Windows Server Version.</p>
 <h2 id="java-applikation-java-exception-null">Java-Applikation <code>Java-Exception: null</code></h2>
 <p>Beim Start der Java-Applikation wird folgender oder ähnlicher Fehler ausgegeben:</p>
 <pre><code class="lang-csharp">Java-Exception: null

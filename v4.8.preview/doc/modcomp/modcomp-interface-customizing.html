@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Code File </title>
+      <title>Customizing von Modular Component Interfaces </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Code File ">
+      <meta name="title" content="Customizing von Modular Component Interfaces ">
       
       
       <link rel="icon" href="../../favicon.ico">
@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/docs/doc/code-file/codefile.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/docs/doc/modcomp/modcomp-interface-customizing.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -85,42 +85,44 @@
         </div>
 
         <article data-uid="">
-<h1 id="code-file">Code File</h1>
+<h1 id="customizing-von-modular-component-interfaces">Customizing von Modular Component Interfaces</h1>
 
-<p>Framework Studio bietet die Möglichkeit freien C#-Code zu programmieren.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>CodeFiles können nicht gecustomized werden. Aus diesem Grund sollte die Verwendung der CodeFiles gründlich abgewägt werden!</p>
-</div>
-<h2 id="erstellen-eines-code-files">Erstellen eines Code Files</h2>
-<p>Es wird der Namespace ausgewählt, in dem das neue Element angelegt werden soll.
-Anschließend wird in der Registerkarte <a href="../namespace/namespace.html#namespaces">Namespaces</a> über <strong>New</strong> / <strong>Code File</strong> ein neues Code File angelegt.</p>
-<p><img src="media/codefile.png" alt="CodeFile Editor"></p>
-<p>Anschließend muss ein Compile Step ausgewählt werden, damit der Code kompiliert wird.</p>
-<p>Das Code File muss eine Klasse, kann jedoch auch mehrere Klassen beinhalten.
-Aufgrund gängiger Konventionen sollte ein Code File jedoch nur eine Klasse beinhalten und der Name des Code Files identisch mit dem Namen der Klasse sein.</p>
-<p>Namespaces können nicht definiert werden.</p>
-<h3 id="compile-step">Compile step</h3>
-<p>Der Compile step bestimmt, mit welchem Typen das Code File kompiliert wird.
-Dieser muss angegeben werden, ansonsten wird der Code nicht kompiliert.</p>
-<p>Soll der Code auch in einem anderen Namespace zur Verfügung stehen, muss auf den Namespace und den ObjectType/Compile step eine Referenz angelegt werden.
-Ein detailliertes Beispiel finden Sie unter <a href="#referenz-beispiel">Beispiel</a>.</p>
-<div class="CAUTION">
-<h5>Caution</h5>
-<p>Das Ändern des Compile steps wird nicht empfohlen.
-Sollten Sie das Code File bereits in anderen Namespaces verwendet haben, werden infolge der Änderung die Referenzen ungültig und der Compile wird nicht erfolgreich durchlaufen.</p>
-</div>
-<h4 id="referenz-beispiel">Referenz Beispiel</h4>
-<p>Wird ein Code File im Namespace &quot;Company&quot; angelegt und der Compile step wird auf &quot;Component&quot; gesetzt, dann wird der Code der Code File in die Dll des Namespace &quot;Company&quot; der Component generiert und kompiliert.</p>
-<p>Für den Zugriff auf den Code außerhalb des Namespaces, muss eine Referenz auf den Namespace und den Object Type bzw. Compile Step hinterlegt werden.</p>
-<p>In folgender Abbildung wird eine Referenz vom Namespace &quot;Article&quot; auf den Namespace &quot;Company&quot; angelegt.
-So kann nun innerhalb der Components im Namespace &quot;Article&quot; die cfCompany-Klasse verwendet werden.</p>
-<p><img src="media/codefile-reference.png" alt="CodeFile Reference"></p>
-<h2 id="classview">ClassView</h2>
-<p>Der Code von Code Files wird analysiert, um alle Member in der ClassView visuell aufbereitet anzuzeigen.</p>
-<p>Zu den geparsten Membern zählen Klassen, Interfaces, Enums, Properties, Delegates, Methoden, Events, Indexer und Operatoren.
-Die Icons orientieren sich an den VisualStudio Icons und zeigen zudem die access level an.</p>
-<p><img src="media/codefile-classview.png" alt="CodeFile ClassView"></p>
+<p>Da es sich bei Interfaces um Contracts handelt, können diese nicht customized werden.
+Allerdings gibt es durch Interface-Vererbung die Möglichkeit im Customizing Interfaces zu erweitern.</p>
+<p>Das sieht dann folgendermaßen aus:</p>
+<p>Die Klasse <code>Something</code> aus der Basis implementiert das Interface <code>ISomething</code>.
+Die customized Klasse <code>Cust_Something</code> kann im Customizing einfach um ein Property oder eine Methode erweitert werden.
+Aber über das Interface sind diese Member nicht erreichbar.</p>
+<p>Die Lösung ist, ein neues Interface <code>ISomethingCust</code> zu erstellen, das vom Interface <code>ISomething</code> aus der Basis erbt.
+Die Klasse <code>Cust_Something</code> implementiert nun dieses Interface.
+Das heißt an der Modularen Component muss im Textfeld Interface der FullName von <code>ISomethingCust</code> stehen.</p>
+<pre><code class="lang-mermaid">classDiagram
+    ISomething &lt;|-- ISomethingCust
+    ISomething &lt;|.. Something
+    ISomethingCust &lt;|.. Cust_Something
+    Something &lt;|-- Cust_Something
+
+    class ISomething {
+        +int Property
+        +Method()
+    }
+
+    class ISomethingCust {
+        +string PropertyCust
+        +MethodCust()
+    }
+
+    class Something {
+        // implements ISomething
+    }
+
+    class Cust_Something {
+        // inherits Something
+        // implements ISomethingCust
+    }
+</code></pre>
+<p>Durch dieses Konstrukt kann im Customizing an den Stellen, an denen z.B. auf das <code>ISomething</code> gecastet wird, zusätzlich auf das <code>ISomethingCust</code> gecastet werden, um auf die erweiterten Member zugreifen zu können.
+Die Klasse <code>Cust_Something</code> ist also gleichzeitig ein <code>ISomething</code> und ein <code>ISomethingCust</code>. Zudem kann <code>ISomethingCust</code> als <code>ISomething</code> in Methoden aus der Basis übergeben werden, ohne Compile-Fehler zu verursachen.</p>
 
 </article>
 

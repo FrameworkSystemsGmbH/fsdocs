@@ -435,8 +435,22 @@ Bei der Verwendung des Metadatatyps <strong>CheckboxBoolean</strong>, welcher Bo
 <li><p>Button <strong>Remove Range</strong>: Mit dem Button Remove Range kann ein Bereich gelöscht werden.</p>
 </li>
 </ul>
-<h2 id="registerkarte-default-label">Registerkarte Default Label</h2>
-<p><img src="media/register-default-label.png" alt="Default Label"></p>
+<h3 id="default-value">Default Value</h3>
+<p>Es kann ein konstanter Wert angegeben werden.
+Dieser greift, ähnlich der heutigen Value-Range-Prüfung, im Getter und Setter von Properties.
+Wenn eine definierte Range vorhanden ist, muss der Default Value zwischen den Ranges liegen.</p>
+<p>Zusätzlich wird der Wert bei Datenbank-Aktionen (Insert, Update) geprüft.</p>
+<h4 id="database-column-constraint">Database Column Constraint</h4>
+<p>Optionen:</p>
+<ul>
+<li><null> : Bei Auswahl dieses Eintrags wird die Überschreibung entfernt und auf den von der Basis geerbten Wert zurückgesetzt.</null></li>
+<li>Create (default): Der Constraint wird in der Datenbank generiert und in der Routineaktualisierung werden die NULL-Werte mit dem Standardwert aktualisiert.</li>
+<li>Create, no Update: Der Constraint wird in der Datenbank generiert und in der Aktualisierungsroutine werden die NULL-Werte NICHT aktualisiert.</li>
+<li>Do not create: Der Constraint wird nicht in der Datenbank generiert und die Behandlung von Standardwerten findet nur innerhalb FS statt.</li>
+</ul>
+<p>In der OnSaveAction() im Component-Code wird dafür gesorgt, dass beim Insert bzw. Update die Value-Prüfung ausgeführt wird.</p>
+<h2 id="registerkarte-texts">Registerkarte Texts</h2>
+<p><img src="media/register-default-label.png" alt="Texts"></p>
 <p>Einem Metadatentypen kann ein Label zugewiesen werden. Dieses Label wird im Form links neben dem Control des Metadatentyps angezeigt. Das Label kann mehrsprachig hinterlegt werden.</p>
 <div class="TIP">
 <h5>Tip</h5>

@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>AUHelper und die Dependency Injection in FS </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="AUHelper und die Dependency Injection in FS ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/articles/update-4-8/dependency-injection.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="auhelper-und-die-dependency-injection-in-fs">AUHelper und die Dependency Injection in FS</h1>
+
+<p>Mit Version 4.8 unterstützen Framework-Studio Anwendungen die Nutzung von <a href="../../doc/konzepte/dependency-injection.html">Dependency-Injection</a>.</p>
+<p>Viele zentrale Komponenten, die bisher direkt über das <code>GlobalObject</code> oder den <code>AUHelper</code> erreichbar waren, wurden in eigenständige, per DI auflösbare Interfaces und Services überführt.
+Dies betrifft insbesondere folgende Bereiche:</p>
+<ul>
+<li><a href="#lizenzpr%C3%BCfung">Lizenzprüfung</a></li>
+<li><a href="#printing">Printing-API</a></li>
+<li><a href="#db-connections">DB Connections</a></li>
+<li><a href="#global-context">Global Context</a></li>
+<li>Authentifizierung eines Users - siehe <a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.IFSAuthentication.html"><code>IFSAuthentication</code></a></li>
+<li>Zugriff auf Runtime-Konfigurationsdatei - siehe <a class="xref" href="../../api/FS.Hosting.Shared.Configuration.Runtime.IRuntimeConfigProvider.html"><code>IRuntimeConfigProvider</code></a></li>
+</ul>
+<p>Die folgenden Abschnitte erläutern die wichtigsten Änderungen und zeigen, wie die neuen DI-basierten APIs verwendet werden können.</p>
+<h2 id="update-auf-fs-48">Update auf FS 4.8</h2>
+<p>Zusammengefasst bedeutet die Überarbeitung des AUHelpers und des GlobalObjects, dass viele Aufrufe von Methoden und Properties am AUHelper nun auf Fehler laufen oder obsolete Warnings produzieren.
+Die entsprechenden Funktionen wurden in andere Klassen ausgelagert. Der Zugriff erfolgt nun über das zugehörige Interface.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Ein großer Teil des AUHelpers kann über eine Maintenance Routine korrigiert werden. Siehe <a href="#auhelper---code-replacement-cleanup">Kapitel 'AUHelper - Code Replace Cleanup'</a></p>
+<p>Manuelle Anpassungen sind für folgende Themen notwendig:</p>
+<ul>
+<li><a href="#printing">Printing-API</a></li>
+<li><a href="#db-connections">DB Connections</a></li>
+<li><a href="#global-context">Global Context</a></li>
+<li><a href="#auhelper-%C3%A4nderungen-mit-notwendiger-manueller-nacharbeit">Teile aus dem AUHelper</a></li>
+</ul>
+</div>
+<h2 id="lizenzprüfung">Lizenzprüfung</h2>
+<h4 id="prüfung-der-lizenz-und-der-rollen-die-dem-user-zugeteilt-wurden">Prüfung der Lizenz und der Rollen, die dem User zugeteilt wurden</h4>
+<p>Früher: <code>AUHelper.Granted(..)</code></p>
+<p>Jetzt: <a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.IAuGrantable_Extensions.IsGranted.html#FS_Hosting_Shared_AccessControl_IAuGrantable_Extensions_IsGranted_FS_Hosting_Shared_AccessControl_IAuGrantable_FS_Hosting_Shared_AccessControl_AccessUnit_"><code>IFSAuthorization.IsGranted(AccessUnit)</code></a> oder <a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.IAuGrantable_Extensions.IsGranted.html#FS_Hosting_Shared_AccessControl_IAuGrantable_Extensions_IsGranted_FS_Hosting_Shared_AccessControl_IAuGrantable_FS_Hosting_Shared_AccessControl_AccessUnit_FS_Hosting_Shared_AccessControl_AUPermissionType_"><code>IFSAuthorization.IsGranted(AccessUnit, AUPermissionType)</code></a></p>
+<h4 id="prüfung-der-lizenz-die-zugeteilten-rollen-werden-nicht-berücksichtigt">Prüfung der Lizenz, die zugeteilten Rollen werden nicht berücksichtigt</h4>
+<p>Früher: <code>AUHelper.LicenseGranted(..)</code></p>
+<p>Jetzt: <a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.IAuGrantable_Extensions.IsGranted.html#FS_Hosting_Shared_AccessControl_IAuGrantable_Extensions_IsGranted_FS_Hosting_Shared_AccessControl_IAuGrantable_FS_Hosting_Shared_AccessControl_AccessUnit_"><code>IRuntimeLicensePermissionEvaluator.IsGranted(AccessUnit)</code></a> oder <a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.IAuGrantable_Extensions.IsGranted.html#FS_Hosting_Shared_AccessControl_IAuGrantable_Extensions_IsGranted_FS_Hosting_Shared_AccessControl_IAuGrantable_FS_Hosting_Shared_AccessControl_AccessUnit_FS_Hosting_Shared_AccessControl_AUPermissionType_"><code>IRuntimeLicensePermissionEvaluator.IsGranted(AccessUnit, AUPermissionType)</code></a></p>
+<h3 id="prüfung-ob-die-lizenz-datei-den-zugriff-auf-die-übergebene-accessunit-erlaubt">Prüfung, ob die Lizenz-Datei den Zugriff auf die übergebene AccessUnit erlaubt</h3>
+<p>Früher: <code>AUHelper.LicenseGrantedInFile()</code></p>
+<p>Jetzt: <a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.IAuGrantable_Extensions.IsGranted.html#FS_Hosting_Shared_AccessControl_IAuGrantable_Extensions_IsGranted_FS_Hosting_Shared_AccessControl_IAuGrantable_FS_Hosting_Shared_AccessControl_AccessUnit_FS_Hosting_Shared_AccessControl_AUPermissionType_"><code>IRuntimeLicenseVerifier.IsGranted(AccessUnit, AUPermissionType)</code></a></p>
+<h2 id="printing">Printing</h2>
+<p>Die API des Printings hat sich grundlegend verändert.
+Die Zuständigkeiten teilen sich wie folgt auf:</p>
+<p>Datenklassen:</p>
+<ul>
+<li><a class="xref" href="../../api/FS.Hosting.Shared.Reporting.PrintServer.html">PrintServer</a> - Beschreibt einen PrintServer</li>
+<li><a class="xref" href="../../api/FS.Hosting.Shared.Reporting.Printer.html">Printer</a> - Beschreibt einen Printer</li>
+<li><a class="xref" href="../../api/FS.Hosting.Shared.Reporting.PrintJob.html">PrintJob</a> - Beinhaltet alle für den Druck erforderlichen Daten</li>
+<li><a class="xref" href="../../api/FS.Hosting.Core.Reporting.ReportDocument.html">ReportDocument</a> - Erzeugt nur noch einen PrintJob</li>
+</ul>
+<p>Alle Methoden für den Druck befinden sich nun im injectable <a class="xref" href="../../api/FS.Hosting.Shared.Reporting.IPrintServerApi.html">IPrintServerApi</a>.</p>
+<p><strong>Veränderungen am ReportDocument:</strong></p>
+<ul>
+<li><code>reportDocument.PrintToPrinter(..)</code> ist nun als ExtensionMethod am ReportDocument verfügbar:
+<a class="xref" href="../../api/FS.Hosting.Core.Reporting.ReportDocument_Extensions.PrintToPrinter.html#FS_Hosting_Core_Reporting_ReportDocument_Extensions_PrintToPrinter_FS_Hosting_Core_Reporting_ReportDocument_FS_Hosting_Shared_Reporting_IPrintServerApi_System_Int32_System_Boolean_System_Int32_System_Int32_System_Int32_FS_Shared_BaseObjects_guid_FS_Shared_BaseObjects_guid_">PrintToPrinter</a></li>
+<li>Der Inhalt der Methode <code>reportDocument.PrintToTransaction(..)</code> wurde gesplittet in
+<ul>
+<li>Erstellung des PrintJobs -&gt; <code>reportDocument.CreatePrintJob(..)</code> und</li>
+<li>printJob.PrintToTransaction -&gt; <code>PrintServerAPI.EnqueuePrintJob()</code>.</li>
+</ul>
+</li>
+</ul>
+<p>Der Code für einen Print sieht nun wie folgt aus:</p>
+<pre><code class="lang-csharp">var job = reportDocument.CreatePrintJob();
+job.PrinterId = printerId;
+var transactionId = _printServerApi.CreateTransaction(printServerId);
+_printServerApi.EnqueuePrintJob(job, transactionId);
+_printServerApi.CommitTransaction(transactionId);
+</code></pre>
+<p>oder abgekürzt über die ExtensionMethod am <code>ReportDocument</code></p>
+<pre><code class="lang-csharp">reportDocument.PrintToPrinter(IPrintServerApi printServerApi, int copies, bool isCollated, int startPage, int endPage, int orderID, guid printServerId, guid printerId)
+</code></pre>
+<h2 id="db-connections">DB Connections</h2>
+<h4 id="neue-di-dbconnectionfactory">Neue DI DBConnectionFactory</h4>
+<p>Bisher wurden neue FrameworkDataConnections über <code>DBDatasourceBase.CreateConnection()</code> aufgebaut.</p>
+<pre><code class="lang-csharp">using (FrameworkDataConnection dataConnection = DBDatasourceBase.CreateConnection(dbDescConn.CGName))
+{
+    // ...
+}
+</code></pre>
+<p>Zukünftig muss hier über den ServiceProvider auf die <a class="xref" href="../../api/FS.Hosting.Shared.IDBConnectionFactory.html">IDBConnectionFactory</a> zugegriffen werden. Mit <a class="xref" href="../../api/FS.Hosting.Shared.IDBConnectionFactory.CreateConnection.html#FS_Hosting_Shared_IDBConnectionFactory_CreateConnection_FS_Hosting_Shared_IDBConnectionSourceBase_">CreateConnection(IDBConnectionSourceBase)</a> kann die Connection aufgebaut werden.</p>
+<pre><code class="lang-cs">using ( FrameworkDataConnection dataConnection = FSServiceProvider.Current.GetRequiredService&lt;IDBConnectionFactory&gt;().CreateConnection(new DBDatasourceBase(groupId, groupName)))
+{
+    // ....
+}
+</code></pre>
+<p>Alternativ kann auch direkt über den <code>ConnectionGroupName</code> eine Connection aufgebaut werden.
+Zu beachten ist hierbei, dass die Methode nur bei einer in der RuntimeConfig konfigurierten Connection funktioniert.</p>
+<pre><code class="lang-cs">using ( FrameworkDataConnection dataConnection = FSServiceProvider.Current.GetRequiredService&lt;IDBConnectionFactory&gt;().CreateConnectionFromGroup(dbDescConn.CGName))
+{
+    // ....
+}
+</code></pre>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Um das Aufräumen der Connection mit einem using muss sich auch weiterhin selbst gekümmert werden.</p>
+</div>
+<h4 id="neuer-di-dbconnectionscope">Neuer DI DBConnectionScope</h4>
+<p>Außerdem gibt es nun einen <a class="xref" href="../../api/FS.Hosting.Shared.IDBConnectionScope.html">IDBConnectionScope</a>, der die Verwaltung von Connections innerhalb eines Scopes übernimmt.
+Auf diesen kann auch mittels ServiceProvider zugegriffen werden.
+Mit der <a class="xref" href="../../api/FS.Hosting.Shared.IDBConnectionScope.GetConnection.html#FS_Hosting_Shared_IDBConnectionScope_GetConnection_FS_Hosting_Shared_IDBConnectionSourceBase_">GetConnection</a> kann auf die im Scope/Request verwalteten Connections zugegriffen werden.</p>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Die Connections, die über den <a class="xref" href="../../api/FS.Hosting.Shared.IDBConnectionScope.html">IDBConnectionScope</a> geholt werden, dürfen <strong>nicht</strong> in ein <code>using</code> gesetzt oder anderweitig <code>Disposed</code> werden.</p>
+</div>
+<pre><code class="lang-cs">FrameworkDataConnection dataConnection = FSServiceProvider.Current.GetRequiredService&lt;IDBConnectionScope&gt;().GetConnection(new DBDatasourceBase(groupId, groupName));
+</code></pre>
+<p>Alternativ gibt es auch eine Extension-Method, der nur die GruppenId und der Gruppenname übergeben werden muss.</p>
+<pre><code class="lang-cs">FrameworkDataConnection dataConnection = FSServiceProvider.Current.GetRequiredService&lt;IDBConnectionScope&gt;().GetConnection(groupId, groupName);
+</code></pre>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Für die gleiche ConnectionGroup wird immer <strong>dieselbe</strong> Connection zurückgegeben.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die Connections im <a class="xref" href="../../api/FS.Hosting.Shared.IDBConnectionScope.html">IDBConnectionScope</a> werden automatisch nach dem Request aufgeräumt.</p>
+</div>
+<h4 id="neue-dbperformancecounter-logik">Neue DBPerformanceCounter Logik</h4>
+<p>Jede FrameworkDataConnection, die mit einem Global initialisiert worden ist, hat automatisch über die DBPerformanceCounter Logik Zugriffe und Zeiten für die Connection gemessen und am Global gespeichert.</p>
+<p>Durch den Umbau der DB Connections ist dies so nicht mehr möglich, unter anderem, weil die Connections kein Global mehr haben.</p>
+<p>Die Verwaltung der neuen <a class="xref" href="../../api/FS.Hosting.Shared.IDBPerformanceCounter.html">IDBPerformanceCounter</a> übernimmt nun der <a class="xref" href="../../api/FS.Hosting.Shared.IDBPerformanceCounterStore.html">IDBPerformanceCounterStore</a>, der Zugriff erfolgt dabei über die <a class="xref" href="../../api/FS.Hosting.Shared.IDBPerformanceCounterStore.TryGetDBPerformanceCounter.html#FS_Hosting_Shared_IDBPerformanceCounterStore_TryGetDBPerformanceCounter_System_String_FS_Hosting_Shared_IDBPerformanceCounter__">TryGetDBPerformanceCounter</a>.</p>
+<p>Connections, die über <a class="xref" href="../../api/FS.Hosting.Shared.IDBConnectionScope.GetConnection.html#FS_Hosting_Shared_IDBConnectionScope_GetConnection_FS_Hosting_Shared_IDBConnectionSourceBase_">IDBConnectionScope.GetConnection</a> genutzt werden, kümmern sich selbst darum, dass die IDBPerformanceCounter in den IDBPerformanceCounterStore übertragen werden.</p>
+<p>Für Connections, die über die <a class="xref" href="../../api/FS.Hosting.Shared.IDBConnectionFactory.html">IDBConnectionFactory</a> oder <code>new</code> erzeugt wurden, müssen die DBPerformanceCounter selbst in den IDBPerformanceCounterStore übertragen werden, sofern dies gewünscht ist.
+Das muss allerdings noch im <code>using</code>-Block erfolgen, da die Connection sonst bereits disposed ist.</p>
+<pre><code class="lang-csharp">using (var connection = new FrameworkDataConnection(connectionString))
+// Oder
+using (var connection = FSServiceProvider.Current.GetRequiredService&lt;IDBConnectionFactory&gt;().CreateConnectionFromGroup(connectionGroupName))
+{
+    // Code to execute
+
+    connection.Close();
+
+    // SessionId mit Global
+    string sessionId = this.Global.Token;
+    // SessionId ohne Global
+    string sessionId = FSServiceProvider.Current.GetRequiredService&lt;ISessionScope&gt;().GetCurrentSessionId();
+ 
+    IDBPerformanceCounter counter = DBPerformanceCounter.FromConnection(connection);
+    FSServiceProvider.Current.GetRequiredService&lt;IDBPerformanceCounterStore&gt;().AddDBPerformanceCounter(sessionId, counter);
+}
+</code></pre>
+<h2 id="global-context">Global Context</h2>
+<p>Mit der Einführung von Dependency-Injection müssen die bisherigen Aufrufe des <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.GlobalContext.html"><code>GlobalContext</code></a> angepasst werden. Nachfolgend werden die wichtigsten Änderungen und deren Auswirkungen erläutert:</p>
+<h4 id="verwendung-von-fsserviceprovidercreatescope">Verwendung von FSServiceProvider.CreateScope()</h4>
+<ul>
+<li>Anstelle des bisherigen <a class="xref" href="../../api/FS.Hosting.Shared.GlobalObj.GlobalContext.html"><code>GlobalContext</code></a> wird nun <a class="xref" href="../../api/FS.Hosting.Shared.FSServiceProvider.CreateScope.html#FS_Hosting_Shared_FSServiceProvider_CreateScope_FS_Hosting_Shared_GlobalObj_IGlobalObjects_"><code>FSServiceProvider.CreateScope(global)</code></a> verwendet, um einen Scope zu simulieren, der einem Request entspricht.</li>
+<li>Der ServiceProvider-Scope sorgt ebenfalls für die Isolierung aller Ressourcen und Zustände vom Code außerhalb des Scopes.</li>
+<li>Beim Beenden des Scopes wird dieser automatisch disposed. Dadurch werden alle temporären Informationen und Ressourcen, die im Scope angelegt wurden, bereinigt.</li>
+<li>Datenbankverbindungen, die innerhalb des Scopes erstellt werden, werden ebenfalls verwaltet und am Ende des Scopes automatisch geschlossen.</li>
+</ul>
+<p>Weitere Informationen zum <a href="../../doc/konzepte/dependency-injection.html#fsserviceprovider">FSServiceProvider</a>.</p>
+<h4 id="alter-vs-neuer-code">Alter vs. neuer Code</h4>
+<p><strong>Alter Code:</strong></p>
+<pre><code class="lang-csharp">using (GlobalContext.Context(localGlobal))
+{
+    // ... eigener Code ...
+    GlobalContext.Current.ocGlobal...();
+
+    // Schließen der Connections - wie am Ende eines Requests.
+    localGlobal.CloseConnections();
+}
+</code></pre>
+<p><strong>Hinweis:</strong><br>
+<code>GlobalContext.Context()</code> kann keinen ServiceProvider-Scope automatisch erzeugen, da:</p>
+<ul>
+<li>Heute nicht in allen Fällen ein <code>CloseConnections()</code> ausgeführt wird.</li>
+<li>Asynchroner Code, z.B. mit <code>Task.Run()</code> oder <code>Thread.Start()</code>, nicht korrekt funktioniert.</li>
+</ul>
+<p><strong>Neuer Code:</strong></p>
+<pre><code class="lang-csharp">using(FSServiceProvider.CreateScope(localGlobal))
+{
+    // ... eigener Code ...
+    GlobalContext.Current.ocGlobal...();
+
+    // eine Connection verwenden
+    FSServiceProvider.Current.GetRequiredService&lt;IDBConnectionScope&gt;().GetConnection(...);
+}
+</code></pre>
+<p>Die Methode <a class="xref" href="../../api/FS.Hosting.Shared.FSServiceProvider.CreateScope.html#FS_Hosting_Shared_FSServiceProvider_CreateScope_FS_Hosting_Shared_GlobalObj_IGlobalObjects_"><code>FSServiceProvider.CreateScope(global)</code></a> erzeugt neben dem Service-Provider-Scope auch einen neuen <code>GlobalContext</code>.
+Dadurch wird sichergestellt, dass alle relevanten Ressourcen und Zustände korrekt verwaltet und am Ende des Scopes bereinigt werden.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p><strong>Keine Async-Operationen im Scope ausführen!</strong></p>
+<p>Der Scope darf keine asynchronen Operationen (z.B. <code>Task.Run()</code>, <code>Thread.Start()</code>) enthalten.
+Beim Dispose am Ende des <code>using</code>-Blocks wird der Scope bereinigt, wodurch darüber hinaus laufende Tasks oder Threads auf ungültige Ressourcen zugreifen und Fehler verursachen können.
+Ein Refactoring ist erforderlich, um asynchrone Abläufe außerhalb des Scopes zu organisieren.</p>
+</div>
+<h2 id="auhelper-änderungen-mit-notwendiger-manueller-nacharbeit">AUHelper-Änderungen mit notwendiger manueller Nacharbeit</h2>
+<p>Die folgenden Funktionen sind nicht durch einen allgemeinen Code Replace lösbar und müssen aus diesem Grund manuell nachgearbeitet werden. Wir empfehlen zunächst die Code Replaces durchzuführen und nach einem anschließenden Compile alle manuellen Änderungen vorzunehmen.</p>
+<h4 id="auhelperpackageinfo">AUHelper.PackageInfo</h4>
+<p>Die Klasse <a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.PackageInfo.html">PackageInfo</a>, welche sich zuvor im AUHelper befand, wurde verschoben.</p>
+<h4 id="auhelper-identifyunitstring">AUHelper <code>IdentifyUnit(string)</code></h4>
+<p>Diese Methode wurde umbenannt in <a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.IFSAuthentication.SwitchUnit.html#FS_Hosting_Shared_AccessControl_IFSAuthentication_SwitchUnit_System_String_">SwitchUnit</a> und ist über das injectable Interface <a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.IFSAuthentication.html">IFSAuthentication</a> erreichbar.</p>
+<h4 id="auhelper-changepassword">AUHelper <code>ChangePassword()</code></h4>
+<p>Die beiden Methoden <code>ChangePasswordChecked()</code> wurden entfernt.
+Ersetzt wurden die Methoden durch <a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.IFSAuthenticationService.ChangePassword.html#FS_Hosting_Shared_AccessControl_IFSAuthenticationService_ChangePassword_System_String_System_String_System_String_">ChangePassword</a>.</p>
+<pre><code class="lang-csharp">FSServiceProvider.Current.GetRequiredService&lt;IFSAuthenticationService&gt;().ChangePassword(username, oldPassword, newPassword);
+</code></pre>
+<h4 id="globalobjects-addpackageinfo-registerpackage">GlobalObjects <code>AddPackageInfo()</code>/ <code>RegisterPackage()</code></h4>
+<p>Die beiden genannten Methoden stehen nicht mehr zur Verfügung.
+Für die Auskunft über Packages kann <a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.IPackageInfoResolver_Extensions.GetPackageInfosWithoutSystemPackage.html#FS_Hosting_Shared_AccessControl_IPackageInfoResolver_Extensions_GetPackageInfosWithoutSystemPackage_FS_Hosting_Shared_AccessControl_IPackageInfoResolver_">GetPackageInfosWithoutSystemPackage()</a> verwendet werden.</p>
+<h4 id="auhelper-getrolecaptionstring-rolename-und-getroledescriptionstring-rolename">AUHelper <code>GetRoleCaption(string roleName)</code> und <code>GetRoleDescription(string roleName)</code></h4>
+<p>Gibt es in dieser Form nicht mehr. Die Information kann über <a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.IFSAuthenticationService.GetApplicationRoles.html#FS_Hosting_Shared_AccessControl_IFSAuthenticationService_GetApplicationRoles">GetApplicationRoles()</a> abgerufen werden.
+Die Liste der Roles werden nicht gecached. Bei jedem Aufruf wird also am AuthenticationService die Informationen neu angefordert. Das Caching muss der User übernehmen.</p>
+<h4 id="auhelper-getaccessunitinfos">AUHelper <code>GetAccessUnitInfos()</code></h4>
+<p>Hier hat sich das zurückgegebene DTO geändert.
+Zukünftig wird statt einem <code>IEnumerable&lt;AccessUnitInfo&gt;</code> ein <code>IEnumerable&lt;AccessUnitDefinition&gt;</code> zurückgegeben.</p>
+<h4 id="auhelper-registerunits">AUHelper <code>RegisterUnits()</code></h4>
+<p>Kann in dieser Form nicht mehr aufgerufen werden.</p>
+<p><strong>Registrierung neuer Units:</strong></p>
+<ol>
+<li><p>ModularComponent muss Interface <a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.IRegisterUnitsProvider.html">IRegisterUnitsProvider</a> implementieren.</p>
+</li>
+<li><p>Folgende Methode muss anschließend programmiert werden: <code>CollectUnits()</code></p>
+<pre><code class="lang-csharp">public virtual IEnumerable&lt;(string Key, string Name)&gt; CollectUnits()
+{
+    yield return(key, name);
+    // ...
+}
+</code></pre>
+<p>Diese Methode wird dann mittels <a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.IFSAuthentication.html">IFSAuthentication</a>.<a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.IFSAuthentication.RefreshUnits.html#FS_Hosting_Shared_AccessControl_IFSAuthentication_RefreshUnits">RefreshUnits</a>
+automatisch beim Start der Applikation ausgeführt und die Units werden am AuthenticationService registriert. <code>IFSAuthentication.RefreshUnits()</code> kann ebenfalls über den FSServiceProvider ausgeführt werden und registriert die über <code>CollectUnits()</code> registrierten Units beim AuthenticationService.</p>
+</li>
+</ol>
+<h2 id="auhelper---code-replacement-cleanup">AUHelper - Code Replacement Cleanup</h2>
+<p>Viele der Änderungen können über einfache Replacements korrigiert werden. Wir haben hierfür verschiedene Regular Expressions formuliert, welche bei der Bereinigung der obsolete Warnings helfen können.</p>
+<p>Hierfür muss der Maintenance Mode in FS aktiviert und folgende Routine geöffnet werden:
+<a href="../../doc/maintenance/code-replace-cleanup.html">Code Replacement Cleanup</a></p>
+<p>Wir empfehlen hier eine schrittweise Vorgehensweise.
+Zunächst also das komplette Package kompilieren, anschließend eine Warning herauspicken und für diese den Regex ausführen. Anschließend erneuter Compile und erst dann den CheckIn durchführen.</p>
+<h4 id="grantedlicensegrantedlicensegrantedinfile">Granted/LicenseGranted/LicenseGrantedInFile</h4>
+<pre><code class="lang-txt">== FS - Code Replace Cleanup ==
+CheckIn Comment: Code Replace AUHelper.LicenseGranted(..)
+Search Regex: (?&lt;![a-zA-Z0-9_])(?:this\s*\.\s*)?Global\s*\.\s*AUHelper\s*\.LicenseGranted\s*\(
+Replace Text: FSServiceProvider.Current.GetRequiredService&lt;IRuntimeLicensePermissionEvaluator&gt;().IsGranted(
+</code></pre>
+<pre><code class="lang-txt">== FS - Code Replace Cleanup ==
+CheckIn Comment: Code Replace AUHelper.LicenseGrantedInFile()
+Search Regex: (?&lt;![a-zA-Z0-9_])(?:this\s*\.\s*)?Global\s*\.\s*AUHelper\s*\.LicenseGrantedInFile\s*\(\s*
+Replace Text: FSServiceProvider.Current.GetRequiredService&lt;IRuntimeLicenseVerifier&gt;().IsGranted(
+</code></pre>
+<pre><code class="lang-txt">== FS - Code Replace Cleanup ==
+CheckIn Comment: Code Replace AUHelper.Granted(...)
+Search Regex: (?&lt;![a-zA-Z0-9_])(?:this\s*\.\s*)?Global\s*\.\s*AUHelper\s*\.Granted\s*\(\s*
+Replace Text: FSServiceProvider.Current.GetRequiredService&lt;IFSAuthorization&gt;().IsGranted(
+</code></pre>
+<h4 id="auhelperusername">AUHelper.Username</h4>
+<pre><code class="lang-txt">== FS - Code Replace Cleanup ==
+CheckIn Comment: Code Replace AUHelper.Username
+Search Regex: (?&lt;![a-zA-Z0-9_])(?:this\s*\.\s*)?Global\s*\.\s*AUHelper\s*\.Username
+Replace Text: FSServiceProvider.Current.GetRequiredService&lt;IFSAuthenticationScope&gt;().UserTokenInfo.Username
+</code></pre>
+<h4 id="auhelperauthenticationenabled">AUHelper.AuthenticationEnabled</h4>
+<pre><code class="lang-txt">== FS - Code Replace Cleanup ==
+CheckIn Comment: Code Replace AUHelper.AuthenticationEnabled
+Search Regex: (?&lt;![a-zA-Z0-9_])(?:this\s*\.\s*)?Global\s*\.\s*AUHelper\s*\.AuthenticationEnabled
+Replace Text: FSServiceProvider.Current.GetRequiredService&lt;IFSAuthenticationService&gt;().IsAuthenticationEnabled
+</code></pre>
+<h4 id="auhelperauthenticationenabledinconfig">AUHelper.AuthenticationEnabledInConfig</h4>
+<pre><code class="lang-txt">== FS - Code Replace Cleanup ==
+CheckIn Comment: Code Replace AUHelper.AuthenticationEnabledInConfig
+Search Regex: (?&lt;![a-zA-Z0-9_])(?:this\s*\.\s*)?Global\s*\.\s*AUHelper\s*\.AuthenticationEnabledInConfig
+Replace Text: FSServiceProvider.Current.GetRequiredService&lt;IRuntimeConfigProvider&gt;().IsAuthenticationEnabled
+</code></pre>
+<h4 id="auhelpergetuserroles">AUHelper.GetUserRoles</h4>
+<pre><code class="lang-txt">== FS - Code Replace Cleanup ==
+CheckIn Comment: Code Replace AUHelper.GetUserRoles()
+Search Regex: (?&lt;![a-zA-Z0-9_])(?:this\s*\.\s*)?Global\s*\.\s*AUHelper\s*\.GetUserRoles\s*\(
+Replace Text: FSServiceProvider.Current.GetRequiredService&lt;IFSAuthenticationService&gt;().GetUserRoles(FSServiceProvider.Current.GetRequiredService&lt;IFSAuthenticationScope&gt;().UserTokenBase64
+</code></pre>
+<h4 id="auhelpergetapplicationroles">AUHelper.GetApplicationRoles</h4>
+<pre><code class="lang-txt">== FS - Code Replace Cleanup ==
+CheckIn Comment: Code Replace AUHelper.GetApplicationRoles()
+Search Regex: (?&lt;![a-zA-Z0-9_])(?:this\s*\.\s*)?Global\s*\.\s*AUHelper\s*\.GetApplicationRoles\s*\([^)]*\)
+Replace Text: FSServiceProvider.Current.GetRequiredService&lt;IFSAuthenticationService&gt;().GetApplicationRoles()
+</code></pre>
+<h4 id="auhelperisdefaultuser">AUHelper.IsDefaultUser</h4>
+<pre><code class="lang-txt">== FS - Code Replace Cleanup ==
+CheckIn Comment: Code Replace AUHelper.IsDefaultUser
+Search Regex: (?&lt;![a-zA-Z0-9_])(?:this\s*\.\s*)?Global\s*\.\s*AUHelper\s*\.IsDefaultUser
+Replace Text: FSServiceProvider.Current.GetRequiredService&lt;IFSAuthenticationScope&gt;().UserTokenInfo.IsDefaultUser
+</code></pre>
+<h4 id="auhelpergetuserunits">AUHelper.GetUserUnits</h4>
+<pre><code class="lang-txt">== FS - Code Replace Cleanup ==
+CheckIn Comment: Code Replace AUHelper.GetUserUnits()
+Search Regex: (?&lt;![a-zA-Z0-9_])(?:this\s*\.\s*)?Global\s*\.\s*AUHelper\s*\.GetUserUnits\s*\(
+Replace Text: FSServiceProvider.Current.GetRequiredService&lt;IFSAuthenticationService&gt;().GetUserUnits(FSServiceProvider.Current.GetRequiredService&lt;IFSAuthenticationScope&gt;().UserTokenBase64
+</code></pre>
+<h4 id="auhelperidentifyunit">AUHelper.IdentifyUnit</h4>
+<pre><code class="lang-txt">== FS - Code Replace Cleanup ==
+CheckIn Comment: Code Replace AUHelper.IdentifyUnit()
+Search Regex: (?&lt;![a-zA-Z0-9_])(?:this\s*\.\s*)?Global\s*\.\s*AUHelper\s*\.IdentifyUnit\s*\(
+Replace Text: FSServiceProvider.Current.GetRequiredService&lt;IFSAuthentication&gt;().SwitchUnit(
+</code></pre>
+<h4 id="auhelpergetruntimelicense">AUHelper.GetRuntimeLicense</h4>
+<pre><code class="lang-txt">== FS - Code Replace Cleanup ==
+CheckIn Comment: Code Replace AUHelper.GetLicense()
+Search Regex: (?&lt;![a-zA-Z0-9_])(?:this\s*\.\s*)?Global\s*\.\s*AUHelper\s*\.GetLicense\s*\(
+Replace Text: FSServiceProvider.Current.GetRequiredService&lt;IRuntimeLicenseVerifier&gt;().GetRuntimeLicense(
+</code></pre>
+<h4 id="auhelpergetpackages">AUHelper.GetPackages</h4>
+<pre><code class="lang-txt">== FS - Code Replace Cleanup ==
+CheckIn Comment: Code Replace AUHelper.GetPackages()
+Search Regex: (?&lt;![a-zA-Z0-9_])(?:this\s*\.\s*)?Global\s*\.\s*AUHelper\s*\.GetPackages\s*\(\)
+Replace Text: FSServiceProvider.Current.GetRequiredService&lt;IPackageInfoResolver&gt;().GetPackageInfosWithoutSystemPackage().ToList()
+</code></pre>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

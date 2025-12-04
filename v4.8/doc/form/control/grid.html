@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Grid </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Grid ">
+      
+      
+      <link rel="icon" href="../../../favicon.ico">
+      <link rel="stylesheet" href="../../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../../public/main.css">
+      <meta name="docfx:navrel" content="../../../toc.html">
+      <meta name="docfx:tocrel" content="../../toc.html">
+      
+      <meta name="docfx:rel" content="../../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/doc/form/control/grid.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../../index.html">
+            <img id="logo" class="svg" src="../../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="grid">Grid</h1>
+
+<ul>
+<li><p><a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.html">Properties/Events</a></p>
+</li>
+<li><p><a class="xref" href="../../../api/FS.Hosting.Broker.Shared.Actions.GridControlAction.html">Actions</a></p>
+</li>
+</ul>
+<h2 id="grid-beispiel">Grid Beispiel</h2>
+<p><img src="../media/grid-sample.png" alt="grid-sample.png"></p>
+<p>Das Grid stellt Daten in tabellarischer Form dar.</p>
+<h3 id="grid-sortierung">Grid Sortierung</h3>
+<p>Dem Client bietet das Grid außerdem die Möglichkeit die Daten per Mausklick auf den entsprechenden Spaltenkopf sortiert darzustellen. Gedrückthalten der Umschalttaste ermöglicht es, auch mehrere Spalten eines Grid Controls per Mausklick zu sortieren. Dabei hat die zuerst (ohne Umschalttaste) ausgewählte Spalte die höchste Priorität. Durch weitere Klicks mit Umschalttaste kann das zweite, dritte, … Sortier-Kriterium angegeben werden.</p>
+<p>Wenn der Kopf einer bereits sortierten Spalte erneut mit gedrückter Umschalttaste angeklickt wird, dann wird für diese Spalte die Sortier-Richtung geändert (aufsteigend, absteigend, unsortiert) und sie wird als Sortier-Kriterium niedrigster Priorität hinten angestellt.
+Das Kontextmenü eines Spaltenkopfs arbeitet ausschließlich im <strong>Mehrfach-Sortierungs</strong>-Modus und enthält einen weiteren Eintrag, um sämtliche Sortierungen zurückzusetzen:</p>
+<p><img src="../media/grid-sort-context-menu.png" alt="grid-sort-context-menu.png"></p>
+<h3 id="grid-filter">Grid Filter</h3>
+<p>Außerdem kann auch für jede Spalte ein Filter über das Kontextmenü definiert werden. Hier gilt ebenfalls die Regel, dass das Kontextmenü grundsätzlich Mehrfach-Filterung zulässt und eine Möglichkeit zum Zurücksetzen bietet.</p>
+<p>Der Filterdialog erscheint durch den Kontextmenüeintrag <strong>Filter / Filter anpassen</strong>. Bei Spalten mit Datumswerten kann durch Rechtsklick auf das darin enthaltene Eingabefeld ein Kalender aufgerufen werden:</p>
+<p><img src="../media/grid-filter-sample.png" alt="grid-filter-sample.png"></p>
+<p>Für Checkboxen bietet der Client eine spezielle Filteroption. Es kann nach Checked/Aktiviert oder Unchecked/Deaktiviert gefiltert werden.
+Gibt es Datensätze mit Null-Werten, werden diese bei der Checkbox-Filterung als Unchecked gewertet.</p>
+<h3 id="allgemeines-zu-den-row-icons"><strong>Allgemeines zu den Row-Icons</strong></h3>
+<p>Hinter jedem Grid steckt eine Collection und hinter jeder Zeile ein Objekt aus der Collection. Das Row-Icon zeigt den Status dieses Objekts an (<strong>neu</strong>, <strong>geändert</strong> oder <strong>gelöscht</strong>).</p>
+<p>Das Property <a class="xref" href="../../../api/FrameworkSystems.FrameworkStudio.General.DevObjects.Form.Designer.ViewModels.GridDesignViewModel.RowHeader.html#FrameworkSystems_FrameworkStudio_General_DevObjects_Form_Designer_ViewModels_GridDesignViewModel_RowHeader">RowHeader</a> muss auf <strong>DisplayRowStatus</strong> eingestellt sein, damit die Icons angezeigt werden.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

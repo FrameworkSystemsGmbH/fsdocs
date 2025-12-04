@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Administrative Mode </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Administrative Mode ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/doc/package-manager/administrative-mode.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="administrative-mode">Administrative Mode</h1>
+
+<p>Für einige Aktionen auf dem Repository ist es notwendig, dass alle Entwickler das Repository verlassen:</p>
+<ul>
+<li><p>Labeln einer Version und öffnen einer neuen</p>
+</li>
+<li><p>Importieren von Packages</p>
+</li>
+<li><p>Update des Repositories</p>
+</li>
+</ul>
+<p>Einige Daten werden im Repository mit Triggern bearbeitet. Zudem gibt es Absicherungen durch Constraints. Bei den oben aufgeführten Aktionen werden die Trigger und Constraints zum Teil deaktiviert. Das ist aus Performance-Gründen notwendig. Dieses Deaktivieren hätte ggf. zur Folge, dass im Repository falsche Daten entstehen können.</p>
+<p><img src="media/administrative-mode-start.png" alt="administrative-mode-start.png"></p>
+<p>Ist der Admin-Mode aktiviert, wird der Menüeintrag rot hervorgehoben.</p>
+<p><img src="media/administrative-mode-active.png" alt="administrative-mode-active.png"></p>
+<p>Der Modus kann nur aktiviert werden, wenn kein Entwickler am Repository angemeldet ist. Ist dies der Fall, wird ein Dialog angezeigt mit der Information, welche Benutzer derzeit noch angemeldet sind und der Option diese Sitzungen zu beenden.</p>
+<p><img src="media/administrative-mode-dialog.png" alt="administrative-mode-dialog.png"></p>
+<p>Falls noch Benutzer angemeldet sind, wird dieser Dialog angezeigt. Hier gibt es die folgenden Möglichkeiten:</p>
+<ul>
+<li><p>Cancel – den Vorgang abbrechen</p>
+</li>
+<li><p>Retry – es erneut versuchen, nachdem z.B. dem Benutzer Bescheid gegeben wurde</p>
+</li>
+<li><p>Kill User Sessions – die Sitzungen der Benutzer zu beenden. Bei dieser Aktion wird 130 Sekunden gewartet. Das ist die Zeit, die im Extremfall benötigt wird, bis ein Benutzer zum Beenden seiner Sitzung gezwungen wurde. (60 Sekunden bis zur Hinweismeldung + 60 Sekunden bis zum endgültigen Abbruch + 10 Sekunden Reserve)</p>
+</li>
+</ul>
+<p>Während dieser Dialog angezeigt wird, können sich keine neuen Benutzer mehr anmelden.</p>
+<p>Befindet sich ein Repository im Admin-Mode, können sich keine Benutzer mehr darauf anmelden. Diese erhalten dann folgende Meldung.</p>
+<p><img src="media/administrative-mode-user-message.png" alt="administrative-mode-user-message.png"></p>
+<p>Sollte man vergessen, dass der Admin-Mode aktiv ist, wird man beim Schließen des Package-Managers darauf aufmerksam gemacht.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

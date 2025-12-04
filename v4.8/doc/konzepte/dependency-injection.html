@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Dependency-Injection in Framework Studio </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Dependency-Injection in Framework Studio ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/doc/konzepte/dependency-injection.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="dependency-injection-in-framework-studio">Dependency-Injection in Framework Studio</h1>
+
+<div class="TIP">
+<h5>Tip</h5>
+<p>Theoretische Grundlagen finden sich im Kapitel <a href="di-grundlagen.html">Dependency Injection – Grundlagen</a></p>
+</div>
+<h2 id="microsoft-di-container">Microsoft DI-Container</h2>
+<p>Framework Studio verwendet den Dependency Injection Container von Microsoft.
+Dieser ist ein zentrales Element für die Verwaltung von Abhängigkeiten in modernen .NET-Anwendungen.</p>
+<p>Ein DI-Container wird durch die Klasse <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovider"><code>ServiceProvider</code></a> bzw. das Interface <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider"><code>IServiceProvider</code></a> abgebildet.
+Deswegen wird statt dem allgemeinen Begriff <strong>DI-Container</strong> oft der spezifische Begriff <strong>ServiceProvider</strong> verwendet.</p>
+<p>Der DI-Container unterstützt verschiedene Lebenszyklen für die Registrierung von Diensten:</p>
+<ul>
+<li><p><strong>Singleton</strong>: Die Instanz wird einmalig erstellt und für die gesamte Lebensdauer der Anwendung wiederverwendet.
+Geeignet für zustandslose oder gemeinsam genutzte Ressourcen.</p>
+</li>
+<li><p><strong>Scoped</strong>: Die Instanz wird einmal pro Scope erstellt, z.B. pro Web-Request.
+Ideal für kontextbezogene Daten, die während eines Requests konsistent bleiben sollen.</p>
+</li>
+<li><p><strong>Transient</strong>: Bei jeder Anforderung wird eine neue Instanz erstellt.
+Geeignet für kurzlebige, zustandslose Objekte.</p>
+</li>
+</ul>
+<p>Weitere Informationen und Beispiele finden sich in der offiziellen <a href="https://learn.microsoft.com/dotnet/core/extensions/dependency-injection">Microsoft-Dokumentation zu Dependency Injection</a>.</p>
+<p>Richtlinien für die Dependency Injection finden sich ebenfalls in der <a href="https://learn.microsoft.com/de-de/dotnet/core/extensions/dependency-injection-guidelines">Microsoft-Dokumentation</a>.<br>
+Hier ein kurzer Auszug der wichtigsten Regeln:</p>
+<ul>
+<li>Singleton - darf kein Scoped - darf kein Transient verwenden. (Captive Dependency)</li>
+<li>Abhängigkeiten über den Konstruktor auflösen - wenn möglich nicht den ServiceProvider injecten.</li>
+<li>Transitive Objekte dürfen nicht <code>IDisposable</code> sein.</li>
+<li>Singleton Objekte müssen threadsafe implementiert werden.</li>
+</ul>
+<h2 id="scope--request">Scope = Request</h2>
+<p>Bei Dependency Injection wird zwischen verschiedenen Scopes - die Lebensdauer eines registrierten Services/Klasse - unterschieden.
+Bei Verwendung der bereitgestellten Dependency Injection Infrastruktur von FS ist es wichtig zu wissen, dass dieser Scope:</p>
+<ul>
+<li>das zu verarbeitende Event/einen Request im Broker umfasst bzw.</li>
+<li>bei den Services innerhalb einer Servicemethode erstellt wird.</li>
+</ul>
+<p>Der Scope bezieht sich deshalb <strong>nicht</strong> auf die Session.</p>
+<h2 id="fsserviceprovider">FSServiceProvider</h2>
+<p>Der <a class="xref" href="../../api/FS.Hosting.Shared.FSServiceProvider.html"><code>FSServiceProvider</code></a> ist eine Brücken-Technologie, die einen statischen Zugriff auf den DI-Container ermöglicht.
+Dies wird mithilfe von <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.threading.asynclocal-1"><code>AsyncLocal</code></a> umgesetzt und folgt dem sogenannten Ambient Pattern.
+Dadurch kann der aktuelle ServiceProvider kontextabhängig bereitgestellt werden, ohne ihn explizit durch alle Methoden und Klassen reichen zu müssen.</p>
+<p>Der <code>FSServiceProvider</code> stellt immer einen <strong>Scoped</strong> Service-Provider bereit.
+Der Zugriff erfolgt über die statische Eigenschaft <a class="xref" href="../../api/FS.Hosting.Shared.FSServiceProvider.Current.html#FS_Hosting_Shared_FSServiceProvider_Current"><code>FSServiceProvider.Current</code></a>.</p>
+<p><strong>Vorteile:</strong></p>
+<ul>
+<li>Ermöglicht den Zugriff auf den DI-Container auch dort, wo keine direkte Übergabe möglich ist (z.B. bestehendem Code).</li>
+<li>Kontext wird pro Ausführungspfad (z.B. pro Request/Event) sauber getrennt.</li>
+</ul>
+<p><strong>Nachteile:</strong></p>
+<ul>
+<li>Verführt dazu, Abhängigkeiten nicht explizit zu machen und den ServiceProvider als Service-Locator zu missbrauchen.</li>
+<li>Erschwert das Testen und die Nachvollziehbarkeit der Abhängigkeiten.</li>
+</ul>
+<p>In einer idealen Architektur werden alle Abhängigkeiten explizit über den Konstruktor injiziert.
+Der DI-Container verwaltet alle Instanzen und deren Lebenszyklen selbstständig, ohne dass ein statischer Zugriff notwendig ist.
+Dadurch bleiben die Abhängigkeiten transparent und der Code besser testbar.</p>
+<p>Der Einsatz von <code>FSServiceProvider</code> sollte daher als Brücken-Technologie verstanden werden.</p>
+<p>In einem separaten Kapitel sind konkrete <a href="di-fsserviceprovider.html">Beispiele für den Einsatz des FSServiceProvider</a> beschrieben.</p>
+<h2 id="fsserviceregistrar">FSServiceRegistrar</h2>
+<p>Für die Registrierung eigener Services im DI-Container kann ein <strong>FSServiceRegistrar</strong> implementiert werden.
+Framework Studio bietet dafür das Interface <a class="xref" href="../../api/FS.Hosting.Shared.IFSServiceRegistrar.html"><code>IFSServiceRegistrar</code></a> an.</p>
+<p>Erzeugen Sie eine <a href="../modcomp/modcomp.html">Modular Component</a> mit dem Interface <code>FS.Hosting.Shared.IFSServiceRegistrar</code> und implmentieren Sie die Methode <a class="xref" href="../../api/FS.Hosting.Shared.IFSServiceRegistrar.RegisterServices.html#FS_Hosting_Shared_IFSServiceRegistrar_RegisterServices_Microsoft_Extensions_DependencyInjection_IServiceCollection_"><code>RegisterServices()</code></a>.</p>
+<pre><code class="lang-csharp">public virtual IServiceCollection RegisterServices(IServiceCollection services)
+{
+    services.AddSingleton&lt;FullName.Interface1, ClassImplementation1&gt;();  // Aufruf liefert immer dieselbe Instanz
+    services.AddScoped&lt;FullName.Interface2, ClassImplementation2&gt;();     // Aufruf liefert in einem Scope immer dieselbe Instanz
+    services.AddTransient&lt;FullName.Interface3, ClassImplementation3&gt;();  // Aufruf liefert immer neue Instanz
+    // ...
+    
+    return services;
+}
+</code></pre>
+<p>Beim Start der Anwendung wird nach allen Modular Components gescannt, die dieses Interface implementieren und die Registrierungen ausgeführt.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Bei einem neuen FSServiceRegistrar muss der GlobalObjects CompileStep kompiliert werden.</p>
+</div>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

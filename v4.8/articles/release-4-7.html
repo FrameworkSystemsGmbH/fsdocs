@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Release-Information Framework Studio 4.7 </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Release-Information Framework Studio 4.7 ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/articles/release-4-7.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
+
+<h2 id="4712-05122025">4.7.12 (05.12.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.12_Setup_x64</li>
+<li>FS4.5.35_PrintService</li>
+</ul>
+<h4 id="hinweis">Hinweis</h4>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Mit dem Umbau des Globals und der Ausführung der Maintenance-Routine <code>Remove Global Cleanup</code> wurden ggf. Codestellen, welche nicht automatisch korrigiert werden können, mit einem Kommentar versehen.
+Leider ist uns jetzt aufgefallen, dass hierfür keine Dokumentation erfasst wurde.
+Eine manuelle Nacharbeit ist aber gegebenfalls notwendig und wichtig - vor allem wenn mit eigenen Globals gearbeitet wird.
+Wir empfehlen im Code nach <code>WARNINGGLOBAL</code> zu suchen. Sollte es Treffer in Ihrem Code geben, müssen Sie diese nacharbeiten.
+Erklärung zur Vorgehensweise finden Sie im <a href="../doc/maintenance/remove-global-cleanup.html">Maintenance Kapitel</a>.</p>
+</div>
+<h4 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h4>
+<p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.43.4 auf Version 7.44.4 aktualisiert.
+Das entspricht Chromium 142.</p>
+<p>Dieses Release enthält <em>nur</em> Chromium Security-Updates, keine Änderungen von JxBrowser.</p>
+<p>Es sind keine besonderen Aktionen erforderlich.
+Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
+<h4 id="updates">Updates</h4>
+<ul>
+<li>Angular wurde auf die Version 20.3.9 aktualisiert.
+Das betrifft folgende Systeme:
+<ul>
+<li>den in FS integrierte Code-Editor <code>Monaco</code>,</li>
+<li>das Dokumentations-System,</li>
+<li>die StartPage,</li>
+<li>und den HTML Client.</li>
+</ul>
+</li>
+<li>DevExpress wurde aufgrund des folgenden Fehlers <a href="https://supportcenter.devexpress.com/ticket/details/T1303650/richeditcontrol-throws-accessviolationexception-when-loading-documents-with-specific-fonts">&quot;RichEditControl throws AccessViolationException when loading documents with specific fonts&quot;</a> auf Version 25.1.7 upgedated.</li>
+</ul>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Ein PDF-Export eines Reports erfolgte bisher immer im PDF/A-3b Format. Dieses Format unterstützt jedoch keine Accessibility/Barrierefreiheit. Nun exportieren wir standardmäßig im PDF/A-3a Format. Ist ein anderes Format erwünscht, kann das Compatibility Format am Report entsprechend überschrieben werden.</li>
+<li>Wir haben einen Eintrag in unseren FAQs ergänzt. Beim Start von FS über Console oder TeamViewer in Kombination mit Windows Server 2016/2019 stürzt die Anwendung ab. Der FAQ Beitrag erklärt den <a href="frequently-asked-questions.html#framework-studio-st%C3%BCrzt-beim-initializing-ab---fehlercode-c06d007e">Workaround</a>.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2025118921 - <strong>Reporting</strong>: Die &quot;PDF Export Options/ PDF/A Compatibility&quot;
+Einstellungen am Report werden beim tatsächlichen Export des Reports
+überschrieben und immer auf PDF/A-3b gesetzt.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die Korrektur stellt eine Verhaltensänderung dar. Ein PDF-Export erfolgte
+bisher immer im PDF/A-3b Format. Dieses Format unterstützt jedoch keine
+Accessibility/Barrierefreiheit. Nun exportieren wir standardmäßig im
+PDF/A-3a Format.<br>
+Ist ein anderes Format erwünscht, kann das Compatibility Format am Report
+entsprechend überschrieben werden.</p>
+</div>
+</li>
+</ul>
+<h2 id="4711-07112025">4.7.11 (07.11.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.11_Setup_x64</li>
+<li>FS4.5.34_PrintService</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="updates-1">Updates</h4>
+<ul>
+<li>DevExpress wurde auf Version 25.1.5 upgedated.</li>
+<li>Das CefSharp Browser-Control in der IDE wurde auf Version 138.0.170 upgedatet.</li>
+</ul>
+<h4 id="neuerungen-1">Neuerungen</h4>
+<ul>
+<li>Der DocML-Tag <a href="../doc/documentation/docml.html#link">Link</a> unterstützt jetzt auch anchor auf Headlines.</li>
+<li>Für den <a href="../doc/session-logging/session-logging-analyzer.html">SessionLoggingAnalyzer</a> gibt es ein neues Log-Level, welches den Umfang der gespeicherten Daten bestimmt. Das Log-Level kann im <a href="../doc/publish-wizards/publish-wizard.html">PublishWizard</a> und im Publish2Go Wizard definiert werden.</li>
+<li>Die Option <code>Do not start after publish</code> für Services im Publish und Publish2Go Wizard wird nun im Setting gespeichert.
+Außerdem wurde die Dokumentation für die <a href="../doc/publish-wizards/publish-wizard.html#post-publish-command">Post Publish Command</a>-Funktion hinzugefügt.</li>
+<li>Das BrowserControl wurde um eine neue <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.BrowserControlAction.Navigate.html#FS_Hosting_Broker_Shared_Actions_BrowserControlAction_Navigate_FS_Hosting_Shared_BrowserNavigationParam_">Navigate-Action</a> erweitert.</li>
+</ul>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<ul>
+<li><p>2025098549 - <strong>IDE</strong>: Bei der Erfassung eines Targets in einem Workflow-Link
+zeigt die Combobox keine Forms mehr an, die als Entrance-Instance, sondern
+die, die als Start-Instance definiert sind.</p>
+</li>
+<li><p>2025108654 - <strong>IDE</strong>: Wird im Query-Tab in einer Component ein <code>Criteria</code>
+angegeben, wird die Component nicht als changed angezeigt und speichern
+führt nicht dazu, dass der Wert tatsächlich abgespeichert wird.<br>
+Die Generierung der Query enthält den Wert der Spalte <code>Criteria</code> auch nicht.</p>
+</li>
+<li><p>2025098543 - <strong>DataProvider</strong>: Durch striktere Typisierungsregeln in der seit
+der 4.7 genutzten Microsoft.Data.SqlClient.dll läuft der TypeCast von
+DateTime zu TimeSpan nun auf eine InvalidCastException.</p>
+</li>
+</ul>
+<h2 id="4710-06102025">4.7.10 (06.10.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.10_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen-2">Neuerungen</h4>
+<ul>
+<li>Die Generierung des Ordnernamens für das <a href="../doc/ide/anwendung-starten.html#compile-verzeichnis">Compile-Verzeichnis</a> wurde angepasst, sodass bei zu großer Länge ein Teil durch einen kurzen Hash ersetzt wird.</li>
+<li><a href="../doc/reporting/devexpress-fax-printers.html">DevExpress Fax-Steuerung</a> - das Label kann im SubReport platziert werden.</li>
+<li>Bei der Maintenance Routine <a href="../doc/maintenance/code-replace-cleanup.html">Code Replace Cleanup</a> wird der Replace Text nun als Multitline Text angezeigt.</li>
+</ul>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<ul>
+<li><p>2025098475 - <strong>Broker</strong>: Wenn im Text oder im DetailText eines
+FrameworkProgress bestimmte Zeichen, die im XML nicht erlaubt sind (z.B.
+ASCII Steuerzeichen), enthalten sind, kommt es zu einer Exception.</p>
+</li>
+<li><p>2025098461 - <strong>IDE</strong>: Im Service-Release Modus können an einem MDT Format und
+Format-Pattern nicht geändert werden. Die Datentypen hingegen lassen sich
+ändern, was zu Laufzeitfehlern führen kann.</p>
+</li>
+<li><p>2025098477 - <strong>IDE</strong>: Im &quot;Choose Namespace&quot;/&quot;Change base&quot;-Dialog ist der
+Bestätigungsbutton &quot;Choose&quot; an der Stelle, an welcher Dialoge normalerweise
+mit &quot;Cancel&quot; abgebrochen werden.</p>
+</li>
+<li><p>2025098488 - <strong>IDE</strong>: Die Code-Dokumentation, die über die Intellisense in FS
+angezeigt wird, versteht <code>&lt;paramref name=&quot;...&quot;/&gt;</code> und <code>&lt;see langword=&quot;...&quot;/&gt;</code>
+nicht. Dadurch werden die dort enthaltenen Texte nicht angezeigt.</p>
+</li>
+<li><p>2025098489 - <strong>IDE</strong>: Wird bei einer View-Definition mit einem Union-Select
+das Preview-Fenster angezeigt, dann wird das &quot;TOP 50&quot; nicht korrekt auf das
+Statement angewendet. In der Folge werden ggf. sehr viele Datensätze
+eingelesen bis hin zum Einfrieren der IDE.</p>
+</li>
+<li><p>2025098532 - <strong>IDE</strong>: Mit dem Update des CefSharp Browser-Controls auf die
+Version 138.0.170 mit dem Patchday vom 05.09.2025 kann es passieren, dass
+die IDE beim Start abstürzt. Der Fehler tritt auf Windows Server 2016 und
+2019 auf, wenn über die Console oder TeamViewer gearbeitet wird. Über
+Remotedesktop funktioniert die IDE.</p>
+</li>
+<li><p>2025098503 - <strong>Code-Generierung</strong>: ServiceHost Methoden erhalten bei der
+Code-Generierung keinen umschließenden SourceTag und werden deshalb bei der
+Search und im Errors und Warnings Fenster nicht korrekt verlinkt.</p>
+</li>
+<li><p>2025098473 - <strong>Package Manager</strong>: Ein Package setzt auf 2 unabhänigen
+Customzing-Packages auf, in denen jeweils eine Component aus dem gemeinsamen
+Basis-Package customized ist. In diesem Package wurde die Component
+ebenfalls customized und dann wieder gelöscht. Wird das Package zu einem
+späteren Zeitpunkt in den Service-Release-Modus versetzt, dann wird am Ende
+des Compiles eine Fehlermeldung ausgegeben: &quot;<em>Error in Transfer Saved Code&quot;</em></p>
+</li>
+</ul>
+<h2 id="479-05092025">4.7.9 (05.09.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.9_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen-3">Neuerungen</h4>
+<ul>
+<li>Alte JxBrowser Versionen werden nun nach 30 Tagen automatisch gelöscht.</li>
+<li>Beim Publish2Go wird nun zusätzlich eine readme.txt erstellt, welche die Packages, Applications und Services ausgibt, die im P2Go enthalten sind. Zusätzliche enthaltene Informationen sind z.B. das Compile-Date, das Erstellungsdatum des P2Go und die verwendete FS-Version.</li>
+<li>Bei <code>FrameworkApplicationExceptions</code> wird der MLKey zur Exception hinzugefügt, wenn dieser vorhanden ist.</li>
+</ul>
+<h4 id="messagebox-verhaltensänderung-im-htmlclientmobileclient">MessageBox Verhaltensänderung im HtmlClient/MobileClient</h4>
+<p>Das Verhalten der MessageBox im HtmlClient/MobileClient unterschied sich bisher zum JavaClient.
+So war immer der letzte Button fokussiert und die Angabe des DefaultButtons hatte keine Auswirkung. Ersteres wurde an den JavaClient angepasst und letzteres wurde nun implementiert.
+Ist nun kein DefaultButton angegeben, wird der erste Button in der MessageBox fokussiert. Ist ein DefaultButton angegeben, wird dieser fokussiert.</p>
+<h4 id="updates-2">Updates</h4>
+<ul>
+<li>Das CefSharp Browser-Control in der IDE wurde auf Version 138.0.170 upgedatet.</li>
+</ul>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<ul>
+<li><p>2025078300 - <strong>Java-Client</strong>: Es werden zu viele und teilweise irrelevante
+Log-Ausgaben in die Client Launcher Console geschrieben.</p>
+</li>
+<li><p>2025088341 - <strong>JavaClient/IDE</strong>: Durch das Update des JxBrowsers und des
+CefSharpBrowsers können der JavaClient und die IDE nicht im
+Administratormodus gestartet werden. Grund hierfür ist eine Änderung in
+Chromium 138.</p>
+</li>
+<li><p>2025078291 - <strong>IDE</strong>: In mehreren GridViews ist nach einer Umstellung der
+dahinterliegenden Controls die alphabetische Sortierung nicht mehr möglich.
+Die betroffenen Oberflächen sind unteranderem die Repository-Auswahl und die
+Query Tabpage, DependsOn und ControlType-Auswahl bei den Components.</p>
+</li>
+<li><p>2025088344 - <strong>IDE</strong>: Beim Start der IDE verwenden wir den HttpListener für
+die Suche nach freien Ports. Dieser HttpListener kann URL-Reservierungen
+ausführen, welche Administratorenrechte benötigen. Ohne Adminrechte kommt es
+bei einem solchen Fall zu einer Access Denied Fehlermeldung.</p>
+</li>
+<li><p>2025088422 - <strong>IDE</strong>: Im Paste Dialog werden bei den Comboboxen unterhalb
+<code>Needed Types</code> die Einträge nicht sortiert. Dies erschwert die Suche.</p>
+</li>
+<li><p>2025088440 - <strong>IDE</strong>: Wenn in den Optionen im VisualStudio-Pfad ein nicht
+unterstütztes Zeichen ist (z.B. ein Zeilenumbruch), kann kein Dev-Broker mit
+Service mehr gestartet werden.<br>
+Außerdem kommt es zu einem Absturz von FS, wenn dann versucht wird über den
+<code>...</code>-Button in den Optionen einen neuen Pfad auszuwählen.</p>
+</li>
+<li><p>2025088337 - <strong>Framework</strong>: Wird an einer Component die Methode
+<code>GetFetchNext()</code> aufgerufen, dann wird an dieser Component die Methode
+<code>OnBeforeLoad(..)</code> nicht aufgerufen. Überschreibungen dieser Methode greifen
+somit nicht. Bei allen anderen Load-Methoden erfolgt der Aufruf.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die Korrektur stellt eine Verhaltensänderung dar. Dieses &quot;Fehlverhalten&quot;
+gibt es schon immer und bestehender Code könnte darauf ausgelegt sein.
+Eigene Überschreibungen von OnBeforeLoad() müssen daher ggf. gesichtet und
+auf mögliche Konflikte mit GetFetchNext()-Aufrufen überprüft werden.</p>
+</div>
+</li>
+<li><p>2025088386 - <strong>Runtime Administration</strong>: Enthält eine Runtime-Lizenz Einträge
+mit &quot;Denied&quot; oder &quot;Explicite None&quot;, dann wird diese zur Laufzeit ggf. nicht
+korrekt aufgelöst. In der Folge kann es passieren, dass dadurch Funktionen
+nicht zur Verfügung stehen. Der Runtime-License-Manager zeigt die Lizenz
+hingegen korrekt an.</p>
+<p>Hinweis: In der Online-Dokumentation von Framework Studio werden die <a href="https://frameworksystemsgmbh.github.io/fsdocs/v4.7/doc/access-units/lizenz-regeln.html">Regeln für
+Laufzeitlizenzen</a>
+jetzt detailliert beschrieben.</p>
+</li>
+</ul>
+<h2 id="478-01082025">4.7.8 (01.08.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.8_Setup_x64</li>
+<li>FS_4.5.31_RuntimeAdministration</li>
+<li>FS4.5.31_AuthService</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="hinweis-1">Hinweis</h4>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Wir empfehlen dringend den Authentication Service und die Runtime Administration auf die aktuelle Version 4.5.31 zu aktualisieren. Vor allem, wenn Sie das <a href="update-4-5/open-id-connect.html#update-runtime-repository">Runtime Repository aktualisieren</a>.</p>
+<p>Ein Update ist <strong>zwingend</strong> erforderlich, wenn Sie bereits mit der Version 4.5.30 <a href="../doc/authentication-service/oidc.html">OpenID Connect</a> einsetzen.</p>
+</div>
+<h4 id="update-jxbrowser-für-javaclient-1">Update JxBrowser für JavaClient</h4>
+<p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.42.0 auf Version 7.43.4 aktualisiert.
+Das entspricht Chromium 138.</p>
+<p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2025/v7-43-4.html">https://jxbrowser-support.teamdev.com/release-notes/2025/v7-43-4.html</a></p>
+<p>Es sind keine besonderen Aktionen erforderlich.
+Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
+<h4 id="neuerungen-4">Neuerungen</h4>
+<ul>
+<li><p>Die <a href="../doc/authentication-service/oidc.html">OpenID Connect</a> Implementierung wurde um den <a href="../doc/authentication-service/oidc-flow.html#refresh-flow">Refresh-Flow</a> ergänzt.</p>
+</li>
+<li><p>Lizenzen, die durch den MobileClient über die Android App genutzt werden, werden bei jedem Start der App, über alle Broker verteilt, wieder freigegeben.</p>
+</li>
+<li><p><a href="../doc/reporting/devexpress-fax-printers.html">DevExpress - Fax-Drucker über die Drucker-Warteschlange steuern</a></p>
+</li>
+</ul>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<ul>
+<li><p>2025078189 - <strong>Broker</strong>: Bei hoher Speicherauslastung im Broker kann es zu
+Memory-Leaks kommen. Grund dafür sind Finalizer an den FS-Objekten.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In Administration / Broker-Sitzungen wird jetzt die Anzahl der aktiven
+Objekte nicht mehr heruntergezählt. Dies wurde bisher mithilfe der Finalizer
+durchgeführt. Diese wurden entfernt.</p>
+</div>
+</li>
+<li><p>2025078188 - <strong>IDE</strong>: Beim Undo Checkout kann es passieren, dass die IDE
+einfriert, wenn der Cursor in einem Code-Editor steht.</p>
+</li>
+<li><p>2025078204 - <strong>FSConsole</strong>: Wird eine PackageVersion als <code>.srdb</code> (über die PBE
+mit <code>Mode=&quot;Bugfix&quot;</code>) exportiert, so finden keine Prüfungen statt, dass die
+Version überhapt als ServiceRealease exportiert werden kann. Die
+resultierende <code>.srdb</code> Datei ist fehlerhaft.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Es wird nun eine Exception geworfen, die den Export abbricht.</p>
+</div>
+</li>
+<li><p>2025078190 - <strong>UpgradeDatabase</strong>: Die <code>OpenID Connect</code> Update Skripte laufen
+bei Oracle auf Fehler.</p>
+</li>
+</ul>
+<h2 id="477-04072025">4.7.7 (04.07.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.7_Setup_x64</li>
+<li>FS_4.5.30_RuntimeAdministration</li>
+<li>FS4.5.30_AuthService</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen-5">Neuerungen</h4>
+<ul>
+<li><p>Als Anmeldeverfahren, zur Authentifizierung der Nutzer, kann nun <a href="../doc/authentication-service/oidc.html">OpenID Connect</a> genutzt werden.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Zur Nutzung von OpenID Connect müssen der Authentication Service und die Runtime Administration ab der Version 4.5.30 genutzt werden!</p>
+</div>
+</li>
+</ul>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<ul>
+<li><p>2025068079 - <strong>Broker</strong>: Bei einem Restart mit &quot;angemeldet bleiben&quot; wird der
+UserToken nicht aktualisiert.</p>
+</li>
+<li><p>2025068038 - <strong>IDE</strong>: Customized NameSpaces, auf die Referenzen im selben
+Package bestehen, können nicht mehr gelöscht werden, ohne die Referenzen
+aufzulösen.</p>
+</li>
+<li><p>2025068055 - <strong>IDE</strong>: Form-Designer - im Service-Release können an Controls,
+an denen eine <code>List</code> definiert werden kann, der Display bzw. Value Member
+nicht geändert werden.</p>
+</li>
+</ul>
+<h2 id="476-06062025">4.7.6 (06.06.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.6_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="hinweise">Hinweise</h4>
+<ul>
+<li>Die <a href="../doc/pbe/pbe.html">PBE</a> in FS wurde aktualisiert.</li>
+<li>Die ausgelieferte <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html#java-runtime">JRE</a> unterstützt keine ARM-Prozessoren.
+Dies ist auch in den <a href="requirements.html#client-rechner">Requirements</a> dokumentiert.</li>
+</ul>
+<h4 id="neuerungen-6">Neuerungen</h4>
+<ul>
+<li>Events klickbarer Links im JxBrowser, die durch dynamische Änderungen des Doms nach dem ersten Laden hinzugefügt wurden, werden nun auch korrekt gefeuert.</li>
+</ul>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<ul>
+<li><p>2025047832 - <strong>Publish2Go</strong>: Bei einer Datenbank-Connection kann es, z.B. im
+Publish2Go, zu einer Fehlermeldung kommen: System.TypeLoadException: Error
+loading provider assembly.</p>
+</li>
+<li><p>2025057952 - <strong>Package-Manager</strong>: Wenn beim Export einer Package-Version die
+Checkbox <code>Include Base Packages</code> gesetzt ist und eine base Package-Version
+ein HotFix ist, wird für diese sowhol SR, als auch Full Package Export
+angeboten. Der Export ist aber immer ein Full-Export.</p>
+</li>
+<li><p>2025068000 - <strong>Package-Manager</strong>: Wird eine Package-Version, welche sich im
+SR-Modus befindet, mit dem Compile-Wizard compiliert, dann kann es
+passieren, dass Saved Codes nicht vollständig erzeugt werden. In der Folge
+kommt es in Customizing-Packages zu Compile-Fehlern.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Im SR-Modus werden jetzt immer alle Namespaces compiliert, damit ggf.
+fehlende Saved Codes erzeugt werden. Dadurch kann es höhere Compile-Zeiten
+geben.</p>
+</div>
+</li>
+<li><p>2025068015 - <strong>Package-Manager</strong>: Wird eine Package-Version exportiert und ein
+Basis-Package befindet sich im Hotfix-Modus, dann stimmt in der Export-Datei
+die Package-Hierarchie nicht. Beim Package-Import kommt es dann zu
+Fehlermeldungen.</p>
+</li>
+<li><p>2025057859 - <strong>IDE</strong>: Wird eine Component kopiert, bei der in einem Property
+Control-Types zugeordnet sind, dann lässt sich die eingefügte Kopie nicht
+speichern.<br>
+Es wird eine SQL-Fehlermeldung angezeigt: <em>Der Wert NULL kann in die
+CTFCP_CT_ID-Spalte, dbo.tblRep_ControlTypeForCP-Tabelle nicht eingefügt
+werden.</em></p>
+</li>
+<li><p>2025057958 - <strong>IDE</strong>: Beim CheckOut kann es zu einer UnhandledException
+kommen, wenn im Hintergrund Code für die CodeAnalysis/Intellisense generiert
+wird. Dies tritt nur in seltenen Fällen auf, wenn sich Aufrufe des
+asynchronen Codeeditors mit dem synchronen Framework Studio überschneiden.</p>
+</li>
+<li><p>2025047833 - <strong>Data Provider</strong>: Bei Insert und Update SQL-Statements, welche
+von FrameworkStudio generiert werden, werden keine Parametergrößen
+angegeben. Dadurch entstehen sehr viele unterschiedliche Statements, die vom
+SQL-Server nicht wiedererkannt werden. Dies führt zu Performanceverlusten.</p>
+</li>
+<li><p>2025057919 - <strong>HtmlClient</strong>: Bei der MobileClient App auf einem Android 10
+Betriebssystem kommt es zu Layoutfehlverhalten, wenn durch Klick auf ein
+Editfield die Tastatur geöffnet wird. Ein weißer Balken zeichnet sich über
+der Tastatur und verkleinert den Arbeitsbereich der App extrem.</p>
+</li>
+<li><p>2025057942 - <strong>Package Merge</strong>: Bei Form-Dokumentationen und Dokumentationen
+wird beim PackageMerge die Target-Dokumentation mit der Source-Dokumentation
+überschrieben. Es findet also kein Merge der Dokumentation statt.</p>
+</li>
+</ul>
+<h2 id="475-02052025">4.7.5 (02.05.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.5_Setup_x64</li>
+<li>FS4.5.28_PrintService</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen-7">Neuerungen</h4>
+<ul>
+<li>Bei der <a href="../doc/ide/registerkarten.html#registerkarte-search">Search</a> in der IDE kann nun mit einem Doppelklick ein ObjectType für die Suche ausgewählt werden. Anschließend wird das Popup-Menü automatisch geschlossen.</li>
+</ul>
+<h4 id="updates-3">Updates</h4>
+<ul>
+<li>Der HTML Client, die StartPage und das HelpSystem wurden auf Angular 19.2.6 upgedatet.</li>
+<li>Das CefSharp Browser-Control in der IDE wurde auf Version 135.0.170 upgedatet.</li>
+<li>DevExpress wurde auf die Version 24.2.6 aktualisiert.</li>
+<li>Der HTML Client wurde auf Capacitor 7 upgedatet.</li>
+</ul>
+<h4 id="hinweis-2">Hinweis</h4>
+<p>Es gibt einen neuen Artikel zum Thema &quot;<a href="https://frameworksystemsgmbh.github.io/fsdocs/v4.7/articles/frequently-asked-questions.html#devexpress-exception-scriptitemizeopentype-in-usp10dll-nicht-gefunden">DevExpress Exception <code>ScriptItemizeOpenType</code> in <code>Usp10.dll</code> nicht gefunden</a>&quot; in unserem FAQ Bereich.
+Dieser Fehler wurde uns nun häufiger gemeldet, deshalb möchten wir Sie bitten unsere derzeitigen <a href="requirements.html">Requirements</a> mit Ihren Systemen zu vergleichen. Testen und führen Sie notwendige Updates durch, falls dies möglich ist.</p>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
+<ul>
+<li><p>2025037564 - <strong>IDE</strong>: Werden Component- oder DataContract-Properties gelöscht,
+welche in grafischen Transformationen zugeordnet sind, dann fällt diese
+Zuordnung ohne weiteren Hinweis auf die darüberliegende Ebene zurück.
+Infolgedessen erzeugt die Code-Generierung fehlerhafte Zuordnungen, welche
+zur Runtime zu einer <code>InvalidCastException</code> führen können.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Diese Zuordnungen erzeugen jetzt fehlerhaften Code, der zu Compile-Errors
+führt. Beim Öffnen der betroffenen Transformation im Designer werden die
+Fehler angezeigt und fehlerhafte Zuordnungen gelöscht.</p>
+</div>
+</li>
+<li><p>2025037643 - <strong>IDE</strong>: FS Lizenzen gelten als ungültig, wenn diese ohne Datum
+von/bis ausgestellt werden. Die Angabe einer Version reicht nicht.</p>
+</li>
+<li><p>2025047734 - <strong>PBE</strong>: In Framework-Studio 4.6 wurde beim Export der
+Dokumentation ein automatischer Ordner bestehend aus Datum, Package, Version
+und Iso-Code eingeführt. PBE erzeugt seinerseits bereits einen ähnlichen
+Ordner. Das führt zu einem doppelten Ordner und unnötig langen Datei-Pfaden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die aktualisierte Version der PBE.exe liegt im Framework Studio
+Programm-Verzeichnis im Unterordner PBE.</p>
+</div>
+</li>
+<li><p>2025047708 - <strong>Startpage</strong>: Die Auswertung der Startpage-URL erfolgt
+case-sensitive. Wenn das Wort &quot;start&quot; in der URL
+&quot;.../FSDemoApplication/start/?lang=de&quot; nicht klein geschrieben wird, wird
+der Fehler &quot;Error while receiving data from broker!&quot; im Browser angezeigt.</p>
+</li>
+</ul>
+<h2 id="474-04042025">4.7.4 (04.04.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.4_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
+<ul>
+<li><p>2025037573 - <strong>Java-Client</strong>: Die Tabreihenfolge für Controls unterhalb eines
+Tabbed Windows funktioniert nicht. Die Controls lassen sich nicht
+durchtabben.</p>
+</li>
+<li><p>2025027450 - <strong>IDE</strong>: Wenn ein Control-Style oder Base-Control-Style geöffnet
+wird, kommt es zu einer ArgumentException und die Anwendung stürzt ab.</p>
+</li>
+<li><p>2025027468 - <strong>Framework</strong>: Arbeitet der StaticCache im SessionMode, dann kann
+der gleichzeitige Aufruf der Invalidate-Methode in mehreren Sessions zu
+Threading-Problemen und leeren Ergebnissen führen.</p>
+</li>
+</ul>
+<h2 id="473-07032025">4.7.3 (07.03.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.3_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="update-jxbrowser-für-javaclient-2">Update JxBrowser für JavaClient</h4>
+<p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.41.5 auf Version 7.42.0 aktualisiert.
+Das entspricht Chromium 132.</p>
+<p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/">https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/</a></p>
+<p>Es sind keine besonderen Aktionen erforderlich.
+Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
+<h4 id="neuerungen-8">Neuerungen</h4>
+<ul>
+<li>Der <a href="../doc/sql/grammatik.html#withquery">Sql-Parser</a> versteht jetzt <code>WITH</code>-Statements, auch bekannt als <em>Common Table Expression (CTE)</em>.</li>
+<li>Neue Client-Action <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript.html#FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_System_String_"><code>BrowserControlAction.ExecuteJavaScript()</code></a></li>
+</ul>
+<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
+<ul>
+<li><p>2025027380 - <strong>Java Client</strong>: Wenn an einer Registerkarte das Event
+<code>OnFirstSelect</code> implementiert ist, dann kann es passieren, dass bei der
+ersten Eingabe in einem TextFeld das <code>OnLeave</code>-Event nicht korrekt gefeuert
+wird.</p>
+</li>
+<li><p>2025017265 - <strong>Java-Client</strong>: Wenn ein Form, das über ein Event geschlossen
+werden soll, im selben Zug fokussiert wird, kommt es zu einer Fehlermeldung.</p>
+</li>
+<li><p>2025027375 - <strong>Package-Manager</strong>: In einem Oracle-Repository kann es
+passieren, dass das Update einer Package-Version zu einem Fehler führt. Im
+Script <code>4.6.0.0 2022.11.18 DeprecatedLayoutCheck.ora</code> wird eine
+Sql-Exception ausgegeben <code>FS.DataClient.FrameworkDbException: ORA-00932: Inkonsistente Datentypen: CHAR erwartet, NUMBER erhalten</code>.</p>
+</li>
+<li><p>2025017231 - <strong>IDE</strong>: Wird nach dem Kopieren und Einfügen eines Combobox- oder
+ListBox-Controls das Property, das als ListDataSource definiert ist nicht
+eingefügt, so kommt es beim Speichern des Forms zu einer Unhandled Exeption
+und die Anwendung stürzt ab.</p>
+</li>
+<li><p>2025017263 - <strong>IDE</strong>: Wenn im Wörterbuch für einen MLKey ein mehrzeiliger Text
+mit einfachen Zeilenumbrüchen ( <code>\n</code> / LF ) statt den üblichen ( <code>\r\n</code> /
+CR+LF ) definiert wurde, dann gibt es Probleme bei der Verarbeitung des
+Textes:<br></p>
+<ul>
+<li>In der Tabelle im Multilanguage Text Editor wird der Text mehrzeilig
+angezeigt - das zieht die Tabelle auseinander.<br></li>
+<li>Der Exception-Editor erzeugt einen mehrzeiligen Code, der Compile-Fehler
+produziert und der Exception-Editor erkennt diesen Code nicht korrekt.</li>
+</ul>
+</li>
+<li><p>2025027305 - <strong>Framework</strong>: Die Methode <code>LoadCount()</code> liefert bei GroupBy-Components falsche Werte zurück.
+Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
+</li>
+</ul>
+<h2 id="472-07022025">4.7.2 (07.02.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.2_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="updates-4">Updates</h4>
+<ul>
+<li>DevExpress wurde auf die Version 24.2.3 aktualisiert.</li>
+<li>Der HTML Client wurde auf Angular 19.1.1 upgedatet.</li>
+</ul>
+<h4 id="neuerungen-9">Neuerungen</h4>
+<ul>
+<li>Bei Klicken auf einen Link im <code>Errors and Warnings</code> Tab wird dieser farblich hervorgehoben, um zu visualisieren, dass der Link bereits besucht wurde.</li>
+<li>Bei den Aktionen <code>Open</code>, <code>Save</code> (im FS Report Designer), sowie <code>Choose Report</code> wird nun das Verzeichnis der tatsächlichen Report-Datei geöffnet, statt das Haupt-Reportverzeichnis.</li>
+</ul>
+<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
+<ul>
+<li><p>2025017196 - <strong>Reporting</strong>: Im WebDesigner ist der Expression Editor nicht
+nutzbar, da weder Formeln angezeigt noch bearbeitet werden können.</p>
+</li>
+<li><p>2025017210 - <strong>Publish2Go</strong>: Wird ein Publish2Go-Paket mit mehreren
+Applications erstellt, dann enthält das Paket nur eine FSJavaClient.jnlp. In
+der Folge ziehen einige Einstellungen der Application (z.B. Java Heap Size)
+nicht korrekt.</p>
+</li>
+<li><p>2024127103 - <strong>IDE</strong>: Im Formula Converter des DevExpress Report-Designer
+werden Properties mit einem Package-Prefix nicht korrekt erkannt. Der
+Unterstrich wird durch einen Punkt erstzt.
+<code>oObject_oP01_MyColl.shtK07_MyProperty</code> wird zu
+<code>oObject.oP01.MyColl.shtK07.MyProperty</code> anstatt zu
+<code>oObject.oP01_MyColl.shtK07_MyProperty</code></p>
+</li>
+<li><p>2025017187 - <strong>IDE</strong>: Der MultiLanguageText-Editor erzeugt Excpetions, wenn es
+einen überschriebenen Text ohne passenden Text aus dem Basis-Package gibt.</p>
+</li>
+<li><p>2025017272 - <strong>Code-Generierung</strong>: Wenn man eine Code-Transformation
+customized, dann erzeugt falsch generierter Code einen Compile-Error &quot;Type
+expected&quot;.</p>
+</li>
+<li><p>2024096531 - <strong>DevExpress</strong>: Wird in einem Report mit Gruppen in einigen
+Positionen eine RunningSum angezigt, dann stimmt der angezeigte Wert nicht.
+Es handelt sich um einen Fehler in DevExpress:
+<a href="https://supportcenter.devexpress.com/ticket/details/t1255491">https://supportcenter.devexpress.com/ticket/details/t1255491</a></p>
+</li>
+</ul>
+<h2 id="471-03012025">4.7.1 (03.01.2025)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.1_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="update-jxbrowser-für-javaclient-3">Update JxBrowser für JavaClient</h4>
+<p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.40.0 auf Version 7.41.5 aktualisiert.
+Das entspricht Chromium 131.</p>
+<p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2024/v7-41-5/">https://teamdev.com/jxbrowser/release-notes/2024/v7-41-5/</a></p>
+<p>Es sind keine besonderen Aktionen erforderlich.
+Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
+<h4 id="weitere-updates">Weitere Updates</h4>
+<ul>
+<li>Das CefSharp Browser-Control in der IDE wurde auf Version 131.3.10 upgedatet.</li>
+</ul>
+<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
+<ul>
+<li><p>2024127052 - <strong>Java-Client</strong>: Der Fokus eines neu geöffneten Forms geht
+verloren, wenn während des Öffnens ein Event (z.B. SelectedTabPageChanged)
+gefeuert wird.</p>
+</li>
+<li><p>2024126997 - <strong>Reporting</strong>: Bei der Generierung der xsd-Datei werden FSTypen
+nicht gefunden und deshalb nicht in die xsd-Datei geschrieben. Dies hat zur
+Folge, dass die Datenbankverknüpfungen im Crystal Report Designer gelöscht
+sind.</p>
+</li>
+<li><p>2024127053 - <strong>Broker</strong>: Der vom Client aufgerufene Filter für Grid-Spalten
+arbeitet Case Sensitive (beachtet Groß-Klein-Schreibung).</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die Korrektur greift, wenn die Filterung im Hauptspeicher der
+Broker-Anwendung stattfindet.<br>
+Auf unvollständig geladenen Grids wird der Filter über die Datenbank
+ausgeführt. Dabei zieht weiterhin das Standard-Verhalten der jeweiligen
+Datenbank (Collation).</p>
+</div>
+</li>
+<li><p>2024126994 - <strong>Package-Manager</strong>: Wird für eine Package-Version ein Hotfix
+importiert, dann kommt es zu Null-Exceptions beim Compile und beim Export
+von darauf aufsetzenden Package-Versionen.</p>
+</li>
+<li><p>2024126982 - <strong>IDE</strong>: Bei einer Service Method mit aktiviertem
+GenerateGlobalObject wird bei gedrückter STRG-Taste und Hovern über
+Methoden, oder beim Aufrufen der <code>Go To Defintion</code> eine
+InvalidOperationException geworfen.</p>
+</li>
+<li><p>2024127022 - <strong>IDE</strong>: Bei einer Änderung der AccessUnits im FormDesigner wird
+der Speicherbutton nicht aktiv.</p>
+</li>
+<li><p>2024127040 - <strong>IDE</strong>: Wenn beim Laden des FrameworkStudio Layouts ein Fehler
+auftritt, ist dies nicht abgesichert. Ein Arbeiten mit FS ist nicht mehr
+möglich.</p>
+</li>
+<li><p>2024127026 - <strong>Framework</strong>: Wird bei einem Aufruf von <code>Clone()</code> oder
+<code>AdoptValue()</code> ein <code>AdoptMode.NoHistory</code> übergeben, dann wird dieser nicht
+in den <code>Clone()</code> der Unterobjekte übergeben. In der Folge funktioniert in
+eNVenta das Kopieren von historisierten Belegen nicht korrekt.</p>
+</li>
+<li><p>2024126996 - <strong>FS-Broker</strong>: Wird im Publish-Setting ein Load-Balancing
+konfiguriert, dann zieht dieses nicht. Die Application startet in diesem
+Broker anstatt auf die konfigurierten URLs umzulenken.</p>
+</li>
+<li><p>2024127005 - <strong>Package Manager</strong>: Wird ein Owner Key aus einem Repository mit
+FS Version 4.6 oder früher exportiert und in einem Repository in FS Version
+4.7 importiert, hat das Repository einen kaputten Datenstand und kann ohne
+DB-Korrekturskript nicht mehr verwendet werden.</p>
+</li>
+</ul>
+<h2 id="470-fix-2-16122024">4.7.0 Fix 2 (16.12.2024)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.0_Fix_2_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
+<ul>
+<li>2024127026 - <strong>Framework</strong>: Wird bei einem Aufruf von <code>Clone()</code> oder <code>AdoptValue()</code> ein
+<code>AdoptMode.NoHistory</code> übergeben, dann wird dieser nicht in den <code>Clone()</code> der Unterobjekte
+übergeben.  In der Folge funktioniert in eNVenta das Kopieren von historisierten Belegen
+nicht korrekt.</li>
+</ul>
+<h2 id="470-fix-1-09122024">4.7.0 Fix 1 (09.12.2024)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.0_Fix_1_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler-13">Korrigierte Fehler</h4>
+<ul>
+<li><p>2024126996 - <strong>FS-Broker</strong>: Wird im Publish-Setting ein Load-Balancing konfiguriert,
+dann zieht dieses nicht. Die Application startet in diesem Broker anstatt auf die
+konfigurierten URLs umzulenken.</p>
+</li>
+<li><p>2024126997 - <strong>Reporting</strong>: Bei der Generierung der xsd-Datei werden FSTypen nicht
+gefunden und deshalb nicht in die xsd-Datei geschrieben. Dies hat zur Folge,
+dass die Datenbankverknüpfungen im Crystal Report Designer gelöscht sind.</p>
+</li>
+</ul>
+<h2 id="470-06122024">4.7.0 (06.12.2024)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.0_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Wenn Sie die Version 4.7.0 Beta 3, 2 oder 1 installiert haben, müssen Sie diese zuerst deinstallieren.
+Ein Update von diesen Versionen ist nicht möglich.</p>
+</div>
+<h4 id="neuerungen-10">Neuerungen</h4>
+<p>Siehe <a href="neuheiten-4-7.html">Neuheiten Framework Studio 4.7</a>.</p>
+<h4 id="korrigierte-fehler-14">Korrigierte Fehler</h4>
+<p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#4612-06122024">Framework Studio 4.6.12</a> enthalten.
+Zusätzlich wurden die folgenden Bugs behoben.</p>
+<ul>
+<li><p>2024116805 - <strong>Publish / Runtime-Lizenzen</strong>: Wird im Basis-Package eine neue
+AccessUnit angelegt und die Lizenz-Datei nicht aktualisiert, dann enthält
+die Lizenz-Datei keine Information über diese AccessUnit. Wird in einem
+darauf aufsetzenden Customizing-Package eine Lizenz angelegt, und diese
+AcessUnit freigeschalten, dann hat die Anwendung Zugriff auf diese
+AccessUnit.<br>
+AccessUnits müssen aber vom jeweiligen Package freigegeben sein, damit man
+Zugriff darauf erhält.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Mit Version 4.7 wird die Lizenz direkt im Broker &quot;aktualisiert&quot; und
+ausgewertet. Bei Änderungen am AccessUnit-Baum müssen Lizenzen deshalb nicht
+mehr zwingend aktualisiert werden. Siehe auch
+<a href="neuheiten-4-7.html#laufzeitlizenzen-werden-zur-laufzeit-aufgel%C3%B6st">Neuheiten</a></p>
+</div>
+</li>
+<li><p>2024025119 - <strong>IDE</strong>: Der Name eines CodeFiles darf <code>.</code> als Sonderzeichen
+enthalten, dies kann später zu Folgeproblemen führen.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Der Name muss ein gültiger C#-Identifier sein.<br>
+Beim Compile werden jetzt entsprechende Warnings erzeugt und im Designer
+wird ein ungültiger Wert gekennzeichnet.</p>
+</div>
+</li>
+<li><p>2024076125 - <strong>Code Generierung</strong>: Ein ServiceHost mit aktiver Option
+&quot;Generate REST Endpoint&quot; generiert die Warning FSWarn[2033] At least one
+endpoint has to be defined in order to use this service host. Diese Warning
+ist nicht notwendig, da ein Endpoint automatisch angelegt wird.</p>
+</li>
+<li><p>2024096503 - <strong>Code-Generierung</strong>: ist einem alten Deprecated Control, das
+nicht in das neue Layout übernommen wurde (z.B. einem Label), ein Event
+zugeordnet, dann wird der Aufruf noch immer in den Code generiert. Zudem
+kann die Event-Methode nicht gelöscht werden, weil die Event-Zuordnung als
+Dependency erkannt wird.</p>
+</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Code-Messages </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Code-Messages ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/doc/editors/editor-cs-code-messages.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="code-messages">Code-Messages</h1>
+
+<p>Wenn Sie eine Methode eines Forms bearbeiten, stehen Ihnen Editoren zum komfortablen Erstellen und Bearbeiten von mehrsprachigen Ausnahmen (Exceptions) und Meldungen (Message-Boxen) zur Verfügung. Diese können Sie über die Buttons <img src="media/button-exception-editor.png" alt="btn Exception"> <strong>Exception Editor Wizard</strong> und <img src="media/button-messagebox-editor.png" alt="btn MessageBox"> <strong>Message Box Editor Wizard</strong> aufrufen.</p>
+<p>Wenn Sie eine Textcollection ändern, indem Sie beispielsweise einen neuen Eintrag erzeugen oder einen bestehenden Eintrag ändern, dann muss die Textcollection dazu in der aktuellen Version für Sie ausgecheckt werden. Benutzen Sie dazu den Button <strong>Edit Message</strong>. Andere Benutzer können nun die Textcollection nicht bearbeiten. Beim Verlassen des <strong>Message Box Editors</strong> bzw. <strong>Exception Editors</strong> wird die Textcollection automatisch eingecheckt, so dass auch andere Benutzer wieder auf die Textcollection zugreifen können.</p>
+<p>Beide Editoren weisen bezogen auf die Oberfläche nur sehr geringfügige Unterschiede auf.</p>
+<p><img src="media/messagebox-editor.png" alt="MessageBox Editor"></p>
+<p><img src="media/exception-editor.png" alt="Exception Editor"></p>
+<h4 id="radiobutton-ml-key">Radiobutton <strong>ML Key</strong></h4>
+<p>Hier können sie einen <a href="../mlkey/woerterbuch.html">MLKey</a> angeben. Mit dem Auswahl-Button neben dem Textfeld öffnet sich der Dialog <a href="../mlkey/woerterbuch.html">Select ML Key</a>.</p>
+<p>Dies ist die Standard-Option. Neue Meldungen sollten immer über das Wörterbuch gezogen werden.</p>
+<h4 id="radiobutton-new-message">Radiobutton <strong>New Message</strong></h4>
+<p>Wenn Sie diesen Radiobutton auswählen, wird ein neuer Text in die ausgewählte Textcollection eingetragen.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Wenn Sie einen neuen Text hinzufügen, müssen Sie auch die Textcollection kompilieren, da es sonst beim Ausführen des Programms Fehlermeldungen gibt.</p>
+</div>
+<h4 id="radiobutton-change-message">Radiobutton <strong>Change Message</strong></h4>
+<p>Wenn Sie diesen Radiobutton auswählen, können Sie mit dem Button <strong>Choose existing Message</strong> einen bestehenden Eintrag aus der angegebenen Textcollection auswählen oder mit dem Button <strong>Search</strong> nach einem bestehenden Eintrag suchen.</p>
+<h4 id="button-change-collection">Button <strong>Change Collection</strong></h4>
+<p>Mit diesem Button kann die Textcollection geändert werden, aus der ein Text ausgewählt werden soll, bzw. in welcher der neue Text eingetragen werden soll. Als Default-Wert ist die Textcollection ctMessages ausgewählt.</p>
+<h4 id="button-choose-existing-message">Button <strong>Choose existing Message</strong></h4>
+<p>Mit diesem Button kann aus der gewählten Textcollection ein existierender Eintrag ausgewählt werden.</p>
+<h4 id="feld-collection">Feld <strong>Collection</strong></h4>
+<p>Zeigt an, welche Textcollection ausgewählt ist.</p>
+<h4 id="button-search">Button <strong>Search</strong></h4>
+<p>Mit diesem Button öffnen Sie einen Suchdialog. In diesem Dialog wird die Suche auf die Textcollection, die im Exception Editor / Message Box Editor angegeben ist, eingeschränkt.</p>
+<p>Die Suchfunktionalität ist identisch mit den Möglichkeiten, die auf der Registerkarte <strong>Search</strong> im Framework-Designer zur Verfügung gestellt werden.</p>
+<h4 id="text-grid">Text-Grid</h4>
+<p>Ist ein MLKey ausgewählt, wird hier nur der Text angezeigt. Der ML Key kann über das Textfeld bzw. den Auswahl-Button geändert werden. Die Bearbeitung der Texte-Inhalte erfolgt über das <a href="../mlkey/woerterbuch.html">Wörterbuch</a>.</p>
+<p>In diesem Grid kann der Text der Message in den verschiedenen Sprachen eingegeben werden. Wurde mit <strong>Choose existing Message</strong> ein Eintrag ausgewählt, wird dieser geändert und in die Textcollection zurückgeschrieben. Alle vorhandenen Message-Boxen, die diesen Eintrag verwenden, sind ebenfalls davon betroffen. Dem Text können Parameter zugewiesen werden. Die Parameter werden in der Form <code>{0}, {1}</code> usw. angegeben. Jeder Parameter kann mehrmals verwendet werden.</p>
+<pre><code class="lang-text">Der Beleg {0} für Kunde {1} hat sich geändert. Wollen Sie den Beleg {0} speichern?
+</code></pre>
+<p>Die Parameter werden in der Textbox <strong>String.Format...</strong> gefüllt.</p>
+<h4 id="combobox-icon">Combobox <strong>Icon</strong></h4>
+<p>(nur Message-Box)</p>
+<p>Gibt an, welches Icon verwendet werden soll</p>
+<ul>
+<li>Error</li>
+<li>Exclamation</li>
+<li>Information</li>
+<li>Question</li>
+<li>None</li>
+</ul>
+<h4 id="combobox-buttons">Combobox <strong>Buttons</strong></h4>
+<p>(nur Message-Box)</p>
+<p>Gibt an, welche Buttons angezeigt werden sollen. Wird <code>OK</code> ausgewählt, ist es nicht notwendig, einen Event-Handler zu hinterlegen. Werden andere Buttons ausgewählt, muss ein Event-Handler hinterlegt werden.</p>
+<ul>
+<li>AbortRetryIgnore</li>
+<li>OK</li>
+<li>OKCancel</li>
+<li>RetryCancel</li>
+<li>YesNo</li>
+<li>YesNoCancel</li>
+</ul>
+<h4 id="combobox-default">Combobox <strong>Default</strong></h4>
+<p>(nur Message-Box)</p>
+<p>Gibt den Button an, der beim Anzeigen der Message-Box ausgewählt sein soll. So kann z.B. bei den Buttons <code>YesNo</code> durch Angabe von <code>Button2</code> das versehentliche Betätigen des <code>Yes</code>-Button verhindert werden.</p>
+<ul>
+<li>Button1</li>
+<li>Button2</li>
+<li>Button3</li>
+</ul>
+<p>Die Nummer des Buttons entspricht der Angabe bei Buttons. z.B. <code>YesNoCancel</code> bedeutet <code>Button1</code> = <code>OK</code>, <code>Button2</code> = <code>No</code>, <code>Button3</code> = <code>Cancel</code></p>
+<h4 id="button-event-handler">Button <strong>Event Handler</strong></h4>
+<p>(nur Message Box Editor)</p>
+<p>Mit diesem Button kann angegeben werden, ob mit dem Klick in der Message-Box (z.B. auf <code>OK</code> oder <code>Cancel</code>) ein Event angestoßen werden soll oder nicht.</p>
+<p>Ist der Button gedrückt, erscheint rechts daneben eine Combobox, mit der evtl. bestehende Methoden ausgewählt werden können. Mit dem Button <strong>New</strong> wird ein neuer Event-Handler angelegt.</p>
+<p>Es wird eine Methode <code>OnMsgBoxClick1</code> angelegt. Der Parameter <code>MsgBoxEventArgs</code> hat ein Property DialogResult, damit abgefragt werden kann, welcher Button gedrückt wurde.</p>
+<pre><code class="lang-csharp">public void OnMsgBoxClick1(object sender, MsgBoxEventArgs e)
+{
+    if (e.DialogResult == DialogResult.OK)
+    {
+        //Code for Ok.
+    }
+}
+</code></pre>
+<h4 id="combobox-severity">Combobox <strong>Severity</strong></h4>
+<p>(nur Exception Editor)</p>
+<p>Hier können Sie den Schweregrad der Ausnahme (0-3) festlegen.</p>
+<h4 id="add-inner-exception"><strong>Add Inner Exception</strong></h4>
+<p>(nur Exception Editor)</p>
+<p>Wenn die Checkbox gesetzt ist, können Sie das Property InnerException füllen. Geben Sie dazu die zu übergebende Variable im Textfeld an. Geben Sie dazu im Textfeld den Namen der lokalen Exception-Variable an.</p>
+<h4 id="textbox-stringformat">Textbox <strong>String.Format...</strong></h4>
+<p>In dieser Textbox können die Parameter der Message angegeben werden. Es ist möglich im Message Text Parameter anzugeben. Dies geschieht mit <code>{0}, {1}</code> usw. Diese Parameter können im Text auch mehrmals verwendet werden. Für jeden dieser Parameter kann hier, mit Komma getrennt, ein Wert angegeben werden. Der erste Parameter steht für <code>{0}</code>, der zweite für <code>{1}</code> usw.</p>
+<pre><code class="lang-text">this.oOrder.lngOrderID, this.oOrder.lngCustomerID
+</code></pre>
+<h4 id="button-ok">Button <strong>OK</strong></h4>
+<p>Schließt den Dialog und fügt den generierten Message-Code in den Code-Editor ein.</p>
+<h4 id="button-cancel">Button <strong>Cancel</strong></h4>
+<p>Schließt den Dialog und verwirft die Änderungen.</p>
+<p>Wenn der Message-Box-Editor mit <strong>OK</strong> verlassen wird, wird an die Stelle im Code, an der sich der Cursor befindet der Code generiert.</p>
+<pre><code class="lang-csharp">// FSCodeMessage: Really delete article {0}?
+throw MsgBox.Exception(MLUtil.FormatMLKeyText(MLKeys.MSG_9188180c5ac64a5384141b553eef8105, this.oSelectedArticle.sName), &quot;&quot;, MsgBoxButtons.YesNo, MsgBoxIcons.Question, new MsgBoxEventHandler(OnDeleteQuestionMsgBoxClick));
+</code></pre>
+<p>Durch den Kommentar <code>// FSCodeMessage:</code> ist dieser Code im Code-Editor gut zu erkennen.</p>
+<p><img src="media/code-messages-example.png" alt="Examples"></p>
+<p>Um die Code-Message nachträglich zu ändern, setzen Sie den Fokus irgendwo in den generierten Code-Block und drücken erneut den entsprechenden Wizard-Button. Es öffnet sich wieder der Editor wie oben und die Daten der Code-Message werden angezeigt und können geändert werden.</p>
+<p>Bei Bedarf können auch einzelne Bestandteile wie z.B. der MLKey oder ein Enum-Wert direkt im Code geändert werden.</p>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Die Struktur des Codes darf jedoch nicht geändert werden, weil dieser bei einer späteren Bearbeitung mit dem Editor nicht mehr geparsed werden kann. Der Code darf nicht mehrzeilig sein.</p>
+</div>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

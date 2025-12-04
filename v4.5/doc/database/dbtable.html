@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/34-fix1/docs/doc/database/dbtable.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.5/release/35/docs/doc/database/dbtable.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -146,6 +146,21 @@ Diese beiden Spalten werden dann jeweils mit der entsprechenden Checkbox gekennz
 <h4 id="checkbox-not-null">Checkbox Not Null</h4>
 <p>Wenn gesetzt, dann darf diese Spalte keine Null-Werte beinhalten.
 Diese Information wird bei automatischen Datenbank-Update abgeglichen.</p>
+<h4 id="default-value">Default Value</h4>
+<p>Es kann (wie im MDT) ein konstanter Wert angegeben werden.
+Dieser greift, ähnlich der heutigen Value-Range-Prüfung, im Getter und Setter von Properties.
+Wenn eine definierte Range vorhanden ist, muss der Inhalt zwischen den Ranges liegen.
+Ist im Metadatatype der DBColumn ein Wert hinterlegt, wird dieser in der DBColumn angezeigt und kann überschrieben werden.</p>
+<p>Zusätzlich wird der Wert bei Datenbank-Aktionen (Insert, Update) geprüft.</p>
+<p>Es erscheint in der oberen Übersichtstabelle ein Schlüssel Symbol, sobald ein Default Value hinterlegt wurde.</p>
+<h4 id="database-column-constraint">Database Column Constraint</h4>
+<p>Optionen:</p>
+<ul>
+<li><null> : Bei Auswahl dieses Eintrags wird die Überschreibung entfernt und auf den von der Basis geerbten Wert zurückgesetzt.</null></li>
+<li>Create (default): Der Constraint wird in der Datenbank generiert und in der Routineaktualisierung werden die NULL-Werte mit dem Standardwert aktualisiert.</li>
+<li>Create, no Update: Der Constraint wird in der Datenbank generiert und in der Aktualisierungsroutine werden die NULL-Werte NICHT aktualisiert.</li>
+<li>Do not create: Der Constraint wird nicht in der Datenbank generiert und die Behandlung von Standardwerten findet nur innerhalb FS statt.</li>
+</ul>
 <h4 id="feld-size">Feld Size</h4>
 <p>Größe des Felds bei alphanumerischen Datentyp.
 Wird eine Größe von <code>0</code> angegeben, handelt es sich um ein Langtext-Feld ohne Größen-Beschränkung.</p>
@@ -170,7 +185,6 @@ Das beugt Probleme beim Übertragen von Werten in andere Spalten mit demselben M
 <p>Hier können Sie das zu verwendende <strong>Default-Label</strong>, die <strong>Column-Caption</strong>, der <strong>Tooltip</strong> und die <strong>Description</strong> für eine Datenbankspalte festlegen bzw. überschreiben.
 Wenn der Spalte ein Metadatentyp zugeordnet wurde, wird das Default-Label vom Metadatentyp verwendet, solange es nicht an dieser Stelle überschrieben wird.</p>
 <h3 id="registerkarte-controltypes">Registerkarte ControlTypes</h3>
-<p><img src="media/registerkarte-control-types.png" alt="registerkarte-control-types.png"></p>
 <p>Auf der Registerkarte <strong>ControlTypes</strong> wird angezeigt, welche Controls der Spalte zugeordnet sind.
 Ist der Spalte ein Metadatentyp zugewiesen, werden die dem Metadatentyp bereits zugewiesenen Controls hier angezeigt.
 Die Liste kann ggf. ergänzt werden. Ist kein Metadatentyp zugewiesen, können Sie die ControlTypes hier hinterlegen.</p>
@@ -197,7 +211,6 @@ Aus diesem Grund muss ggf. ein Spalten-Alias angegeben werden - z.B. bei berechn
 <p>Die View-Definition kann im <a href="../package-manager/packages.html#customizing">Customzing-Package</a> überschrieben werden.</p>
 <p>Mit dem Link Preview Select öffnet sich die <a href="#sql-statement-preview">Sql Statement Preview</a>. Damit kann das Statement gestestet werden.</p>
 <h2 id="registerkarte-description">Registerkarte Description</h2>
-<p><img src="media/registerkarte-description.png" alt="registerkarte-description.png"></p>
 <p>In dem Textfeld der Registerkarte können allgemeine Informationen zu dieser Tabelle hinterlegt werden.</p>
 <h2 id="sql-statement-preview">Sql Statement Preview</h2>
 <p>Mit der Sql Statement Preview können SQL-Befehle getestet werden.

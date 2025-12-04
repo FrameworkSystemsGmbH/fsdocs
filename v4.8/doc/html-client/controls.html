@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Controls </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Controls ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/doc/html-client/controls.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="controls">Controls</h1>
+
+<table>
+<thead>
+<tr>
+<th style="text-align: center;">Symbol</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">+</td>
+<td>Property oder Event wird vollständig unterstützt</td>
+</tr>
+<tr>
+<td style="text-align: center;">-</td>
+<td>Property oder Event wird nicht unterstützt</td>
+</tr>
+<tr>
+<td style="text-align: center;">o</td>
+<td>Property oder Event wird teilweise unterstützt (Anmerkung beachten)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="allgemein">Allgemein</h2>
+<p>Die folgende Auflistung beinhaltet diejenigen Properties und Events, die an allen verfügbaren Controls im HTML-Client vorhanden sind.</p>
+<h3 id="properties">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+<th>Anmerkung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Alignment</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>BackColor</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>BorderColor</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>BorderRadius</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>BorderThickness</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>ButtonGroupDataSource</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>Caption</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>DockPanel.ItemSize</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>Font Family</td>
+<td style="text-align: center;">-</td>
+<td>Ist im Client hart definiert auf die Hierarchie Arial -&gt; Helvetica -&gt; Sans-Serif.</td>
+</tr>
+<tr>
+<td>Font Bold</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>Font Italic</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>Font Underline</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>ForeColor</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>IsEditable</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>LabelTemplate</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>MapEnterToTabAction</td>
+<td style="text-align: center;">-</td>
+<td></td>
+</tr>
+<tr>
+<td>Margin</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>MaxSize</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>MinSize</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>Name</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>Padding</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>Shortcut</td>
+<td style="text-align: center;">-</td>
+<td></td>
+</tr>
+<tr>
+<td>TabStop</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>ToolTip</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>Visibility</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="events">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnCanDrop</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>OnDrag</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="form">Form</h2>
+<h3 id="properties-1">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BadgeImage DataSource</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>HideModalHeader</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>IsCloseIconVisible</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>MainMenu</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>PreferredSize</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>SymbolImage</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>Title</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>VerticalScrollbarOverlay</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events-1">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnLoad</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnClose</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="dock-panel">Dock Panel</h2>
+<h3 id="properties-2">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+<th>Anmerkung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BackgroundImage</td>
+<td style="text-align: center;">-</td>
+<td></td>
+</tr>
+<tr>
+<td>BackgroundScaleMode</td>
+<td style="text-align: center;">-</td>
+<td></td>
+</tr>
+<tr>
+<td>DockPanelOrientation</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>Scrolling</td>
+<td style="text-align: center;">o</td>
+<td>Es wird immer <code>VerticalOverlay</code> verwendet, auch wenn <code>Normal</code> ausgewählt wurde, da in vielen Browsern die Breite der Scrollbar nicht berechnet werden kann.</td>
+</tr>
+<tr>
+<td>Spacing</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="events-2">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnEnter</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>OnLeave</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="wrap-panel">Wrap Panel</h2>
+<h3 id="properties-3">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BackgroundImage</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>BackgroundScaleMode</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>ContentAlignment</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>InvertFlowDirection</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>Spacing</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>WrapArrangement</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events-3">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnEnter</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>OnLeave</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="field-panel">Field Panel</h2>
+<p>Properties</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BackgroundImage</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>BackgroundScaleMode</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>RowLabelTemplate</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>SynchronizeColumns</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events-4">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnEnter</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>OnLeave</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="field-row">Field Row</h2>
+<h3 id="properties-4">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FieldRowSize</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>LabelMode</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OptimizeGeneratedLabels</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="button">Button</h2>
+<h3 id="properties-5">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ShowCaption</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>TabStop</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events-5">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnClick</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnEnter</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnLeave</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="imagebutton">ImageButton</h2>
+<h3 id="properties-6">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>BadgeImage DataSource</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>CaptionAlign</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>ContextMenu</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>DataSource</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>DisabledImage</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>HighlightImage</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>Image</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>MouseOverImage</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>PressedImage</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>ScaleMode</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>ShowCaption</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>SymbolImage</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>TabStop</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events-6">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnClick</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnEnter</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnLeave</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="label">Label</h2>
+<p>Properties</p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DataSource</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>TextAlign</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events-7">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnEnter</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnLeave</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="checkbox">CheckBox</h2>
+<h3 id="properties-7">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DataSource</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>ShowCaption</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events-8">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnClick</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnEnter</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnLeave</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="editfield">Editfield</h2>
+<h3 id="properties-8">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+<th>Anmerkung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CaptionAsPlaceholder</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>DataSource</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>DisabledBackColor</td>
+<td style="text-align: center;">o</td>
+<td>Wird dynamisch im Client berechnet</td>
+</tr>
+<tr>
+<td>DisplayLength</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>Editor</td>
+<td style="text-align: center;">o</td>
+<td>Nur &quot;PlainText”, &quot;HTML” wird nicht unterstützt</td>
+</tr>
+<tr>
+<td>Format</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>FormatPattern</td>
+<td style="text-align: center;">o</td>
+<td>Funktioniert nur mit Format &quot;Decimal&quot;</td>
+</tr>
+<tr>
+<td>Multiline</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>PasswordChar</td>
+<td style="text-align: center;">+</td>
+<td>Client generiert ein Password-Feld, wenn gesetzt. Das Passwort-Zeichen selbst kann aber nicht geändert werden (in Web Browsern technisch nicht möglich).</td>
+</tr>
+<tr>
+<td>ScrollBars</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>SelectionEnd</td>
+<td style="text-align: center;">-</td>
+<td></td>
+</tr>
+<tr>
+<td>SelectionStart</td>
+<td style="text-align: center;">-</td>
+<td></td>
+</tr>
+<tr>
+<td>TabStop</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>TextAlign</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+<tr>
+<td>WordWrap</td>
+<td style="text-align: center;">+</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h3 id="events-9">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnEnter</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnLeave</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnValidated</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="combobox">ComboBox</h2>
+<h3 id="properties-9">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CaptionAsPlaceholder</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>DataSource</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>DisplayLength</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>EditStyle</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>List</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>ListOrder</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>MaxDropDownSize</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>TabStop</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events-10">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnEnter</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnLeave</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnSelectionChanged</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="radiobutton">RadioButton</h2>
+<h3 id="properties-10">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CaptionDataSource</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>DataSourceOnValue</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events-11">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnEnter</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnLeave</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnClick</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="picture">Picture</h2>
+<p>Siehe <a href="../form/control/picture.html">Picture</a>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Im HTML Client muss einem Picture Control eine <strong>MinSize</strong> zugewiesen werden.
+Eine automatische Größenanpassung eines Picture Controls an den Inhalt ist nicht möglich.</p>
+</div>
+<h3 id="properties-11">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CaptionAlign</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>DataSource</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>ScaleMode</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>ShowCaption</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events-12">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnClick</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnEnter</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>OnLeave</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="listview">ListView</h2>
+<p>Siehe <a href="../form/control/listview.html">ListView</a>.</p>
+<h3 id="properties-12">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DataSource</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>ItemArrangement</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>ItemSize</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>SelectedItems</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>SelectionMode</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>SelectorPosition</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>Spacing</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>Template</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events-13">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnEnter</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>OnLeave</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>OnItemActivated</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnItemSelectionChanged</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h2 id="template-control">Template Control</h2>
+<p>Siehe <a href="../form/control/template.html">Template Control</a>.</p>
+<h3 id="properties-13">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Template</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events-14">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnEnter</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td>OnLeave</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="tabbed-window">Tabbed Window</h2>
+<h3 id="properties-14">Properties</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DataSource</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>TabTemplateActive</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>TabTemplateDisabled</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>TabTemplateInactive</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+<h3 id="events-15">Events</h3>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th style="text-align: center;">Unterstützt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>OnSelectedTabPageChange</td>
+<td style="text-align: center;">+</td>
+</tr>
+<tr>
+<td>OnSelectedTabPageChanged</td>
+<td style="text-align: center;">+</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

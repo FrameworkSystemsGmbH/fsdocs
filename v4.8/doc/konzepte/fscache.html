@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>FSCache (Memory Cache) </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="FSCache (Memory Cache) ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/doc/konzepte/fscache.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="fscache-memory-cache">FSCache (Memory Cache)</h1>
+
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Dieses Feature befindet sich noch in Entwicklung und sollte noch nicht frei eingesetzt werden.
+Derzeit werden in eNVenta mit Begleitung durch des FS-Teams noch weitere Grundlagen geschaffen.</p>
+</div>
+<p>Framework Studio stellt eine Infrastruktur auf Basis des <a href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.memory.imemorycache">IMemoryCache</a> von Microsoft bereit.</p>
+<p>Erreichbar ist diese über einen Singleton <code>FSCache.Instance</code>.</p>
+<p><a class="xref" href="../../api/FS.Hosting.Shared.FSCache.Instance.html"><code>FSCache.Instance</code></a> bietet in erster Ebene Methoden, um an den Cache für den gewünschten Scope zu gelangen - z.B. <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.Static.html#FS_Hosting_Shared_FSCache_Static_FS_Hosting_Shared_IFSCache_"><code>FSCache.Instance.Static()</code></a>, <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.Session.html#FS_Hosting_Shared_FSCache_Session_FS_Hosting_Shared_IFSCache_"><code>FSCache.Instance.Session()</code></a> oder <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.Request.html#FS_Hosting_Shared_FSCache_Request_FS_Hosting_Shared_IFSCache_"><code>FSCache.Instance.Request()</code></a>.
+Weitere Scopes z.B. für <code>BusinessUnit()</code> und <code>User()</code> werden von eNVenta mihilfe von Extension-Methods für das Interface <a class="xref" href="../../api/FS.Hosting.Shared.IFSCache.html"><code>IFSCache</code></a> implementiert.</p>
+<p>An den zurückgegebenen Memory Caches können alle angebotenen Features frei verwendet werden.
+Vor allem ist es möglich den Lifecycle eines CacheEntries mit Hilfe von Timeouts oder ExpirationTokens zu steuern.</p>
+<p><img src="media/fscache-struktur.drawio.svg" alt="FSCache"></p>
+<p>Beispiele:</p>
+<pre><code class="lang-csharp">// Verwendung des Static-Caches:
+IcdCountryColl oCountries = FSCache.Instance.Static().GetOrCreate(&quot;Countries&quot;, entry =&gt; 
+{
+    // Verwerfen, wenn 20 Minuten nicht verwendet.
+    entry.SetSlidingExpiration(TimeSpan.FromMinutes(20));
+    var countries = cdCountryCollFactory.Create();
+    countries.Load();
+    return countries;
+});
+
+// Verwendung des Session-Caches:
+oCurrencyColl = FSCache.Instance.Session().GetOrCreate(&quot;Currencies&quot;, entry =&gt;
+{
+    var currencies = cdCurrencyCollFactory.Create();
+    currencies.Load();
+    return currencies;
+});
+</code></pre>
+<h2 id="spielregeln">Spielregeln</h2>
+<p>Bei der Verwendung des FSCache müssen einige Regeln beachtet werden:</p>
+<ol>
+<li><p>Der FSCache ist flüchtig.</p>
+<p>Zugriffe müssen so gestaltet sein, dass die Einträge sich bei Bedarf und jederzeit neu aufbauen können.
+Existierende Einträge können jederzeit verworfen werden, entsprechende Expiration-Tokens oder -Zeiten zuschlagen.
+Auch die Methode <a class="xref" href="../../api/FS.Hosting.Shared.IFSCache.Reset.html#FS_Hosting_Shared_IFSCache_Reset"><code>FSCache.Reset()</code></a> kann den FSCache jederzeit komplett abräumen.</p>
+</li>
+<li><p>Keine Parameter übertragen.</p>
+<p>Der FSCache sollte nicht für den Transport von Informationen genutzt werden.
+Aufgrund der Flüchtigkeit des FSCache können diese Informationen jederzeit verworfen werden.</p>
+</li>
+<li><p>Nur Readonly Objekte cachen.</p>
+<p>Im FSCache sollen nur Objekte abgelegt werden, die Readonly bzw. gegen Veränderungen gesichert sind (z.B. mit <a class="xref" href="../../api/FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Freeze">Freeze()</a>).
+Insbesondere in einem sitzungsübergreifenden Cache (Static, BusinessUnit, User) bestünde die Gefahr für ungewollte Seiteneffekte.</p>
+</li>
+<li><p>Einträge müssen threadsafe sein.</p>
+<p>Wird ein Objekt in den Cache gepackt, dass veränderlich sein muss, dann muss dieses threadsafe gestaltet sein.
+Das gilt insbesondere bei einem sitzungsübergreifenden Cache.</p>
+</li>
+</ol>
+<h2 id="weitere-scopes">Weitere Scopes</h2>
+<p>Weitere Scopes können mithilfe von Extension-Methods geschaffen werden, die die <a class="xref" href="../../api/FS.Hosting.Shared.IFSCache.Scope.html#FS_Hosting_Shared_IFSCache_Scope_System_Object_System_Action_Microsoft_Extensions_Caching_Memory_ICacheEntry__">Scope-Methode</a> aufrufen.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-csharp">// Eigener User-Scope
+public static class CacheExtensions
+{
+    public static IMemoryCache User(this IFSCache cache)
+    {
+        // Der User-Name ist teil des Scope-Keys.
+        string scopeKey = &quot;User|&quot; + FSGlobal.Current.AUHelper.UserName;
+        return cache.Scope(scopeKey, entry =&gt; {
+           // Cache wird nach einer Stunde nicht Verwendung verworfen
+           entry.SetSlidingExpiration(TimeSpan.FromHours(1));
+        });
+    }
+}
+
+// Verwendung:
+string sValue = FSCache.Instance.User().GetOrCreate(&quot;UserSettings&quot;, entry =&gt; 
+{
+    return LoadUserSettings();
+});
+</code></pre>
+<h2 id="instanzen-für-veränderungen-sperren---freeze">Instanzen für Veränderungen sperren - Freeze()</h2>
+<p>Objekte, welche im Cache verwendet werden, können mittels der Methode <a class="xref" href="../../api/FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Freeze">Freeze</a> vor Veränderungen geschützt werden.
+Ein Freeze ist nur für ungeänderte und neue Objekte erlaubt.
+Einmal aufgerufen kann die Instanz für Änderungen nicht mehr &quot;geöffnet&quot; werden.
+Wird versucht eine eingefrorene Instanz zu verändern, wird eine <code>InvalidOperationException()</code> geworfen.</p>
+<p>Es stehen folgende Methoden/Property bereit:</p>
+<ul>
+<li>bool <a class="xref" href="../../api/FS.Hosting.Shared.IDevFrameworkBaseObject.IsFrozen.html#FS_Hosting_Shared_IDevFrameworkBaseObject_IsFrozen">IsFrozen</a></li>
+<li>bool <a class="xref" href="../../api/FS.Hosting.Shared.IDevFrameworkBaseObject.CanFreeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_CanFreeze">CanFreeze()</a></li>
+<li>void <a class="xref" href="../../api/FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Freeze">Freeze()</a></li>
+</ul>
+<p>Die Abprüfung auf <code>IsFrozen</code> erfolgt auf jedem internen Value Property.
+Zu beachten ist: Individueller Code wird dennoch durchlaufen, wenn nicht selbstständig auf die Eigenschaft <code>IsFrozen</code> geprüft wird.
+Erst wenn ein internes Value versucht wird zu ändern, wird eine Exception geworfen.</p>
+<p>Freeze ist auch für Collections implementiert. Hier wird die Collection selbst und alle internen Objekte gesperrt.</p>
+<h2 id="änderungen-triggern-mit-change-tokens">Änderungen Triggern mit Change-Tokens</h2>
+<p>Der FSCache bietet mithilfe von ChangeTokens die Möglichkeit, Änderungen zu triggern.</p>
+<p>Die Tokens werden Static organisiert.
+Das bedeutet: Ein Invalidate greift immer in allen Sessions innerhald des eigenen Broker-Prozesses.</p>
+<p>Beim Aufbau eines Caches wird dafür mithilfe eines Key ein Token bereitgestellt.
+Dies erfolgt mit der Methode <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.GetTokenFor.html#FS_Hosting_Shared_FSCache_GetTokenFor__1_FS_Hosting_Shared_IFSCache_"><code>FSCache.GetTokenFor&lt;T&gt;()</code></a>.
+Der Token wird mit der Methode <code>AddExpirationToken()</code> am Cache-Eintrag registriert.</p>
+<pre><code class="lang-csharp">return FSCache.Instance.Static().GetOrCreate(&quot;Countries&quot;, entry =&gt;
+    {
+        entry.AddExpirationToken(FSCache.Instance.GetTokenFor&lt;IcdCountry&gt;() );
+        var countries = cdCountryCollFactory.Create();
+        countries.Load();
+        return countries;
+    });
+</code></pre>
+<p>Bei Bedarf können auch mehrere Tokens für verschiedene Keys registriert werden.
+In diesem Fall läuft der Cache-Eintrag aus, sobald sich der erste Token meldet.</p>
+<p>Auf der anderen Seite beim Save, kann dem Cache bescheid gegeben werden.
+Das erfolgt mit der Methode <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.Invalidate.html#FS_Hosting_Shared_FSCache_Invalidate__1_FS_Hosting_Shared_IFSCache_"><code>FSCache.Invalidate&lt;T&gt;()</code></a>.</p>
+<pre><code class="lang-csharp">protected override void OnAfterSave()
+{
+    FSCache.Instance.Invalidate&lt;IcdCountry&gt;()
+}
+</code></pre>
+<p>Standardmäßig werden die beiden generischen Methoden <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.GetTokenFor.html#FS_Hosting_Shared_FSCache_GetTokenFor__1_FS_Hosting_Shared_IFSCache_"><code>FSCache.GetTokenFor&lt;T&gt;()</code></a> und <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.Invalidate.html#FS_Hosting_Shared_FSCache_Invalidate__1_FS_Hosting_Shared_IFSCache_"><code>FSCache.Invalidate&lt;T&gt;()</code></a> verwendet.
+Der generische Typ fungiert als Key.
+Es sollte das Interface des einzelnen Records verwendet werden.</p>
+<p>Es gibt auch allgemeine Methoden, denen als Key ein beliebiges <code>object</code> übergeben werden kann: <a class="xref" href="../../api/FS.Hosting.Shared.IFSCache.GetTokenForKey.html#FS_Hosting_Shared_IFSCache_GetTokenForKey_System_Object_"><code>IFSCache.GetTokenForKey(key)</code></a>,  <a class="xref" href="../../api/FS.Hosting.Shared.IFSCache.InvalidateKey.html#FS_Hosting_Shared_IFSCache_InvalidateKey_System_Object_"><code>IFSCache.InvalidateKey(key)</code></a>.
+Diese sollten aber nur in Ausnahmefällen verwendet werden.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

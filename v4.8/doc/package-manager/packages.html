@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Packages </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Packages ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/doc/package-manager/packages.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="packages">Packages</h1>
+
+<p>Ein <strong>Package</strong> kapselt funktionale Erweiterungen und Veränderungen der Anwendung.</p>
+<p>Eine mit <strong>Framework Studio</strong> erstellte Anwendung setzt sich immer aus mehreren Packages zusammen. Aus welchen Packages letztendlich eine Anwendung zusammengesetzt ist, steht zur Entwicklungszeit eines Packages nicht fest. Klar definiert ist nur, welche Packages vorausgesetzt werden.</p>
+<p>Einzelne Packages einer Anwendung können von unterschiedlichen Herstellern entwickelt werden und mit Packages anderer Hersteller kombiniert werden.</p>
+<p>Hauptvorteil des Package-Konzepts von <strong>Framework Studio</strong> sind die Customizing Möglichkeiten. Kunden und Partnerunternehmen können durch das Hinzufügen eines zusätzlichen Packages die Anwendung nahezu ohne Einschränkungen funktional erweitern und verändern. Dabei sind sogar Erweiterungen an zentralen Datenstrukturen, Datenbanktabellen und Prozessabläufen möglich.</p>
+<h2 id="systempackage">SystemPackage</h2>
+<p>Wenn Sie ein leeres Repository anlegen, enthält dieses Repository immer automatisch ein Package mit dem Namen <strong>SystemPackage</strong>. An diesem Package können Sie sich beim Start von <strong>Framework Studio</strong> nicht anmelden, da am <strong>SystemPackage</strong> keine Veränderungen vorgenommen werden können.</p>
+<p>Das <strong>SystemPackage</strong> enthält einige grundlegende Namespaces und Elemente, die von jeder Anwendung benötigt werden.</p>
+<h2 id="default-package">Default Package</h2>
+<p>Mit Default Package wird das Package bezeichnet, welches in der Verwendungsreihenfolge der Packages direkt oberhalb des SystemPackages angeordnet ist. Dieses Package hat einige Besonderheiten:</p>
+<ul>
+<li><p>Am Default Package werden die Sprachen definiert, die grundsätzlich von der Anwendung unterstützt werden sollen.</p>
+</li>
+<li><p>Verschiedene Default Packages lassen sich mit der aktuellen <strong>Framework Studio</strong> Version nicht zusammen führen.</p>
+</li>
+<li><p>Im Default Package werden alle Standard Controls (<a href="../form/default-control-styles.html">Default Control Styles</a>) angezeigt.</p>
+</li>
+</ul>
+<p>Ein Default Package muss mit dem Package Manager (<a href="package-manager.html">Package Manager</a>) angelegt werden, bevor es genutzt werden kann.</p>
+<h2 id="weitere-packages">Weitere Packages</h2>
+<p>Mit Hilfe des Package Managers (<a href="package-manager.html">Package Manager</a>) können weitere Packages zu einem Repository hinzugefügt werden. Dort wird auch definiert, in welcher Reihenfolge die Packages benutzt werden sollen und welche anderen Packages Voraussetzung für die Verwendung eines Packages sind.</p>
+<h2 id="aktives-package">Aktives Package</h2>
+<p>Mit <strong>aktivem Package</strong> wird das Package bezeichnet, an dem sich der Benutzer beim Start von <strong>Framework Studio</strong> angemeldet hat. Nur an diesem Package kann der Benutzer Veränderungen durchführen.</p>
+<p>Synonym dazu wird auch der Begriff <strong>Top Package</strong> verwendet.</p>
+<h2 id="customizing">Customizing</h2>
+<p>Mit <strong>Customizing</strong> wird der Vorgang bezeichnet, bei dem man Änderungen an einem Element aus einem Package vornimmt, das nicht das aktive Package ist. Da Änderungen immer nur im aktiven Package durchgeführt werden können, wird dazu von dem gewünschten Element eine <strong>Customization</strong> im aktiven Package angelegt. An dieser Customization können die gewünschten Änderungen dann vorgenommen werden.</p>
+<p>Technisch gesehen ist eine Customization eine Ableitung vom originalen Element. Diese Ableitung wird dann in der gesamten Anwendung statt des Originalen Elements verwendet.
+Das Anlegen einer Customization erfolgt über den Button <img src="../media/button-customizing.png" alt="button-customizing.png"> Customize (<a href="../ide/allgemeine-funktionalitaeten.html#buttons">Buttons</a>).</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Wenn ein Element über das Kontextmenü mit der Funktion <strong>Change Namespace…</strong> in einem anderen Package in einen anderen Namespace verschoben wurde, so muss das Element, wenn eine Customization im aktiven Package existiert, über das Kontextmenü seines Namespaces mit der Funktion <strong>Adjust moved customizations …</strong> auch im aktiven Package in den neuen Namespace verschoben werden.</p>
+</div>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

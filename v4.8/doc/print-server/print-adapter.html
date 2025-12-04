@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Print-Adapter </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Print-Adapter ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/doc/print-server/print-adapter.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="print-adapter">Print-Adapter</h1>
+
+<p>Auf der Register-Karte Print-Adapter können diese bearbeitet und konfiguriert werden.</p>
+<p><img src="media/register-print-adapter.png" alt="adapter"></p>
+<p>Es folgt eine Aufstellung der standardmäßig zur Verfügung stehenden Print-Adapter.</p>
+<h2 id="devexpress">DEVEXPRESS</h2>
+<p>Mit diesem Adapter können DevExpress® Reports (.repx) gedruckt werden.</p>
+<ul>
+<li>Assembly: <code>DevExpressPrintAdapter</code></li>
+<li>Class: <code>PrintServer.DevExpressPrintAdapter</code></li>
+</ul>
+<p>In der Drucker-Warteschlange erhalten die Ausdrucke einen Namen mit dem im folgenden Format: <br>
+<code>DevExpress - &lt;owner&gt; - &lt;JobID&gt; - &lt;Report-Name&gt;</code></p>
+<ul>
+<li><code>&lt;owner&gt;</code> entspricht der Spalte <code>PRTR_Owner</code> in der Tabelle <a href="../tables/rptRun_PrintTransaction.html">rptRun_PrintTransaction</a></li>
+<li><code>&lt;Report-Name&gt;</code> entspricht der Spalte <code>RPQRPT_NAME</code> in der Tabelle <a href="../tables/rptRun_RPQReportFile.html">rptRun_RPQReportFile</a></li>
+</ul>
+<h4 id="settings">Settings</h4>
+<ul>
+<li><p><strong>ExportFolder</strong>:</p>
+<p>Diese Einstellung kann optional zu Test- oder Debug-Zwecken angegeben werden.
+Es werden alle Reports nach dem Druck als PRNX-Datei (Report-Datei inkl. Daten) in diesem Ordner abgelegt.</p>
+<p>Beispiel: <code>ExportFolder = C:\temp\PRNX-Files</code></p>
+</li>
+</ul>
+<h2 id="image">IMAGE</h2>
+<p>Der IMAGE-Adapter dient zum Drucken von Bildern.</p>
+<ul>
+<li>Assembly: <code>ImagePrintAdapter</code></li>
+<li>Class: <code>PrintServer.ImagePrintAdapter</code></li>
+</ul>
+<h4 id="settings-1">Settings:</h4>
+<ul>
+<li>-keine-</li>
+</ul>
+<h2 id="pdf">PDF</h2>
+<p>Mit diesem Adapter können PDF-Dateien an den Drucker gesendet werden. Der Adapter verwendet ein externes PDF-Programm zur Verarbeitung der PDF-Dateien. In diesem Adapter kann ein beliebiges Kommandozeilen-Programm verwendet werden.</p>
+<p>Für den Einsatz von <strong>Sumatra PDF</strong>, <strong>Foxit Reader</strong> oder <strong>Acrobat Reader</strong> sollte bei Class auf entsprechend optimierten Adapter umgestellt werden (siehe unten).</p>
+<ul>
+<li>Assembly: <code>PdfPrintAdapter</code></li>
+<li>Class: <code>PrintServer.PdfPrintAdapter</code></li>
+</ul>
+<h4 id="settings-2">Settings</h4>
+<ul>
+<li><p><strong>ReaderPath</strong>:</p>
+<p>Dateipfad des PDF-Programms. Diese Einstellung muss angegeben werden.</p>
+<p>Beispiel: <code>ReaderPath = C:\Programme\Adobe\Reader 9.0\Reader\AcroRd32.exe</code></p>
+</li>
+<li><p><strong>ReaderArgs</strong>:</p>
+<p>Die Kommandozeilen-Argumente zur Ansteuerung des PDF-Programms. Darin können die Platzhalter <code>{file}</code> und <code>{printer}</code> benutzt werden.</p>
+</li>
+</ul>
+<h2 id="pdf---sumatra-pdf">PDF - Sumatra PDF</h2>
+<p>Dieser PDF-Adapter ist speziell für den <strong>Sumatra PDF Reader</strong> optimiert. Um diesen einzusetzen, muss beim PDF-Adapter die Class <code>PrintServer.PdfPrintAdapter_SumatraPDF</code> angegeben werden.</p>
+<p>Sumatra PDF ist ein einfacher, schlanker PDF-Viewer für Windows. Er kann von der Home-Page des Herstellers <a href="http://www.sumatrapdfreader.org">http://www.sumatrapdfreader.org</a> heruntergeladen werden. Es gibt eine Installations-Routine und eine portable Version, welche lediglich aus der SumatraPDF.exe besteht.</p>
+<p>Im Normalfall kann die 32-Bit Version verwendet werden. Die 32-Bit Version hat eine etwas bessere Performance als die 64-Bit Version.</p>
+<ul>
+<li>Assembly: <code>PdfPrintAdapter</code></li>
+<li>Class: <code>PrintServer.PdfPrintAdapter_SumatraPDF</code></li>
+</ul>
+<h4 id="settings-3">Settings</h4>
+<ul>
+<li><p><strong>ReaderPath</strong>:</p>
+<p>Die SumatraPDF.exe der portablen Version kann direkt in das Print-Service-Verzeichnis gepackt werden. In diesem Fall braucht kein Reader-Path angegeben werden.</p>
+<p>Wird die installierte Version von Sumatra PDF verwendet, muss der Pfad angegeben werden.</p>
+<p>Beispiel: <code>ReaderPath = C:\Program Files\SumatraPDF\SumatraPDF.exe</code></p>
+</li>
+<li><p><strong>ReaderArgs</strong>:</p>
+<p>Wenn nicht angegeben, dann wird die folgende Standard-Einstellung verwendet:</p>
+<p><code>ReaderArgs = -print-to &quot;{printer}&quot; &quot;{file}&quot; -exit-on-print</code></p>
+</li>
+</ul>
+<h2 id="pdf---foxit-reader">PDF - Foxit Reader</h2>
+<p>Dieser Adapter ist speziell für den <strong>Foxit Reader</strong> optimiert. Um diesen einzusetzen, muss beim PDF-Adapter die Class <code>PrintServer.PdfPrintAdapter_FoxitReader</code> angegeben werden.</p>
+<p>Der Foxit-Reader kann über die Homepage des Herstellers heruntergeladen werden: <a href="https://www.foxitsoftware.com/de/products/pdf-reader/">https://www.foxitsoftware.com/de/products/pdf-reader/</a></p>
+<ul>
+<li>Assembly: <code>PdfPrintAdapter</code></li>
+<li>Class: <code>PrintServer.PdfPrintAdapter_FoxitReader</code></li>
+</ul>
+<h4 id="settings-4">Settings</h4>
+<ul>
+<li><p><strong>ReaderPath</strong>:</p>
+<p>Dateipfad des Foxit Reader. Diese Einstellung muss angegeben werden.</p>
+<p>Beispiel: <code>ReaderPath = C:\Program Files (x86)\Foxit Software\Foxit Reader\FoxitReader.exe</code></p>
+</li>
+<li><p><strong>ReaderArgs</strong>:</p>
+<p>Wenn nicht angegeben, dann wird die folgende Standard-Einstellung verwendet:</p>
+<p><code>ReaderArgs = /t &quot;{file}&quot; &quot;{printer}&quot;</code></p>
+</li>
+<li><p><strong>Timeout</strong>:</p>
+<p>Zeitdauer in ms, die angibt, wie lange gewartet werden soll, bis der FoxitReader-Prozess beendet wird. Der Standard-Wert ist 2000 ms.</p>
+<p>Wird der PrintService als Dienst ausgeführt, dann kann es sein, dass die FoxitReader.exe nach dem Druck nicht automatisch schließt. Nach Ablauf dieses Timeouts wird ein alternativer Versuch unternommen, den Reader zu schließen.</p>
+<p>Wenn der Timeout zu kurz bemessen ist, denn wird die FoxitReader.exe zu früh geschlossen und es wird kein Ausdruck erzeugt.</p>
+<p>Für die Ermittlung eines passenden Wertes ist es sinnvoll, sich durch mehrere Tests an einen Minimal-Wert heranzutasten. Dieser sollte dann mit genug Reserve als Einstellung verwendet werden. Z.B. minimal 300 ms – Einstellung 500 ms.</p>
+<p>Beispiel: <code>Timeout = 2000</code></p>
+</li>
+</ul>
+<h2 id="pdf---acrobat-reader">PDF - Acrobat Reader</h2>
+<p>Dieser Adapter ist für den <strong>Adobe Acrobat Reader DC</strong> optimiert. Um diesen einzusetzen, muss beim PDF-Adapter die Class „PrintServer.PdfPrintAdapter_AcrobatReader“ angegeben werden.</p>
+<ul>
+<li>Assembly: <code>PdfPrintAdapter</code></li>
+<li>Class: <code>PrintServer.PdfPrintAdapter_AcrobatReader</code></li>
+</ul>
+<h4 id="settings-5">Settings</h4>
+<ul>
+<li><p><strong>ReaderPath</strong>:</p>
+<p>Dateipfad des Acrobat Reader. Diese Einstellung muss angegeben werden.</p>
+<p>Beispiel: <code>ReaderPath = C:\Program Files (x86)\Adobe\Acrobat Reader DC\Reader\AcroRd32.exe</code></p>
+</li>
+<li><p><strong>ReaderArgs</strong>:</p>
+<p>Wenn nicht angegeben, dann wird die folgende Standard-Einstellung verwendet:</p>
+<p><code>ReaderArgs = /t /n /h &quot;{file}&quot; &quot;{printer}&quot;</code></p>
+</li>
+</ul>
+<h2 id="word">WORD</h2>
+<p>Mit diesem Adapter können Word-Dateien (.doc / .docx) an den Drucker gesendet werden.</p>
+<ul>
+<li>Assembly: <code>MsOfficePrintAdapter</code></li>
+<li>Class: <code>PrintServer.WordPrintAdapter</code></li>
+</ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Word hat die Einschränkung, dass es nicht von einem Dienst-Programm gesteuert werden kann / darf. Aus diesem Grund ist der WORD-Adapter standardmäßig deaktiviert. Wird der Word-Adapter aktiviert, dann sollte der Print-Service nur im Console-Modus ausgeführt werden.</p>
+</div>
+<h4 id="settings-6">Settings</h4>
+<ul>
+<li><p><strong>StaticApp</strong>:</p>
+<p>Optional - mögliche Werte 0 oder 1</p>
+<p>Beispiel: <code>StaticApp = 1</code></p>
+<p>Standardmäßig wird für jeden Druck eine eigene Instanz von Word geöffnet. Wenn der Wert mit 1 angegeben ist, dann wird beim ersten Druck eine Word-Instanz geöffnet, die auch für alle folgenden Drucke verwendet wird.</p>
+<p>Diese Einstellung kann die Performance verbessern, sie kann aber auch die Stabilität des Print-Service verringern.</p>
+</li>
+</ul>
+<h2 id="excel">EXCEL</h2>
+<p>Mit diesem Adapter können Excel-Dateien (.xls / .xlsx) an den Drucker gesendet werden.</p>
+<ul>
+<li>Assembly: <code>MsOfficePrintAdapter</code></li>
+<li>Class: <code>PrintServer.ExcelPrintAdapter</code></li>
+</ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Der EXCEL-Adapter ist standardmäßig deaktiviert. Wird der EXCEL-Adapter aktiviert, dann sollte der Print-Service nur im Console-Modus ausgeführt werden.</p>
+</div>
+<h4 id="settings-7">Settings</h4>
+<ul>
+<li>-keine-</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

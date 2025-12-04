@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>PBE - Kommandozeilen-Parameter </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="PBE - Kommandozeilen-Parameter ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/doc/pbe/commandline-parameter.md/#L1">
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="pbe---kommandozeilen-parameter">PBE - Kommandozeilen-Parameter</h1>
+
+<h2 id="-a----auto">-a / --auto</h2>
+<p>Automatischer Mode.</p>
+<p>Zur Absicherung gegen versehentliches Ausführen verlangt die PBE.exe beim Start eine Bestätigung durch den Benutzer.</p>
+<p>Wird dieser Parameter angegeben, erfolgt die Ausführung ohne Rückfrage.
+Bei einer automatisierten Ausführung (z.B. über einen geplanten Task) muss dieser Parmater angegeben werden.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-cmd">PBE.exe -a
+PBE.exe --auto
+</code></pre>
+<h2 id="-c----config">-c / --config</h2>
+<p>Definiert die <a href="config.html">Konfigurations-Datei</a>.</p>
+<p>Der Paramter is optional. Wird der nicht angegeben, wird die Datei <code>PBE.xml</code> im Programm-Verzeichnis verwendet.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-cmd">PBE.exe -c C:\temp\MyPBE.xml
+PBE.exe --config C:\temp\MyPBE.xml
+</code></pre>
+<h2 id="-p----param">-p / --param</h2>
+<p>Definiert Parameter-Werte, die in die Routine übergeben werden.
+Diese werden in der Konfiguration bei den <a href="config.html#parameter">Parametern</a> berücksichtigt.</p>
+<p>Die hier angegebenen Parameter-Werte haben eine höhere Priorität als die Konfigurations-Datei.
+Sie Überschreiben auch die Standard-Parameter wie z.B. <code>Weekday</code> oder <code>Title</code>.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Es können nur Parameter &quot;überschrieben&quot; werden, die in der Konfiguration definiert sind oder als Standard-Parameter exisiteren.
+Frei definierte Parameter werden NICHT berücksichtigt.</p>
+</div>
+<p>Die Paramater werden in folgendem Format übergeben:</p>
+<ul>
+<li>Parameter und Wert werden mit <code>=</code> getrennt: <code>--param Param1=Wert1</code></li>
+<li>Mehrere Parameter werden mit einem Semikolon (<code>;</code>) getrennt: <code>--param Param1=Wert1;Param2=Wert2</code></li>
+<li>Enthält ein Parameter-Wert ein Semikolon, dann muss dieses doppelt geschrieben werden: <code>--param MyValue=Ein;;Semikolon</code></li>
+</ul>
+<p>Beispiel (einen Wochenend-Lauf simulieren):</p>
+<pre><code class="lang-cmd">PBE.exe -p Weekday=Sa;ExportDir=C:\temp\TestExport
+PBE.exe --param Weekday=Sa;ExportDir=C:\temp\TestExport
+</code></pre>
+<h2 id="-l----logdir">-l / --logDir</h2>
+<p>Gibt das Verzeichnis an, in dem die Log-Dateien geschrieben werden sollen.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-cmd">PBE.exe -c C:\temp\MyPBE.xml -l C:\temp\LogFiles
+PBE.exe --config C:\temp\MyPBE.xml --logDir C:\temp\LogFiles
+</code></pre>
+<h2 id="-f----filter">-f / --filter</h2>
+<p>Es werden die Namen der Tasks angegeben, die ausgeführt werden sollen.
+Es können auch Tasks in einer tieferen Ebene angegeben werden.
+Die Umschließenden Tasks werden automatisch mit in die Ausführung eingeschlossen.</p>
+<p>Mehrere Filter werden mit einem Doppelpunkt (<code>:</code>) getrennt.</p>
+<p>Beispiel:</p>
+<pre><code class="lang-cmd">PBE.exe -f Task1:Task2
+PBE.exe --filter Task1:Task2
+</code></pre>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -63,14 +63,29 @@ body[data-yaml-mime=ApiPage] article .header-action {
   display: none
 }
 
-.navbar,
+.navbar{
+  background-color: #052D41;
+}
 footer {
-  background-color: #EFF5FB;
+  background-color: #EDF3FA;
 }
 
-[data-bs-theme=dark] .navbar,
 [data-bs-theme=dark] footer {
-  background-color: #06132C;
+  background-color: #052D41;
+}
+
+/* Wegen dem dunklen Header im Light-Theme müssen die Texte Weiß sein */
+[data-bs-theme=light] .navbar{
+  --bs-navbar-color: rgba(255, 255 ,255 , .65);
+  --bs-navbar-hover-color: rgba(255, 255 ,255, .8);
+  --bs-navbar-disabled-color: rgba(255, 255 ,255, .3);
+  --bs-navbar-active-color: rgba(255, 255 ,255, 1);
+}
+[data-bs-theme=light] #navbar .btn{
+  --bs-btn-color: var(--bs-navbar-color);
+  --bs-btn-hover-color: var(--bs-navbar-hover-color);
+  --bs-btn-disabled-color: var(--bs-navbar-disabled-color);
+  --bs-btn-active-color: var(--bs-navbar-active-color);
 }
 
 ol,

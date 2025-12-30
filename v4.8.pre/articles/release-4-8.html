@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta1/docs/articles/release-4-8.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta2/docs/articles/release-4-8.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,6 +87,38 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-48">Release-Information Framework Studio 4.8</h1>
 
+<h2 id="480-beta-2-09012026">4.8.0 Beta 2 (09.01.2026)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.8.0_Beta_2_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuer-html-client">Neuer HTML Client</h4>
+<p>Der HTML Client hat das neue Branding erhalten.
+Auf der Startseite des MobileClients wird nun die Versionsnummer angezeigt.</p>
+<h4 id="verbesserung-client-broker-kommunikation">Verbesserung Client Broker Kommunikation</h4>
+<p>Uns wurden vermehrt Probleme bei der Client Broker Kommunikation gemeldet.
+Diese äußern sich in, mit der &quot;Bitte Warten&quot;-Meldung, stehenbleibende Clients. In der FS Client Launcher Console wird zudem folgendes Log wiederholt ausgegeben:
+<code>Invalid RequestCounter: 1204 expected: 1203</code> (Zahlen sind beispielhaft).
+Die genaue Ursache ist weiterhin nicht klar, muss aber in der Infrastruktur liegen. So hilft beispielsweise die Kommunikation über HTTPS/SSL laufen zu lassen.</p>
+<p>Die Verbesserung sieht nun vor, dass der verlorene Request erneut gesendet wird.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2025118933 - <strong>Broker</strong>: Das FormatPattern aus dem MDT wird nicht an den
+HtmlClient übertragen. Erst bei einer Überschreibung im Form wird das
+Pattern übertragen.</p>
+</li>
+<li><p>2025129010 - <strong>Broker</strong>: Wird ein Broker mit sehr vielen Packages im IIS
+gepublisht und der Stand beinhaltet zu viele MLKeys, dann stürzt die
+w3wp.exe unmittelbar nach dem Start mit einer StackOverflow-Exception ab.
+(Eventlog Fehlercode 0xc00000fd)</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die Korrektur findet in der Code-Generierung von Ressources statt. Vor einem
+Publish muss das betroffene Package neu kompiliert werden.</p>
+</div>
+</li>
+</ul>
 <h2 id="480-beta-1-05122025">4.8.0 Beta 1 (05.12.2025)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -103,7 +135,7 @@ Das entspricht Chromium 142.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2025/v8-14-0/">https://teamdev.com/jxbrowser/release-notes/2025/v8-14-0/</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <p>In der Version 4.8 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-7.html">Framework Studio 4.7.12</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben:</p>
 <ul>

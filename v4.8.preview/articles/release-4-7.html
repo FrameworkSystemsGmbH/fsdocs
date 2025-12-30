@@ -87,21 +87,22 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
-<h2 id="4712-hotfix-1-10122025">4.7.12 Hotfix 1 (10.12.2025)</h2>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Da es sich um ein sehr spezielles Problem handelt, das bisher nur einmal gemeldet wurde, findet keine generelle Auslieferung statt.
-Mit dem nächsten Service-Release Anfang Januar ist der Fix enthalten.
-Bei dringendem Bedarf kann die Hotfix-Version über den Support angefragt werden.</p>
-</div>
+<h2 id="4713-09012026">4.7.13 (09.01.2026)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
-<li>FS_4.7.12_Fix_1_Setup_x64</li>
+<li>FS_4.7.13_Setup_x64</li>
 </ul>
+<h4 id="neuer-html-client">Neuer HTML Client</h4>
+<p>Der HTML Client hat das neue Branding erhalten.
+Auf der Startseite des MobileClients wird nun die Versionsnummer angezeigt.</p>
 <h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
 <ul>
+<li><p>2025118933 - <strong>Broker</strong>: Das FormatPattern aus dem MDT wird nicht an den
+HtmlClient übertragen. Erst bei einer Überschreibung im Form wird das
+Pattern übertragen.</p>
+</li>
 <li><p>2025129010 - <strong>Broker</strong>: Wird ein Broker mit sehr vielen Packages im IIS
-gepublisht und der Stand beinhaltet zu viele MLKeys, dann stürtzt die
+gepublisht und der Stand beinhaltet zu viele MLKeys, dann stürzt die
 w3wp.exe unmittelbar nach dem Start mit einer StackOverflow-Exception ab.
 (Eventlog Fehlercode 0xc00000fd)</p>
 <div class="NOTE">

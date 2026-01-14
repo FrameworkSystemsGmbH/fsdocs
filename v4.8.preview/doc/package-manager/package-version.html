@@ -90,6 +90,38 @@
 <p>In der Baumstruktur des Package Managers werden unterhalb eines Packages alle definierten Entwicklungsstände (Versionen) mit dem Symbol <img src="../media/icon-package-version.png" alt="icon-package-version.png"> für <strong>Version</strong> dargestellt.</p>
 <p>Durch Doppelklick auf eine Version wird ein Fenster geöffnet, in dem alle Einstellungen zu der Version vorgenommen werden können.</p>
 <p><img src="media/package-version.png" alt="package-version.png"></p>
+<h4 id="info-text">Info Text</h4>
+<p>Falls es zu der Package-Version eine Information gibt, wird diese ganz oben in dem sich öffnenden Fenster in einem farblich hervorgehobenen Banner angezeigt.</p>
+<p>Die farbliche Hervorhebung entspricht folgender Regel:</p>
+<table>
+<thead>
+<tr>
+<th>Grund</th>
+<th>Stufe</th>
+<th>Farbe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UsingHierarchy ungültig</td>
+<td>Error</td>
+<td>Rot</td>
+</tr>
+<tr>
+<td>Package-Versionen mit Compilebedarf, weil sich der Workspace der Basis-Package-Version geändert hat</td>
+<td>Warning</td>
+<td>Gelb</td>
+</tr>
+<tr>
+<td>Fixierte Packages oder Sealed Packages deren Workspace der Basis-Package-Version sich geändert hat</td>
+<td>Info</td>
+<td>Cyan</td>
+</tr>
+</tbody>
+</table>
+<p>In der Baumstruktur werden diese Farben ebenfalls angewendet.
+Dabei werden die Farben der Package-Versionen (ausgeschlossen Branches und Hotfixes) auch auf das Package angewendet.
+So wird sichergestellt, dass auch wenn das Package eingeklappt ist, die Info visuell auffällt.</p>
 <h4 id="package">Package</h4>
 <p>Name des Package Herstellers (<strong>nicht editierbar</strong>).</p>
 <h4 id="version-name">Version Name</h4>
@@ -131,7 +163,7 @@ Siehe auch <a href="../weitere-themen/service-release-modus.html">Service-Releas
 <h4 id="button-status">Button <strong>Status…</strong></h4>
 <p>Öffnet einen Dialog zum Festlegen einer Statusmeldung, die jedem Nutzer dieser Package Version beim Einloggen und in der Entwicklungsumgebung selbst angezeigt wird.</p>
 <p><img src="media/package-version-state.png" alt="package-version-state.png"></p>
-<p>Wird kein Informationstext angegeben, so wird der Status nicht angezeigt. Ansonsten ist er an den unten aufgeführten Positionen in der Entwicklungsumgebung sichtbar. Wird in der Combobox <strong>Name</strong> ein Status ausgewählt, dann gelten die Einstellungen, die in dem entprechenden Dialog gepflegt sind und es wird, sofern vorhanden, an allen Stellen zusätzlich der als nächstes greifende Status angezeigt.</p>
+<p>Wird kein Informationstext angegeben, so wird der Status nicht angezeigt. Ansonsten ist er an den unten aufgeführten Positionen in der Entwicklungsumgebung sichtbar. Wird in der Combobox <strong>Name</strong> ein Status ausgewählt, dann gelten die Einstellungen, die in dem entsprechenden Dialog gepflegt sind und es wird, sofern vorhanden, an allen Stellen zusätzlich der als nächstes greifende Status angezeigt.</p>
 <ul>
 <li>Login Dialog in der Detailbeschreibung zu einer Package Version:</li>
 </ul>

@@ -171,7 +171,7 @@ Publish muss das betroffene Package neu kompiliert werden.</p>
 <h5>Important</h5>
 <p>Mit dem Umbau des Globals und der Ausführung der Maintenance-Routine <code>Remove Global Cleanup</code> wurden ggf. Codestellen, welche nicht automatisch korrigiert werden können, mit einem Kommentar versehen.
 Leider ist uns jetzt aufgefallen, dass hierfür keine Dokumentation erfasst wurde.
-Eine manuelle Nacharbeit ist aber gegebenfalls notwendig und wichtig - vor allem wenn mit eigenen Globals gearbeitet wird.
+Eine manuelle Nacharbeit ist aber gegebenenfalls notwendig und wichtig - vor allem wenn mit eigenen Globals gearbeitet wird.
 Wir empfehlen im Code nach <code>WARNINGGLOBAL</code> zu suchen. Sollte es Treffer in Ihrem Code geben, müssen Sie diese nacharbeiten.
 Erklärung zur Vorgehensweise finden Sie im <a href="../doc/maintenance/remove-global-cleanup.html">Maintenance Kapitel</a>.</p>
 </div>
@@ -224,7 +224,7 @@ entsprechend überschrieben werden.</p>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
 <h4 id="updates-2">Updates</h4>
 <ul>
-<li>DevExpress wurde auf Version 25.1.5 upgedated.</li>
+<li>DevExpress wurde auf Version 25.1.5 aktualisiert.</li>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 138.0.170 upgedatet.</li>
 </ul>
 <h4 id="neuerungen-2">Neuerungen</h4>
@@ -296,12 +296,12 @@ Remotedesktop funktioniert die IDE.</p>
 Code-Generierung keinen umschließenden SourceTag und werden deshalb bei der
 Search und im Errors und Warnings Fenster nicht korrekt verlinkt.</p>
 </li>
-<li><p>2025098473 - <strong>Package Manager</strong>: Ein Package setzt auf 2 unabhänigen
+<li><p>2025098473 - <strong>Package Manager</strong>: Ein Package setzt auf 2 unabhängigen
 Customzing-Packages auf, in denen jeweils eine Component aus dem gemeinsamen
 Basis-Package customized ist. In diesem Package wurde die Component
 ebenfalls customized und dann wieder gelöscht. Wird das Package zu einem
 späteren Zeitpunkt in den Service-Release-Modus versetzt, dann wird am Ende
-des Compiles eine Fehlermeldung ausgegeben: &quot;<em>Error in Transfer Saved Code&quot;</em></p>
+des Compiles eine Fehlermeldung ausgegeben: <em>&quot;Error in Transfer Saved Code&quot;</em></p>
 </li>
 </ul>
 <h2 id="479-05092025">4.7.9 (05.09.2025)</h2>
@@ -336,7 +336,7 @@ Chromium 138.</p>
 </li>
 <li><p>2025078291 - <strong>IDE</strong>: In mehreren GridViews ist nach einer Umstellung der
 dahinterliegenden Controls die alphabetische Sortierung nicht mehr möglich.
-Die betroffenen Oberflächen sind unteranderem die Repository-Auswahl und die
+Die betroffenen Oberflächen sind unter anderem die Repository-Auswahl und die
 Query Tabpage, DependsOn und ControlType-Auswahl bei den Components.</p>
 </li>
 <li><p>2025088344 - <strong>IDE</strong>: Beim Start der IDE verwenden wir den HttpListener für
@@ -486,7 +486,7 @@ loading provider assembly.</p>
 </li>
 <li><p>2025057952 - <strong>Package-Manager</strong>: Wenn beim Export einer Package-Version die
 Checkbox <code>Include Base Packages</code> gesetzt ist und eine base Package-Version
-ein HotFix ist, wird für diese sowhol SR, als auch Full Package Export
+ein HotFix ist, wird für diese sowohl SR, als auch Full Package Export
 angeboten. Der Export ist aber immer ein Full-Export.</p>
 </li>
 <li><p>2025068000 - <strong>Package-Manager</strong>: Wird eine Package-Version, welche sich im
@@ -557,7 +557,7 @@ Dieser Fehler wurde uns nun häufiger gemeldet, deshalb möchten wir Sie bitten 
 <ul>
 <li><p>2025037564 - <strong>IDE</strong>: Werden Component- oder DataContract-Properties gelöscht,
 welche in grafischen Transformationen zugeordnet sind, dann fällt diese
-Zuordnung ohne weiteren Hinweis auf die darüberliegende Ebene zurück.
+Zuordnung ohne weiteren Hinweis auf die darüber liegende Ebene zurück.
 Infolgedessen erzeugt die Code-Generierung fehlerhafte Zuordnungen, welche
 zur Runtime zu einer <code>InvalidCastException</code> führen können.</p>
 <div class="NOTE">
@@ -691,7 +691,7 @@ Unterstrich wird durch einen Punkt erstzt.
 <code>oObject.oP01.MyColl.shtK07.MyProperty</code> anstatt zu
 <code>oObject.oP01_MyColl.shtK07_MyProperty</code></p>
 </li>
-<li><p>2025017187 - <strong>IDE</strong>: Der MultiLanguageText-Editor erzeugt Excpetions, wenn es
+<li><p>2025017187 - <strong>IDE</strong>: Der MultiLanguageText-Editor erzeugt Exceptions, wenn es
 einen überschriebenen Text ohne passenden Text aus dem Basis-Package gibt.</p>
 </li>
 <li><p>2025017272 - <strong>Code-Generierung</strong>: Wenn man eine Code-Transformation
@@ -699,7 +699,7 @@ customized, dann erzeugt falsch generierter Code einen Compile-Error &quot;Type
 expected&quot;.</p>
 </li>
 <li><p>2024096531 - <strong>DevExpress</strong>: Wird in einem Report mit Gruppen in einigen
-Positionen eine RunningSum angezigt, dann stimmt der angezeigte Wert nicht.
+Positionen eine RunningSum angezeigt, dann stimmt der angezeigte Wert nicht.
 Es handelt sich um einen Fehler in DevExpress:
 <a href="https://supportcenter.devexpress.com/ticket/details/t1255491">https://supportcenter.devexpress.com/ticket/details/t1255491</a></p>
 </li>

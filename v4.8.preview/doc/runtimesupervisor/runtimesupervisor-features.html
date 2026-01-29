@@ -146,7 +146,15 @@
 <p>Kann ein Event innerhalb von 10 Minuten, aus welchem Grund auch immer, nicht am Runtime Supervisor verarbeitet werden, so wird dieses automatisch aus dem Log Store entfernt und in das Standard-Log des Observables geschrieben (Windows Event Log).</p>
 <p>Die Überprüfung, ob sich Events, die älter als 10 Minuten sind, im Log Store befinden, erfolgt jede Minute einmal.</p>
 <h2 id="versenden-von-emails">Versenden von eMails</h2>
-<p>Das Versenden von eMails durch den Runtime Supervisor erfolgt über den .NET SMTP Client. Beim Eingang eines Event Logs am Runtime Supervisor wird überprüft, ob SMTP für den Runtime Supervisor aktiviert wurde (siehe Kapitel <a href="runtimesupervisor-ui.html#smtp">SMTP</a>). Ist dies der Fall, dann werden alle Empfänger überprüft, die für den Event Log Level (Error, Warning, etc.) des eingegangenen Events eine Nachricht erhalten sollen (siehe Kapitel <a href="runtimesupervisor-ui.html#alerting">SMTP</a>). Anschließend wird die eMail generiert und an jeden Empfänger versendet.</p>
+<p>Für das Versenden von eMails durch den Runtime Supervisor gibt es zwei Möglichkeiten:</p>
+<ol>
+<li><a href="runtimesupervisor-ui.html#smtp">SMTP</a> (.NET SMTP Client)</li>
+<li><a href="runtimesupervisor-ui.html#oauthgraph">OAuth/Graph</a>  (Microsoft.Graph API und Azure.Identity Bibliothek)</li>
+</ol>
+<p>Der Ablauf ist dabei immer gleich.
+Beim Eingang eines Event Logs am Runtime Supervisor wird überprüft, ob SMTP oder Graph für den Runtime Supervisor aktiviert wurde.
+Ist dies der Fall, dann werden alle Empfänger überprüft, die für den Event Log Level (Error, Warning, etc.) des eingegangenen Events eine Nachricht erhalten sollen (siehe Kapitel <a href="runtimesupervisor-ui.html#alerting">Alerting</a>).
+Anschließend wird die eMail generiert und an jeden Empfänger versendet.</p>
 <h3 id="generierung-der-emails">Generierung der eMails</h3>
 <p><img src="media/image42.png" alt="eMail vom Runtime Supervisor in Outlook"></p>
 <p>Der Betreff der eMail beinhaltet Typ und Name des Observables. Im Text erscheint an erster Stelle das Event Log mit seinem Event Log Level und der Uhrzeit, zu der das Event am Observable aufgetreten ist. Danach kommt der eigentliche Text des Event Logs.</p>

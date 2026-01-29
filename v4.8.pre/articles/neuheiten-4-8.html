@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta2/docs/articles/neuheiten-4-8.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta3/docs/articles/neuheiten-4-8.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -111,7 +111,7 @@ Bei Customizing-Reports wird ggf. auf die DevExpress-Variante des Basis-Packages
 <p>In der IDE können die Crystal Reports für die Migration angezeigt werden.
 Siehe auch <a href="../doc/reporting/report-document-type.html#registerkarte-report-files">Report Document Type</a>.</p>
 <h2 id="dependency-injection">Dependency Injection</h2>
-<p>Für die Verwendung von Dependency Injection in FS wird nun Infrastruktur bereitsgestellt.
+<p>Für die Verwendung von Dependency Injection in FS wird nun Infrastruktur bereitgestellt.
 Außerdem wurden einige Kern-Funktionalitäten bereits auf Dependency Injection umgebaut.</p>
 <div class="IMPORTANT">
 <h5>Important</h5>
@@ -119,7 +119,7 @@ Außerdem wurden einige Kern-Funktionalitäten bereits auf Dependency Injection 
 </div>
 <div class="TIP">
 <h5>Tip</h5>
-<p>Beachten Sie die umfassende Erklärung wie <a href="../doc/konzepte/dependency-injection.html">Dependency Injection in FS</a> funktioniert, sowie die technischen <a href="../doc/konzepte/di-grundlagen.html">Grundlagen zu Dependency Injecton</a>.</p>
+<p>Beachten Sie die umfassende Erklärung wie <a href="../doc/konzepte/dependency-injection.html">Dependency Injection in FS</a> funktioniert, sowie die technischen <a href="../doc/konzepte/di-grundlagen.html">Grundlagen zu Dependency Injection</a>.</p>
 </div>
 <h2 id="skiasharp-library-eingebunden">SkiaSharp Library eingebunden</h2>
 <p>Die <a href="https://www.nuget.org/packages/SkiaSharp"><strong>SkiaSharp</strong> Library</a> ist eingebunden und kann zum Erstellen und Bearbeiten von Pixel-Grafiken verwendet werden.</p>
@@ -166,20 +166,25 @@ So können die Änderungen im Customizing besser erfasst werden.</li>
 Diese bietet den Vorteil, dass so in einem großen Tree danach gefiltert werden kann.</li>
 </ul>
 <h2 id="sql-parser-abgesichert">SQL-Parser abgesichert</h2>
-<p>Der Sql-Parser hat bisher ungültige bestandteile Bestandteile von SQL-Statements ignoriert ohne dabei einen Fehler zu werfen.
+<p>Der Sql-Parser hat bisher ungültige Bestandteile von SQL-Statements ignoriert ohne dabei einen Fehler zu werfen.
 Insbesondere unvollständige Identifier, Zeichen-Ketten oder Kommentare wurden nicht erkannt.
 Das konnte dazu führen, dass unvollständige SQL-Statements verarbeitet wurden - ggf. ohne eine Fehlermeldung.</p>
 <p>Einige Beispiele:</p>
 <pre><code class="lang-sql">-- unvollständiger Identifier [Spalte1 :
 SELECT 1 FROM Tabelle ORDER BY [Spalte1, [Spalte2]
 
--- Spontane Sonderzeichen wie z.B. #  pasen zu keiner Syntax und wurden ignoriert.
+-- Spontane Sonderzeichen wie z.B. #  passen zu keiner Syntax und wurden ignoriert.
 SELECT 1 FROM Tabelle # ORDER BY [Spalte1, [Spalte2]
 
 -- Kommentar nicht richtig beendet - Where Bedingung wurde ignoriert.
 SELECT 1 FROM Tabelle /* Ein Kommentar * / WHERE [Spalte] = 7
 </code></pre>
-<p>Derartige falsche Statements führen jetzt zu ensprchenden SQL-Fehlern.</p>
+<p>Derartige falsche Statements führen jetzt zu entsprechenden SQL-Fehlern.</p>
+<h2 id="oauthgraph-im-runtime-supervisor">OAuth/Graph im Runtime Supervisor</h2>
+<p>Der E-Mail-Versand über den Runtime Supervisor wurde erweitert.
+Es ist nun möglich E-Mails über Graph mit Hilfe von OAuth und EntraID zu versenden.</p>
+<p>Informationen zur Konfiguration finden Sie im <a href="../doc/runtimesupervisor/runtimesupervisor-ui.html#oauthgraph">RuntimeSupervisor</a>.
+Für die Konfiguration EntraID können Sie sich an der <a href="../doc/authentication-service/oidc-microsoft.html#einrichtung">OpenId Connect Einrichtung</a> orientieren.</p>
 <h2 id="java-21">Java 21</h2>
 <p>Die <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html#java-runtime">Java Version</a> des Java-Clients wurde auf Java 21 aktualisiert.
 Entsprechend dessen muss zwingend die neuste Version des <a href="requirements.html#client-launcher">FSClientLaunchers</a> <a href="../doc/fsclientlauncher/fsclientlauncher-installation.html">installiert</a> werden.</p>

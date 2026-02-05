@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta2/docs/doc/runtimesupervisor/runtimesupervisor-ui.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta3/docs/doc/runtimesupervisor/runtimesupervisor-ui.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -295,7 +295,7 @@
 <p>Standard: 30 Tage</p>
 <p>Mindestwert: 3 Tage</p>
 <p><strong>Run the delete task at:</strong></p>
-<p>Gibt an, um wieviel Uhr die nicht mehr benötigten Events tatsächlich aus der Datenbank gelöscht werden. Dieser Task läuft täglich.</p>
+<p>Gibt an, um wie viel Uhr die nicht mehr benötigten Events tatsächlich aus der Datenbank gelöscht werden. Dieser Task läuft täglich.</p>
 <p>Standard: 02:00 Uhr</p>
 <p><strong>Confirm incoming events of type:</strong></p>
 <p>Nicht jedes Event, welches an den Runtime Supervisor gemeldet wird, ist von so hohem Informationsgehalt, dass eine manuelle Bestätigung seitens des IT-Verantwortlichen notwendig ist. Meist sind das Events vom Typ “Information”.</p>
@@ -319,19 +319,36 @@
 <p><img src="media/image32.png" alt="Settings – SMTP"></p>
 <p>Soll das automatische Alerting-System des Runtime Supervisor genutzt werden, muss dies über die SMTP-Einstellungen aktiviert werden. Sind die SMTP-Daten korrekt angegeben und sind im Reiter “Alerting” aktive Empfänger eingetragen, versendet der Runtime Supervisor beim Eingang eines Events eine eMail an jeden Empfänger, der für den Event-Typ des Events freigeschaltet ist.</p>
 <p><strong>Enabled:</strong></p>
-<p>Aktiviert oder deaktiviert das Versenden von eMails beim Eingang von Events.</p>
+<p>Aktiviert oder deaktiviert das Versenden von eMails beim Eingang von Events.
+SMTP Enabled und Graph Enabled schließen sich gegenseitig aus.
+Ist Graph aktiv und SMTP wird aktiviert, so wird Graph automatisch deaktiviert.
+Dies wird beim Speichern entsprechend berücksichtigt.</p>
 <p><strong>Server or IP:</strong></p>
 <p>Der Name oder die IP des zu verwendenden Mailservers.</p>
 <p><strong>Security:</strong></p>
 <p>Die Verschlüsselung, die zum Versenden der eMails genutzt werden soll. Wird die Auswahl geändert, wird im Feld „Port“ der zur Verschlüsselungsart zugehörige Standardport eingetragen</p>
-<p><strong>Verschlüsselung</strong></p>
-<p><strong>Port</strong></p>
-<p>None</p>
-<p>25</p>
-<p>STARTTLS</p>
-<p>587</p>
-<p>SSL/TLS</p>
-<p>465</p>
+<table>
+<thead>
+<tr>
+<th>Verschlüsselung</th>
+<th>Port</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>None</td>
+<td>25</td>
+</tr>
+<tr>
+<td>STARTTLS</td>
+<td>587</td>
+</tr>
+<tr>
+<td>SSL/TLS</td>
+<td>465</td>
+</tr>
+</tbody>
+</table>
 <p><strong>Port:</strong></p>
 <p>Der Port, der zum Versenden der eMails genutzt werden soll.</p>
 <p><strong>User:</strong></p>
@@ -344,7 +361,40 @@
 <p>Die eMail-Adresse, die zum Versenden der eMails genutzt werden soll.</p>
 <p><strong>Sender Name:</strong></p>
 <p>Der Anzeigename des Versenders der eMail (wird nicht von allen eMail Clients unterstützt).</p>
-<p><strong>Send mail as HTML:</strong></p>
+<p><strong>Send mails as HTML:</strong></p>
+<p>Die eMails werden im HTML-Format optisch etwas aufgewertet versendet (wird nicht von allen eMail Clients unterstützt).</p>
+<h3 id="oauthgraph">OAuth/Graph</h3>
+<p><img src="media/image32_2.png" alt="Settings Graph"></p>
+<p>Soll das automatische Alerting-System des Runtime Supervisor genutzt werden, muss dies über die Graph-Einstellungen aktiviert werden.
+Sind die Graph-Daten korrekt angegeben und sind im Reiter “Alerting” aktive Empfänger eingetragen, versendet der Runtime Supervisor beim Eingang eines Events eine eMail an jeden Empfänger, der für den Event-Typ des Events freigeschaltet ist.</p>
+<p><strong>Enabled:</strong></p>
+<p>Aktiviert oder deaktiviert das Versenden von eMails beim Eingang von Events.
+SMTP Enabled und Graph Enabled schließen sich gegenseitig aus.
+Ist Graph aktiv und SMTP wird aktiviert, so wird Graph automatisch deaktiviert.
+Dies wird beim Speichern entsprechend berücksichtigt.</p>
+<p><strong>User Principal Name:</strong></p>
+<p>Identifier aus Azure, der den User identifiziert.
+Meistens ist das die eMail-Adresse des Users.
+Für den Versand der eMails wird die im User spezifizierte eMail-Adresse genutzt.
+Der User muss also ein funktionierendes Postfach haben!</p>
+<p><strong>Application Id (Client):</strong></p>
+<p>Das ist die Anwendungs-Id der in Azure registrierten Anwendung, die für den eMail Versand genutzt werden soll.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>In der genutzten Anwendung muss die Berechtigung <code>Mail.Send</code> auf <em>Anwendungsebene</em> gesetzt sein!</p>
+</div>
+<p><strong>Tenant Id:</strong></p>
+<p>Das ist die Tenant Id (Mandant / Verzeichnis), die zu der in Azure registrierten Anwendung gehört.</p>
+<p><strong>Client Secret:</strong></p>
+<p>Für die Kommunikation des RuntimeSupervisors mit der Anwendung muss ein Client Secret hinterlegt werden.
+Dies gibt dem RuntimeSupervisor die Möglichkeit sich bei der Anwendung zu verifizieren.
+Das Secret muss separat in der Anwendung angelegt werden.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Das Client Secret hat immer eine bestimmte Gültigkeit.
+Wenn das Secret abgelaufen ist, können keine eMails mehr versendet werden.</p>
+</div>
+<p><strong>Send mails as HTML:</strong></p>
 <p>Die eMails werden im HTML-Format optisch etwas aufgewertet versendet (wird nicht von allen eMail Clients unterstützt).</p>
 <h3 id="alerting">Alerting</h3>
 <p><img src="media/image33.png" alt="Settings – Alerting"></p>

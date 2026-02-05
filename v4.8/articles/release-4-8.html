@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta2/docs/articles/release-4-8.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta3/docs/articles/release-4-8.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,6 +87,63 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-48">Release-Information Framework Studio 4.8</h1>
 
+<h2 id="480-beta-3-06022026">4.8.0 Beta 3 (06.02.2026)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.8.0_Beta_3_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Die farbliche Hervorhebung des <a href="../doc/package-manager/package-version.html#info-text">Info-Texts</a> für Package-Versionen im PackageManager wurde angepasst.</li>
+<li>Die PBE wurde aktualisiert. Denken Sie daran diese Änderung in Ihre außerhalb von FS positionierten PBE zu übernehmen.</li>
+</ul>
+<h4 id="oauthgraph-im-runtime-supervisor">OAuth/Graph im Runtime Supervisor</h4>
+<p>Der E-Mail-Versand über den Runtime Supervisor wurde erweitert.
+Es ist nun möglich E-Mails über Graph mit Hilfe von OAuth und EntraID zu versenden.</p>
+<p>Informationen zur Konfiguration finden Sie im <a href="../doc/runtimesupervisor/runtimesupervisor-ui.html#oauthgraph">RuntimeSupervisor</a>.
+Für die Konfiguration EntraID können Sie sich an der <a href="../doc/authentication-service/oidc-microsoft.html#einrichtung">OpenId Connect Einrichtung</a> orientieren.</p>
+<h4 id="invalidrequest-counter---verbesserung-der-client-broker-kommunikation">InvalidRequest Counter - Verbesserung der Client-Broker-Kommunikation</h4>
+<p>Uns wurde in den letzten Monaten vermehrt das Problem gemeldet, dass es vereinzelt Clients gibt, welche mehrmals am Tag in den &quot;Bitte warten&quot;-Dialog laufen und diesen nicht mehr verlassen.
+Ein Weiterarbeiten mit dieser Instanz ist nicht möglich, der Client muss über den Taskmanager beendet werden.
+In der FS Client Launcher Console wird gleichzeitig folgender Fehler geschrieben: <code>Invalid RequestCounter: 1204 expected: 1203</code></p>
+<p>Zumeist trifft dies Clients, welche nicht im gleichen Netz wie der Broker arbeiten. Den genauen Fehler konnten wir bis jetzt nicht identifizieren.
+Wir vermuten aber, dass Firewall, VirenScanner oder andere Sicherheitsinfrastrukturen den Fehler herbeiführen.</p>
+<p>Wir haben nun einen Retry Mechanismus eingebaut, welcher verlorene Requests erneut an den Broker sendet. Es werden maximal drei Request-Retries ausgeführt.</p>
+<p>Dieser wird in der FS Client Launcher Console wie folgt angegeben:
+&quot;Invalid RequestCounter: X expected: Y. The request for this progress got probably lost. Retry request.&quot;</p>
+<h4 id="updates">Updates</h4>
+<ul>
+<li>Angular wurde auf die Version 20.3.16 aktualisiert.
+Das betrifft folgende Systeme:
+<ul>
+<li>den in FS integrierte Code-Editor <code>Monaco</code>,</li>
+<li>das Dokumentations-System,</li>
+<li>die StartPage,</li>
+<li>und den HTML Client.</li>
+</ul>
+</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2025129069 - <strong>Reporting</strong>: Beim Export eines Reports werden die gesetzten
+Exportoptionen am Report nicht berücksichtigt, sondern durch Defaultwerte
+überschrieben.</p>
+</li>
+<li><p>2026019107 - <strong>PBE</strong>: Beim <a href="../doc/pbe/aktionen.html#knoten-import">Import</a> eines Packages über die PBE muss der
+Dateiname mit dem tagesaktuellen Datum im Format 'yyyy-mm-dd_' beginnen,
+sonst wird die ImportDatei nicht gefunden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Es gibt nun einen optionalen Parameter <code>ImportFilePrefix</code>, mit dem dieses
+Datum eingestellt werden kann.</p>
+</div>
+</li>
+<li><p>2026019176 - <strong>Java-Client</strong>: links, rechts, oben und unten angedockte
+Dialoge, die automatisch ausgeblendet werden, können nicht mehr in der Größe
+verändert werden.</p>
+</li>
+</ul>
 <h2 id="480-beta-2-09012026">4.8.0 Beta 2 (09.01.2026)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -96,20 +153,14 @@
 <h4 id="neuer-html-client">Neuer HTML Client</h4>
 <p>Der HTML Client hat das neue Branding erhalten.
 Auf der Startseite des MobileClients wird nun die Versionsnummer angezeigt.</p>
-<h4 id="verbesserung-client-broker-kommunikation">Verbesserung Client Broker Kommunikation</h4>
-<p>Uns wurden vermehrt Probleme bei der Client Broker Kommunikation gemeldet.
-Diese äußern sich in, mit der &quot;Bitte Warten&quot;-Meldung, stehenbleibende Clients. In der FS Client Launcher Console wird zudem folgendes Log wiederholt ausgegeben:
-<code>Invalid RequestCounter: 1204 expected: 1203</code> (Zahlen sind beispielhaft).
-Die genaue Ursache ist weiterhin nicht klar, muss aber in der Infrastruktur liegen. So hilft beispielsweise die Kommunikation über HTTPS/SSL laufen zu lassen.</p>
-<p>Die Verbesserung sieht nun vor, dass der verlorene Request erneut gesendet wird.</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025118933 - <strong>Broker</strong>: Das FormatPattern aus dem MDT wird nicht an den
 HtmlClient übertragen. Erst bei einer Überschreibung im Form wird das
 Pattern übertragen.</p>
 </li>
 <li><p>2025129010 - <strong>Broker</strong>: Wird ein Broker mit sehr vielen Packages im IIS
-gepublisht und der Stand beinhaltet zu viele MLKeys, dann stürzt die
+gepublished und der Stand beinhaltet zu viele MLKeys, dann stürzt die
 w3wp.exe unmittelbar nach dem Start mit einer StackOverflow-Exception ab.
 (Eventlog Fehlercode 0xc00000fd)</p>
 <div class="NOTE">
@@ -127,7 +178,7 @@ Publish muss das betroffene Package neu kompiliert werden.</p>
 <li>FS_4.8.0_Requirements_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <p>Beachten Sie die <a href="neuheiten-4-8.html">Neuheiten FrameworkStudio 4.8</a>, sowie die Anleitung für das <a href="update-4-8/update-4-8.html">Update 4.8</a>!</p>
 <h4 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde auf Version 8.14.0 aktualisiert.
@@ -135,7 +186,7 @@ Das entspricht Chromium 142.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2025/v8-14-0/">https://teamdev.com/jxbrowser/release-notes/2025/v8-14-0/</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <p>In der Version 4.8 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-7.html">Framework Studio 4.7.12</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben:</p>
 <ul>

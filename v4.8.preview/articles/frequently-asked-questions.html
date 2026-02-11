@@ -101,9 +101,11 @@ Unter anderem werden wir hier auch bekannte Fehler-Stacktraces auflisten und der
 <li>Ggf. Speicherort auswählen und <code>OK</code> drücken</li>
 <li>Die erstellte Backup-Datei auf dem FTP hochladen und uns benachrichten, dass das Backup hochgeladen wurde.</li>
 </ol>
-<h2 id="framework-studio-stürzt-beim-initializing-ab---fehlercode-c06d007e">Framework Studio stürzt beim Initializing ab - Fehlercode c06d007e</h2>
+<h2 id="framework-studio">Framework Studio</h2>
+<h3 id="framework-studio-stürzt-beim-initializing-ab---fehlercode-c06d007e">Framework Studio stürzt beim Initializing ab - Fehlercode c06d007e</h3>
 <p>Dies ist ein bekanntes Problem ab FS 4.5.34.
 Bei Verwendung von Framework Studio über die Console oder TeamViewer auf einem Windows Server 2016 oder Windows Server 2019 kommt es zu Abstürzen.</p>
+<p><img src="media/fs-stopped-working.png" alt="Fehlermeldung - FS stopped working"></p>
 <p>Wir nutzen intern den CefSharp Browser, welcher wiederum auf Basis des Chromium Browsers arbeitet.
 Chromium hat die intern verwendete Windows SDK upgedatet und verwendet nun die Windows SDK Version 10.0.26100.1742.
 Die Datei d3dcompiler_47.dll im neuen SDK versucht Versionen der Universal C Runtime (UCRT) dynamisch zu laden, die auf
@@ -114,7 +116,26 @@ Die Datei d3dcompiler_47.dll im neuen SDK versucht Versionen der Universal C Run
 </ul>
 <p>Diese Änderung muss nach jeder Installation und jedem Update vorgenommen werden!</p>
 <p>Da Windows Server 2019 bereits seit Januar 2024 aus dem Mainstream-Support gefallen ist, wird es von CefSharp keine Lösung geben. Aus diesem Grund empfehlen auch wir das Update auf eine neuere Windows Server Version.</p>
-<h2 id="java-applikation-java-exception-null">Java-Applikation <code>Java-Exception: null</code></h2>
+<h3 id="exception-code-analysis-has-been-disabled-in-this-code-editor">Exception Code Analysis has been disabled in this code editor</h3>
+<pre><code class="lang-csharp">Code Analysis has been disabled in this code editor because generating code took too long (17,5s)!
+Exception in diagnostics task:
+System.Exception: Error creating code for NV.ERP.MM.Sales.cfrmSalesOrder
+</code></pre>
+<p>Bei dieser Meldung im Output-Fenster handelt es sich um einen Schutz-Mechanismus und nicht um einen &quot;Fehler&quot;.</p>
+<p>Der Code-Editor führt recht aufwändige Analysen durch, damit die (potentiellen) Compile-Error unmittelbar beim Bearbeiten im Code
+kenntlich gemacht werden.
+Dauert diese Analyse zu lange kann das dazu führen, dass Framework Studio praktisch lahmgelegt wird, sobald im Code-Editor getippt wird.
+Arbeiten ist dann nicht mehr möglich.
+Um genau diese Blockade zu verhindern, schalten wir diese Analyse ab, wenn die Ermittlung beim ersten Aufruf länger als 10 Sekunden
+oder bei einem erneuten Aufruf länger als 5 Sekunden dauert.</p>
+<p>Im genannten Beispiel waren es 17,1 Sekunden.</p>
+<h2 id="java-applikation">Java Applikation</h2>
+<h3 id="betriebssystem-macos-applikation-unterstützung">Betriebssystem MacOS Applikation Unterstützung</h3>
+<p>MacOS unterstützen wir seit einiger Zeit nicht mehr.
+Wir gewährleisten auch keinen Support hierfür .
+Auf eigenes Risiko kann natürlich mit Java 8 ein Betrieb von eNVenta ERP versucht werden.</p>
+<p>Änderungen sind hier in der Zukunft nicht geplant.</p>
+<h3 id="java-exception-null">Java-Exception: null</h3>
 <p>Beim Start der Java-Applikation wird folgender oder ähnlicher Fehler ausgegeben:</p>
 <pre><code class="lang-csharp">Java-Exception: null
  
@@ -146,36 +167,29 @@ Die Datei d3dcompiler_47.dll im neuen SDK versucht Versionen der Universal C Run
   at  java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
   at  java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
 </code></pre>
-<h3 id="ursache-systemvoraussetzung">Ursache Systemvoraussetzung</h3>
+<h4 id="ursache-systemvoraussetzung">Ursache Systemvoraussetzung</h4>
 <p>Seit Version FS 4.5 verwendet FrameworkStudio den JxBrowser.
 Hierzu gibt es folgenden Hinweis in unserer Neuheiten-Dokumentation:
 <a href="https://frameworksystemsgmbh.github.io/fsdocs/v4.5/articles/neuheiten-4-5.html#neues-browser-control---austausch-des-javafx-browsers">https://frameworksystemsgmbh.github.io/fsdocs/v4.5/articles/neuheiten-4-5.html#neues-browser-control---austausch-des-javafx-browsers</a></p>
 <p>Deshalb haben wir die unterstützten Windows Versionen nach oben setzen müssen. Bitte sehen Sie sich hierfür unsere <a href="requirements.html#betriebssystem">Systemvoraussetzungen</a>.  in der Dokumentation an.</p>
 <p><strong>Lösung:</strong>
 Systeme auf die Systemvoraussetzungen updaten.</p>
-<h3 id="ursache-citrix-environment">Ursache Citrix Environment</h3>
+<p>Sollte ein Update kurzfristig nicht möglich sein, kann der jxBrowser mit folgendem Ausdruck im FS Client Launcher durch den alten Browser ersetzt werden.</p>
+<pre><code>-Dfs.browser.legacy=1
+</code></pre>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Langfristig müssen Sie jedoch Ihr System auf die entsprechenden <a href="requirements.html#betriebssystem">Systemvoraussetzungen</a> updaten, da der alte Browser in Zukunft deaktiviert wird.
+Der alte Browser deckt nicht alle Funktionen ab, welche eNVenta benötigt. Hier ist deshalb mit Einschränkungen zu rechnen.</p>
+</div>
+<h4 id="ursache-citrix-environment">Ursache Citrix Environment</h4>
 <p>Es gibt ein bekanntes Problem bei unserem neuen JxBrowser Control in Zusammenhang mit Citrix. Die Dokumentation, um dieses Problem lösen können, finden Sie <a href="https://jxbrowser-support.teamdev.com/docs/guides/deployment.html#citrix">hier</a> oder <a href="https://support.citrix.com/article/CTX107825/how-to-disable-citrix-api-hooks-on-a-perapplication-basis">hier bei Citrix direkt</a>.</p>
 <p>Es ist notwendig die Citrix API Hooks auszuschalten.</p>
-<h2 id="betriebssystem-macos-applikation-unterstützung">Betriebssystem MacOS Applikation Unterstützung</h2>
-<p>MacOS unterstützen wir seit einiger Zeit nicht mehr.
-Wir gewährleisten auch keinen Support hierfür .
-Auf eigenes Risiko kann natürlich mit Java 8 ein Betrieb von eNVenta ERP versucht werden.</p>
-<p>Änderungen sind hier in der Zukunft nicht geplant.</p>
-<h2 id="java-client-friert-bei-nutzung-von-arm-prozessoren-ein">Java-Client friert bei Nutzung von ARM-Prozessoren ein</h2>
+<h3 id="java-client-friert-bei-nutzung-von-arm-prozessoren-ein">Java-Client friert bei Nutzung von ARM-Prozessoren ein</h3>
 <p>Wenn der Java-Client ohne ersichtlichen Grund immer wieder einfriert, sollte geprüft werden, ob der genutzte Prozessor auf der ARM-Architektur basiert.
 Diese wird von unserer bereitgestellten <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html">Azul JavaRuntime</a> nicht unterstützt.</p>
-<h2 id="exception-code-analysis-has-been-disabled-in-this-code-editor-because-generating-code-took-too-long-171-s">Exception Code Analysis has been disabled in this code editor because generating code took too long (17,1 s)</h2>
-<pre><code class="lang-csharp">Code Analysis has been disabled in this code editor because generating code took too long (17,5s)!
-Exception in diagnostics task:
-System.Exception: Error creating code for NV.ERP.MM.Sales.cfrmSalesOrder
-</code></pre>
-<p>Bei dieser Meldung im Output-Fenster handelt es sich um einen Schutz-Mechanismus und nicht um einen &quot;Fehler&quot;.</p>
-<p>Der Code-Editor führt recht aufwändige Analysen durch, damit die (potentiellen) Compile-Error unmittelbar beim Bearbeiten im Code kenntlich gemacht werden.
-Dauert diese Analyse zu lange kann das dazu führen, dass Framework Studio praktisch lahmgelegt wird, sobald im Code-Editor getippt wird.
-Arbeiten ist dann nicht mehr möglich.
-Um genau diese Blockade zu verhindern, schalten wir diese Analyse ab, wenn die Ermittlung beim ersten Aufruf länger als 10 Sekunden oder bei einem erneuten Aufruf länger als 5 Sekunden dauert.</p>
-<p>Im genannten Beispiel waren es 17,1 Sekunden.</p>
-<h2 id="drucker-wird-im-namen-mit--err--angezeigt">Drucker wird im Namen mit ## ERR ## angezeigt</h2>
+<h2 id="print-service">Print Service</h2>
+<h3 id="drucker-wird-im-namen-mit--err--angezeigt">Drucker wird im Namen mit ## ERR ## angezeigt</h3>
 <p>Der Print-Service prüft beim Hochfahren alle konfigurierten Drucker.
 Wenn dabei ein Fehler auftritt (z.B. weil der Drucker nicht mehr existiert), wird der Name des betroffenen Druckers mit der Kennung ## ERR ## versehen.
 Um sicher zu gehen, können Sie auch die Log-Datei des Print-Service prüfen.</p>

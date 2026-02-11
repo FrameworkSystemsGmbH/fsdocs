@@ -87,6 +87,24 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-45">Release-Information Framework Studio 4.5</h1>
 
+<h2 id="4538-06032026">4.5.38 (06.03.2026)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.5.38_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h3 id="fs-client-launcher-48">FS Client Launcher 4.8</h3>
+<p>Wir bieten für alle Versionen ab 4.5 nun den FS Client Launcher 4.8 an.
+Dieser enthält das Update 482 der <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html">Java 8 Runtime</a>.</p>
+<p>Eine Installation wird dann empfohlen, wenn Sie folgende Fehlermeldung bekommen haben:</p>
+<pre><code class="lang-cs">Error: System.Exception: Client terminated. ExitCode=-1073741819
+bei FrameworkSystems.FSClientLauncher.Services.LaunchService.StartClient(ApiJarDownload brokerInfo)
+bei FrameworkSystems.FSClientLauncher.Services.LaunchService.&lt;Launch&gt;d__10.MoveNext()
+</code></pre>
+<h4 id="updates">Updates</h4>
+<ul>
+<li>Die in FS enthaltene C++ Runtime wurde auf die Version 14.50 aktualisiert.</li>
+</ul>
 <h2 id="4537-06022026">4.5.37 (06.02.2026)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -107,7 +125,7 @@ Wir vermuten aber, dass Firewall, VirenScanner oder andere Sicherheitsinfrastruk
 <p>Wir haben nun einen Retry Mechanismus eingebaut, welcher verlorene Requests erneut an den Broker sendet. Es werden maximal drei Request-Retries ausgeführt.</p>
 <p>Dieser wird in der FS Client Launcher Console wie folgt angegeben:
 &quot;Invalid RequestCounter: X expected: Y. The request for this progress got probably lost. Retry request.&quot;</p>
-<h4 id="updates">Updates</h4>
+<h4 id="updates-1">Updates</h4>
 <ul>
 <li>Angular wurde auf die Version 20.3.16 aktualisiert.
 Das betrifft folgende Systeme:
@@ -174,7 +192,7 @@ Das entspricht Chromium 142.</p>
 <p>Dieses Release enthält <em>nur</em> Chromium Security-Updates, keine Änderungen von JxBrowser.</p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="updates-1">Updates</h4>
+<h4 id="updates-2">Updates</h4>
 <ul>
 <li>Angular wurde auf die Version 20.3.9 aktualisiert.
 Das betrifft folgende Systeme:
@@ -215,7 +233,7 @@ entsprechend überschrieben werden.</p>
 <li>FS4.5.34_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-2">Updates</h4>
+<h4 id="updates-3">Updates</h4>
 <ul>
 <li>DevExpress wurde auf Version 25.1.5 upgedated.</li>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 138.0.170 upgedatet.</li>
@@ -284,7 +302,7 @@ des Compiles eine Fehlermeldung ausgegeben: <em>&quot;Error in Transfer Saved Co
 <p>Das Verhalten der MessageBox im HtmlClient/MobileClient unterschied sich bisher zum JavaClient.
 So war immer der letzte Button fokussiert und die Angabe des DefaultButtons hatte keine Auswirkung. Ersteres wurde an den JavaClient angepasst und letzteres wurde nun implementiert.
 Ist nun kein DefaultButton angegeben, wird der erste Button in der MessageBox fokussiert. Ist ein DefaultButton angegeben, wird dieser fokussiert.</p>
-<h4 id="updates-3">Updates</h4>
+<h4 id="updates-4">Updates</h4>
 <ul>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 138.0.170 upgedatet.</li>
 </ul>
@@ -489,7 +507,7 @@ wird beim PackageMerge die Target-Dokumentation mit der Source-Dokumentation
 <li>FS4.5.28_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-4">Updates</h4>
+<h4 id="updates-5">Updates</h4>
 <ul>
 <li>Der HTML Client, die StartPage und das HelpSystem wurden auf Angular 19.2.6 upgedatet.</li>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 135.0.170 upgedatet.</li>
@@ -497,7 +515,7 @@ wird beim PackageMerge die Target-Dokumentation mit der Source-Dokumentation
 <li>Der HTML Client wurde auf Capacitor 7 upgedatet.</li>
 </ul>
 <h4 id="hinweis-1">Hinweis</h4>
-<p>Es gibt einen neuen Artikel zum Thema &quot;<a href="frequently-asked-questions.html#devexpress-exception-scriptitemizeopentype-in-usp10dll-nicht-gefunden">DevExpress Exception <code>ScriptItemizeOpenType</code> in <code>Usp10.dll</code> nicht gefunden</a>&quot; in unserem FAQ Bereich.
+<p>Es gibt einen neuen Artikel zum Thema &quot;<a href="frequently-asked-questions.html#exception-scriptitemizeopentype-in-usp10dll-nicht-gefunden">DevExpress Exception <code>ScriptItemizeOpenType</code> in <code>Usp10.dll</code> nicht gefunden</a>&quot; in unserem FAQ Bereich.
 Dieser Fehler wurde uns nun häufiger gemeldet, deshalb möchten wir Sie bitten unsere derzeitigen <a href="requirements.html">Requirements</a> mit Ihren Systemen zu vergleichen. Testen und führen Sie notwendige Updates durch, falls dies möglich ist.</p>
 <h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
 <ul>
@@ -597,7 +615,7 @@ Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
 <li>FS4.5.25_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-5">Updates</h4>
+<h4 id="updates-6">Updates</h4>
 <ul>
 <li>DevExpress wurde auf die Version 24.2.3 aktualisiert.</li>
 <li>Der HTML Client wurde auf Angular 19.1.1 upgedatet.</li>
@@ -716,7 +734,7 @@ aufgerufen wird.</p>
 <li>FS_4.5.22_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-6">Updates</h4>
+<h4 id="updates-7">Updates</h4>
 <ul>
 <li>Der Monaco Code-Editor wurde auf Version 0.50.0 upgedatet.</li>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 129.0.110 upgedatet.</li>
@@ -776,7 +794,7 @@ Code-Editor erst mit mehreren Tagen Verzögerung zieht.</p>
 <li>FS4.5.20_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-7">Updates</h4>
+<h4 id="updates-8">Updates</h4>
 <ul>
 <li>DevExpress wurde auf Version 24.1.4 upgedated.</li>
 </ul>
@@ -1016,7 +1034,7 @@ Service-Release-Modus befindet.</p>
 <li>FS4.5.16_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-8">Updates</h4>
+<h4 id="updates-9">Updates</h4>
 <ul>
 <li>DevExpress wurde auf Version 23.2.5 upgedated.</li>
 <li>Es gibt einen neuen <a href="frequently-asked-questions.html">FAQ</a> Bereich in unserer Online-Dokumentation. Hier werden wir laufend Themen ergänzen.</li>
@@ -1132,7 +1150,7 @@ Zeichen &quot;[&quot;, &quot;]&quot; oder &quot;\&quot; enthält.</p>
 <li>FS4.5.14_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-9">Updates</h4>
+<h4 id="updates-10">Updates</h4>
 <ul>
 <li>DevExpress wurde auf Version 23.2.3 upgedated.</li>
 <li>Der Monaco Code-Editor wurde auf Version 0.44.0 upgedated.</li>
@@ -1170,7 +1188,7 @@ SR-Methode ein Leerzeichen enthalten ist.</p>
 <li>FS4.5.13_AuthService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-10">Updates</h4>
+<h4 id="updates-11">Updates</h4>
 <ul>
 <li>Der HTML Client wurde auf Angular 17.1.1 upgedated</li>
 </ul>
@@ -1211,7 +1229,7 @@ und DocML nutzen fälschlicherweise immer die Standardwerte.</p>
 <li>FS4.5.12_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-11">Updates</h4>
+<h4 id="updates-12">Updates</h4>
 <ul>
 <li>DevExpress wurde auf Version 23.1.6 upgedated.</li>
 <li>Die Bibliothek Oracle.ManagedDataAccess wurde von Version 21.8.0 auf die neuste Version 21.12.0 aktualisiert.</li>
@@ -1342,7 +1360,7 @@ wenn er gecustomized wurde.</p>
 <li>FS4.5.8_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-12">Updates</h4>
+<h4 id="updates-13">Updates</h4>
 <ul>
 <li>DevExpress wurde auf Version 23.1.4 upgedated.</li>
 <li>Der HTML Client wurde auf Angular 16.2 upgedated. Das Scrolling bei vielen offenen Forms wurde im Browser und auf Tablets verbessert.</li>
@@ -1470,7 +1488,7 @@ Aus diesem Grund müssen wir den <strong>IDE-Support für Windows Server 2012 ei
 <p>Die Chromium Runtime wird von den neuen <a href="#neue-code-editoren-auf-basis-von-monaco">Code-Editoren</a>, verwendet.</p>
 </div>
 <p>Als Application-Server kann weiterhin der Windows Server 2012 verwendet werden. Der Publish muss aber mit einem Publish2Go-Paket erfolgen, welches auf einem anderen Rechner mit der IDE bzw. den Package-Manager erstellt wurde.</p>
-<h4 id="updates-13">Updates</h4>
+<h4 id="updates-14">Updates</h4>
 <ul>
 <li><p>DevExpress wurde auf Version 22.2.6 upgedated</p>
 <p>Korrigierte Fehler von DevExpress:</p>
@@ -1633,7 +1651,7 @@ Position der Sub-Report platziert ist.</p>
 </li>
 </ul>
 <h2 id="454-28042023">4.5.4 (28.04.2023)</h2>
-<h4 id="updates-14">Updates</h4>
+<h4 id="updates-15">Updates</h4>
 <ul>
 <li>DevExpress wurde auf Version 22.2.4 upgedated</li>
 </ul>

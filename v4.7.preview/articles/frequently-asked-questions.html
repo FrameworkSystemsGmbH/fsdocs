@@ -126,8 +126,7 @@ System.Exception: Error creating code for NV.ERP.MM.Sales.cfrmSalesOrder
 kenntlich gemacht werden.
 Dauert diese Analyse zu lange kann das dazu führen, dass Framework Studio praktisch lahmgelegt wird, sobald im Code-Editor getippt wird.
 Arbeiten ist dann nicht mehr möglich.
-Um genau diese Blockade zu verhindern, schalten wir diese Analyse ab, wenn die Ermittlung beim ersten Aufruf länger als 10 Sekunden
-oder bei einem erneuten Aufruf länger als 5 Sekunden dauert.</p>
+Um genau diese Blockade zu verhindern, schalten wir diese Analyse ab, wenn die Ermittlung beim ersten Aufruf länger als 10 Sekunden oder bei einem erneuten Aufruf länger als 5 Sekunden dauert.</p>
 <p>Im genannten Beispiel waren es 17,1 Sekunden.</p>
 <h2 id="java-applikation">Java Applikation</h2>
 <h3 id="betriebssystem-macos-applikation-unterstützung">Betriebssystem MacOS Applikation Unterstützung</h3>
@@ -175,7 +174,7 @@ Hierzu gibt es folgenden Hinweis in unserer Neuheiten-Dokumentation:
 <p><strong>Lösung:</strong>
 Systeme auf die Systemvoraussetzungen updaten.</p>
 <p>Sollte ein Update kurzfristig nicht möglich sein, kann der jxBrowser mit folgendem Ausdruck im FS Client Launcher durch den alten Browser ersetzt werden.</p>
-<pre><code>-Dfs.browser.legacy=1
+<pre><code class="lang-text">-Dfs.browser.legacy=1
 </code></pre>
 <div class="CAUTION">
 <h5>Caution</h5>
@@ -286,6 +285,30 @@ Um sicher zu gehen, können Sie auch die Log-Datei des Print-Service prüfen.</p
 <p>Mit der PrintServiceConfigEditor.exe können Sie diese Drucker aus der Konfiguration entfernen.
 Nach einem Neustart des Print-Service werden die gelöschten / nicht mehr existenten Drucker im Runtime-Repository auf gelöscht gesetzt.
 Anschließend sollten Sie auch in eNVenta nicht mehr angeboten werden.</p>
+<h2 id="publish2go">Publish2Go</h2>
+<h3 id="absturz-mit-systemtypeloadexception-error-loading-provider-assembly">Absturz mit System.TypeLoadException: Error loading provider assembly</h3>
+<p>Beim Starten eines Publish2Gos kann es zu folgender Exception kommen:</p>
+<pre><code class="lang-text">System.TypeLoadException: Error loading provider assembly
+Path: ...\P2Go_XXX\bin\xxx.dll
+Type: xxxx ---&gt; System.IO.FileLoadException: Could not load file or assembly '...\P2Go_XXX\bin\xxx.dll' or one of its dependencies. 
+Operation is not supported. (Exception from HRESULT: 0x80131515) ---&gt; System.NotSupportedException: An attempt was made to load an assembly from a network location which would have caused the assembly to be sandboxed in previous versions of the .NET Framework. 
+This release of the .NET Framework does not enable CAS policy by default, so this load may be dangerous. If this load is not intended to sandbox the assembly, please enable the loadFromRemoteSources switch.
+</code></pre>
+<p>Diese Exception kommt daher, dass eine dll von einem Netzwerkpfad geladen werden soll.
+In älteren Versionen von .NetFramework wurden solche dlls automatisch in einem anderen Modus geladen, in den aktuellen Versionen ist dies nicht mehr der Fall.</p>
+<h4 id="lösung-2">Lösung</h4>
+<p>Im Hauptverzeichnis des Publish2Go, in dem auch die Publish2Go.exe liegt, muss die Publish2Go.exe.config angepasst werden.</p>
+<p>Öffnen Sie die Datei dazu z.B. in Notepad oder Notepad++ und fügen zum <code>&lt;runtime&gt;</code> Knoten folgendes hinzu: <code>&lt;loadFromRemoteSources enabled=&quot;true&quot;/&gt;</code>.</p>
+<p>Beispielhaft hier der Aufbau der Publish2Go.exe.config:</p>
+<pre><code class="lang-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;configuration&gt;
+        &lt;appSettings&gt;
+               [...]
+        &lt;/startup&gt;
+        &lt;runtime&gt;
+               &lt;loadFromRemoteSources enabled=&quot;true&quot;/&gt;
+               &lt;assemblyBinding [...]&gt;
+</code></pre>
 
 </article>
 

@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/14/docs/articles/release-4-7.md/#L1">
+      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.7/release/15/docs/articles/release-4-7.md/#L1">
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -87,6 +87,35 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
+<h2 id="4715-06032026">4.7.15 (06.03.2026)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.14_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="fs-client-launcher-45">FS Client Launcher 4.5</h4>
+<p>Wir bieten für alle Versionen einen neuen FS Client Launcher 4.5 an.
+Dieser enthält das Update 482 der <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html">Java 8 Runtime</a>.</p>
+<p>Eine Installation wird empfohlen, wenn Sie folgende Fehlermeldung bekommen haben:</p>
+<pre><code class="lang-cs">Error: System.Exception: Client terminated. ExitCode=-1073741819
+bei FrameworkSystems.FSClientLauncher.Services.LaunchService.StartClient(ApiJarDownload brokerInfo)
+bei FrameworkSystems.FSClientLauncher.Services.LaunchService.&lt;Launch&gt;d__10.MoveNext()
+</code></pre>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2026029270 - <strong>Java-Client</strong>: Der JxBrowser zieht für das Theming die
+Windowssystemeinstellungen. Dies führt zu einem initialen schwarzen
+JxBrowser-Control in der Applikation.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die Standardeinstellung des JxBrowser-Controls ist ab jetzt das Light Theme.</p>
+</div>
+</li>
+<li><p>2026029274 - <strong>Java-Client</strong>: Es kommt zu Fehler und Abstürzen im Java-Client
+(u.a. beim Öffnen des Windows Dateiauswahl-Dialogs) in Verbindung mit der
+msvcp140.dll.</p>
+</li>
+</ul>
 <h2 id="4714-06022026">4.7.14 (06.02.2026)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -119,7 +148,7 @@ Das betrifft folgende Systeme:
 </ul>
 </li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025129069 - <strong>Reporting</strong>: Beim Export eines Reports werden die gesetzten
 Exportoptionen am Report nicht berücksichtigt, sondern durch Defaultwerte
@@ -143,7 +172,7 @@ Datum eingestellt werden kann.</p>
 <h4 id="neuer-html-client">Neuer HTML Client</h4>
 <p>Der HTML Client hat das neue Branding erhalten.
 Auf der Startseite des MobileClients wird nun die Versionsnummer angezeigt.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025118933 - <strong>Broker</strong>: Das FormatPattern aus dem MDT wird nicht an den
 HtmlClient übertragen. Erst bei einer Überschreibung im Form wird das
@@ -199,7 +228,7 @@ Das betrifft folgende Systeme:
 <li>Ein PDF-Export eines Reports erfolgte bisher immer im PDF/A-3b Format. Dieses Format unterstützt jedoch keine Accessibility/Barrierefreiheit. Nun exportieren wir standardmäßig im PDF/A-3a Format. Ist ein anderes Format erwünscht, kann das Compatibility Format am Report entsprechend überschrieben werden.</li>
 <li>Wir haben einen Eintrag in unseren FAQs ergänzt. Beim Start von FS über Console oder TeamViewer in Kombination mit Windows Server 2016/2019 stürzt die Anwendung ab. Der FAQ Beitrag erklärt den <a href="frequently-asked-questions.html#framework-studio-st%C3%BCrzt-beim-initializing-ab---fehlercode-c06d007e">Workaround</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025118921 - <strong>Reporting</strong>: Die &quot;PDF Export Options/ PDF/A Compatibility&quot;
 Einstellungen am Report werden beim tatsächlichen Export des Reports
@@ -235,7 +264,7 @@ entsprechend überschrieben werden.</p>
 Außerdem wurde die Dokumentation für die <a href="../doc/publish-wizards/publish-wizard.html#post-publish-command">Post Publish Command</a>-Funktion hinzugefügt.</li>
 <li>Das BrowserControl wurde um eine neue <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.BrowserControlAction.Navigate.html#FS_Hosting_Broker_Shared_Actions_BrowserControlAction_Navigate_FS_Hosting_Shared_BrowserNavigationParam_">Navigate-Action</a> erweitert.</li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025098549 - <strong>IDE</strong>: Bei der Erfassung eines Targets in einem Workflow-Link
 zeigt die Combobox keine Forms mehr an, die als Entrance-Instance, sondern
@@ -263,7 +292,7 @@ DateTime zu TimeSpan nun auf eine InvalidCastException.</p>
 <li><a href="../doc/reporting/devexpress-fax-printers.html">DevExpress Fax-Steuerung</a> - das Label kann im SubReport platziert werden.</li>
 <li>Bei der Maintenance Routine <a href="../doc/maintenance/code-replace-cleanup.html">Code Replace Cleanup</a> wird der Replace Text nun als Multitline Text angezeigt.</li>
 </ul>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025098475 - <strong>Broker</strong>: Wenn im Text oder im DetailText eines
 FrameworkProgress bestimmte Zeichen, die im XML nicht erlaubt sind (z.B.
@@ -324,7 +353,7 @@ Ist nun kein DefaultButton angegeben, wird der erste Button in der MessageBox fo
 <ul>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 138.0.170 upgedatet.</li>
 </ul>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025078300 - <strong>Java-Client</strong>: Es werden zu viele und teilweise irrelevante
 Log-Ausgaben in die Client Launcher Console geschrieben.</p>
@@ -404,7 +433,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li><p><a href="../doc/reporting/devexpress-fax-printers.html">DevExpress - Fax-Drucker über die Drucker-Warteschlange steuern</a></p>
 </li>
 </ul>
-<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025078189 - <strong>Broker</strong>: Bei hoher Speicherauslastung im Broker kann es zu
 Memory-Leaks kommen. Grund dafür sind Finalizer an den FS-Objekten.</p>
@@ -448,7 +477,7 @@ bei Oracle auf Fehler.</p>
 </div>
 </li>
 </ul>
-<h4 id="korrigierte-fehler-7">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025068079 - <strong>Broker</strong>: Bei einem Restart mit &quot;angemeldet bleiben&quot; wird der
 UserToken nicht aktualisiert.</p>
@@ -478,7 +507,7 @@ Dies ist auch in den <a href="requirements.html#client-rechner">Requirements</a>
 <ul>
 <li>Events klickbarer Links im JxBrowser, die durch dynamische Änderungen des Doms nach dem ersten Laden hinzugefügt wurden, werden nun auch korrekt gefeuert.</li>
 </ul>
-<h4 id="korrigierte-fehler-8">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025047832 - <strong>Publish2Go</strong>: Bei einer Datenbank-Connection kann es, z.B. im
 Publish2Go, zu einer Fehlermeldung kommen: System.TypeLoadException: Error
@@ -553,7 +582,7 @@ wird beim PackageMerge die Target-Dokumentation mit der Source-Dokumentation
 <h4 id="hinweis-2">Hinweis</h4>
 <p>Es gibt einen neuen Artikel zum Thema &quot;<a href="frequently-asked-questions.html#devexpress-exception-scriptitemizeopentype-in-usp10dll-nicht-gefunden">DevExpress Exception <code>ScriptItemizeOpenType</code> in <code>Usp10.dll</code> nicht gefunden</a>&quot; in unserem FAQ Bereich.
 Dieser Fehler wurde uns nun häufiger gemeldet, deshalb möchten wir Sie bitten unsere derzeitigen <a href="requirements.html">Requirements</a> mit Ihren Systemen zu vergleichen. Testen und führen Sie notwendige Updates durch, falls dies möglich ist.</p>
-<h4 id="korrigierte-fehler-9">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025037564 - <strong>IDE</strong>: Werden Component- oder DataContract-Properties gelöscht,
 welche in grafischen Transformationen zugeordnet sind, dann fällt diese
@@ -592,7 +621,7 @@ der Fehler &quot;Error while receiving data from broker!&quot; im Browser angeze
 <li>FS_4.7.4_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-10">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025037573 - <strong>Java-Client</strong>: Die Tabreihenfolge für Controls unterhalb eines
 Tabbed Windows funktioniert nicht. Die Controls lassen sich nicht
@@ -623,7 +652,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>Der <a href="../doc/sql/grammatik.html#withquery">Sql-Parser</a> versteht jetzt <code>WITH</code>-Statements, auch bekannt als <em>Common Table Expression (CTE)</em>.</li>
 <li>Neue Client-Action <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript.html#FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_System_String_"><code>BrowserControlAction.ExecuteJavaScript()</code></a></li>
 </ul>
-<h4 id="korrigierte-fehler-11">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025027380 - <strong>Java Client</strong>: Wenn an einer Registerkarte das Event
 <code>OnFirstSelect</code> implementiert ist, dann kann es passieren, dass bei der
@@ -674,7 +703,7 @@ Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
 <li>Bei Klicken auf einen Link im <code>Errors and Warnings</code> Tab wird dieser farblich hervorgehoben, um zu visualisieren, dass der Link bereits besucht wurde.</li>
 <li>Bei den Aktionen <code>Open</code>, <code>Save</code> (im FS Report Designer), sowie <code>Choose Report</code> wird nun das Verzeichnis der tatsächlichen Report-Datei geöffnet, statt das Haupt-Reportverzeichnis.</li>
 </ul>
-<h4 id="korrigierte-fehler-12">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-13">Korrigierte Fehler</h4>
 <ul>
 <li><p>2025017196 - <strong>Reporting</strong>: Im WebDesigner ist der Expression Editor nicht
 nutzbar, da weder Formeln angezeigt noch bearbeitet werden können.</p>
@@ -720,7 +749,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <ul>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 131.3.10 upgedatet.</li>
 </ul>
-<h4 id="korrigierte-fehler-13">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-14">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024127052 - <strong>Java-Client</strong>: Der Fokus eines neu geöffneten Forms geht
 verloren, wenn während des Öffnens ein Event (z.B. SelectedTabPageChanged)
@@ -779,7 +808,7 @@ DB-Korrekturskript nicht mehr verwendet werden.</p>
 <li>FS_4.7.0_Fix_2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-14">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-15">Korrigierte Fehler</h4>
 <ul>
 <li>2024127026 - <strong>Framework</strong>: Wird bei einem Aufruf von <code>Clone()</code> oder <code>AdoptValue()</code> ein
 <code>AdoptMode.NoHistory</code> übergeben, dann wird dieser nicht in den <code>Clone()</code> der Unterobjekte
@@ -792,7 +821,7 @@ nicht korrekt.</li>
 <li>FS_4.7.0_Fix_1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler-15">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-16">Korrigierte Fehler</h4>
 <ul>
 <li><p>2024126996 - <strong>FS-Broker</strong>: Wird im Publish-Setting ein Load-Balancing konfiguriert,
 dann zieht dieses nicht. Die Application startet in diesem Broker anstatt auf die
@@ -816,7 +845,7 @@ Ein Update von diesen Versionen ist nicht möglich.</p>
 </div>
 <h4 id="neuerungen-11">Neuerungen</h4>
 <p>Siehe <a href="neuheiten-4-7.html">Neuheiten Framework Studio 4.7</a>.</p>
-<h4 id="korrigierte-fehler-16">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-17">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#4612-06122024">Framework Studio 4.6.12</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben.</p>
 <ul>

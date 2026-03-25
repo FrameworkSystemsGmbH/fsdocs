@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/preview/docs/articles/neuheiten-4-8.md/#L1">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -242,6 +242,8 @@ In diesen Systemen hinterlegte Links müssen auf den neuen <a href="../doc/fscli
 <li>Wenn eine neue Package-Version eröffnet wird, wird das Datum und die Quell-Package-Version gespeichert.
 Diese Infos sind dann in der <a href="../doc/ide/allgemeine-funktionalitaeten.html#source-control-history">Source Control History</a> einsehbar.</li>
 <li>Die Intellisense-Unterstützung für CodeFiles wurde grundlegend überarbeitet und erweitert.</li>
+<li>Der Excel-Export von Reports verwendet nun die Dateiendung <code>.xlsx</code> und den MIME-Type <code>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code>. Der Word-Export von Reports verwendet nun die Dateiendung <code>.docx</code> und den MIME-Type <code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code>.
+Bisher wurde die veraltete Endung <code>.xls</code> zurückgegeben, obwohl der Inhalt bereits im XLSX-Format erzeugt wurde.</li>
 </ul>
 
 </article>

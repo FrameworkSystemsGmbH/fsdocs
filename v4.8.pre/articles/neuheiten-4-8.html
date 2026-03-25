@@ -16,7 +16,7 @@
       <meta name="docfx:rel" content="../">
       
       
-      <meta name="docfx:docurl" content="https://github.com/FrameworkSystemsGmbH/fs/blob/4.8/release/0-beta4/docs/articles/neuheiten-4-8.md/#L1">
+      
       <meta name="loc:inThisArticle" content="In this article">
       <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
       <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
@@ -150,6 +150,20 @@ Für einen zukünftigen Einsatz von .net auf z.B. Linux-Servern muss dies abgel�
 <p><img src="media/compilestepIcons.png" alt="CodeFile Icons"></p>
 <p>Die <a href="../doc/code-file/codefile.html#classview">ClassView der CodeFiles</a> wurde ebenfalls überarbeitet.</p>
 <p><img src="../doc/code-file/media/codefile-classview.png" alt="CodeFile ClassView"></p>
+<h2 id="intellisense">Intellisense</h2>
+<p>Die Intellisense wurde in folgenden Punkten grundlegend überarbeitet:</p>
+<ul>
+<li><p><strong>Alle</strong> CodeFiles werden nun in den Code-Vorschlägen zur Vervollständigung und beim Hovern genutzt, ohne, dass eine Referenz angelegt werden muss.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Bei tatsächlicher Nutzung von Methoden oder Membern aus einer CodeFile muss trotzdem eine Referenz angelegt werden, sonst kommt es zu Compile-Fehlern.</p>
+</div>
+</li>
+<li><p>Extension Methods werden beim Hovern und Vervollständigen mit <code>(extension)</code> angezeigt.</p>
+</li>
+<li><p>Performance und Speicherverbrauch wurden optimiert.</p>
+</li>
+</ul>
 <h2 id="access-unit-tree-überarbeitet">Access Unit Tree überarbeitet</h2>
 <p>Der Access Unit Tree in der <a href="../doc/runtime-administration/runtime-administration-roles.html">Runtime Administration</a> und im Runtime License Manager wurden überarbeitet. Letzterer findet Anwendung bei den <a href="../doc/access-units/laufzeitlizenzen.html">Laufzeitlizenzen</a> und im <a href="../doc/publish-wizards/run-wizard.html#runtime-licenses">Publish Wizard</a>.</p>
 <p>Neben einem neuen Tree-Control mit vielen eingebauten Features, wie Sortierung, gibt es jetzt über <code>STRG + F</code> eine weitere Suchfunktion. Näheres ist <a href="../doc/access-units/laufzeitlizenzen.html#registerkarte-access-unit-tree">hier</a> beschrieben.</p>
@@ -227,6 +241,9 @@ In diesen Systemen hinterlegte Links müssen auf den neuen <a href="../doc/fscli
 <li>Die IDE bietet ein neues Command <a href="../doc/ide/file-menu.html#restart-with-maintenance-mode">Restart with Maintenance Mode</a>.</li>
 <li>Wenn eine neue Package-Version eröffnet wird, wird das Datum und die Quell-Package-Version gespeichert.
 Diese Infos sind dann in der <a href="../doc/ide/allgemeine-funktionalitaeten.html#source-control-history">Source Control History</a> einsehbar.</li>
+<li>Die Intellisense-Unterstützung für CodeFiles wurde grundlegend überarbeitet und erweitert.</li>
+<li>Der Excel-Export von Reports verwendet nun die Dateiendung <code>.xlsx</code> und den MIME-Type <code>application/vnd.openxmlformats-officedocument.spreadsheetml.sheet</code>. Der Word-Export von Reports verwendet nun die Dateiendung <code>.docx</code> und den MIME-Type <code>application/vnd.openxmlformats-officedocument.wordprocessingml.document</code>.
+Bisher wurde die veraltete Endung <code>.xls</code> zurückgegeben, obwohl der Inhalt bereits im XLSX-Format erzeugt wurde.</li>
 </ul>
 
 </article>

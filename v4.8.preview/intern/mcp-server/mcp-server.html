@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>MCP-Server (Preview) </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="MCP-Server (Preview) ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="mcp-server-preview">MCP-Server (Preview)</h1>
+
+<p>Der MCP-Server stellt eine Schnittstelle bereit, über die KI-Assistenten direkt auf das FrameworkStudio-Repository zugreifen können.
+Er implementiert das <a href="https://modelcontextprotocol.io/">Model Context Protocol (MCP)</a> und läuft als AddIn innerhalb der FrameworkStudio IDE.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Der MCP-Server ist ein <strong>Preview-Feature</strong> in Version 4.8. Funktionsumfang und Schnittstellen können sich in zukünftigen Versionen ändern.</p>
+</div>
+<h2 id="was-ermöglicht-der-mcp-server">Was ermöglicht der MCP-Server?</h2>
+<p>KI-Assistenten wie Claude Code, Cursor oder GitHub Copilot können über den MCP-Server:</p>
+<ul>
+<li><strong>Elemente auflisten und lesen</strong> — Components, Forms, Services, DB-Tabellen und alle weiteren FS-Elementtypen</li>
+<li><strong>Code inspizieren</strong> — Methoden-Quellcode abrufen</li>
+<li><strong>Suchen</strong> — nach Namen, im Code, nach Abhängigkeiten und in der Element-Dokumentation</li>
+<li><strong>Änderungshistorie abfragen</strong> — Versionsverlauf von Elementen, Methoden und CheckIns</li>
+</ul>
+<h2 id="architektur">Architektur</h2>
+<p><img src="media/architektur.svg" alt="Architektur MCP-Server"></p>
+<p>Der MCP-Server wird über das <strong>Tools-Menü</strong> in der IDE gestartet und läuft als HTTP-Server auf <code>localhost:PORT</code>.
+KI-Clients kommunizieren über das standardisierte MCP-Protokoll (JSON-RPC über Streamable HTTP mit Server-Sent Events).</p>
+<p>Die Tool-Registry stellt alle verfügbaren Operationen bereit.
+Jedes Tool greift über die FS-API auf das Repository zu — im Kontext des eingeloggten Benutzers.</p>
+<h2 id="voraussetzungen">Voraussetzungen</h2>
+<ul>
+<li>FrameworkStudio 4.8 oder höher</li>
+<li>Aktive FS-Session mit eingeloggtem Benutzer</li>
+<li>Ein MCP-fähiger KI-Client (z.B. Claude Code, Cursor, VS Code mit Copilot)</li>
+</ul>
+<h2 id="einschränkungen">Einschränkungen</h2>
+<ul>
+<li>Der Server ist nur lokal erreichbar (<code>localhost</code>) — kein Zugriff von außen</li>
+<li>Pro IDE-Instanz läuft maximal ein MCP-Server</li>
+<li>Der Server arbeitet im Kontext des eingeloggten FS-Benutzers — Berechtigungen gelten wie in der IDE</li>
+<li>In der Preview-Version stehen ausschließlich <strong>lesende</strong> Operationen zur Verfügung</li>
+</ul>
+<h2 id="sicherheitshinweis">Sicherheitshinweis</h2>
+<p>Der MCP-Server verfügt über <strong>keine Authentifizierung</strong>. Jeder Prozess auf der lokalen Maschine mit Zugriff auf <code>localhost:Port</code>, erhält uneingeschränkten Lesezugriff auf alle Repository-Daten — einschließlich Methoden-Quellcode und Datenbankschema.</p>
+<p>Das ist für ein lokales Entwickler-Tool bewusst so gestaltet. Daraus folgt:</p>
+<ul>
+<li>Den Server <strong>nicht</strong> auf einer anderen Adresse als <code>localhost</code> betreiben</li>
+<li>Den Server <strong>beenden</strong> wenn die IDE-Session abgeschlossen ist</li>
+<li>Auf gemeinsam genutzten Entwicklermaschinen beachten, dass andere lokal angemeldete Benutzer ebenfalls Zugriff haben</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -2,18 +2,18 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Format-Pattern im Metadatentyp </title>
+      <title>Property IsPending </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Format-Pattern im Metadatentyp ">
+      <meta name="title" content="Property IsPending ">
       
       
-      <link rel="icon" href="../../favicon.ico">
-      <link rel="stylesheet" href="../../public/docfx.min.css">
-      <link rel="stylesheet" href="../../public/main.css">
-      <meta name="docfx:navrel" content="../../toc.html">
-      <meta name="docfx:tocrel" content="../toc.html">
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
       
-      <meta name="docfx:rel" content="../../">
+      <meta name="docfx:rel" content="../">
       
       
       
@@ -30,7 +30,7 @@
       <meta name="loc:copy" content="Copy">
       <meta name="loc:downloadPdf" content="Download PDF">
 
-      <script type="module" src="./../../public/docfx.min.js"></script>
+      <script type="module" src="./../public/docfx.min.js"></script>
 
       <script>
         const theme = localStorage.getItem('theme') || 'auto'
@@ -39,12 +39,12 @@
 
   </head>
 
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
-          <a class="navbar-brand" href="../../index.html">
-            <img id="logo" class="svg" src="../../logo.svg" alt="">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
             
           </a>
           <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
@@ -84,39 +84,73 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="">
-<h1 id="format-pattern-im-metadatentyp">Format-Pattern im Metadatentyp</h1>
+        <article data-uid="FS.Hosting.Shared.AccessControl.AuthenticationResult.IsPending*">
 
-<p>Je nachdem, welcher Datentyp ausgewählt wurde, ändern sich die Einstellungen für das Format-Pattern.</p>
-<h2 id="format-pattern-für-zeichenketten">Format Pattern für Zeichenketten</h2>
-<p><img src="media/format-pattern-string.png" alt="String Pattern"></p>
-<p>Bei Zeichenketten können im Format reguläre Ausdrücke eingegeben werden. Die Zeichenketten müssen dann dem definierten regulären Ausdruck entsprechen. Im Java-Client wird bereits bei der Eingabe überprüft, ob die Zeichenkette dem Ausdruck genügt.</p>
-<div class="NOTE">
-<h5>Note</h5>
-<p>Im Java-Client wird bei fehlgeschlagenen RegEx-Validierungen von Metadatatypes nun zusätzlich der <strong>Tooltip-Text</strong> des MDT in der Fehlermeldung angezeigt. Der Tooltip muss entsprechend gepflegt werden.</p>
+
+
+
+
+<h1 id="FS_Hosting_Shared_AccessControl_AuthenticationResult_IsPending_" data-uid="FS.Hosting.Shared.AccessControl.AuthenticationResult.IsPending*" class="text-break">
+Property IsPending  
+</h1>
+
+<div class="facts text-secondary">
+  <dl><dt>Namespace</dt><dd><a class="xref" href="FS.html">FS</a>.<a class="xref" href="FS.Hosting.html">Hosting</a>.<a class="xref" href="FS.Hosting.Shared.html">Shared</a>.<a class="xref" href="FS.Hosting.Shared.AccessControl.html">AccessControl</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>FS.Hosting.Shared.dll</dd></dl>
 </div>
-<h2 id="format-pattern-für-zahlen">Format-Pattern für Zahlen</h2>
-<p><img src="media/format-pattern-zahl.png" alt="Zahl Pattern"></p>
-<p>Bei Zahlen können gewöhnliche Zahlenformate eingegeben werden. Neben dem Feld Format-Pattern wird eine Beispiel-Zahl für das eingegebene Format dargestellt.</p>
-<div class="WARNING">
-<h5>Warning</h5>
-<p>Es ist aber zu beachten, dass als Tausender-Trennzeichen das Komma und als Dezimal-Trennzeichen der Punkt dient.</p>
+
+<div class="markdown summary"></div>
+<div class="markdown conceptual"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a id="FS_Hosting_Shared_AccessControl_AuthenticationResult_IsPending_" data-uid="FS.Hosting.Shared.AccessControl.AuthenticationResult.IsPending*"></a>
+
+<h3 id="FS_Hosting_Shared_AccessControl_AuthenticationResult_IsPending" data-uid="FS.Hosting.Shared.AccessControl.AuthenticationResult.IsPending">
+  IsPending
+  
+</h3>
+
+<div class="markdown level1 summary"></div>
+<div class="markdown level1 conceptual"></div>
+
+<div class="codewrapper">
+  <pre><code class="lang-csharp hljs">public bool IsPending { get; }</code></pre>
 </div>
-<p>Gültige Formate wären z.B.</p>
-<ul>
-<li><code>#,##0.00</code> ergibt 1.234,56</li>
-<li><code>0.00</code> ergibt 1.234,56</li>
-<li><code>#,##0.00 ’EUR’</code> ergibt 1.234,56 EUR</li>
-</ul>
-<h2 id="format-pattern-für-datum">Format-Pattern für Datum</h2>
-<p><img src="media/format-pattern-datum.png" alt="Datum Pattern"></p>
-<p>Bei Datum können gewöhnliche Datum-Formate eingegeben werden. Neben dem Feld Format-Pattern wird als Beispiel das aktuelle Systemdatum entsprechend formatiert dargestellt.</p>
-<p>Der Button Default Values setzt die Werte auf die vom Framework Studio vorgegebenen Standardwerte zurück.</p>
+
+
+
+
+
+<h4 class="section">Property Value</h4>
+<dl class="parameters">
+  <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.boolean">bool</a></dt>
+  <dd></dd>
+</dl>
+
+
+
+
+
+
+
 
 </article>
 
 
-        <div class="next-article d-print-none border-top" id="nextArticle"></div>
 
       </div>
 
@@ -130,7 +164,7 @@
     <footer class="border-top text-secondary">
       <div class="container-xxl">
         <div class="flex-fill">
-          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
         </div>
       </div>
     </footer>

@@ -12,7 +12,7 @@
       <link rel="stylesheet" href="../../public/main.css">
       <meta name="docfx:navrel" content="../../toc.html">
       <meta name="docfx:tocrel" content="../toc.html">
-      
+      <meta name="searchOption" content="noindex">
       <meta name="docfx:rel" content="../../">
       
       
@@ -185,7 +185,11 @@ KI-Clients erhalten diese automatisch bei der Verbindung.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p><code>fs_search_code</code> durchsucht nur den Methoden-InnerCode, nicht Declarations oder Descriptions.
-<code>fs_search_names</code> durchsucht Element-Namen, nicht Property- oder Methodennamen innerhalb eines Elements.</p>
+Indiziert werden nur Component-, Form-, Service- und ModularComponent-Methoden — <strong>nicht</strong> GlobalEvent- oder ServiceContract-Methoden.</p>
+<p><code>fs_search_names</code> durchsucht Element-Namen, nicht Property- oder Methodennamen innerhalb eines Elements.
+AccessUnit, Datasource und DocumentationOwner sind nicht in der Namenssuche enthalten.</p>
+<p><code>fs_search_documentation</code> durchsucht MLDoc-Felder auf Metadatatypes, Component-Properties, Forms und DocumentationOwnern.
+Die Suche findet Doku-<strong>Inhalte</strong> — eine Suche nach dem <strong>Namen</strong> eines DocumentationOwners ist nicht möglich.</p>
 </div>
 <h2 id="änderungshistorie--vererbung">Änderungshistorie &amp; Vererbung</h2>
 <table>
@@ -221,6 +225,8 @@ KI-Clients erhalten diese automatisch bei der Verbindung.</p>
 <li>Mit dem <code>property=PropName</code> Parameter können Sie nur eine einzelne Property auslesen statt die ganze Component.</li>
 <li><strong>Collections</strong> sind Components mit <code>ComponentType=Collection</code> — sie erscheinen in <code>fs_list</code> mit <code>elementType=component</code>, nicht in einer separaten Liste.</li>
 <li><code>fs_search_dependencies</code> zeigt was ein Element <strong>referenziert</strong> — nicht welche Elemente das Element referenzieren. Für die Gegenrichtung <code>fs_search_code</code> verwenden.</li>
+<li><code>fs_get_element_history</code> unterstützt keine DB-Tabellen — nur Namespace-basierte Elemente (Component, Form, Service, etc.).</li>
+<li>Der Such-Cache (<code>fs_search_names</code>, <code>fs_search_code</code>) wird nur bei Label-Wechsel aktualisiert. Nach einem CheckIn innerhalb desselben Labels den MCP-Server neu starten, um aktuelle Daten zu erhalten.</li>
 </ul>
 
 </article>

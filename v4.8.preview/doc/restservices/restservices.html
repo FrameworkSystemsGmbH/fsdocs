@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>REST Services </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="REST Services ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="rest-services">REST Services</h1>
+
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Dieses Feature ist aktuell noch nicht in vollwertigem Funktionsumfang verfügbar. Sie können sich bereits mit der neuen Lösung auseinandersetzen und Nutzungserfahrungen sammeln, ein produktiver Einsatz ist allerdings ausdrücklich noch nicht vorgesehen.</p>
+</div>
+<p>Es gibt die Möglichkeit in Framework Studio REST Services zu erstellen.
+Hierfür können die CodeFiles oder die Modular Components mit dem CompileStep <code>RestService</code> verwendet werden.</p>
+<p>Die REST Services in Framework Studio basieren auf <a href="https://learn.microsoft.com/en-us/aspnet/core/?view=aspnetcore-2.3"><code>Microsoft.AspNetCore</code></a> in Version 2.3.0.
+Diese Version bietet Zugang zu modernen REST Technologien und ist dabei net48 kompatibel.
+Beachten Sie allerdings die geltenden <a href="#aspnet-core-23-auf-net48">Einschränkungen</a>.</p>
+<h2 id="hinweise">Hinweise</h2>
+<p>Es wurde bewusst die Entscheidung getroffen die REST Services so offen wie möglich zu gestalten, wodurch viel Freiheit in der Programmierung ermöglicht wird.
+Allerdings bedeutet das auch, dass sich um viele Dinge selbst gekümmert werden muss:</p>
+<ul>
+<li>Die <a href="restservices-methods.html#konfiguration">Konfiguration</a> muss eigenständig im Run- bzw. Publish-Wizard definiert werden!</li>
+<li>Der für das <a href="#debugging">Debugging</a> notwendige Code inkl. Einstellung im Run-Wizard muss eigenständig hinzugefügt bzw. gesetzt werden!</li>
+<li>Einsprungpunkte für Customizing müssen eigenständig implementiert werden!</li>
+<li>Alle Elemente, wie z.B. Controller, Services, Middlewares, etc., müssen in der <a href="#startup-klasse">Startup-Klasse</a> selbstständig hinzugefügt werden!</li>
+<li>Um <a href="restservices-methods.html">Dependency Injection</a> nutzen zu können, müssen die entsprechenden Methoden im Service aufgerufen werden!</li>
+<li>Um ein <a href="restservices-methods.html#beispielcode-f%C3%BCr-einen-controller-mit-eigenem-globalobject">GlobalObject</a> nutzen zu können, muss ein eigenes innerhalb der Requests erzeugt werden!</li>
+</ul>
+<p><strong>Zusammengefasst:</strong>
+Framework Studio bietet das Hosting des Services. Die Programmierung und die Konfiguration des REST Services liegt in der Verantwortung der Entwickler*innen.</p>
+<h2 id="anlegen-eines-rest-services">Anlegen eines REST Services</h2>
+<p>Ein REST Service kann in Framework Studio auf zwei Arten angelegt werden:</p>
+<ul>
+<li>als <a href="#%C3%BCber-modular-component">Modular Component</a> mit dem CompileStep <code>RestService</code></li>
+<li>als <a href="#%C3%BCber-code-file">Code File</a> mit dem CompileStep <code>RestService</code></li>
+</ul>
+<p>In beiden Fällen muss die enthaltene Klasse das Interface <a class="xref" href="../../api/FS.Hosting.Shared.IFSRestService.html"><code>IFSRestService</code></a> implementieren.</p>
+<h3 id="über-modular-component">Über Modular Component</h3>
+<p>Um den Einstieg mit REST Services zu vereinfachen, gibt es beim Hinzufügen eines neuen Elements die Optionen &quot;RestService&quot;. Dies legt im aktuellen Namespace zwei <a href="../modcomp/modcomp.html">Modular Component</a> Klassen an:</p>
+<p><strong>mcRestService</strong>:</p>
+<ul>
+<li>CompileStep: RestService</li>
+<li>Interface: <code>FS.Hosting.Shared.IFSRestService</code></li>
+<li>Es werden zusätzlich folgende Methoden – teilweise mit Inhalt – angelegt:
+<ul>
+<li><code>int Run(string[] args)</code></li>
+<li><code>IWebHostBuilder CreateWebHostBuilder(string[] args)</code> — verweist per <code>.UseStartup&lt;mcStartup&gt;()</code> auf die Startup-Klasse</li>
+</ul>
+</li>
+</ul>
+<p><strong>mcStartup</strong>:</p>
+<ul>
+<li>Es werden folgende Methoden angelegt:
+<ul>
+<li><code>virtual void ConfigureServices(IServiceCollection services)</code></li>
+<li><code>virtual void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="über-code-file">Über Code File</h3>
+<p>Alternativ kann ein REST Service auch über ein <a href="../code-file/codefile.html">Code File</a> angelegt werden.
+Im Gegensatz zur Modular Component werden beim Anlegen eines Code Files keine Voreinstellungen vorgenommen — Interface, CompileStep und die benötigten Methoden müssen eigenständig hinzugefügt werden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Code Files können nicht gecustomized werden. Für Szenarien, in denen Customizing benötigt wird, sollte der REST Service als Modular Component angelegt werden.</p>
+</div>
+<p>Notwendiger Inhalt des Code Files:</p>
+<ul>
+<li><strong>Compile Step:</strong> muss auf <code>RestService</code> gesetzt werden — ansonsten wird der Service vom FS-Hosting nicht als REST Service erkannt und gestartet.</li>
+<li><strong>Klasse mit <code>IFSRestService</code>:</strong> die Klasse muss das Interface <a class="xref" href="../../api/FS.Hosting.Shared.IFSRestService.html"><code>FS.Hosting.Shared.IFSRestService</code></a> implementieren.</li>
+<li><strong><code>int Run(string[] args)</code>:</strong> zentraler Einstiegspunkt. Muss den WebHost bauen und starten (<code>CreateWebHostBuilder(args).BuildFSHost().Run()</code>) und einen Exit-Code zurückgeben.</li>
+<li><strong><code>IWebHostBuilder CreateWebHostBuilder(string[] args)</code>:</strong> baut den WebHost, verknüpft die Startup-Klasse über <code>.UseStartup&lt;Startup&gt;()</code> und übernimmt die Konfiguration aus <code>args</code>.</li>
+<li><strong>Startup-Klasse:</strong> die in ASP.NET Core übliche Aufteilung in eine Startup-Klasse mit <code>ConfigureServices</code> und <code>Configure</code> wird empfohlen, siehe <a href="#startup-klasse">Startup-Klasse</a>.</li>
+</ul>
+<h3 id="startup-klasse">Startup-Klasse</h3>
+<p>Die Aufteilung in eine Service- und eine Startup-Klasse entspricht dem in ASP.NET Core etablierten Pattern und wird von der automatischen Generierung direkt unterstützt (Optionen &quot;RestService&quot;, siehe <a href="#%C3%BCber-modular-component">oben</a>).</p>
+<p>Die Service-Klasse enthält <code>int Run(string[] args)</code> und <code>IWebHostBuilder CreateWebHostBuilder(string[] args)</code>, die Startup-Klasse enthält <code>void ConfigureServices(IServiceCollection services)</code> und <code>void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)</code>.</p>
+<p>Die <code>IWebHostBuilder CreateWebHostBuilder(string[] args)</code> nutzt <code>.UseStartup&lt;mcStartup&gt;()</code>, um dem Service seine Startup-Klasse mitzugeben.
+Ein vollständiges Beispiel inkl. DI gibt es <a href="restservices-methods.html#vollst%C3%A4ndiges-beispiel-mit-di">hier</a>.</p>
+<h2 id="ifsrestservice-und-argumente">IFSRestService und Argumente</h2>
+<p>Damit Framework Studio die REST Services korrekt erkennt und starten kann, muss die CodeFile oder Modular Component die Methode <a class="xref" href="../../api/FS.Hosting.Shared.IFSRestService.html"><code>IFSRestService.Run(string[] args)</code></a> implementieren.</p>
+<p>Die an <code>Run(string[] args)</code> übergebenen Argumente werden vom FS-Hosting bereitgestellt und enthalten folgende Parameter:</p>
+<table>
+<thead>
+<tr>
+<th>Index</th>
+<th>Name</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td><code>--configfilepath</code></td>
+<td>Key</td>
+</tr>
+<tr>
+<td>1</td>
+<td><em>(Pfad)</em></td>
+<td>Pfad zur JSON-Konfigurationsdatei</td>
+</tr>
+<tr>
+<td>2</td>
+<td><code>--applicationName</code></td>
+<td>Key</td>
+</tr>
+<tr>
+<td>3</td>
+<td><em>(Name)</em></td>
+<td>FullName des REST Services (Namespace.Name)</td>
+</tr>
+<tr>
+<td>4</td>
+<td><code>--environment</code></td>
+<td>Key</td>
+</tr>
+<tr>
+<td>5</td>
+<td><em>(Umgebung)</em></td>
+<td><code>Development</code> oder <code>Production</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td><code>--debug</code></td>
+<td>Key</td>
+</tr>
+<tr>
+<td>7</td>
+<td><em>(Flag)</em></td>
+<td><code>True</code> oder <code>False</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="debugging">Debugging</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Der REST Service kann nicht über das TrayIcon im Debug-Modus gestartet werden. Das Debugging muss über den RunWizard aktiviert werden.</p>
+</div>
+<p>Im Development-Modus wird über den <a href="../publish-wizards/run-wizard.html#rest-services">RunWizard</a> die Debug-Option gesetzt.
+Der Debug-Wert wird über <code>args[7]</code> an den REST Service übergeben. Ist der Wert <code>&quot;True&quot;</code>, kann ein Debugger angehängt werden:</p>
+<pre><code class="lang-csharp">public int Run(string[] args)
+{
+   // ...
+    if (args[7] == &quot;True&quot;)
+        System.Diagnostics.Debugger.Launch();
+    // ...
+}
+</code></pre>
+<h2 id="https-entwicklungszertifikat">HTTPS-Entwicklungszertifikat</h2>
+<p>Für die lokale Entwicklung mit HTTPS muss ein selbst signiertes Entwicklungszertifikat erstellt und als vertrauenswürdig hinzugefügt werden.
+Voraussetzung ist ein installiertes .NET SDK (ab .NET Core 3.1+).</p>
+<p><strong>Einrichtung:</strong></p>
+<p>Cmd oder PowerShell als Administrator öffnen und folgenden Befehl ausführen:</p>
+<pre><code class="lang-shell">dotnet dev-certs https --trust
+</code></pre>
+<p>Sicherheitsdialog bestätigen – Windows fragt, ob das Zertifikat installiert werden soll → <strong>Ja</strong> klicken.</p>
+<p><strong>Falls es Probleme gibt, muss das alte Zertifikat zuerst entfernt werden:</strong></p>
+<pre><code class="lang-shell">dotnet dev-certs https --clean
+</code></pre>
+<p><strong>Prüfen ob es funktioniert hat:</strong></p>
+<pre><code class="lang-shell">dotnet dev-certs https --check --trust
+</code></pre>
+<p>Das Zertifikat landet im Windows-Zertifikatspeicher unter <em>Vertrauenswürdige Stammzertifizierungsstellen (Current User)</em>.</p>
+<h2 id="authentifizierung">Authentifizierung</h2>
+<p>Wie bei den Service Hosts, kann auch bei den REST Services die Authentifizierung aktiviert werden.
+Die Konfiguration erfolgt im <a href="../publish-wizards/run-wizard.html">RunWizard</a> bzw. im <a href="../publish-wizards/publish-wizard.html#rest-services---authentication">Publish Wizard / Publish2Go</a> auf der Registerkarte <strong>Authentication</strong> des jeweiligen REST Services.</p>
+<h3 id="verwendung-im-controller">Verwendung im Controller</h3>
+<p>Wenn die Authentifizierung aktiviert ist, kann über den DI-Container auf den <a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.IFSAuthenticationService.html"><code>IFSAuthenticationService</code></a> zugegriffen werden:</p>
+<pre><code class="lang-csharp">[Route(&quot;api/[controller]&quot;)]
+public class SecureController : Controller
+{
+    [HttpGet]
+    public IActionResult Get()
+    {
+        var authService = FSServiceProvider.Current
+            .GetRequiredService&lt;IFSAuthenticationService&gt;();
+
+        if (!authService.IsAuthenticationEnabled)
+        {
+            return Ok(&quot;Authentifizierung ist deaktiviert&quot;);
+        }
+
+        var authorization = FSServiceProvider.Current
+            .GetRequiredService&lt;IFSAuthorization&gt;();
+
+        if (!authorization.Granted(myAccessUnit))
+        {
+            return Unauthorized();
+        }
+
+        return Ok(result);
+    }
+}
+</code></pre>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Damit der <code>IFSAuthenticationService</code> zur Verfügung steht, muss <a href="restservices-methods.html">Dependency Injection</a> (<code>UseFSHosting()</code> / <code>BuildFSHost()</code>) und die <a href="restservices-methods.html#fsserviceproviderscopemiddleware"><code>FSServiceProviderScopeMiddleware</code></a> korrekt eingerichtet sein.</p>
+</div>
+<h2 id="publish">Publish</h2>
+<p>Generell stehen den REST Services für den produktiven Betrieb alle Funktionen zur Verfügung, die auch die Service Hosts haben.
+Darunter zählen die Steuerung des ausführenden Users, Authentication mittels AuthService, RuntimeSupervisor-Kompatibilität, Trace-File-Support und Post-Publish-Commands.</p>
+<p>Im <a href="../publish-wizards/publish-wizard.html">Publish Wizard</a> und in <a href="../publish-wizards/publish2go-wizard.html">Publish2Go</a> können die Einstellungen für das produktive Deployment der REST Services konfiguriert werden.                |</p>
+<h2 id="technische-hinweise--troubleshooting">Technische Hinweise &amp; Troubleshooting</h2>
+<p>Aus technologischen Gründen haben die REST Services ein paar Eigenheiten, die beachtet werden sollten.</p>
+<h3 id="isolierte-appdomain">Isolierte AppDomain</h3>
+<p>Der jeweilige Development- bzw. Produktions-Host erstellt eine isolierte AppDomain (<code>RestServiceDomain</code>), in der die RestService-Assembly geladen und ausgeführt wird. Dies stellt sicher, dass der REST Service in einer sauberen Umgebung läuft.</p>
+<h3 id="port-sharing">Port Sharing</h3>
+<p>Im Gegensatz zu den WCF-basierten Service Hosts haben die REST Services kein Port Sharing.
+Diese technische Möglichkeit gibt es bei den ASP.NET Core REST Services nicht 'out of the box'.
+Daher ist zu beachten, dass jedem REST Service (auch beim Start über den Run-Wizard) ein eigener Port zur Verfügung steht.
+Ist dies nicht der Fall, wird der Service entweder gar nicht oder nicht korrekt starten.</p>
+<h3 id="default-port">Default Port</h3>
+<p>Die ASP.NET Core REST Services werden über Kestrel gehostet.
+Das hat zur Folge, dass bei fehlendem oder fehlerhaftem Port die Default Port-Konfiguration zieht.
+Der Service hört dann auf folgende Endpunkte:</p>
+<pre><code class="lang-text">http://localhost:5000
+https://localhost:5001
+</code></pre>
+<h3 id="aspnet-core-23-auf-net48">ASP.NET Core 2.3 auf net48</h3>
+<p>Die REST Services verwenden <code>Microsoft.AspNetCore</code> in Version 2.3.0 auf .NET Framework 4.8.
+Die 2.3.0 war die letzte ASP.NET Core Version, die auf dem klassischen .NET Framework lauffähig ist — ab Version 3.0 wird ausschließlich .NET Core / .NET 5+ unterstützt.</p>
+<p>Das hat folgende praktische Auswirkungen:</p>
+<ul>
+<li><strong>Hosting-Modell:</strong> Es muss <code>WebHost.CreateDefaultBuilder()</code> mit <code>IWebHostBuilder</code> verwendet werden. Das neuere <code>Host.CreateDefaultBuilder()</code> (ab 3.0) steht nicht zur Verfügung.</li>
+<li><strong>Startup-Pattern:</strong> Es wird das klassische Startup-Klassen-Pattern mit <code>ConfigureServices()</code> und <code>Configure()</code> verwendet. Minimal Hosting und Top-Level Statements gibt es erst ab .NET 6.</li>
+<li><strong>MVC-Registrierung:</strong> <code>services.AddMvc()</code> und <code>app.UseMvc()</code> statt <code>AddControllers()</code> / <code>MapControllers()</code>.</li>
+<li><strong>Environment-Interface:</strong> Es wird <code>IHostingEnvironment</code> verwendet (nicht <code>IWebHostEnvironment</code>, das ab 3.0 eingeführt wurde).</li>
+<li><strong>JSON-Serializer:</strong> Standard ist <code>Newtonsoft.Json</code>. <code>System.Text.Json</code> ist erst ab ASP.NET Core 3.0 verfügbar.</li>
+<li><strong>Kein Endpoint Routing:</strong> Das in 3.0 eingeführte Endpoint Routing (<code>app.UseRouting()</code> / <code>app.UseEndpoints()</code>) steht nicht zur Verfügung.</li>
+<li><strong>NuGet-Pakete:</strong> Zusätzlich eingebundene Pakete müssen net48-kompatibel sein. Viele neuere ASP.NET Core Pakete setzen .NET 6+ voraus und können nicht verwendet werden.</li>
+</ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Viele aktuelle ASP.NET Core Tutorials und Beispiele im Internet basieren auf .NET 6+ und verwenden APIs, die auf der hier verwendeten Version 2.3 nicht verfügbar sind. Achten Sie bei der Recherche darauf, Dokumentation für ASP.NET Core 2.3 zu verwenden.</p>
+</div>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

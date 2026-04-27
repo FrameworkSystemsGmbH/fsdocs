@@ -88,16 +88,14 @@
 <h1 id="einrichtung-der-clients">Einrichtung der Clients</h1>
 
 <p>Um eine Verbindung mit dem Runtime Supervisor aufbauen zu können, muss jedes Observable wissen, wo dieser zu erreichen ist. Die Kommunikation erfolgt über ASP.NET SignalR. Um eine bidirektionale Kommunikation zu initiieren bedarf es hierzu nur der URL des Zielservers.</p>
-<h2 id="broker-und-service-hosts">Broker und Service Hosts</h2>
+<h2 id="broker-service-hosts-und-rest-services">Broker, Service Hosts und REST Services</h2>
 <p>Um einem Broker oder Service Host in Framework Studio die URL des Runtime Supervisor mitzuteilen, gibt es im Publish Wizard ein entsprechendes Textfeld.</p>
 <p><img src="media/image35.png" alt="Definieren der Runtime Supervisor Url für Broker und Service Hosts"></p>
-<p>Im Textfeld “Runtime Supervisor URL” auf der Startseite des Publish Wizard müssen der Server und Port, auf dem der Runtime Supervisor läuft, im Format [Server]:[Port] angegeben werden. Im darunter liegenden Textfeld wird die URL automatisch aufbereitet angezeigt. Diese URL gilt nun für alle Broker und Service Hosts der Framework Studio Runtime bzw. für dieses Setting gleichermaßen.</p>
+<p>Im Textfeld “Runtime Supervisor URL” auf der Startseite des Publish Wizard müssen der Server und Port, auf dem der Runtime Supervisor läuft, im Format [Server]:[Port] angegeben werden. Im darunter liegenden Textfeld wird die URL automatisch aufbereitet angezeigt. Diese URL gilt nun für alle Broker, Service Hosts und REST Services der Framework Studio Runtime bzw. für dieses Setting gleichermaßen.</p>
 <p>Über den Button “Test”, kann die Kommunikation getestet werden.</p>
-<p>Um festzulegen, ob für einen bestimmten Broker oder Service Host der Runtime Supervisor aktiviert sein soll oder nicht, kann über die entsprechende Seite im Publish Wizard eingestellt werden.</p>
-<p><img src="media/image36.png" alt="Aktivierung des Runtime Supervisor für einen Broker"></p>
-<p>Für jede Framework Studio Application (Broker) kann über die Checkbox “Enable” der Runtime Supervisor aktiviert oder deaktiviert werden. Dasselbe gilt auch für die Service Hosts.</p>
-<p><img src="media/image37.png" alt="Aktivierung des Runtime Supervisor für einen Service Host"></p>
-<p>Wird ein Broker oder ein Service Host gepublisht, registriert er sich automatisch am Runtime Supervisor und wird von da an von diesem überwacht.</p>
+<p>Um festzulegen, ob für einen bestimmten <a href="../publish-wizards/publish-wizard.html#runtime-supervisor">Broker</a>, <a href="../publish-wizards/publish-wizard.html#runtime-supervisor-1">Service Host</a> oder <a href="../publish-wizards/publish-wizard.html#runtime-supervisor-2">REST Service</a> der Runtime Supervisor aktiviert sein soll oder nicht, kann über die entsprechende Seite im Publish Wizard eingestellt werden.</p>
+<p>Für jede Framework Studio Application (Broker) kann über die Checkbox “Enable” der Runtime Supervisor aktiviert oder deaktiviert werden. Dasselbe gilt auch für die Service Hosts und REST Services.</p>
+<p>Wird ein Broker oder Service gepublisht, registriert er sich automatisch am Runtime Supervisor und wird von da an von diesem überwacht.</p>
 <h2 id="authentication-service">Authentication Service</h2>
 <p><img src="media/image38.png" alt="Aktivierung des Runtime Supervisor für den Authentication Service"></p>
 <p>Für den Authentication Service gibt es im dazugehörigen Konfigurationsassistenten den Reiter “Runtime Supervisor”. Über die Checkbox “Enable” kann der Runtime Supervisor aktiviert oder deaktiviert werden. Im Textfeld “Runtime Supervisor URL” müssen der Server und der Port, auf dem der Runtime Supervisor läuft, im Format [Server]:[Port] angegeben werden. Im Textfeld daneben wird die URL automatisch aufbereitet angezeigt.</p>
@@ -108,16 +106,19 @@
 <p>Über den Button “Test”, kann die Kommunikation getestet werden.</p>
 <h2 id="document-service">Document Service</h2>
 <p>Im Gegensatz zum Authentication Service oder Print Service bietet der Document Service keinen Konfigurationsassistenten an. Die Aktivierung des Runtime Supervisor muss hier über die XML-Konfigurationsdatei angepasst werden. Dem Document Service liegt eine Template-Datei bei, in der die zwei nötigen Einträge schon vorhanden sind und nur noch konfiguriert werden müssen.</p>
-<p>Wird eine ältere Konfigurationsdatei verwendet, muss überprüft werden, ob die nachfolgenden Einträge existieren. Ist dies nicht der Fall, müssen sie ggf. ergänzt werden.</p>
+<p>Wird eine ältere Konfigurationsdatei verwendet, muss überprüft werden, ob die nachfolgenden Einträge existieren.
+Ist dies nicht der Fall, müssen sie ggf. ergänzt werden.</p>
 <p>Im Element <configuration> / <applicationsettings> müssen folgende Elemente existieren:</applicationsettings></configuration></p>
-<setting name="RuntimeSupervisorEnabled" serializeas="String">
-  <value>True</value>
-</setting>
-<setting name="RuntimeSupervisorUri" serializeas="String">
-  <value>http://[Server]:[Port]/RuntimeSupervisorService</value>
-</setting>
+<pre><code class="lang-xml">&lt;setting name=&quot;RuntimeSupervisorEnabled&quot; serializeAs=&quot;String&quot;&gt;
+  &lt;value&gt;True&lt;/value&gt;
+&lt;/setting&gt;
+&lt;setting name=&quot;RuntimeSupervisorUri&quot; serializeAs=&quot;String&quot;&gt;
+  &lt;value&gt;http://[Server]:[Port]/RuntimeSupervisorService&lt;/value&gt;
+&lt;/setting&gt;
+</code></pre>
 <p>Das Element „RuntimeSupervisorEnabled“ definiert, ob der Runtime Supervisor für den Document Service aktiviert („True“) werden soll oder nicht („False“).</p>
-<p>Das Element „RuntimeSupervisorUri“ definiert die URL, unter der der Runtime Supervisor zu finden ist. Die URL muss im Format <a href="http://%5BServer%5D:%5BPort%5D/RuntimeSupervisorService">http://[Server]:[Port]/RuntimeSupervisorService</a> angegeben werden.</p>
+<p>Das Element „RuntimeSupervisorUri” definiert die URL, unter der der Runtime Supervisor zu finden ist.
+Die URL muss im Format <code>http://[Server]:[Port]/RuntimeSupervisorService</code> angegeben werden.</p>
 
 </article>
 

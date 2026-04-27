@@ -87,25 +87,24 @@
         <article data-uid="">
 <h1 id="publish2go-export-wizard">Publish2Go Export-Wizard</h1>
 
-<p>Der Publish2Go Export-Wizard wird verwendet, wenn mit Framework Studio entwickelte Applikationen und Dienste (Service Hosts) auf einem Rechner (oder auch auf mehreren Rechnern) installiert werden sollen, auf denen kein Framework Studio installiert ist (siehe <a href="wizards.html#publish2go-prinzip">Publish2Go Prinzip</a>).</p>
+<p>Der Publish2Go Export-Wizard wird verwendet, wenn mit Framework Studio entwickelte Applikationen und Dienste (Service Hosts und REST Services) auf einem Rechner (oder auch auf mehreren Rechnern) installiert werden sollen, auf denen kein Framework Studio installiert ist (siehe <a href="wizards.html#publish2go-prinzip">Publish2Go Prinzip</a>).</p>
 <p>Gestartet wird der Publish2Go Export-Wizard über den Menüeintrag <strong>Tools / Publish2Go Export</strong>.</p>
-<p><img src="media/publish2go_export_wizard.png" alt="Publish2Go Export-Wizard"></p>
+<p><img src="media/publish2go_export_wizard_start.png" alt="Publish2Go Export-Wizard"></p>
 <p>Der Publish2Go Export-Wizard arbeitet grundsätzlich wie bei Wizards üblich.
 Man kann sich mit den Buttons <strong>Back</strong> und <strong>Next</strong> durch die verschiedenen Einstellungen navigieren.</p>
 <p>Um gezielt eine bestimmte Einstellung zu ändern, können Sie diese auch direkt über den Baum anwählen.</p>
-<p><strong>Button Restore Default Settings:</strong> Sämtliche Einstellungen, die im Publish2Go Export-Wizard definiert wurden, werden verworfen.
+<p><strong>Manage Settings:</strong> Öffnet den Setting Manager, mit dem vordefinierte, bzw. gespeicherte Settings verwaltet werden.</p>
+<p><strong>Button Set Setting Defaults:</strong> Sämtliche Einstellungen, die im Publish2Go Export-Wizard definiert wurden, werden verworfen.
 Damit wird alles auf die Default-Einstellungen zurückgestellt.
-Die Default-Einstellungen werden aus der FSDomain gelesen.</p>
+Die Default-Einstellungen werden aus dem DefaultSetting im Repository gelesen.</p>
 <p><strong>Button Back, Next:</strong> Zur vorherigen bzw. nächsten Einstellung navigieren.</p>
-<p><strong>Button Run:</strong> Die ausgewählte Applikation und die ausgewählten Service Hosts werden gestartet.</p>
+<p><strong>Button Create:</strong> Für die ausgewählten Applikationen, Service Hosts und REST Services wird das Publish2Go gestartet.</p>
 <p>Siehe auch Registerkarte <a href="#end">End</a></p>
 <p><strong>Button Close:</strong> Schließt den Publish2Go Export-Wizard. Die geänderten Einstellungen werden in dem aktuellen User-Setting gespeichert.</p>
 <h2 id="start">Start</h2>
 <p><img src="media/publish2go_export_wizard_start.png" alt="Publish2Go Export-Wizard (Start)"></p>
-<p><strong>Folder Name:</strong> In diesem Eingabefeld wird der Name des zu erstellenden Publish2Go-Verzeichnisses angegeben.
+<p><strong>Output Folder:</strong> In diesem Eingabefeld wird der Name des zu erstellenden Publish2Go-Verzeichnisses angegeben.
 Das Verzeichnis muss leer sein.</p>
-<p><strong>Button Load Setting:</strong> Hier kann ein gespeichertes Setting aus dem Repository geladen werden.
-Alle nicht gespeicherten Angaben gehen dabei verloren.</p>
 <h2 id="runtime-license">Runtime License</h2>
 <p>Beim Erstellen eines Publish2Go-Pakets ist es möglich, die zugehörigen Runtime Lizenzen gleich mit zu exportieren.
 Dazu steht im Publish2Go Wizard der aus dem normalen Publish Wizard bekannte Runtime License Manager zur Verfügung.</p>
@@ -117,9 +116,9 @@ Dazu steht im Publish2Go Wizard der aus dem normalen Publish Wizard bekannte Run
 <p><img src="media/publish2go_export_wizard_service_proxies.png" alt="Publish2Go Export-Wizard (Service Proxies)"></p>
 <h2 id="end">End</h2>
 <p><img src="media/publish2go_export_wizard_end.png" alt="Publish2Go Export-Wizard (End)"></p>
-<p><strong>Save Setting:</strong> Mit diesem Button öffnen Sie den Dialog zum Speichern der aktuellen Einstellungen in der Datenbank.</p>
-<p>Im Bereich <strong>Choose Applications and Service Hosts you want to publish</strong> wählen Sie alle Applikationen und Service Hosts aus, die zur Verfügung gestellt werden sollen.</p>
-<p>Benutzen Sie den Button <strong>Create</strong> um den Publish2GO-Ordner mit den ausgewählten Applikationen und Service Hosts zu erstellen.</p>
+<p>Im Bereich <strong>Choose Applications, Service Hosts and REST Services to be included in the Publish2Go package</strong> wählen Sie alle Applikationen, Service Hosts und REST Services aus, die zur Verfügung gestellt werden sollen.</p>
+<p>Um die Unterscheidung zwischen ServiceHosts und REST Services zu gewährleisten, werden REST Services mit <code>(REST)</code> gekennzeichnet.</p>
+<p>Benutzen Sie den Button <strong>Create</strong> um den Publish2Go-Ordner mit den ausgewählten Applikationen, Service Hosts und REST Services zu erstellen.</p>
 
 </article>
 

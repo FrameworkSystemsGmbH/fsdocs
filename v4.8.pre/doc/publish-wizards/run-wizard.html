@@ -87,7 +87,7 @@
         <article data-uid="">
 <h1 id="run-wizard">Run Wizard</h1>
 
-<p>Der Run-Wizard wird verwendet, wenn mit Framework Studio entwickelte Applikationen und Dienste (Service Hosts) getestet werden sollen.
+<p>Der Run-Wizard wird verwendet, wenn mit Framework Studio entwickelte Applikationen und Dienste (Service Hosts und REST Services) getestet werden sollen.
 Gestartet wird der Run-Wizard über den Menüeintrag <strong>Compile / Run…</strong> oder über die Tastenkombination <strong>Umschalt+F5</strong>.</p>
 <p><img src="media/run_wizard_start.png" alt="Run Wizard"></p>
 <p>Der Run-Wizard arbeitet grundsätzlich wie bei Wizards üblich.
@@ -97,7 +97,7 @@ Man kann sich mit den Buttons <strong>Back</strong> und <strong>Next</strong> du
 Damit wird alles auf die Default-Einstellungen zurückgestellt.
 Die Default-Einstellungen werden aus der FSDomain gelesen.</p>
 <p><strong>Button Back, Next:</strong> Zur vorherigen bzw. nächsten Einstellung navigieren.</p>
-<p><strong>Button Run:</strong> Die ausgewählte Applikation und ausgewählten Service Hosts werden gestartet.
+<p><strong>Button Run:</strong> Die ausgewählte Applikation, ausgewählte Service Hosts und REST Services werden gestartet.
 Siehe auch Registerkarte <a href="#end">End</a></p>
 <p><strong>Button Close:</strong> Schließt den Run-Wizard.
 Die geänderten Einstellungen werden in dem aktuellen User-Setting gespeichert.</p>
@@ -197,6 +197,7 @@ Dafür stehen die Buttons <img src="../media/icon-more.png" alt="icon-more.png">
 <p><strong>Active (Start Development Service Host):</strong> Wenn diese Checkbox gesetzt ist, wird dieser Service Host zum Starten via <strong>F5</strong> markiert, andernfalls nicht.</p>
 <p><strong>Servername:</strong> Name des Servers, auf dem der Dienst/Service Host installiert werden soll.</p>
 <p><strong>Port:</strong> Port, unter dem der Dienst bereitgestellt werden soll.</p>
+<p><strong>SSL:</strong> Die Checkbox aktiviert die SSL Verschlüsselung für den ServiceHost – dieser läuft dann über <code>https</code>.</p>
 <p><strong>CORS Origin:</strong> Wenn ein Service gehostet wird, der direkt über JavaScript aus dem Browser angesprochen wird, kann hier der CORS Origin gesetzt werden, welcher per HTTP-Header an den Client geschickt wird.
 Bei jedem Response des Services wird der Header „Access-Control-Allow-Origin“ mit dem angegebenen Wert mitgeschickt.</p>
 <p><strong>Configuration:</strong> Hier können in einer Xml-Struktur Parameterwerte angegeben werden, die der Applikation beim Start mit übergeben werden und in der Programmlogik über das GlobalObject ausgewertet werden können.</p>
@@ -212,14 +213,38 @@ Bei jedem Response des Services wird der Header „Access-Control-Allow-Origin�
 <h3 id="service-host--authentication">Service Host – Authentication</h3>
 <p>Hier werden die Authentifizierungseinstellungen zu einem Service Host vorgenommen.</p>
 <p><img src="media/run_wizard_serviceHosts_authentication.png" alt="Run-Wizard (Service Hosts / Authentication)"></p>
-<p><strong>Enabled:</strong> Nur dann, wenn in dieser Checkbox ein Häkchen gesetzt ist, wird die Applikation mit Authentifizierung gestartet. Nur dann sind auch die weiteren Einstellungen zur Authentifizierung zugänglich.</p>
-<p><strong>Name:</strong> Name der Applikation, mit der sich die Applikation am Authentifizierungsdienst anmelden soll.</p>
-<p><strong>Description:</strong> Beschreibung der Applikation.</p>
-<p><strong>ID:</strong> Eindeutige Identifikationsnummer der Applikation. Diese wird mit dem Button <strong>Generate New Identity</strong> zufällig erzeugt.</p>
-<p><strong>Public Key, Private Key:</strong> Öffentlicher und privater Schlüssel der Applikation.
-Die Schlüssel werden vom Authentifizierungsdienst verwendet, um diese Applikation zweifelsfrei zu identifizieren.
+<p><strong>Enabled:</strong> Nur dann, wenn in dieser Checkbox ein Häkchen gesetzt ist, wird der Service Host mit Authentifizierung gestartet. Nur dann sind auch die weiteren Einstellungen zur Authentifizierung zugänglich.</p>
+<p><strong>Name:</strong> Name, mit der sich der Service Host am Authentifizierungsdienst anmelden soll.</p>
+<p><strong>Description:</strong> Beschreibung des Service Hosts.</p>
+<p><strong>ID:</strong> Eindeutige Identifikationsnummer des Service Hosts. Diese wird mit dem Button <strong>Generate New Identity</strong> zufällig erzeugt.</p>
+<p><strong>Public Key, Private Key:</strong> Öffentlicher und privater Schlüssel des Service Hosts.
+Die Schlüssel werden vom Authentifizierungsdienst verwendet, um diesen Service Host zweifelsfrei zu identifizieren.
 Die Schlüssel werden mit dem Button <strong>Generate New Identity</strong> zufällig initialisiert.</p>
-<p><strong>Generate New Identity:</strong> Eine neue Identität für die Applikation wird generiert.
+<p><strong>Generate New Identity:</strong> Eine neue Identität für den Service Host wird generiert.
+Durch diesen Vorgang werden <strong>ID</strong>, <strong>Public Key</strong> und <strong>Private Key</strong> mit zufälligen Werten gefüllt.</p>
+<h2 id="rest-services">REST Services</h2>
+<p>Für jeden mit Framework Studio erstellten REST Service, der gestartet werden soll, werden hier alle Einstellungen vorgenommen.</p>
+<h3 id="rest-services---general">REST Services - General</h3>
+<p>Hier werden die Einstellungen zu einem REST Service vorgenommen.</p>
+<p><img src="media/run_wizard_restservices.png" alt="Run-Wizard (REST Services)"></p>
+<p><strong>Active:</strong> Wenn diese Checkbox gesetzt ist, wird dieser REST Service zum Starten via <strong>F5</strong> markiert, andernfalls nicht.</p>
+<p><strong>Debug:</strong> Wenn diese Checkbox gesetzt ist, kann mit dem Debug-Flag im Service das <a href="../restservices/restservices.html#debugging">Debugging</a> gestartet werden.</p>
+<p><strong>Configuration:</strong> Hier kann im JSON-Format eine Konfiguration des REST Services hinterlegt werden. Die Konfiguration wird 1:1 an den REST Service übergeben. Dies muss im Service implementiert werden siehe <a href="../restservices/restservices-methods.html#konfiguration">Codebeispiel</a>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Beim Start des REST Services wird die JSON Config lediglich auf strukturelle Validität geprüft, es findet keine inhaltliche Prüfung statt.</p>
+</div>
+<h3 id="rest-services---authentication">REST Services - Authentication</h3>
+<p>Hier werden die Authentifizierungseinstellungen zu einem REST Service vorgenommen.</p>
+<p><img src="media/run_wizard_restservices_authentication.png" alt="Run-Wizard (REST Services / Authentication)"></p>
+<p><strong>Enabled:</strong> Nur dann, wenn in dieser Checkbox ein Häkchen gesetzt ist, wird der REST Service mit Authentifizierung gestartet. Nur dann sind auch die weiteren Einstellungen zur Authentifizierung zugänglich.</p>
+<p><strong>Name:</strong> Name, mit dem sich der REST Service am Authentifizierungsdienst anmelden soll.</p>
+<p><strong>Description:</strong> Beschreibung des REST Services.</p>
+<p><strong>ID:</strong> Eindeutige Identifikationsnummer des REST Services. Diese wird mit dem Button <strong>Generate New Identity</strong> zufällig erzeugt.</p>
+<p><strong>Public Key, Private Key:</strong> Öffentlicher und privater Schlüssel des REST Services.
+Die Schlüssel werden vom Authentifizierungsdienst verwendet, um diesen REST Service zweifelsfrei zu identifizieren.
+Die Schlüssel werden mit dem Button <strong>Generate New Identity</strong> zufällig initialisiert.</p>
+<p><strong>Generate New Identity:</strong> Eine neue Identität für den REST Service wird generiert.
 Durch diesen Vorgang werden <strong>ID</strong>, <strong>Public Key</strong> und <strong>Private Key</strong> mit zufälligen Werten gefüllt.</p>
 <h2 id="service-proxies">Service Proxies</h2>
 <p>Hier kann die Serviceadresse von <strong>externen</strong> Diensten geändert werden.</p>
@@ -227,7 +252,7 @@ Durch diesen Vorgang werden <strong>ID</strong>, <strong>Public Key</strong> und
 <h2 id="end">End</h2>
 <p><img src="media/run_wizard_end.png" alt="Run-Wizard (End)"></p>
 <p><strong>Save Setting:</strong> Mit diesem Button öffnen Sie den Dialog zum Speichern der aktuellen Einstellungen in der Datenbank.</p>
-<p>Benutzen Sie den Button <strong>Run</strong> um die ausgewählte Applikation und alle zum Starten markierten Service Hosts <a href="#service-host--general">Service Host – General</a> zu starten.</p>
+<p>Benutzen Sie den Button <strong>Run</strong> um die ausgewählte Applikation und alle zum Starten markierten <a href="#service-host--general">Service Hosts</a> und <a href="#rest-services---general">REST Services</a> zu starten.</p>
 <p><strong>Update config files on start:</strong> Das Flag bestimmt, ob bei einem Anwendungsstart über den RunWizard oder <strong>F5</strong> die im Development Broker Verzeichnis liegenden Config-Dateien überschrieben werden oder nicht.
 Standardmäßig ist das Flag aktiviert.
 Wird das Flag deaktiviert, hat der Entwickler die Möglichkeit, sämtliche Konfigurationsdateien im Development Broker Verzeichnis abzuändern und seine Anwendung mit diesen zu testen, ohne dass bei jedem neuen Start der Anwendung die Konfigurationsdateien von Framework Studio wieder überschrieben werden.</p>

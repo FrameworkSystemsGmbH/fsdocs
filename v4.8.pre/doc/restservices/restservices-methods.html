@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Dependency Injection und Konfiguration </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Dependency Injection und Konfiguration ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="dependency-injection-und-konfiguration">Dependency Injection und Konfiguration</h1>
+
+<p>Framework Studio stellt eine Reihe von Extension Methods bereit, über die ein REST Service die FS-Infrastruktur einbinden, seine Konfiguration laden und <a href="../konzepte/dependency-injection.html">Dependency Injection</a> nutzen kann. Dieses Kapitel beschreibt alle Methoden und die zugehörige Middleware im Detail.</p>
+<p>Bereitgestellt werden die Extension Methods durch die Klasse <a class="xref" href="../../api/FS.Hosting.RestService.Shared.FSRestServiceExtensions.html"><code>FSRestServiceExtensions</code></a>:</p>
+<ul>
+<li><a href="#usefsconfigurationstring-args-bool-optional--true"><code>UseFSConfiguration()</code></a> — lädt die JSON-Konfiguration des Services aus den übergebenen <code>args</code>.</li>
+<li><a href="#usefshosting"><code>UseFSHosting()</code></a> — registriert alle für das FS-Hosting relevanten Services im DI-Container.</li>
+<li><a href="#fsappstartup"><code>FSAppStartup()</code></a> — initialisiert den <code>FSServiceProvider</code> und führt die Startup-Hooks aus.</li>
+<li><a href="#kombination-buildfshost"><code>BuildFSHost()</code></a> — Kombination aus <code>UseFSHosting()</code> + <code>Build()</code> + <code>FSAppStartup()</code>.</li>
+</ul>
+<p>Ergänzend dazu ist die Middleware <a href="#fsserviceproviderscopemiddleware"><code>FSServiceProviderScopeMiddleware</code></a> in der Startup-Klasse zu registrieren, damit <code>FSServiceProvider.Current</code> pro Request einen eigenen Scope erhält.</p>
+<h2 id="konfiguration">Konfiguration</h2>
+<p>Über den <a href="../publish-wizards/run-wizard.html#rest-services">RunWizard</a> bzw. den <a href="../publish-wizards/publish-wizard.html#rest-services---general">Publish Wizard</a> muss für den REST Service eine Konfiguration übergeben werden.
+Diese Konfiguration muss im JSON-Format hinterlegt werden. Der Pfad zur Konfigurationsdatei wird über das <code>args</code>-Array übergeben.</p>
+<p>Mit <code>args[1]</code> kann der Konfigurationspfad dann an den Service übergeben werden.</p>
+<pre><code class="lang-csharp">.UseConfiguration(new ConfigurationBuilder()
+  .AddJsonFile(args[1], optional: false, reloadOnChange: true)
+  .Build());
+</code></pre>
+<h3 id="usefsconfigurationstring-args-bool-optional--true"><code>UseFSConfiguration(string[] args, bool optional = true)</code></h3>
+<p>Es kann auch die von Framework Studio bereitgestellte <a class="xref" href="../../api/FS.Hosting.RestService.Shared.FSRestServiceExtensions.html"><code>UseFSConfiguration()</code></a> Methode verwendet werden. Diese lädt die JSON-Konfiguration automatisch aus <code>args[1]</code>. Es muss das <code>args</code>-Array übergeben werden.</p>
+<pre><code class="lang-csharp">return WebHost.CreateDefaultBuilder(args)
+  .UseFSConfiguration(args);
+</code></pre>
+<h3 id="beispiel-json-konfiguration">Beispiel JSON-Konfiguration</h3>
+<pre><code class="lang-json">{
+  &quot;Kestrel&quot;: {
+    &quot;Endpoints&quot;: {
+      &quot;Http&quot;: {
+        &quot;Url&quot;: &quot;http://localhost:5100&quot;
+      },
+      &quot;Https&quot;: {
+        &quot;Url&quot;: &quot;https://localhost:5101&quot;
+      }
+    }
+  },
+  &quot;Logging&quot;: {
+    &quot;LogLevel&quot;: {
+      &quot;Default&quot;: &quot;Information&quot;
+    }
+  }
+}
+</code></pre>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Die URL/Port-Konfiguration sollte über die JSON-Konfiguration erfolgen und nicht fest im Code hinterlegt werden (<code>UseUrls()</code>), da sonst Customizing und Konfigurationsänderungen nicht mehr wirksam sind.</p>
+</div>
+<h2 id="dependency-injection">Dependency Injection</h2>
+<h3 id="usefshosting"><code>UseFSHosting()</code></h3>
+<p><a class="xref" href="../../api/FS.Hosting.RestService.Shared.FSRestServiceExtensions.UseFSHosting.html#FS_Hosting_RestService_Shared_FSRestServiceExtensions_UseFSHosting_Microsoft_AspNetCore_Hosting_IWebHostBuilder_"><code>UseFSHosting()</code></a> registriert alle für das FS-Hosting relevanten Services im DI-Container des <code>IWebHostBuilder</code>.
+Dazu gehören unter anderem Datenbankverbindungen, Authentifizierung, Autorisierung, Lizenzierung und der GlobalContext.</p>
+<pre><code class="lang-csharp">WebHost.CreateDefaultBuilder(args)
+    .UseFSHosting()     // &lt;-- FS-Services registrieren
+    .UseStartup&lt;Startup&gt;()
+    .Build();
+</code></pre>
+<h3 id="fsappstartup"><code>FSAppStartup()</code></h3>
+<p><a class="xref" href="../../api/FS.Hosting.RestService.Shared.FSRestServiceExtensions.FSAppStartup.html#FS_Hosting_RestService_Shared_FSRestServiceExtensions_FSAppStartup_Microsoft_AspNetCore_Hosting_IWebHost_"><code>FSAppStartup()</code></a> führt die notwendigen Initialisierungsroutinen auf dem fertig gebauten <code>IWebHost</code> aus.
+Dabei wird der <a href="../konzepte/di-fsserviceprovider.html"><code>FSServiceProvider</code></a> mit dem Root-ServiceProvider initialisiert und die registrierten Startup-Hooks ausgeführt.</p>
+<pre><code class="lang-csharp">CreateWebHostBuilder(args)
+    .Build()
+    .FSAppStartup()     // &lt;-- FS-Initialisierung
+    .Run();
+</code></pre>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p><code>FSAppStartup()</code> muss nach <code>Build()</code> und vor <code>Run()</code> aufgerufen werden.
+Ohne diesen Aufruf ist der <code>FSServiceProvider</code> nicht initialisiert und <code>FSServiceProvider.Current</code> liefert eine <code>InvalidOperationException</code>.</p>
+</div>
+<h3 id="zusammenspiel-usefshosting-und-fsappstartup">Zusammenspiel <code>UseFSHosting()</code> und <code>FSAppStartup()</code></h3>
+<p>Beide Methoden werden zusammen in der <code>Run</code>-Methode des REST Services verwendet:</p>
+<pre><code class="lang-csharp">public int Run(string[] args)
+{
+    CreateWebHostBuilder(args)
+        .UseFSHosting()
+        .Build()
+        .FSAppStartup()
+        .Run();
+    return 0;
+}
+</code></pre>
+<h3 id="kombination-buildfshost">Kombination <code>BuildFSHost()</code></h3>
+<p>Die beiden Methoden <code>UseFSHosting()</code> und <code>FSAppStartup()</code> können auch durch die Methode <a class="xref" href="../../api/FS.Hosting.RestService.Shared.FSRestServiceExtensions.html"><code>BuildFSHost()</code></a> ersetzt werden. Diese kombiniert die beiden Aufrufe.</p>
+<pre><code class="lang-csharp">public int Run(string[] args)
+{
+    CreateWebHostBuilder(args)
+        .BuildFSHost()
+        .Run();
+    return 0;
+}
+</code></pre>
+<h3 id="fsserviceproviderscopemiddleware"><code>FSServiceProviderScopeMiddleware</code></h3>
+<p>Damit <a class="xref" href="../../api/FS.Hosting.Shared.FSServiceProvider.Current.html#FS_Hosting_Shared_FSServiceProvider_Current"><code>FSServiceProvider.Current</code></a> innerhalb von Controller-Methoden und weiteren Komponenten des REST Services zur Verfügung steht, muss die <a class="xref" href="../../api/FS.Hosting.RestService.Shared.FSServiceProviderScopeMiddleware.html"><code>FSServiceProviderScopeMiddleware</code></a> in der Startup-Klasse registriert werden.</p>
+<p>Die Middleware legt um jeden HTTP-Request einen eigenen <a href="../konzepte/di-fsserviceprovider.html#eigener-scope">DI-Scope</a>.</p>
+<h4 id="registrierung">Registrierung</h4>
+<p>In der <code>Configure</code>-Methode der Startup-Klasse muss die Middleware <strong>vor</strong> den anderen Middlewares registriert werden:</p>
+<pre><code class="lang-csharp">public void Configure(IApplicationBuilder app)
+{
+    app.UseMiddleware&lt;FSServiceProviderScopeMiddleware&gt;();
+
+    // ... weitere Middlewares und Endpoints
+    app.UseMvc();
+}
+</code></pre>
+<h4 id="verwendung">Verwendung</h4>
+<p>Nach der Registrierung steht <code>FSServiceProvider.Current</code> in allen Komponenten innerhalb der Request-Pipeline zur Verfügung:</p>
+<pre><code class="lang-csharp">[Route(&quot;api/[controller]&quot;)]
+public class WeatherController : Controller
+{
+    [HttpGet]
+    public IActionResult Get()
+    {
+        var authorization = FSServiceProvider.Current.GetRequiredService&lt;IFSAuthorization&gt;();
+        if (!authorization.Granted(myAccessUnit))
+        {
+            return Unauthorized();
+        }
+
+        // ...
+        return Ok(result);
+    }
+}
+</code></pre>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Ohne die Middleware ist <code>FSServiceProvider.Current</code> im REST Service <code>null</code>.
+Wird auf Services zugegriffen ohne dass die Middleware registriert ist, kommt es zu einer <code>NullReferenceException</code>.</p>
+</div>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Die Middleware erzeugt mit <a class="xref" href="../../api/FS.Hosting.Shared.FSServiceProvider.CreateScope.html#FS_Hosting_Shared_FSServiceProvider_CreateScope"><code>FSServiceProvider.CreateScope()</code></a> einen eigenen DI-Scope pro Request.
+Es gelten dieselben Regeln wie beim <a href="../konzepte/di-fsserviceprovider.html#eigener-scope">eigenen Scope</a>:
+Innerhalb des Requests dürfen keine Tasks oder Threads gestartet werden, die über die Lebensdauer des Requests hinaus aktiv sind.</p>
+</div>
+<h2 id="beispielcode-für-einen-controller-mit-eigenem-globalobject">Beispielcode für einen Controller mit eigenem GlobalObject</h2>
+<p>In WCF-Services wurde über das Property <code>GenerateGlobalObject</code> automatisch ein <code>using (FSServiceProvider.CreateScope())</code> um die Servicemethode gelegt. In REST Services muss dies selbst implementiert werden.</p>
+<pre><code class="lang-csharp">[Route(&quot;api/[controller]&quot;)]
+public class TokenController : Controller
+{
+    [HttpGet(&quot;globals&quot;)]
+    public async Task&lt;IActionResult&gt; GetGlobalTokens()
+    {
+        string result = &quot;&quot;;
+
+        var localGlobal = FS.Hosting.Broker.Base.GlobalObjectManager.CreateGlobalObject(
+            FS.Shared.BaseObjects.guid.NewGuid().Value);
+
+        using (FSServiceProvider.CreateScope(localGlobal))
+        {
+          // ...
+        }
+
+        // Für diesen Zugriff wird die FSServiceProviderScopeMiddleware benötigt
+        result = FSServiceProvider.Current
+            .GetRequiredService&lt;IFSAuthenticationService&gt;()
+            .IsAuthenticationEnabled.ToString();
+
+        return Ok(result);
+    }
+}
+</code></pre>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>In den WCF-Services wurde über das Property <code>GenerateGlobalObject</code> automatisch ein <code>using (FSServiceProvider.CreateScope())</code> um die Servicemethode gelegt. Dies muss in den REST Services selbst implementiert werden!</p>
+</div>
+<h2 id="minimales-beispiel">Minimales Beispiel</h2>
+<p>Der folgende Code zeigt eine minimale <code>IFSRestService</code>-Implementierung mit JSON-Konfiguration über <code>UseFSConfiguration()</code> — ohne weitere FS-Services:</p>
+<pre><code class="lang-csharp">public class WeatherService : FS.Hosting.Shared.IFSRestService
+{
+    public int Run(string[] args)
+    {
+        try
+        {
+            CreateWebHostBuilder(args).Build().Run();
+            return 0;
+        }
+        catch
+        {
+            return -1;
+        }
+    }
+
+    public virtual IWebHostBuilder CreateWebHostBuilder(string[] args)
+    {
+        return WebHost.CreateDefaultBuilder(args)
+            .UseStartup&lt;Startup&gt;()
+            .UseFSConfiguration(args);
+    }
+}
+</code></pre>
+<h2 id="vollständiges-beispiel-mit-di">Vollständiges Beispiel mit DI</h2>
+<p>Das folgende Beispiel zeigt einen kompletten REST Service mit Dependency Injection, Middleware und Konfiguration:</p>
+<pre><code class="lang-csharp">// REST Service - IFSRestService Implementierung
+public class WeatherService : FS.Hosting.Shared.IFSRestService
+{
+    public int Run(string[] args)
+    {
+        if (args[7] == &quot;True&quot;)
+        {
+            System.Diagnostics.Debugger.Launch();
+        }
+
+        CreateWebHostBuilder(args)
+            .BuildFSHost()  // UseFSHosting() + Build() + FSAppStartup()
+            .Run();
+        return 0;
+    }
+
+    public virtual IWebHostBuilder CreateWebHostBuilder(string[] args)
+    {
+        return WebHost.CreateDefaultBuilder(args)
+            .UseStartup&lt;Startup&gt;()
+            .UseFSConfiguration(args);
+    }
+}
+</code></pre>
+<pre><code class="lang-csharp">// Startup-Klasse
+public class Startup
+{
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddMvc();
+        // Eigene Services registrieren
+    }
+
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+        // FSServiceProviderScopeMiddleware als erstes registrieren!
+        app.UseMiddleware&lt;FSServiceProviderScopeMiddleware&gt;();
+
+        if (env.IsDevelopment())
+        {
+            app.UseDeveloperExceptionPage();
+        }
+
+        app.UseMvc();
+    }
+}
+</code></pre>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

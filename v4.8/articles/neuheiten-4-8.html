@@ -137,6 +137,13 @@ Für einen zukünftigen Einsatz von .net auf z.B. Linux-Servern muss dies abgel�
 <strong>SkiaSharp</strong> bietet diese Möglichkeit.</p>
 <h2 id="komponentenbaukasten---modular-components">Komponentenbaukasten - Modular Components</h2>
 <p>Es wurde ein neues Element hinzugefügt. Die Doku mit allgemeinen Informationen und allen Besonderheiten findet sich hier: <a href="../doc/modcomp/modcomp.html">Modular Components</a></p>
+<h2 id="rest-services-preview">REST Services (Preview)</h2>
+<p>Es gibt die Möglichkeit, in Framework Studio eigene <a href="../doc/restservices/restservices.html">REST Services</a> auf Basis von ASP.NET Core (net48-kompatibel) zu erstellen.
+REST Services werden über CodeFiles oder Modular Components mit dem CompileStep <code>RestService</code> angelegt.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Dieses Release beinhaltet noch keine vollwertige Funktionalität. Sie können sich bereits mit der neuen Lösung auseinandersetzen und Nutzungserfahrungen sammeln, ein produktiver Einsatz ist allerdings ausdrücklich noch nicht vorgesehen.</p>
+</div>
 <h2 id="icons">Icons</h2>
 <p>In den Modular Components wurden für Properties und Methods die Icons erneuert, sie orientieren sich an den offiziellen Visual Studio Icons. Dies ermöglicht eine schnellere Übersicht, welches AccessLevel das Property oder die Methode hat.</p>
 <ul>
@@ -233,6 +240,31 @@ Auf diesen Betriebssystemen wird dementsprechend das Browser-Control nicht funkt
 Der Parameter <code>dl</code> wurde entfernt und stattdessen ein neuer Endpoint geschaffen.
 Ursprünglich wurde der Parameter eingebaut, um Content-Management-Systemen, wie SharePoints o.ä., die mit dem Startlink aus der <a href="../doc/fsclientlauncher/fsclientlauncher-common.html#startpage">Startpage</a> nicht zurechtgekommen sind, eine Möglichkeit zu bieten den Client zu starten.
 In diesen Systemen hinterlegte Links müssen auf den neuen <a href="../doc/fsclientlauncher/fsclientlauncher-common.html#broker-launch-endpoint">Endpoint</a> <code>/api/launch</code> abgeändert werden.</p>
+<h2 id="breaking-changes--fsdeveloperapi-und-fsdomain">Breaking Changes – FSDeveloperAPI und FSDomain</h2>
+<p>Der Typ <code>FSDomain</code> ist nicht mehr als eigenständiges Objekt in der Oberfläche verfügbar. Die Daten bleiben in der Repository-Datenbank bestehen.</p>
+<p>Die bisherige FSDomain-Verwaltung wurde vereinfacht: Alle Domain-Einstellungen (Verbindungen, Service Hosts, Service Proxies, Applikationen) werden nun ausschließlich über die Settings (RunWizard/PublishWizard/P2Go) gesteuert. Ein separater FSDomain-Eintrag im Namespace-Baum entfällt.</p>
+<h3 id="was-ändert-sich-für-anwender">Was ändert sich für Anwender?</h3>
+<ul>
+<li>Der Menüpunkt Datei → Neu → FSDomain ist entfernt.</li>
+<li>FSDomain-Einträge erscheinen nicht mehr im Namespace-Baum.</li>
+<li>Alle bisherigen Konfigurationen (Verbindungen, Service Hosts etc.) sind weiterhin über die Settings erreichbar und funktionieren wie gewohnt.</li>
+</ul>
+<h3 id="breaking-change-in-der-fsdeveloperapi-betrifft-addin-entwickler">Breaking Change in der FSDeveloperAPI (betrifft AddIn-Entwickler)</h3>
+<ul>
+<li>FSFSDomainRecord erbt nicht mehr von FSClassRecord</li>
+<li>FSFSDomainList implementiert IEnumerable<fsfsdomainrecord>.</fsfsdomainrecord></li>
+<li>FSFSDomainFactory wurde entfernt - es können keine neuen FSDomainRecords angelegt werden</li>
+<li>FSNamespaceRecord.GetAllFSDomains() und FSNamespaceRecord.FSDomainList liefern eine leere Auflistung.</li>
+</ul>
+<h4 id="keine-änderung-für-addins-die-ausschließlich">Keine Änderung für AddIns, die ausschließlich</h4>
+<ul>
+<li>FSFSDomainRecord.Name lesen</li>
+<li>Über FSEnvironment.ActiveFSDomain auf die aktive Domain zugreifen</li>
+<li>WrapperRecords (Verbindungen, Service Hosts) über die Settings nutzen</li>
+</ul>
+<h2 id="abkündigung-publish4cloud">Abkündigung Publish4Cloud</h2>
+<p>Wir haben die Unterstützung für Publish4Cloud ausgebaut. Dieser war nur per Config aktivierbar.
+Produktiv wurde dieser Publish nie eingesetzt.</p>
 <h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
 <ul>
 <li>Änderungen an Methoden und Properties bei einem ausgecheckten Record werden durch die neue Spalte <code>Modified</code> angezeigt.</li>

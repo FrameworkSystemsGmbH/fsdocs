@@ -87,13 +87,34 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
+<h2 id="4717-04052026">4.7.17 (04.05.2026)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.17_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="updates">Updates</h4>
+<ul>
+<li>Angular wurde aktualisiert. Das betrifft folgende Systeme:
+<ul>
+<li>den in FS integrierte Code-Editor <code>Monaco</code>,</li>
+<li>das Dokumentations-System,</li>
+<li>die StartPage,</li>
+<li>und den HTML Client.</li>
+</ul>
+</li>
+</ul>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Im Java-Client wird bei fehlgeschlagenen RegEx-Validierungen von Metadatatypes nun zusätzlich der <strong>Tooltip-Text</strong> des MDT in der Fehlermeldung angezeigt. So erhalten Benutzer neben dem technischen regulären Ausdruck auch einen verständlichen Hinweis auf das erwartete Eingabeformat.</li>
+</ul>
 <h2 id="4716-07042026">4.7.16 (07.04.2026)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.7.16_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates">Updates</h4>
+<h4 id="updates-1">Updates</h4>
 <ul>
 <li>DevExpress wurde aufgrund des folgenden Fehlers <a href="https://supportcenter.devexpress.com/ticket/details/t1314510/web-report-designer-report-explorer-drag-drop-functionality-works-incorrectly-with">&quot;Web Report Designer Report Explorer - Drag &amp; drop functionality works incorrectly with XRSubband&quot;</a> auf Version 25.2.3 upgedated.</li>
 </ul>
@@ -159,7 +180,7 @@ msvcp140.dll.</p>
 <li>FS_4.7.14_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <ul>
 <li>Die farbliche Hervorhebung des <a href="../doc/package-manager/package-version.html#info-text">Info-Texts</a> für Package-Versionen im PackageManager wurde angepasst.</li>
 <li>Die PBE wurde aktualisiert. Denken Sie daran diese Änderung in Ihre außerhalb von FS positionierten PBE zu übernehmen.</li>
@@ -173,7 +194,7 @@ Wir vermuten aber, dass Firewall, VirenScanner oder andere Sicherheitsinfrastruk
 <p>Wir haben nun einen Retry Mechanismus eingebaut, welcher verlorene Requests erneut an den Broker sendet. Es werden maximal drei Request-Retries ausgeführt.</p>
 <p>Dieser wird in der FS Client Launcher Console wie folgt angegeben:
 &quot;Invalid RequestCounter: X expected: Y. The request for this progress got probably lost. Retry request.&quot;</p>
-<h4 id="updates-1">Updates</h4>
+<h4 id="updates-2">Updates</h4>
 <ul>
 <li>Angular wurde auf die Version 20.3.16 aktualisiert.
 Das betrifft folgende Systeme:
@@ -247,7 +268,7 @@ Das entspricht Chromium 142.</p>
 <p>Dieses Release enthält <em>nur</em> Chromium Security-Updates, keine Änderungen von JxBrowser.</p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="updates-2">Updates</h4>
+<h4 id="updates-3">Updates</h4>
 <ul>
 <li>Angular wurde auf die Version 20.3.9 aktualisiert.
 Das betrifft folgende Systeme:
@@ -260,7 +281,7 @@ Das betrifft folgende Systeme:
 </li>
 <li>DevExpress wurde aufgrund des folgenden Fehlers <a href="https://supportcenter.devexpress.com/ticket/details/T1303650/richeditcontrol-throws-accessviolationexception-when-loading-documents-with-specific-fonts">&quot;RichEditControl throws AccessViolationException when loading documents with specific fonts&quot;</a> auf Version 25.1.7 upgedated.</li>
 </ul>
-<h4 id="neuerungen-1">Neuerungen</h4>
+<h4 id="neuerungen-2">Neuerungen</h4>
 <ul>
 <li>Ein PDF-Export eines Reports erfolgte bisher immer im PDF/A-3b Format. Dieses Format unterstützt jedoch keine Accessibility/Barrierefreiheit. Nun exportieren wir standardmäßig im PDF/A-3a Format. Ist ein anderes Format erwünscht, kann das Compatibility Format am Report entsprechend überschrieben werden.</li>
 <li>Wir haben einen Eintrag in unseren FAQs ergänzt. Beim Start von FS über Console oder TeamViewer in Kombination mit Windows Server 2016/2019 stürzt die Anwendung ab. Der FAQ Beitrag erklärt den <a href="frequently-asked-questions.html#framework-studio-st%C3%BCrzt-beim-initializing-ab---fehlercode-c06d007e">Workaround</a>.</li>
@@ -288,12 +309,12 @@ entsprechend überschrieben werden.</p>
 <li>FS4.5.34_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-3">Updates</h4>
+<h4 id="updates-4">Updates</h4>
 <ul>
 <li>DevExpress wurde auf Version 25.1.5 aktualisiert.</li>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 138.0.170 upgedatet.</li>
 </ul>
-<h4 id="neuerungen-2">Neuerungen</h4>
+<h4 id="neuerungen-3">Neuerungen</h4>
 <ul>
 <li>Der DocML-Tag <a href="../doc/documentation/docml.html#link">Link</a> unterstützt jetzt auch anchor auf Headlines.</li>
 <li>Für den <a href="../doc/session-logging/session-logging-analyzer.html">SessionLoggingAnalyzer</a> gibt es ein neues Log-Level, welches den Umfang der gespeicherten Daten bestimmt. Das Log-Level kann im <a href="../doc/publish-wizards/publish-wizard.html">PublishWizard</a> und im Publish2Go Wizard definiert werden.</li>
@@ -323,7 +344,7 @@ DateTime zu TimeSpan nun auf eine InvalidCastException.</p>
 <li>FS_4.7.10_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-3">Neuerungen</h4>
+<h4 id="neuerungen-4">Neuerungen</h4>
 <ul>
 <li>Die Generierung des Ordnernamens für das <a href="../doc/ide/anwendung-starten.html#compile-verzeichnis">Compile-Verzeichnis</a> wurde angepasst, sodass bei zu großer Länge ein Teil durch einen kurzen Hash ersetzt wird.</li>
 <li><a href="../doc/reporting/devexpress-fax-printers.html">DevExpress Fax-Steuerung</a> - das Label kann im SubReport platziert werden.</li>
@@ -376,7 +397,7 @@ des Compiles eine Fehlermeldung ausgegeben: <em>&quot;Error in Transfer Saved Co
 <li>FS_4.7.9_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-4">Neuerungen</h4>
+<h4 id="neuerungen-5">Neuerungen</h4>
 <ul>
 <li>Alte JxBrowser Versionen werden nun nach 30 Tagen automatisch gelöscht.</li>
 <li>Beim Publish2Go wird nun zusätzlich eine readme.txt erstellt, welche die Packages, Applications und Services ausgibt, die im P2Go enthalten sind. Zusätzliche enthaltene Informationen sind z.B. das Compile-Date, das Erstellungsdatum des P2Go und die verwendete FS-Version.</li>
@@ -386,7 +407,7 @@ des Compiles eine Fehlermeldung ausgegeben: <em>&quot;Error in Transfer Saved Co
 <p>Das Verhalten der MessageBox im HtmlClient/MobileClient unterschied sich bisher zum JavaClient.
 So war immer der letzte Button fokussiert und die Angabe des DefaultButtons hatte keine Auswirkung. Ersteres wurde an den JavaClient angepasst und letzteres wurde nun implementiert.
 Ist nun kein DefaultButton angegeben, wird der erste Button in der MessageBox fokussiert. Ist ein DefaultButton angegeben, wird dieser fokussiert.</p>
-<h4 id="updates-4">Updates</h4>
+<h4 id="updates-5">Updates</h4>
 <ul>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 138.0.170 upgedatet.</li>
 </ul>
@@ -461,7 +482,7 @@ Das entspricht Chromium 138.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2025/v7-43-4.html">https://jxbrowser-support.teamdev.com/release-notes/2025/v7-43-4.html</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="neuerungen-5">Neuerungen</h4>
+<h4 id="neuerungen-6">Neuerungen</h4>
 <ul>
 <li><p>Die <a href="../doc/authentication-service/oidc.html">OpenID Connect</a> Implementierung wurde um den <a href="../doc/authentication-service/oidc-flow.html#refresh-flow">Refresh-Flow</a> ergänzt.</p>
 </li>
@@ -505,7 +526,7 @@ bei Oracle auf Fehler.</p>
 <li>FS4.5.30_AuthService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-6">Neuerungen</h4>
+<h4 id="neuerungen-7">Neuerungen</h4>
 <ul>
 <li><p>Als Anmeldeverfahren, zur Authentifizierung der Nutzer, kann nun <a href="../doc/authentication-service/oidc.html">OpenID Connect</a> genutzt werden.</p>
 <div class="IMPORTANT">
@@ -540,7 +561,7 @@ nicht geändert werden.</p>
 <li>Die ausgelieferte <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html#java-runtime">JRE</a> unterstützt keine ARM-Prozessoren.
 Dies ist auch in den <a href="requirements.html#client-rechner">Requirements</a> dokumentiert.</li>
 </ul>
-<h4 id="neuerungen-7">Neuerungen</h4>
+<h4 id="neuerungen-8">Neuerungen</h4>
 <ul>
 <li>Events klickbarer Links im JxBrowser, die durch dynamische Änderungen des Doms nach dem ersten Laden hinzugefügt wurden, werden nun auch korrekt gefeuert.</li>
 </ul>
@@ -605,11 +626,11 @@ wird beim PackageMerge die Target-Dokumentation mit der Source-Dokumentation
 <li>FS4.5.28_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-8">Neuerungen</h4>
+<h4 id="neuerungen-9">Neuerungen</h4>
 <ul>
 <li>Bei der <a href="../doc/ide/registerkarten.html#registerkarte-search">Search</a> in der IDE kann nun mit einem Doppelklick ein ObjectType für die Suche ausgewählt werden. Anschließend wird das Popup-Menü automatisch geschlossen.</li>
 </ul>
-<h4 id="updates-5">Updates</h4>
+<h4 id="updates-6">Updates</h4>
 <ul>
 <li>Der HTML Client, die StartPage und das HelpSystem wurden auf Angular 19.2.6 upgedatet.</li>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 135.0.170 upgedatet.</li>
@@ -684,7 +705,7 @@ Das entspricht Chromium 132.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/">https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="neuerungen-9">Neuerungen</h4>
+<h4 id="neuerungen-10">Neuerungen</h4>
 <ul>
 <li>Der <a href="../doc/sql/grammatik.html#withquery">Sql-Parser</a> versteht jetzt <code>WITH</code>-Statements, auch bekannt als <em>Common Table Expression (CTE)</em>.</li>
 <li>Neue Client-Action <a class="xref" href="../api/FS.Hosting.Broker.Shared.Actions.BrowserControlAction.ExecuteJavaScript.html#FS_Hosting_Broker_Shared_Actions_BrowserControlAction_ExecuteJavaScript_System_String_"><code>BrowserControlAction.ExecuteJavaScript()</code></a></li>
@@ -730,12 +751,12 @@ Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
 <li>FS_4.7.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-6">Updates</h4>
+<h4 id="updates-7">Updates</h4>
 <ul>
 <li>DevExpress wurde auf die Version 24.2.3 aktualisiert.</li>
 <li>Der HTML Client wurde auf Angular 19.1.1 upgedatet.</li>
 </ul>
-<h4 id="neuerungen-10">Neuerungen</h4>
+<h4 id="neuerungen-11">Neuerungen</h4>
 <ul>
 <li>Bei Klicken auf einen Link im <code>Errors and Warnings</code> Tab wird dieser farblich hervorgehoben, um zu visualisieren, dass der Link bereits besucht wurde.</li>
 <li>Bei den Aktionen <code>Open</code>, <code>Save</code> (im FS Report Designer), sowie <code>Choose Report</code> wird nun das Verzeichnis der tatsächlichen Report-Datei geöffnet, statt das Haupt-Reportverzeichnis.</li>
@@ -880,7 +901,7 @@ dass die Datenbankverknüpfungen im Crystal Report Designer gelöscht sind.</p>
 <p>Wenn Sie die Version 4.7.0 Beta 3, 2 oder 1 installiert haben, müssen Sie diese zuerst deinstallieren.
 Ein Update von diesen Versionen ist nicht möglich.</p>
 </div>
-<h4 id="neuerungen-11">Neuerungen</h4>
+<h4 id="neuerungen-12">Neuerungen</h4>
 <p>Siehe <a href="neuheiten-4-7.html">Neuheiten Framework Studio 4.7</a>.</p>
 <h4 id="korrigierte-fehler-18">Korrigierte Fehler</h4>
 <p>In der Version 4.7 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-6.html#4612-06122024">Framework Studio 4.6.12</a> enthalten.

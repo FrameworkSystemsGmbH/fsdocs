@@ -87,16 +87,16 @@
         <article data-uid="">
 <h1 id="autopublish">AutoPublish</h1>
 
-<p>Framework Studio bietet eine Möglichkeit, Anwendungen vollständig automatisiert über die Kommandozeile zu publishen.
+<p>Framework Studio bietet eine Möglichkeit Anwendungen und Dienste vollständig automatisiert über die Kommandozeile zu publishen.
 So können Publish- / Publish2Go-Vorgänge z.B. per Batch in der Nacht angestoßen werden.
 Dabei gibt es die Möglichkeit, ein bestimmtes Setting direkt aus dem Repository heraus zu publishen oder einen automatisierten Publish-Vorgang von einem Publish2Go-Paket anzustoßen. Beide Möglichkeiten werden im Folgenden beschrieben.</p>
 <h2 id="autopublish-mit-fsconsole">AutoPublish mit FSConsole</h2>
 <p>Um mit FSConsole.exe ein Setting publishen zu können, muss dieses in Framework Studio als öffentliches Setting gespeichert werden.</p>
 <p><img src="media/autoPublish_wizard.jpg" alt="Publish Setting im Repository"></p>
-<p>Auf dem Panel „End“ befindet sich der Button „Save Setting“.
+<p>Mit dem Button &quot;Manage Settings&quot; den Setting Manager öffnen.
 Im Dialog einen entsprechenden Namen eingeben und das Setting speichern.
-„Save as personal“ darf nicht aktiviert sein, da sonst das Setting vom FrameworkCompiler (welcher den AutoPublish durchführt) nicht gefunden wird.
-Ist das Setting gespeichert, kann der Konsolenbefehl für den AutoPublish vorbereitet werden.</p>
+„Personal“ darf nicht aktiviert sein, da sonst das Setting vom FrameworkCompiler (welcher den AutoPublish durchführt) nicht gefunden wird.</p>
+<p>Ist das Setting gespeichert, kann der Konsolenbefehl für den AutoPublish vorbereitet werden.</p>
 <p>Folgende Parameter müssen übergeben werden:</p>
 <table>
 <thead>
@@ -161,8 +161,9 @@ Ist das Setting gespeichert, kann der Konsolenbefehl für den AutoPublish vorber
 <h2 id="autopublish-mit-publish2go">AutoPublish mit Publish2Go</h2>
 <p>Da beim Publish2Go kein Repository verfügbar ist, sieht die Vorbereitung etwas anders aus.
 Hier wird ein exportiertes Setting benötigt.
-Ein Setting kann entweder über den Publish Wizard in Framework Studio oder direkt mit dem Publish2Go Wizard des Pakets erstellt werden.
-Im Panel „End“ kann über den Button „Save Setting“ das aktive Setting als *.p2gosetting Datei auf die Festplatte exportiert werden.</p>
+Ein Setting kann entweder über den Publish Wizard in Framework Studio oder direkt mit dem Publish2Go Wizard des Pakets erstellt werden.</p>
+<p>Mit dem Button &quot;Manage Settings&quot; den Setting Manager öffnen.
+Dort kann das aktive Setting als *.FSSetting Datei auf die Festplatte exportiert werden.</p>
 <p>Runtime-Lizenzen, die vom AutoPublish-Vorgang mit installiert werden sollen, müssen sich im Root-Ordner des Publish2Go-Pakets befinden (auf Höhe der Datei „sqlitedb.p2go“).
 Das Setting wird als Parameter an die Publish2Go.exe übergeben und muss somit nicht zwingend im Root-Ordner liegen.</p>
 <p><img src="media/autoPublish_wizard2.jpg" alt="Publish2Go-Ordner mit Lizenz-Datei"></p>
@@ -190,7 +191,7 @@ Das Setting wird als Parameter an die Publish2Go.exe übergeben und muss somit n
 </tbody>
 </table>
 <h3 id="beispiel-1"><strong>Beispiel</strong></h3>
-<p>Publish2Go.exe \Publish \Setting “C:\Publish2Go\AutoPublishSetting.p2gosetting” \Logfile “C:\AutoPublish.log”</p>
+<p>Publish2Go.exe \Publish \Setting “C:\Publish2Go\AutoPublishSetting.FSSetting” \Logfile “C:\AutoPublish.log”</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>Wird vom AutoPublish-Vorgang erkannt, dass das ausgewählte Setting schon gepublished ist, wird automatisch ein Revoke durchgeführt und die Installation gelöscht bevor der AutoPublish-Vorgang angestoßen wird.</p>

@@ -87,13 +87,25 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-47">Release-Information Framework Studio 4.7</h1>
 
+<h2 id="4718-xx062026">4.7.18 (xx.06.2026)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.7.18_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="updates">Updates</h4>
+<h5 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h5>
+<p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.48.1 auf Version 7.48.5 aktualisiert.
+Das entspricht Chromium 148.</p>
+<p>Es sind keine besonderen Aktionen erforderlich.
+Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
 <h2 id="4717-04052026">4.7.17 (04.05.2026)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.7.17_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates">Updates</h4>
+<h4 id="updates-1">Updates</h4>
 <ul>
 <li>Angular wurde aktualisiert. Das betrifft folgende Systeme:
 <ul>
@@ -114,11 +126,11 @@
 <li>FS_4.7.16_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-1">Updates</h4>
+<h4 id="updates-2">Updates</h4>
 <ul>
 <li>DevExpress wurde aufgrund des folgenden Fehlers <a href="https://supportcenter.devexpress.com/ticket/details/t1314510/web-report-designer-report-explorer-drag-drop-functionality-works-incorrectly-with">&quot;Web Report Designer Report Explorer - Drag &amp; drop functionality works incorrectly with XRSubband&quot;</a> auf Version 25.2.3 upgedated.</li>
 </ul>
-<h5 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h5>
+<h5 id="update-jxbrowser-für-javaclient-1">Update JxBrowser für JavaClient</h5>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.44.4 auf Version 7.48.1 aktualisiert.
 Das entspricht Chromium 146.</p>
 <p>Es sind keine besonderen Aktionen erforderlich.
@@ -194,7 +206,7 @@ Wir vermuten aber, dass Firewall, VirenScanner oder andere Sicherheitsinfrastruk
 <p>Wir haben nun einen Retry Mechanismus eingebaut, welcher verlorene Requests erneut an den Broker sendet. Es werden maximal drei Request-Retries ausgeführt.</p>
 <p>Dieser wird in der FS Client Launcher Console wie folgt angegeben:
 &quot;Invalid RequestCounter: X expected: Y. The request for this progress got probably lost. Retry request.&quot;</p>
-<h4 id="updates-2">Updates</h4>
+<h4 id="updates-3">Updates</h4>
 <ul>
 <li>Angular wurde auf die Version 20.3.16 aktualisiert.
 Das betrifft folgende Systeme:
@@ -262,13 +274,13 @@ Eine manuelle Nacharbeit ist aber gegebenenfalls notwendig und wichtig - vor all
 Wir empfehlen im Code nach <code>WARNINGGLOBAL</code> zu suchen. Sollte es Treffer in Ihrem Code geben, müssen Sie diese nacharbeiten.
 Erklärung zur Vorgehensweise finden Sie im <a href="../doc/maintenance/remove-global-cleanup.html">Maintenance Kapitel</a>.</p>
 </div>
-<h4 id="update-jxbrowser-für-javaclient-1">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-2">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.43.4 auf Version 7.44.4 aktualisiert.
 Das entspricht Chromium 142.</p>
 <p>Dieses Release enthält <em>nur</em> Chromium Security-Updates, keine Änderungen von JxBrowser.</p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="updates-3">Updates</h4>
+<h4 id="updates-4">Updates</h4>
 <ul>
 <li>Angular wurde auf die Version 20.3.9 aktualisiert.
 Das betrifft folgende Systeme:
@@ -309,7 +321,7 @@ entsprechend überschrieben werden.</p>
 <li>FS4.5.34_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-4">Updates</h4>
+<h4 id="updates-5">Updates</h4>
 <ul>
 <li>DevExpress wurde auf Version 25.1.5 aktualisiert.</li>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 138.0.170 upgedatet.</li>
@@ -407,7 +419,7 @@ des Compiles eine Fehlermeldung ausgegeben: <em>&quot;Error in Transfer Saved Co
 <p>Das Verhalten der MessageBox im HtmlClient/MobileClient unterschied sich bisher zum JavaClient.
 So war immer der letzte Button fokussiert und die Angabe des DefaultButtons hatte keine Auswirkung. Ersteres wurde an den JavaClient angepasst und letzteres wurde nun implementiert.
 Ist nun kein DefaultButton angegeben, wird der erste Button in der MessageBox fokussiert. Ist ein DefaultButton angegeben, wird dieser fokussiert.</p>
-<h4 id="updates-5">Updates</h4>
+<h4 id="updates-6">Updates</h4>
 <ul>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 138.0.170 upgedatet.</li>
 </ul>
@@ -476,7 +488,7 @@ jetzt detailliert beschrieben.</p>
 <p>Wir empfehlen dringend den Authentication Service und die Runtime Administration auf die aktuelle Version 4.5.31 zu aktualisieren. Vor allem, wenn Sie das <a href="update-4-5/open-id-connect.html#update-runtime-repository">Runtime Repository aktualisieren</a>.</p>
 <p>Ein Update ist <strong>zwingend</strong> erforderlich, wenn Sie bereits mit der Version 4.5.30 <a href="../doc/authentication-service/oidc.html">OpenID Connect</a> einsetzen.</p>
 </div>
-<h4 id="update-jxbrowser-für-javaclient-2">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-3">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.42.0 auf Version 7.43.4 aktualisiert.
 Das entspricht Chromium 138.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2025/v7-43-4.html">https://jxbrowser-support.teamdev.com/release-notes/2025/v7-43-4.html</a></p>
@@ -630,7 +642,7 @@ wird beim PackageMerge die Target-Dokumentation mit der Source-Dokumentation
 <ul>
 <li>Bei der <a href="../doc/ide/registerkarten.html#registerkarte-search">Search</a> in der IDE kann nun mit einem Doppelklick ein ObjectType für die Suche ausgewählt werden. Anschließend wird das Popup-Menü automatisch geschlossen.</li>
 </ul>
-<h4 id="updates-6">Updates</h4>
+<h4 id="updates-7">Updates</h4>
 <ul>
 <li>Der HTML Client, die StartPage und das HelpSystem wurden auf Angular 19.2.6 upgedatet.</li>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 135.0.170 upgedatet.</li>
@@ -699,7 +711,7 @@ Threading-Problemen und leeren Ergebnissen führen.</p>
 <li>FS_4.7.3_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="update-jxbrowser-für-javaclient-3">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-4">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.41.5 auf Version 7.42.0 aktualisiert.
 Das entspricht Chromium 132.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/">https://teamdev.com/jxbrowser/release-notes/2025/v7-42-0/</a></p>
@@ -751,7 +763,7 @@ Die Anzahl der Sätze wird in einer Gruppierung ermittelt.</p>
 <li>FS_4.7.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-7">Updates</h4>
+<h4 id="updates-8">Updates</h4>
 <ul>
 <li>DevExpress wurde auf die Version 24.2.3 aktualisiert.</li>
 <li>Der HTML Client wurde auf Angular 19.1.1 upgedatet.</li>
@@ -797,7 +809,7 @@ Es handelt sich um einen Fehler in DevExpress:
 <li>FS_4.7.1_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="update-jxbrowser-für-javaclient-4">Update JxBrowser für JavaClient</h4>
+<h4 id="update-jxbrowser-für-javaclient-5">Update JxBrowser für JavaClient</h4>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 7.40.0 auf Version 7.41.5 aktualisiert.
 Das entspricht Chromium 131.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/release-notes/2024/v7-41-5/">https://teamdev.com/jxbrowser/release-notes/2024/v7-41-5/</a></p>

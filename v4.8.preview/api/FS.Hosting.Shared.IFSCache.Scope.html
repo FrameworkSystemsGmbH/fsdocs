@@ -138,7 +138,7 @@ Beim ersten Aufruf wird der Memory-Cache für den Scope erzeugt.</p>
   <dt><code>scopeKey</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.object">object</a></dt>
   <dd><p>Eindeutiger Identifier für den Scope. Idealerweise werden Strings verwendet, es sind aber auch andere Typen möglich, solange sie einen eindeutigen Key representieren.</p>
 </dd>
-  <dt><code>configureEntry</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<span class="xref">ICacheEntry</span>&gt;</dt>
+  <dt><code>configureEntry</code> <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.action-1">Action</a>&lt;<a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.memory.icacheentry">ICacheEntry</a>&gt;</dt>
   <dd><p>(optional) Der Cache selber wird in einem CacheEntry in einem MemoryCache gespeichert.
 Der Lifecycle des Entries kann mithilfe dieser Action konfiguriert werden.</p>
 </dd>
@@ -146,7 +146,7 @@ Der Lifecycle des Entries kann mithilfe dieser Action konfiguriert werden.</p>
 
 <h4 class="section">Returns</h4>
 <dl class="parameters">
-  <dt><span class="xref">IMemoryCache</span></dt>
+  <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.memory.imemorycache">IMemoryCache</a></dt>
   <dd><p>Der entsprechende Cache.</p>
 </dd>
 </dl>

@@ -98,8 +98,15 @@
 <p>Ergänzend dazu ist die Middleware <a href="#fsserviceproviderscopemiddleware"><code>FSServiceProviderScopeMiddleware</code></a> in der Startup-Klasse zu registrieren, damit <code>FSServiceProvider.Current</code> pro Request einen eigenen Scope erhält.</p>
 <h2 id="konfiguration">Konfiguration</h2>
 <p>Über den <a href="../publish-wizards/run-wizard.html#rest-services">RunWizard</a> bzw. den <a href="../publish-wizards/publish-wizard.html#rest-services---general">Publish Wizard</a> muss für den REST Service eine Konfiguration übergeben werden.
-Diese Konfiguration muss im JSON-Format hinterlegt werden. Der Pfad zur Konfigurationsdatei wird über das <code>args</code>-Array übergeben.</p>
-<p>Mit <code>args[1]</code> kann der Konfigurationspfad dann an den Service übergeben werden.</p>
+Diese Konfiguration muss im JSON-Format hinterlegt werden.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Die REST Services verwenden intern ihren FullName als Identifier.
+Das hat zur Folge, dass bei einer Umbenennung die Konfiguration im Run- / Publish-Wizard verloren geht.</p>
+</div>
+<p>Die Konfiguration wird in eine <code>appsettings.{FullName}.json</code>-Datei im Compile Verzeichnis unter <code>bin</code> geschrieben.
+Der Pfad zur Konfigurationsdatei wird über das <code>args</code>-Array übergeben.
+Mit <code>args[1]</code> kann der Konfigurationspfad dann an den Service übergeben werden.</p>
 <pre><code class="lang-csharp">.UseConfiguration(new ConfigurationBuilder()
   .AddJsonFile(args[1], optional: false, reloadOnChange: true)
   .Build());

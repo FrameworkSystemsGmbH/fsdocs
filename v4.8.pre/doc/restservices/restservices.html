@@ -101,6 +101,7 @@ Beachten Sie allerdings die geltenden <a href="#aspnet-core-23-auf-net48">Einsch
 Allerdings bedeutet das auch, dass sich um viele Dinge selbst gekümmert werden muss:</p>
 <ul>
 <li>Die <a href="restservices-methods.html#konfiguration">Konfiguration</a> muss eigenständig im Run- bzw. Publish-Wizard definiert werden!</li>
+<li>Die REST Services verwenden intern ihren FullName als Identifier, was zur Folge hat, dass die Konfiguration im Run- / Publish-Wizard verloren geht, sollte eine Umbenennung stattgefunden haben.</li>
 <li>Der für das <a href="#debugging">Debugging</a> notwendige Code inkl. Einstellung im Run-Wizard muss eigenständig hinzugefügt bzw. gesetzt werden!</li>
 <li>Einsprungpunkte für Customizing müssen eigenständig implementiert werden!</li>
 <li>Alle Elemente, wie z.B. Controller, Services, Middlewares, etc., müssen in der <a href="#startup-klasse">Startup-Klasse</a> selbstständig hinzugefügt werden!</li>

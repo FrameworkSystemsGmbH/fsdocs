@@ -147,6 +147,19 @@ Wenn sich also dort die Angaben ändern, werden diese auch hier verwendet.</p>
 <p><strong>Button Individual:</strong> Mit diesem Button können Sie eine individuelle Verbindung definieren. Die Felder für die Verbindungsdaten werden freigeschaltet und können entsprechend definiert werden.</p>
 <p>Diese Daten gehen verloren, wenn aus der Combobox eine Datenbank ausgewählt wird.</p>
 <p>Wenn eine Verbindung häufiger verwendet wird, dann ist es empfehlenswert, dafür eine Registerkarte Database anzulegen und diese dann hier auszuwählen.</p>
+<h3 id="fs-pooling">FS Pooling</h3>
+<p>Framework Studio hat einen Connection Pool, der zusätzlich zum nativen ADO.NET-Pooling existiert. Es ist ein eigenständiger Pool, der das native Pooling-Verhalten ersetzt (Verbindungen werden bei Close nicht zurückgegeben, sondern im FS-Pool gehalten).</p>
+<p><strong>Aktiviert:</strong> FS verwaltet einen eigenen Pool. Verbindungen werden nicht bei Close() wirklich geschlossen, sondern in den Pool zurückgelegt. Dispose() gibt die Verbindung ebenfalls nur in den Pool zurück.</p>
+<p><strong>Deaktiviert:</strong> Jede Open()/Close()-Operation arbeitet direkt auf der nativen DB-Verbindung. Jede DB-Verbindung wird beim Bedarf neu aufgebaut und danach geschlossen — kein Pooling auf FS-Ebene.</p>
+<p><strong>Min (Default 5):</strong> Mindestanzahl Verbindungen, die dauerhaft offen gehalten werden — diese werden nie weggeräumt</p>
+<p><strong>Max (Default 15):</strong> Ab dieser Anzahl werden überzählige Verbindungen sofort geschlossen (nicht erst nach Timeout)</p>
+<p><strong>Timeout (Default 60 Sek.):</strong> Verbindungen zwischen Min und Max werden nach dieser Zeit geschlossen, wenn sie nicht benutzt werden</p>
+<h3 id="use-ansistring">Use AnsiString</h3>
+<p>Die Einstellung steuert, wie String-Parameter an die Datenbank übergeben werden.</p>
+<p><strong>Deaktiviert (Default):</strong> String-Parameter werden als Unicode (nvarchar) übertragen.
+Default ist false (Unicode) — das ist für moderne Datenbanken mit nvarchar-Spalten korrekt.</p>
+<p><strong>Aktiviert:</strong> String-Parameter werden automatisch in ANSI (varchar) umgewandelt — FS konvertiert intern jeden String-Parameter auf AnsiString bevor der Query ausgeführt wird</p>
+<p>Relevant ist dies für SQL Server, bei Datenbanken die noch mit varchar-Spalten (nicht nvarchar) arbeiten. Unicode-Parameter gegen varchar-Spalten können in SQL Server zu Index-Ignorierung und schlechterer Performance führen, weil SQL Server dann einen impliziten Cast durchführt.</p>
 <h2 id="authentication">Authentication</h2>
 <p>Hier können die Grundeinstellungen für die Authentication definiert werden.</p>
 <p><img src="media/run_wizard_authentication.png" alt="Run-Wizard (Authentication)"></p>

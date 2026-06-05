@@ -93,54 +93,36 @@
 <p>Durch die Verwendung von eindeutigen Schlüsseln für Gruppen und Rollen können diese umbenannt werden, ohne dass Zuordnungen verloren gehen.</p>
 <p>Wenn eine Endanwendung dem <strong>Authentication Service</strong> mehrere Geschäftseinheiten (<strong>Units</strong>) mitteilt, so können Benutzerrechte für jede Geschäftseinheit individuell vergeben werden.</p>
 <p>Wenn Sie das <strong>Authentication and Authorisation Tool</strong> starten, sehen Sie folgendes Fenster.</p>
-<p><img src="media/image5.png" alt="Authentication and Authorisation Tool"></p>
-<p><strong>Bedienkonzept:</strong></p>
+<p><img src="media/auth-tool.png" alt="Authentication and Authorisation Tool"></p>
+<h3 id="bedienkonzept">Bedienkonzept</h3>
 <p>Es gibt drei Hauptregisterkarten <em><strong>Users</strong></em>, <em><strong>Groups</strong></em> und <em><strong>Roles</strong></em> (siehe 1 in obigem Screenshot), die alle nach dem gleichen System aufgebaut sind:</p>
-<p>Im linken Bereich (siehe 2 im Screenshot) wird das Element ausgewählt, welches konfiguriert werden soll (hier: Benutzer „Admin“).</p>
+<p>Im linken Bereich (siehe 2 im Screenshot) wird das Element ausgewählt, welches konfiguriert werden soll.</p>
 <p>Im mittleren Bereich (siehe 3) befinden sich zwei weitere Registerkarten, auf denen jeweils die Verknüpfungen des links ausgewählten Elements mit den anderen Elementen definiert werden (hier Gruppen und Rollen).</p>
 <p>Im rechten Bereich (4) werden Eigenschaften des links ausgewählten Elements angezeigt.</p>
-<p>Im Screenshot können durch Setzen der Checkboxen im Bereich 3 dem links ausgewählten Benutzer „Admin“ Rollen zugeordnet werden. Durch Wechseln der Registerkarte im mittleren Bereich können Sie definieren, welchen Gruppen der Benutzer „Admin“ zugeordnet sein soll.</p>
-<p>In allen Listendarstellungen gibt es einen Tooltip, der Details zu dem Element anzeigt, sowie die Maus für mehr als 5 Sekunden darüber still gehalten wird.</p>
-<p>Außerdem kann durch Doppelklick auf ein Element in einer Listendarstellung in Bereich 3 die Sichtweise gewechselt werden: Das geklickte Element wird im Auswahlbereich (2) geöffnet.</p>
+<p>Im Screenshot können durch Setzen der Checkboxen im Bereich 3 dem links ausgewählten Benutzer Rollen zugeordnet werden. Durch Wechseln der Registerkarte im mittleren Bereich können Sie definieren, welchen Gruppen der Benutzer zugeordnet sein soll.</p>
+<p>In allen Listendarstellungen gibt es einen Tooltip, der Details zu dem Element anzeigt.</p>
+<p>Außerdem kann durch Doppelklick auf ein Element in einer Listendarstellung in Bereich 3 die Sichtweise gewechselt werden: Das angeklickte Element wird im Auswahlbereich (2) geöffnet.</p>
+<h4 id="filtermöglichkeiten">Filtermöglichkeiten</h4>
 <p>Über jeder Listenansicht gibt es ein Eingabefeld mit der Bezeichnung <strong>Filter</strong>. In der Listenansicht werden nur die Elemente angezeigt, die den als Filter eingegebenen Text enthalten. Ob ein Buchstabe groß oder klein geschrieben wird, ist dabei unerheblich. So ist ein schnelles Finden von Elementen möglich.</p>
-<p>Folgende Sonderzeichen können in Filter-Eingabefeldern allein oder vor dem eigentlichen Filtertext angegeben werden:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>+</td>
-<td>Nur neu angelegte Elemente anzeigen</td>
-</tr>
-<tr>
-<td>-</td>
-<td>Nur gelöschte Elemente anzeigen (diese werden sonst ausgeblendet)</td>
-</tr>
-<tr>
-<td>*</td>
-<td>Nur geänderte Elemente anzeigen</td>
-</tr>
-<tr>
-<td>!</td>
-<td>Nur zugeordnete Elemente anzeigen (dieses Sonderzeichen macht nur bei Listenansichten mit Checkbox Sinn)</td>
-</tr>
-</tbody>
-</table>
+<p>Die Filter-Eingabefelder unterstützen spezielle Sonderzeichen, die allein oder vor dem eigentlichen Filtertext angegeben werden.</p>
+<h5 id="linker-bereich-2">Linker Bereich (2)</h5>
+<p><code>+</code> – Nur neu angelegte Elemente anzeigen <br>
+<code>-</code> – Nur gelöschte Elemente anzeigen (diese werden sonst ausgeblendet) <br>
+<code>*</code> – Nur geänderte Elemente anzeigen</p>
+<h5 id="mittlerer-bereich-3">Mittlerer Bereich (3)</h5>
+<p><code>!</code> –  Nur zugeordnete Elemente anzeigen (dieses Sonderzeichen macht nur bei Listenansichten mit Checkbox Sinn)</p>
 <p>Die Filter-Eingabefelder zeigen die jeweils gültigen Sonderzeichen im Tooltip an.</p>
 <p>Beispiel:</p>
 <p>Filter „!Lo“ bedeutet, alle Elemente, deren Checkbox gesetzt ist und welche die Zeichen „Lo“ enthalten.</p>
-<p>Wenn Änderungen an einem Benutzer durchgeführt werden und diese Änderungen noch nicht gespeichert wurden, wird der Benutzer mit einem Sternchen in Klammern (*) gekennzeichnet. Neu hinzugefügte Benutzer, die noch nicht gespeichert wurden, werden mit einem Plus in Klammern (+) gekennzeichnet.</p>
+<h4 id="änderungsstatus">Änderungsstatus</h4>
+<p>Wenn Änderungen an einem Benutzer, einer Rolle oder einer Gruppe durchgeführt werden und diese Änderungen noch nicht gespeichert wurden, wird der Benutzer, die Rolle oder die Gruppe mit einem Sternchen in Klammern (*) gekennzeichnet. Neu hinzugefügte Benutzer oder Gruppen, die noch nicht gespeichert wurden, werden mit einem Plus in Klammern (+) gekennzeichnet.</p>
 <p>Mit dem Button <strong>Save All</strong> werden alle Änderungen gespeichert.</p>
 <p>Mit dem Button <strong>Reload All</strong> werden alle aktuellen Änderungen verworfen und alle Daten neu vom Authentifizierungsdienst geladen.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>Das neue Einlesen der Daten mit dem Button <strong>Reload All</strong> ist auch dann notwendig, wenn Sie im <strong>Role Management Tool</strong> relevante Änderungen an Rollen durchgeführt haben, also beispielsweise neue Rollen angelegt oder die Bezeichnung geändert haben.</p>
 </div>
-<p><strong>Allgemeine Hinweise:</strong></p>
+<h3 id="hinweise">Hinweise</h3>
 <div class="NOTE">
 <h5>Note</h5>
 <p>Der Authentifizierungsdienst selbst wird unter der Bezeichnung <em>AuthenticationService</em> mit den Rollen <em>ManageUsers</em> und <em>ManageRoles</em> aufgeführt. Jedem Benutzer, der das <strong>Authentication and Authorisation Tool</strong> starten will, muss die Rolle <em>ManageUsers</em> zugeordnet sein, jedem Benutzer, der das <strong>Role Management Tool</strong> starten will, muss die Rolle <em>ManageRoles</em> zugeordnet sein!</p>
@@ -153,29 +135,29 @@
 <p>Mit dem Button <strong>New</strong> auf der Hauptregisterkarte <strong>Users</strong> wird ein neuer Benutzer angelegt.
 Es öffnet sich der Dialog <a href="edit-user.html">New User</a>.</p>
 <p>Mit dem Button <strong>Delete</strong> wird der aktuell ausgewählte Benutzer gelöscht.</p>
-<p><img src="media/image9.png" alt="User Delete"></p>
 <p>Mit dem Button <strong>Edit</strong> werden die Eigenschaften des aktuell ausgewählten Benutzers geändert.
 Es öffnet sich der Dialog <a href="edit-user.html">Edit User</a>.</p>
 <p>Mit dem Button <strong>Copy</strong> kann ein neuer Benutzer angelegt werden, der bis auf den Namen und das Passwort die gleichen Eigenschaften wie der aktuell ausgewählte Benutzer erhält.</p>
+<p><img src="media/manage-users.png" alt="Manage Users"></p>
 <h2 id="gruppen-verwalten-registerkarte-groups">Gruppen Verwalten (Registerkarte Groups)</h2>
 <p>Mit dem Button <strong>New</strong> auf der Registerkarte <strong>Groups</strong> wird eine neue Gruppe angelegt, mit dem Button <strong>Edit</strong> kann die ausgewählte Gruppe bearbeitet werden. Mit beiden Buttons öffnet sich ein Dialog, in dem der Name der Gruppe und eine Beschreibung eingegeben werden kann.</p>
 <p>Mit dem Button <strong>Delete</strong> wird die aktuell ausgewählte Gruppe gelöscht.</p>
+<p><img src="media/manage-groups.png" alt="Manage Users"></p>
 <h2 id="rollen-verwalten-registerkarte-roles">Rollen Verwalten (Registerkarte Roles)</h2>
 <p>In der Combobox <strong>Service</strong> wird der Service ausgewählt, dessen Rollen verwaltet werden sollen.</p>
-<p>Auf dieser Registerkarte können nur die Zuordnungen zu Gruppen und Benutzern verwaltet werden (siehe 3.1). Zum Anlegen, Umbenennen und Löschen von Rollen wird das <strong>Role Management Tool</strong> (siehe 4) verwendet.</p>
+<p>Auf dieser Registerkarte können nur die Zuordnungen zu Gruppen und Benutzern verwaltet werden. Zum Anlegen, Umbenennen und Löschen von Rollen wird das <a href="runtime-administration-roles.html">Role Management Tool</a> verwendet.</p>
+<p><img src="media/manage-roles.png" alt="Manage Roles"></p>
 <h2 id="services-verwalten-registerkarte-services">Services Verwalten (Registerkarte Services)</h2>
 <p>Die Registerkarte <strong>Services</strong> ist in vier Spalten organisiert. Analog zu den anderen Registerkarten wird in der ersten Spalte das Element ausgewählt, welches konfiguriert werden soll. In diesem Fall der gewünschte Service.</p>
-<p><img src="media/image12.png" alt=": Runtime Administration (Authentication and Authorisation Tool)"></p>
+<p><img src="media/manage-services.png" alt="Manage Services"></p>
 <p>In der zweiten Spalte werden die Eigenschaften des ausgewählten Services angezeigt.</p>
 <p>Die Spalten drei und vier sind nicht von Interesse, wenn der ausgewählte Service keine Geschäftseinheiten (<strong>Units</strong>) besitzt. In diesem Fall enthalten die Spalten keinerlei Daten.</p>
-<p>Wenn der ausgewählte Service bei der Registrierung am Authentifizierungsdienst Geschäftseinheiten mitgeteilt hat, so werden in der dritten Spalte alle Geschäftseinheiten aufgelistet. In diesem Fall wird zu der in der dritten Spalte ausgewählten Geschäftseinheit deren Eigenschaften in der vierten Spalte angezeigt. Dort kann außerdem eine Geschäftseinheit, die als veraltet (obsolete) markiert ist (siehe 0), mit dem Button <strong>Delete Obsolete Unit</strong> gelöscht werden.</p>
-<p><img src="media/image13.png" alt="Delete unit?"></p>
+<p>Wenn der ausgewählte Service bei der Registrierung am Authentifizierungsdienst Geschäftseinheiten mitgeteilt hat, so werden in der dritten Spalte alle Geschäftseinheiten aufgelistet. In diesem Fall wird zu der in der dritten Spalte ausgewählten Geschäftseinheit deren Eigenschaften in der vierten Spalte angezeigt. Dort kann außerdem eine Geschäftseinheit, die als veraltet (obsolete) markiert ist, mit dem Button <strong>Delete Obsolete Unit</strong> gelöscht werden.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>Wenn für diese Unit Rollen zu Benutzern oder Gruppen zugeordnet waren, gehen diese Zuordnungen dabei unwiderruflich verloren!</p>
 </div>
 <p>Mit dem Button <strong>Delete Service</strong> wird der aktuell ausgewählte Service am Authentifizierungsdienst vollständig entfernt.</p>
-<p><img src="media/image14.png" alt=": Service Delete"></p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>Wenn Rollen von diesem Service Benutzern oder Gruppen zugeordnet waren, gehen diese Zuordnungen unwiderruflich verloren!</p>
@@ -192,8 +174,8 @@ Es öffnet sich der Dialog <a href="edit-user.html">Edit User</a>.</p>
 </ul>
 <p>Mit dem Button <strong>Start</strong> wird der Vorgang gestartet. Gegebenenfalls erhalten Sie Hinweismeldungen, wenn Rollen oder Geschäftseinheiten aus dem als Quelle ausgewählten Service im Ziel Service nicht existieren. Mit dem Button <strong>Cancel</strong> wird die Konfiguration der Kopieroptionen und damit auch der Kopiervorgang abgebrochen.</p>
 <h2 id="arbeiten-mit-mehreren-geschäftseinheiten-units">Arbeiten mit mehreren Geschäftseinheiten (Units)</h2>
-<p>Seit <strong>Framework Studio 3.7</strong> kann eine Framework Studio Endanwendung dem Authentifizierungsdienst Geschäftseinheiten (Units) mitteilen. Diese werden im <strong>Authentication and Authorization Tool</strong> auf der Registerkarte <strong>Services</strong> für den ausgewählten Service angezeigt (siehe 3.5).</p>
-<p>Wird eine Unit beim Start eines Services dem Authentifizierungsdienst nicht mehr mitgeteilt, so wird diese als veraltet (<strong>obsolete</strong>) markiert. Erst dann kann eine Unit endgültig (mit den Button <strong>Delete Obsolete Unit</strong>, siehe 3.5) aus dem Authentifizierungsdienst gelöscht werden. Bis dahin bleiben alle Zuordnungen zu dieser Unit erhalten.</p>
+<p>Seit <strong>Framework Studio 3.7</strong> kann eine Framework Studio Endanwendung dem Authentifizierungsdienst Geschäftseinheiten (Units) mitteilen. Diese werden auf der Registerkarte <a href="#services-verwalten-registerkarte-services">Services</a> für den ausgewählten Service angezeigt.</p>
+<p>Wird eine Unit beim Start eines Services dem Authentifizierungsdienst nicht mehr mitgeteilt, so wird diese als veraltet (<strong>obsolete</strong>) markiert. Erst dann kann eine Unit endgültig (mit den Button <strong>Delete Obsolete Unit</strong>) aus dem Authentifizierungsdienst gelöscht werden. Bis dahin bleiben alle Zuordnungen zu dieser Unit erhalten.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>Im Broker werden die Geschäftseinheiten nicht bei jedem Anwendungsstart geprüft und an den Authentifizierungsdienst übermittelt, sondern nur beim ersten Start der Anwendung. Sollen diese erneut geprüft und der Authentifizierungsdienst über Änderungen informiert werden, muss daher ggf. der genutzte Application Pool im IIS neu gestartet werden.</p>
@@ -202,10 +184,10 @@ Es öffnet sich der Dialog <a href="edit-user.html">Edit User</a>.</p>
 <h5>Note</h5>
 <p>Als veraltet gekennzeichnete Units werden in der Vorbelegung der Unit Filter für die Rollenzuordnung ausgeblendet. Über den Button <strong>Filter Units</strong> ist ein Einblenden jederzeit möglich. In diesem Fall wird der Name der Unit in Spaltenüberschriften in Klammern gesetzt.</p>
 </div>
-<p><img src="media/image17.png" alt=": Runtime Administration (Authentication and Authorisation Tool)"></p>
+<p><img src="media/units-multicolumn.png" alt="Units Multicolumn"></p>
 <p>Wenn ein Service mehrere Units hat, werden in allen Ansichten, in denen Rollen mit Benutzern oder Rollen mit Gruppen verknüpft werden, aus den Listenansichten mit Checkboxen <strong>Tabellen</strong> mit Checkboxen.</p>
-<p>In der ersten Spalte wird immer der Name des zu verknüpfenden Elements (im obigen Screenshot der Name der Rolle) angezeigt. Darauf folgen Spalten für alle Units, die im Dialog <strong>Select Units</strong> ausgewählt wurden. Voreingestellt werden alle Units angezeigt, die nicht als veraltet (obsolete) gekennzeichnet sind. Der Dialog wird mit dem Button <strong>Filter Units</strong> geöffnet.</p>
-<p><img src="media/image18.png" alt="Select Units"></p>
+<p>In der ersten Spalte wird immer der Name des zu verknüpfenden Elements angezeigt. Darauf folgen Spalten für alle Units, die im Dialog <strong>Select Units</strong> ausgewählt wurden. Voreingestellt werden alle Units angezeigt, die nicht als veraltet (obsolete) gekennzeichnet sind. Der Dialog wird mit dem Button <strong>Filter Units</strong> geöffnet.</p>
+<p><img src="media/select-units.png" alt="Select Units"></p>
 <p>Eine Sonderstellung hat die (immer als erste Unit dargestellt) vom System automatisch generierte Unit mit der Bezeichnung <strong>General</strong>. Ist für einen Benutzer oder ein Gruppenmitglied bei dieser Unit für eine Rolle ein Haken gesetzt, so bedeutet dies, dass ihm an allen Units diese Rolle zugewiesen ist, an denen ihm irgend eine Rolle explizit zugeordnet ist.</p>
 <p>Beispiel:</p>
 <table>

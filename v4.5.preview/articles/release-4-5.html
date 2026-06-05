@@ -121,7 +121,12 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 </ul>
 <h4 id="neuerungen">Neuerungen</h4>
 <ul>
-<li>Im Java-Client wird bei fehlgeschlagenen RegEx-Validierungen von Metadatatypes nun zusätzlich der <strong>Tooltip-Text</strong> des MDT in der Fehlermeldung angezeigt. So erhalten Benutzer neben dem technischen regulären Ausdruck auch einen verständlichen Hinweis auf das erwartete Eingabeformat.</li>
+<li><p>Im Java-Client wird bei fehlgeschlagenen RegEx-Validierungen von Metadatatypes nun zusätzlich der <strong>Tooltip-Text</strong> des MDT in der Fehlermeldung angezeigt. So erhalten Benutzer neben dem technischen regulären Ausdruck auch einen verständlichen Hinweis auf das erwartete Eingabeformat.</p>
+</li>
+<li><p>Der <strong>Print-Server</strong> schreibt das Log-File nun täglich in eine neue Datei. Der konfigurierte Dateiname dient dabei als Basis; das aktuelle Datum wird automatisch als Suffix ergänzt (z. B. <code>PrintServer_20260429.log</code>). Ein Neustart des Dienstes beim Tageswechsel ist nicht erforderlich.</p>
+</li>
+<li><p>Der <strong>Print-Server</strong> verfügt nun über ein optionales <strong>Erweitertes Spooler Monitoring</strong>. Es überwacht den Windows Druckspooler aktiv und protokolliert den Lebenszyklus jedes Druckauftrags in zwei tagesrotierten Log-Dateien (<code>SpoolerLog</code>, <code>FailedPrints</code>). Bei erkannten Spooler-Fehlern wird die zugehörige FS-Transaktion automatisch als fehlgeschlagen markiert. Das Feature wird über <code>ExtendedSpoolerLogEnabled</code> in der <code>PrintService.exe.config</code> aktiviert. Weitere Informationen unter <a href="../doc/print-server/features.html#erweitertes-spooler-monitoring">Erweitertes Spooler Monitoring</a>.</p>
+</li>
 </ul>
 <h2 id="4539-07042026">4.5.39 (07.04.2026)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>

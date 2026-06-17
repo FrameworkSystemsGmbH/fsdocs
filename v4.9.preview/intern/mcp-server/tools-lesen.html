@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Tools </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Tools ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      <meta name="searchOption" content="noindex">
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="tools">Tools</h1>
+
+<p>Alle Tools des MCP-Servers arbeiten <strong>read-only</strong> — es werden keine Änderungen am Repository vorgenommen.
+Die Ergebnisse sind auf das aktive Package und dessen Abhängigkeiten beschränkt.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Die vollständige Parameterbeschreibung jedes Tools wird vom MCP-Server über <code>tools/list</code> bereitgestellt.
+KI-Clients erhalten diese automatisch bei der Verbindung.</p>
+</div>
+<h2 id="umgebung">Umgebung</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fs_get_environment</code></td>
+<td>Aktives Package, Domain, Verbindungsinformationen</td>
+</tr>
+</tbody>
+</table>
+<h2 id="elemente-auflisten">Elemente auflisten</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fs_list</code></td>
+<td>Alle Elemente nach Typ auflisten. Unterstützte Elementtypen: <code>component</code>, <code>form</code>, <code>service</code>, <code>modular_component</code>, <code>namespace</code>, <code>package</code>, <code>db_table</code>, <code>metadatatype</code>, <code>global_object</code>, <code>datasource</code>, <code>global_event</code>, <code>service_contract</code>, <code>service_host</code>, <code>workflow</code>, <code>report</code>, <code>access_unit</code>, <code>data_contract</code>. Parameter: <code>elementType</code>, <code>namespaceName</code> (optional), <code>offset</code> + <code>limit</code> (Pagination).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="elemente-lesen">Elemente lesen</h2>
+<h3 id="devobjects-component-form-service-modular-component">DevObjects (Component, Form, Service, Modular Component)</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fs_get_devobject</code></td>
+<td>Details auf DevObjects (Component, Form, Service, Modular Component) abrufen. Parameter: <code>elementType</code> (component|form|service|modular_component), <code>fullName</code>, <code>detail</code> (optional: summary|full, default full), <code>method</code> (optional: nur diese Methode mit vollem Code), <code>property</code> (optional: nur diese Property). <strong>Detail-Level:</strong> <code>summary</code> zeigt Struktur (Property-Namen/Typen, Methoden-Signaturen) ohne Code-Bodies — ideal für Orientierung großer Komponenten. <code>full</code> gibt komplettes YAML mit allen Code-Bodies (Standard).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="andere-elementtypen">Andere Elementtypen</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fs_get</code></td>
+<td>Details auf andere FS-Elemente abrufen. Parameter: <code>elementType</code> (package|db_table|metadatatype|data_contract|global_object|global_event|service_contract|service_host|workflow|report|datasource|access_unit), <code>name</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="suche">Suche</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fs_search_names</code></td>
+<td>Element-Namen und FullNames durchsuchen (alle Elementtypen)</td>
+</tr>
+<tr>
+<td><code>fs_search_code</code></td>
+<td>Volltextsuche im Methoden-InnerCode über Components, Forms und Services. Parameter: <code>pattern</code>, <code>regex</code> (optional: false für Literal-Match, true für Regex-Pattern).</td>
+</tr>
+<tr>
+<td><code>fs_search_dependencies</code></td>
+<td>Strukturelle Abhängigkeiten eines Elements finden (Properties, Typen, Vererbung)</td>
+</tr>
+<tr>
+<td><code>fs_search_documentation</code></td>
+<td>MLDoc-Felder auf Metadatatypes, Properties und Forms durchsuchen</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>fs_search_code</code> durchsucht nur den Methoden-InnerCode, nicht Declarations oder Descriptions.
+Indiziert werden nur Component-, Form-, Service- und ModularComponent-Methoden — <strong>nicht</strong> GlobalEvent- oder ServiceContract-Methoden.</p>
+<p><code>fs_search_names</code> durchsucht Element-Namen, nicht Property- oder Methodennamen innerhalb eines Elements.
+AccessUnit, Datasource und DocumentationOwner sind nicht in der Namenssuche enthalten.</p>
+<p><code>fs_search_documentation</code> durchsucht MLDoc-Felder auf Metadatatypes, Component-Properties, Forms und DocumentationOwnern.
+Die Suche findet Doku-<strong>Inhalte</strong> — eine Suche nach dem <strong>Namen</strong> eines DocumentationOwners ist nicht möglich.</p>
+</div>
+<h2 id="änderungshistorie--vererbung">Änderungshistorie &amp; Vererbung</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fs_get_element_history</code></td>
+<td>Versionsverlauf eines Elements (Datum, Benutzer, Kommentar)</td>
+</tr>
+<tr>
+<td><code>fs_get_method_history</code></td>
+<td>Code-Änderungen einer Methode über verschiedene Versionen</td>
+</tr>
+<tr>
+<td><code>fs_get_checkin_history</code></td>
+<td>Globaler CheckIn-Verlauf (wer hat wann was eingecheckt)</td>
+</tr>
+<tr>
+<td><code>fs_get_inheritance_tree</code></td>
+<td>Vererbungsbaum eines Elements (alle Parent und Child Klassen)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="hinweise-zur-nutzung">Hinweise zur Nutzung</h2>
+<ul>
+<li>Für große Components (50+ Properties, 30+ Methoden) ist <code>detail=summary</code> effizienter als <code>detail=full</code>. Summary zeigt die Struktur ohne Code-Bodies.</li>
+<li>Mit dem <code>method=MethodName</code> Parameter können Sie nur eine einzelne Methode mit vollem Code laden statt die ganze Component.</li>
+<li>Mit dem <code>property=PropName</code> Parameter können Sie nur eine einzelne Property auslesen statt die ganze Component.</li>
+<li><strong>Collections</strong> sind Components mit <code>ComponentType=Collection</code> — sie erscheinen in <code>fs_list</code> mit <code>elementType=component</code>, nicht in einer separaten Liste.</li>
+<li><code>fs_search_dependencies</code> zeigt was ein Element <strong>referenziert</strong> — nicht welche Elemente das Element referenzieren. Für die Gegenrichtung <code>fs_search_code</code> verwenden.</li>
+<li><code>fs_get_element_history</code> unterstützt keine DB-Tabellen — nur Namespace-basierte Elemente (Component, Form, Service, etc.).</li>
+<li>Der Such-Cache (<code>fs_search_names</code>, <code>fs_search_code</code>) wird nur bei Label-Wechsel aktualisiert. Nach einem CheckIn innerhalb desselben Labels den MCP-Server neu starten, um aktuelle Daten zu erhalten.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

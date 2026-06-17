@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>MCP-Server (Preview) </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="MCP-Server (Preview) ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      <meta name="searchOption" content="noindex">
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="mcp-server-preview">MCP-Server (Preview)</h1>
+
+<p>Der MCP-Server stellt eine Schnittstelle bereit, über die KI-Assistenten direkt auf das FrameworkStudio-Repository zugreifen können.
+Er implementiert das <a href="https://modelcontextprotocol.io/">Model Context Protocol (MCP)</a> und läuft als AddIn innerhalb der FrameworkStudio IDE.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Der MCP-Server ist ein <strong>Preview-Feature</strong> in Version 4.8. Funktionsumfang und Schnittstellen können sich in zukünftigen Versionen ändern.</p>
+</div>
+<h2 id="was-ermöglicht-der-mcp-server">Was ermöglicht der MCP-Server?</h2>
+<p>KI-Assistenten wie Claude Code, Cursor oder GitHub Copilot können über den MCP-Server:</p>
+<ul>
+<li><strong>Elemente auflisten und lesen</strong> — Components, Forms, Services, DB-Tabellen und alle weiteren FS-Elementtypen</li>
+<li><strong>Code inspizieren</strong> — Methoden-Quellcode abrufen</li>
+<li><strong>Suchen</strong> — nach Namen, im Code, nach Abhängigkeiten und in der Element-Dokumentation</li>
+<li><strong>Änderungshistorie abfragen</strong> — Versionsverlauf von Elementen, Methoden und CheckIns</li>
+</ul>
+<h2 id="architektur">Architektur</h2>
+<p><img src="media/architektur.svg" alt="Architektur MCP-Server"></p>
+<p>Der MCP-Server wird über das <strong>Tools-Menü</strong> in der IDE gestartet und läuft als HTTP-Server auf <code>localhost</code>.
+KI-Clients kommunizieren über das standardisierte MCP-Protokoll (JSON-RPC über Streamable HTTP mit Server-Sent Events).</p>
+<p>Die Tool-Registry stellt alle verfügbaren Operationen bereit.
+Jedes Tool greift über die FS-API auf das Repository zu — im Kontext des eingeloggten Benutzers.</p>
+<h2 id="port-ermittlung">Port-Ermittlung</h2>
+<p>Der Port wird <strong>automatisch</strong> aus dem Windows-Benutzernamen abgeleitet:</p>
+<ol>
+<li>Aus dem Benutzernamen (lowercase) wird ein Hashwert berechnet</li>
+<li>Der Hashwert bestimmt den Port im Bereich <strong>30100–35099</strong></li>
+<li>Falls der ermittelte Port belegt ist, wird der nächste freie Port verwendet (bis zu 10 Versuche)</li>
+</ol>
+<p>Dadurch erhält jeder Benutzer auf einer Maschine einen eigenen Port, ohne manuelle Konfiguration.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Der tatsächlich verwendete Port wird beim Start im <strong>Output-Fenster</strong> der IDE angezeigt.</p>
+</div>
+<h2 id="einrichtung-eines-ki-clients">Einrichtung eines KI-Clients</h2>
+<p>Für die Arbeit mit dem MCP-Server steht das Repository <strong>trade-fs-claude-workspace</strong> als Einstiegspunkt bereit.
+Es enthält vorkonfigurierte Skills, Domänenwissen und Setup-Skripte für Claude Code und GitHub Copilot.</p>
+<h3 id="kurzanleitung">Kurzanleitung</h3>
+<ol>
+<li><strong>Repository klonen</strong> — <code>trade-fs-claude-workspace</code> aus der internen Organisation herunterladen</li>
+<li><strong>FrameworkStudio starten</strong> und Projekt laden</li>
+<li><strong>MCP-Server aktivieren</strong> — Menü: <strong>Tools → MCP-Server starten</strong></li>
+<li><strong>KI-Client starten</strong> — der MCP-Server-Endpoint ist <code>http://localhost:PORT/mcp</code> (PORT aus dem Output-Fenster übernehmen)</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die MCP-Konfiguration im Workspace-Repository enthält einen Standardport.
+Da der tatsächliche Port vom Benutzernamen abhängt, muss die URL ggf. einmalig angepasst werden.</p>
+</div>
+<h2 id="voraussetzungen">Voraussetzungen</h2>
+<ul>
+<li>FrameworkStudio 4.8 oder höher</li>
+<li>Aktive FS-Session mit eingeloggtem Benutzer</li>
+<li>Ein MCP-fähiger KI-Client (z.B. Claude Code, Cursor, VS Code mit Copilot)</li>
+</ul>
+<h2 id="einschränkungen">Einschränkungen</h2>
+<ul>
+<li>Der Server ist nur lokal erreichbar (<code>localhost</code>) — kein Zugriff von außen</li>
+<li>Pro IDE-Instanz läuft maximal ein MCP-Server</li>
+<li>Der Server arbeitet im Kontext des eingeloggten FS-Benutzers — Berechtigungen gelten wie in der IDE</li>
+<li>In der Preview-Version stehen ausschließlich <strong>lesende</strong> Operationen zur Verfügung</li>
+</ul>
+<h2 id="bekannte-limitierungen-preview">Bekannte Limitierungen (Preview)</h2>
+<h3 id="nicht-unterstützte-elementtypen">Nicht unterstützte Elementtypen</h3>
+<p><strong>DocumentationOwner</strong> wird von keinem Tool unterstützt:</p>
+<ul>
+<li>Kann nicht aufgelistet werden (<code>fs_list</code>)</li>
+<li>Kann nicht nach Namen gesucht werden (<code>fs_search_names</code>)</li>
+<li>Kann nicht abgerufen werden (<code>fs_get</code>)</li>
+<li><code>fs_search_documentation</code> findet zwar den <em>Inhalt</em> von DocumentationOwner-Dokumentation, aber man kann einen DocumentationOwner nicht nach seinem Namen finden</li>
+</ul>
+<p><strong>AccessUnit</strong> und <strong>Datasource</strong> können über <code>fs_list</code> aufgelistet, aber nicht über <code>fs_search_names</code> nach Namen gesucht werden.</p>
+<h3 id="lücken-bei-bestehenden-tools">Lücken bei bestehenden Tools</h3>
+<table>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>DB-Tabellen-Historie</strong></td>
+<td><code>fs_get_element_history</code> findet keine DB-Tabellen, da diese über Datasources statt über Namespaces organisiert sind.</td>
+</tr>
+<tr>
+<td><strong>Code-Suche</strong></td>
+<td><code>fs_search_code</code> durchsucht nur Component-, Form-, Service- und ModularComponent-Methoden. Code in GlobalEvent- und ServiceContract-Methoden wird nicht indiziert.</td>
+</tr>
+<tr>
+<td><strong>Dokumentationssuche</strong></td>
+<td><code>fs_search_documentation</code> durchsucht Property-MLDoc, Form-Doku und DocumentationOwner-Doku — aber nicht die MLDoc direkt auf Component-Ebene.</td>
+</tr>
+<tr>
+<td><strong>Such-Cache</strong></td>
+<td>Der interne Cache für <code>fs_search_names</code> und <code>fs_search_code</code> wird nur bei einem Label-Wechsel aktualisiert. Einzelne CheckIns innerhalb desselben Labels werden erst nach einem Neustart des MCP-Servers sichtbar.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sicherheitshinweis">Sicherheitshinweis</h2>
+<p>Der MCP-Server verfügt über <strong>keine Authentifizierung</strong>. Jeder Prozess auf der lokalen Maschine mit Zugriff auf den jeweiligen <code>localhost</code>-Port erhält uneingeschränkten Lesezugriff auf alle Repository-Daten — einschließlich Methoden-Quellcode und Datenbankschema.</p>
+<p>Das ist für ein lokales Entwickler-Tool bewusst so gestaltet. Daraus folgt:</p>
+<ul>
+<li>Den Server <strong>nicht</strong> auf einer anderen Adresse als <code>localhost</code> betreiben</li>
+<li>Den Server <strong>beenden</strong> wenn die IDE-Session abgeschlossen ist</li>
+<li>Auf gemeinsam genutzten Entwicklermaschinen beachten, dass andere lokal angemeldete Benutzer ebenfalls Zugriff haben</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

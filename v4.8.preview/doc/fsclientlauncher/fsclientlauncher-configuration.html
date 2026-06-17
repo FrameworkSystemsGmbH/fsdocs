@@ -120,12 +120,19 @@ Dieser Cache wird automatisch bereinigt.</p>
 <p>Siehe <a href="#proxy-einstellungen">Abschnitt Proxy-Einstellungen</a>.</p>
 <h3 id="java-settings">Java Settings</h3>
 <ul>
-<li><p><strong>Use Java Version</strong>: Über diesen Schalter kann die Java-Laufzeitumgebungs-Version eingestellt werden. Welche Java-Laufzeitumgebung verwendet werden soll kann alternativ auch über Umgebungsvariablen konfiguriert werden, siehe <a href="#java-laufzeitumgebung">Java-Laufzeitumgebung</a>.</p>
+<li><p><strong>Use Java Version (bis Version 4.7)</strong>: Über diesen Schalter kann die Java-Laufzeitumgebungs-Version eingestellt werden.
+Welche Java-Laufzeitumgebung verwendet werden soll kann alternativ auch über Umgebungsvariablen konfiguriert werden, siehe <a href="#java-laufzeitumgebung">Java-Laufzeitumgebung</a>.</p>
 <ul>
-<li><code>Recommended</code> verwendet aktuell die <code>JRE8</code> bzw. <code>JDK21</code></li>
-<li><code>Supported</code> verwendet entweder <code>JRE8</code>, <code>JDK11</code> oder <code>JDK21</code> (64 Bit), dies entscheidet der Broker</li>
-<li><code>Experimental</code> verwendet aktuell das <code>JDK11</code> (64 Bit)</li>
+<li><code>Recommended</code> verwendet aktuell die <code>JRE8</code>.</li>
+<li><code>Supported</code> verwendet entweder <code>JRE8</code> oder <code>JDK11</code>, dies entscheidet der Broker</li>
+<li><code>Experimental</code> verwendet aktuell das <code>JDK11</code> (64 Bit)
+<br><br></li>
 </ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Für Broker auf der Version 4.8 hat diese Einstellung keinen Effekt.</p>
+<p>Es wird immer Java 21 - 64 Bit (<code>JDK21</code>) genutzt.</p>
+</div>
 </li>
 <li><p><strong>VM Arguments</strong>: Hier können Argumente für die Java-Runtime angegeben werden.
 Die hier angegebenen Argumente haben die höchste Priorität.

@@ -125,6 +125,12 @@ Interface IFSAuthentication
 </dd>
   </dl>
   <dl class="jumplist">
+    <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.IFSAuthentication.AuthenticateByJwt.html#FS_Hosting_Shared_AccessControl_IFSAuthentication_AuthenticateByJwt_System_String_">AuthenticateByJwt(string)</a></dt>
+    <dd><p>Nimmt ein bereits gültiges JWT entgegen und identifiziert darüber den FS-Benutzer.
+Es wird kein Token beim IdentityProvider geholt; das JWT wird nur validiert und auf einen FS-Benutzer abgebildet.</p>
+</dd>
+  </dl>
+  <dl class="jumplist">
     <dt><a class="xref" href="FS.Hosting.Shared.AccessControl.IFSAuthentication.AuthenticateByOidc.html#FS_Hosting_Shared_AccessControl_IFSAuthentication_AuthenticateByOidc_System_String_System_String_System_String_">AuthenticateByOidc(string, string, string)</a></dt>
     <dd><p>Versucht über den Auth-Service mit den übergebenen Informationen eine OpenId Connect Identifizierung durchzuführen.</p>
 </dd>

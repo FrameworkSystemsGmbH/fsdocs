@@ -94,7 +94,7 @@
 <h2 id="microsoft-di-container">Microsoft DI-Container</h2>
 <p>Framework Studio verwendet den Dependency Injection Container von Microsoft.
 Dieser ist ein zentrales Element für die Verwaltung von Abhängigkeiten in modernen .NET-Anwendungen.</p>
-<p>Ein DI-Container wird durch die Klasse <a class="xref" href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.dependencyinjection.serviceprovider"><code>ServiceProvider</code></a> bzw. das Interface <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider"><code>IServiceProvider</code></a> abgebildet.
+<p>Ein DI-Container wird über das Interface <a class="xref" href="https://learn.microsoft.com/dotnet/api/system.iserviceprovider"><code>IServiceProvider</code></a> (bzw. die konkrete Implementierung ServiceProvider) repräsentiert.
 Deswegen wird statt dem allgemeinen Begriff <strong>DI-Container</strong> oft der spezifische Begriff <strong>ServiceProvider</strong> verwendet.</p>
 <p>Der DI-Container unterstützt verschiedene Lebenszyklen für die Registrierung von Diensten:</p>
 <ul>

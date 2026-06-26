@@ -198,6 +198,44 @@ Es werden alle Reports nach dem Druck als PRNX-Datei (Report-Datei inkl. Daten) 
 <p>Wenn nicht angegeben, dann wird die folgende Standard-Einstellung verwendet:</p>
 <p><code>ReaderArgs = /t /n /h &quot;{file}&quot; &quot;{printer}&quot;</code></p>
 </li>
+<li><p><strong>Wartezeiten</strong></p>
+<p>Können wie folgt bei den Settings angegeben werden: <br>
+<code>StartupWaitTimeout = 2000</code> <br>
+<code>ProcessWaitTimeout = 2000</code></p>
+<p>Der PDF-Druck über den <strong>Acrobat Reader-Adapter</strong> (<code>PdfPrintAdapter_AcrobatReader</code>) erfolgt über einen externen PDF-Reader, der als Prozess gestartet wird. Da der PrintService keine direkte Rückmeldung vom Reader erhält, werden zwei konfigurierbare Wartezeiten verwendet, um einen zuverlässigen Druckvorgang sicherzustellen.</p>
+<p>Die Einstellungen werden als <strong>Adapter-Settings</strong> in der Adapter-Konfiguration (<code>&lt;SettingList&gt;</code> des PDF-Adapters) konfiguriert:</p>
+<pre><code class="lang-xml">&lt;Adapter&gt;
+  &lt;Id&gt;PDF&lt;/Id&gt;
+  &lt;Type&gt;PrintServer.PdfPrintAdapter_AcrobatReader,PdfPrintAdapter&lt;/Type&gt;
+  &lt;SettingList&gt;
+    &lt;Setting key=&quot;ReaderPath&quot; value=&quot;C:\...\AcroRd32.exe&quot; /&gt;
+    &lt;Setting key=&quot;StartupWaitTimeout&quot; value=&quot;750&quot; /&gt;
+    &lt;Setting key=&quot;ProcessWaitTimeout&quot; value=&quot;750&quot; /&gt;
+  &lt;/SettingList&gt;
+&lt;/Adapter&gt;
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Standard</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>StartupWaitTimeout</code></td>
+<td><code>750</code></td>
+<td>Wartezeit in Millisekunden nach dem Start des PDF-Readers, bevor versucht wird die temporäre PDF-Datei zu löschen. Gibt dem Reader Zeit, die Datei zu öffnen und zu sperren. Muss erhöht werden, wenn der Reader kalt startet (z.B. auf <code>1000</code> - <code>3000</code>).</td>
+</tr>
+<tr>
+<td><code>ProcessWaitTimeout</code></td>
+<td><code>750</code></td>
+<td>Wartezeit in Millisekunden nachdem die temporäre Datei gelöscht werden konnte (d.h. der Reader hat sie freigegeben), bevor der Reader-Prozess beendet wird. Gibt dem Reader Zeit, das Rendering abzuschließen und den Druckauftrag an den Windows-Spooler zu übergeben. Wert <code>0</code> deaktiviert die zusätzliche Wartezeit.</td>
+</tr>
+</tbody>
+</table>
+</li>
 </ul>
 <h2 id="word">WORD</h2>
 <p>Mit diesem Adapter können Word-Dateien (.doc / .docx) an den Drucker gesendet werden.</p>

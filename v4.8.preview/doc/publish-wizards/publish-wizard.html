@@ -318,6 +318,19 @@ Durch diesen Vorgang werden <strong>ID</strong>, <strong>Public Key</strong> und
 <h5>Note</h5>
 <p>Beim Start des REST Services wird die JSON Config lediglich auf strukturelle Validität geprüft, es findet keine inhaltliche Prüfung statt.</p>
 </div>
+<h4 id="zielserver-eines-rest-services">Zielserver eines REST Services</h4>
+<p>Der Zielserver, auf dem ein REST Service publiziert wird, wird aus dem Host der in der <strong>Configuration</strong> hinterlegten Endpunkt-URL abgeleitet (<code>Kestrel:EndPoints</code> bzw. <code>Urls</code>).</p>
+<ul>
+<li>Wildcard-Bindings (<code>+</code>, <code>*</code>, <code>0.0.0.0</code>, <code>::</code>) und <code>localhost</code> werden als <strong>lokale</strong> Maschine (<code>LOCALHOST</code>) interpretiert.</li>
+<li>Ein konkreter Hostname (z.B. <code>www.test.domain.com</code>) wird als Zielserver verwendet. Damit der Service auf der gewünschten Maschine publiziert wird, muss dieser externe Name über den Button <a href="#button-configure-servernames">Configure Servernames</a> auf den internen Namen (z.B. <code>RZ-PR-05</code>) der Zielmaschine gemappt werden.</li>
+</ul>
+<p>Wird der REST Service nicht für die aktuelle Maschine erkannt, erscheint er auf der <a href="#end">End-Seite</a> orange mit dem Hinweis <em>„will not be published on this machine, configured for server '…'&quot;</em> und wird beim Publish übersprungen.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Ein REST Service gehört genau zu <strong>einem</strong> Zielserver.
+Mehrere Endpunkt-URLs sind zulässig (z.B. HTTP und HTTPS, plus <code>localhost</code> als Loopback), müssen aber alle auf denselben Host verweisen.
+Sind mehrere <em>verschiedene</em> konkrete Hostnamen konfiguriert, meldet die Publish-Validierung einen Fehler und der Host muss vereinheitlicht werden.</p>
+</div>
 <h4 id="runtime-supervisor-2">Runtime Supervisor</h4>
 <p><strong>Enable:</strong> Flag, das steuert, ob der Service über den Runtime-Supervisor überwacht wird.</p>
 <div class="NOTE">
@@ -359,6 +372,7 @@ Durch diesen Vorgang werden <strong>ID</strong>, <strong>Public Key</strong> und
 <h2 id="service-directories">Service Directories</h2>
 <p>Für alle Server wird hier jeweils im Eingabefeld hinter dem Servernamen das Verzeichnis angegeben, in das alle Service Dateien gespeichert werden sollen.
 Mit dem Button <img src="../media/icon-more.png" alt="icon-more.png">  wird ein Ordnerauswahl-Dialog geöffnet.</p>
+<p>Aufgelistet werden alle Server, die von Service Hosts oder REST Services verwendet werden. REST Services erscheinen unter ihrem aus der Konfiguration abgeleiteten <a href="#zielserver-eines-rest-services">Zielserver</a> — Services ohne konkreten Host unter <code>localhost</code>.</p>
 <p><img src="media/publish_wizard_service_directories.png" alt="Publish Wizard Service Directories"></p>
 <h2 id="service-proxies">Service Proxies</h2>
 <p>Hier kann die Serviceadresse von <strong>externen</strong> Diensten geändert werden.</p>

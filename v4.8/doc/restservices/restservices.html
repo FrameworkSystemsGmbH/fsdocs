@@ -101,6 +101,7 @@ Beachten Sie allerdings die geltenden <a href="#aspnet-core-23-auf-net48">Einsch
 Allerdings bedeutet das auch, dass sich um viele Dinge selbst gekümmert werden muss:</p>
 <ul>
 <li>Die <a href="restservices-methods.html#konfiguration">Konfiguration</a> muss eigenständig im Run- bzw. Publish-Wizard definiert werden!</li>
+<li>Die REST Services verwenden intern ihren FullName als Identifier, was zur Folge hat, dass die Konfiguration im Run- / Publish-Wizard verloren geht, sollte eine Umbenennung stattgefunden haben.</li>
 <li>Der für das <a href="#debugging">Debugging</a> notwendige Code inkl. Einstellung im Run-Wizard muss eigenständig hinzugefügt bzw. gesetzt werden!</li>
 <li>Einsprungpunkte für Customizing müssen eigenständig implementiert werden!</li>
 <li>Alle Elemente, wie z.B. Controller, Services, Middlewares, etc., müssen in der <a href="#startup-klasse">Startup-Klasse</a> selbstständig hinzugefügt werden!</li>
@@ -244,7 +245,8 @@ Voraussetzung ist ein installiertes .NET SDK (ab .NET Core 3.1+).</p>
 <p>Das Zertifikat landet im Windows-Zertifikatspeicher unter <em>Vertrauenswürdige Stammzertifizierungsstellen (Current User)</em>.</p>
 <h2 id="authentifizierung">Authentifizierung</h2>
 <p>Wie bei den Service Hosts, kann auch bei den REST Services die Authentifizierung aktiviert werden.
-Die Konfiguration erfolgt im <a href="../publish-wizards/run-wizard.html">RunWizard</a> bzw. im <a href="../publish-wizards/publish-wizard.html#rest-services---authentication">Publish Wizard / Publish2Go</a> auf der Registerkarte <strong>Authentication</strong> des jeweiligen REST Services.</p>
+Die Konfiguration erfolgt im <a href="../publish-wizards/run-wizard.html">RunWizard</a> bzw. im <a href="../publish-wizards/publish-wizard.html#rest-services---authentication">Publish Wizard / Publish2Go</a> auf der Registerkarte <strong>Authentication</strong> des jeweiligen REST Services.
+Es muss die Methode <a href="restservices-methods.html#kombination-buildfshost"><code>BuildFSHost()</code></a> aufgerufen werden, damit sich der REST Service korrekt mit dem Authentication Service verbindet.</p>
 <h3 id="verwendung-im-controller">Verwendung im Controller</h3>
 <p>Wenn die Authentifizierung aktiviert ist, kann über den DI-Container auf den <a class="xref" href="../../api/FS.Hosting.Shared.AccessControl.IFSAuthenticationService.html"><code>IFSAuthenticationService</code></a> zugegriffen werden:</p>
 <pre><code class="lang-csharp">[Route(&quot;api/[controller]&quot;)]

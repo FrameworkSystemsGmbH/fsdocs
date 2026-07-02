@@ -187,6 +187,27 @@ Der alte Browser deckt nicht alle Funktionen ab, welche eNVenta benötigt. Hier 
 <h3 id="java-client-friert-bei-nutzung-von-arm-prozessoren-ein">Java-Client friert bei Nutzung von ARM-Prozessoren ein</h3>
 <p>Wenn der Java-Client ohne ersichtlichen Grund immer wieder einfriert, sollte geprüft werden, ob der genutzte Prozessor auf der ARM-Architektur basiert.
 Diese wird von unserer bereitgestellten <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html">Azul JavaRuntime</a> nicht unterstützt.</p>
+<h3 id="java-8--oberfläche-friert-beim-scrollen-ein">Java 8 – Oberfläche friert beim Scrollen ein</h3>
+<p>Unter bestimmten Voraussetzungen kann es vorkommen, dass die Benutzeroberfläche sich beim Scrollen von langen Grids nicht mehr aktualisiert.
+Klicks werden aber weiterhin verarbeitet, die Anzeige bleibt jedoch eingefroren.
+Meist behebt ein Reset des Grafiktreibers (<code>Win + Strg + Shift + B</code>) das Problem vorübergehend, bis wieder gescrollt wird.</p>
+<h4 id="ursache--grafiktreiber">Ursache – Grafiktreiber</h4>
+<p>Java 8 verwendet unter Windows standardmäßig DirectDraw/Direct3D für die Rendering-Pipeline.
+Bei bestimmten Grafiktreiberkonfigurationen kann es vorkommen, dass der Grafiktreiber
+den Framebuffer nicht mehr korrekt aktualisiert.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Dieses Problem tritt nur unter <strong>Java 8</strong> auf. Java 11 und neuer sind nicht betroffen.</p>
+</div>
+<p>Die Hardware-Beschleunigung über DirectX kann über JVM-Argumente deaktiviert werden.</p>
+<p>Folgende Argumente für Java 8 im FS Client Launcher eintragen:</p>
+<pre><code class="lang-text">-Dsun.java2d.noddraw=true
+-Dsun.java2d.d3d=false
+</code></pre>
+<p>Sollten die genannten Argumente nicht helfen, kann auch das Rendering über OpenGL erzwungen werden.</p>
+<p>Dazu folgendes Argument für Java 8 im FS Client Launcher eintragen:</p>
+<pre><code class="lang-text">-Dsun.java2d.opengl=true
+</code></pre>
 <h2 id="print-service">Print Service</h2>
 <h3 id="drucker-wird-im-namen-mit--err--angezeigt">Drucker wird im Namen mit ## ERR ## angezeigt</h3>
 <p>Der Print-Service prüft beim Hochfahren alle konfigurierten Drucker.

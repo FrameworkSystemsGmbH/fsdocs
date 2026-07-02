@@ -251,7 +251,12 @@ Mit dem Button <strong>Reset</strong> wird das jeweilige Bild auf die Standardei
 <p><strong>SSL:</strong> Die Checkbox aktiviert die SSL Verschlüsselung für den ServiceHost – dieser läuft dann über <code>https</code>.</p>
 <p><strong>Hostname:</strong> Wenn Custom Name gesetzt ist, kann der Name des ServiceHosts überschrieben werden. Dies hat Einfluss auf den Platzhalter %HOSTNAME% in der Base Address des Service Hosts und dessen Endpoints.</p>
 <p><strong>Base Address:</strong> Aus den angegebenen Informationen zusammengesetzte Basis-URL des Service.</p>
-<p><strong>CORS Origin:</strong> Wenn ein Service gehostet wird, der direkt über JavaScript aus dem Browser angesprochen wird, kann hier der CORS Origin gesetzt werden, welcher per HTTP-Header an den Client geschickt wird. Bei jedem Response des Services wird der Header „Access-Control-Allow-Origin“ mit dem angegebenen Wert mitgeschickt.</p>
+<p><strong>CORS Origin:</strong> Wenn ein Service gehostet wird, der direkt über JavaScript aus dem Browser angesprochen wird, kann hier der CORS Origin gesetzt werden.
+Der Wert muss den Protokoll-Prefix enthalten, z.B. <code>http://localhost:3000</code> oder <code>https://app.example.com</code> (nicht nur <code>localhost:3000</code>).</p>
+<p>Bei jedem Response des Services wird der Header <code>Access-Control-Allow-Origin</code> mit dem angegebenen Wert mitgeschickt.</p>
+<p>CORS-Preflight-Anfragen (<code>OPTIONS</code>), die Browser vor bestimmten Cross-Origin-Requests automatisch senden, werden vom Service ebenfalls behandelt:
+Der Service antwortet auf <code>OPTIONS</code>-Anfragen mit HTTP 200 und schickt zusätzlich die Header <code>Access-Control-Allow-Methods</code>, <code>Access-Control-Allow-Headers</code> und <code>Access-Control-Max-Age</code> zurück.
+Die erlaubten Methoden und Header werden dabei aus dem Preflight-Request des Browsers übernommen; fehlen diese Angaben im Request, werden Standardwerte zurückgegeben.</p>
 <p><strong>Username:</strong> Gibt den Benutzer an, mit dem der Windows-Dienst für den Service Host installiert werden soll. Eine Domäne kann mit der Schreibweise „Domäne\Username“ angegeben werden.</p>
 <p>Es stehen auch die drei Systemkonten „Local Service“, „Local System“ und „Network Service“ zur Auswahl. Ist eines dieser Konten ausgewählt, ist kein Passwort erforderlich.</p>
 <p><strong>Password:</strong> Das Passwort zum ausgewählten Benutzer.</p>

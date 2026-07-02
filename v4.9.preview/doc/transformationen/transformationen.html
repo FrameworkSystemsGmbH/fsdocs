@@ -127,11 +127,21 @@
 <p>Transformationen können gecustomized werden. Ableitungen sind nur für Code-Transformationen zulässig. In Code-Transformationen können die Methoden normal überschrieben werden.</p>
 <p>In graphischen Transformationen können neue Property-Verbindungen hergestellt oder Property-Transformationen ausgetauscht werden. Das Hinzufügen neuer Argumente ist nicht zulässig.</p>
 <h3 id="generierung-des-data-contracts-und-der-transformationen-aus-components">Generierung des Data Contracts und der Transformationen aus Components</h3>
-<p>Um die Erstellung von graphischen Transformationen erheblich zu vereinfachen, kann FS aus Components heraus eigenständig Data Contracts und die zugehörigen Transformationen zwischen der Component und des Data Contracts generieren.
-Hierzu muss in einer Component im Menü <strong>Edit</strong> &gt; <strong>Autogenerate Data Contract</strong> gewählt werden.</p>
+<p>Um die Erstellung von graphischen Transformationen erheblich zu vereinfachen, kann FS aus Components heraus eigenständig Data Contracts und die zugehörigen Transformationen zwischen der Component und dem Data Contract generieren.
+Hierzu muss in einer Component im Menü <strong>Edit</strong> &gt; <strong>Autogenerate DataContract</strong> gewählt werden. Für Collections und Textcollections steht die Funktion nicht zur Verfügung.</p>
 <p>Data Contract Wizard:</p>
 <p><img src="media/gtransformation-data-contract-wizard.png" alt="Data Contract Wizard"></p>
-<p>In diesem Formular können die Properties selektiert werden, die der Data Contract beinhalten soll. Mit dem Häkchen <strong>Inverse transformation</strong> kann gewählt werden, ob auch eine Transformation vom Data Contract zurück zur Component erstellt werden soll. Mit Klick auf den Button <strong>OK</strong> werden im Namespace der Data Contract und die zugehörigen Transformationen erzeugt.</p>
+<p>Im oberen Feld wird der <strong>Name des Data Contracts</strong> vorgegeben (Standard: <code>&lt;Component&gt;DataContract</code>).</p>
+<p>In der Baumstruktur werden die Properties der Component angezeigt. Über die Spalte <strong>Selected</strong> werden die Properties markiert, die der Data Contract enthalten soll. Properties, die selbst auf eine Component verweisen (Relationen), sowie der Wurzelknoten sind nicht direkt auswählbar – sie werden ausgegraut dargestellt und besitzen keine Checkbox. Solche Knoten lassen sich jedoch aufklappen, um die darunterliegenden Properties auszuwählen.</p>
+<p>Eine auswählbare Zeile kann auf zwei Arten umgeschaltet werden:</p>
+<ul>
+<li>Klick auf die Checkbox in der Spalte <strong>Selected</strong>.</li>
+<li>Markieren der Zeile und Drücken der <strong>Leertaste</strong>.</li>
+</ul>
+<p>Mit <code>STRG + F</code> kann die eingebaute Filterfunktion genutzt werden.</p>
+<p>Über die Buttons <strong>Select All</strong> und <strong>Deselect All</strong> lassen sich alle Properties der aktuell aufgeklappten Zweige auf einmal aus- bzw. abwählen.</p>
+<p>Mit dem Häkchen <strong>Inverse transformation</strong> kann gewählt werden, ob zusätzlich eine Transformation vom Data Contract zurück zur Component erstellt werden soll.</p>
+<p>Mit Klick auf den Button <strong>OK</strong> werden im Namespace der Data Contract sowie die zugehörigen Transformationen erzeugt: <code>Cast_&lt;Component&gt;_To_&lt;DataContract&gt;</code> und – sofern <strong>Inverse transformation</strong> gewählt wurde – zusätzlich <code>Cast_&lt;DataContract&gt;_To_&lt;Component&gt;</code>.</p>
 
 </article>
 

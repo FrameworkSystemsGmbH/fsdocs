@@ -94,8 +94,47 @@
 Beispiel: <code>Server=MySqlServer,1234</code></li>
 <li>Wird kein <strong>Username</strong> angegeben, dann wird Windows-Authentifizierung verwendet.</li>
 </ul>
-<h2 id="oracle-connection">Oracle-Connection</h2>
+<h2 id="postgresql-connection">PostgreSQL-Connection</h2>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Mindestversion: <strong>PostgreSQL 18</strong>. Ältere Versionen werden nicht unterstützt.</p>
+</div>
 <h4 id="server--database">Server / Database</h4>
+<ul>
+<li>Der <strong>Server</strong> wird im Format <code>Host:Port</code> angegeben.<br>
+Beispiel: <code>Server=MyPgServer:5432</code></li>
+<li>Wird kein Port angegeben, wird der PostgreSQL-Standardport <code>5432</code> verwendet.</li>
+<li>Die <strong>Database</strong> ist der Name der PostgreSQL-Datenbank.<br>
+Beispiel: <code>Database=MyBusinessDB</code></li>
+</ul>
+<h4 id="authentifizierung">Authentifizierung</h4>
+<ul>
+<li><strong>Username</strong> und <strong>Password</strong> sind erforderlich. Windows-Authentifizierung wird bei PostgreSQL nicht unterstützt.</li>
+</ul>
+<h4 id="datenbank-einrichten">Datenbank einrichten</h4>
+<p>Bevor eine PostgreSQL-Datenbank mit Framework Studio verwendet werden kann, muss folgender Schritt <strong>einmalig durch einen Datenbank-Administrator (Superuser)</strong> ausgeführt werden:</p>
+<p><strong>Impliziten Typ-Cast anlegen</strong> — SQL Server konvertiert automatisch zwischen String- und numerischen Typen (z.B. <code>smallint = varchar</code>). PostgreSQL erfordert dafür einen expliziten Cast, der mit Superuser-Rechten angelegt werden muss:</p>
+<pre><code class="lang-sql">CREATE CAST (character varying AS numeric) WITH INOUT AS IMPLICIT;
+</code></pre>
+<p>Es wird nur ein einziger Cast <code>varchar → numeric</code> benötigt. PostgreSQL promoted alle Integer-Typen (<code>smallint</code>, <code>integer</code>, <code>bigint</code>) automatisch zu <code>numeric</code>, sodass dieser eine Cast alle Vergleiche abdeckt.</p>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Es darf <strong>nur dieser eine</strong> Cast angelegt werden. Mehrere Casts (z.B. <code>varchar→smallint</code> und <code>varchar→integer</code>) oder bidirektionale Casts führen zu <code>operator is not unique</code>-Fehlern, weil PostgreSQL dann mehrere gleichwertige Konvertierungswege findet.</p>
+</div>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Ohne diese Casts schlagen Queries fehl, die numerische Spalten mit String-Parametern vergleichen. Framework Studio prüft beim Start, ob die Casts vorhanden sind und gibt eine entsprechende Fehlermeldung aus.</p>
+</div>
+<h4 id="besonderheiten">Besonderheiten</h4>
+<ul>
+<li>PostgreSQL speichert alle Identifier (Tabellen- und Spaltennamen) in <strong>Kleinbuchstaben</strong>. Framework Studio konvertiert Identifier automatisch.</li>
+<li>Auf allen String-Spalten wird automatisch eine <strong>case-insensitive Collation</strong> (<code>case_insensitive</code>) gesetzt, damit sich das Verhalten analog zu SQL Server verhält.</li>
+<li>PostgreSQL verwendet nativ <strong>MVCC</strong> (Multi-Version Concurrency Control). Eine explizite Aktivierung der Zeilenversionierung wie beim SQL Server ist nicht erforderlich.</li>
+</ul>
+<p>Beispiel für einen Connection-String:<br>
+<code>FSProviderType=PostgreSql;Server=MyPgServer:5432;Database=MyBusinessDB;UserID=fs;Password=geheim!</code></p>
+<h2 id="oracle-connection">Oracle-Connection</h2>
+<h4 id="server--database-1">Server / Database</h4>
 <p>Bei der Angabe von <strong>Server</strong> und <strong>Database</strong> erzeugt Framework Studio einen TNS-String in dem folgenden Format:</p>
 <p><code>(DESCRIPTION=(ADDRESS_LIST=(ADDRESS=(PROTOCOL=TCP)(HOST=</code><em><code>&lt;SERVER&gt;</code></em><code>)(PORT=1521)))(CONNECT_DATA=(SID=</code><em><code>&lt;Database&gt;</code></em><code>)(SERVER=DEDICATED)))</code></p>
 <p>Der Standard-Port <code>1521</code> kann über den Server-Namen beeinflusst werden, indem er mit einem <code>:</code> getrennt angegeben wird.</p>
@@ -134,7 +173,7 @@ Das kann benutzt werden, wenn der automatisch generierte TNS-String nicht ausrei
 <p>Gibt an, mit was für einer Datenbank (SQL-Server oder Oracle Managed) gearbeitet werden soll.</p>
 <ul>
 <li>Name im Connection-String: <code>FSProviderType</code></li>
-<li>gültige Werte: <code>SqlServer</code>, <code>OracleManaged</code></li>
+<li>gültige Werte: <code>SqlServer</code>, <code>OracleManaged</code>, <code>PostgreSql</code></li>
 <li>Beispiel: <code>FSProviderType=SqlServer</code></li>
 </ul>
 <h4 id="server">Server</h4>

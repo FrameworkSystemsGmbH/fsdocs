@@ -103,6 +103,9 @@ GO
 </code></pre>
 <p>Beim Ausführen dieser Statements darf niemand angemeldet sein (auch keine Services) da exklusiver Zugriff auf die Datenbank benötigt wird.</p>
 <p>Framework Studio aktiviert die Zeilenversionierung beim Anlegen von Datenbanken automatisch.</p>
+<h2 id="postgresql">PostgreSQL</h2>
+<p>PostgreSQL verwendet nativ <strong>MVCC</strong> (Multi-Version Concurrency Control). Die Zeilenversionierung ist standardmäßig aktiv und muss nicht separat konfiguriert werden.</p>
+<p>Das Standard-Isolationslevel ist <code>READ COMMITTED</code>. PostgreSQL liefert dabei immer eine konsistente Sicht auf committete Daten — Leser blockieren keine Schreiber und umgekehrt. Eine Konfiguration wie <code>READ_COMMITTED_SNAPSHOT</code> oder <code>ALLOW_SNAPSHOT_ISOLATION</code> ist nicht erforderlich.</p>
 
 </article>
 

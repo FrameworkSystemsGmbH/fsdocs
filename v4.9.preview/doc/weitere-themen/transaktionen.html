@@ -202,6 +202,11 @@ using(FrameworkDataTransaction transaction = connection.BeginTransaction())
 </code></pre>
 <p>Handelt es sich um eine innere Transaktion, so müsste im zweiten Beispiel der if-Block hinter der Freigabe der äußersten Transaktion erfolgen. Genauso muss sich die Variable <strong>comitted</strong> auf die äußerste Transaktion beziehen, da nur auf der äußersten Transaktion ein Commit erfolgen kann.</p>
 <h2 id="transaktionen-fehlerbehandlung">Transaktionen Fehlerbehandlung</h2>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p><strong>PostgreSQL:</strong> Schlägt ein Statement innerhalb einer offenen Transaktion fehl, wird die Transaktion sofort als aborted markiert. Alle nachfolgenden Statements schlagen mit <code>25P02</code> fehl, bis ein Rollback ausgeführt wird. SQL Server erlaubt hingegen das Weiterarbeiten in derselben Transaktion nach einem Fehler.</p>
+<p>Exceptions innerhalb von Transaktionen dürfen daher auf PostgreSQL unter keinen Umständen unterdrückt werden — die Transaktion ist danach nicht mehr verwendbar.</p>
+</div>
 <p>Wenn bei einem Save eine Exception auftritt, darf diese nicht unterdrückt werden. Dadurch würde die Transaktion nicht mehr korrekt arbeiten und ggf. falsche Daten in die Datenbank gelangen.</p>
 <p>Wenn während dem Save in einer Component ein Fehler auftritt, dann wird die Transaktion mit einem <code>Rollback()</code> zurückgesetzt. Der <code>Rollback()</code> wird – im Gegensatz zum <code>Commit()</code> – sofort ausgeführt. Wenn durch das Unterdrücken der Exception nachfolgende Speicher-Vorgänge normal aufgerufen werden, hat das zur Folge, dass beim nächsten Save eine neue Transaktion gestartet wird. Diese würde dann außerhalb der ursprünglich geöffneten Transaktion laufen.</p>
 <p>Deshalb muss im Fehlerfall immer eine weitere Exception geworfen werden.</p>

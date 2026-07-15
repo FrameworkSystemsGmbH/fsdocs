@@ -108,6 +108,10 @@
 <td>Oracle</td>
 <td>RAW(16)</td>
 </tr>
+<tr>
+<td>PostgreSQL</td>
+<td>uuid</td>
+</tr>
 </tbody>
 </table>
 <p>Diese Spalte wird von Framework Studio als PrimaryKey-Spalte verwendet und dient beim Update und beim Nachlesen der eindeutigen Identifikation von Datensätzen.</p>
@@ -135,6 +139,14 @@ So kann die RowVersion sowohl mit einer RowID als auch mit einem individuellen P
 );
 
 CREATE UNIQUE INDEX IXROWID_&lt;table&gt; ON &lt;table&gt; (FSROWID) TABLESPACE INDEX1;
+</code></pre>
+<p>PostgreSQL:</p>
+<pre><code class="lang-sql">CREATE TABLE &lt;table&gt;
+(
+   fsrowid uuid NOT NULL DEFAULT gen_random_uuid() PRIMARY KEY,
+   fsrowversion bigint,
+   &lt;columns&gt;
+);
 </code></pre>
 <p>Für die Spalten FSROWID und FSROWVERSION generiert FrameworkStudio in den Components entsprechende Properties. Diese sehen wie folgt aus:</p>
 <ul>

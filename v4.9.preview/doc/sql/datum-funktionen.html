@@ -106,6 +106,10 @@
 <td>Oracle</td>
 <td><code>SYSDATE</code></td>
 </tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>CURRENT_TIMESTAMP</code></td>
+</tr>
 </tbody>
 </table>
 <h4 id="getutcdate">GETUTCDATE</h4>
@@ -126,6 +130,10 @@
 <tr>
 <td>Oracle</td>
 <td><code>CAST(sys_extract_utc(systimestamp) AS TIMESTAMP)</code></td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>(CURRENT_TIMESTAMP AT TIME ZONE 'UTC')</code></td>
 </tr>
 </tbody>
 </table>
@@ -148,6 +156,10 @@
 <td>Oracle</td>
 <td><code>&lt;Date Expression&gt; + &lt;Days&gt;</code></td>
 </tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>(&lt;Date Expression&gt; + &lt;Days&gt; * INTERVAL '1 day')</code></td>
+</tr>
 </tbody>
 </table>
 <h4 id="add_minutes">ADD_MINUTES</h4>
@@ -168,6 +180,10 @@
 <tr>
 <td>Oracle</td>
 <td><code>&lt;Date Expression&gt; + ( &lt;Minutes&gt; / 1440 )</code></td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>(&lt;Date Expression&gt; + &lt;Minutes&gt; * INTERVAL '1 minute')</code></td>
 </tr>
 </tbody>
 </table>
@@ -190,6 +206,10 @@
 <td>Oracle</td>
 <td><code>ADD_MONTHS ( &lt;Date Expression&gt;, &lt;Months&gt; )</code></td>
 </tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>(&lt;Date Expression&gt; + &lt;Months&gt; * INTERVAL '1 month')</code></td>
+</tr>
 </tbody>
 </table>
 <h4 id="days_between">DAYS_BETWEEN</h4>
@@ -210,6 +230,10 @@
 <tr>
 <td>Oracle</td>
 <td><code>TRUNC ( &lt;End-Date&gt; - &lt;Start-Date&gt; )</code></td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>((&lt;End-Date&gt;)::date - (&lt;Start-Date&gt;)::date)</code></td>
 </tr>
 </tbody>
 </table>
@@ -232,6 +256,10 @@
 <td>Oracle</td>
 <td><code>MONTHS_BETWEEN (&lt;End-Date&gt;, &lt;Start-Date&gt;)</code></td>
 </tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>((EXTRACT(YEAR FROM &lt;End-Date&gt;) - EXTRACT(YEAR FROM &lt;Start-Date&gt;)) * 12 + (EXTRACT(MONTH FROM &lt;End-Date&gt;) - EXTRACT(MONTH FROM &lt;Start-Date&gt;)))</code></td>
+</tr>
 </tbody>
 </table>
 <h4 id="year">YEAR</h4>
@@ -251,6 +279,10 @@
 </tr>
 <tr>
 <td>Oracle</td>
+<td><code>EXTRACT ( YEAR FROM &lt;Date Expression&gt; )</code></td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
 <td><code>EXTRACT ( YEAR FROM &lt;Date Expression&gt; )</code></td>
 </tr>
 </tbody>
@@ -274,6 +306,10 @@
 <td>Oracle</td>
 <td><code>EXTRACT ( MONTH FROM &lt;Date Expression&gt; )</code></td>
 </tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>EXTRACT ( MONTH FROM &lt;Date Expression&gt; )</code></td>
+</tr>
 </tbody>
 </table>
 <h4 id="day">DAY</h4>
@@ -293,6 +329,10 @@
 </tr>
 <tr>
 <td>Oracle</td>
+<td><code>EXTRACT ( DAY FROM &lt;Date Expression&gt; )</code></td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
 <td><code>EXTRACT ( DAY FROM &lt;Date Expression&gt; )</code></td>
 </tr>
 </tbody>
@@ -316,6 +356,10 @@
 <td>Oracle</td>
 <td><code>TO_NUMBER ( TO_CHAR ( &lt;Date Expression&gt;, 'HH24' ) )</code></td>
 </tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>EXTRACT ( HOUR FROM &lt;Date Expression&gt; )</code></td>
+</tr>
 </tbody>
 </table>
 <h4 id="minute">MINUTE</h4>
@@ -337,6 +381,10 @@
 <td>Oracle</td>
 <td><code>TO_NUMBER ( TO_CHAR ( &lt;Date Expression&gt;,'MI' ) )</code></td>
 </tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>EXTRACT ( MINUTE FROM &lt;Date Expression&gt; )</code></td>
+</tr>
 </tbody>
 </table>
 <h4 id="second">SECOND</h4>
@@ -357,6 +405,10 @@
 <tr>
 <td>Oracle</td>
 <td><code>TO_NUMBER ( TO_CHAR ( &lt;Date Expression&gt;, 'SS' ) )</code></td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>EXTRACT ( SECOND FROM &lt;Date Expression&gt; )</code></td>
 </tr>
 </tbody>
 </table>

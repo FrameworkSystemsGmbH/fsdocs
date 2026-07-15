@@ -153,6 +153,12 @@ Entscheidend ist dabei, dass bei Zeichenketten die Definition der Tabellen-Spalt
 <li>LONG =&gt; CLOB</li>
 </ul>
 </li>
+<li>PostgreSQL:
+<ul>
+<li>Der Typ <code>text</code> ist bereits unlimitiert — eine Konvertierung ist nicht erforderlich.</li>
+<li><code>bytea</code> hat ebenfalls keine Größenbeschränkung.</li>
+</ul>
+</li>
 </ul>
 <div class="IMPORTANT">
 <h5>Important</h5>
@@ -181,6 +187,8 @@ Dies bedeutet ggf. einen erheblichen Zeitaufwand und verursacht ein großes Volu
 UPDATE dbRun_MLStrings SET ML_SearchText = LEFT(ML_Text, 200);
 -- Oracle:
 UPDATE dbRun_MLStrings SET ML_SearchText = SUBSTR(ML_Text, 1, 200);
+-- PostgreSQL:
+UPDATE dbRun_MLStrings SET ML_SearchText = LEFT(ML_Text, 200);
 </code></pre>
 <h2 id="configkey-ml_default_language">ConfigKey <code>ML_DEFAULT_LANGUAGE</code></h2>
 <p>Dieser ConfigKey legt die Default-Sprache für die <a href="../database/ml-column.html">ML-Columns</a> fest.

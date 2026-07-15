@@ -183,6 +183,10 @@
 <td>Oracle</td>
 <td><code>LTRIM ( TO_CHAR (&lt;Number Expression&gt;, '99999999999999999999999999999999.9999' ) )</code> <br> <em>Die Anzahl der Nachkommastellen ist gleich <code>&lt;Decimals&gt;</code></em></td>
 </tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>CAST ( ROUND ( &lt;Number Expression&gt;, &lt;Decimals&gt; ) AS varchar )</code></td>
+</tr>
 </tbody>
 </table>
 <h4 id="int_to_char">INT_TO_CHAR</h4>
@@ -203,6 +207,10 @@
 <tr>
 <td>Oracle</td>
 <td><code>LTRIM ( TO_CHAR (&lt;Number Expression&gt;, '99999999999999999999999999999999' ) )</code></td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>CAST ( &lt;Number Expression&gt; AS varchar )</code></td>
 </tr>
 </tbody>
 </table>
@@ -231,8 +239,16 @@
 <td>Oracle</td>
 <td><code>CAST ( SUBSTR ( &lt;Expression&gt;, 1, 4000) AS VARCHAR2(4000) )</code></td>
 </tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>CAST ( &lt;Expression&gt; AS text )</code></td>
+</tr>
 </tbody>
 </table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>In PostgreSQL ist <code>text</code> bereits unlimitiert und vergleichbar — die Funktion ist daher ein einfacher Cast.</p>
+</div>
 <h4 id="nlob_comparable">NLOB_COMPARABLE</h4>
 <p><code>NLOB_COMPARABLE ( &lt;Expression&gt; )</code></p>
 <p>Wandelt eine Unicode Langtext-Spalte so um, dass sie in einer Where-Condition bzw. in einem Order By verwendet werden kann. Das ist notwendig unter Oracle bei Spalten mit dem Typ <code>NCLOB</code> und unter SQL-Server bei Spalten mit dem Typ <code>ntext</code>.</p>
@@ -252,8 +268,16 @@
 <td>Oracle</td>
 <td><code>CAST ( SUBSTR ( &lt;Expression&gt;, 1, 2000 ) AS NVARCHAR2(2000) )</code></td>
 </tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>CAST ( &lt;Expression&gt; AS text )</code></td>
+</tr>
 </tbody>
 </table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>PostgreSQL unterscheidet nicht zwischen Unicode und Nicht-Unicode — <code>text</code> speichert immer UTF-8.</p>
+</div>
 
 </article>
 

@@ -109,6 +109,10 @@
 <td>Oracle</td>
 <td><code>TRUNC ( &lt;Numeric Expression&gt;, &lt;Decimals&gt; )</code></td>
 </tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>TRUNC ( &lt;Numeric Expression&gt;, &lt;Decimals&gt; )</code></td>
+</tr>
 </tbody>
 </table>
 <h4 id="round">ROUND</h4>
@@ -119,7 +123,29 @@
 <p>Potenziert eine Zahl mit y</p>
 <h4 id="square">SQUARE</h4>
 <p><code>SQUARE ( &lt;Numeric Expression&gt; )</code></p>
-<p>Quadrat eine Zahl.</p>
+<p>Quadrat einer Zahl.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Umsetzung des Statements auf den verschiedenen Datenbanken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQL-Server</td>
+<td><code>SQUARE ( &lt;Numeric Expression&gt; )</code></td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td><code>POWER ( &lt;Numeric Expression&gt;, 2 )</code></td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>POWER ( &lt;Numeric Expression&gt;, 2 )</code></td>
+</tr>
+</tbody>
+</table>
 <h4 id="sqrt">SQRT</h4>
 <p><code>SQRT ( &lt;Numeric Expression&gt; )</code></p>
 <p>Quadratwurzel einer Zahl</p>
@@ -132,9 +158,53 @@
 <h4 id="log">LOG</h4>
 <p><code>LOG (&lt;Float Expression&gt; )</code></p>
 <p>Natürlicher Logarithmus einer Fließkommazahl.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Umsetzung des Statements auf den verschiedenen Datenbanken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQL-Server</td>
+<td><code>LOG ( &lt;Float Expression&gt; )</code></td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td><code>LN ( &lt;Float Expression&gt; )</code></td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>LN ( &lt;Float Expression&gt; )</code></td>
+</tr>
+</tbody>
+</table>
 <h4 id="log10">LOG10</h4>
 <p><code>LOG10 ( &lt;Float Expression&gt; )</code></p>
 <p>Logarithmus mit der Basis 10.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Umsetzung des Statements auf den verschiedenen Datenbanken</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SQL-Server</td>
+<td><code>LOG10 ( &lt;Float Expression&gt; )</code></td>
+</tr>
+<tr>
+<td>Oracle</td>
+<td><code>LOG ( 10, &lt;Float Expression&gt; )</code></td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>LOG ( 10, &lt;Float Expression&gt; )</code></td>
+</tr>
+</tbody>
+</table>
 <h4 id="exp">EXP</h4>
 <p><code>EXP ( &lt;float Expression&gt; )</code></p>
 <p>Gibt den exponentiellen Wert des angegebenen float-Ausdrucks zurück. (e<sup>x</sup>)</p>

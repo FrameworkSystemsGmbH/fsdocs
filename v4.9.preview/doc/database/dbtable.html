@@ -131,6 +131,10 @@ Die Tabelle ist readonly - die Details der ausgewählten Tabellen-Spalte können
 </ul>
 <h4 id="feld-name">Feld Name</h4>
 <p>Feldname in der Datenbank. Dabei muss es sich um einen gültigen &quot;Identifier&quot; handeln.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p><strong>PostgreSQL:</strong> Identifier werden automatisch in Kleinbuchstaben gespeichert. Framework Studio konvertiert Tabellen- und Spaltennamen entsprechend. Im Designer können die Namen wie gewohnt eingegeben werden.</p>
+</div>
 <h4 id="feld-metadatatype">Feld Metadatatype</h4>
 <p>Art des Feld-Typs. Hier stehen alle Metadatentypen und Datenbank-Datentypen zur Verfügung.</p>
 <p>Der Link <strong>Open</strong> Öffnet den <a href="../mdt/metadatentypen.html">Metadatentyp</a> der momentan ausgewählten Spalte.</p>
@@ -164,6 +168,10 @@ Ist im Metadatatype der DBColumn ein Wert hinterlegt, wird dieser in der DBColum
 <h4 id="feld-size">Feld Size</h4>
 <p>Größe des Felds bei alphanumerischen Datentyp.
 Wird eine Größe von <code>0</code> angegeben, handelt es sich um ein Langtext-Feld ohne Größen-Beschränkung.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p><strong>PostgreSQL:</strong> Der Datentyp <code>text</code> ist immer unlimitiert. Es gibt keinen Unterschied zwischen Unicode und Nicht-Unicode — alle Strings werden als UTF-8 gespeichert. Auf String-Spalten wird automatisch eine case-insensitive Collation (<code>case_insensitive</code>) gesetzt, damit sich das Vergleichs- und Suchverhalten analog zu SQL Server verhält.</p>
+</div>
 <h4 id="feld-precision">Feld Precision</h4>
 <p>Anzahl der Stellen eines numerischen Feldes (inkl. Nachkommastellen).</p>
 <h4 id="feld-scale">Feld Scale</h4>
@@ -225,7 +233,7 @@ Wenn das Statement selber schon eine Bedingung besetzt, dann wird diese ergänzt
 <p>Mit dem Button <strong>View Result</strong> wird auf die Registerkarte <strong>View top 50 Results</strong> gewechselt.</p>
 <h4 id="registerkarte-converted-statement">Registerkarte Converted Statement</h4>
 <p>Zeigt den in die Syntax der Zieldatenbank konvertierten SQL-Befehl an. Standardmäßig wird der Typ der aktuell ausgewählten Datenbank vorbelegt.
-Mit den Buttons kann der Typ gewechselt werden.
+Mit den Buttons kann der Typ gewechselt werden (SQL Server, Oracle, PostgreSQL).
 Falls bei der Konvertierung ein Fehler auftritt, wird dieser statt dem Statement angezeigt.</p>
 <h4 id="registerkarte-view-top-50-results">Registerkarte View top 50 Results</h4>
 <p>Beim Wechsel auf diese Registerkarte wird das Statement an die aktuell ausgewählte Datenbank gesendet und die ersten 50 Ergebnisse in einer Tabelle angezeigt.</p>

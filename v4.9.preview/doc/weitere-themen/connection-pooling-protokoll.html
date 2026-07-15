@@ -144,6 +144,8 @@ Mit dieser Aktion wird der komplette Pool zurückgesetzt. Die Informationen &quo
 </ul>
 <p>Die einzelnen Felder sind mit Tabulator getrennt. So können Sie diese Daten sehr gut z.B. in Excel kopieren und weiter analysieren.</p>
 <p>Auf einem Rechner können mehrere Prozesse in dasselbe Protokoll schreiben, die Routine ist entsprechend abgesichert. Die Absicherung funktioniert NICHT auf Netzlaufwerken für mehrere Rechner!</p>
+<h2 id="hinweis-zu-postgresql">Hinweis zu PostgreSQL</h2>
+<p>Bei PostgreSQL wird das native Connection-Pooling des Npgsql-Providers deaktiviert (<code>Pooling=false</code>), da Framework Studio das eigene FSPooling verwendet. Die FSPooling-Parameter (<code>FSPoolingMin</code>, <code>FSPoolingMax</code>, <code>FSPoolingTimeout</code>) funktionieren bei PostgreSQL identisch zu SQL Server und Oracle. Das Protokollierungsformat ist ebenfalls gleich.</p>
 
 </article>
 

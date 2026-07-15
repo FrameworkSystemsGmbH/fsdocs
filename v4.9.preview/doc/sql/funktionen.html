@@ -106,11 +106,15 @@
 <td>Oracle</td>
 <td><code>LOWER( SYS_GUID ( ) )</code></td>
 </tr>
+<tr>
+<td>PostgreSQL</td>
+<td><code>LOWER( REPLACE ( gen_random_uuid()::text, '-', '' ) )</code></td>
+</tr>
 </tbody>
 </table>
 <h4 id="modulo">MODULO</h4>
 <p><code>MOD ( &lt;Numeric Expression&gt; , &lt;Numeric Expression&gt;)</code></p>
-<p>Gibt den Rest der Division einer Zahl durch eine andere zur�ck.</p>
+<p>Gibt den Rest der Division einer Zahl durch eine andere zurück.</p>
 <table>
 <thead>
 <tr>
@@ -125,6 +129,10 @@
 </tr>
 <tr>
 <td>Oracle</td>
+<td><code>MOD( &lt;Numeric Expression&gt;, &lt;Numeric Expression&gt; )</code></td>
+</tr>
+<tr>
+<td>PostgreSQL</td>
 <td><code>MOD( &lt;Numeric Expression&gt;, &lt;Numeric Expression&gt; )</code></td>
 </tr>
 </tbody>

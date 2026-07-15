@@ -120,6 +120,10 @@ Werden mehrere ROWID-Properties aus verschiedenen Tabellen eingebunden, dann ist
 <h5>Note</h5>
 <p>Dieses Feature muss in der Datenbank-Tabelle <a href="../tables/dbrun_config.html">dbRun_Config</a> mit dem <a href="../tables/dbrun_config.html#configkey-ml_search_enabled">ConfigKey <code>ML_SEARCH_ENABLED</code></a> aktiviert werden.</p>
 </div>
+<div class="NOTE">
+<h5>Note</h5>
+<p><strong>PostgreSQL:</strong> Die ML-Suche funktioniert analog zu SQL Server. Da auf den String-Spalten der Tabelle <code>dbRun_MLStrings</code> eine case-insensitive Collation gesetzt ist, erfolgt die Suche automatisch case-insensitive — eine gesonderte Konfiguration ist nicht erforderlich.</p>
+</div>
 <p>Bei automatischen Suchfeldern werden die Fremdsprachen-Texte zusätzlich berücksichtigt.</p>
 <p>Wird die Anwendung in einer Fremdsprache ausgeführt, dann enthält die erzeugte SQL-Bedingung beinhaltet sowohl die normale Bedingung, welche den Treffer in der Default-Sprache sucht als auch einen Lookup auf die Texte in der entsprechenden Fremdsprache.</p>
 <pre><code class="lang-Sql">-- Beipiel:

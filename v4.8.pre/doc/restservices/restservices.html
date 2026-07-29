@@ -282,7 +282,9 @@ public class SecureController : Controller
 <h2 id="publish">Publish</h2>
 <p>Generell stehen den REST Services für den produktiven Betrieb alle Funktionen zur Verfügung, die auch die Service Hosts haben.
 Darunter zählen die Steuerung des ausführenden Users, Authentication mittels AuthService, RuntimeSupervisor-Kompatibilität, Trace-File-Support und Post-Publish-Commands.</p>
-<p>Im <a href="../publish-wizards/publish-wizard.html">Publish Wizard</a> und in <a href="../publish-wizards/publish2go-wizard.html">Publish2Go</a> können die Einstellungen für das produktive Deployment der REST Services konfiguriert werden.                |</p>
+<p>Im <a href="../publish-wizards/publish-wizard.html">Publish Wizard</a> und in <a href="../publish-wizards/publish2go-wizard.html">Publish2Go</a> können die Einstellungen für das produktive Deployment der REST Services konfiguriert werden.</p>
+<p>Der Zielserver eines REST Services wird aus dem Host der Endpunkt-URL in der Konfiguration abgeleitet. REST Services können dadurch — analog zu Service Hosts — auch auf externe Servernamen (z.B. <code>www.test.abc.com</code>) publiziert werden, sofern dieser Name über <a href="../publish-wizards/publish-wizard.html#button-configure-servernames">Configure Servernames</a> auf <code>localhost</code> oder den internen Namen der Zielmaschine gemappt ist. Endpunkte ohne konkreten Host (<code>localhost</code>, Wildcards <code>+</code>/<code>*</code>/<code>0.0.0.0</code>) gelten als lokal.</p>
+<p>Ein REST Service gehört genau zu einem Zielserver. Mehrere Endpunkt-URLs sind erlaubt, müssen aber alle denselben Host verwenden — werden mehrere <em>verschiedene</em> konkrete Hostnamen konfiguriert, schlägt die Publish-Validierung fehl.</p>
 <h2 id="technische-hinweise--troubleshooting">Technische Hinweise &amp; Troubleshooting</h2>
 <p>Aus technologischen Gründen haben die REST Services ein paar Eigenheiten, die beachtet werden sollten.</p>
 <h3 id="isolierte-appdomain">Isolierte AppDomain</h3>

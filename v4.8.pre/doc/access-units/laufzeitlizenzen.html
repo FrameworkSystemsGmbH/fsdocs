@@ -89,7 +89,7 @@
 
 <p>Mit dem Runtime License Manager werden Laufzeitlizenzen für die mit Framework Studio erstellte Anwendung erzeugt und verwaltet.
 Dieses Werkzeug wird über den Menüpunkt Tools / Runtime License Manager in Framework Studio oder im <a href="../package-manager/package-manager.html">Package Manager</a> gestartet.
-Außerdem wird das Tool über den Button Change configuration unter dem Navigationspunkt Runtime License sowohl im <strong><a href="../publish-wizards/run-wizard.html">Run Wizard</a></strong> als auch im <strong><a href="../publish-wizards/publish-wizard.html">Publish Wizard</a></strong> gestartet.</p>
+Außerdem wird das Tool über den Button <code>Change configuration</code> unter dem Navigationspunkt Runtime License sowohl im <strong><a href="../publish-wizards/run-wizard.html">Run Wizard</a></strong> als auch im <strong><a href="../publish-wizards/publish-wizard.html">Publish Wizard</a></strong> gestartet.</p>
 <h2 id="allgemeines--hintergrund">Allgemeines / Hintergrund</h2>
 <p>Laufzeitlizenzen werden im Repository gespeichert.
 Dort können für jede Package-Version beliebig viele Lizenzen abgelegt werden.</p>
@@ -101,7 +101,7 @@ Diese Datei enthält für jede Package-Version der Applikation eine Lizenz.</p>
 <p>Runtime License Manager:</p>
 <p><img src="media/runtime-license-manager.png" alt="Runtime License Manager"></p>
 <p>Auf der linken Seite wird ein Baum dargestellt, der sogenannte Lizenzbaum. In diesem Baum werden auf der ersten Ebene hierarchisch sortiert alle Packages der Anwendung angezeigt. In den Unterknoten der Packages werden alle im Repository (zur aktuellen Package Version) abgelegten Lizenzen angezeigt.</p>
-<p>Wenn im Lizenzbaum durch einfachen Klick mit der Maus eine Lizenz ausgewählt wird, werden alle Details zu dieser Lizenz im rechten Fensterbereich dargestellt. Dort stehen die Registerkarten Access unit tree (<a href="#registerkarte-access-unit-tree">Registerkarte Access unit tree</a>), License parameters (<a href="#registerkarte-license-parameters">Registerkarte License Parameters</a>) und Language (<a href="#language">Registerkarte Language</a>) zur Auswahl.</p>
+<p>Wenn im Lizenzbaum durch einfachen Klick mit der Maus eine Lizenz ausgewählt wird, werden alle Details zu dieser Lizenz im rechten Fensterbereich dargestellt. Dort stehen die Registerkarten Access unit tree (<a href="#registerkarte-access-unit-tree">Registerkarte Access unit tree</a>) und License parameters (<a href="#registerkarte-license-parameters">Registerkarte License Parameters</a>) zur Auswahl.</p>
 <h3 id="buttons">Buttons</h3>
 <p>Im Runtime License Manager stehen folgende Buttons zur Verfügung:</p>
 <h4 id="new">New</h4>
@@ -132,17 +132,17 @@ Diese Datei enthält für jede Package-Version der Applikation eine Lizenz.</p>
 <p><img src="media/icon-access-unit-upgrade.png" alt="upgrade"></p>
 <p>Lizenzen, die im Repository für eine ältere Package Version (Label) des ausgewählten Packages gespeichert sind, können in die aktuelle Package Version kopiert werden. Siehe <a href="../html-client/lizenzen.html">Lizenz</a> aus einem anderen Label übertragen.</p>
 <h4 id="search">Search</h4>
-<p><img src="media/access-unit-search.png" alt="search"></p>
-<p>Startet den Dialog zum Suchen nach AccessUnits. Siehe Suche nach Access Units.</p>
+<p><img src="media/icon-search.png" alt="search"></p>
+<p>Startet den Dialog zum <a href="#suche-nach-access-units">Suchen nach AccessUnits</a>.</p>
 <h4 id="save-configuration">Save Configuration</h4>
 <p><img src="media/icon-save-configuration.png" alt="save-config"></p>
 <p>Die Lizenzauswahl wird in das aktuelle Setting gespeichert und der Runtime License Manager geschlossen. Siehe Konfiguration speichern. Dieser Button steht nur dann zur Verfügung, wenn der Runtime License Manager über den Run Wizard oder den Publish Wizard geöffnet wurde.</p>
 <h4 id="save-fslicensexml">Save FSLicense.xml</h4>
 <p><img src="media/icon-save-configuration.png" alt="save-fslicense"></p>
 <p>Die Xml-Datei <strong>FSLicense.xml</strong> wird im Brokerverzeichnis erzeugt, die für jedes Package der Anwendung eine Lizenz erhält, und der Runtime License Manager wird geschlossen. Siehe <a href="#konfiguration-speichern">Konfiguration speichern</a>. Dieser Button steht nur dann zur Verfügung, wenn der Runtime License Manager über den Menüpunkt Tools / Runtime License Manager gestartet wurde.</p>
-<h3 id="language">Language</h3>
+<h4 id="language">Language</h4>
 <p><img src="media/icon-language.png" alt="icon-language"></p>
-<p>Mit diesem Drop Down Button wird die Sprache ausgewählt, in der die Access Units im Access Unit Tree (<a href="#registerkarte-access-unit-tree">Registerkarte Access unit tree</a>) dargestellt werden. Zur Auswahl stehen alle Sprachen, die im Default Package definiert wurden und <internal name>, um den technischen Namen der AccessUnit darzustellen.</internal></p>
+<p>Mit diesem Drop Down Button wird die Sprache ausgewählt, in der die Access Units im Access Unit Tree (<a href="#registerkarte-access-unit-tree">Registerkarte Access unit tree</a>) dargestellt werden. Zur Auswahl stehen alle Sprachen, die im Default Package definiert wurden sowie <internal name>, um den technischen Namen der AccessUnit darzustellen.</internal></p>
 <h3 id="lizenz-aus-einem-anderen-label-übertragen">Lizenz aus einem anderen Label übertragen</h3>
 <p>Wenn im Lizenzbaum ein Package ausgewählt ist, kann mit dem Button <img src="media/icon-access-unit-upgrade.png" alt="icon-upgrade"> Upgrade der Dialog zum Kopieren von Lizenzen aus einer anderen Version des Packages (Label) geöffnet werden.</p>
 <p>Runtime License Manager - Upgrade:</p>

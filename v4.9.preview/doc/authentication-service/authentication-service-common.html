@@ -167,7 +167,7 @@ Dabei sollte der Benutzer-Account des Dienstes wieder der von vorher sein – gg
 </ul>
 <p>Speichern Sie die Änderungen mit <em>Save Changes</em> ab.</p>
 <h2 id="registerkarte-application-security">Registerkarte Application Security</h2>
-<p>Auf der Registerkarte <strong>Application Security</strong> können erweiterte Sicherheitsanforderungen und die gewünschte Form der Authentification, die für Ihre Anwendungen gelten sollen, konfiguriert werden.</p>
+<p>Auf der Registerkarte <strong>Application Security</strong> können erweiterte Sicherheitsanforderungen und die gewünschte Form der Authentication, die für Ihre Anwendungen gelten sollen, konfiguriert werden.</p>
 <p><img src="media/ApplicationSecurity.png" alt="Authentication Service Configuration Editor"></p>
 <h3 id="general-settings">General Settings</h3>
 <h4 id="maximum-username-length">Maximum username length</h4>
@@ -177,18 +177,54 @@ Dabei sollte der Benutzer-Account des Dienstes wieder der von vorher sein – gg
 <h4 id="enable-advanced-security">Enable advanced Security</h4>
 <p>Mit dem Schalter <strong>Enable advanced security</strong> legen Sie fest, ob die erweiterten Sicherheitseinstellungen in der <a href="#user-password-authentication">User Password Authentication</a> grundsätzlich aktiviert werden sollen. Wenn Sie diese nicht aktivieren, sind alle weiteren darin enthaltenden Einstellungen des Abschnittes bedeutungslos.</p>
 <h3 id="openid-connect-authentication">OpenID Connect Authentication</h3>
-<p>Im darauf folgenden Abschnitt <em><strong>OpenID Connect Authentication</strong></em> kann die Authentification per OpenIDConnect konfiguriert werden.
-Beachten Sie die <a href="oidc.html#einrichtung">Dokumentation für die Einrichtung von OpenID Connect</a>.
-Mit <strong>Oidc Active</strong> kann man steuern, ob OpenID Connect verwendet werden soll (default, wenn nicht angegeben, ist <code>true</code>).
-Hierfür sind <strong>Identity Provider URL</strong> und <strong>ClientID</strong> erforderlich. Das <strong>ClientSecret</strong> ist empfohlen, aber nicht zwingend notwendig.
-Falls ein <strong>ClientSecret</strong> genutzt wird, wird auch empfohlen die <strong>Client Secret Expiration</strong> zu setzen.
-Optional sind zudem der <strong>Scope</strong> (default, wenn nicht angegeben, ist 'openid profile email') und <strong>Claim</strong> (default, wenn nicht angegeben, ist 'email'). Das <strong>Label for Claim</strong> ist optional und wird, wenn angegeben, in die Runtime Administration übernommen.</p>
+<p>Im Abschnitt <em><strong>OpenID Connect Authentication</strong></em> konfigurieren Sie die Authentifizierung über OpenID Connect (OIDC).
+Dabei übernimmt ein externer Identity Provider (z. B. Microsoft Entra ID/Azure AD, Keycloak oder ein anderer OIDC-konformer Dienst) die Anmeldung der Benutzer.
+Der Authentication Service prüft anschließend das vom Identity Provider ausgestellte Token (JWT) und ordnet es anhand eines Claims einem Benutzer der Anwendung zu.</p>
+<p>OpenID Connect ist eine Alternative zur <a href="#domain-authentication">Domain Authentication</a>: Es kann entweder die eine oder die andere Form der Authentifizierung verwendet werden, nicht beide gleichzeitig.</p>
+<p>Die grundsätzliche Einrichtung auf Seiten des Identity Providers sowie das Zusammenspiel mit Framework Studio sind in der <a href="oidc.html#einrichtung">Dokumentation für die Einrichtung von OpenID Connect</a> beschrieben.
+Die folgenden Felder legen fest, wie der Authentication Service mit dem Identity Provider kommuniziert und die ausgestellten Tokens auswertet:</p>
+<h4 id="oidc-active">Oidc Active</h4>
+<p>Mit <strong>Oidc Active</strong> legen Sie fest, ob OpenID Connect verwendet werden soll.
+Ist das Feld nicht angegeben, gilt der Standardwert <code>true</code>, OpenID Connect ist also standardmäßig aktiv.
+Setzen Sie den Wert auf <code>false</code>, wenn Sie die OIDC-Konfiguration hinterlegen, aber vorübergehend deaktivieren möchten, ohne die übrigen Felder zu leeren.</p>
+<h4 id="identity-provider-url">Identity Provider URL</h4>
+<p>Die <strong>Identity Provider URL</strong> ist die Basis-URL (Authority) des Identity Providers und zwingend erforderlich.
+Über sie ermittelt der Authentication Service die OIDC-Metadaten unter <code>&lt;Identity Provider URL&gt;/.well-known/openid-configuration</code> (z. B. Endpunkte und Signaturschlüssel).
+Verwenden Sie nach Möglichkeit eine <code>https</code>-Adresse; bei einer <code>http</code>-Adresse wird die ansonsten erzwungene TLS-Absicherung beim Abruf der Metadaten nicht verlangt, was nur in abgesicherten Testumgebungen sinnvoll ist.</p>
+<h4 id="clientid">ClientID</h4>
+<p>Die <strong>ClientID</strong> ist die beim Identity Provider registrierte Kennung des Authentication Service und zwingend erforderlich.
+Sie wird beim Anfordern und Erneuern von Tokens verwendet und dient zugleich als primäre <strong>Audience</strong>, gegen die eingehende JWTs validiert werden.</p>
+<h4 id="additional-valid-audiences">Additional Valid Audiences</h4>
+<p>Über <strong>Additional Valid Audiences</strong> können weitere Audiences angegeben werden, die bei der JWT-Validierung zusätzlich zur <strong>ClientID</strong> akzeptiert werden.
+Das ist erforderlich, wenn ein durchgereichtes JWT (z. B. das eines MCP-Clients) eine andere Audience als die <strong>ClientID</strong> des Authentication Service trägt.
+Mehrere Werte werden durch Leerzeichen, Komma oder Semikolon getrennt; leere Angaben und Dubletten werden ignoriert.
+Bleibt das Feld leer, wird ausschließlich die <strong>ClientID</strong> als gültige Audience akzeptiert.
+Die Audience-Prüfung bleibt in jedem Fall aktiv — es werden also nur die hier hinterlegten Audiences zusätzlich zugelassen, die Prüfung wird nicht deaktiviert.</p>
+<h4 id="clientsecret">ClientSecret</h4>
+<p>Das <strong>ClientSecret</strong> ist das beim Identity Provider hinterlegte Geheimnis des registrierten Clients.
+Es ist empfohlen, aber nicht zwingend notwendig — je nach Identity Provider und gewähltem Flow kann es jedoch vorausgesetzt werden (siehe Hinweis am Ende des Abschnitts).</p>
+<h4 id="client-secret-expiration">Client Secret Expiration</h4>
+<p>Client Secrets besitzen beim Identity Provider in der Regel ein Ablaufdatum; nach dessen Überschreitung funktioniert der OIDC-Flow nicht mehr.
+Tragen Sie in <strong>Client Secret Expiration</strong> das Ablaufdatum des hinterlegten <strong>ClientSecret</strong> ein, damit der Authentication Service rechtzeitig darauf hinweist.
+Bei aktiviertem und konfiguriertem OIDC gibt der Dienst dann täglich eine Meldung aus, sobald das Datum näher rückt: ab 60 verbleibenden Tagen als Information, ab 30 Tagen als Warnung und ab 7 Tagen sowie nach Ablauf als Fehler.
+Das Feld hat nur eine erinnernde Funktion und ändert nichts an der Gültigkeit des Secrets beim Identity Provider — erneuern Sie das Secret dort und aktualisieren Sie anschließend beide Angaben.</p>
+<h4 id="scope">Scope</h4>
+<p>Der <strong>Scope</strong> bestimmt, welche Berechtigungen bzw. Claims beim Identity Provider angefordert werden.
+Mehrere Scopes werden durch Leerzeichen getrennt.
+Das Feld ist optional; ist es nicht angegeben, gilt der Standardwert <code>openid profile email</code>.</p>
+<h4 id="claim">Claim</h4>
+<p>Der <strong>Claim</strong> legt fest, welcher Claim des vom Identity Provider ausgestellten Tokens zur Identifikation des Benutzers herangezogen und auf einen Benutzer der Anwendung abgebildet wird.
+Das Feld ist optional; ist es nicht angegeben, gilt der Standardwert <code>email</code>.
+Stellen Sie sicher, dass der gewählte Claim tatsächlich im Token enthalten ist und die Benutzer eindeutig identifiziert.</p>
+<h4 id="label-for-claim">Label for Claim</h4>
+<p>Das <strong>Label for Claim</strong> ist eine optionale, sprechende Bezeichnung für den konfigurierten <strong>Claim</strong>.
+Ist es angegeben, wird es in die Runtime Administration übernommen und dort anstelle des technischen Claim-Namens angezeigt.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>Beachten Sie hierbei die jeweiligen Anforderungen des Identity Providers, den Sie nutzen wollen. Dieser kann teilweise andere Scopes oder Claims bzw. ein valides ClientSecret voraussetzen.</p>
 </div>
 <h3 id="domain-authentication">Domain Authentication</h3>
-<p>Die Domain Authentication widerrum ermöglicht Windows-Authentifizierung. Es ist entweder eine Authentification per Domain oder OpenID Connect möglich.</p>
+<p>Die Domain Authentication wiederum ermöglicht Windows-Authentifizierung. Es ist entweder eine Authentication per Domain oder OpenID Connect möglich.</p>
 <h4 id="domain-controller">Domain controller</h4>
 <p>Das Eingabefeld <strong>Domain controller</strong> muss leer bleiben, wenn die Authentifizierung beim Start der Endanwendung nicht automatisch mit den angemeldeten Windows-Benutzern erfolgen soll.
 Andernfalls muss hier der zu verwendende Domain Controller (DC) angegeben werden (z.B. mydc.mycompany.com).</p>
@@ -197,7 +233,7 @@ Andernfalls muss hier der zu verwendende Domain Controller (DC) angegeben werden
 Andernfalls muss hier in Großbuchstaben der Name der Domäne angegeben werden (z.B. MYDOMAIN).
 Die Authentifizierung über die Domäne kann nur dann funktionieren, wenn Client und Authentication Service zur angegebenen Domäne gehören.</p>
 <h3 id="user-password-authentication">User Password Authentication</h3>
-<p>Bereich <em><strong>User Password Authentication</strong></em> zur Authentification per Benutzername-Passwort-Kombination enthält folgende Einstellungen im Einzelnen:</p>
+<p>Bereich <em><strong>User Password Authentication</strong></em> zur Authentication per Benutzername-Passwort-Kombination enthält folgende Einstellungen im Einzelnen:</p>
 <h4 id="enforce-character">Enforce character</h4>
 <p>Erzwingt, dass in jedem Passwort mindestens ein Buchstabe vorkommen muss.</p>
 <h4 id="enforce-upper-and-lower">Enforce upper and lower</h4>

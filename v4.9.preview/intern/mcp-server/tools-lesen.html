@@ -88,11 +88,48 @@
 <h1 id="tools">Tools</h1>
 
 <p>Alle Tools des MCP-Servers arbeiten <strong>read-only</strong> — es werden keine Änderungen am Repository vorgenommen.
-Die Ergebnisse sind auf das aktive Package und dessen Abhängigkeiten beschränkt.</p>
+Die Ergebnisse umfassen standardmäßig die gesamte Package-Hierarchie (aktives Package und dessen Basis-Packages)
+und lassen sich über den <a href="#package-scope"><code>packageScope</code></a>-Parameter gezielt eingrenzen.</p>
 <div class="TIP">
 <h5>Tip</h5>
 <p>Die vollständige Parameterbeschreibung jedes Tools wird vom MCP-Server über <code>tools/list</code> bereitgestellt.
 KI-Clients erhalten diese automatisch bei der Verbindung.</p>
+</div>
+<h2 id="package-scope">Package-Scope</h2>
+<p>Die auflistenden und suchenden Tools (<code>fs_list</code>, <code>fs_search_names</code>, <code>fs_search_code</code>, <code>fs_search_dependencies</code>,
+<code>fs_search_documentation</code>, <code>fs_get_checkin_history</code>) akzeptieren einen optionalen <code>packageScope</code>-Parameter,
+um die Ergebnisse auf ein Package der aktiven Hierarchie zu beschränken:</p>
+<table>
+<thead>
+<tr>
+<th>Wert</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>all</code> (Default)</td>
+<td>Gesamte Hierarchie — aktives Package und alle Basis-Packages</td>
+</tr>
+<tr>
+<td><code>active</code></td>
+<td>Nur das aktive (oberste) Package</td>
+</tr>
+<tr>
+<td><em>Package-Name</em></td>
+<td>Genau dieses Package der Hierarchie (z.B. <code>eNVenta</code>, <code>SystemPackage</code>)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Der Package-Name wird <strong>strikt</strong> verglichen (case-sensitive). Ein unbekannter Wert liefert einen Fehler mit der Auflistung der verfügbaren Packages.</li>
+<li>Elemente ohne zugeordnetes Package werden außer bei <code>all</code> ausgeblendet.</li>
+<li>Bei <code>fs_list</code> wird <code>packageScope</code> für <code>datasource</code> und <code>package</code> ignoriert.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Ein <code>totalResults: 0</code> bei einem benannten Basis-Package (z.B. <code>packageScope: eNVenta</code>) bedeutet nicht zwangsläufig „keine Aktivität&quot;.
+Das Customizing kapselt die Historie auf das aktuelle Package — die Historie eines Basis-Packages kann aus dem Customize-Kontext bewusst nicht einsehbar sein.</p>
 </div>
 <h2 id="umgebung">Umgebung</h2>
 <table>
@@ -120,12 +157,12 @@ KI-Clients erhalten diese automatisch bei der Verbindung.</p>
 <tbody>
 <tr>
 <td><code>fs_list</code></td>
-<td>Alle Elemente nach Typ auflisten. Unterstützte Elementtypen: <code>component</code>, <code>form</code>, <code>service</code>, <code>modular_component</code>, <code>namespace</code>, <code>package</code>, <code>db_table</code>, <code>metadatatype</code>, <code>global_object</code>, <code>datasource</code>, <code>global_event</code>, <code>service_contract</code>, <code>service_host</code>, <code>workflow</code>, <code>report</code>, <code>access_unit</code>, <code>data_contract</code>. Parameter: <code>elementType</code>, <code>namespaceName</code> (optional), <code>offset</code> + <code>limit</code> (Pagination).</td>
+<td>Alle Elemente nach Typ auflisten. Unterstützte Elementtypen: <code>component</code>, <code>form</code>, <code>service</code>, <code>modular_component</code>, <code>code_file</code>, <code>namespace</code>, <code>package</code>, <code>db_table</code>, <code>metadatatype</code>, <code>global_object</code>, <code>datasource</code>, <code>global_event</code>, <code>service_contract</code>, <code>service_host</code>, <code>workflow</code>, <code>report</code>, <code>access_unit</code>, <code>data_contract</code>. Parameter: <code>elementType</code>, <code>namespaceName</code> (optional), <code>packageScope</code> (optional, siehe unten), <code>offset</code> + <code>limit</code> (Pagination).</td>
 </tr>
 </tbody>
 </table>
 <h2 id="elemente-lesen">Elemente lesen</h2>
-<h3 id="devobjects-component-form-service-modular-component">DevObjects (Component, Form, Service, Modular Component)</h3>
+<h3 id="devobjects-component-form-service-modular-component-code-file">DevObjects (Component, Form, Service, Modular Component, Code File)</h3>
 <table>
 <thead>
 <tr>
@@ -136,7 +173,7 @@ KI-Clients erhalten diese automatisch bei der Verbindung.</p>
 <tbody>
 <tr>
 <td><code>fs_get_devobject</code></td>
-<td>Details auf DevObjects (Component, Form, Service, Modular Component) abrufen. Parameter: <code>elementType</code> (component|form|service|modular_component), <code>fullName</code>, <code>detail</code> (optional: summary|full, default full), <code>method</code> (optional: nur diese Methode mit vollem Code), <code>property</code> (optional: nur diese Property). <strong>Detail-Level:</strong> <code>summary</code> zeigt Struktur (Property-Namen/Typen, Methoden-Signaturen) ohne Code-Bodies — ideal für Orientierung großer Komponenten. <code>full</code> gibt komplettes YAML mit allen Code-Bodies (Standard).</td>
+<td>Details auf DevObjects (Component, Form, Service, Modular Component, Code File) abrufen. Parameter: <code>elementType</code> (component|form|service|modular_component|code_file), <code>fullName</code>, <code>detail</code> (optional: summary|full, default summary), <code>method</code> (optional: nur diese Methode mit vollem Code), <code>property</code> (optional: nur diese Property; nicht für <code>code_file</code>). <strong>Detail-Level:</strong> <code>summary</code> (Default) zeigt Struktur (Property-Namen/Typen, Methoden-Signaturen) ohne Code-Bodies — ideal für Orientierung großer Komponenten. <code>full</code> gibt komplettes YAML mit allen Code-Bodies.</td>
 </tr>
 </tbody>
 </table>

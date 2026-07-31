@@ -88,6 +88,83 @@
 <h1 id="neuheiten-framework-studio-49">Neuheiten Framework Studio 4.9</h1>
 
 <p>Informationen zu aktuellen Versionen und korrigierten Fehlern finden Sie in den <a href="release-4-9.html">Release-Informationen</a>.</p>
+<h2 id="update-dlls">Update DLLs</h2>
+<p>Mit Framework Studio 4.9 wurden die Versionen aller referenzierten Pakete aktualisiert.</p>
+<p>Dadurch kann es beim Compile eigener Anwendungen zu neuen Errors oder Warnings kommen, wenn eingebundene Ressourcen (DLLs) nicht mehr zu den aktualisierten Versionen passen. Details zur Ursache und zur Behebung solcher Meldungen finden Sie unter <a href="../doc/resources/reference-check.html">Referenz-Prüfung für Ressourcen</a>.</p>
+<h2 id="postgresql-als-neue-unterstützte-anwendungsdatenbank">PostgreSQL als neue unterstützte Anwendungsdatenbank</h2>
+<p>Neben SQL Server und Oracle unterstützt Framework Studio nun auch <strong>PostgreSQL</strong> (ab Version 18) als Datenbankplattform für Anwendungen.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>PostgreSQL wird ausschließlich für die <strong>Anwendungsdatenbank</strong> (<code>Database</code>) und die <strong>Runtime-Datenbank</strong> unterstützt.
+Als <strong>Repository-Datenbank</strong> der Framework Studio IDE steht weiterhin nur SQL Server oder Oracle zur Verfügung.</p>
+</div>
+<h3 id="einrichtung">Einrichtung</h3>
+<p>Eine PostgreSQL-Datenquelle wird wie gewohnt über den neuen Connection Type <code>PostgreSql</code> angelegt (siehe <a href="../doc/database/datasource.html">Datasource</a> und <a href="../doc/database/connection.html#postgresql-connection">Connection Einstellungen</a>).</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Vor der ersten Verwendung muss ein Datenbank-Administrator einmalig einen impliziten Typ-Cast auf der PostgreSQL-Datenbank anlegen. Details dazu und zu weiteren Besonderheiten (Identifier-Groß-/Kleinschreibung, Collation) siehe <a href="../doc/database/connection.html#datenbank-einrichten">PostgreSQL-Connection - Datenbank einrichten</a>.</p>
+</div>
+<h3 id="besonderheiten-gegenüber-sql-server">Besonderheiten gegenüber SQL Server</h3>
+<ul>
+<li><strong>Windows-Authentifizierung</strong> wird nicht unterstützt - es wird immer Username/Password verwendet.</li>
+<li>PostgreSQL ist nativ <strong>UTF-8</strong>, die Unterscheidung zwischen <code>String</code> und <code>AnsiString</code> entfällt serverseitig.</li>
+<li>Zeilenversionierung ist durch das native <strong>MVCC</strong> immer aktiv, eine explizite Konfiguration wie bei SQL Server ist nicht nötig (siehe <a href="knowledge/snapshot-isolation.html#postgresql">Zeilenversionierung</a>).</li>
+<li>String-Vergleiche verhalten sich durch die von Framework Studio automatisch gesetzte Collation case-insensitiv, analog zu SQL Server.</li>
+</ul>
+<h3 id="fehlerverhalten-innerhalb-von-transaktionen">Fehlerverhalten innerhalb von Transaktionen</h3>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>PostgreSQL verhält sich bei Fehlern innerhalb einer offenen Transaktion <strong>fundamental anders</strong> als SQL Server.</p>
+</div>
+<p>Bei SQL Server bleibt eine Transaktion nach einem fehlgeschlagenen Statement (z.B. ein <code>SELECT</code> auf eine nicht existierende Tabelle) weiterhin nutzbar - nachfolgende Statements werden normal ausgeführt, sofern der Fehler im Code abgefangen wird.</p>
+<p>Bei PostgreSQL wird die gesamte Transaktion nach dem ersten Fehler als <strong>aborted</strong> markiert. Jedes weitere Statement in dieser Transaktion schlägt fehl mit <code>25P02: current transaction is aborted, commands ignored until end of transaction block</code>, bis ein <code>ROLLBACK</code> ausgeführt wird - unabhängig davon, ob der ursprüngliche Fehler im Code abgefangen wurde.</p>
+<p>Eigener Code, der nach dem Muster &quot;Fehler abfangen und in derselben Transaktion weiterarbeiten&quot; implementiert ist (z.B. per Try/Catch prüfen, ob eine Tabelle existiert, und bei Fehler mit anderer Logik fortfahren), funktioniert deshalb auf SQL Server, schlägt auf PostgreSQL aber mit <code>25P02</code> fehl, sobald ein weiteres Statement in derselben Transaktion ausgeführt wird.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Prüfen Sie vor einem potenziell fehlschlagenden Statement die Voraussetzung explizit (z.B. Existenz einer Tabelle über <code>information_schema</code>), statt auf einen Fehler zu reagieren und in derselben Transaktion fortzufahren.</p>
+</div>
+<h3 id="impliziter-typ-cast">Impliziter Typ-Cast</h3>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Vor der ersten Verwendung muss ein Datenbank-Administrator (Superuser) einmalig einen Cast auf der PostgreSQL-Datenbank anlegen.</p>
+</div>
+<p>SQL Server konvertiert bei Vergleichen automatisch zwischen String- und numerischen Typen (z.B. <code>smallint = varchar</code>). PostgreSQL tut das grundsätzlich nicht und benötigt dafür einen expliziten Cast:</p>
+<pre><code class="lang-sql">CREATE CAST (character varying AS numeric) WITH INOUT AS IMPLICIT;
+</code></pre>
+<p>Ohne diesen Cast schlagen Queries fehl, die numerische Spalten mit String-Parametern vergleichen - ein Fehler, der bei Tests auf SQL Server nie auffällt, da dort die Konvertierung transparent passiert. Framework Studio prüft beim Start, ob der Cast vorhanden ist, und meldet einen Fehler, falls nicht. Details siehe <a href="../doc/database/connection.html#datenbank-einrichten">PostgreSQL-Connection - Datenbank einrichten</a>.</p>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Es darf nur dieser eine Cast angelegt werden. Mehrere oder bidirektionale Casts führen zu <code>operator is not unique</code>-Fehlern.</p>
+</div>
+<h3 id="collation">Collation</h3>
+<p>PostgreSQL ist standardmäßig <strong>case-sensitiv</strong> bei String-Vergleichen (<code>=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>ORDER BY</code>, <code>LIKE</code>). Damit sich Anwendungen analog zu SQL Server (Collation <code>Latin1_General_CI_AS</code>) verhalten, benötigt PostgreSQL eine <strong>case-insensitive Collation</strong>.</p>
+<p>PostgreSQL kennt Case-Insensitivity anders als SQL Server nicht als DB-weiten Default, sondern ausschließlich über eine Collation, die explizit <strong>pro Spalte</strong> zugewiesen wird:</p>
+<pre><code class="lang-sql">CREATE COLLATION IF NOT EXISTS case_insensitive (provider = icu, locale = 'und-u-ks-level2', deterministic = false);
+</code></pre>
+<ul>
+<li><p><strong><code>deterministic = false</code> ist zwingend:</strong> Case-insensitive Vergleiche erfordern eine <strong>nondeterministische</strong> ICU-Collation. Eine deterministische Collation vergleicht Strings ausschließlich byteweise und kann daher niemals case-insensitiv sein.</p>
+</li>
+<li><p><strong>Nur pro Spalte, nicht als DB-Default:</strong> Eine nondeterministische Collation darf in PostgreSQL nicht als Datenbank-Default-Collation gesetzt werden. <code>CREATE COLLATION</code> legt nur das Collation-Objekt an - wirksam wird sie erst, wenn sie explizit an einer Spalte angegeben wird:</p>
+<pre><code class="lang-sql">CREATE TABLE customer (name text COLLATE &quot;case_insensitive&quot;);
+</code></pre>
+<p>Framework Studio setzt diese Collation automatisch auf jede String-/Text-Spalte, die über den DB-Abgleich angelegt oder geändert wird.</p>
+</li>
+<li><p><strong>Wird automatisch von Framework Studio angelegt, kein manueller Admin-Schritt:</strong> <code>CREATE COLLATION IF NOT EXISTS</code> wird beim DB-Abgleich als erstes Statement idempotent ausgeführt. Im Gegensatz zum <a href="#impliziter-typ-cast">impliziten Typ-Cast</a> sind dafür keine Superuser-Rechte erforderlich - ein normaler Datenbank-User mit CREATE-Recht auf das Schema reicht aus.</p>
+</li>
+<li><p><strong>Mindestversion PostgreSQL 18:</strong> <code>LIKE</code>/<code>ILIKE</code> auf nondeterministisch-collationierten Spalten wird erst ab PostgreSQL 18 unterstützt - auf älteren Versionen liefert jede <code>LIKE</code>-Suche einen Laufzeitfehler. Da Framework Studio die Collation praktisch auf alle Text-Spalten legt, ist PostgreSQL 18 aus diesem Grund die verbindliche Mindestversion (siehe <a href="requirements.html#datenbank-server">Systemvoraussetzungen</a>).</p>
+</li>
+</ul>
+<h3 id="identifier-groß-kleinschreibung">Identifier-Groß-/Kleinschreibung</h3>
+<p>PostgreSQL verhält sich analog zu Oracle: Unquotierte Identifier werden normalisiert - Oracle auf GROSSSCHREIBUNG, PostgreSQL auf <strong>Kleinschreibung</strong>. Quotierte Identifier (<code>&quot;MeineTabelle&quot;</code>) bleiben dagegen case-sensitiv. SQL Server ist case-preserving.</p>
+<p>Framework Studio berücksichtigt das automatisch (alle generierten Identifier werden konsistent kleingeschrieben und quotiert). Relevant wird es, wenn Tabellen/Spalten außerhalb von Framework Studio angelegt werden - z.B. durch Migrationswerkzeuge (siehe unten) - und dabei gemischte Schreibweise entsteht: Ein unquotiertes <code>SELECT * FROM MeineTabelle</code> findet dann <code>meinetabelle</code> nicht.</p>
+<h3 id="datums-zeitwerte">Datums-/Zeitwerte</h3>
+<p>Neuere Npgsql-Versionen mappen <code>DateTime</code>-Parameter standardmäßig auf <code>timestamp with time zone</code>. Framework Studio verwendet intern durchgängig <code>timestamp without time zone</code> (entspricht dem SQL Server <code>datetime</code>-Verhalten) und aktiviert dafür automatisch das Npgsql-Legacy-Timestamp-Verhalten. Für reinen Framework-Studio-Code ist das transparent - relevant wird es nur, wenn eigener Code direkt mit der Npgsql-API oder rohen Timestamp-Literalen arbeitet.</p>
+<h3 id="getguid"><code>GETGUID()</code></h3>
+<p><code>GETGUID()</code> liefert auf PostgreSQL - wie auf SQL Server und Oracle - einen 32-stelligen lowercase Hex-String ohne Bindestriche, <strong>nicht</strong> das native PostgreSQL-Format des <code>uuid</code>-Typs (mit Bindestrichen). Das ist bewusst so gewählt, damit Anwendungscode unabhängig vom Connection Type mit demselben GUID-Format arbeitet.</p>
+<h3 id="views-beim-db-abgleich">Views beim DB-Abgleich</h3>
+<p>PostgreSQL verbietet <code>ALTER TABLE ... ALTER COLUMN ... TYPE ...</code> auf Spalten, die von einer View referenziert werden (<code>0A000: cannot alter type of a column used by a view or rule</code>). SQL Server erlaubt Typänderungen in diesem Fall. Framework Studio behandelt das beim DB-Abgleich automatisch: abhängige Views werden vor der Typänderung gedroppt und danach wiederhergestellt.</p>
+<h3 id="migration-von-sql-server-oder-oracle">Migration von SQL Server oder Oracle</h3>
+<p>Framework Studio liefert <strong>kein eigenes Migrationswerkzeug</strong> für den Umstieg von bestehenden SQL Server- oder Oracle-Datenbanken auf PostgreSQL. Der Einsatz von PostgreSQL ist primär für neue Installationen vorgesehen. Am Markt verfügbare Werkzeuge (z.B. pgLoader, AWS SCT, ora2pg) wurden nicht offiziell auf Kompatibilität mit den FS-spezifischen Strukturen (Datentypen, Trigger, Constraints, Collation) geprüft.</p>
 
 </article>
 

@@ -87,6 +87,66 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-48">Release-Information Framework Studio 4.8</h1>
 
+<h2 id="482-07082026">4.8.2 (07.08.2026)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.8.2_Setup_x64</li>
+<li>FS4.5.43_PrintService</li>
+<li>RS_4.8.2_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="updates">Updates</h4>
+<ul>
+<li>Das CefSharp Browser-Control in der IDE wurde auf Version 149.0.60 upgedatet.</li>
+<li>DevExpress wurde auf Version 25.2.5 upgedated.</li>
+</ul>
+<h4 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h4>
+<p>Das <em>JxBrowser</em> Control für den Java-Client wurde von Version 9.0.2 auf Version 9.3.0 aktualisiert.
+Das entspricht Chromium 150.</p>
+<p>Release-Notes des Control-Herstellers: <a href="https://jxbrowser-support.teamdev.com/release-notes/2026/v9-3-0.html">https://jxbrowser-support.teamdev.com/release-notes/2026/v9-3-0.html</a></p>
+<p>Es sind keine besonderen Aktionen erforderlich.
+Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Im <a href="../doc/access-units/laufzeitlizenzen.html">Runtime License Manager</a> wurde die Tree-List, welche die Lizenzen darstellt, grafisch überarbeitet.</li>
+<li>Der Dialog zur <a href="../doc/transformationen/transformationen.html#generierung-des-data-contracts-und-der-transformationen-aus-components">automatischen Generierung von DataContracts und dazugehöriger Transformationen aus Components</a> wurde überarbeitet.</li>
+<li>Das Output-Fenster wird nicht mehr automatisch im Vordergrund geöffnet, wenn dort neue Informationen ausgegeben werden. Stattdessen erhält die Registerkarte ein blaues Info-Image.</li>
+<li>Der Package-Version Import für SQL Server wurde optimiert. Durch die Optimierung konnten die Importzeiten um den Faktor 5-10 beschleunigt werden.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2026060019 - <strong>Java-Client</strong>: Wenn in einem neuen Fenster (schwebend)
+geöffnete Registerkarten (Auftrag, Artikel, ...) auf einen anderen Monitor
+verschoben wurden und dieser Monitor dann vom Gerät getrennt wird, kann es
+passieren, dass sich die schwebenden Fenster außerhalb des Sichtbereichs
+öffnen.</p>
+<p>Vor allem in Verbindung mit Docking-Stations tritt dieses Problem öfter auf.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Um dieses Problem zu lösen wurde eine neue Client Action
+<a class="xref" href="../api/FS.Hosting.Broker.Shared.GeneratedForm.DockFloatingFramesToWorkspace.html#FS_Hosting_Broker_Shared_GeneratedForm_DockFloatingFramesToWorkspace">DockFloatingFramesToWorkspace</a> im Java Clients eingebaut, mit der sich alle
+schwebenden Fenster zurück in den Arbeitsbereich holen lassen.</p>
+</div>
+</li>
+<li><p>2026070206 - <strong>Print-Service</strong>: Jeder Druck mit Oracle über den Print-Service
+wirft eine Fehlermeldung, dass das Einfügen von Null-Werten nicht erlaubt
+ist, weil Oracle einen Leerstring '' (<code>string.Empty</code>) als NULL behandelt.</p>
+</li>
+<li><p>2026060020 - <strong>IDE</strong>: Wird ein Record ein- oder ausgecheckt, ändert sich das
+entsprechende Icon nicht im Namespace TreeView.</p>
+</li>
+<li><p>2026070204 - <strong>AuthService</strong>: Im AuthenticationServiceConfigEditor sind die
+Textboxen für <code>Maximum failed logins</code> <code>Maximum change period</code> vertauscht,
+sodass die Werte logisch falsch abgespeichert werden.</p>
+</li>
+<li><p>2026060027 - <strong>DataProvider</strong>: Für das Session Logging werden die DB Zeiten
+und der DB Counter nicht mehr gespeichert.</p>
+</li>
+<li><p>2026070214 - <strong>Runtime Supervisor</strong>: Bei der Installation des Runtime
+Supervisors mit einer Oracle Datenbank bricht der Installer aufgrund einer
+FileNotFoundException ab.</p>
+</li>
+</ul>
 <h2 id="481-03072026">4.8.1 (03.07.2026)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -94,19 +154,19 @@
 <li>FS4.5.42_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates">Updates</h4>
+<h4 id="updates-1">Updates</h4>
 <ul>
 <li>Die PBE wurde aktualisiert. Denken Sie daran diese Änderung in Ihre außerhalb von FS positionierten PBEs zu übernehmen.</li>
 <li>Der HTML Client und die dazugehörige Mobile Client App wurden auf die Version 1.0.64 aktualisiert.</li>
 </ul>
-<h4 id="neuerungen">Neuerungen</h4>
+<h4 id="neuerungen-1">Neuerungen</h4>
 <ul>
 <li>Im <a href="../doc/runtime-administration/runtime-administration-user.html">Authentication and Authorisation Tool</a> der Runtime Administration wurden die Grid-Controls überarbeitet.</li>
 <li>Der HTML Client hat nun einen 15s Request-Timeout Mechanismus eingebaut.</li>
 <li>Der <strong>Print-Server</strong> schreibt das Log-File nun täglich in eine neue Datei. Der konfigurierte Dateiname dient dabei als Basis; das aktuelle Datum wird automatisch als Suffix ergänzt (z. B. <code>PrintServer_20260429.log</code>). Ein Neustart des Dienstes beim Tageswechsel ist nicht erforderlich.</li>
 <li>Der <strong>Print-Server</strong> verfügt nun über ein optionales <strong>Erweitertes Spooler Monitoring</strong>. Es überwacht den Windows Druckspooler aktiv und protokolliert den Lebenszyklus jedes Druckauftrags in zwei tagesrotierten Log-Dateien (<code>SpoolerLog</code>, <code>FailedPrints</code>). Bei erkannten Spooler-Fehlern wird die zugehörige FS-Transaktion automatisch als fehlgeschlagen markiert. Das Feature wird über <code>ExtendedSpoolerLogEnabled</code> in der <code>PrintService.exe.config</code> aktiviert. Weitere Informationen unter <a href="../doc/print-server/features.html#erweitertes-spooler-monitoring">Erweitertes Spooler Monitoring</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2026069998 - <strong>Publish2Go</strong>: Wenn bei einem Publish2Go über die PBE eine
 Exception beim Schreiben der Applications oder ServiceHosts geworfen wird,
@@ -131,15 +191,15 @@ OPTIONS-Preflight-Requests.</p>
 <li>RS_4.8.0_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="neuerungen-1">Neuerungen</h4>
+<h4 id="neuerungen-2">Neuerungen</h4>
 <p>Beachten Sie die <a href="neuheiten-4-8.html">Neuheiten FrameworkStudio 4.8</a>, sowie die Anleitung für das <a href="update-4-8/update-4-8.html">Update 4.8</a>!</p>
-<h5 id="update-jxbrowser-für-javaclient">Update JxBrowser für JavaClient</h5>
+<h5 id="update-jxbrowser-für-javaclient-1">Update JxBrowser für JavaClient</h5>
 <p>Das <em>JxBrowser</em> Control für den Java-Client wurde auf Version 9.0.2 aktualisiert.
 Das entspricht Chromium 148.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/releases/2026/v9-0-2/.html">https://teamdev.com/jxbrowser/releases/2026/v9-0-2/.html</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <p>In der Version 4.8 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-7.html#4718-08062026">Framework Studio 4.7.18</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben:</p>
 <ul>

@@ -87,6 +87,18 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-48">Release-Information Framework Studio 4.8</h1>
 
+<h2 id="482-fix-1-11082026">4.8.2 Fix 1 (11.08.2026)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.8.2_Fix_1_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li>2026080262 - <strong>Publish2Go</strong>: Der Publish über ein Publish2Go-Paket entpackt beigefügte .zip-Dateien aus den Resourcen.
+Kommen Dateinamen doppelt vor, kann es zu einer <code>System.IO.IOException: The file already exists.</code> kommen und der Publish bricht ab.</li>
+</ul>
+<p>Der Publish2Go und der Publish über den Publish-Wizard verhalten sich nun identisch. .zip-Dateien werden nicht mehr entpackt.</p>
 <h2 id="482-07082026">4.8.2 (07.08.2026)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -113,7 +125,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>Das Output-Fenster wird nicht mehr automatisch im Vordergrund geöffnet, wenn dort neue Informationen ausgegeben werden. Stattdessen erhält die Registerkarte ein blaues Info-Image.</li>
 <li>Der Package-Version Import für SQL Server wurde optimiert. Durch die Optimierung konnten die Importzeiten um den Faktor 5-10 beschleunigt werden.</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2026060019 - <strong>Java-Client</strong>: Wenn in einem neuen Fenster (schwebend)
 geöffnete Registerkarten (Auftrag, Artikel, ...) auf einen anderen Monitor
@@ -166,7 +178,7 @@ FileNotFoundException ab.</p>
 <li>Der <strong>Print-Server</strong> schreibt das Log-File nun täglich in eine neue Datei. Der konfigurierte Dateiname dient dabei als Basis; das aktuelle Datum wird automatisch als Suffix ergänzt (z. B. <code>PrintServer_20260429.log</code>). Ein Neustart des Dienstes beim Tageswechsel ist nicht erforderlich.</li>
 <li>Der <strong>Print-Server</strong> verfügt nun über ein optionales <strong>Erweitertes Spooler Monitoring</strong>. Es überwacht den Windows Druckspooler aktiv und protokolliert den Lebenszyklus jedes Druckauftrags in zwei tagesrotierten Log-Dateien (<code>SpoolerLog</code>, <code>FailedPrints</code>). Bei erkannten Spooler-Fehlern wird die zugehörige FS-Transaktion automatisch als fehlgeschlagen markiert. Das Feature wird über <code>ExtendedSpoolerLogEnabled</code> in der <code>PrintService.exe.config</code> aktiviert. Weitere Informationen unter <a href="../doc/print-server/features.html#erweitertes-spooler-monitoring">Erweitertes Spooler Monitoring</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2026069998 - <strong>Publish2Go</strong>: Wenn bei einem Publish2Go über die PBE eine
 Exception beim Schreiben der Applications oder ServiceHosts geworfen wird,
@@ -199,7 +211,7 @@ Das entspricht Chromium 148.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/releases/2026/v9-0-2/.html">https://teamdev.com/jxbrowser/releases/2026/v9-0-2/.html</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <p>In der Version 4.8 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-7.html#4718-08062026">Framework Studio 4.7.18</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben:</p>
 <ul>

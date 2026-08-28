@@ -87,27 +87,70 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-48">Release-Information Framework Studio 4.8</h1>
 
-<h2 id="482-fix-1-11082026">4.8.2 Fix 1 (11.08.2026)</h2>
-<p>Die Auslieferung umfasst die folgenden Pakete:</p>
-<ul>
-<li>FS_4.8.2_Fix_1_Setup_x64</li>
-</ul>
-<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
-<ul>
-<li>2026080262 - <strong>Publish2Go</strong>: Der Publish über ein Publish2Go-Paket entpackt beigefügte .zip-Dateien aus den Resourcen.
-Kommen Dateinamen doppelt vor, kann es zu einer <code>System.IO.IOException: The file already exists.</code> kommen und der Publish bricht ab.</li>
-</ul>
-<p>Der Publish2Go und der Publish über den Publish-Wizard verhalten sich nun identisch. .zip-Dateien werden nicht mehr entpackt.</p>
-<h2 id="483-">4.8.3 (???)</h2>
+<h2 id="483-04092026">4.8.3 (04.09.2026)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
 <li>FS_4.8.3_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="updates">Updates</h4>
+<ul>
+<li>Angular wurde aktualisiert. Das betrifft folgende Systeme:
+<ul>
+<li>den in FS integrierte Code-Editor <code>Monaco</code>,</li>
+<li>das Dokumentations-System</li>
+<li>und die StartPage.</li>
+</ul>
+</li>
+</ul>
 <h4 id="neuerungen">Neuerungen</h4>
 <ul>
 <li>Reports können nun neben einer Culture als <code>string</code> auch direkt mit einer <code>System.Globalization.CultureInfo</code> erzeugt werden. Dazu wurde das Property <a class="xref" href="../api/FS.Hosting.Core.Reporting.ReportDocument.CultureInfo.html#FS_Hosting_Core_Reporting_ReportDocument_CultureInfo">ReportDocument.CultureInfo</a> ergänzt. Das neue Property ermöglicht es beispielsweise, hybride Cultures an den Report zu übergeben, bei denen Text- und Zahlenformate voneinander abweichen. Ist die <code>CultureInfo</code> gesetzt, hat es Vorrang vor <code>Culture</code>.</li>
+</ul>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2026080335 - <strong>Broker</strong>: Bei Token-Refreshes wird der erneuerte Token nicht in
+die Session zurückgeschrieben. Jeder Folge-Request muss deshalb den Token
+erneut refreshen.</p>
+</li>
+<li><p>2026080237 - <strong>Publish</strong>: Wird das Publish2Go mit einer leeren Configuration
+für einen RestService erstellt, wird beim späteren Publish keine
+appsettings.RestService.json Datei für diesen RestService geschrieben.</p>
+</li>
+<li><p>2026080322 - <strong>Publish</strong>: Der Publish kopiert die FrameworkStudio-DLLs nicht
+in den assembly-Ordner, sondern in den bin-Ordner. Dies hat zur Folge, dass
+beim Öffnen des WebReportDesigners aus der Anwendung eine
+FileNotFoundException &quot;FS.Hosting.Core.dll&quot; auftritt.</p>
+</li>
+<li><p>2026080262 - <strong>Publish2Go</strong>: Der Publish mit einem Publish2Go Paket entpackt
+beigefügte .zip-Dateien aus den Resourcen. Kommen Dateinamen nun durch das
+Entpacken doppelt vor, führt dies zu einer Exception und der Publish bricht
+ab.</p>
+</li>
+<li><p>2026080275 - <strong>IDE</strong>: Wenn ein Basis-Namespace ausgewählt ist, der im
+CustomizingPackage nicht vorkommt, und das Search Fenster war zuletzt
+geöffnet, dann werden beim darauffolgenden Starten von FS keine checked-out
+Elemente angezeigt.<br>
+Erst, wenn das Namespace Fenster oder ein beliebiges Element geöffnet wird,
+funktioniert die checked-out Elements Ansicht wieder.</p>
+</li>
+<li><p>2026080311 - <strong>AuthService</strong>: Bei der Verlängerung des Tokens wird die
+Gültigkeit des Passworts überprüft - auch wenn die Anmeldung per
+Domain-Authentifizierung erfolgte. Dies hat zur Folge, dass bei einem
+abgelaufenen Passwort die laufende Session beendet werden muss.</p>
+</li>
+<li><p>2026080305 - <strong>DevExpress</strong>: Die Default Localization des DisplayNames wird
+beim Öffnen eines Reports mit dem Report-Namen überschrieben.</p>
+</li>
+<li><p>2026080235 - <strong>Framework</strong>: Die Methode GlobalOnBeforeLoad() wird im Exists()
+nach dem Aufbau des Select-Statements aufgerufen. Dies hat zur Folge, dass
+Überschreibungen am Select-Statement im GlobalOnBeforeLoad beim ersten
+Aufruf nicht angewendet werden. Dies betrifft in enventa Trade ERP die
+Mandantenlogik.</p>
+</li>
+<li><p>2026080343 - <strong>HelpSystem</strong>: Number-Only Suchbegriffe sowie Suchbegriffe, die
+Sonderzeichen enthalten, werden nicht oder nicht korrekt gefunden.</p>
+</li>
 </ul>
 <h2 id="482-07082026">4.8.2 (07.08.2026)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
@@ -117,7 +160,7 @@ Kommen Dateinamen doppelt vor, kann es zu einer <code>System.IO.IOException: The
 <li>RS_4.8.2_Setup_x64</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates">Updates</h4>
+<h4 id="updates-1">Updates</h4>
 <ul>
 <li>Das CefSharp Browser-Control in der IDE wurde auf Version 149.0.60 upgedatet.</li>
 <li>DevExpress wurde auf Version 25.2.5 upgedated.</li>
@@ -176,7 +219,7 @@ FileNotFoundException ab.</p>
 <li>FS4.5.42_PrintService</li>
 </ul>
 <p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
-<h4 id="updates-1">Updates</h4>
+<h4 id="updates-2">Updates</h4>
 <ul>
 <li>Die PBE wurde aktualisiert. Denken Sie daran diese Änderung in Ihre außerhalb von FS positionierten PBEs zu übernehmen.</li>
 <li>Der HTML Client und die dazugehörige Mobile Client App wurden auf die Version 1.0.64 aktualisiert.</li>

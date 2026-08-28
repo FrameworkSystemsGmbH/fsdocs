@@ -251,6 +251,14 @@ Der Wert muss den Protokoll-Prefix enthalten, z.B. <code>http://localhost:3000</
 <p>CORS-Preflight-Anfragen (<code>OPTIONS</code>), die Browser vor bestimmten Cross-Origin-Requests automatisch senden, werden vom Service ebenfalls behandelt:
 Der Service antwortet auf <code>OPTIONS</code>-Anfragen mit HTTP 200 und schickt zusätzlich die Header <code>Access-Control-Allow-Methods</code>, <code>Access-Control-Allow-Headers</code> und <code>Access-Control-Max-Age</code> zurück.
 Die erlaubten Methoden und Header werden dabei aus dem Preflight-Request des Browsers übernommen; fehlen diese Angaben im Request, werden Standardwerte zurückgegeben.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>CORS wirkt nur an <strong>REST-Endpoints</strong> (<code>webHttpBinding</code>, über <em>Generate REST Endpoint</em> am Service Host). An reinen <strong>SOAP-Endpoints</strong>
+hat die Einstellung keine Wirkung: WCF leitet die <code>OPTIONS</code>-Preflight-Anfrage des
+Browsers nicht an eine SOAP-Operation weiter, sodass die CORS-Header dort nicht
+gesetzt werden können. Soll ein Service direkt aus dem Browser angesprochen werden,
+ist dafür der REST-Endpoint vorgesehen.</p>
+</div>
 <p><strong>Username:</strong> Gibt den Benutzer an, mit dem der Windows-Dienst für den Service Host installiert werden soll. Eine Domäne kann mit der Schreibweise „Domäne\Username“ angegeben werden.</p>
 <p>Es stehen auch die drei Systemkonten „Local Service“, „Local System“ und „Network Service“ zur Auswahl. Ist eines dieser Konten ausgewählt, ist kein Passwort erforderlich.</p>
 <p><strong>Password:</strong> Das Passwort zum ausgewählten Benutzer.</p>

@@ -2,9 +2,9 @@
 <html>
   <head>
     <meta charset="utf-8">
-      <title>Aktuelle Installations-Pakete </title>
+      <title>Property CultureInfo </title>
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <meta name="title" content="Aktuelle Installations-Pakete ">
+      <meta name="title" content="Property CultureInfo ">
       
       
       <link rel="icon" href="../favicon.ico">
@@ -39,7 +39,7 @@
 
   </head>
 
-  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="ManagedReference">
     <header class="bg-body border-bottom">
       <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
         <div class="container-xxl flex-nowrap">
@@ -84,62 +84,82 @@
           <nav id="breadcrumb"></nav>
         </div>
 
-        <article data-uid="">
-<h1 id="aktuelle-installations-pakete">Aktuelle Installations-Pakete</h1>
+        <article data-uid="FS.Hosting.Core.Reporting.ReportDocument.CultureInfo*">
 
-<p>In dieser Liste sind alle aktuellen verfügbaren Installations-Pakete aufgeführt.</p>
-<table>
-<thead>
-<tr>
-<th>Paket</th>
-<th>Version</th>
-<th>Name der Zip-Datei</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Framework Studio IDE</td>
-<td><strong>4.8</strong>.3</td>
-<td>FS_4.8.3_Setup_x64</td>
-</tr>
-<tr>
-<td><a href="requirements-package.html">Requirements-Paket</a> 64 Bit</td>
-<td><strong>4.8</strong>.0</td>
-<td>FS_4.8.0_Requirements_x64</td>
-</tr>
-<tr>
-<td>Runtime Administration (¹)</td>
-<td><strong>4.5</strong>.31</td>
-<td>FS_4.5.31_RuntimeAdministration</td>
-</tr>
-<tr>
-<td>Authentication-Service</td>
-<td><strong>4.5</strong>.44</td>
-<td>FS4.5.44_AuthService</td>
-</tr>
-<tr>
-<td><a href="../doc/print-server/installation.html">Print-Service</a></td>
-<td><strong>4.5</strong>.43</td>
-<td>FS4.5.43_PrintService</td>
-</tr>
-<tr>
-<td>FSClient Launcher 64 Bit</td>
-<td><strong>4.8</strong>.0</td>
-<td>FSCL_4.8.0_Setup_x64</td>
-</tr>
-<tr>
-<td>Runtime Supervisor</td>
-<td><strong>4.8</strong>.2</td>
-<td>RS_4.8.2_Setup_x64</td>
-</tr>
-</tbody>
-</table>
-<p>(¹) Die Runtime Administration wird mit der Framework Studio IDE automatisch mitgeliefert. Kunden, die die Runtime Administration ohne IDE betreiben möchten, können das Standalone-Paket nutzen. Die verschiedenen Runtime Administration Versionen (4.5 - 4.8) sind mit dem Authentication Service und der IDE kompatibel und unterscheiden sich inhaltlich nicht.</p>
+
+
+
+
+<h1 id="FS_Hosting_Core_Reporting_ReportDocument_CultureInfo_" data-uid="FS.Hosting.Core.Reporting.ReportDocument.CultureInfo*" class="text-break">
+Property CultureInfo  
+</h1>
+
+<div class="facts text-secondary">
+  <dl><dt>Namespace</dt><dd><a class="xref" href="FS.html">FS</a>.<a class="xref" href="FS.Hosting.html">Hosting</a>.<a class="xref" href="FS.Hosting.Core.html">Core</a>.<a class="xref" href="FS.Hosting.Core.Reporting.html">Reporting</a></dd></dl>
+  <dl><dt>Assembly</dt><dd>FS.Hosting.Core.dll</dd></dl>
+</div>
+
+<div class="markdown summary"></div>
+<div class="markdown conceptual"></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a id="FS_Hosting_Core_Reporting_ReportDocument_CultureInfo_" data-uid="FS.Hosting.Core.Reporting.ReportDocument.CultureInfo*"></a>
+
+<h3 id="FS_Hosting_Core_Reporting_ReportDocument_CultureInfo" data-uid="FS.Hosting.Core.Reporting.ReportDocument.CultureInfo">
+  CultureInfo
+  
+</h3>
+
+<div class="markdown level1 summary"><p>Definiert die Culture mit welcher der Report erzeugt werden soll.</p>
+</div>
+<div class="markdown level1 conceptual"></div>
+
+<div class="codewrapper">
+  <pre><code class="lang-csharp hljs">[Browsable(false)]
+public CultureInfo CultureInfo { get; set; }</code></pre>
+</div>
+
+
+
+
+
+<h4 class="section">Property Value</h4>
+<dl class="parameters">
+  <dt><a class="xref" href="https://learn.microsoft.com/dotnet/api/system.globalization.cultureinfo">CultureInfo</a></dt>
+  <dd></dd>
+</dl>
+
+
+
+
+<h4 class="section" id="FS_Hosting_Core_Reporting_ReportDocument_CultureInfo_remarks">Remarks</h4>
+<div class="markdown level1 remarks"><p>Die Culture beeinflusst sowohl die Sprache als auch die Datums- und Zahlen-Formatierungen.</p>
+<p>Wird keine Culture angegeben, dann wird der Report mit der &quot;Default&quot;-Culture erzeugt und für Datums- und Zahlen-Formatierungen
+wird die am Server konfigurierte Culture verwendet.</p>
+<p>Ist <a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.CultureInfo.html#FS_Hosting_Core_Reporting_ReportDocument_CultureInfo">CultureInfo</a> gesetzt, hat es Vorrang vor <a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.Culture.html#FS_Hosting_Core_Reporting_ReportDocument_Culture">Culture</a>.</p>
+<p>Die Culture muss vor dem Aufruf von <a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.Print.html#FS_Hosting_Core_Reporting_ReportDocument_Print">Print()</a> oder <a class="xref" href="FS.Hosting.Core.Reporting.ReportDocument.ExportReport.html#FS_Hosting_Core_Reporting_ReportDocument_ExportReport_FS_Hosting_Shared_Reporting_ExportFormat_">ExportReport(ExportFormat)</a> gesetzt werden.</p>
+</div>
+
+
+
 
 </article>
 
 
-        <div class="next-article d-print-none border-top" id="nextArticle"></div>
 
       </div>
 

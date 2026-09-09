@@ -91,6 +91,53 @@
 <ul>
 <li>Der Authentication Service kann nun ein <code>JWT</code> eines registrierten Identity Providers direkt verarbeiten.</li>
 </ul>
+<h2 id="sql-server">SQL Server</h2>
+<p>Binärspalten (Bilder, Dateien) wurden von FS bislang immer als veralteter Typ <code>image</code> neu angelegt.
+Der <code>image</code> Datentyp ist seit 2006 deprecated.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Ab FS 4.9 wird nun der <code>varbinary(max)</code> Datentyp verwendet. Die Differenzlogik erkennt diesen Fall und bietet eine automatische Konvertierung im <code>DBDifferenceAnalyzeMode.Cleanup</code> an.</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Die erstellten SQL-Skripte mit dem Modus <code>DBDifferenceAnalyzeMode.Cleanup</code> sollten niemals automatisch ausgeführt werden, da dieser Modus wortwörtlich einen Cleanup durchführt. Indizes, die nur in der Datenbank vorkommen, nicht jedoch in Framework Studio definiert sind, werden dabei tatsächlich gelöscht.</p>
+<p>Verwaiste Tabellen und Spalten werden dagegen ausschliesslich zur Information gemeldet - für sie erzeugt FS bewusst kein <code>DROP</code>-Skript (siehe <a href="#verwaiste-tabellen-und-spalten">Verwaiste Tabellen und Spalten</a>).</p>
+</div>
+<h3 id="fsrowid-wird-als-uniqueidentifier-verglichen">FSROWID wird als <code>uniqueidentifier</code> verglichen</h3>
+<p>Unter SQL Server werden <code>FSROWID</code>-Spalten als <code>uniqueidentifier</code> angelegt. Die Differenzlogik hat als Wunschtyp bislang jedoch <code>Integer</code> angenommen. Ab FS 4.9 wird korrekt <code>Guid</code> (<code>uniqueidentifier</code>) erwartet.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Diese Korrektur gehört zur unten beschriebenen neuen Guid-Prüfung: Ohne sie würde für jede bestehende <code>FSROWID</code>-Spalte eine nicht auflösbare Abweichung (<code>Unsolvable</code>) gemeldet, weil <code>uniqueidentifier</code> nicht automatisch nach <code>int</code> konvertierbar ist.</p>
+</div>
+<h3 id="verwaiste-tabellen-und-spalten">Verwaiste Tabellen und Spalten</h3>
+<p>Tabellen und Spalten, die in der Datenbank vorhanden sind, in Framework Studio aber nicht (mehr) definiert sind, gelten als <em>verwaist</em>. Sie werden ab FS 4.9 im Modus <code>DBDifferenceAnalyzeMode.Cleanup</code> als Abweichung der Kategorie <code>Cleanup</code> aufgelistet.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Verwaiste Tabellen und Spalten werden mit <code>IsActive = false</code> gemeldet. Sie erscheinen also im Report, es wird aber <strong>kein</strong> <code>DROP</code>-Skript für sie erzeugt. Ob und wie sie entfernt werden, entscheidet bewusst der Anwender.</p>
+</div>
+<p>Für verwaiste <strong>Spalten</strong> ist keine zusätzliche Konfiguration erforderlich.</p>
+<p>Für verwaiste <strong>Tabellen</strong> muss der Aufrufer <code>DBAnalyzeOptions.KnownTableNames</code> befüllen. Erwartet wird die Vereinigung der Tabellennamen <strong>aller</strong> FS-Connections, die sich dieselbe physische Datenbank bzw. dasselbe Schema teilen - beispielsweise mehrere logische Connections auf derselben PostgreSQL-Datenbank.</p>
+<pre><code class="lang-csharp">var options = new DBAnalyzeOptions
+{
+    Mode = DBDifferenceAnalyzeMode.Cleanup,
+    // Tabellen aller Connections, die sich Datenbank/Schema teilen
+    KnownTableNames = allTableNamesOfSharedSchema
+};
+</code></pre>
+<p>Zum Verhalten der Prüfung:</p>
+<ul>
+<li>Bleibt <code>KnownTableNames</code> auf <code>null</code>, findet <strong>keine</strong> Verwaisungsprüfung für Tabellen statt. Andernfalls würden Tabellen anderer, legitimer Connections fälschlich als verwaist gemeldet.</li>
+<li>Ausserhalb von <code>DBDifferenceAnalyzeMode.Cleanup</code> entfällt die Prüfung ebenfalls.</li>
+<li>Die FS-internen <code>dbRun_*</code>-Tabellen werden nie als verwaist gemeldet.</li>
+<li>Der Vergleich der Tabellen<strong>namen</strong> läuft über den Comparer des Adapters und ignoriert damit standardmässig die Gross-/Kleinschreibung. Das betrifft ausschliesslich den Metadaten-Abgleich der Namen und ist unabhängig davon, wie die Datenbank Dateninhalte vergleicht (siehe <a href="../doc/database/case-sensitivity.html">Gross-/Kleinschreibung bei String-Vergleichen</a>).</li>
+</ul>
+<h3 id="weitere-verbesserungen-bei-differenzlogik">Weitere Verbesserungen bei Differenzlogik</h3>
+<p>Zusätzlich wird nun auch im Cleanup Modus ausgegeben, wenn statt <code>datetime</code> <code>datetime2</code> als SQL-Datentyp verwendet wird. Diese Datenbankspalten sollten zu <code>datetime</code> konvertiert werden.</p>
+<p>Des Weiteren werden jetzt auch Abweichungen bei Boolean (bit), Byte (tinyint), Guid (uniqueidentifier) und Gleitkommazahlen (float/real) erkannt, die vorher unbemerkt geblieben wären.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Als passend gelten dabei alle nativen Typen, die FS für den jeweiligen Datentyp akzeptiert - bei Boolean etwa <code>char</code>, <code>nchar</code> und <code>bit</code>, bei Single/Double <code>float</code> und <code>real</code>. Native Typen mit fester Präzision (<code>decimal</code>, <code>numeric</code>) gelten unter einem Single- oder Double-Feld dagegen als nicht automatisch konvertierbar und werden als <code>Unsolvable</code> gemeldet, da eine Umstellung auf <code>float</code> Präzision verlieren kann. Solche Spalten müssen manuell bewertet werden.</p>
+</div>
 
 </article>
 

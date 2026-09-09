@@ -170,7 +170,7 @@ Ist im Metadatatype der DBColumn ein Wert hinterlegt, wird dieser in der DBColum
 Wird eine Größe von <code>0</code> angegeben, handelt es sich um ein Langtext-Feld ohne Größen-Beschränkung.</p>
 <div class="NOTE">
 <h5>Note</h5>
-<p><strong>PostgreSQL:</strong> Der Datentyp <code>text</code> ist immer unlimitiert. Es gibt keinen Unterschied zwischen Unicode und Nicht-Unicode — alle Strings werden als UTF-8 gespeichert. Auf String-Spalten wird automatisch eine case-insensitive Collation (<code>case_insensitive</code>) gesetzt, damit sich das Vergleichs- und Suchverhalten analog zu SQL Server verhält.</p>
+<p><strong>PostgreSQL:</strong> Der Datentyp <code>text</code> ist immer unlimitiert. Es gibt keinen Unterschied zwischen Unicode und Nicht-Unicode — alle Strings werden als UTF-8 gespeichert. String-Spalten werden ohne explizite Collation angelegt, Vergleiche und Suchen sind damit <strong>case-sensitiv</strong> (siehe <a href="case-sensitivity.html">Groß-/Kleinschreibung bei String-Vergleichen</a>).</p>
 </div>
 <h4 id="feld-precision">Feld Precision</h4>
 <p>Anzahl der Stellen eines numerischen Feldes (inkl. Nachkommastellen).</p>

@@ -122,7 +122,7 @@ Werden mehrere ROWID-Properties aus verschiedenen Tabellen eingebunden, dann ist
 </div>
 <div class="NOTE">
 <h5>Note</h5>
-<p><strong>PostgreSQL:</strong> Die ML-Suche funktioniert analog zu SQL Server. Da auf den String-Spalten der Tabelle <code>dbRun_MLStrings</code> eine case-insensitive Collation gesetzt ist, erfolgt die Suche automatisch case-insensitive — eine gesonderte Konfiguration ist nicht erforderlich.</p>
+<p>Die ML-Suche verhält sich bezüglich der Groß-/Kleinschreibung genauso wie die Suche auf der normalen Tabellen-Spalte: Die Bedingung auf <code>ML_SearchText</code> ist eine Kopie der Original-Bedingung. Auf <strong>PostgreSQL</strong> und <strong>Oracle</strong> sind Vergleiche case-sensitiv — damit auch der Fremdsprachen-Lookup. Soll die Suche die Groß-/Kleinschreibung ignorieren, muss das an der Suchbedingung selbst geschehen (Control-Eigenschaft <strong>SearchOperator</strong> = <code>LikeNonCaseSensitive</code> bzw. <code>UPPER()</code> auf beiden Seiten); die Umwandlung wird dann automatisch auch auf <code>ML_SearchText</code> angewendet. Details siehe <a href="case-sensitivity.html">Groß-/Kleinschreibung bei String-Vergleichen</a>.</p>
 </div>
 <p>Bei automatischen Suchfeldern werden die Fremdsprachen-Texte zusätzlich berücksichtigt.</p>
 <p>Wird die Anwendung in einer Fremdsprache ausgeführt, dann enthält die erzeugte SQL-Bedingung beinhaltet sowohl die normale Bedingung, welche den Treffer in der Default-Sprache sucht als auch einen Lookup auf die Texte in der entsprechenden Fremdsprache.</p>

@@ -102,14 +102,14 @@ Als <strong>Repository-Datenbank</strong> der Framework Studio IDE steht weiterh
 <p>Eine PostgreSQL-Datenquelle wird wie gewohnt über den neuen Connection Type <code>PostgreSql</code> angelegt (siehe <a href="../doc/database/datasource.html">Datasource</a> und <a href="../doc/database/connection.html#postgresql-connection">Connection Einstellungen</a>).</p>
 <div class="IMPORTANT">
 <h5>Important</h5>
-<p>Vor der ersten Verwendung muss ein Datenbank-Administrator einmalig einen impliziten Typ-Cast auf der PostgreSQL-Datenbank anlegen. Details dazu und zu weiteren Besonderheiten (Identifier-Groß-/Kleinschreibung, Collation) siehe <a href="../doc/database/connection.html#datenbank-einrichten">PostgreSQL-Connection - Datenbank einrichten</a>.</p>
+<p>Vor der ersten Verwendung muss ein Datenbank-Administrator einmalig einen impliziten Typ-Cast auf der PostgreSQL-Datenbank anlegen. Details dazu und zu weiteren Besonderheiten (Identifier-Groß-/Kleinschreibung, Groß-/Kleinschreibung bei Vergleichen) siehe <a href="../doc/database/connection.html#datenbank-einrichten">PostgreSQL-Connection - Datenbank einrichten</a>.</p>
 </div>
 <h3 id="besonderheiten-gegenüber-sql-server">Besonderheiten gegenüber SQL Server</h3>
 <ul>
 <li><strong>Windows-Authentifizierung</strong> wird nicht unterstützt - es wird immer Username/Password verwendet.</li>
 <li>PostgreSQL ist nativ <strong>UTF-8</strong>, die Unterscheidung zwischen <code>String</code> und <code>AnsiString</code> entfällt serverseitig.</li>
 <li>Zeilenversionierung ist durch das native <strong>MVCC</strong> immer aktiv, eine explizite Konfiguration wie bei SQL Server ist nicht nötig (siehe <a href="knowledge/snapshot-isolation.html#postgresql">Zeilenversionierung</a>).</li>
-<li>String-Vergleiche verhalten sich durch die von Framework Studio automatisch gesetzte Collation case-insensitiv, analog zu SQL Server.</li>
+<li>String-Vergleiche sind <strong>case-sensitiv</strong> - anders als bei den üblichen SQL-Server-Collations, aber wie bei Oracle (siehe <a href="../doc/database/case-sensitivity.html">Groß-/Kleinschreibung bei String-Vergleichen</a>).</li>
 </ul>
 <h3 id="fehlerverhalten-innerhalb-von-transaktionen">Fehlerverhalten innerhalb von Transaktionen</h3>
 <div class="CAUTION">
@@ -136,24 +136,18 @@ Als <strong>Repository-Datenbank</strong> der Framework Studio IDE steht weiterh
 <h5>Caution</h5>
 <p>Es darf nur dieser eine Cast angelegt werden. Mehrere oder bidirektionale Casts führen zu <code>operator is not unique</code>-Fehlern.</p>
 </div>
-<h3 id="collation">Collation</h3>
-<p>PostgreSQL ist standardmäßig <strong>case-sensitiv</strong> bei String-Vergleichen (<code>=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>ORDER BY</code>, <code>LIKE</code>). Damit sich Anwendungen analog zu SQL Server (Collation <code>Latin1_General_CI_AS</code>) verhalten, benötigt PostgreSQL eine <strong>case-insensitive Collation</strong>.</p>
-<p>PostgreSQL kennt Case-Insensitivity anders als SQL Server nicht als DB-weiten Default, sondern ausschließlich über eine Collation, die explizit <strong>pro Spalte</strong> zugewiesen wird:</p>
-<pre><code class="lang-sql">CREATE COLLATION IF NOT EXISTS case_insensitive (provider = icu, locale = 'und-u-ks-level2', deterministic = false);
+<h3 id="groß-kleinschreibung-bei-string-vergleichen">Groß-/Kleinschreibung bei String-Vergleichen</h3>
+<p>PostgreSQL vergleicht Strings <strong>case-sensitiv</strong> (<code>=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>LIKE</code>, <code>DISTINCT</code>, Unique-Indizes). Framework Studio setzt <strong>keine</strong> Collation auf String-Spalten, es gilt also die Default-Collation der Datenbank:</p>
+<pre><code class="lang-sql">SELECT * FROM customer WHERE name = 'Max';    -- findet 'Max', nicht 'max' oder 'MAX'
+SELECT * FROM customer WHERE name LIKE 'ma%'; -- findet 'max', nicht 'Max' oder 'MAX'
 </code></pre>
 <ul>
-<li><p><strong><code>deterministic = false</code> ist zwingend:</strong> Case-insensitive Vergleiche erfordern eine <strong>nondeterministische</strong> ICU-Collation. Eine deterministische Collation vergleicht Strings ausschließlich byteweise und kann daher niemals case-insensitiv sein.</p>
-</li>
-<li><p><strong>Nur pro Spalte, nicht als DB-Default:</strong> Eine nondeterministische Collation darf in PostgreSQL nicht als Datenbank-Default-Collation gesetzt werden. <code>CREATE COLLATION</code> legt nur das Collation-Objekt an - wirksam wird sie erst, wenn sie explizit an einer Spalte angegeben wird:</p>
-<pre><code class="lang-sql">CREATE TABLE customer (name text COLLATE &quot;case_insensitive&quot;);
-</code></pre>
-<p>Framework Studio setzt diese Collation automatisch auf jede String-/Text-Spalte, die über den DB-Abgleich angelegt oder geändert wird.</p>
-</li>
-<li><p><strong>Wird automatisch von Framework Studio angelegt, kein manueller Admin-Schritt:</strong> <code>CREATE COLLATION IF NOT EXISTS</code> wird beim DB-Abgleich als erstes Statement idempotent ausgeführt. Im Gegensatz zum <a href="#impliziter-typ-cast">impliziten Typ-Cast</a> sind dafür keine Superuser-Rechte erforderlich - ein normaler Datenbank-User mit CREATE-Recht auf das Schema reicht aus.</p>
-</li>
-<li><p><strong>Mindestversion PostgreSQL 18:</strong> <code>LIKE</code>/<code>ILIKE</code> auf nondeterministisch-collationierten Spalten wird erst ab PostgreSQL 18 unterstützt - auf älteren Versionen liefert jede <code>LIKE</code>-Suche einen Laufzeitfehler. Da Framework Studio die Collation praktisch auf alle Text-Spalten legt, ist PostgreSQL 18 aus diesem Grund die verbindliche Mindestversion (siehe <a href="requirements.html#datenbank-server">Systemvoraussetzungen</a>).</p>
-</li>
+<li><strong>Unterschied zu SQL Server:</strong> Dort ist Case-Insensitivität keine Eigenschaft von Framework Studio, sondern von der Instanz-Collation des Kunden (üblicherweise <code>Latin1_General_CI_AS</code>). Auf <strong>Oracle</strong> sind Gleichheitsvergleiche mit den Standardeinstellungen dagegen ebenfalls case-sensitiv - PostgreSQL verhält sich hier also wie Oracle.</li>
+<li><strong>Case-insensitive Suche:</strong> Wo Groß-/Kleinschreibung ignoriert werden soll, muss der Vergleich das explizit tun - über <code>UPPER()</code>/<code>LOWER()</code> auf <strong>beiden</strong> Seiten oder über die Control-Eigenschaft <strong>SearchOperator</strong> = <code>LikeNonCaseSensitive</code>, die genau dieses SQL generiert.</li>
+<li><strong>Sortierung:</strong> Die Reihenfolge bei <code>ORDER BY</code> hängt an der Default-Collation der Datenbank. Bei <code>C</code>/<code>POSIX</code> gilt die Byte-Reihenfolge (<code>MAX</code> &lt; <code>Max</code> &lt; <code>max</code>), bei libc-/ICU-Locales wird sprachlich sortiert.</li>
+<li><strong>Indizes:</strong> <code>UPPER(spalte)</code> kann keinen normalen Index nutzen. Für häufige case-insensitive Suchen ist ein funktionaler Index (<code>CREATE INDEX ... ON t (UPPER(spalte))</code>) nötig.</li>
 </ul>
+<p>Details und Best Practices siehe <a href="../doc/database/case-sensitivity.html">Groß-/Kleinschreibung bei String-Vergleichen</a>.</p>
 <h3 id="identifier-groß-kleinschreibung">Identifier-Groß-/Kleinschreibung</h3>
 <p>PostgreSQL verhält sich analog zu Oracle: Unquotierte Identifier werden normalisiert - Oracle auf GROSSSCHREIBUNG, PostgreSQL auf <strong>Kleinschreibung</strong>. Quotierte Identifier (<code>&quot;MeineTabelle&quot;</code>) bleiben dagegen case-sensitiv. SQL Server ist case-preserving.</p>
 <p>Framework Studio berücksichtigt das automatisch (alle generierten Identifier werden konsistent kleingeschrieben und quotiert). Relevant wird es, wenn Tabellen/Spalten außerhalb von Framework Studio angelegt werden - z.B. durch Migrationswerkzeuge (siehe unten) - und dabei gemischte Schreibweise entsteht: Ein unquotiertes <code>SELECT * FROM MeineTabelle</code> findet dann <code>meinetabelle</code> nicht.</p>

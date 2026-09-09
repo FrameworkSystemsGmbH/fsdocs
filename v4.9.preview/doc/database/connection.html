@@ -112,8 +112,7 @@ Beispiel: <code>Database=MyBusinessDB</code></li>
 <li><strong>Username</strong> und <strong>Password</strong> sind erforderlich. Windows-Authentifizierung wird bei PostgreSQL nicht unterstützt.</li>
 </ul>
 <h4 id="datenbank-einrichten">Datenbank einrichten</h4>
-<p>Bevor eine PostgreSQL-Datenbank mit Framework Studio verwendet werden kann, muss folgender Schritt <strong>einmalig durch einen Datenbank-Administrator (Superuser)</strong> ausgeführt werden:</p>
-<p><strong>Impliziten Typ-Cast anlegen</strong> — SQL Server konvertiert automatisch zwischen String- und numerischen Typen (z.B. <code>smallint = varchar</code>). PostgreSQL erfordert dafür einen expliziten Cast, der mit Superuser-Rechten angelegt werden muss:</p>
+<p><strong>Impliziten Typ-Cast anlegen</strong> — SQL Server konvertiert automatisch zwischen String- und numerischen Typen (z.B. <code>smallint = varchar</code>). PostgreSQL erfordert dafür einen expliziten Cast:</p>
 <pre><code class="lang-sql">CREATE CAST (character varying AS numeric) WITH INOUT AS IMPLICIT;
 </code></pre>
 <p>Es wird nur ein einziger Cast <code>varchar → numeric</code> benötigt. PostgreSQL promoted alle Integer-Typen (<code>smallint</code>, <code>integer</code>, <code>bigint</code>) automatisch zu <code>numeric</code>, sodass dieser eine Cast alle Vergleiche abdeckt.</p>
@@ -123,12 +122,18 @@ Beispiel: <code>Database=MyBusinessDB</code></li>
 </div>
 <div class="IMPORTANT">
 <h5>Important</h5>
-<p>Ohne diese Casts schlagen Queries fehl, die numerische Spalten mit String-Parametern vergleichen. Framework Studio prüft beim Start, ob die Casts vorhanden sind und gibt eine entsprechende Fehlermeldung aus.</p>
+<p>Ohne diesen Cast schlagen Queries fehl, die numerische Spalten mit String-Parametern vergleichen. Framework Studio prüft, ob der Cast vorhanden ist, und gibt andernfalls eine entsprechende Fehlermeldung aus.</p>
 </div>
+<p>Framework Studio legt den Cast selbst an — beim Anlegen eines Runtime Repositories und beim
+Datenbank-Abgleich. Ist der angemeldete Benutzer <strong>kein Superuser</strong>, schlägt das fehl; der Cast
+muss dann <strong>einmalig durch einen Datenbank-Administrator</strong> mit obigem Statement angelegt werden.</p>
+<p><strong>Encoding</strong> — legt Framework Studio die Datenbank selbst an (Runtime-Repository-Wizard), geschieht
+das mit <code>ENCODING 'UTF8'</code> (auf Basis von <code>template0</code>). Die Collation bleibt beim Server-Default;
+zu deren Auswirkung siehe <a href="case-sensitivity.html">Groß-/Kleinschreibung bei String-Vergleichen</a>.</p>
 <h4 id="besonderheiten">Besonderheiten</h4>
 <ul>
 <li>PostgreSQL speichert alle Identifier (Tabellen- und Spaltennamen) in <strong>Kleinbuchstaben</strong>. Framework Studio konvertiert Identifier automatisch.</li>
-<li>Auf allen String-Spalten wird automatisch eine <strong>case-insensitive Collation</strong> (<code>case_insensitive</code>) gesetzt, damit sich das Verhalten analog zu SQL Server verhält.</li>
+<li>String-Vergleiche (<code>=</code>, <code>LIKE</code>, <code>DISTINCT</code>, Unique-Indizes) sind <strong>case-sensitiv</strong>. Framework Studio setzt keine Collation auf String-Spalten — es gilt die Default-Collation der Datenbank. Details und Best Practices siehe <a href="case-sensitivity.html">Groß-/Kleinschreibung bei String-Vergleichen</a>.</li>
 <li>PostgreSQL verwendet nativ <strong>MVCC</strong> (Multi-Version Concurrency Control). Eine explizite Aktivierung der Zeilenversionierung wie beim SQL Server ist nicht erforderlich.</li>
 </ul>
 <p>Beispiel für einen Connection-String:<br>
@@ -165,6 +170,11 @@ So kann man einen in der <code>tnsnames.ora</code> konfigurierten TNS-Alias bei 
 <h4 id="tns-string">TNS-String</h4>
 <p>Wird kein <strong>Server</strong> angegeben, dann kann bei <strong>Database</strong> auch ein kompletter TNS-String angegeben werden.
 Das kann benutzt werden, wenn der automatisch generierte TNS-String nicht ausreicht.</p>
+<h4 id="besonderheiten-1">Besonderheiten</h4>
+<ul>
+<li>String-Vergleiche sind mit den Oracle-Standardeinstellungen (<code>NLS_COMP=BINARY</code>) <strong>case-sensitiv</strong>. Framework Studio setzt beim Verbindungsaufbau nur <code>NLS_SORT</code> (Default <code>BINARY_AI</code>), was ausschließlich die <strong>Sortierung</strong> case- und akzent-insensitiv macht. Details und Best Practices siehe <a href="case-sensitivity.html">Groß-/Kleinschreibung bei String-Vergleichen</a>.</li>
+<li>Das NLS-Setup der Datenbank (<code>NLS_COMP</code>, <code>NLS_SORT</code>, <code>NLS_CHARACTERSET</code>) liegt beim Datenbank-Administrator. Framework Studio legt auf Oracle keine Datenbank an.</li>
+</ul>
 <h2 id="einstellungen-im-detail">Einstellungen im Detail</h2>
 <p>Im folgenden werden die Parameter für eine Connection erklärt.</p>
 <p>Neben der Oberfläche können diese Angaben auch in einem Connection-String für die FrameworkDataConnection verwendet werden.</p>

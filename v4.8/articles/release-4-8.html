@@ -87,6 +87,41 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-48">Release-Information Framework Studio 4.8</h1>
 
+<h2 id="484-02102026">4.8.4 (02.10.2026)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.8.4_Setup_x64</li>
+<li>FS4.5.45_PrintService</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="bild-skalierung-im-javaclient">Bild-Skalierung im JavaClient</h4>
+<p>Icons werden nun einheitlich mit bilinearer Interpolation skaliert. Die Darstellung ist dadurch gleichmäßiger, bei starker Vergrößerung jedoch etwas weicher.</p>
+<p>Das Verfahren kann über die System-Property <code>fs.image.interpolation</code> beim Start des JavaClients umgestellt werden.</p>
+<p>Beispiel: <code>-Dfs.image.interpolation=bicubic</code></p>
+<p>Soll die Skalierung durch Java komplett unterbunden werden, kann zusätzlich <code>-Dsun.java2d.uiScale=1.0</code> gesetzt werden.</p>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p>2026080358 - <strong>JavaClient</strong>: Wird eine HTML-Seite dynamisch verändert, indem
+<code>&lt;a&gt;</code>-Tags hinzugefügt werden, erkennt das BrowserControl diese bei einem
+Drag&amp;Drop nicht.</p>
+</li>
+<li><p>2026080345 - <strong>IDE</strong>: Die Maintenance Routine &quot;Interface Conversion&quot;
+bearbeitet auch auskommentierten Code.</p>
+</li>
+<li><p>2026080361 - <strong>IDE</strong>: Component- und Factory-Typen aus anderen Namespaces
+fehlen in der Vorschlagsliste, solange ihr Name nicht vollständig getippt
+ist.</p>
+</li>
+<li><p>2026090405 - <strong>PrintService</strong>: Wird im Feld &quot;Log file&quot; ein ungültiges Zeichen
+eingetragen, startet der PrintService nicht und gibt
+eine <code>System.ArgumentException: Illegal characters in path</code> aus.</p>
+</li>
+<li><p>2026090417 - <strong>RuntimeAdministration</strong>: Wird bei der Zuweisung von Rollen
+zwischen Services mit Mandanten und ohne Mandanten gewechselt, werden bei
+Services ohne Mandanten keine Checkboxen angezeigt, wodurch die Zuweisung
+nicht mehr möglich ist.</p>
+</li>
+</ul>
 <h2 id="483-04092026">4.8.3 (04.09.2026)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -107,7 +142,7 @@
 <ul>
 <li>Reports können nun neben einer Culture als <code>string</code> auch direkt mit einer <code>System.Globalization.CultureInfo</code> erzeugt werden. Dazu wurde das Property <a class="xref" href="../api/FS.Hosting.Core.Reporting.ReportDocument.CultureInfo.html#FS_Hosting_Core_Reporting_ReportDocument_CultureInfo">ReportDocument.CultureInfo</a> ergänzt. Das neue Property ermöglicht es beispielsweise, hybride Cultures an den Report zu übergeben, bei denen Text- und Zahlenformate voneinander abweichen. Ist die <code>CultureInfo</code> gesetzt, hat es Vorrang vor <code>Culture</code>.</li>
 </ul>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2026080335 - <strong>Broker</strong>: Bei Token-Refreshes wird der erneuerte Token nicht in
 die Session zurückgeschrieben. Jeder Folge-Request muss deshalb den Token
@@ -178,7 +213,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>Das Output-Fenster wird nicht mehr automatisch im Vordergrund geöffnet, wenn dort neue Informationen ausgegeben werden. Stattdessen erhält die Registerkarte ein blaues Info-Image.</li>
 <li>Der Package-Version Import für SQL Server wurde optimiert. Durch die Optimierung konnten die Importzeiten um den Faktor 5-10 beschleunigt werden.</li>
 </ul>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2026060019 - <strong>Java-Client</strong>: Wenn in einem neuen Fenster (schwebend)
 geöffnete Registerkarten (Auftrag, Artikel, ...) auf einen anderen Monitor
@@ -231,7 +266,7 @@ FileNotFoundException ab.</p>
 <li>Der <strong>Print-Server</strong> schreibt das Log-File nun täglich in eine neue Datei. Der konfigurierte Dateiname dient dabei als Basis; das aktuelle Datum wird automatisch als Suffix ergänzt (z. B. <code>PrintServer_20260429.log</code>). Ein Neustart des Dienstes beim Tageswechsel ist nicht erforderlich.</li>
 <li>Der <strong>Print-Server</strong> verfügt nun über ein optionales <strong>Erweitertes Spooler Monitoring</strong>. Es überwacht den Windows Druckspooler aktiv und protokolliert den Lebenszyklus jedes Druckauftrags in zwei tagesrotierten Log-Dateien (<code>SpoolerLog</code>, <code>FailedPrints</code>). Bei erkannten Spooler-Fehlern wird die zugehörige FS-Transaktion automatisch als fehlgeschlagen markiert. Das Feature wird über <code>ExtendedSpoolerLogEnabled</code> in der <code>PrintService.exe.config</code> aktiviert. Weitere Informationen unter <a href="../doc/print-server/features.html#erweitertes-spooler-monitoring">Erweitertes Spooler Monitoring</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2026069998 - <strong>Publish2Go</strong>: Wenn bei einem Publish2Go über die PBE eine
 Exception beim Schreiben der Applications oder ServiceHosts geworfen wird,
@@ -264,7 +299,7 @@ Das entspricht Chromium 148.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/releases/2026/v9-0-2/.html">https://teamdev.com/jxbrowser/releases/2026/v9-0-2/.html</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <p>In der Version 4.8 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-7.html#4718-08062026">Framework Studio 4.7.18</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben:</p>
 <ul>

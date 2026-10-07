@@ -119,6 +119,12 @@ Dieser Hook wird beim Start der Application ausgeführt.</p>
   <h2 id="FS_Hosting_Shared_IFSAppStartupHook_remarks">Remarks</h2>
   <div class="markdown level0 remarks"><p>Die Ausführung findet in einem Scope-Context statt - der StartupHook kann also als Scoped Service registriert werden und so andere Scoped Services verwenden.
 Es können mehrere Hooks registriert werden.</p>
+<p>
+Schlägt <a class="xref" href="FS.Hosting.Shared.IFSAppStartupHook.OnStartup.html#FS_Hosting_Shared_IFSAppStartupHook_OnStartup">OnStartup()</a> fehl, wird der Fehler protokolliert; der Start und die übrigen Hooks laufen weiter.
+Kann ein Hook dagegen nicht erzeugt werden, bricht der Start der Application ab. Der Konstruktor eines Hooks
+(und seiner Abhängigkeiten) darf deshalb keine Datei-, Datenbank- oder Netzwerkzugriffe beinhalten.
+Diese gehören in <a class="xref" href="FS.Hosting.Shared.IFSAppStartupHook.OnStartup.html#FS_Hosting_Shared_IFSAppStartupHook_OnStartup">OnStartup()</a>.
+</p>
 </div>
 
   <h2 class="section" id="methods">Methods

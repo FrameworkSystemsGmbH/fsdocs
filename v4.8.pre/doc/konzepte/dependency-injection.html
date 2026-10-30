@@ -165,6 +165,28 @@ Framework Studio bietet dafür das Interface <a class="xref" href="../../api/FS.
 <h5>Important</h5>
 <p>Bei einem neuen FSServiceRegistrar muss der GlobalObjects CompileStep kompiliert werden.</p>
 </div>
+<h2 id="ifsappstartuphook">IFSAppStartupHook</h2>
+<p>Das Interface <a class="xref" href="../../api/FS.Hosting.Shared.IFSAppStartupHook.html"><code>IFSAppStartupHook</code></a> bietet die Möglichkeit, beim Start des Brokers eigene Logik auszuführen.
+Die Methode <a class="xref" href="../../api/FS.Hosting.Shared.IFSAppStartupHook.OnStartup.html#FS_Hosting_Shared_IFSAppStartupHook_OnStartup"><code>OnStartup()</code></a> wird einmalig aufgerufen, nachdem der Dependency-Container aufgebaut wurde.</p>
+<p>Dafür muss in einer <a href="../modcomp/modcomp.html">Modular Component</a> das Interface und die Methode <code>OnStartup()</code> implementiert werden.
+Zusätzlich muss der Hook über einen <a href="#fsserviceregistrar"><code>IFSServiceRegistrar</code></a> im Dependency-Container registriert werden, sonst wird er nicht ausgeführt:</p>
+<pre><code class="lang-csharp">public IServiceCollection RegisterServices(IServiceCollection services)
+{
+    services.AddTransient&lt;IFSAppStartupHook, MyStartupHook&gt;();
+    return services;
+}
+</code></pre>
+<ul>
+<li>Es können mehrere Hooks registriert werden.</li>
+<li>Die Ausführung findet in einem eigenen Scope statt. Der Hook kann daher auch Scoped Services verwenden.</li>
+</ul>
+<p>Wird in der Methode <code>OnStartup()</code> eine Exception geworfen, ist der Broker dennoch funktionsfähig, und die übrigen Hooks werden weiter ausgeführt.
+Der Fehler wird lediglich protokolliert.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Wird hingegen im Konstruktor eine Exception geworfen, ist der Broker nicht lauffähig.
+Aus diesem Grund sollten im Konstruktor keine fehleranfälligen Routinen (z. B. Datei-, Datenbank- oder Netzwerkzugriffe) programmiert werden.</p>
+</div>
 
 </article>
 

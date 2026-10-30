@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Neuheiten Framework Studio 4.9 </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Neuheiten Framework Studio 4.9 ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="neuheiten-framework-studio-49">Neuheiten Framework Studio 4.9</h1>
+
+<p>Informationen zu aktuellen Versionen und korrigierten Fehlern finden Sie in den <a href="release-4-9.html">Release-Informationen</a>.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Dieses Dokument zeigt die Neuerungen beim Update von Version 4.8 auf 4.9.
+Beim Update von einer älteren Version beachten Sie bitte auch die Hinweise und Neuerungen der älteren Version (<a href="neuheiten-4-8.html">Neuheiten 4.8</a>).</p>
+</div>
+<h2 id="update-dlls">Update DLLs</h2>
+<p>Mit Framework Studio 4.9 wurden die Versionen aller referenzierten Pakete aktualisiert.</p>
+<p>Dadurch kann es beim Compile eigener Anwendungen zu neuen Errors oder Warnings kommen, wenn eingebundene Ressourcen (DLLs) nicht mehr zu den aktualisierten Versionen passen. Details zur Ursache und zur Behebung solcher Meldungen finden Sie unter <a href="../doc/resources/reference-check.html">Referenz-Prüfung für Ressourcen</a>.</p>
+<p>Eine Übersicht der wichtigsten aktualisierten Bibliotheken und der neu ausgelieferten DLLs finden Sie in den <a href="release-4-9.html#aktualisierte-bibliotheken">Release-Informationen</a>.</p>
+<h3 id="roslyn-compiler">Roslyn-Compiler</h3>
+<p>Der mitgelieferte Roslyn-Compiler, mit dem Framework Studio die Anwendungen compiliert, wurde auf Version 4.14 aktualisiert.</p>
+<h2 id="postgresql-als-neue-unterstützte-anwendungsdatenbank">PostgreSQL als neue unterstützte Anwendungsdatenbank</h2>
+<p>Neben SQL Server und Oracle unterstützt Framework Studio nun auch <strong>PostgreSQL</strong> (ab Version 18) als Datenbankplattform für Anwendungen.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>PostgreSQL wird ausschließlich für die <strong>Anwendungsdatenbank</strong> (<code>Database</code>) und die <strong>Runtime-Datenbank</strong> unterstützt.
+Als <strong>Repository-Datenbank</strong> der Framework Studio IDE steht weiterhin nur SQL Server oder Oracle zur Verfügung.</p>
+</div>
+<h3 id="einrichtung">Einrichtung</h3>
+<p>Eine PostgreSQL-Datenquelle wird wie gewohnt über den neuen Connection Type <code>PostgreSql</code> angelegt (siehe <a href="../doc/database/datasource.html">Datasource</a> und <a href="../doc/database/connection.html#postgresql-connection">Connection Einstellungen</a>).</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Vor der ersten Verwendung muss ein Datenbank-Administrator einmalig einen impliziten Typ-Cast auf der PostgreSQL-Datenbank anlegen. Details dazu und zu weiteren Besonderheiten (Identifier-Groß-/Kleinschreibung, Groß-/Kleinschreibung bei Vergleichen) siehe <a href="../doc/database/connection.html#datenbank-einrichten">PostgreSQL-Connection - Datenbank einrichten</a>.</p>
+</div>
+<h3 id="besonderheiten-gegenüber-sql-server">Besonderheiten gegenüber SQL Server</h3>
+<ul>
+<li><strong>Windows-Authentifizierung</strong> wird nicht unterstützt - es wird immer Username/Password verwendet.</li>
+<li>PostgreSQL ist nativ <strong>UTF-8</strong>, die Unterscheidung zwischen <code>String</code> und <code>AnsiString</code> entfällt serverseitig.</li>
+<li>Zeilenversionierung ist durch das native <strong>MVCC</strong> immer aktiv, eine explizite Konfiguration wie bei SQL Server ist nicht nötig (siehe <a href="knowledge/snapshot-isolation.html#postgresql">Zeilenversionierung</a>).</li>
+<li>String-Vergleiche sind <strong>case-sensitiv</strong> - anders als bei den üblichen SQL-Server-Collations, aber wie bei Oracle (siehe <a href="../doc/database/case-sensitivity.html">Groß-/Kleinschreibung bei String-Vergleichen</a>).</li>
+</ul>
+<h3 id="fehlerverhalten-innerhalb-von-transaktionen">Fehlerverhalten innerhalb von Transaktionen</h3>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>PostgreSQL verhält sich bei Fehlern innerhalb einer offenen Transaktion <strong>fundamental anders</strong> als SQL Server.</p>
+</div>
+<p>Bei SQL Server bleibt eine Transaktion nach einem fehlgeschlagenen Statement (z.B. ein <code>SELECT</code> auf eine nicht existierende Tabelle) weiterhin nutzbar - nachfolgende Statements werden normal ausgeführt, sofern der Fehler im Code abgefangen wird.</p>
+<p>Bei PostgreSQL wird die gesamte Transaktion nach dem ersten Fehler als <strong>aborted</strong> markiert. Jedes weitere Statement in dieser Transaktion schlägt fehl mit <code>25P02: current transaction is aborted, commands ignored until end of transaction block</code>, bis ein <code>ROLLBACK</code> ausgeführt wird - unabhängig davon, ob der ursprüngliche Fehler im Code abgefangen wurde.</p>
+<p>Eigener Code, der nach dem Muster &quot;Fehler abfangen und in derselben Transaktion weiterarbeiten&quot; implementiert ist (z.B. per Try/Catch prüfen, ob eine Tabelle existiert, und bei Fehler mit anderer Logik fortfahren), funktioniert deshalb auf SQL Server, schlägt auf PostgreSQL aber mit <code>25P02</code> fehl, sobald ein weiteres Statement in derselben Transaktion ausgeführt wird.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Prüfen Sie vor einem potenziell fehlschlagenden Statement die Voraussetzung explizit (z.B. Existenz einer Tabelle über <code>information_schema</code>), statt auf einen Fehler zu reagieren und in derselben Transaktion fortzufahren.</p>
+</div>
+<h3 id="impliziter-typ-cast">Impliziter Typ-Cast</h3>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Vor der ersten Verwendung muss ein Datenbank-Administrator (Superuser) einmalig einen Cast auf der PostgreSQL-Datenbank anlegen.</p>
+</div>
+<p>SQL Server konvertiert bei Vergleichen automatisch zwischen String- und numerischen Typen (z.B. <code>smallint = varchar</code>). PostgreSQL tut das grundsätzlich nicht und benötigt dafür einen expliziten Cast:</p>
+<pre><code class="lang-sql">CREATE CAST (character varying AS numeric) WITH INOUT AS IMPLICIT;
+</code></pre>
+<p>Ohne diesen Cast schlagen Queries fehl, die numerische Spalten mit String-Parametern vergleichen - ein Fehler, der bei Tests auf SQL Server nie auffällt, da dort die Konvertierung transparent passiert. Framework Studio prüft beim Start, ob der Cast vorhanden ist, und meldet einen Fehler, falls nicht. Details siehe <a href="../doc/database/connection.html#datenbank-einrichten">PostgreSQL-Connection - Datenbank einrichten</a>.</p>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Es darf nur dieser eine Cast angelegt werden. Mehrere oder bidirektionale Casts führen zu <code>operator is not unique</code>-Fehlern.</p>
+</div>
+<h3 id="groß-kleinschreibung-bei-string-vergleichen">Groß-/Kleinschreibung bei String-Vergleichen</h3>
+<p>PostgreSQL vergleicht Strings <strong>case-sensitiv</strong> (<code>=</code>, <code>&lt;</code>, <code>&gt;</code>, <code>LIKE</code>, <code>DISTINCT</code>, Unique-Indizes). Framework Studio setzt <strong>keine</strong> Collation auf String-Spalten, es gilt also die Default-Collation der Datenbank:</p>
+<pre><code class="lang-sql">SELECT * FROM customer WHERE name = 'Max';    -- findet 'Max', nicht 'max' oder 'MAX'
+SELECT * FROM customer WHERE name LIKE 'ma%'; -- findet 'max', nicht 'Max' oder 'MAX'
+</code></pre>
+<ul>
+<li><strong>Unterschied zu SQL Server:</strong> Dort ist Case-Insensitivität keine Eigenschaft von Framework Studio, sondern von der Instanz-Collation des Kunden (üblicherweise <code>Latin1_General_CI_AS</code>). Auf <strong>Oracle</strong> sind Gleichheitsvergleiche mit den Standardeinstellungen dagegen ebenfalls case-sensitiv - PostgreSQL verhält sich hier also wie Oracle.</li>
+<li><strong>Case-insensitive Suche:</strong> Wo Groß-/Kleinschreibung ignoriert werden soll, muss der Vergleich das explizit tun - über <code>UPPER()</code>/<code>LOWER()</code> auf <strong>beiden</strong> Seiten oder über die Control-Eigenschaft <strong>SearchOperator</strong> = <code>LikeNonCaseSensitive</code>, die genau dieses SQL generiert.</li>
+<li><strong>Sortierung:</strong> Die Reihenfolge bei <code>ORDER BY</code> hängt an der Default-Collation der Datenbank. Bei <code>C</code>/<code>POSIX</code> gilt die Byte-Reihenfolge (<code>MAX</code> &lt; <code>Max</code> &lt; <code>max</code>), bei libc-/ICU-Locales wird sprachlich sortiert.</li>
+<li><strong>Indizes:</strong> <code>UPPER(spalte)</code> kann keinen normalen Index nutzen. Für häufige case-insensitive Suchen ist ein funktionaler Index (<code>CREATE INDEX ... ON t (UPPER(spalte))</code>) nötig.</li>
+</ul>
+<p>Details und Best Practices siehe <a href="../doc/database/case-sensitivity.html">Groß-/Kleinschreibung bei String-Vergleichen</a>.</p>
+<h3 id="identifier-groß-kleinschreibung">Identifier-Groß-/Kleinschreibung</h3>
+<p>PostgreSQL verhält sich analog zu Oracle: Unquotierte Identifier werden normalisiert - Oracle auf GROSSSCHREIBUNG, PostgreSQL auf <strong>Kleinschreibung</strong>. Quotierte Identifier (<code>&quot;MeineTabelle&quot;</code>) bleiben dagegen case-sensitiv. SQL Server ist case-preserving.</p>
+<p>Framework Studio berücksichtigt das automatisch (alle generierten Identifier werden konsistent kleingeschrieben und quotiert). Relevant wird es, wenn Tabellen/Spalten außerhalb von Framework Studio angelegt werden - z.B. durch Migrationswerkzeuge (siehe unten) - und dabei gemischte Schreibweise entsteht: Ein unquotiertes <code>SELECT * FROM MeineTabelle</code> findet dann <code>meinetabelle</code> nicht.</p>
+<h3 id="datums-zeitwerte">Datums-/Zeitwerte</h3>
+<p>Neuere Npgsql-Versionen mappen <code>DateTime</code>-Parameter standardmäßig auf <code>timestamp with time zone</code>. Framework Studio verwendet intern durchgängig <code>timestamp without time zone</code> (entspricht dem SQL Server <code>datetime</code>-Verhalten) und aktiviert dafür automatisch das Npgsql-Legacy-Timestamp-Verhalten. Für reinen Framework-Studio-Code ist das transparent - relevant wird es nur, wenn eigener Code direkt mit der Npgsql-API oder rohen Timestamp-Literalen arbeitet.</p>
+<h3 id="getguid"><code>GETGUID()</code></h3>
+<p><code>GETGUID()</code> liefert auf PostgreSQL - wie auf SQL Server und Oracle - einen 32-stelligen lowercase Hex-String ohne Bindestriche, <strong>nicht</strong> das native PostgreSQL-Format des <code>uuid</code>-Typs (mit Bindestrichen). Das ist bewusst so gewählt, damit Anwendungscode unabhängig vom Connection Type mit demselben GUID-Format arbeitet.</p>
+<h3 id="views-beim-db-abgleich">Views beim DB-Abgleich</h3>
+<p>PostgreSQL verbietet <code>ALTER TABLE ... ALTER COLUMN ... TYPE ...</code> auf Spalten, die von einer View referenziert werden (<code>0A000: cannot alter type of a column used by a view or rule</code>). SQL Server erlaubt Typänderungen in diesem Fall. Framework Studio behandelt das beim DB-Abgleich automatisch: abhängige Views werden vor der Typänderung gedroppt und danach wiederhergestellt.</p>
+<h3 id="migration-von-sql-server-oder-oracle">Migration von SQL Server oder Oracle</h3>
+<p>Framework Studio liefert <strong>kein eigenes Migrationswerkzeug</strong> für den Umstieg von bestehenden SQL Server- oder Oracle-Datenbanken auf PostgreSQL. Der Einsatz von PostgreSQL ist primär für neue Installationen vorgesehen. Am Markt verfügbare Werkzeuge (z.B. pgLoader, AWS SCT, ora2pg) wurden nicht offiziell auf Kompatibilität mit den FS-spezifischen Strukturen (Datentypen, Trigger, Constraints, Collation) geprüft.</p>
+<h3 id="tabellen-import">Tabellen-Import</h3>
+<p>Der Assistent zum Import von Tabellen aus einer bestehenden Datenbank unterstützt nun auch PostgreSQL-Anwendungsdatenbanken.
+Passende Metadatentypen werden anhand der PostgreSQL-Datentypen vorgeschlagen.</p>
+<p>Datentypen, die sich nicht auf einen Framework-Studio-Datentyp abbilden lassen (z.B. Arrays, <code>interval</code>, Enums oder Typen aus Extensions), werden beim Import abgelehnt, statt still als Metadatentyp ohne Datentyp angelegt zu werden.</p>
+<h3 id="runtime-supervisor">Runtime Supervisor</h3>
+<p>Auch der <a href="../doc/runtimesupervisor/runtimesupervisor-installation.html">Runtime Supervisor</a> kann seine Daten nun in einer PostgreSQL-Datenbank ablegen.
+Im Setup steht dafür neben SQL Server und Oracle der Datenbank-Provider <strong>PostgreSQL</strong> zur Auswahl.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Wie bei Oracle muss die Datenbank bereits existieren - das Setup legt lediglich das Schema an.</p>
+</div>
+<h2 id="datenbank-abgleich-unter-sql-server">Datenbank-Abgleich unter SQL Server</h2>
+<p>Die Differenzlogik für SQL Server wurde in mehreren Punkten verbessert. Details finden Sie in den <a href="release-4-9.html#sql-server">Release-Informationen</a>.</p>
+<ul>
+<li>Binärspalten werden nicht mehr mit dem seit 2006 veralteten Datentyp <code>image</code>, sondern als <code>varbinary(max)</code> angelegt.
+Bestehende <code>image</code>-Spalten werden im Modus <code>DBDifferenceAnalyzeMode.Cleanup</code> erkannt und zur Konvertierung angeboten.</li>
+<li><code>FSROWID</code>-Spalten werden korrekt als <code>uniqueidentifier</code> erwartet.</li>
+<li>Spalten vom Typ <code>datetime2</code> werden im Cleanup-Modus gemeldet und sollten zu <code>datetime</code> konvertiert werden.</li>
+<li>Abweichungen bei Boolean (<code>bit</code>), Byte (<code>tinyint</code>), Guid (<code>uniqueidentifier</code>) und Gleitkommazahlen (<code>float</code>/<code>real</code>) werden nun erkannt.</li>
+<li><a href="release-4-9.html#verwaiste-tabellen-und-spalten">Verwaiste Tabellen und Spalten</a>, die in der Datenbank existieren, aber in Framework Studio nicht (mehr) definiert sind, werden im Cleanup-Modus gemeldet.
+Für sie wird bewusst <strong>kein</strong> <code>DROP</code>-Skript erzeugt.</li>
+</ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Mit <code>DBDifferenceAnalyzeMode.Cleanup</code> erzeugte SQL-Skripte sollten niemals automatisch ausgeführt werden.
+Indizes, die nur in der Datenbank, nicht aber in Framework Studio definiert sind, werden dabei tatsächlich gelöscht.</p>
+</div>
+<h2 id="authentication-service">Authentication Service</h2>
+<h3 id="anmeldung-per-jwt">Anmeldung per JWT</h3>
+<p>Der Authentication Service kann nun ein von einem registrierten OpenID-Connect-Identity-Provider ausgestelltes Token (JWT) direkt verarbeiten und den zugehörigen Benutzer identifizieren.
+Damit können sich z.B. externe Clients, die bereits beim Identity Provider angemeldet sind, mit ihrem Token an Framework Studio Anwendungen authentifizieren.</p>
+<p>Trägt das durchgereichte Token eine andere Audience als die <strong>ClientID</strong> des Authentication Service, können im neuen Feld <a href="../doc/authentication-service/authentication-service-common.html#additional-valid-audiences">Additional Valid Audiences</a> weitere gültige Audiences hinterlegt werden.</p>
+<h3 id="configuration-editor-überarbeitet">Configuration Editor überarbeitet</h3>
+<p>Die Oberfläche des <a href="../doc/authentication-service/authentication-service-common.html#registerkarte-application-security">Authentication Service Configuration Editors</a> wurde überarbeitet.
+Die Felder für die <a href="../doc/authentication-service/authentication-service-common.html#openid-connect-authentication">OpenID Connect Authentication</a> sind nun ausführlich dokumentiert.</p>
+<h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
+<ul>
+<li>SQLite-Datenbanken (z.B. bei Publish2Go) können nun auch über einen UNC-Pfad geöffnet werden.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

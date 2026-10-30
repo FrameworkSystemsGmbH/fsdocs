@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Customization Conflicts </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Customization Conflicts ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="customization-conflicts">Customization Conflicts</h1>
+
+<h2 id="customization-conflicts---detector">Customization Conflicts - Detector</h2>
+<p>Dieses Add-In für Framework Studio dient dazu, Elemente in einem Custom Package zu identifizieren, die beim Wechsel auf ein anderes Basispackage (bzw. auf eine andere Basispackage Version) verloren gehen.</p>
+<p>Ursachen für einen Verlust können sein:</p>
+<ol>
+<li>Das Element, welches customized wurde, ist in der neuen Version des Basispackages gelöscht worden.</li>
+<li>Das Element, welches customized wurde, wurde im Basispackage in zwei unterschiedlichen Versionen parallel entwickelt.
+Daher hat das Element dann zwar in beiden Versionen den gleichen Namen, aber eine abweichende ID.</li>
+</ol>
+<p><strong>Beispiel für Situation 2:</strong></p>
+<p>Es gibt ein Basispackage <code>BasePkg</code>. An diesem gibt es die Packageversionen <code>1.0</code>, <code>1.0.1</code> und <code>1.1</code>.</p>
+<p>Es gibt ein Custom Package <code>CustPkg</code>. An diesem gibt es eine Version <code>1.0.1</code>, welche auf <code>BasePkg 1.0.1</code> aufsetzt.</p>
+<p>In <code>BasePkg 1.0.1</code> wird eine Component <code>cdNew</code> angelegt. Diese bekommt intern die ID <code>xyz101</code>.
+Parallel dazu wird in <code>BasePkg 1.1</code> ebenfalls eine Component <code>cdNew</code> angelegt. Diese bekommt intern die ID <code>abc11</code>.</p>
+<p>In <code>CustPkg 1.0.1</code> wurde die Component <code>cdNew</code> (ID=<code>xyz101</code>) customized und beispielsweise ein neues Property hinzugefügt.</p>
+<p>Wenn nun aus der Packageversion <code>CustPkg 1.0.1</code> die Version <code>1.1</code> erstellt wird und diese auf <code>BasePkg 1.1</code> umgehängt wird, so ist die Customization von <code>cdNew</code> mit dem neuen Property nicht mehr zu sehen.</p>
+<p>Die Ursache ist, dass die Component, welche customized wurde mit der ID <code>xyz101</code> in der Basispackage Version <code>BasePkg 1.1</code> nicht existiert und es zu der dort existierenden Component mit der ID <code>abc11</code> keine Customization im <code>CustPkg</code> gibt.</p>
+<h3 id="funktionsbeschreibung">Funktionsbeschreibung</h3>
+<p>Das Add-In wird aus der Framework Studio IDE mit dem Menüpunkt <strong>Tools / Checks / Customization Conflicts - Detector</strong> geöffnet.
+Dieser Menüpunkt erscheint lediglich im Maintenance Mode.</p>
+<p>Zunächst wird die Situation definiert, welche analysiert werden soll.</p>
+<p><img src="media/cust-conflicts-detector.png" alt="CustConflictsDetector"></p>
+<p>Vorbelegt ist die Packageversionshierarchie, an der Framework Studio angemeldet wurde.
+Diese wird im Folgenden mit „aktuelle Hierarchie&quot; bzw. im Englischen mit „current hierarchy&quot; bezeichnet.
+Wird eine abweichende Hierarchie definiert, können die Konflikte in der ausgewählten Hierarchy (engl. selected hierarchy) mit denen in der aktuellen Hierarchie nebeneinander gestellt werden.
+So sind Änderungen deutlich erkennbar.</p>
+<p>Für einen solchen Vergleich muss die Checkbox <strong>Compare with conflicts in current package hierarchy</strong> gesetzt werden.
+Die Checkbox ist deaktiviert, wenn die ausgewählte Hierarchie der aktuellen Hierarchie entspricht.</p>
+<p>In der linken oberen Ecke des Dialogs wird in einer Listbox die ausgewählte Packageversionshierarchie angezeigt.
+Die Reihenfolge der Einträge entspricht der Position in der Hierarchie.</p>
+<p>Rechts daneben befinden sich Buttons zum Ändern der Hierarchie, die sich auf den ausgewählten Listeneintrag beziehen:</p>
+<ul>
+<li><strong>Add Behind</strong>: Fügt eine neue Packageversion in die Hierarchie hinter den aktuell ausgewählten Eintrag ein</li>
+<li><strong>Remove</strong>: Löscht die aktuell ausgewählte Packageversion aus der Hierarchie</li>
+<li><strong>Change Version</strong>: Ändert die Version des aktuell ausgewählten Eintrags</li>
+<li><strong>Move Up</strong>: Verschiebt den ausgewählten Eintrag um eine Position nach oben</li>
+<li><strong>Move Down</strong>: Verschiebt den ausgewählten Eintrag um eine Position nach unten</li>
+</ul>
+<p>Ist die gewünschte Hierarchie definiert, wird der Analysevorgang mit dem Button <strong>Start</strong> gestartet.
+Der Analysevorgang kann mehrere Minuten dauern.
+Mit dem Button <strong>Cancel</strong> wird das Add-In geschlossen.</p>
+<p><strong>Elemente und Unterelemente:</strong></p>
+<p>Ein <strong>Element</strong> ist ein Objekt in Framework Studio, das ein- und ausgecheckt werden kann.
+Elemente sind beispielsweise Forms, Components, Metadatentypen, Resourcen, Workflows usw.</p>
+<p>Ein <strong>Unterelement</strong> (engl. subelement) ist ein Objekt aus Framework Studio, das nicht einzeln ein- oder ausgecheckt werden kann, sondern Teil eines Elements ist und mit diesem ein- und ausgecheckt wird.
+Beispiele für Unterelemente sind Formmethoden, Properties und Methoden einer Component, Datenbankspalten (DBColumns), Workflowlinks usw.</p>
+<p>Wenn die Analyse abgeschlossen ist, werden die Ergebnisse tabellarisch aufgelistet.</p>
+<p><img src="media/cust-conflicts-overview.png" alt="CustConflictsOverview"></p>
+<p>Oberhalb der Tabelle werden die aktuelle Packagehierarchie (Current Package Hierarchy) und die ausgewählte Hierarchie (Selected Package Hierarchy) angezeigt.
+Ist die ausgewählte Hierarchie mit der aktuellen identisch oder es wurde die Checkbox für den Vergleich nicht gesetzt, so wird nur eine Hierarchie angezeigt.</p>
+<p>In der Leiste am oberen Rand des Dialogs können die Ergebnisse durch zwei Optionen eingeschränkt werden:</p>
+<ul>
+<li>Checkbox <strong>Show conflicting subelements of conflicting elements</strong>: Wenn ein Element bereits einen Konflikt hat, haben automatisch alle Unterelemente ebenfalls Konflikte.
+Ist die Checkbox gesetzt, werden auch die Konflikte der Unterelemente angezeigt.
+Ist die Checkbox nicht gesetzt, werden zu Elementen mit einem Konflikt keine Konflikte in Unterelementen angezeigt.</li>
+<li>Combobox <strong>Show</strong>: Diese Combobox wird nur angezeigt, wenn zwei Hierarchien verglichen werden. Zur Auswahl stehen dann folgende Optionen:
+<ul>
+<li><strong>All conflicts</strong>: Alle Konflikte anzeigen</li>
+<li><strong>Only conflicts in selected package hierarchy</strong>: Nur Konflikte anzeigen, die ausschließlich in der ausgewählten Hierarchie auftreten</li>
+<li><strong>Only conflicts in current package hierarchy</strong>: Nur Konflikte anzeigen, die ausschließlich in der aktuellen Hierarchie auftreten</li>
+<li><strong>Only conflicts in both package hierarchies</strong>: Nur Konflikte anzeigen, die in beiden Hierarchien auftreten</li>
+</ul>
+</li>
+</ul>
+<p>Im Folgenden werden die Bedeutungen der einzelnen Tabellenspalten beschrieben.
+Daten der Tabelle lassen sich durch Anklicken einer Spaltenüberschrift nach der entsprechenden Spalte sortieren.</p>
+<ul>
+<li><strong>Icon</strong>: Symbol des Elements. Durch Klicken auf die Spaltenüberschrift kann nach dem Elementtyp sortiert werden.</li>
+<li><strong>Element Name</strong>: Name des Elements. Es kann vorkommen, dass der Name des Elements nicht mehr ermittelt werden kann.
+In diesem Fall wird kursiv die ID des Elements angezeigt.
+Der Tooltip zeigt immer ID und Version des Elements an.
+Ist der Elementname als Link dargestellt (blau und unterstrichen), so kann das Element durch Anklicken des Namens geöffnet werden.</li>
+<li><strong>Namespace</strong>: Name des Namespaces, in dem das Element zu finden ist. Der Namespace kann nicht vollständig referenziert angezeigt werden. Der Tooltip zeigt die ID des Namespaces.</li>
+<li><strong>Subelement Type</strong>: Typ des Unterelements.
+Ist das betroffene Element kein Unterelement, so bleibt die Spalte leer.</li>
+<li><strong>Subelement Name</strong>: Name des Unterelements, soweit es sich um ein Unterelement handelt.
+Kann der Name nicht ermittelt werden, wird kursiv die ID des Unterelements angezeigt.
+Der Tooltip zeigt immer ID und Version an.
+Ist der Name als Link (blau und unterstrichen) dargestellt, kann durch Anklicken des Namens das Unterelement oder das Element geöffnet werden.</li>
+<li><strong>Package Hierarchy</strong>: Zeigt an, in welcher Hierarchie der Konflikt auftritt.
+Diese Spalte wird nur angezeigt, wenn zwei Hierarchien verglichen werden.
+Mögliche Werte sind:
+<ul>
+<li><strong>Current</strong>: Konflikt nur in der aktuellen Hierarchie</li>
+<li><strong>Selected</strong>: Konflikt nur in der ausgewählten Hierarchie</li>
+<li><strong>Both</strong>: Konflikt in beiden Hierarchien</li>
+</ul>
+</li>
+</ul>
+<p>Die Darstellung der Konflikte geschieht in Form einer HTML-Seite.
+Über das <strong>Kontextmenü</strong> können beispielsweise die Ergebnisse kopiert oder gedruckt werden.</p>
+<h3 id="kompatibilität">Kompatibilität</h3>
+<p>Grundsätzlich ermöglicht das Add-In, Packageversionen, die zu unterschiedlichen FS-Versionen gehören, zu analysieren und zu vergleichen. Es gibt jedoch eine Einschränkung:</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Packageversionen, denen eine FS Version 3.6 oder höher zugeordnet ist, können nicht mit dem Add-In aus FS 3.5.x analysiert werden!</p>
+</div>
+<h3 id="typische-anwendungsbeispiele">Typische Anwendungsbeispiele</h3>
+<h4 id="beispiel-1">Beispiel 1</h4>
+<p>Alle Versionen wurden mit der gleichen FS Version entwickelt. Fett gedruckte Versionen existieren bereits.</p>
+<ul>
+<li>Ausgangshierarchie: <code>Base 1.0.1</code> / <code>Branch 1.0.1</code> / <code>Cust 1.0.1</code></li>
+<li>Zielkonfiguration: <code>Base 1.1</code> / <code>Branch 1.1</code> / <code>Cust 1.1</code></li>
+</ul>
+<p><code>Cust 1.1</code> soll aus <code>Cust 1.0.1</code> durch Labeln erzeugt werden. Die Konflikte, die dadurch entstehen, sollen vorher analysiert werden.</p>
+<p><strong>Vorgehen:</strong></p>
+<p>Anmeldung mit FS an <code>Cust 1.0.1</code> (basierend auf <code>Branch 1.0.1</code> und <code>Base 1.0.1</code>). AddIn mit der Hierarchie <code>Base 1.1</code> / <code>Branch 1.1</code> / <code>Cust 1.0.1</code> starten.</p>
+<ul>
+<li>Alle Konflikte, die nur in der ausgewählten Hierarchie erscheinen, sind neu</li>
+<li>Alle Konflikte, die nur in der aktuellen Hierarchie erscheinen, sind zukünftig nicht mehr problematisch</li>
+<li>Alle Konflikte, die in beiden Hierarchien erscheinen, sind unproblematisch, da sie zwar auch zukünftig existieren, aber auch in der aktuellen Hierarchie bereits existieren</li>
+</ul>
+<p><strong>Konfliktlösung:</strong></p>
+<p>Nach dem Labeln von <code>Cust 1.0.1</code> können die betroffenen Elemente in <code>Cust 1.1</code> gelöscht (und wichtige Inhalte gesichert) werden. Dies muss vor dem Umhängen auf <code>Branch 1.1</code> / <code>Base 1.1</code> geschehen.
+Nach dem Umhängen können die Elemente neu angelegt (und mit den gesicherten Inhalten gefüllt) werden.</p>
+<h4 id="beispiel-2">Beispiel 2</h4>
+<p>Alle Versionen <code>1.0.1</code> wurden mit FS 3.5 entwickelt, alle Versionen <code>1.1</code> mit FS 3.6.</p>
+<ul>
+<li>Ausgangshierarchie: <code>Base 1.0.1</code> / <code>Branch 1.0.1</code> / <code>Cust 1.0.1</code></li>
+<li>Zielkonfiguration: <code>Base 1.1</code> / <code>Branch 1.1</code> / <code>Cust 1.1</code></li>
+</ul>
+<p><code>Cust 1.1</code> soll aus <code>Cust 1.0.1</code> durch Labeln erzeugt werden.</p>
+<p><strong>Problem:</strong> Mit FS 3.6 kann man sich nicht an <code>Cust 1.0.1</code> (wie in Beispiel 1) anmelden.
+Dies wäre nötig, da sowohl Packageversionen die mit FS 3.5 erstellt wurden als auch welche, die mit FS 3.6 erstellt wurden, analysiert werden müssen.</p>
+<h5 id="variante-a">Variante a)</h5>
+<p><strong>Ziel:</strong> Es soll im Vorhinein analysiert werden.</p>
+<p><strong>Vorgehen:</strong></p>
+<p>Mit FS 3.6 an <code>Branch 1.1</code> (Basis ist <code>Base 1.1</code>) anmelden. Add-In mit der Hierarchie <code>Base 1.1</code> / <code>Branch 1.1</code> / <code>Cust 1.0.1</code> starten.</p>
+<ul>
+<li>Alle Konflikte, die nur in der ausgewählten Hierarchie erscheinen, sind neu in <code>Cust 1.1</code> oder existieren bereits in <code>Cust 1.0.1</code> (mit <code>Branch 1.0.1</code> und <code>Base 1.0.1</code>)</li>
+<li>Alle Konflikte, die nur in der aktuellen Hierarchie erscheinen, sind zukünftig nicht mehr problematisch</li>
+<li>Alle Konflikte, die in beiden Hierarchien erscheinen, sind unproblematisch, da sie zwar auch zukünftig existieren, aber auch in der aktuellen Hierarchie bereits existieren</li>
+</ul>
+<p><strong>Nachteil:</strong></p>
+<p>Man sieht nicht direkt, ob Konflikte in der ausgewählten Hierarchie in <code>Cust 1.1</code> neu sind oder bereits in <code>Cust 1.0.1</code> bestanden haben.
+Um dies zu prüfen, müsste man sich zusätzlich mit FS 3.5 an <code>Cust 1.0.1</code> / <code>Branch 1.0.1</code> / <code>Base 1.0.1</code> anmelden und prüfen, ob der Konflikt dort auch schon bestand.</p>
+<p><strong>Konfliktlösung:</strong></p>
+<p>Die Konfliktlösung kann grundsätzlich erst erfolgen, wenn <code>Cust 1.1</code> eröffnet wurde (siehe oben).</p>
+<h5 id="variante-b">Variante b)</h5>
+<p><strong>Ziel:</strong> Genaue Übersicht, welche Probleme neu hinzukommen.</p>
+<p><strong>Vorgehen:</strong></p>
+<p><code>Cust 1.0.1</code> labeln und <code>Cust 1.1</code> auf FS 3.6 heben. Basispackages wie in <code>Cust 1.0.1</code> lassen.
+Mit FS 3.6 an <code>Cust 1.1</code> (Basis sind <code>Branch 1.0.1</code> und <code>Base 1.0.1</code>) anmelden. Add-In mit der Hierarchie <code>Cust 1.1</code> / <code>Branch 1.1</code> / <code>Base 1.1</code> starten.</p>
+<ul>
+<li>Alle Konflikte, die nur in der ausgewählten Hierarchie erscheinen, sind neu</li>
+<li>Alle Konflikte, die nur in der aktuellen Hierarchie erscheinen, sind zukünftig nicht mehr problematisch</li>
+<li>Alle Konflikte, die in beiden Hierarchien erscheinen, sind unproblematisch, da sie zwar auch zukünftig existieren, aber auch in der aktuellen Hierarchie bereits existieren</li>
+</ul>
+<p><strong>Konfliktlösung:</strong></p>
+<p>Alle neuen Konflikte können erst gelöst werden, wenn die alte Version versiegelt und eine neue Version eröffnet wurde, die aber noch auf den alten Basispackages aufsetzt.
+In dieser Situation können die zukünftigen Konflikte abgeräumt werden (Löschen der Customization, soweit möglich, und Sicherung der Inhalte soweit nötig).
+Danach kann die neue Version auf die neuen Basispackages gehoben werden und die fehlenden Elemente wieder neu angelegt werden.</p>
+<h2 id="customization-conflicts--cleanup">Customization Conflicts – Cleanup</h2>
+<p>Dieses Add-In dient dazu, Customizations in der aktuellen Packageversion zu suchen, die keine gültige Basis in einem Basepackage mehr besitzen, und abzuräumen.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Da dies direkt über die Datenbank erfolgt, ist höchste Vorsicht geboten.
+Die Aktion lässt sich ausschließlich durch das Einspielen eines Datenbank-Backups ungeschehen machen.</p>
+</div>
+<h3 id="funktionsbeschreibung-1">Funktionsbeschreibung</h3>
+<p>Der Menüpunkt <strong>Tools / Checks / Customization Conflicts – Cleanup</strong> startet das Add-In.
+Genau wie beim Detector ist dieser Menüpunkt nur im Maintenance Mode sichtbar.
+Es erscheint ein Fortschrittsdialog, der die Suche nach Customizations ohne Basis durchführt.</p>
+<p>Wird kein Konflikt gefunden, erscheint die Meldung <code>There's nothing to cleanup</code>.
+Ansonsten folgt ein Dialog, der alle Konflikte auflistet.
+Durch das Aktivieren bzw. Deaktivieren der Checkbox-Controls an den Einträgen kann festgelegt werden, welche Einträge bereinigt werden sollen.</p>
+<p><img src="media/cust-conflicts-cleanup.png" alt="CustConflictsCleanup"></p>
+<p>Wenn es sich bei den Einträgen um Unterobjekte wie z.B. Properties einer Component handelt, muss sichergestellt sein, dass die entsprechende Component nicht ausgecheckt ist.
+Der Grund dafür ist, dass die Components beim Cleanup aus- und wieder eingecheckt werden müssen.</p>
+<p>Nachdem dieser Dialog durch einen Klick auf <strong>Cleanup</strong> bestätigt wurde, beginnt das automatische Eliminieren der Konflikte.
+Es erscheint ein weiterer Fortschrittsdialog, der den Fortschritt der Aufräumaktion anzeigt.</p>
+<p>Im Ausgabefenster des FrameworkDesigners wird eine Liste von Log-Einträgen ausgegeben, die auflistet, welche Einträge aufgeräumt wurden:</p>
+<pre><code class="lang-text">Customization Conflicts Cleanup
+- Component(name=cdNotExisting1, id=5b6924f9bec24ff397171358228a163e, version=1,
+  packageID=668550402cca42f39d18cc306c5db2b5, nspID=280c4a12df4946ed98b097bb7c889b8c)
+- Component(name=cdNotExisting2, id=a025b1c44f714a0e8c8cb5e009ce4df7, version=1,
+  packageID=668550402cca42f39d18cc306c5db2b5, nspID=9f9403c73ad649ab88ae4f87fa67f4c1)
+- Property(name=&lt;unknown&gt;, id=d03d80a8d764461c8f66417d733976a4, version=1) at
+  Component(name=cdExisting1, id=319aebd0f2e84c3383897fb725cf5196, version=1,
+  packageID=668550402cca42f39d18cc306c5db2b5, nspID=280c4a12df4946ed98b097bb7c889b8c)
+- ConnectionGroup(name=&lt;unknown&gt;, id=099e3afeb0ae479c9d0a711f32c912a6, version=1,
+  packageID=668550402cca42f39d18cc306c5db2b5, nspID=GeneralDBTables)
+- DBTable(name=tNotExisting2, id=1f037ee04f3045ccb3ed37c66c194501, version=1,
+  packageID=668550402cca42f39d18cc306c5db2b5, nspID=61dc46eddedf4030bb4f6007a1de229c)
+- DBTable(name=tNotExisting1, id=61073164ec6a41c8a010e3d243dad6b6, version=1,
+  packageID=668550402cca42f39d18cc306c5db2b5, nspID=d042d12aef2742f58419697025e60fc7)
+- DBColumn(name=&lt;unknown&gt;, id=c44e6fbd37d04d1385ed0e74ce0e9854, version=1) at
+  DBTable(name=tExists1, id=81c3687a5e0c454ca8a8a3e80b5fe40f, version=1,
+  packageID=668550402cca42f39d18cc306c5db2b5, nspID=d042d12aef2742f58419697025e60fc7)
+- Namespace(name=&lt;unknown&gt;, id=9f9403c73ad649ab88ae4f87fa67f4c1, version=1,
+  packageID=668550402cca42f39d18cc306c5db2b5, nspID=a6cfca4ce915461f984303ced681539a)
+- DBConnection(name=&lt;unknown&gt;, id=61dc46eddedf4030bb4f6007a1de229c, version=1,
+  packageID=668550402cca42f39d18cc306c5db2b5, nspID=)
+Cleanup finished successfully.
+</code></pre>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

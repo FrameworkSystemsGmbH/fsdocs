@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Features im Print-Server </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Features im Print-Server ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="features-im-print-server">Features im Print-Server</h1>
+
+<h2 id="konsole">Konsole</h2>
+<p>Sie können den Print-Service auch als Konsole-Anwendung starten. Dazu kann einfach die Datei <code>PrintService.exe</code> gestartet werden.</p>
+<p>Ein PrintService darf generell nur einmal gestartet sein. Also entweder als Dienst oder mit der Konsole. Bevor Sie die Konsole-Anwendung starten, stellen Sie sicher, dass der Dienst gestoppt oder deaktiviert ist.</p>
+<p>Anmerkung: Es ist aber durchaus möglich VERSCHIEDENE PrintServices auf einem Rechner parallel zu betreiben. Jeder dieser Services darf aber nur einmal laufen.</p>
+<p>Beim Start mit der Konsole werden detaillierte Informationen zum Status und zu den Print-Jobs ausgegeben. Das kann sehr hilfreich sein, um z.B. das Verhalten des PrintServices oder auch Fehler zu analysieren.</p>
+<p>Die Ausgaben auf der Konsole haben denselben Inhalt wie die Protokoll-Datei. Wenn der Service als Konsole-Anwendung gestartet wird, werden die Informationen sowohl in der Konsole als auch, wenn konfiguriert, in der Protokoll-Datei ausgegeben.</p>
+<h2 id="prüfungen-beim-start">Prüfungen beim Start</h2>
+<p>Der PrintService führt beim Start Überprüfungen durch.</p>
+<ol>
+<li><p>Sind Drucker verfügbar?</p>
+<p>Es wird geprüft, ob die angegebenen Drucker auch als Windows-Drucker verfügbar sind. Der Print-Server registriert ja alle Drucker im Repository. Diese werden dann von der Applikation (z.B. eNVenta) verwendet. Wenn ein Drucker nicht verfügbar ist, wird eine Warnung in das Ereignis-Protokoll geschrieben, Es wird eine Information in die Protokoll-Datei geschrieben und der Drucker wird mit dem Präfix <code>##ERROR##</code> in das Repository geschrieben.</p>
+<p>So können Sie auch in der Anwendung sehen, wenn der Print-Service einen Drucker nicht ansprechen kann.</p>
+<p>Wenn der Drucker aufgrund technischer Probleme nicht korrekt arbeitet, kann der PrintService keinen Fehler erzeugen. Das schlägt dann ggf. erst bei der Verarbeitung des Druckjobs auf.</p>
+</li>
+<li><p>Sind die Print-Adapter richtig konfiguriert?</p>
+<ul>
+<li><p><strong>Word, Excel Adapter</strong>: Es wird geprüft, ob Word oder Excel verfügbar ist. Bei der Prüfung wird die Version in die Protokoll-Datei geschrieben. Im Fehlerfall wird in die Protokoll-Datei geschrieben und es wird eine Warnung in das Ereignis-Protokoll geschrieben. Wenn Sie kein Word oder Excel verwenden, dann können die entsprechenden Adapter auch aus der Config-Datei entfernt werden. Entsprechende Print-Jobs werden in diesem Fall ignoriert.</p>
+</li>
+<li><p><strong>PDF-Adapter</strong>: Es wird geprüft, ob die in der Config definierte Programm-Datei existiert. Wenn nicht, wird die Protokoll-Datei geschrieben und eine Warnung in das Ereignis-Protokoll. Wenn Sie keine PDF-Dateien verarbeiten, dann können Sie diesen Adapter auch aus der Config-Datei entfernen. Entsprechende Print-Jobs werden in diesem Fall ignoriert.</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="druck-in-einen-ordner">Druck in einen Ordner</h2>
+<p>Wenn man mit dem Link <strong>Choose Folder</strong> den Drucker in einen <code>[Folder]</code> geändert hat, können Sie im Anschluss den Pfad manuell bearbeiten.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Bei der Angabe des Ordners können auch <strong>UNC-Pfade</strong> (z.B. <code>\\Server\Freigabe\</code>) verwendet werden. Es ist zwingend darauf zu achten, dass der Dienst mit einem Benutzer läuft, der entsprechende Schreib-Rechte für diese Freigabe hat.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p><strong>Netzlaufwerke</strong> sind hingegen NICHT zu empfehlen, weil diese – wenn der Print-Service als Dienst gestartet wird – evtl. nicht zur Verfügung stehen.</p>
+</div>
+<p>Durch die Verwendung von Platzhaltern kann der Pfad dynamisch aufgebaut werden.</p>
+<p>Folgende Platzhalter können verwendet werden:</p>
+<table>
+<thead>
+<tr>
+<th>Platzhalter</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>{date}</td>
+<td>Datum des Drucks mit dem Format <code>yyyy-MM-dd</code> <br> z.B. 2012-05-30</td>
+</tr>
+<tr>
+<td>{time}</td>
+<td>Zeit des Drucks im Format <code>HHmmss</code> <br> z.B. 121037 (für 12:10:37)</td>
+</tr>
+<tr>
+<td>{owner}</td>
+<td>Benutzer, der den Druck durchgeführt hat.</td>
+</tr>
+</tbody>
+</table>
+<p>Der Dateiname wird folgendermaßen generiert:</p>
+<ul>
+<li>Crystal Report Adapter
+<ul>
+<li>Dateiname: <code>&lt;ReportName&gt;_&lt;PrintJob-ID&gt;.PDF</code></li>
+<li>Beispiel: <code>Invoice_61b7ad1bb4304b40a7758f02f888e614.PDF</code></li>
+</ul>
+</li>
+</ul>
+<p>Wenn nicht bereits im Ordner verwendet, werden dem Dateinamen noch die Platzhalter in der folgenden Reihenfolge vorangestellt: <code>{date}_{time}_{owner}_&lt;dateiname&gt;</code></p>
+<h3 id="beispiel-konfiguration">Beispiel-Konfiguration</h3>
+<p>Es soll pro Tag ein neuer Ordner angelegt werden und darunter pro Mitarbeiter ein weiterer eigener Ordner.</p>
+<p>Konfigurierter Ordner (Folder):</p>
+<ul>
+<li><code>\\Fileserver1\Ausdrucke\{date}\Server1\{owner}\</code></li>
+</ul>
+<p>Es werden z.B. folgende Ordner generiert:</p>
+<ul>
+<li><code>\\Fileserver1\Ausdrucke\2012-05-30\Server1\User1\</code></li>
+<li><code>\\Fileserver1\Ausdrucke\2012-05-30\Server1\User2\</code></li>
+</ul>
+<p>Es werden die Dateien im folgenden Format angelegt:</p>
+<ul>
+<li><code>{time}_&lt;ReportName&gt;_&lt;PrintJob-ID&gt;.PDF</code>  (<code>{date}</code> und <code>{owner}</code> werden schon im Ordner verwendet und deshalb nicht in den Dateinamen gepackt)</li>
+</ul>
+<p>Beispiele für Dateien</p>
+<ul>
+<li><code>121037_Invoice_61b7ad1bb4304b40a7758f02f888e614.PDF</code></li>
+<li><code>182026_CallList_2a0af0b92b7f418483b5ab0801727453.PDF</code></li>
+</ul>
+<h2 id="logs">Logs</h2>
+<h3 id="tagesrotation-des-haupt-logs">Tagesrotation des Haupt-Logs</h3>
+<p>Das Haupt-Log wird täglich in eine neue Datei geschrieben. Der Dateiname enthält das aktuelle Datum als Suffix.</p>
+<p><strong>Beispiel:</strong> Aus dem konfigurierten <code>PS_PrintService_Log.txt</code> wird täglich <code>PS_PrintService_Log_yyyyMMdd.txt</code>.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Exceptions im Service werden zusätzlich in der ursprünglich definierten Datei (<code>PS_PrintService_Log.txt</code>) abgelegt.</p>
+</div>
+<h3 id="timing-werte-im-printservice-log-bei-devexpress-reports">Timing-Werte im PrintService-Log bei DevExpress-Reports</h3>
+<p>Jeder Druckauftrag erzeugt eine Logzeile mit folgenden Zeitwerten:</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-text">20260505 10:23:41    DEVEXPRESS Rechnung.repx, 42.350 bytes [Pages: 3] [Printer &quot;HP LaserJet&quot; (Type Default, \\srv\hp)] [DevEx Load: 312ms] [Spooled: 847ms] [DevExPrint:1203ms]
+[Pages: X]
+</code></pre>
+<p><code>[DevEx Load: Xms]</code>
+Zeit vom Eingang des Druckauftrags bis das Dokument vollständig in den Speicher geladen ist.</p>
+<p>Hohe Werte deuten auf ein großes oder komplexes Dokument hin.</p>
+<p><code>[DevExPrint: Xms] (bei Druckauftrag an Drucker)</code>
+Gesamtdauer des Druckvorgangs — von der Übergabe an DevExpress bis zum Ende des Print()-Aufrufs. Enthält die Spooling-Zeit (siehe [Spooled]) sowie den Initialisierungsaufwand durch GDI+ (Druckereinstellungen holen, Treiber-Kommunikation).</p>
+<p><code>[Spooled: Xms] (bei Druckauftrag an Drucker)</code>
+Zeit, die DevExpress benötigt hat, um alle Seiten an den Windows-Druckspooler zu übergeben.</p>
+<p>Abgrenzung: Der Spooler hat danach den Auftrag — wann der Drucker den tatsächlichen Druck durchführt, ist hier nicht messbar.</p>
+<p>Die Differenz [DevExPrint] − [Spooled] zeigt den GDI+-Initialisierungsaufwand (Drucker-Setup, Tray-Settings). Dieser kann bei Netzwerkdruckern je nach Druckertreiber und Netzwerklatenz nennenswert sein.</p>
+<p>[DevExExport: Xms] (bei Druckertyp „Folder&quot;)
+Zeit zum Erzeugen und Speichern der PDF-Datei(en) im konfigurierten Ausgabeordner. Enthält den PDF-Export sowie den Schreibvorgang auf das Dateisystem.</p>
+<p><strong>Typische Diagnose-Szenarien:</strong>
+(Symptom -&gt; Wahrscheinliche Ursache)</p>
+<ul>
+<li>[DevEx Load] hoch -&gt; Großes/komplexes Dokument</li>
+<li>[DevExPrint] [Spooled] hoch -&gt; Langsamer Druckertreiber oder Netzwerklatenz bei Tray-Settings-Abfrage</li>
+<li>[Spooled] hoch -&gt; Netzwerkdrucker mit geringer Bandbreite oder viele/große Seiten</li>
+<li>[DevExExport] hoch -&gt; Langsames Netzlaufwerk oder großer PDF-Export</li>
+</ul>
+<h2 id="erweitertes-spooler-monitoring">Erweitertes Spooler Monitoring</h2>
+<p>Das erweiterte Spooler Monitoring ist ein optionales Feature, das standardmäßig deaktiviert ist. Es überwacht aktiv den Windows Print Spooler und protokolliert den Lebenszyklus jedes Druckauftrags – vom Einreichen bis zur Übergabe des Drucks an den Drucker oder eventuell auftretende Fehler.</p>
+<h3 id="aktivierung-und-konfiguration">Aktivierung und Konfiguration</h3>
+<p>Das Feature wird in der <code>PrintService.exe.config</code> über folgende Parameter gesteuert:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Standard</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ExtendedSpoolerLogEnabled</code></td>
+<td><code>False</code></td>
+<td>Aktiviert das erweiterte Spooler-Monitoring insgesamt</td>
+</tr>
+</tbody>
+</table>
+<h3 id="neue-log-dateien">Neue Log-Dateien</h3>
+<p>Wenn das Feature aktiviert ist, erzeugt der PrintService zwei zusätzliche tagesrotierte Log-Dateien im selben Verzeichnis wie das Haupt-Log. Der Basisname wird aus dem konfigurierten Log-Dateinamen abgeleitet, wobei ein abschließendes <code>_Log</code> abgeschnitten wird.</p>
+<p><strong>Beispiel:</strong> Aus <code>C:\FS\Logging\PS_PrintService_Log.txt</code> werden:</p>
+<ul>
+<li><code>PS_PrintService_SpoolerLog_yyyyMMdd.txt</code> — detailliertes Spooler-Ereignis-Log</li>
+<li><code>PS_PrintService_FailedPrints_yyyyMMdd.txt</code> — Zusammenfassung aller fehlgeschlagenen Drucke</li>
+</ul>
+<h4 id="spoolerlog">SpoolerLog</h4>
+<p>Das SpoolerLog enthält eine Zeile pro Ereignis mit Zeitstempel und folgenden Event-Typen:</p>
+<table>
+<thead>
+<tr>
+<th>Event</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SUBMIT</code></td>
+<td>Druckauftrag wurde in den Windows-Spooler eingereicht</td>
+</tr>
+<tr>
+<td><code>EVENT</code></td>
+<td>Neues Fehler-Flag im Spooler erkannt (z.B. OFFLINE, PAPER_OUT)</td>
+</tr>
+<tr>
+<td><code>END</code></td>
+<td>Druckauftrag abgeschlossen (PRINTED, DELETED oder GONE)</td>
+</tr>
+<tr>
+<td><code>RECOVERY</code></td>
+<td>Beim Service-Start: Anzahl der noch offenen Jobs aus der vorherigen Session</td>
+</tr>
+<tr>
+<td><code>RESUME</code></td>
+<td>Beim Service-Start: Einzelner Job wird nach Neustart weiter verfolgt</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Beispielzeilen:</strong></p>
+<pre><code class="lang-text">2026-05-08 10:23:41    SUBMIT    JobID=abc123  Adapter=DEVEXPRESS  Printer=\\srv\HP_LJ  PrinterStatus=OK  SpoolerJobName=&quot;Rechnung.repx&quot;
+2026-05-08 10:23:45    END       JobID=abc123  Status=PRINTED  Result=OK
+2026-05-08 11:05:12    EVENT     JobID=def456  Status=OFFLINE|ERROR  NewFlag=OFFLINE
+2026-05-08 11:05:14    END       JobID=def456  Status=DELETED  Result=DELETED (after errors — siehe FailedPrints)
+</code></pre>
+<h4 id="failedprints">FailedPrints</h4>
+<p>Die FailedPrints-Datei enthält ausschließlich Einträge für Druckaufträge, bei denen ein Problem erkannt wurde. Sie dient als kompakte Übersicht zur täglichen Prüfung.</p>
+<table>
+<thead>
+<tr>
+<th>Eintrag</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>SPOOLER_ERROR</code></td>
+<td>Fehler-Flag im Spooler-Job erkannt</td>
+</tr>
+<tr>
+<td><code>DELETED_AFTER_ERROR</code></td>
+<td>Job wurde nach einem Fehler aus dem Spooler gelöscht</td>
+</tr>
+<tr>
+<td><code>GONE_AFTER_ERROR</code></td>
+<td>Job ist nach einem Fehler aus dem Spooler verschwunden</td>
+</tr>
+<tr>
+<td><code>UNKNOWN_AFTER_RESTART</code></td>
+<td>Job nach Neustart nicht mehr im Spooler und zu alt für eine zuverlässige Aussage</td>
+</tr>
+</tbody>
+</table>
+<h3 id="drucker-status-überwachung">Drucker-Status-Überwachung</h3>
+<p>Vor jedem Druckauftrag wird der aktuelle Windows-Drucker-Status abgefragt und im SpoolerLog beim <code>SUBMIT</code>-Event ausgegeben. Die Abfrage erfolgt über die Win32-API und wird gecacht. Bei Drucker-Änderungs-Events (z.B. Drucker geht offline) wird der Cache sofort invalidiert.</p>
+<p>Mögliche Status-Werte: <code>OK</code>, <code>OFFLINE</code>, <code>ERROR</code>, <code>PAPER_OUT</code>, <code>PAPER_JAM</code>, <code>PAUSED</code>, <code>NO_TONER</code>, <code>TONER_LOW</code>, u.a.</p>
+<h3 id="recovery-nach-neustart">Recovery nach Neustart</h3>
+<p>Beim Service-Start lädt der PrintService alle noch offenen Druckaufträge aus der Persistenz-Datei <code>InFlightJobs.xml</code> (im Temp-Verzeichnis des PrintService) und gleicht sie mit dem aktuellen Spooler-Zustand ab:</p>
+<ul>
+<li><strong>Job noch im Spooler</strong> → Überwachung wird nahtlos fortgesetzt</li>
+<li><strong>Job nicht mehr im Spooler, kürzlich abgeschlossen</strong> → als „likely OK&quot; behandelt, kein FailedPrints-Eintrag</li>
+<li><strong>Job nicht mehr im Spooler, zu alt</strong> → als <code>UNKNOWN_AFTER_RESTART</code> in FailedPrints eingetragen</li>
+</ul>
+<h3 id="auswirkung-auf-transaktionen">Auswirkung auf Transaktionen</h3>
+<p>Wenn der SpoolerMonitor einen Fehler-Flag an einem Druckauftrag erkennt (z.B. <code>OFFLINE</code>, <code>ERROR</code>, <code>PAPER_OUT</code>), wird die zugehörige PrintService-Transaktion automatisch als fehlgeschlagen markiert. Dies geschieht beim ersten auftretenden Fehler-Flag; spätere Flags werden weiter geloggt, ändern den Transaktionsstatus aber nicht erneut.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

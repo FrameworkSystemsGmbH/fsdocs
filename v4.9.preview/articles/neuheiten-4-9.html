@@ -88,9 +88,17 @@
 <h1 id="neuheiten-framework-studio-49">Neuheiten Framework Studio 4.9</h1>
 
 <p>Informationen zu aktuellen Versionen und korrigierten Fehlern finden Sie in den <a href="release-4-9.html">Release-Informationen</a>.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Dieses Dokument zeigt die Neuerungen beim Update von Version 4.8 auf 4.9.
+Beim Update von einer älteren Version beachten Sie bitte auch die Hinweise und Neuerungen der älteren Version (<a href="neuheiten-4-8.html">Neuheiten 4.8</a>).</p>
+</div>
 <h2 id="update-dlls">Update DLLs</h2>
 <p>Mit Framework Studio 4.9 wurden die Versionen aller referenzierten Pakete aktualisiert.</p>
 <p>Dadurch kann es beim Compile eigener Anwendungen zu neuen Errors oder Warnings kommen, wenn eingebundene Ressourcen (DLLs) nicht mehr zu den aktualisierten Versionen passen. Details zur Ursache und zur Behebung solcher Meldungen finden Sie unter <a href="../doc/resources/reference-check.html">Referenz-Prüfung für Ressourcen</a>.</p>
+<p>Eine Übersicht der wichtigsten aktualisierten Bibliotheken und der neu ausgelieferten DLLs finden Sie in den <a href="release-4-9.html#aktualisierte-bibliotheken">Release-Informationen</a>.</p>
+<h3 id="roslyn-compiler">Roslyn-Compiler</h3>
+<p>Der mitgelieferte Roslyn-Compiler, mit dem Framework Studio die Anwendungen compiliert, wurde auf Version 4.14 aktualisiert.</p>
 <h2 id="postgresql-als-neue-unterstützte-anwendungsdatenbank">PostgreSQL als neue unterstützte Anwendungsdatenbank</h2>
 <p>Neben SQL Server und Oracle unterstützt Framework Studio nun auch <strong>PostgreSQL</strong> (ab Version 18) als Datenbankplattform für Anwendungen.</p>
 <div class="NOTE">
@@ -159,6 +167,45 @@ SELECT * FROM customer WHERE name LIKE 'ma%'; -- findet 'max', nicht 'Max' oder 
 <p>PostgreSQL verbietet <code>ALTER TABLE ... ALTER COLUMN ... TYPE ...</code> auf Spalten, die von einer View referenziert werden (<code>0A000: cannot alter type of a column used by a view or rule</code>). SQL Server erlaubt Typänderungen in diesem Fall. Framework Studio behandelt das beim DB-Abgleich automatisch: abhängige Views werden vor der Typänderung gedroppt und danach wiederhergestellt.</p>
 <h3 id="migration-von-sql-server-oder-oracle">Migration von SQL Server oder Oracle</h3>
 <p>Framework Studio liefert <strong>kein eigenes Migrationswerkzeug</strong> für den Umstieg von bestehenden SQL Server- oder Oracle-Datenbanken auf PostgreSQL. Der Einsatz von PostgreSQL ist primär für neue Installationen vorgesehen. Am Markt verfügbare Werkzeuge (z.B. pgLoader, AWS SCT, ora2pg) wurden nicht offiziell auf Kompatibilität mit den FS-spezifischen Strukturen (Datentypen, Trigger, Constraints, Collation) geprüft.</p>
+<h3 id="tabellen-import">Tabellen-Import</h3>
+<p>Der Assistent zum Import von Tabellen aus einer bestehenden Datenbank unterstützt nun auch PostgreSQL-Anwendungsdatenbanken.
+Passende Metadatentypen werden anhand der PostgreSQL-Datentypen vorgeschlagen.</p>
+<p>Datentypen, die sich nicht auf einen Framework-Studio-Datentyp abbilden lassen (z.B. Arrays, <code>interval</code>, Enums oder Typen aus Extensions), werden beim Import abgelehnt, statt still als Metadatentyp ohne Datentyp angelegt zu werden.</p>
+<h3 id="runtime-supervisor">Runtime Supervisor</h3>
+<p>Auch der <a href="../doc/runtimesupervisor/runtimesupervisor-installation.html">Runtime Supervisor</a> kann seine Daten nun in einer PostgreSQL-Datenbank ablegen.
+Im Setup steht dafür neben SQL Server und Oracle der Datenbank-Provider <strong>PostgreSQL</strong> zur Auswahl.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Wie bei Oracle muss die Datenbank bereits existieren - das Setup legt lediglich das Schema an.</p>
+</div>
+<h2 id="datenbank-abgleich-unter-sql-server">Datenbank-Abgleich unter SQL Server</h2>
+<p>Die Differenzlogik für SQL Server wurde in mehreren Punkten verbessert. Details finden Sie in den <a href="release-4-9.html#sql-server">Release-Informationen</a>.</p>
+<ul>
+<li>Binärspalten werden nicht mehr mit dem seit 2006 veralteten Datentyp <code>image</code>, sondern als <code>varbinary(max)</code> angelegt.
+Bestehende <code>image</code>-Spalten werden im Modus <code>DBDifferenceAnalyzeMode.Cleanup</code> erkannt und zur Konvertierung angeboten.</li>
+<li><code>FSROWID</code>-Spalten werden korrekt als <code>uniqueidentifier</code> erwartet.</li>
+<li>Spalten vom Typ <code>datetime2</code> werden im Cleanup-Modus gemeldet und sollten zu <code>datetime</code> konvertiert werden.</li>
+<li>Abweichungen bei Boolean (<code>bit</code>), Byte (<code>tinyint</code>), Guid (<code>uniqueidentifier</code>) und Gleitkommazahlen (<code>float</code>/<code>real</code>) werden nun erkannt.</li>
+<li><a href="release-4-9.html#verwaiste-tabellen-und-spalten">Verwaiste Tabellen und Spalten</a>, die in der Datenbank existieren, aber in Framework Studio nicht (mehr) definiert sind, werden im Cleanup-Modus gemeldet.
+Für sie wird bewusst <strong>kein</strong> <code>DROP</code>-Skript erzeugt.</li>
+</ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Mit <code>DBDifferenceAnalyzeMode.Cleanup</code> erzeugte SQL-Skripte sollten niemals automatisch ausgeführt werden.
+Indizes, die nur in der Datenbank, nicht aber in Framework Studio definiert sind, werden dabei tatsächlich gelöscht.</p>
+</div>
+<h2 id="authentication-service">Authentication Service</h2>
+<h3 id="anmeldung-per-jwt">Anmeldung per JWT</h3>
+<p>Der Authentication Service kann nun ein von einem registrierten OpenID-Connect-Identity-Provider ausgestelltes Token (JWT) direkt verarbeiten und den zugehörigen Benutzer identifizieren.
+Damit können sich z.B. externe Clients, die bereits beim Identity Provider angemeldet sind, mit ihrem Token an Framework Studio Anwendungen authentifizieren.</p>
+<p>Trägt das durchgereichte Token eine andere Audience als die <strong>ClientID</strong> des Authentication Service, können im neuen Feld <a href="../doc/authentication-service/authentication-service-common.html#additional-valid-audiences">Additional Valid Audiences</a> weitere gültige Audiences hinterlegt werden.</p>
+<h3 id="configuration-editor-überarbeitet">Configuration Editor überarbeitet</h3>
+<p>Die Oberfläche des <a href="../doc/authentication-service/authentication-service-common.html#registerkarte-application-security">Authentication Service Configuration Editors</a> wurde überarbeitet.
+Die Felder für die <a href="../doc/authentication-service/authentication-service-common.html#openid-connect-authentication">OpenID Connect Authentication</a> sind nun ausführlich dokumentiert.</p>
+<h2 id="weitere-neuerungen">Weitere Neuerungen</h2>
+<ul>
+<li>SQLite-Datenbanken (z.B. bei Publish2Go) können nun auch über einen UNC-Pfad geöffnet werden.</li>
+</ul>
 
 </article>
 

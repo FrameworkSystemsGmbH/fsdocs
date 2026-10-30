@@ -87,15 +87,10 @@
         <article data-uid="">
 <h1 id="fscache-memory-cache">FSCache (Memory Cache)</h1>
 
-<div class="WARNING">
-<h5>Warning</h5>
-<p>Dieses Feature befindet sich noch in Entwicklung und sollte noch nicht frei eingesetzt werden.
-Derzeit werden in eNVenta mit Begleitung durch des FS-Teams noch weitere Grundlagen geschaffen.</p>
-</div>
 <p>Framework Studio stellt eine Infrastruktur auf Basis des <a href="https://learn.microsoft.com/dotnet/api/microsoft.extensions.caching.memory.imemorycache">IMemoryCache</a> von Microsoft bereit.</p>
 <p>Erreichbar ist diese über einen Singleton <code>FSCache.Instance</code>.</p>
 <p><a class="xref" href="../../api/FS.Hosting.Shared.FSCache.Instance.html"><code>FSCache.Instance</code></a> bietet in erster Ebene Methoden, um an den Cache für den gewünschten Scope zu gelangen - z.B. <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.Static.html#FS_Hosting_Shared_FSCache_Static_FS_Hosting_Shared_IFSCache_"><code>FSCache.Instance.Static()</code></a>, <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.Session.html#FS_Hosting_Shared_FSCache_Session_FS_Hosting_Shared_IFSCache_"><code>FSCache.Instance.Session()</code></a> oder <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.Request.html#FS_Hosting_Shared_FSCache_Request_FS_Hosting_Shared_IFSCache_"><code>FSCache.Instance.Request()</code></a>.
-Weitere Scopes z.B. für <code>BusinessUnit()</code> und <code>User()</code> werden von eNVenta mihilfe von Extension-Methods für das Interface <a class="xref" href="../../api/FS.Hosting.Shared.IFSCache.html"><code>IFSCache</code></a> implementiert.</p>
+Weitere Scopes z.B. für <code>BusinessUnit()</code> und <code>User()</code> werden von eNVenta mithilfe von Extension-Methods für das Interface <a class="xref" href="../../api/FS.Hosting.Shared.IFSCache.html"><code>IFSCache</code></a> implementiert.</p>
 <p>An den zurückgegebenen Memory Caches können alle angebotenen Features frei verwendet werden.
 Vor allem ist es möglich den Lifecycle eines CacheEntries mit Hilfe von Timeouts oder ExpirationTokens zu steuern.</p>
 <p><img src="media/fscache-struktur.drawio.svg" alt="FSCache"></p>
@@ -164,7 +159,7 @@ string sValue = FSCache.Instance.User().GetOrCreate(&quot;UserSettings&quot;, en
 </code></pre>
 <h2 id="instanzen-für-veränderungen-sperren---freeze">Instanzen für Veränderungen sperren - Freeze()</h2>
 <p>Objekte, welche im Cache verwendet werden, können mittels der Methode <a class="xref" href="../../api/FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Freeze">Freeze</a> vor Veränderungen geschützt werden.
-Ein Freeze ist nur für ungeänderte und neue Objekte erlaubt.
+Ein Freeze ist nur für nicht geänderte und neue Objekte erlaubt.
 Einmal aufgerufen kann die Instanz für Änderungen nicht mehr &quot;geöffnet&quot; werden.
 Wird versucht eine eingefrorene Instanz zu verändern, wird eine <code>InvalidOperationException()</code> geworfen.</p>
 <p>Es stehen folgende Methoden/Property bereit:</p>
@@ -173,14 +168,14 @@ Wird versucht eine eingefrorene Instanz zu verändern, wird eine <code>InvalidOp
 <li>bool <a class="xref" href="../../api/FS.Hosting.Shared.IDevFrameworkBaseObject.CanFreeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_CanFreeze">CanFreeze()</a></li>
 <li>void <a class="xref" href="../../api/FS.Hosting.Shared.IDevFrameworkBaseObject.Freeze.html#FS_Hosting_Shared_IDevFrameworkBaseObject_Freeze">Freeze()</a></li>
 </ul>
-<p>Die Abprüfung auf <code>IsFrozen</code> erfolgt auf jedem internen Value Property.
+<p>Die Prüfung auf <code>IsFrozen</code> erfolgt auf jedem internen Value Property.
 Zu beachten ist: Individueller Code wird dennoch durchlaufen, wenn nicht selbstständig auf die Eigenschaft <code>IsFrozen</code> geprüft wird.
 Erst wenn ein internes Value versucht wird zu ändern, wird eine Exception geworfen.</p>
 <p>Freeze ist auch für Collections implementiert. Hier wird die Collection selbst und alle internen Objekte gesperrt.</p>
 <h2 id="änderungen-triggern-mit-change-tokens">Änderungen Triggern mit Change-Tokens</h2>
 <p>Der FSCache bietet mithilfe von ChangeTokens die Möglichkeit, Änderungen zu triggern.</p>
 <p>Die Tokens werden Static organisiert.
-Das bedeutet: Ein Invalidate greift immer in allen Sessions innerhald des eigenen Broker-Prozesses.</p>
+Das bedeutet: Ein Invalidate greift immer in allen Sessions innerhalb des eigenen Broker-Prozesses.</p>
 <p>Beim Aufbau eines Caches wird dafür mithilfe eines Key ein Token bereitgestellt.
 Dies erfolgt mit der Methode <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.GetTokenFor.html#FS_Hosting_Shared_FSCache_GetTokenFor__1_FS_Hosting_Shared_IFSCache_"><code>FSCache.GetTokenFor&lt;T&gt;()</code></a>.
 Der Token wird mit der Methode <code>AddExpirationToken()</code> am Cache-Eintrag registriert.</p>
@@ -194,7 +189,7 @@ Der Token wird mit der Methode <code>AddExpirationToken()</code> am Cache-Eintra
 </code></pre>
 <p>Bei Bedarf können auch mehrere Tokens für verschiedene Keys registriert werden.
 In diesem Fall läuft der Cache-Eintrag aus, sobald sich der erste Token meldet.</p>
-<p>Auf der anderen Seite beim Save, kann dem Cache bescheid gegeben werden.
+<p>Auf der anderen Seite beim Save, kann dem Cache Bescheid gegeben werden.
 Das erfolgt mit der Methode <a class="xref" href="../../api/FS.Hosting.Shared.FSCache.Invalidate.html#FS_Hosting_Shared_FSCache_Invalidate__1_FS_Hosting_Shared_IFSCache_"><code>FSCache.Invalidate&lt;T&gt;()</code></a>.</p>
 <pre><code class="lang-csharp">protected override void OnAfterSave()
 {

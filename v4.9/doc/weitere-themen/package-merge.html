@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Package Merge </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Package Merge ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="package-merge">Package Merge</h1>
+
+<p>Mit dem Package Merge kann ein Package in sein direktes Basis-Package integriert werden.</p>
+<h2 id="voraussetzungen">Voraussetzungen</h2>
+<h3 id="zugriff-auf-datenbank">Zugriff auf Datenbank</h3>
+<p>Es muss sichergestellt werden, dass der Datenbankbenutzer, mit dem sich Framework Studio am Repository anmeldet, ausreichend Rechte hat.
+Neben den grundlegenden Rechten zum Lesen, Schreiben, Aktualisieren und Löschen von Datensätzen, die Framework Studio immer benötigt,
+gehören insbesondere auch „Alter table“-Rechte z.B. zum Aktivieren und Deaktivieren von Datenbanktriggern und -Constraints dazu.</p>
+<h3 id="konfiguration-der-datenbank-nur-ms-sql-server">Konfiguration der Datenbank (nur MS SQL Server)</h3>
+<p>Wenn das verwendete Repository auf MS SQL Server läuft, kann mit folgenden Statements ermittelt werden, ob die Zeilenversionierung korrekt konfiguriert ist.</p>
+<pre><code class="lang-sql">select snapshot_isolation_state_desc as [READ_COMMITTED_SNAPSHOT], 
+is_read_committed_snapshot_on as [ALLOW_SNAPSHOT_ISOLATION] 
+from sys.databases where name = '{repository_name}' 
+GO 
+</code></pre>
+<p>Wenn das Statement die Ausgabe <code>ON | 1</code> liefert, ist alles in Ordnung.
+Ansonsten müssen folgende Statements vor der ersten Verwendung des Package Merges bei exklusivem Zugriff auf die Datenbank ausgeführt werden:</p>
+<pre><code class="lang-sql">ALTER DATABASE {repository_name} SET READ_COMMITTED_SNAPSHOT ON 
+GO 
+ALTER DATABASE {repository_name} SET ALLOW_SNAPSHOT_ISOLATION ON 
+GO 
+</code></pre>
+<h3 id="packageversionen">Packageversionen</h3>
+<p>Wenn eine Quellpackageversion in eine Zielpackageversion integriert werden soll, müssen folgende Rahmenbedingungen erfüllt werden:</p>
+<ul>
+<li><p>Die Zielpackageversion ist die direkte Basispackageversion der Quellpackageversion.
+Es kann also nur in das direkte Basispackage überführt werden.</p>
+</li>
+<li><p>Sie müssen Eigentümer von Quell- und Zielpackage (im gleichen Repository) sein.</p>
+</li>
+<li><p>Es darf keine Elemente in der Quellpackageversion geben, die nicht in die Zielpackageversion überführt werden sollen.
+Es kann also immer nur eine vollständige Packageversion in eine andere integriert werden!</p>
+</li>
+<li><p>Das Quellpackage darf anschließend nicht mehr verwendet werden! <em>Genauer:</em>
+Es darf niemals irgendeine Version des Quellpackages zusammen mit einer Version des Zielpackages in einer Hierarchie verwendet werden,
+in der die Quellpackageversion bereits integriert ist.</p>
+</li>
+<li><p>Quell- und Zielpackageversion müssen aufeinander aufbauend einen aktuellen, vom FrameworkCompiler erzeugten und erfolgreich kompilierten Workspace besitzen.
+Aktuell bedeutet in diesem Fall insbesondere, dass nach dem Erzeugen des Workspaces keine Checkins mehr erfolgt sind.</p>
+</li>
+<li><p>Im Zielpackage muss ein Benutzer mit Bearbeitungsrechten (also nicht der FrameworkCompiler, idealer Weise ein FC-User) den aktuellen Workspace besitzen.
+Dieser darf keine Elemente ausgecheckt haben, welche evtl. den Merge-Vorgang betreffen.</p>
+</li>
+<li><p>Die Zielpackageversion darf nicht versiegelt oder im Service Release Mode sein.</p>
+</li>
+<li><p>Während des Zusammenführens darf kein Benutzer (außer dem Durchführenden) am Repository angemeldet sein.</p>
+</li>
+<li><p>Es darf keine Forms in der Quellpackageversion geben, die noch nicht vom DeprecatedLayout in das Layoutsystem ab Framework Studio 4.0 überführt wurden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Dies sollte bereits mit dem <a href="../../articles/neuheiten-4-6.html#deprecated-layout-entfernt">Update FS 4.6</a> erledigt sein!</p>
+</div>
+</li>
+<li><p>Sollen Versionen unterschiedlicher Quellpackages in eine Zielpackageversion integriert werden, so muss nach jeder Integration die Zielpackageversion
+und die als nächstes zu integrierende Quellpackageversion erneut kompiliert werden, bevor die nächste Integration durchgeführt werden kann.
+Auch der Benutzer muss sich nach dem Kompilieren an beiden betroffenen Packageversionen erneut anmelden.</p>
+</li>
+</ul>
+<p>Wenn Quellpackage und Zielpackage unterschiedliche Packagekürzel verwenden, ist damit zu rechnen, dass in der <a href="#9-nacharbeit">Nacharbeit</a> zusätzliche manuelle Korrekturen erfolgen müssen.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Es ist technisch nicht möglich, die Einhaltung aller Rahmenbedingungen automatisch zu prüfen.</p>
+<p><strong>Daher geschieht die Verwendung des Package Merges auf eigene Verantwortung!</strong></p>
+</div>
+<h2 id="allgemeine-hintergrundinformationen">Allgemeine Hintergrundinformationen</h2>
+<p>Der Merge Vorgang wird mit einem Benutzer durchgeführt, der Rechte zum Ein- und Auschecken besitzt, also nicht mit dem FrameworkCompiler.
+Es bietet sich an, einen Benutzer zu verwenden, der im FC-Mode arbeiten kann, da nach dem Zusammenführen Kompilierfehler wahrscheinlich sind.
+In der Quellpackageversion startet der Benutzer den Package Merge.
+Mit diesem können auch vorab einige Analysen durchgeführt werden.
+Letztendlich wird der eigentliche Merge-Vorgang in zwei Schritten durchgeführt:</p>
+<ol>
+<li>Zunächst werden (automatisch) in der Zielpackageversion alle Elemente ausgecheckt, die bearbeitet werden müssen.</li>
+<li>Anschließend werden die Daten übertragen.</li>
+</ol>
+<p>Nach dem Zusammenführen erfolgt die Anmeldung in der Zielpackageversion mit dem gleichen Benutzer, der das Zusammenführen ausgeführt hat.
+Alle geänderten und neuen Elemente sind unter diesem Benutzer ausgecheckt.
+Beim Kompilieren werden unterschiedliche Probleme auftreten.
+Die Probleme müssen manuell <a href="#9-nacharbeit">nachgearbeitet</a> werden.</p>
+<p>Wurde mit dem Benutzer erfolgreich alles kompiliert, so können alle Änderungen eingecheckt werden und der Workspace als FrameworkCompiler Workspace zur Verfügung gestellt werden.
+Die Quellpackageversion sollte anschließend nicht mehr verwendet werden.
+Idealer Weise wird diese gelöscht, um Fehlverwendungen so gut wie möglich auszuschließen.</p>
+<h2 id="empfohlenes-vorgehen">Empfohlenes Vorgehen</h2>
+<h3 id="1-organisatorische-planung">1. Organisatorische Planung</h3>
+<p>Planen Sie alle Schritte frühzeitig!
+Insbesondere könnte es hilfreich sein, vorzeitig Vorbereitung, Anmeldung an der Quellpackageversion und Analyse durchzuführen, um frühzeitig unvorhergesehene Probleme erkennen zu können.
+Der Admin Mode muss für die Analysen nicht aktiviert werden.</p>
+<h3 id="2-vorbereitung">2. Vorbereitung</h3>
+<p>Prüfen Sie, ob alle Voraussetzungen tatsächlich erfüllt sind.
+Falls noch nicht geschehen, melden Sie sich einmalig mit dem zum Merge zu verwendenden Benutzer an der Zielpackageversion an, um den Benutzer Workspace aufzubauen.
+Rufen Sie dort den Menüpunkt <strong>Source Control / Get Latest Check Ins</strong> auf.
+Sollten dort Elemente aufgeführt werden, wählen Sie alle Elemente aus und starten Sie die Aktualisierung mit dem Button <strong>Refresh Elements</strong>.</p>
+<p>Stellen Sie sicher, dass keine Elemente ausgecheckt sind.</p>
+<h3 id="3-sperre">3. Sperre</h3>
+<p>Stellen Sie sicher, dass das Framework Studio Entwicklungsrepository ausschließlich von Ihnen verwendet wird.
+Neben organisatorischen Maßnahmen melden Sie sich dazu mit dem <strong>Package Manager</strong> am Repository an und starten dort den Admin Mode (<strong>Menüpunkt Administrative Mode / Start</strong>).</p>
+<h3 id="4-datenbanksicherung">4. Datenbanksicherung</h3>
+<p>Erstellen Sie eine Sicherungskopie vom Framework Studio Entwicklungsrepository.</p>
+<h3 id="5-anmeldung-an-der-quellpackageversion">5. Anmeldung an der Quellpackageversion</h3>
+<p>Melden Sie sich mit der Framework Studio IDE an der Quellpackageversion mit dem gewünschten Benutzer im Maintenance Mode an (Checkbox <strong>Maintenance Mode</strong> in der Anmeldemaske setzen).
+Wenn der Admin Mode aktiv ist, beenden Sie diesen kurzzeitig, um die Anmeldung durchführen zu können.
+Versuchen Sie den Admin Mode (wie in Sperre beschrieben) direkt nach der Anmeldung wieder zu starten.
+Nun wird als Einziger der soeben angemeldete Benutzer angezeigt.
+Dies ist kein Problem: <em>Solange Sie die Informationsmaske offen stehen lassen</em>, kann sich kein weiterer Benutzer anmelden.
+Lassen Sie deshalb die Informationsmaske unbeantwortet offen stehen!</p>
+<p><img src="media/pck-merge-admin-mode.png" alt="PackageMergeAdminMode"></p>
+<h3 id="6-analyse">6. Analyse</h3>
+<p>Starten Sie den Package Merge über den Menüpunkt Tools / Package Merge.<br>
+Sollte der Menüpunkt nicht angeboten werden, prüfen Sie folgendes:</p>
+<ul>
+<li>wurde Framework Studio im Maintenance Mode gestartet?</li>
+<li>sind die vom Merge benötigten Dateien (PackageMerge.dll, PackageMerge.FSAddIn.Xml) vorhanden?</li>
+<li>ist in der zuletzt genannten Datei der Package Merge aktiviert?</li>
+</ul>
+<p><img src="media/pck-merge-simulate.png" alt="PackageMergeSimulate"></p>
+<p>Auf der Registerkarte <strong>Analyze</strong> werden alle Analysefunktionen angeboten.
+Diese führen keinerlei Änderungen im Repository durch und können daher jederzeit wiederholt werden.
+Der Admin Mode ist für diese Aktionen daher nicht nötig (aber auch nicht hinderlich).</p>
+<p>Die Funktionen <strong>Affected labeled records</strong>, <strong>Conflicts</strong> und <strong>Method ID conflicts</strong> werden im Kapitel <a href="#problemkategorien">Problemkategorien</a> beschrieben.
+Die Funktion <strong>Simulate Merge</strong> simuliert die Änderungen, die beim Zusammenführen durchgeführt würden.
+Dabei wird in der Log Anzeige detailliert aufgeführt, an welchen Elementen welche Änderungen im Detail erfolgen würden.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Führen Sie alle Analysefunktionen aus!</p>
+</div>
+<p>Suchen Sie in den Log Ausgaben der Funktion <strong>Simulate Merge</strong> systematisch nach dem Text <code>! ! ! Error ! ! !</code>.
+Dieser Text deutet auf ein ernsthaftes, nicht vorhergesehenes Problem hin.<br>
+Sollte ein solcher Text gefunden werden, darf die Zusammenführung nicht gestartet werden, denn es ist davon auszugehen, dass diese nicht fehlerfrei durchgeführt werden kann.</p>
+<p>Jede Aktion fügt Log Ausgaben in das dafür vorgesehene Textfeld ein.
+Dieses Textfeld kann mit dem Button <strong>Clear Log</strong> gelöscht werden, um die Übersichtlichkeit bei der Durchführung mehrerer Aktionen zu erhöhen.
+Des Weiteren wird zu jeder Aktion eine eigene Log Datei erzeugt.
+Den Ordner, der alle Log Dateien enthält, können Sie mit dem Button <strong>Open Folder</strong> öffnen.</p>
+<h3 id="7-durchführung">7. Durchführung</h3>
+<p>Es wird ausdrücklich empfohlen, alle Analysefunktionen <em>direkt vor</em> der eigentlichen Zusammenführung einmal auszuführen, auch wenn dies zu einem früheren Zeitpunkt bereits geschehen ist.
+Auf diese Weise werden alle Änderungen, die durchgeführt werden sollen, in einer Log Datei gesichert und können auch im Nachhinein noch betrachtet werden.</p>
+<p><img src="media/pck-merge-merge.png" alt="PackageMerge"></p>
+<p>Auf der Registerkarte <strong>Merge</strong> muss als erstes die Funktion <strong>Check Out Targets</strong> ausgeführt werden.
+Suchen Sie in den Log Ausgaben dieser Funktion systematisch nach dem Text <code>! ! ! Error ! ! !</code>.
+Dieser Text deutet darauf hin, dass ein Element nicht ausgecheckt werden konnte.
+Sorgen Sie in diesem Fall dafür, dass das Auschecken möglich wird und wiederholen Sie den Vorgang.
+Erst wenn alle Elemente ausgecheckt werden konnten, darf die Funktion <strong>Execute Merge</strong> gestartet werden.
+Dadurch wird das eigentliche Zusammenführen gestartet.</p>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Brechen Sie diese Aktion nicht ab!</p>
+<p>Sollte die Aktion nicht fehlerfrei durch laufen oder doch abgebrochen werden, so muss die Sicherung des Repositorys (Datenbanksicherung) zurück gespielt werden.</p>
+</div>
+<p>Suchen Sie in den Log Ausgaben dieser Funktion systematisch nach dem Text <code>! ! ! Error ! ! !</code>.
+Dieser Text deutet darauf hin, dass ein ernst zunehmendes Problem aufgetreten ist.
+Auch in dieser Situation muss die Sicherung des Repositorys zurück gespielt werden.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Der Merge-Vorgang sollte nur ein Mal ausgeführt werden!</p>
+</div>
+<h3 id="8-admin-mode-beenden">8. Admin Mode beenden</h3>
+<p>Nach dem erfolgreichen Zusammenführen kann der Admin Mode im Package Manager beendet werden.</p>
+<h3 id="9-nacharbeit">9. Nacharbeit</h3>
+<p>Melden Sie sich mit dem verwendeten Benutzer an der Zielpackageversion an.
+Dort sind alle geänderten Elemente ausgecheckt.
+Die gesamte Packageversion muss nun mit dem Benutzer kompiliert werden.
+Es wird empfohlen, dazu den <a href="../ide/compile-menu.html#compile-manager">Compile Manager</a> zu verwenden.</p>
+<p>Erst wenn alles erfolgreich kompiliert wurde, können alle Elemente (über die Suche nach „Checked Out Records“ in einem Schritt) eingecheckt und der Stand durch „Complete Framework Compiler“ als FrameworkCompiler Stand veröffentlicht werden.</p>
+<p><strong>Insbesondere ist mit folgenden Problemen zu rechnen:</strong></p>
+<h4 id="überschriebene-methoden">Überschriebene Methoden</h4>
+<p>Diese werden mit gleichem Namen hinzugefügt, so dass sie doppelt existieren und zu Kompilierfehlern führen.
+Im Zielpackage sollte immer die ursprüngliche Methode erhalten bleiben, da sonst ggf. WorkflowLinks auf diese Methode (auch in Custom Packages) zerstört werden.</p>
+<h4 id="überschriebene-individual-properties-mit-base-aufruf">Überschriebene Individual Properties mit base Aufruf</h4>
+<p>Wenn ein Individual Property in der Quellpackageversion überschrieben wurde und die Überschreibung einen base Aufruf enthält, so wird bei der Zusammenführung folgender Error Code erzeugt: <code>#error Consolidation rework neccessary</code>.
+Es folgt der Code von Ziel und Quelle. Dieser muss manuell wie gewünscht zusammengefügt werden und die #error-Codezeile entfernt werden.</p>
+<h4 id="methoden-der-problemkategorie-method-id-conflicts">Methoden der Problemkategorie “Method ID conflicts”</h4>
+<p>Nur wenn bei der Analyse Probleme in diesem Bereich aufgeführt wurden, müssen diese nun manuell nachgearbeitet werden. Siehe <a href="#method-id-conflicts">Method ID conflicts</a>.</p>
+<h4 id="sonstiges">Sonstiges</h4>
+<p>Im manuell geschriebenen Form Code könnte es Aufrufe an Controls geben, die das Packagekürzel enthalten (z.B. Aufruf der SetVisible Action an Gridspalten).
+Sollte im Quellpackage ein anderes Packagekürzel als im Zielpackage definiert sein, so haben die Controls nun im Zielpackage einen anderen Namen (mit Packagekürzel aus dem Zielpackage).</p>
+<p>Evtl. wurden Skripte in Ressourcen gepflegt, welche zusammen geführt werden sollen.
+Weiterer Korrekturbedarf kann nicht ausgeschlossen werden.</p>
+<h3 id="10-abschluss">10. Abschluss</h3>
+<p>Nach dem Zusammenführen muss organisatorisch sichergestellt werden, dass die Quellpackageversion <strong>niemals</strong> zusammen mit der Zielpackageversion in einer Hierarchie verwendet wird.</p>
+<p>Ausführliche Tests sind unumgänglich, um die ordnungsgemäße Funktion sicherzustellen.</p>
+<h2 id="problemkategorien">Problemkategorien</h2>
+<h3 id="affected-labeled-records">Affected labeled records</h3>
+<p>Elemente (Forms, Components, …), die customized wurden.<br>
+Diese Funktion dient lediglich der Übersicht, an welchen bestehenden Elementen Änderungen durchgeführt wurden.</p>
+<h3 id="conflicts">Conflicts</h3>
+<p>Unterelemente (z.B. Properties, WorkflowLinks, …), die im Ziel bereits existiert haben und an denen Änderungen vorgenommen wurden, welche nicht übernommen werden konnten.
+Typischerweise ist diese Liste leer.
+Das heißt, dass normalerweise davon auszugehen ist, dass alles übernommen werden kann.
+Sollten doch einmal Elemente in diese Kategorie fallen, so müssen diese manuell nachgearbeitet werden.</p>
+<h3 id="method-id-conflicts">Method ID conflicts</h3>
+<p>Historisch gewachsen ist es möglich, dass in unterschiedlichen Packages Methoden mit der gleichen ID existieren.
+Dies ist äußerst selten der Fall.
+Wird ein solcher Konflikt angezeigt, so sollte der Methodencode aus Quell- und Zielpackageversion gesichert werden.</p>
+<p>In jedem Fall muss die Methode bei der Nacharbeitung manuell mit dem gewünschten Inhalt gefüllt werden.</p>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

@@ -88,7 +88,7 @@
 <h1 id="frequently-asked-questions">Frequently asked questions</h1>
 
 <p>In diesem Kapitel dreht sich alles um Fragen und Probleme, welche uns in regelmäßigen Abständen erreichen.
-Unteranderem werden wir hier auch bekannte Fehler-Stacktraces auflisten und deren Fehlerbehebung.</p>
+Unter anderem werden wir hier auch bekannte Fehler-Stacktraces auflisten und deren Fehlerbehebung.</p>
 <h2 id="anleitungen">Anleitungen</h2>
 <p>Für eine <a href="knowledge/dottrace-performance.html">Performance-Analyse</a> und eine <a href="knowledge/stackoverflow-analysieren.html">Stackoverflow Analyse</a> gibt es unter Knowledge bereits eine Dokumentation.</p>
 <h3 id="frameworkstudio-repository-backup-bereitstellen">FrameworkStudio Repository Backup bereitstellen</h3>
@@ -99,7 +99,7 @@ Unteranderem werden wir hier auch bekannte Fehler-Stacktraces auflisten und dere
 <li>ContextMenü der Datenbank im SQL Management Studio öffnen - Tasks - Back up ...</li>
 <li><code>Backup type: Full</code> auswählen!</li>
 <li>Ggf. Speicherort auswählen und <code>OK</code> drücken</li>
-<li>Die erstellte Backup-Datei auf dem FTP hochladen und uns benachrichten, dass das Backup hochgeladen wurde.</li>
+<li>Die erstellte Backup-Datei auf dem FTP hochladen und uns benachrichtigen, dass das Backup hochgeladen wurde.</li>
 </ol>
 <h2 id="framework-studio">Framework Studio</h2>
 <h3 id="framework-studio-stürzt-beim-initializing-ab---fehlercode-c06d007e">Framework Studio stürzt beim Initializing ab - Fehlercode c06d007e</h3>
@@ -127,7 +127,7 @@ kenntlich gemacht werden.
 Dauert diese Analyse zu lange kann das dazu führen, dass Framework Studio praktisch lahmgelegt wird, sobald im Code-Editor getippt wird.
 Arbeiten ist dann nicht mehr möglich.
 Um genau diese Blockade zu verhindern, schalten wir diese Analyse ab, wenn die Ermittlung beim ersten Aufruf länger als 10 Sekunden oder bei einem erneuten Aufruf länger als 5 Sekunden dauert.</p>
-<p>Im genannten Beispiel waren es 17,1 Sekunden.</p>
+<p>Im genannten Beispiel waren es 17,5 Sekunden.</p>
 <h2 id="java-applikation">Java Applikation</h2>
 <h3 id="betriebssystem-macos-applikation-unterstützung">Betriebssystem MacOS Applikation Unterstützung</h3>
 <p>MacOS unterstützen wir seit einiger Zeit nicht mehr.
@@ -173,7 +173,7 @@ Hierzu gibt es folgenden Hinweis in unserer Neuheiten-Dokumentation:
 <p>Deshalb haben wir die unterstützten Windows Versionen nach oben setzen müssen. Bitte sehen Sie sich hierfür unsere <a href="requirements.html#betriebssystem">Systemvoraussetzungen</a>.  in der Dokumentation an.</p>
 <p><strong>Lösung:</strong>
 Systeme auf die Systemvoraussetzungen updaten.</p>
-<p>Sollte ein Update kurzfristig nicht möglich sein, kann der jxBrowser mit folgendem Ausdruck im FS Client Launcher durch den alten Browser ersetzt werden.</p>
+<p>Sollte ein Update kurzfristig nicht möglich sein, kann der JxBrowser mit folgendem Ausdruck im FS Client Launcher durch den alten Browser ersetzt werden.</p>
 <pre><code class="lang-text">-Dfs.browser.legacy=1
 </code></pre>
 <div class="CAUTION">
@@ -187,6 +187,24 @@ Der alte Browser deckt nicht alle Funktionen ab, welche eNVenta benötigt. Hier 
 <h3 id="java-client-friert-bei-nutzung-von-arm-prozessoren-ein">Java-Client friert bei Nutzung von ARM-Prozessoren ein</h3>
 <p>Wenn der Java-Client ohne ersichtlichen Grund immer wieder einfriert, sollte geprüft werden, ob der genutzte Prozessor auf der ARM-Architektur basiert.
 Diese wird von unserer bereitgestellten <a href="../doc/fsclientlauncher/fsclientlauncher-javaruntime.html">Azul JavaRuntime</a> nicht unterstützt.</p>
+<h3 id="java-client-hängt-sich-beim-dragdrop-auf">Java-Client hängt sich beim Drag&amp;Drop auf</h3>
+<p>Es handelt sich hierbei um einen Fehler in der Java-Runtime. <a href="https://bugs.openjdk.org/browse/JDK-8305479">Bug bei OpenJDK</a></p>
+<p>Leider ist dieser Fehler seit 2023 nicht gefixt und er betrifft praktisch alle aktuellen Versionen der Java-Runtime.
+Es gibt auch keine Ansätze, wie wir das in unserer Programmierung lösen könnten.</p>
+<p>Der Fehler wurde mit Java 8 Update 361 eingeführt.</p>
+<p>Mit der Kenntnis, wie genau dieser Fehler auftritt, ist dieser ziemlich leicht zu reproduzieren:</p>
+<ul>
+<li>Der Fokus muss in eNVenta in einem Textfeld stehen (gelb hinterlegt).</li>
+<li>Direkt aus dem Explorer oder dem Desktop (ohne vorher dorthin zu klicken) eine Datei in die Anwendung ziehen.</li>
+<li>Nach wenigen Versuchen friert die Anwendung ein.</li>
+</ul>
+<p>Daraus lassen sich mögliche <strong>Workarounds</strong> ableiten:</p>
+<ol>
+<li>am einfachsten vor dem Drag&amp;Drop einmal in den Explorer bzw. auf den Desktop klicken.</li>
+<li>Alternativ können Sie auf eigenes Risiko auch auf den alten FS Client Launcher 4.4.13 zurückfallen. Das wird von uns ausdrücklich nicht empfohlen!
+Dieser arbeitet mit Java 8 Update 202, das aber einen extrem veralteten Sicherheitsstand hat.
+Wenn Sie die Installation einer alten Version vorziehen, muss zuerst der aktuelle FS Client Launcher deinstalliert werden - ein &quot;Rückwärts-Update&quot; funktioniert nicht.</li>
+</ol>
 <h3 id="java-8--oberfläche-friert-beim-scrollen-ein">Java 8 – Oberfläche friert beim Scrollen ein</h3>
 <p>Unter bestimmten Voraussetzungen kann es vorkommen, dass die Benutzeroberfläche sich beim Scrollen von langen Grids nicht mehr aktualisiert.
 Klicks werden aber weiterhin verarbeitet, die Anzeige bleibt jedoch eingefroren.
@@ -294,7 +312,7 @@ System.EntryPointNotFoundException: Der Einstiegspunkt &quot;ScriptItemizeOpenTy
 ...
 </code></pre>
 <h4 id="lösung-1">Lösung</h4>
-<p>Das Problem tritt bisher ausschließlich bei einem Parallelbetrieb von Crystal Reports und DevExpress auf. Der Fehler entsteht, wenn zuerst ein Crystal Report und anschließend ein DevExpress mit Unicode Zeichen gedruckt wird.</p>
+<p>Das Problem tritt bisher ausschließlich bei einem Parallelbetrieb von Crystal Reports und DevExpress auf. Der Fehler entsteht, wenn zuerst ein Crystal Report und anschließend ein DevExpress Report mit Unicode Zeichen gedruckt wird.</p>
 <p>Crystal Report lädt beim ersten Druck eine ältere Version der usp10.dll, diese wird im IIS registriert. Sobald nun ein DevExpress gedruckt wird, wird hier ebenfalls auf die usp10.dll zugegriffen. DevExpress erwartet jedoch eine neuere Version der DLL, als die DLL die von Crystal im IIS geladen wurde.</p>
 <p>Derzeit ist der Fehler nur mit einer Crystal Runtime 13.0.18 reproduzierbar. Aus diesem Grund raten wir zu einem Update auf die Crystal Report Runtime 13.0.29.
 Gegebenenfalls kann es nach einem Update der Crystal Report Runtime zu folgendem Fehler kommen: <a href="#exception-fehler-beim-laden-der-datenbankinformation">Crystal Report Exception <code>Fehler beim Laden der Datenbankinformation</code></a>. Bitte beachten Sie deshalb die folgende <a href="requirements.html#crystal-reports-runtime">Vorgehensweise</a>!</p>
@@ -302,10 +320,10 @@ Gegebenenfalls kann es nach einem Update der Crystal Report Runtime zu folgendem
 <h3 id="drucker-wird-im-namen-mit--err--angezeigt">Drucker wird im Namen mit ## ERR ## angezeigt</h3>
 <p>Der Print-Service prüft beim Hochfahren alle konfigurierten Drucker.
 Wenn dabei ein Fehler auftritt (z.B. weil der Drucker nicht mehr existiert), wird der Name des betroffenen Druckers mit der Kennung ## ERR ## versehen.
-Um sicher zu gehen, können Sie auch die Log-Datei des Print-Service prüfen.</p>
+Um sicherzugehen, können Sie auch die Log-Datei des Print-Service prüfen.</p>
 <p>Mit der PrintServiceConfigEditor.exe können Sie diese Drucker aus der Konfiguration entfernen.
 Nach einem Neustart des Print-Service werden die gelöschten / nicht mehr existenten Drucker im Runtime-Repository auf gelöscht gesetzt.
-Anschließend sollten Sie auch in eNVenta nicht mehr angeboten werden.</p>
+Anschließend sollten sie auch in eNVenta nicht mehr angeboten werden.</p>
 <h2 id="publish2go">Publish2Go</h2>
 <h3 id="absturz-mit-systemtypeloadexception-error-loading-provider-assembly">Absturz mit System.TypeLoadException: Error loading provider assembly</h3>
 <p>Beim Starten eines Publish2Gos kann es zu folgender Exception kommen:</p>

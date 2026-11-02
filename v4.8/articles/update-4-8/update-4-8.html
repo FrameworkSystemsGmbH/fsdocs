@@ -116,6 +116,13 @@ Dazu können Sie folgende Checkliste nutzen:</p>
 <h4 id="4-crystal-reports-abgekündigt">4. <a href="../neuheiten-4-8.html#crystal-reports-abgek%C3%BCndigt">Crystal Reports abgekündigt</a></h4>
 <p>Stellen Sie alle Reports von CrystalReports auf DevExpress um.
 Nach einem Update können Crystal Reports in der Anwendung nicht mehr gedruckt werden.</p>
+<h4 id="5-datenbank-schema-prüfen-sql-server">5. Datenbank-Schema prüfen (SQL Server)</h4>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Die Label- und Update-Skripte legen neue Tabellen ohne Schema-Angabe an, also im Default-Schema des ausführenden Benutzers.
+Führen Sie die Skripte deshalb mit einem Benutzer aus, dessen Default-Schema dem Schema der bestehenden Repository-Tabellen entspricht. Wir empfehlen das Schema <code>dbo</code>.</p>
+<p>Prüfen Sie das insbesondere bei Anmeldung über eine AD-Gruppe ohne Default-Schema: SQL Server legt dann automatisch ein Schema <code>DOMÄNE\Benutzer</code> an, und neue Tabellen landen dort statt in <code>dbo</code>.</p>
+</div>
 <h3 id="nach-dem-fs-version-upgrade">Nach dem FS Version Upgrade</h3>
 <p>Nachdem Sie auf die 4.8 upgedated haben, beachten Sie bitte folgende Neuheiten:</p>
 <ol>

@@ -381,7 +381,8 @@ Der User muss also ein funktionierendes Postfach haben!</p>
 <p>Das ist die Anwendungs-Id der in Azure registrierten Anwendung, die für den eMail Versand genutzt werden soll.</p>
 <div class="IMPORTANT">
 <h5>Important</h5>
-<p>In der genutzten Anwendung muss die Berechtigung <code>Mail.Send</code> auf <em>Anwendungsebene</em> gesetzt sein!</p>
+<p>Die Anwendung benötigt die Berechtigung <code>Mail.Send</code> ohne angemeldeten Benutzer (<em>Anwendungsberechtigung</em>).
+Wie diese vergeben wird, ist unter <a href="#berechtigungen-der-anwendung">Berechtigungen der Anwendung</a> beschrieben.</p>
 </div>
 <p><strong>Tenant Id:</strong></p>
 <p>Das ist die Tenant Id (Mandant / Verzeichnis), die zu der in Azure registrierten Anwendung gehört.</p>
@@ -396,6 +397,31 @@ Wenn das Secret abgelaufen ist, können keine eMails mehr versendet werden.</p>
 </div>
 <p><strong>Send mails as HTML:</strong></p>
 <p>Die eMails werden im HTML-Format optisch etwas aufgewertet versendet (wird nicht von allen eMail Clients unterstützt).</p>
+<h4 id="berechtigungen-der-anwendung">Berechtigungen der Anwendung</h4>
+<p>Für den Versand muss die Anwendung eMails im Namen des Absenderpostfachs senden dürfen.
+Dafür gibt es zwei Möglichkeiten:</p>
+<h5 id="variante-a-empfohlen-exchange-online-rbac-for-applications">Variante A (empfohlen): Exchange Online RBAC for Applications</h5>
+<p>Die Anwendung erhält in Exchange Online die Rolle <code>Application Mail.Send</code>, beschränkt auf das Absenderpostfach.
+Die Anwendung kann damit nur aus diesem Postfach senden.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Bei dieser Variante darf in Microsoft Entra ID <strong>keine</strong> Anwendungsberechtigung <code>Mail.Send</code> erteilt sein.
+Berechtigungen aus Entra ID und Exchange Online werden addiert. Eine Berechtigung in Entra ID gilt für alle Postfächer und hebt die Beschränkung damit auf.</p>
+</div>
+<p>Die Einrichtung erfolgt in der Exchange Online PowerShell durch einen Exchange-Administrator.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Änderungen an den Berechtigungen in Exchange Online werden erst nach 30 Minuten bis 2 Stunden wirksam.</p>
+</div>
+<p>Weitere Informationen: <a href="https://learn.microsoft.com/exchange/permissions-exo/application-rbac">Role Based Access Control for Applications in Exchange Online</a></p>
+<h5 id="variante-b-anwendungsberechtigung-in-microsoft-entra-id">Variante B: Anwendungsberechtigung in Microsoft Entra ID</h5>
+<p>In der App-Registrierung wird unter <em>API permissions</em> die Microsoft Graph-Berechtigung <code>Mail.Send</code> vom Typ <em>Application</em> hinzugefügt und die Administratorzustimmung (<em>Grant admin consent</em>) erteilt.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Mit dieser Variante darf die Anwendung eMails im Namen <strong>jedes</strong> Postfachs im Tenant versenden.
+Die bisher übliche nachträgliche Einschränkung über <em>Application Access Policies</em> ist von Microsoft abgekündigt und sollte nicht mehr neu eingerichtet werden.
+Bestehende Application Access Policies sollten auf Variante A umgestellt werden.</p>
+</div>
 <h3 id="alerting">Alerting</h3>
 <p><img src="media/image33.png" alt="Settings – Alerting"></p>
 <p>In diesem Reiter sind alle Empfänger aufgelistet, die beim Eingang eines Events am Runtime Supervisor per eMail benachrichtigt werden.</p>

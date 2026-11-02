@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Release-Information Framework Studio 4.9 </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Release-Information Framework Studio 4.9 ">
+      
+      
+      <link rel="icon" href="../favicon.ico">
+      <link rel="stylesheet" href="../public/docfx.min.css">
+      <link rel="stylesheet" href="../public/main.css">
+      <meta name="docfx:navrel" content="../toc.html">
+      <meta name="docfx:tocrel" content="toc.html">
+      
+      <meta name="docfx:rel" content="../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../index.html">
+            <img id="logo" class="svg" src="../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="release-information-framework-studio-49">Release-Information Framework Studio 4.9</h1>
+
+<h2 id="490-beta-1-06112026">4.9.0 Beta 1 (06.11.2026)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FS_4.9.0_Beta_1_Setup_x64</li>
+<li>FS4.9.0_Beta_1_AuthService</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<h4 id="neuerungen">Neuerungen</h4>
+<ul>
+<li>Der Authentication Service kann nun ein <code>JWT</code> eines registrierten Identity Providers direkt verarbeiten.</li>
+</ul>
+<h3 id="aktualisierte-bibliotheken">Aktualisierte Bibliotheken</h3>
+<p>Mit Framework Studio 4.9 wurden die Versionen aller referenzierten Pakete aktualisiert.
+Die folgende Tabelle zeigt die Bibliotheken, die für eigenen Anwendungscode am relevantesten sind:</p>
+<table>
+<thead>
+<tr>
+<th>Bibliothek</th>
+<th>bisher (4.8)</th>
+<th>neu (4.9)</th>
+<th>Hinweis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Microsoft.Data.SqlClient</td>
+<td>5.2.3</td>
+<td>7.0.0</td>
+<td>Major-Update</td>
+</tr>
+<tr>
+<td>SkiaSharp</td>
+<td>2.88.8</td>
+<td>3.119.1</td>
+<td>Major-Update, siehe Release Notes von SkiaSharp</td>
+</tr>
+<tr>
+<td>System.Data.SQLite</td>
+<td>1.0.82</td>
+<td>1.0.117</td>
+<td>Major-Update, benötigt zusätzlich die native <code>SQLite.Interop.dll</code></td>
+</tr>
+<tr>
+<td>MSTest.TestFramework</td>
+<td>3.5.0</td>
+<td>4.2.3</td>
+<td></td>
+</tr>
+<tr>
+<td>Microsoft.CodeAnalysis (Roslyn)</td>
+<td>4.10.0</td>
+<td>4.14.0</td>
+<td></td>
+</tr>
+<tr>
+<td>DocumentFormat.OpenXml</td>
+<td>3.1.0</td>
+<td>3.5.1</td>
+<td></td>
+</tr>
+<tr>
+<td>HtmlAgilityPack</td>
+<td>1.11.62</td>
+<td>1.12.4</td>
+<td></td>
+</tr>
+<tr>
+<td>Newtonsoft.Json</td>
+<td>13.0.3</td>
+<td>13.0.4</td>
+<td></td>
+</tr>
+<tr>
+<td>System.Text.Json</td>
+<td>9.0.0</td>
+<td>10.0.8</td>
+<td></td>
+</tr>
+<tr>
+<td>Microsoft.Extensions.* (DI, Logging, ...)</td>
+<td>8.x / 9.x</td>
+<td>10.0.8</td>
+<td></td>
+</tr>
+<tr>
+<td>Microsoft.IdentityModel.Protocols(.OpenIdConnect)</td>
+<td>8.6.1</td>
+<td>8.18.0</td>
+<td></td>
+</tr>
+<tr>
+<td>NHibernate</td>
+<td>5.5.2</td>
+<td>5.6.1</td>
+<td>nur Runtime Supervisor</td>
+</tr>
+<tr>
+<td>Npgsql</td>
+<td>-</td>
+<td>8.0.9</td>
+<td>neu, für PostgreSQL</td>
+</tr>
+</tbody>
+</table>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Passen eingebundene Ressourcen (DLLs) nicht mehr zu den aktualisierten Versionen, kann es beim Compile zu neuen Errors oder Warnings kommen.
+Details siehe <a href="../doc/resources/reference-check.html">Referenz-Prüfung für Ressourcen</a>.</p>
+</div>
+<h4 id="neue-dlls-im-publish">Neue DLLs im Publish</h4>
+<p>Folgende DLLs werden beim Publish und beim Publish2Go nun zusätzlich ausgeliefert:</p>
+<ul>
+<li><code>FS.DataClient.PostgreSql.dll</code></li>
+<li><code>Npgsql.dll</code></li>
+<li><code>Microsoft.Bcl.HashCode.dll</code></li>
+<li><code>Microsoft.Data.SqlClient.Extensions.Abstractions.dll</code></li>
+<li><code>Microsoft.Data.SqlClient.Internal.Logging.dll</code></li>
+<li><code>SQLite.Interop.dll</code></li>
+</ul>
+<h3 id="sql-server">SQL Server</h3>
+<p>Binärspalten (Bilder, Dateien) wurden von FS bislang immer als veralteter Typ <code>image</code> neu angelegt.
+Der <code>image</code> Datentyp ist seit 2006 deprecated.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Ab FS 4.9 wird nun der <code>varbinary(max)</code> Datentyp verwendet. Die Differenzlogik erkennt diesen Fall und bietet eine automatische Konvertierung im <code>DBDifferenceAnalyzeMode.Cleanup</code> an.</p>
+</div>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Die erstellten SQL-Skripte mit dem Modus <code>DBDifferenceAnalyzeMode.Cleanup</code> sollten niemals automatisch ausgeführt werden, da dieser Modus wortwörtlich einen Cleanup durchführt. Indizes, die nur in der Datenbank vorkommen, nicht jedoch in Framework Studio definiert sind, werden dabei tatsächlich gelöscht.</p>
+<p>Verwaiste Tabellen und Spalten werden dagegen ausschliesslich zur Information gemeldet - für sie erzeugt FS bewusst kein <code>DROP</code>-Skript (siehe <a href="#verwaiste-tabellen-und-spalten">Verwaiste Tabellen und Spalten</a>).</p>
+</div>
+<h4 id="fsrowid-wird-als-uniqueidentifier-verglichen">FSROWID wird als <code>uniqueidentifier</code> verglichen</h4>
+<p>Unter SQL Server werden <code>FSROWID</code>-Spalten als <code>uniqueidentifier</code> angelegt. Die Differenzlogik hat als Wunschtyp bislang jedoch <code>Integer</code> angenommen. Ab FS 4.9 wird korrekt <code>Guid</code> (<code>uniqueidentifier</code>) erwartet.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Diese Korrektur gehört zur unten beschriebenen neuen Guid-Prüfung: Ohne sie würde für jede bestehende <code>FSROWID</code>-Spalte eine nicht auflösbare Abweichung (<code>Unsolvable</code>) gemeldet, weil <code>uniqueidentifier</code> nicht automatisch nach <code>int</code> konvertierbar ist.</p>
+</div>
+<h4 id="verwaiste-tabellen-und-spalten">Verwaiste Tabellen und Spalten</h4>
+<p>Tabellen und Spalten, die in der Datenbank vorhanden sind, in Framework Studio aber nicht (mehr) definiert sind, gelten als <em>verwaist</em>. Sie werden ab FS 4.9 im Modus <code>DBDifferenceAnalyzeMode.Cleanup</code> als Abweichung der Kategorie <code>Cleanup</code> aufgelistet.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Verwaiste Tabellen und Spalten werden mit <code>IsActive = false</code> gemeldet. Sie erscheinen also im Report, es wird aber <strong>kein</strong> <code>DROP</code>-Skript für sie erzeugt. Ob und wie sie entfernt werden, entscheidet bewusst der Anwender.</p>
+</div>
+<p>Für verwaiste <strong>Spalten</strong> ist keine zusätzliche Konfiguration erforderlich.</p>
+<p>Für verwaiste <strong>Tabellen</strong> muss der Aufrufer <code>DBAnalyzeOptions.KnownTableNames</code> befüllen. Erwartet wird die Vereinigung der Tabellennamen <strong>aller</strong> FS-Connections, die sich dieselbe physische Datenbank bzw. dasselbe Schema teilen - beispielsweise mehrere logische Connections auf derselben PostgreSQL-Datenbank.</p>
+<pre><code class="lang-csharp">var options = new DBAnalyzeOptions
+{
+    Mode = DBDifferenceAnalyzeMode.Cleanup,
+    // Tabellen aller Connections, die sich Datenbank/Schema teilen
+    KnownTableNames = allTableNamesOfSharedSchema
+};
+</code></pre>
+<p>Zum Verhalten der Prüfung:</p>
+<ul>
+<li>Bleibt <code>KnownTableNames</code> auf <code>null</code>, findet <strong>keine</strong> Verwaisungsprüfung für Tabellen statt. Andernfalls würden Tabellen anderer, legitimer Connections fälschlich als verwaist gemeldet.</li>
+<li>Ausserhalb von <code>DBDifferenceAnalyzeMode.Cleanup</code> entfällt die Prüfung ebenfalls.</li>
+<li>Die FS-internen <code>dbRun_*</code>-Tabellen werden nie als verwaist gemeldet.</li>
+<li>Der Vergleich der Tabellen<strong>namen</strong> läuft über den Comparer des Adapters und ignoriert damit standardmässig die Gross-/Kleinschreibung. Das betrifft ausschliesslich den Metadaten-Abgleich der Namen und ist unabhängig davon, wie die Datenbank Dateninhalte vergleicht (siehe <a href="../doc/database/case-sensitivity.html">Gross-/Kleinschreibung bei String-Vergleichen</a>).</li>
+</ul>
+<h4 id="weitere-verbesserungen-bei-differenzlogik">Weitere Verbesserungen bei Differenzlogik</h4>
+<p>Zusätzlich wird nun auch im Cleanup Modus ausgegeben, wenn statt <code>datetime</code> <code>datetime2</code> als SQL-Datentyp verwendet wird. Diese Datenbankspalten sollten zu <code>datetime</code> konvertiert werden.</p>
+<p>Des Weiteren werden jetzt auch Abweichungen bei Boolean (bit), Byte (tinyint), Guid (uniqueidentifier) und Gleitkommazahlen (float/real) erkannt, die vorher unbemerkt geblieben wären.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Als passend gelten dabei alle nativen Typen, die FS für den jeweiligen Datentyp akzeptiert - bei Boolean etwa <code>char</code>, <code>nchar</code> und <code>bit</code>, bei Single/Double <code>float</code> und <code>real</code>. Native Typen mit fester Präzision (<code>decimal</code>, <code>numeric</code>) gelten unter einem Single- oder Double-Feld dagegen als nicht automatisch konvertierbar und werden als <code>Unsolvable</code> gemeldet, da eine Umstellung auf <code>float</code> Präzision verlieren kann. Solche Spalten müssen manuell bewertet werden.</p>
+</div>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

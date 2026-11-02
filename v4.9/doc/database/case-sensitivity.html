@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Gro&#223;-/Kleinschreibung bei String-Vergleichen </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Gro&#223;-/Kleinschreibung bei String-Vergleichen ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="groß-kleinschreibung-bei-string-vergleichen">Groß-/Kleinschreibung bei String-Vergleichen</h1>
+
+<p>Ob ein String-Vergleich (<code>=</code>, <code>LIKE</code>, <code>ORDER BY</code>, <code>DISTINCT</code>, Unique-Index) die Groß-/Kleinschreibung
+beachtet, legt <strong>die Datenbank</strong> fest — nicht Framework Studio. Das Verhalten unterscheidet sich
+deshalb je nach eingesetztem Datenbanksystem.</p>
+<h2 id="übersicht">Übersicht</h2>
+<table>
+<thead>
+<tr>
+<th>Datenbank</th>
+<th>Gleichheit (<code>=</code>, <code>LIKE</code>, Unique)</th>
+<th>Sortierung (<code>ORDER BY</code>)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>SQL Server</strong></td>
+<td>abhängig von der Instanz-Collation; bei den üblichen Defaults (<code>Latin1_General_CI_AS</code>, <code>SQL_Latin1_General_CP1_CI_AS</code>) <strong>case-insensitiv</strong></td>
+<td>case-insensitiv</td>
+</tr>
+<tr>
+<td><strong>Oracle</strong></td>
+<td><strong>case-sensitiv</strong> (<code>NLS_COMP=BINARY</code>, Oracle-Default)</td>
+<td>case-insensitiv (Framework Studio setzt <code>NLS_SORT=BINARY_AI</code>)</td>
+</tr>
+<tr>
+<td><strong>PostgreSQL</strong></td>
+<td><strong>case-sensitiv</strong> (Default-Collation der Datenbank)</td>
+<td>abhängig von der Default-Collation der Datenbank</td>
+</tr>
+</tbody>
+</table>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Dieselbe Anwendung kann auf SQL Server also andere Suchergebnisse liefern als auf Oracle oder
+PostgreSQL. Soll eine Suche auf <strong>allen</strong> Datenbanken gleich funktionieren, muss sie explizit
+case-insensitiv formuliert werden (siehe <a href="#best-practices">Best Practices</a>).</p>
+</div>
+<h2 id="postgresql">PostgreSQL</h2>
+<p>Framework Studio legt String-Spalten (<code>character varying</code>, <code>text</code>) <strong>ohne explizite Collation</strong> an.
+Damit gilt die Default-Collation der Datenbank, und die ist deterministisch — Gleichheit heißt
+Byte-Gleichheit:</p>
+<pre><code class="lang-sql">SELECT * FROM customer WHERE name = 'Max';    -- findet 'Max', nicht 'max' oder 'MAX'
+SELECT * FROM customer WHERE name LIKE 'ma%'; -- findet 'max', nicht 'Max' oder 'MAX'
+</code></pre>
+<p>Das gilt gleichermaßen für <code>DISTINCT</code>, <code>GROUP BY</code>, <code>IN</code> und Unique-Indizes: <code>'ABC'</code> und <code>'abc'</code>
+sind zwei verschiedene Werte und damit auch zwei verschiedene Schlüssel.</p>
+<h3 id="sortierung-order-by">Sortierung (<code>ORDER BY</code>)</h3>
+<p>Die Reihenfolge hängt an der Default-Collation, die bei der Anlage der Datenbank festgelegt wird:</p>
+<ul>
+<li><strong><code>C</code> / <code>POSIX</code></strong> — reine Byte-Reihenfolge. Alle Großbuchstaben kommen vor allen
+Kleinbuchstaben: <code>MAX</code> &lt; <code>Max</code> &lt; <code>max</code>, und <code>Z</code> &lt; <code>a</code>. Umlaute landen hinter allen ASCII-Zeichen.</li>
+<li><strong>libc-Locales wie <code>de_DE.utf8</code> / <code>en_US.utf8</code> und ICU-Locales</strong> — sprachliche Sortierung.
+Groß- und Kleinschreibung wird pro Buchstabe gruppiert, die Kleinschreibung kommt dabei zuerst:
+<code>max</code> &lt; <code>Max</code> &lt; <code>MAX</code>. Umlaute werden sprachlich einsortiert (im Deutschen <code>ä</code> bei <code>a</code>), nicht
+hinten angehängt.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die Reihenfolge zwischen Groß- und Kleinschreibung ist damit genau <strong>umgekehrt</strong> zu <code>C</code>. Wer sich
+auf eine konkrete Reihenfolge verlässt, sollte sie gegen die tatsächlich eingesetzte
+Default-Collation prüfen (<code>SELECT datcollate, datctype FROM pg_database WHERE datname = current_database();</code>).</p>
+</div>
+<p>Legt Framework Studio die Datenbank selbst an (z. B. über den Runtime-Repository-Wizard), wird
+<code>CREATE DATABASE</code> ohne Collation-Angabe ausgeführt — die Datenbank erbt damit die Vorgabe des
+Servers (<code>template1</code>), analog zum Vorgehen bei SQL Server. Wenn eine reproduzierbare Sortierung
+wichtig ist, sollte die Datenbank stattdessen vorab mit expliziter Collation angelegt werden:</p>
+<pre><code class="lang-sql">CREATE DATABASE mybusinessdb
+    ENCODING 'UTF8'
+    LOCALE_PROVIDER icu
+    ICU_LOCALE 'de-DE'
+    TEMPLATE template0;
+</code></pre>
+<p>Unabhängig von der Default-Collation kann die Reihenfolge pro Abfrage erzwungen werden:</p>
+<pre><code class="lang-sql">SELECT name FROM customer ORDER BY name COLLATE &quot;C&quot;;   -- Byte-Reihenfolge
+SELECT name FROM customer ORDER BY UPPER(name);        -- Groß-/Kleinschreibung ignorieren
+</code></pre>
+<h2 id="oracle">Oracle</h2>
+<p>Oracle vergleicht mit den Standardeinstellungen (<code>NLS_COMP=BINARY</code>) ebenfalls <strong>case-sensitiv</strong>.
+Framework Studio setzt beim Verbindungsaufbau lediglich <code>NLS_SORT</code> (Default <code>BINARY_AI</code>); das wirkt
+bei <code>NLS_COMP=BINARY</code> <strong>ausschließlich auf die Sortierung</strong>, nicht auf Gleichheitsvergleiche:</p>
+<ul>
+<li><code>WHERE name = 'Max'</code> findet nur <code>'Max'</code> — nicht <code>'max'</code> oder <code>'MAX'</code>.</li>
+<li><code>ORDER BY name</code> sortiert case- <strong>und</strong> akzent-insensitiv (<code>BINARY_AI</code>), Umlaute werden also wie
+ihr Grundbuchstabe einsortiert.</li>
+</ul>
+<p>Das gesamte NLS-Setup (<code>NLS_COMP</code>, <code>NLS_SORT</code>, <code>NLS_CHARACTERSET</code>) liegt beim Datenbank-Administrator.
+Framework Studio legt auf Oracle keine Datenbank an und verändert <code>NLS_COMP</code> nicht.</p>
+<h2 id="best-practices">Best Practices</h2>
+<h3 id="case-insensitive-suche-upper-bzw-lower">Case-insensitive Suche: <code>UPPER()</code> bzw. <code>LOWER()</code></h3>
+<p>Ein Vergleich, der auf allen Datenbanken case-insensitiv ist, muss die Groß-/Kleinschreibung auf
+<strong>beiden</strong> Seiten vereinheitlichen:</p>
+<pre><code class="lang-sql">WHERE UPPER(name) = UPPER('Max')
+WHERE UPPER(name) LIKE UPPER('ma%')
+</code></pre>
+<p><code>UPPER()</code> auf nur einer Seite reicht nicht — der Suchwert muss ebenso umgewandelt werden.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>PostgreSQL kennt zusätzlich <code>ILIKE</code> als case-insensitives <code>LIKE</code>. Das ist <strong>nicht portabel</strong> und
+sollte in Anwendungscode, der auch auf SQL Server oder Oracle laufen soll, nicht verwendet werden.</p>
+</div>
+<h3 id="searchoperator-likenoncasesensitive">SearchOperator <code>LikeNonCaseSensitive</code></h3>
+<p>Für Suchfelder in Forms gibt es den Weg über die Metadaten, ohne selbst SQL zu schreiben: die
+Control-Eigenschaft <strong>SearchOperator</strong> kennt den Wert <code>LikeNonCaseSensitive</code>. Der Generator erzeugt
+daraus genau das oben beschriebene Muster:</p>
+<pre><code class="lang-sql">UPPER(spalte) LIKE UPPER('wert%')
+</code></pre>
+<p>Damit verhält sich das Suchfeld auf allen drei Datenbanken identisch. Der Default-Wert von
+<strong>SearchOperator</strong> ist <code>Equal</code> — ein Suchfeld ist also standardmäßig <strong>abhängig vom eingesetzten
+Datenbanksystem</strong>. Soll eine Suche unabhängig von der Groß-/Kleinschreibung funktionieren, muss
+<code>LikeNonCaseSensitive</code> bewusst gesetzt werden.</p>
+<h3 id="indizes">Indizes</h3>
+<p><code>UPPER(spalte)</code> bzw. <code>LOWER(spalte)</code> verhindert die Nutzung eines normalen Index auf <code>spalte</code> — die
+Datenbank müsste für jede Zeile erst den Funktionswert berechnen. Für häufig genutzte
+case-insensitive Suchen sollte deshalb ein <strong>funktionaler Index</strong> angelegt werden, der zur
+Suchbedingung passt:</p>
+<pre><code class="lang-sql">-- PostgreSQL
+CREATE INDEX idx_customer_name_upper ON customer (UPPER(name));
+
+-- Oracle
+CREATE INDEX idx_customer_name_upper ON customer (UPPER(name));
+</code></pre>
+<p>Zu beachten:</p>
+<ul>
+<li>Der Index muss <strong>exakt</strong> die Funktion der Suchbedingung verwenden. Ein Index auf <code>UPPER(name)</code>
+hilft einer Suche mit <code>LOWER(name)</code> nicht.</li>
+<li>Eine Suche mit führendem <code>%</code> (<code>LIKE '%wert%'</code>, also <strong>FullTextSearch</strong> am Control) kann keinen
+B-Tree-Index nutzen — auch keinen funktionalen. Für solche Suchen sind in PostgreSQL Trigram-
+Indizes (<code>pg_trgm</code>) eine Option.</li>
+<li>Funktionale Indizes werden nicht über den Datenbank-Abgleich verwaltet und müssen vom
+Datenbank-Administrator angelegt werden.</li>
+</ul>
+<h3 id="case-sensitive-eindeutigkeit">Case-sensitive Eindeutigkeit</h3>
+<p>Da Gleichheit case-sensitiv ist, verhindert ein Unique-Index auf einer String-Spalte <strong>nicht</strong>, dass
+<code>'ABC'</code> und <code>'abc'</code> beide angelegt werden. Soll die Eindeutigkeit die Groß-/Kleinschreibung
+ignorieren (typisch für Dublettenprüfungen auf Schlüsselfeldern), braucht es einen funktionalen
+Unique-Index:</p>
+<pre><code class="lang-sql">CREATE UNIQUE INDEX idx_customer_code_ci ON customer (UPPER(code));
+</code></pre>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

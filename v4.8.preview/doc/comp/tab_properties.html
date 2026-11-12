@@ -113,7 +113,7 @@ Eine dritte Möglichkeit besteht darin, eine Component direkt per Drag &amp; Dro
 <p>Siehe <a href="#datentyp-bearbeiten">Datentyp bearbeiten</a></p>
 <h3 id="useinterface">UseInterface</h3>
 <p>Es besteht die Möglichkeit, ein Property, welches als Datatype eine Component eingestellt hat, als Interface einzubinden, um zirkulare Referenzen zu umgehen.</p>
-<p>Wenn man an einer Component ein Property anlegt und dabei als Typ eine Component aus einem anderen Namespace verwendet, dann wird bei diesem Property automatisch die Eigenschaft <strong>UseInterface</strong> gesetzt.</p>
+<p>Beim Anlegen eines Properties schlägt Framework Studio <strong>UseInterface</strong> vor: Solange das Property noch nicht gespeichert ist, wird die Eigenschaft bei jeder Änderung des Datentyps neu vorbelegt. Sie ist gesetzt, wenn der Datentyp eine Component aus einem anderen Namespace ist, und nicht gesetzt bei einem Datentyp aus demselben Namespace oder einem Metadatentyp. Der Vorschlag kann jederzeit geändert werden. Bei bestehenden Properties ändert Framework Studio die Eigenschaft nicht mehr.</p>
 <h3 id="property-type">Property Type</h3>
 <p>Folgende Typen stehen zur Auswahl:</p>
 <p>• Membervariable

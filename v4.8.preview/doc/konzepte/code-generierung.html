@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Codegenerierung </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Codegenerierung ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="codegenerierung">Codegenerierung</h1>
+
+<p>Im Repository von <strong>Framework Studio</strong> liegen keine vollständigen C#-Klassen, sondern Metadaten (Query, Properties, Relationen, Vererbung) und der Code, den Sie selbst schreiben. Beim Kompilieren erzeugt Framework Studio daraus C#-Code und übersetzt ihn in Assemblies (siehe <a href="../ide/framework-compiler.html#kompilierreihenfolge">Kompilierreihenfolge</a>).</p>
+<p>Den generierten Code sehen Sie im Repository nicht, Sie arbeiten aber ständig mit ihm: Jeder Aufruf von <code>this.sNameValue</code>, <code>sNameOrgValue</code> oder <code>cdCompanyFactory.Create()</code> greift auf generierte Member zu. Diese Seite zeigt am Beispiel einer Component aus dem Package <strong>FSDemo</strong>, was erzeugt wird und wie Sie es in eigenem Code verwenden.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die Klassensignatur einer Component ändern Sie über die Metadaten, nicht über Code. Neue Properties, eine geänderte Query oder eine Basis-Component führen beim nächsten Kompilieren automatisch zu passend generierten Membern.</p>
+</div>
+<h2 id="beispiel-aus-fsdemo">Beispiel aus FSDemo</h2>
+<p>Die Component <code>FS.Demo.Company.cdCompany</code> aus dem Package FSDemo hat eine Query auf die Tabelle <code>Company</code>. Von ihren Properties werden hier diese betrachtet:</p>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Property Type</th>
+<th>Datentyp</th>
+<th>Mapping</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ROWID</code></td>
+<td>Generated</td>
+<td><code>FSSystemGuid</code></td>
+<td>Spalte <code>Company.FSROWID</code>, Primärschlüssel</td>
+</tr>
+<tr>
+<td><code>sID</code></td>
+<td>Generated</td>
+<td><code>FSstring</code></td>
+<td>Spalte <code>Company.ID</code></td>
+</tr>
+<tr>
+<td><code>sName</code></td>
+<td>Generated</td>
+<td><code>FSstring</code></td>
+<td>Spalte <code>Company.Name</code></td>
+</tr>
+<tr>
+<td><code>sCountry</code></td>
+<td>Generated</td>
+<td><code>FSstring</code></td>
+<td>Spalte <code>Company.Country</code></td>
+</tr>
+<tr>
+<td><code>oCountry</code></td>
+<td>Relation</td>
+<td>Component <code>FS.Demo.Country.cdCountry</code></td>
+<td>Depends On: <code>sCountry</code> → <code>cdCountry.sID</code></td>
+</tr>
+</tbody>
+</table>
+<p>Die folgenden Auszüge stammen aus dem generierten Code von <code>cdCompany</code>. Sie sind gekürzt, ausgelassen sind u. a. Kommentare, Markierungen für die IDE und Member, die hier keine Rolle spielen.</p>
+<h2 id="die-klassen-einer-component">Die Klassen einer Component</h2>
+<p>Für <code>cdCompany</code> entstehen zwei Klassen und eine Factory:</p>
+<pre><code class="lang-csharp">// Code-Code: Properties, eigene Methoden und alle generierten Hilfs-Member
+public partial class FSDemo_cdCompany
+    : FS.Hosting.Shared.FrameworkDataObject&lt;FS.Demo.Company.cdCompany_DataStruct, FS.Demo.Company.cdCompany_PKStruct&gt;,
+      FS.Demo.Company.FSDemo_IcdCompany, FS.Hosting.Shared.IObjectWithRowid
+{
+    …
+}
+
+// Use-Code: die Klasse, mit der Sie im Code arbeiten
+public partial class cdCompany : FS.Demo.Company.FSDemo_cdCompany, FS.Demo.Company.IcdCompany
+{
+    public override System.Type GetFactoryType() { return typeof(FS.Demo.Company.cdCompanyFactory); }
+    protected override void OnSaveAction() { … }
+    public class QueryInfoClass : FS.Hosting.Shared.FrameworkQueryInfo { … }
+    …
+}
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Klasse</th>
+<th>Inhalt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Use-Code</strong> (<code>cdCompany</code>)</td>
+<td>Die Klasse, die Sie im Code verwenden. Sie implementiert das Interface <code>IcdCompany</code> sowie die Interfaces, die an der Component unter <strong>Interfaces</strong> eingetragen sind. Bei einer Component mit Query enthält sie außerdem die generierte Speicherlogik <code>OnSaveAction()</code> und die <code>QueryInfoClass</code>.</td>
+</tr>
+<tr>
+<td><strong>Code-Code</strong> (<code>FSDemo_cdCompany</code>)</td>
+<td>Enthält die Properties mit ihrer Datenbank-Anbindung, Ihre Methoden und Konstruktoren und die Hilfs-Member, die pro Property generiert werden. Der Name setzt sich aus dem Assembly-Präfix des Packages und dem Namen der Component zusammen.</td>
+</tr>
+<tr>
+<td><strong>Factory</strong> (<code>cdCompanyFactory</code>)</td>
+<td>Wird zusammen mit dem Interface kompiliert und steht deshalb auch in anderen Namespaces zur Verfügung. <code>cdCompanyFactory.Create()</code> liefert eine neue Instanz, auch wenn nur das Interface bekannt ist (siehe <a href="../comp/tab_properties.html#useinterface">UseInterface</a>). Außerdem enthält die Factory den Metadatentyp <code>mdt_&lt;Name&gt;</code> aller Properties, die weder <code>private</code> noch <code>internal</code> sind, z. B. <code>cdCompanyFactory.mdt_sName</code>.</td>
+</tr>
+</tbody>
+</table>
+<p><code>cdCompany</code> hat eine Query, deshalb erbt die Code-Code-Klasse von <code>FrameworkDataObject</code>. Bei anderen Component-Typen ist die Basisklasse eine andere:</p>
+<table>
+<thead>
+<tr>
+<th>Component-Typ</th>
+<th>Basisklasse der Code-Code-Klasse</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Component ohne Query</td>
+<td><code>FS.Hosting.Shared.DevFrameworkObject</code></td>
+</tr>
+<tr>
+<td>Component mit Query (DataComponent)</td>
+<td><code>FS.Hosting.Shared.FrameworkDataObject&lt;&lt;Name&gt;_DataStruct, &lt;Name&gt;_PKStruct&gt;</code></td>
+</tr>
+<tr>
+<td>Collection</td>
+<td><code>FS.Hosting.Shared.DevFrameworkObjectColl</code></td>
+</tr>
+<tr>
+<td>Collection einer DataComponent</td>
+<td><code>FS.Hosting.Shared.FrameworkDataColl&lt;…_DataStruct, …_PKStruct&gt;</code></td>
+</tr>
+<tr>
+<td>TextCollection</td>
+<td><code>FS.Hosting.Shared.MultiLanguage.DevFrameworkObjectTextColl</code></td>
+</tr>
+<tr>
+<td>cGlobal</td>
+<td><code>FS.Hosting.Shared.GlobalObj.cGlobalBase</code></td>
+</tr>
+<tr>
+<td>Component mit Basis-Component</td>
+<td>die Basis-Component</td>
+</tr>
+</tbody>
+</table>
+<p><code>FrameworkDataObject</code> und <code>cGlobalBase</code> erben von <code>DevFrameworkObject</code>, <code>FrameworkDataColl</code> und <code>DevFrameworkObjectTextColl</code> von <code>DevFrameworkObjectColl</code>. Gemeinsame Basis aller Components und Collections ist <code>DevFrameworkBaseObject</code>. Die Methoden, die Sie von dort erben (<code>Load</code>, <code>Save</code>, <code>State</code>, Entry-Points wie <code>OnBeforeSave</code> usw.), sind unter <a href="../comp/tab_method.html">Registerkarte Methods</a> beschrieben.</p>
+<h2 id="ein-generated-property-mit-mapping">Ein Generated-Property mit Mapping</h2>
+<p>Für das Property <code>sName</code> erzeugt Framework Studio diesen Code:</p>
+<pre><code class="lang-csharp">// Der Wert hinter dem Property
+protected FSstring sNameValue
+{
+    get
+    {
+        return this.GetMLText(FS.Demo.Company.cdCompanyFactory.mdt_sName, &quot;sName&quot;, this._DBData.sName);
+    }
+    set
+    {
+        if (this.sNameValue == value || !this.CanSetPropertyDB()) return;
+        if (!this.SetMLText(FS.Demo.Company.cdCompanyFactory.mdt_sName, &quot;sName&quot;, ref value)) this._DBData.sName = value;
+        this.TrackChange(&quot;sName&quot;);
+    }
+}
+
+// Das Property selbst
+[ComponentProperty]
+public virtual FSstring sName
+{
+    get { return this.sNameValue; }
+    set { this.sNameValue = value; }
+}
+
+// Typneutraler Zugriff für das Databinding
+public object sNameAsObject
+{
+    get { return this.IsDeleted ? null : (object)sName; }
+    set { this.sName = FSstring.FromObject(value); }
+}
+
+// Der Wert, der aus der Datenbank geladen wurde
+public FSstring sNameOrgValue
+{
+    get { return FS.Demo.Company.cdCompanyFactory.mdt_sName.GetValidValue((this._DBOriginalData ?? this._DBData).sName); }
+}
+</code></pre>
+<p>Das zeigt die Aufgabenteilung:</p>
+<ul>
+<li><strong><code>sName</code></strong> ist das Property, das Forms, andere Components und Ihr Code verwenden. Getter und Setter reichen nur an <code>sNameValue</code> durch.</li>
+<li><strong><code>sNameValue</code></strong> enthält die eigentliche Logik. Der Wert liegt im Datensatz der Query (<code>_DBData</code>), nicht in einem eigenen Feld.</li>
+<li><strong><code>sNameOrgValue</code></strong> liefert den Wert, der aus der Datenbank geladen wurde. Daran können Sie erkennen, ob ein Property geändert wurde.</li>
+<li><strong><code>sNameAsObject</code></strong> wird vom Databinding verwendet. Bei einer gelöschten Component liefert der Getter <code>null</code>.</li>
+</ul>
+<h3 id="ablauf-beim-setzen-eines-werts">Ablauf beim Setzen eines Werts</h3>
+<p>Die Anweisung <code>oCompany.sName = &quot;Muster GmbH&quot;;</code> durchläuft den Setter von <code>sNameValue</code>:</p>
+<ol>
+<li>Hat sich der Wert nicht geändert oder darf das Property gerade nicht gesetzt werden (z. B. bei einer gelöschten Component), passiert nichts.</li>
+<li>Der Wert wird über den <a href="../mdt/metadatentypen.html">Metadatentyp</a> <code>mdt_sName</code> geprüft und ggf. angepasst und dann in den Datensatz der Query geschrieben. Ist die Spalte eine <a href="../database/ml-column.html">ML-Column</a>, wird er als Text der aktuellen Sprache abgelegt.</li>
+<li><code>TrackChange(&quot;sName&quot;)</code> setzt den Status der Component auf <strong>Changed</strong> und löst <a href="property-changed.html">PropertyChanged</a> aus. Dadurch aktualisieren sich z. B. gebundene Controls.</li>
+</ol>
+<p>Beim Lesen läuft der Wert ebenfalls über den Metadatentyp, damit z. B. ein Default-Wert greift. Ausnahmen sind die Properties für <a href="../weitere-themen/fsrowid_fsrowversion.html">FSROWID und FSROWVERSION</a>: <code>ROWIDValue</code> liest und schreibt <code>_DBData.ROWID</code> direkt.</p>
+<h3 id="eigenen-code-in-getter-und-setter-schreiben">Eigenen Code in Getter und Setter schreiben</h3>
+<p>Mit der Checkbox <strong>Write Individual</strong> auf der Registerkarte <strong>Get Method</strong> bzw. <strong>Set Method</strong> ersetzen Sie den Getter oder Setter von <code>sName</code>. <code>sNameValue</code> bleibt dabei unverändert. Arbeiten Sie deshalb in Ihrem Code mit <code>this.sNameValue</code>, dann bleiben Prüfung und Change-Tracking erhalten:</p>
+<pre><code class="lang-csharp">// Set Method von sName mit Write Individual
+// … eigene Logik vor dem Setzen …
+this.sNameValue = value;
+</code></pre>
+<p>Wird das Property in einer Customization oder einer abgeleiteten Component angepasst, werden <code>sNameValue</code>, <code>sNameOrgValue</code> und <code>sNameAsObject</code> nicht erneut erzeugt, es gelten die Member der Basis. Das Property <code>sName</code> wird mit <code>override</code> überschrieben. Verwenden Sie in Getter und Setter einer Customization <code>base.sName</code>, damit die Logik des Basis-Packages erhalten bleibt.</p>
+<h2 id="ein-relation-property">Ein Relation-Property</h2>
+<p>Für das Relation-Property <code>oCountry</code> erzeugt Framework Studio zusätzlich zwei Methoden, die der Getter von <code>oCountryValue</code> aufruft:</p>
+<pre><code class="lang-csharp">protected virtual bool Should_oCountryValueBeLoaded(FS.Demo.Country.cdCountry value)
+{
+    return value == null || !FSComparer.Equals(this.sCountry, value.sID);
+}
+
+protected virtual FS.Demo.Country.cdCountry Load_oCountryValue(FS.Demo.Country.cdCountry _oCountryValue)
+{
+    // Inhalt der Registerkarte Load Command
+    _oCountryValue = new FS.Demo.Country.cdCountry();
+    if (!this.sCountry.IsNull)
+    {
+        string Result = &quot;[sID]&quot; + DB.SqlString(&quot;=&quot;, this.sCountry);
+        var cached = this.GetCachedRelation(&quot;oCountry&quot;, Result) as FS.Demo.Country.cdCountry;
+        if (cached != null)
+        { _oCountryValue = cached; }
+        else
+        {
+            if (_oCountryValue.Load(Result) &lt;= 0)
+            {
+                _oCountryValue.sIDAsObject = this.sCountry;
+            }
+            this.SetCachedRelation(&quot;oCountry&quot;, Result, _oCountryValue);
+        }
+    }
+    return _oCountryValue;
+}
+
+protected FS.Demo.Country.cdCountry oCountryValue
+{
+    get
+    {
+        if (Should_oCountryValueBeLoaded(_oCountryValue ?? (_oCountryValue = new FS.Demo.Country.cdCountry())))
+            _oCountryValue = Load_oCountryValue(_oCountryValue);
+        return _oCountryValue ?? (_oCountryValue = new FS.Demo.Country.cdCountry());
+    }
+    set
+    {
+        if (_oCountryValue == value || !this.CanSetProperty()) return;
+        _oCountryValue = value;
+        this.FirePropertyChanged(&quot;oCountry&quot;);
+    }
+}
+
+[ComponentProperty]
+[DependsOnProperties(&quot;sCountry&quot;)]
+public virtual FS.Demo.Country.cdCountry oCountry
+{
+    get { return this.oCountryValue; }
+    set { this.oCountryValue = value; }
+}
+</code></pre>
+<p>So funktioniert die Relation:</p>
+<ul>
+<li><code>Should_oCountryValueBeLoaded</code> vergleicht die Properties aus <strong>Depends On</strong> mit der geladenen Instanz. Die Relation wird also erst beim Zugriff geladen und erneut, sobald <code>sCountry</code> nicht mehr zum geladenen Land passt.</li>
+<li><code>Load_oCountryValue</code> lädt das Land über eine Load-Condition aus den Angaben unter <strong>Depends On</strong>. Bereits geladene Relationen mit derselben Load-Condition werden aus einem Cache genommen. Gibt es kein passendes Land, enthält die Instanz nur den Schlüssel aus <code>sCountry</code>.</li>
+<li>Den Inhalt von <code>Load_oCountryValue</code> erzeugt Framework Studio aus der Relation. Auf der Registerkarte <a href="../comp/tab_properties.html#registerkarte-load-command">Load Command</a> können Sie ihn durch eigenen Code ersetzen.</li>
+<li>Beide Methoden sind <code>virtual</code> und können in abgeleiteten Components überschrieben werden.</li>
+</ul>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Ist auf der Registerkarte <strong>Depends On</strong> kein Property eingetragen, liefert <code>Should_&lt;Name&gt;ValueBeLoaded</code> immer <code>true</code>. Die Relation wird dann bei jedem Zugriff neu geladen.</p>
+</div>
+<p>Anders als bei einem Generated-Property ändert das Setzen einer Relation den Status der Component nicht. Es wird nur <code>PropertyChanged</code> ausgelöst. Dasselbe gilt für alle Properties einer Collection.</p>
+<h3 id="relation-in-einen-anderen-namespace">Relation in einen anderen Namespace</h3>
+<p><code>cdCountry</code> liegt im Namespace <code>FS.Demo.Country</code>, <code>oCountry</code> verwendet die Klasse <code>cdCountry</code> direkt. Die Assembly von <code>cdCompany</code> referenziert dazu die Assembly <code>FS.Demo.Country_C</code>. Das Interface von <code>cdCompany</code> wird dagegen vor den Components kompiliert (siehe <a href="../ide/framework-compiler.html#kompilierreihenfolge">Kompilierreihenfolge</a>) und kennt nur das Interface <code>IcdCountry</code>. Deshalb erzeugt Framework Studio zusätzlich eine explizite Interface-Implementierung:</p>
+<pre><code class="lang-csharp">FS.Demo.Country.IcdCountry FS.Demo.Company.FSDemo_IcdCompany.oCountry
+{
+    get { return (FS.Demo.Country.IcdCountry)this.oCountry; }
+    set { this.oCountry = (FS.Demo.Country.cdCountry)value; }
+}
+</code></pre>
+<p>Ist am Property <a href="../comp/tab_properties.html#useinterface">UseInterface</a> gesetzt, ist der Datentyp des Properties selbst das Interface <code>IcdCountry</code> und neue Instanzen werden über <code>cdCountryFactory.Create()</code> erzeugt.</p>
+<h2 id="ein-datetime-property">Ein DateTime-Property</h2>
+<p>Für ein Property vom Typ DateTime entsteht dasselbe Muster wie für <code>sName</code>, zusätzlich das readonly Property <code>&lt;Name&gt;Str</code>:</p>
+<pre><code class="lang-csharp">public string &lt;Name&gt;Str
+{
+    get { return ConvertDateToDB120DateFormatString(&lt;Name&gt;); }
+}
+</code></pre>
+<p>Es liefert den Wert im Format <code>yyyy-MM-dd HH:mm:ss</code> (ODBC canonical, Format-ID 120), z. B. für eigene Load-Conditions.</p>
+<h2 id="die-datensatz-typen-einer-datacomponent">Die Datensatz-Typen einer DataComponent</h2>
+<p>Für eine Component mit Query werden im selben Namespace weitere Typen erzeugt. Sie werden vom Framework beim Laden und Speichern verwendet, in eigenem Code brauchen Sie sie selten.</p>
+<table>
+<thead>
+<tr>
+<th>Typ</th>
+<th>Inhalt</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>cdCompany_DataStruct</code> (erbt von <code>DataStructBase</code>)</td>
+<td>Ein Feld pro Spalte der Query. Hält den geladenen Datensatz und ist das <code>_DBData</code> aus den Beispielen oben.</td>
+</tr>
+<tr>
+<td><code>cdCompany_PKStruct</code> (implementiert <code>IPKStruct</code>)</td>
+<td>Ein Feld pro Primärschlüssel-Property, bei <code>cdCompany</code> nur <code>ROWID</code>. Identifiziert den Datensatz, solange er noch nicht vollständig geladen ist, z. B. in einer Collection jenseits der <a href="../comp/components.html#load-size-collections">Load Size</a>. Für neue, noch nicht gespeicherte Datensätze wird eine temporäre ID vergeben.</td>
+</tr>
+<tr>
+<td><code>cdCompany.QueryInfoClass</code> (erbt von <code>FrameworkQueryInfo</code>)</td>
+<td>Das SELECT-Statement der Query sowie die Informationen zum Sortieren und Filtern.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="überblick-aller-generierten-member">Überblick aller generierten Member</h2>
+<h3 id="pro-property">Pro Property</h3>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Sichtbarkeit</th>
+<th>Wird erzeugt, wenn …</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;Name&gt;</code></td>
+<td>wie am Property eingestellt</td>
+<td>immer</td>
+</tr>
+<tr>
+<td><code>&lt;Name&gt;Value</code></td>
+<td><code>protected</code>, bei privaten Properties <code>private</code></td>
+<td>Generated, Generated (readonly) und Relation</td>
+</tr>
+<tr>
+<td><code>&lt;Name&gt;OrgValue</code></td>
+<td>wie am Property eingestellt</td>
+<td>das Property ein Mapping hat</td>
+</tr>
+<tr>
+<td><code>&lt;Name&gt;AsObject</code></td>
+<td>wie am Property eingestellt</td>
+<td>das Property weder <code>private</code> noch <code>protected</code> ist</td>
+</tr>
+<tr>
+<td><code>&lt;Name&gt;Member</code></td>
+<td><code>protected</code></td>
+<td>Individual-Property mit <strong>Autogenerate Membervariable</strong> (siehe <a href="../comp/tab_properties.html#registerkarte-general">Registerkarte General</a>)</td>
+</tr>
+<tr>
+<td><code>&lt;Name&gt;Str</code></td>
+<td>wie am Property eingestellt</td>
+<td>Datentyp DateTime</td>
+</tr>
+<tr>
+<td><code>Should_&lt;Name&gt;ValueBeLoaded</code>, <code>Load_&lt;Name&gt;Value</code></td>
+<td><code>protected virtual</code></td>
+<td>Relation</td>
+</tr>
+<tr>
+<td><code>mdt_&lt;Name&gt;</code></td>
+<td><code>public static</code> in der Factory</td>
+<td>das Property weder <code>private</code> noch <code>internal</code> ist</td>
+</tr>
+<tr>
+<td><code>mdt_&lt;Name&gt;</code></td>
+<td><code>protected static</code> bzw. <code>internal static</code> in der Code-Code-Klasse</td>
+<td>das Property <code>private</code> oder <code>internal</code> ist</td>
+</tr>
+</tbody>
+</table>
+<p>In einer Customization oder abgeleiteten Component werden <code>&lt;Name&gt;Value</code>, <code>&lt;Name&gt;OrgValue</code>, <code>&lt;Name&gt;AsObject</code> und <code>&lt;Name&gt;Member</code> nicht erneut erzeugt.</p>
+<p>Das Property selbst erhält diese Attribute:</p>
+<table>
+<thead>
+<tr>
+<th>Attribut</th>
+<th>Bedingung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>[PKProperty]</code></td>
+<td>Das Property ist Teil des Primärschlüssels.</td>
+</tr>
+<tr>
+<td><code>[ComponentProperty]</code></td>
+<td>Das Property ist weder <code>private</code> noch <code>protected</code> und weder FSROWID noch FSROWVERSION.</td>
+</tr>
+<tr>
+<td><code>[DependsOnProperties(…)]</code></td>
+<td>Auf der Registerkarte <strong>Depends On</strong> sind Properties eingetragen.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pro-component">Pro Component</h3>
+<table>
+<thead>
+<tr>
+<th>Member</th>
+<th>Bedingung</th>
+<th>Zweck</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>GetFactoryType()</code></td>
+<td>immer</td>
+<td>Liefert den Typ der Factory <code>&lt;Name&gt;Factory</code>.</td>
+</tr>
+<tr>
+<td><code>&lt;Name&gt;Factory.Create()</code></td>
+<td>immer</td>
+<td>Erzeugt eine neue Instanz.</td>
+</tr>
+<tr>
+<td><code>OnSaveAction()</code></td>
+<td>Component mit Query und mindestens einer Tabelle, nicht GroupBy</td>
+<td>Führt Insert, Update und Delete für die Tabelle aus. Eigene Logik gehört in die Entry-Points <a href="../comp/tab_method.html#onbeforesaveaction-">OnBeforeSaveAction()</a> und <a href="../comp/tab_method.html#onaftersave-">OnAfterSave()</a>.</td>
+</tr>
+<tr>
+<td><code>GetVirtualColumnNameOnPropertyName(propName, allowAggregate)</code></td>
+<td>Component mit Query und deren Collection</td>
+<td>Liefert zum Namen eines Properties den Namen der Spalte in der Query.</td>
+</tr>
+<tr>
+<td><code>ConvertLoadCondition(loadCondition, allowAggregate)</code></td>
+<td>Component mit Query (statisch, auch ohne <code>allowAggregate</code>)</td>
+<td>Wandelt eine Load-Condition mit Property-Namen in eine mit Spaltennamen um.</td>
+</tr>
+<tr>
+<td><code>LoadSize</code>, <code>IsSortable</code>, <code>IsFilterable</code></td>
+<td>Collection einer DataComponent</td>
+<td>Load Size aus der Registerkarte <strong>General</strong>. Sortieren und Filtern sind nur möglich, wenn alle Primärschlüssel der Tabellen in der Query enthalten sind oder ein Key-Feld gesetzt ist.</td>
+</tr>
+<tr>
+<td><code>GetEnumerator()</code></td>
+<td>Collection</td>
+<td>Typisierter Enumerator, damit <code>foreach</code> die Component-Klasse liefert.</td>
+</tr>
+<tr>
+<td><code>&lt;Name&gt;Factory.Get(pk)</code>, <code>&lt;Name&gt;Factory.GetText(pk, defaultText)</code></td>
+<td>TextCollection</td>
+<td>Liefert den Eintrag bzw. dessen Text zum Primärschlüssel aus dem globalen Cache.</td>
+</tr>
+<tr>
+<td><code>IObjectWithRowid.ROWID</code></td>
+<td>Component mit <a href="../weitere-themen/fsrowid_fsrowversion.html">FSROWID</a>, keine Customization und keine abgeleitete Component</td>
+<td>Zugriff auf die FSROWID über das Interface <code>FS.Hosting.Shared.IObjectWithRowid</code>.</td>
+</tr>
+</tbody>
+</table>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

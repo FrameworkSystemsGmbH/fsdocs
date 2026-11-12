@@ -100,6 +100,95 @@
 <li>Nun wird der Compile-Stamp des FrameworkCompilers aktualisiert. Hieran wird festgesetzt, ob die Entwickler mit einem aktuellen Workspace arbeiten oder nicht.</li>
 </ul>
 <p>Ein erfolgreicher Durchlauf des FrameworkCompilers stellt somit sicher, dass sich im Repository ein sauberer Entwicklungsstand mit jeglichem Source Code und jeglichen Assemblies befindet, auf dem die Entwickler ihre tägliche Arbeit aufbauen können.</p>
+<h2 id="kompilierreihenfolge">Kompilierreihenfolge</h2>
+<p>Innerhalb einer Packageversion werden die Elemente nach ihrem Typ in festen Stufen kompiliert. Die meisten Stufen erzeugen pro Namespace eine eigene Assembly. Deren Name setzt sich aus dem Namespace und einer Endung zusammen, z. B. <code>Sales_C</code> für die Components des Namespaces <code>Sales</code>. Access Unit Owner, Interfaces und Workflows werden dagegen namespace-übergreifend in jeweils eine Assembly kompiliert.</p>
+<table>
+<thead>
+<tr>
+<th>Stufe</th>
+<th>Elementtyp</th>
+<th>Endung der Assembly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Resources</td>
+<td><code>_R</code></td>
+</tr>
+<tr>
+<td>2</td>
+<td>Access Unit Owner</td>
+<td><code>_AUO</code></td>
+</tr>
+<tr>
+<td>3</td>
+<td>Metadatentypen</td>
+<td><code>_MDT</code></td>
+</tr>
+<tr>
+<td>4</td>
+<td>DB-Tabellen</td>
+<td><code>_DBT</code></td>
+</tr>
+<tr>
+<td>5</td>
+<td>Interfaces</td>
+<td><code>_I</code></td>
+</tr>
+<tr>
+<td>6</td>
+<td>Report Document Types</td>
+<td><code>_RDT</code></td>
+</tr>
+<tr>
+<td>7</td>
+<td>Services</td>
+<td><code>_Svc</code></td>
+</tr>
+<tr>
+<td>8</td>
+<td>REST Services</td>
+<td><code>_RestSvc</code></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Components</td>
+<td><code>_C</code></td>
+</tr>
+<tr>
+<td>10</td>
+<td>GlobalObjects</td>
+<td><code>_GO</code></td>
+</tr>
+<tr>
+<td>11</td>
+<td>Unit-Tests</td>
+<td><code>_UT</code></td>
+</tr>
+<tr>
+<td>12</td>
+<td>Custom Controls</td>
+<td><code>_CC</code></td>
+</tr>
+<tr>
+<td>13</td>
+<td>Forms</td>
+<td><code>_Frm</code></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Workflows</td>
+<td><code>_Wfl</code></td>
+</tr>
+</tbody>
+</table>
+<p>Eine Stufe greift auf die Assemblies der Stufen zu, die vor ihr kompiliert wurden. Innerhalb einer Stufe kann eine Assembly die Assemblies anderer Namespaces referenzieren, z. B. <code>FS.Demo.Company_C</code> die Assembly <code>FS.Demo.Country_C</code>. Zwei Namespaces können sich aber nicht gegenseitig referenzieren. Für solche Fälle gibt es <a href="../comp/tab_properties.html#useinterface">UseInterface</a>: Das Property verwendet dann das Interface aus Stufe 5. Beim Anlegen eines Properties, dessen Datentyp eine Component aus einem anderen Namespace ist, schlägt Framework Studio UseInterface vor.</p>
+<p>Daraus folgt für die tägliche Arbeit:</p>
+<ul>
+<li>Ein Fehler in einer frühen Stufe kann Folgefehler in allen späteren Stufen auslösen. Beheben Sie Kompilierfehler deshalb von der frühesten Stufe an.</li>
+<li>Betrifft eine Änderung mehrere Elemente, bauen Sie sie in dieser Reihenfolge auf. Für ein neues Feld in der Datenbank ändern Sie zuerst die DB-Tabelle, dann die Component und zuletzt das Form.</li>
+</ul>
 
 </article>
 

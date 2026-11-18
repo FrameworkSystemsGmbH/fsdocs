@@ -87,6 +87,35 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-48">Release-Information Framework Studio 4.8</h1>
 
+<h2 id="486-xxxx2026">4.8.6 (xx.xx.2026)</h2>
+<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<ul>
+<li><p><strong>Broker</strong>: Wird innerhalb eines Requests ein weiteres GlobalObject erzeugt oder gesetzt,
+z.B. mit <code>GlobalObjectManager.CreateGlobalObject()</code>, verliert
+die Session des angemeldeten Users ihre Berechtigungen. Alle folgenden Requests laufen mit den
+Rechten des Default-Users.<br>
+Die Session des angemeldeten Users wird nicht mehr überschrieben. Nach dem Ende des <code>using</code>-Blocks
+werden Benutzer und Session des ursprünglichen GlobalObjects wiederhergestellt.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Innerhalb des <code>using</code>-Blocks läuft der Code weiterhin mit dem Benutzer des zweiten GlobalObjects,
+bei einem neu erzeugten GlobalObject also mit dem Default-User.
+Das Framework schreibt in diesem Fall eine Warnung mit Aufrufstelle in das Log des Hosts
+(„Show Trace Log“ bzw. Runtime Supervisor), einmal je Aufrufstelle:</p>
+<ul>
+<li><em>&quot;GlobalObjects of session ... created in a service scope bound to session ...&quot;</em></li>
+<li><em>&quot;GlobalObjects of session ... used in a service scope bound to session ...&quot;</em></li>
+</ul>
+<p>Betroffener Code sollte auf einen eigenen Scope umgestellt werden, siehe
+<a href="../doc/konzepte/di-fsserviceprovider.html#eigener-scope-mit-global">Eigener Scope mit Global</a>.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>GlobalObjectManager.CreateGlobalObject()</code> löst ohne aktiven Scope jetzt eine <code>InvalidOperationException</code> mit Hinweis auf die Ursache aus (bisher eine <code>NullReferenceException</code>).
+Servicemethoden mit „Generate GlobalObject“ sind nicht betroffen und müssen nicht angepasst werden.</p>
+</div>
+</li>
+</ul>
 <h2 id="485-06112026">4.8.5 (06.11.2026)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>
@@ -143,7 +172,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 </ul>
 <p>Passend dazu stellen wir eine neue Version des FSClient Launchers bereit.
 Eine Installation wird empfohlen, da die neuen Versionen wichtige Sicherheitspatches beinhalten!</p>
-<h4 id="korrigierte-fehler">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
 <ul>
 <li><p>2026090474 - <strong>JavaClient</strong>: Werden im Font-Property unzulässige Zeichen, zB.
 Leerzeichen, nicht enstprechend escaped, wirft der JavaClient im Hintergrund
@@ -186,7 +215,7 @@ SqlLexerException führen.</p>
 <p>Das Verfahren kann über die System-Property <code>fs.image.interpolation</code> beim Start des JavaClients umgestellt werden.</p>
 <p>Beispiel: <code>-Dfs.image.interpolation=bicubic</code></p>
 <p>Soll die Skalierung durch Java komplett unterbunden werden, kann zusätzlich <code>-Dsun.java2d.uiScale=1.0</code> gesetzt werden.</p>
-<h4 id="korrigierte-fehler-1">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
 <ul>
 <li><p>2026080358 - <strong>JavaClient</strong>: Wird eine HTML-Seite dynamisch verändert, indem
 <code>&lt;a&gt;</code>-Tags hinzugefügt werden, erkennt das BrowserControl diese bei einem
@@ -229,7 +258,7 @@ nicht mehr möglich ist.</p>
 <ul>
 <li>Reports können nun neben einer Culture als <code>string</code> auch direkt mit einer <code>System.Globalization.CultureInfo</code> erzeugt werden. Dazu wurde das Property <a class="xref" href="../api/FS.Hosting.Core.Reporting.ReportDocument.CultureInfo.html#FS_Hosting_Core_Reporting_ReportDocument_CultureInfo">ReportDocument.CultureInfo</a> ergänzt. Das neue Property ermöglicht es beispielsweise, hybride Cultures an den Report zu übergeben, bei denen Text- und Zahlenformate voneinander abweichen. Ist die <code>CultureInfo</code> gesetzt, hat es Vorrang vor <code>Culture</code>.</li>
 </ul>
-<h4 id="korrigierte-fehler-2">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
 <ul>
 <li><p>2026080335 - <strong>Broker</strong>: Bei Token-Refreshes wird der erneuerte Token nicht in
 die Session zurückgeschrieben. Jeder Folge-Request muss deshalb den Token
@@ -300,7 +329,7 @@ Mit dem Publish der Application wird die neue Version automatisch auf alle Clien
 <li>Das Output-Fenster wird nicht mehr automatisch im Vordergrund geöffnet, wenn dort neue Informationen ausgegeben werden. Stattdessen erhält die Registerkarte ein blaues Info-Image.</li>
 <li>Der Package-Version Import für SQL Server wurde optimiert. Durch die Optimierung konnten die Importzeiten um den Faktor 5-10 beschleunigt werden.</li>
 </ul>
-<h4 id="korrigierte-fehler-3">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
 <ul>
 <li><p>2026060019 - <strong>Java-Client</strong>: Wenn in einem neuen Fenster (schwebend)
 geöffnete Registerkarten (Auftrag, Artikel, ...) auf einen anderen Monitor
@@ -353,7 +382,7 @@ FileNotFoundException ab.</p>
 <li>Der <strong>Print-Server</strong> schreibt das Log-File nun täglich in eine neue Datei. Der konfigurierte Dateiname dient dabei als Basis; das aktuelle Datum wird automatisch als Suffix ergänzt (z. B. <code>PrintServer_20260429.log</code>). Ein Neustart des Dienstes beim Tageswechsel ist nicht erforderlich.</li>
 <li>Der <strong>Print-Server</strong> verfügt nun über ein optionales <strong>Erweitertes Spooler Monitoring</strong>. Es überwacht den Windows Druckspooler aktiv und protokolliert den Lebenszyklus jedes Druckauftrags in zwei tagesrotierten Log-Dateien (<code>SpoolerLog</code>, <code>FailedPrints</code>). Bei erkannten Spooler-Fehlern wird die zugehörige FS-Transaktion automatisch als fehlgeschlagen markiert. Das Feature wird über <code>ExtendedSpoolerLogEnabled</code> in der <code>PrintService.exe.config</code> aktiviert. Weitere Informationen unter <a href="../doc/print-server/features.html#erweitertes-spooler-monitoring">Erweitertes Spooler Monitoring</a>.</li>
 </ul>
-<h4 id="korrigierte-fehler-4">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
 <ul>
 <li><p>2026069998 - <strong>Publish2Go</strong>: Wenn bei einem Publish2Go über die PBE eine
 Exception beim Schreiben der Applications oder ServiceHosts geworfen wird,
@@ -386,7 +415,7 @@ Das entspricht Chromium 148.</p>
 <p>Release-Notes des Control-Herstellers: <a href="https://teamdev.com/jxbrowser/releases/2026/v9-0-2/.html">https://teamdev.com/jxbrowser/releases/2026/v9-0-2/.html</a></p>
 <p>Es sind keine besonderen Aktionen erforderlich.
 Mit dem Publish der Application wird die neue Version automatisch auf alle Clients verteilt.</p>
-<h4 id="korrigierte-fehler-5">Korrigierte Fehler</h4>
+<h4 id="korrigierte-fehler-6">Korrigierte Fehler</h4>
 <p>In der Version 4.8 sind alle Fehler-Korrekturen bis einschließlich <a href="release-4-7.html#4718-08062026">Framework Studio 4.7.18</a> enthalten.
 Zusätzlich wurden die folgenden Bugs behoben:</p>
 <ul>

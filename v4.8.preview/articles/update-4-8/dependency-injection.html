@@ -264,6 +264,11 @@ using (var connection = FSServiceProvider.Current.GetRequiredService&lt;IDBConne
 </code></pre>
 <p>Die Methode <a class="xref" href="../../api/FS.Hosting.Shared.FSServiceProvider.CreateScope.html#FS_Hosting_Shared_FSServiceProvider_CreateScope_FS_Hosting_Shared_GlobalObj_IGlobalObjects_"><code>FSServiceProvider.CreateScope(global)</code></a> erzeugt neben dem Service-Provider-Scope auch einen neuen <code>GlobalContext</code>.
 Dadurch wird sichergestellt, dass alle relevanten Ressourcen und Zustände korrekt verwaltet und am Ende des Scopes bereinigt werden.</p>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Auch das Erzeugen eines GlobalObjects muss in einem eigenen Scope erfolgen.
+Siehe <a href="../../doc/konzepte/di-fsserviceprovider.html#eigener-scope-mit-global">Eigener Scope mit Global</a>.</p>
+</div>
 <div class="WARNING">
 <h5>Warning</h5>
 <p><strong>Keine Async-Operationen im Scope ausführen!</strong></p>

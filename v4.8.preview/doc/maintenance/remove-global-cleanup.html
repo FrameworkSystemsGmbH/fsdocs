@@ -171,16 +171,21 @@ Innerhalb des Contexts greifen dann neue Instanzen auf dieses erstellte Global z
   }
 }
 </code></pre>
-<p><strong>Korrekt umgebauter Dummy-Code unter Verwendung des GlobalContexts:</strong></p>
+<p><strong>Korrekt umgebauter Dummy-Code mit eigenem Scope:</strong></p>
 <pre><code class="lang-csharp">public virtual dcCall2 GetCallById(string token, long callId)
 {
-  // Instanz eines selbst erstellten Globals
-  IFSGlobalObjects global = (IFSGlobalObjects)FS.Hosting.Broker.Base.GlobalObjectManager.CreateGlobalObject(guid.NewGuid().Value);
+  // Das selbst erstellte Global wird in einem eigenen Scope erzeugt.
+  GlobalObjects global;
+  using (FSServiceProvider.CreateScope())
+  {
+    global = FS.Hosting.Broker.Base.GlobalObjectManager.CreateGlobalObject(guid.NewGuid().Value);
+  }
 
-  // Der GlobalContext übernimmt nun das Setzen des Globals am Anfang des Requests und räumt das Global am Ende des Requests wieder ab.
-  // Im Fall, dass ich ein Global erstelle, muss ich mich um diesen GlobalContext kümmern.
-  // Sobald der GlobalContext mit dem using() aufgespannt wurde, können die auskommentierten Globals entfernt werden.
-  using(GlobalContext.Context(global))
+  // Innerhalb des Scopes arbeiten neue Instanzen mit diesem Global (GlobalContext.Current, FSServiceProvider.Current).
+  // Am Ende werden Global und Scope freigegeben, der Scope des Aufrufers bleibt unverändert.
+  // Sobald der Scope mit dem using() aufgespannt wurde, können die auskommentierten Globals entfernt werden.
+  using (FSServiceProvider.CreateScope(global))
+  using (global)
   {
     try
     {
@@ -200,6 +205,10 @@ Innerhalb des Contexts greifen dann neue Instanzen auf dieses erstellte Global z
   }
 }
 </code></pre>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Ein selbst erstelltes Global wird immer in einem eigenen Scope erzeugt und verwendet. <code>GlobalObjectManager.CreateGlobalObject()</code> zusammen mit <code>GlobalContext.Context(global)</code> im Scope eines Requests stellt den Scope auf den Benutzer des neuen Globals um und erzeugt eine Warnung im Log. Details unter <a href="../konzepte/di-fsserviceprovider.html#eigener-scope-mit-global">Eigener Scope mit Global</a>.</p>
+</div>
 <h3 id="servicemethoden-mit-globalobject">Servicemethoden mit GlobalObject</h3>
 <p>Bei Servicemethoden mit der aktiven Option &quot;Generate GlobalObject&quot;, kümmert sich FS um das Aufspannen des GlobalContexts. Es kann weiterhin mit <code>this.Global</code> auf das Global zugegriffen werden.
 Der generierte Code sieht dann wie folgt aus:</p>
@@ -208,25 +217,20 @@ Der generierte Code sieht dann wie folgt aus:</p>
   try
   {
     IFSGlobalObjects Global = (IFSGlobalObjects)FS.Hosting.Broker.Base.GlobalObjectManager.CreateGlobalObject(guid.NewGuid().Value);
-
-    try 
+    using(Global as IDisposable)
+    using(FSServiceProvider.Current.GetRequiredService&lt;IGlobalScope&gt;().GlobalContext(Global))
     {
-      using(GlobalContext.Context(Global))
-      {
-        // geschriebener Code vom User
-      }  
-    }
-    finally {
-      ((GlobalObjects)Global).Dispose();
+      // geschriebener Code vom User
     }
   }
-  catch(Exception ex)
+  catch (FaultException) { throw; }
+  catch (Exception ex)
   {
     // ... Exception-Handling
   }
 }
-
 </code></pre>
+<p>Das Global wird im Scope des Service-Requests gesetzt. Ein selbst erstelltes Global innerhalb der Servicemethode gehört trotzdem in einen eigenen Scope (siehe oben).</p>
 
 </article>
 

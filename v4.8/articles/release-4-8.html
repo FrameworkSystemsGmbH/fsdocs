@@ -87,6 +87,19 @@
         <article data-uid="">
 <h1 id="release-information-framework-studio-48">Release-Information Framework Studio 4.8</h1>
 
+<h2 id="485-security-fix-2-19112026">4.8.5 Security Fix 2 (19.11.2026)</h2>
+<p>Die Auslieferung umfasst die folgenden Pakete:</p>
+<ul>
+<li>FSCL_4.8.5_Fix_2_Setup_x64</li>
+</ul>
+<p>Die Liste mit allen aktuellen Installations-Paketen finden Sie <a href="aktuelle-pakete.html">hier</a>.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Aufgrund mehrerer Sicherheitslücken in den Java Runtimes, unteranderem Java4Shell, haben wir die JDKs im FSCL upgedated.
+<a href="https://www.azul.com/blog/java4shell-cve-2026-114938-what-it-is-who-is-affected-and-what-to-do-now/">https://www.azul.com/blog/java4shell-cve-2026-114938-what-it-is-who-is-affected-and-what-to-do-now/</a></p>
+<p>Falls ein Update nicht möglich ist, kann bei den VM-Arguments im FSClientLauncher auch folgende Variable hinterlegt werden <code>-XX:-UseBASE64Intrinsics</code> und <code>-XX:UseAVX=2</code>.</p>
+<p>Java4Shell ist eine Sicherheitslücke im Base64-Decoder von OpenJDK ab Version 17.0.6 (BSI-Warnung 2026-306673-1032). Ausnutzbar ist sie nur unter zwei Bedingungen: Der Prozessor unterstützt AVX-512-VBMI, und die Java-Anwendung dekodiert Base64-Daten aus fremder Quelle.</p>
+</div>
 <h2 id="485-06112026">4.8.5 (06.11.2026)</h2>
 <p>Die Auslieferung umfasst die folgenden Pakete:</p>
 <ul>

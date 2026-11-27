@@ -243,9 +243,20 @@ Durch diesen Vorgang werden <strong>ID</strong>, <strong>Public Key</strong> und
 <p><strong>Active:</strong> Wenn diese Checkbox gesetzt ist, wird dieser REST Service zum Starten via <strong>F5</strong> markiert, andernfalls nicht.</p>
 <p><strong>Debug:</strong> Wenn diese Checkbox gesetzt ist, kann mit dem Debug-Flag im Service das <a href="../restservices/restservices.html#debugging">Debugging</a> gestartet werden.</p>
 <p><strong>Configuration:</strong> Hier kann im JSON-Format eine Konfiguration des REST Services hinterlegt werden. Die Konfiguration wird 1:1 an den REST Service übergeben. Dies muss im Service implementiert werden siehe <a href="../restservices/restservices-methods.html#konfiguration">Codebeispiel</a>.</p>
+<p>Ist an der Modular Component eine <a href="../modcomp/modcomp.html#default-config">Default Config</a> hinterlegt, wird diese angezeigt und verwendet, solange keine eigene Konfiguration eingetragen ist.
+Solange die Konfiguration der Default Config entspricht, wirken spätere Änderungen an der Default Config automatisch.
+Eine geleerte Konfiguration bleibt leer.
+Beim Export eines Settings in eine Datei und beim Publish (z.B. für <a href="publish2go-wizard.html">Publish2Go</a>) wird immer die verwendete Konfiguration übernommen, auch wenn sie aus der Default Config stammt.</p>
+<p><strong>Load Default:</strong> Verwirft die eigene Konfiguration und verwendet wieder die Default Config der Modular Component. Eine vorhandene Konfiguration wird nach einer Rückfrage verworfen.
+Der Button ist nur aktiv, wenn an der Modular Component eine Default Config hinterlegt ist und die Konfiguration davon abweicht.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>Beim Start des REST Services wird die JSON Config lediglich auf strukturelle Validität geprüft, es findet keine inhaltliche Prüfung statt.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Die Konfigurationsdatei wird nur beim Start des REST Services geschrieben und nur, wenn <a href="#end">Update config files on start</a> gesetzt ist.
+Läuft der REST Service bereits, wird eine geänderte Konfiguration erst übernommen, nachdem der Service beendet (z.B. durch einen Compile) und erneut gestartet wurde.</p>
 </div>
 <h3 id="rest-services---authentication">REST Services - Authentication</h3>
 <p>Hier werden die Authentifizierungseinstellungen zu einem REST Service vorgenommen.</p>
@@ -274,6 +285,7 @@ Wird das Flag deaktiviert, hat der Entwickler die Möglichkeit, sämtliche Konfi
 <ul>
 <li>*.FrameworkBroker.config von Applications</li>
 <li>*.FrameworkBroker.config von Service Hosts</li>
+<li>appsettings.Development.{FullName}.json von REST Services</li>
 <li>Web.config des Development Brokers</li>
 </ul>
 <div class="NOTE">

@@ -105,7 +105,21 @@ Auf welchem Broker der jeweilige Client gerade arbeitet, ist in der Titelleiste 
 </div>
 <div class="WARNING">
 <h5>Warning</h5>
-<p>Wenn mehrere Broker auf demselben Server veröffentlicht werden, sollte darauf geachtet werden, dass diese in unterschiedlichen Application Pools laufen, da ein Pool ab ca. 4GB Speicherauslastung spürbar langsamer werden kann Load Balancing hat keinen Effekt mehr.</p>
+<p>Wenn mehrere Broker auf demselben Server veröffentlicht werden, sollten diese in unterschiedlichen Application Pools laufen.
+Broker in einem gemeinsamen Pool teilen sich einen Worker-Prozess, dessen Speicher und die Pausen der Garbage Collection.
+Das Load Balancing bringt in diesem Fall keine echte Entlastung.</p>
+</div>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Für die Speicherauslastung eines Application Pools gibt es keine feste Obergrenze; ein 64-Bit-Pool kann auch mehrere Gigabyte problemlos nutzen.
+Handlungsbedarf besteht erst, wenn einer der folgenden Indikatoren auftritt:</p>
+<ul>
+<li>Die Antwortzeiten haben Spitzen, die mit Garbage Collections zusammenfallen (Leistungsindikator <code>.NET CLR Memory\% Time in GC</code> dauerhaft deutlich erhöht).</li>
+<li>Der Speicher steigt stetig an und pendelt sich auch nach lastintensiven Phasen nicht wieder auf ein Niveau ein.</li>
+<li>Der Gesamtspeicher aller Pools nähert sich dem physischen Arbeitsspeicher des Servers.</li>
+</ul>
+<p>Ein Speicherlimit (Private Memory Limit) für den Pool löst bei Überschreitung ein Recycling aus, bei dem alle angemeldeten Benutzer ihre Session verlieren.
+Wird ein Limit gesetzt, sollte es deutlich oberhalb der im Betrieb gemessenen Spitzenauslastung liegen und nur als Notbremse dienen.</p>
 </div>
 
 </article>

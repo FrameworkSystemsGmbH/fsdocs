@@ -148,7 +148,10 @@
 <h2 id="runtime-supervisor-komponenten">Runtime Supervisor Komponenten</h2>
 <p>Der Runtime Supervisor besteht insgesamt aus drei Komponenten, einer Datenbank, einem Windows Service und einer Web Application. Diese müssen nicht zwingend auf demselben Server installiert sein (mehr in Kapitel).</p>
 <h3 id="datenbank">Datenbank</h3>
-<p>Der Runtime Supervisor benötigt für die Datenhaltung eine relationale Datenbank. Hierfür kann entweder Microsoft SQL Server oder Oracle eingesetzt werden. Die Datenbank bleibt bei einem Update oder einer Neuinstallation des Runtime Supervisor erhalten, sodass der Windows Service und die Web Application anschließend nicht neu konfiguriert werden müssen. Alle Einstellungen bis hinauf zur Benutzeroberfläche der Web Application werden in der Datenbank persistiert.</p>
+<p>Der Runtime Supervisor benötigt für die Datenhaltung eine relationale Datenbank.
+Hierfür kann entweder Microsoft SQL Server oder Oracle eingesetzt werden.
+Die Datenbank bleibt bei einem Update oder einer Neuinstallation des Runtime Supervisor erhalten, sodass der Windows Service und die Web Application anschließend nicht neu konfiguriert werden müssen.
+Alle Einstellungen bis hinauf zur Benutzeroberfläche der Web Application werden in der Datenbank persistiert.</p>
 <h3 id="windows-service">Windows Service</h3>
 <p>Der Windows Service ist der Mittelpunkt des Runtime Supervisor. Alle automatisierten Prozesse werden hier verwaltet. Er hat direkten Zugriff auf die Datenbank und ist verantwortlich für die Kommunikation mit den zu überwachenden Observables.</p>
 <p><strong>Features:</strong></p>

@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>Tools des MCP-Servers </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="Tools des MCP-Servers ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="tools-des-mcp-servers">Tools des MCP-Servers</h1>
+
+<p>Alle Tools des <a href="mcp-server.html">MCP-Servers</a> arbeiten <strong>read-only</strong> — es werden keine Änderungen am Repository vorgenommen.
+Jedes Tool meldet das über seine Annotations: <code>readOnlyHint</code> (verändert nichts), <code>idempotentHint</code> (gleiche Argumente, gleiches Ergebnis) und <code>openWorldHint: false</code> (greift nur auf das lokale Repository zu), dazu ein <code>title</code> für die Anzeige im Client.</p>
+<p>Die Ergebnisse umfassen standardmäßig die gesamte Package-Hierarchie (aktives Package und dessen Basis-Packages) und lassen sich über den <a href="#package-scope"><code>packageScope</code></a>-Parameter gezielt eingrenzen.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Die vollständige Parameterbeschreibung jedes Tools wird vom MCP-Server über <code>tools/list</code> bereitgestellt.
+KI-Clients erhalten diese automatisch bei der Verbindung.</p>
+</div>
+<h2 id="package-scope">Package-Scope</h2>
+<p>Die auflistenden und suchenden Tools (<code>fs_list</code>, <code>fs_search_names</code>, <code>fs_search_code</code>, <code>fs_search_dependencies</code>, <code>fs_search_documentation</code>, <code>fs_get_checkin_history</code>) akzeptieren einen optionalen <code>packageScope</code>-Parameter, um die Ergebnisse auf ein Package der aktiven Hierarchie zu beschränken:</p>
+<table>
+<thead>
+<tr>
+<th>Wert</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>all</code> (Default)</td>
+<td>Gesamte Hierarchie — aktives Package und alle Basis-Packages</td>
+</tr>
+<tr>
+<td><code>active</code></td>
+<td>Nur das aktive (oberste) Package</td>
+</tr>
+<tr>
+<td><em>Package-Name</em></td>
+<td>Genau dieses Package der Hierarchie (z.B. <code>eNVenta</code>)</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Der Package-Name wird <strong>strikt</strong> verglichen (case-sensitive). Ein unbekannter Wert liefert einen Fehler mit der Auflistung der verfügbaren Packages.</li>
+<li>Elemente ohne zugeordnetes Package werden außer bei <code>all</code> ausgeblendet.</li>
+<li>Bei <code>fs_list</code> wird <code>packageScope</code> für <code>datasource</code> und <code>package</code> ignoriert.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Bei <code>fs_get_checkin_history</code> liefert jedes Package der Hierarchie die CheckIns seines aktuellen Labels.
+Ein importiertes Basis-Package enthält keine CheckIns, sondern nur die importierten Stände; das Ergebnis weist dann mit <code>historyAvailable: false</code> darauf hin (siehe <a href="#historie-importierter-packages">Historie importierter Packages</a>).</p>
+</div>
+<h2 id="umgebung">Umgebung</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fs_get_environment</code></td>
+<td>Informationen zur aktuellen IDE-Umgebung: aktive Domain (<code>activeFSDomain</code>), Compile-Verzeichnisse (<code>compileDirectory</code>, <code>compileCodeDirectory</code>), ob der Framework Compiler verwendet wird (<code>isFrameworkCompiler</code>) und ob das aktive Label ein Service Release ist (<code>isActiveLabelServiceRelease</code>).</td>
+</tr>
+</tbody>
+</table>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Das Label, auf dem die Suche arbeitet, geben die Such-Tools als <code>indexedLabel</code> aus.</p>
+</div>
+<h2 id="elemente-auflisten">Elemente auflisten</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fs_list</code></td>
+<td>Alle Elemente nach Typ auflisten. Unterstützte Elementtypen: <code>component</code>, <code>form</code>, <code>service</code>, <code>modular_component</code>, <code>code_file</code>, <code>namespace</code>, <code>package</code>, <code>db_table</code>, <code>metadatatype</code>, <code>global_object</code>, <code>datasource</code>, <code>global_event</code>, <code>service_contract</code>, <code>service_host</code>, <code>workflow</code>, <code>report</code>, <code>access_unit</code>, <code>data_contract</code>. Parameter: <code>elementType</code>, <code>namespaceName</code> (optional), <code>packageScope</code> (optional, siehe oben), <code>datasourceName</code> (optional, nur für <code>db_table</code>), <code>ownerType</code> (<code>Form</code>|<code>AccessUnitOwner</code>) und <code>ownerName</code> (optional, nur für <code>access_unit</code>), <code>offset</code> + <code>limit</code> (Pagination, <code>limit</code> 0 = unbegrenzt, Default). Das Ergebnis enthält <code>count</code> (Elemente dieser Seite) und <code>hasMore</code> (weitere Elemente vorhanden).</td>
+</tr>
+</tbody>
+</table>
+<h2 id="elemente-lesen">Elemente lesen</h2>
+<h3 id="devobjects-component-form-service-servicehost-modular-component-code-file">DevObjects (Component, Form, Service, ServiceHost, Modular Component, Code File)</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fs_get_devobject</code></td>
+<td>Details zu DevObjects abrufen. Parameter: <code>elementType</code> (component|form|service|service_host|modular_component|code_file), <code>fullName</code>, <code>detail</code> (optional: summary|full, Default summary), <code>method</code> (optional: nur diese Methode mit vollem Code, siehe <a href="#methoden-adressieren">Methoden adressieren</a>), <code>property</code> (optional: nur diese Property; nicht für <code>service</code>, <code>service_host</code> und <code>code_file</code>), <code>package</code> (optional: Version des Elements aus einem bestimmten Package der Vererbungskette).</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>Detail-Level:</strong> <code>summary</code> (Default) zeigt die Struktur (Property-Namen und -Typen, Methoden-Signaturen) ohne Code-Bodies — ideal zur Orientierung in großen Components. <code>full</code> gibt das komplette YAML mit allen Code-Bodies aus.</li>
+<li><strong>Components</strong> umfassen auch Collections und TextCollections.</li>
+<li><strong>Forms:</strong> Die Ausgabe enthält die Benutzerdokumentation (<code>userDoc</code>) nur ohne <code>method</code>/<code>property</code>; eine gezielte Methoden- oder Property-Abfrage bleibt dadurch schlank.</li>
+<li><strong>ServiceHosts</strong> liefern Service-/ServiceContract-Referenzen, Base-Adresse, Endpoints und Methoden. Methoden und Endpoints werden <strong>pro Package</strong> ausgegeben: Ein Customizing-ServiceHost zeigt nur seine eigenen. Die eines Basis-Packages liefert der Parameter <code>package</code>, die vollständige Endpoint-Liste <code>fs_get</code> mit <code>elementType=service_host</code>.</li>
+<li><strong>Basis-Packages:</strong> Ein Customizing gibt nur die Methoden des eigenen Packages aus. Methoden, die nur in einem Basis-Package definiert und nicht überschrieben sind, liefert der Parameter <code>package</code> mit dem Namen dieses Packages. Den passenden Namen nennt <code>packageName</code> in den Treffern von <code>fs_search_code</code> und <code>fs_search_names</code>.</li>
+</ul>
+<h4 id="controls-in-forms">Controls in Forms</h4>
+<table>
+<thead>
+<tr>
+<th>Feld</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>visibleAU</code> / <code>editableAU</code></td>
+<td>AccessUnits (Name und Berechtigungsmodus), die Sichtbarkeit bzw. Bearbeitbarkeit des Controls steuern. Fehlt der Schlüssel, ist das Control in dieser Hinsicht nicht durch AccessUnits eingeschränkt. Ausgeblendet bzw. gesperrt wird ein Control nur, wenn mindestens eine AccessUnit aufgeführt ist und keine davon gewährt wird.</td>
+</tr>
+<tr>
+<td><code>mappedDBColumn</code></td>
+<td>Die physische Datenbankspalte, an die das Control über seine Datenquelle gebunden ist.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="code-files">Code Files</h4>
+<p>Bei <code>elementType=code_file</code> trifft der Parameter <code>method</code> alle Member mit Code-Body — Methoden, Konstruktoren, Destruktoren, Operatoren, Konvertierungsoperatoren, Indexer, Properties (get/set) und Events mit add/remove, nicht aber Felder und Event-Felder.
+Akzeptiert werden der Name und die eindeutige Deklaration (z.B. <code>Bar(int)</code>, <code>IFoo.Bar(int)</code>, <code>operator +(Money, Money)</code>, <code>implicit operator Money(decimal)</code>, <code>this[int]</code>), die unverändert verglichen werden.
+Jeder Treffer trägt <code>enclosingType</code> (z.B. <code>Outer.Inner</code>).</p>
+<p>Die eindeutige Deklaration ist nur innerhalb des umschließenden Typs eindeutig: Deklarieren mehrere Typen eines Code Files denselben Member, werden alle geliefert.
+Ein reiner Name trifft alle gleichnamigen Member über alle Typen hinweg.</p>
+<h3 id="methoden-adressieren">Methoden adressieren</h3>
+<p>Die Tools <code>fs_get_devobject</code> (Parameter <code>method</code>), <code>fs_get_method_history</code> und <code>fs_diff_method</code> (Parameter <code>methodName</code> bzw. <code>declaration</code>) akzeptieren eine Methode in drei Formen:</p>
+<table>
+<thead>
+<tr>
+<th>Form</th>
+<th>Beispiel</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Methodenname</td>
+<td><code>Load</code>; für Konstruktoren <code>.ctor</code> oder der Klassenname</td>
+</tr>
+<tr>
+<td>Eindeutige Deklaration, wie sie <code>fs_search_code</code> und <code>detail=summary</code> ausgeben</td>
+<td><code>Load(FSstring, FSlong)</code>, Konstruktor <code>.ctor(FSint)</code></td>
+</tr>
+<tr>
+<td>Vollständige Deklaration mit Rückgabetyp</td>
+<td><code>virtual int Load(FSstring sType, FSlong lngId)</code></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Beim Vergleich werden Parameternamen, Leerzeichen, Groß-/Kleinschreibung, <code>global::</code>, System-Aliase (<code>Int32</code> = <code>int</code>) und Namespace-Qualifizierung (<code>NV.Sales.Order</code> = <code>Order</code>) ignoriert.</li>
+<li>Eine vollständige Deklaration ohne Rückgabetyp gilt als Konstruktor und schlägt fehl, wenn ihr Name nicht der Klassenname ist.</li>
+<li>Der Rückgabetyp gehört nicht zur Identität der Methode: Weicht ein angegebener Rückgabetyp vom gespeicherten ab, wird die Methode trotzdem verwendet und <code>note</code> weist darauf hin.</li>
+<li>Bei <code>fs_get_devobject</code> liefert ein reiner Name <strong>alle</strong> Überladungen; eine eindeutige oder vollständige Deklaration muss genau eine Methode treffen.</li>
+<li>Bei <code>fs_get_method_history</code> und <code>fs_diff_method</code> bricht ein reiner Name, der in einer der betrachteten Versionen mehrere Überladungen trifft, mit der Liste der Kandidaten ab. Mit <code>declaration</code> wird die Überladung gezielt gewählt; die Angabe hat Vorrang vor <code>methodName</code> und muss denselben Namen tragen.</li>
+<li>Wird eine angefragte Methode nicht gefunden, listet die Fehlermeldung von <code>fs_get_devobject</code> die im abgefragten Package vorhandenen Methoden mit ihrer eindeutigen Deklaration auf („Available methods in this package: …“), sodass kein zusätzlicher <code>summary</code>-Aufruf nötig ist. Bei Customizings folgt ein Hinweis auf den Parameter <code>package</code>, da geerbte Methoden nicht aufgeführt werden. Bei Code Files nennt die Fehlermeldung stattdessen die Arten von Membern, die der Filter trifft.</li>
+</ul>
+<h3 id="gelesene-schicht-bei-customizings">Gelesene Schicht bei Customizings</h3>
+<p><code>fs_get_devobject</code> und <code>fs_get</code> geben im Kopf des Ergebnisses an, welche Schicht der Customizing-Kette gelesen wurde:</p>
+<table>
+<thead>
+<tr>
+<th>Feld</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>packageName</code></td>
+<td>Package, aus dem der gelieferte Inhalt stammt</td>
+</tr>
+<tr>
+<td><code>layer</code></td>
+<td><code>own</code> (eigenes Element) oder <code>customization</code> (Customization eines Elements aus einem Basis-Package)</td>
+</tr>
+<tr>
+<td><code>isActivePackage</code></td>
+<td>Ob die gelesene Schicht im aktiven Package liegt. Mit <code>package</code> auf ein Basis-Package ist der Wert <code>false</code>.</td>
+</tr>
+<tr>
+<td><code>baseLayers</code></td>
+<td>Nur bei einer Customization: die Schichten darunter, die oberste zuerst</td>
+</tr>
+</tbody>
+</table>
+<h3 id="method-observer">Method Observer</h3>
+<p>Überschriebene Member mit einer Basis tragen in der Ausgabe von <code>fs_get_devobject</code> die Angaben des Method Observers: <code>observer</code> bei Methoden, <code>getObserver</code>/<code>setObserver</code> bei Properties.
+Sie enthalten <code>active</code> (ob der Observer aktiv ist) und, wenn sich Basis-Member seit dem Aktivieren geändert haben, <code>warnings</code> je Package — dieselbe Information wie die Warnung <a href="../weitere-themen/fehlercodes-warnungen.html#fswarn2029">FSWarn[2029]</a> in der IDE.</p>
+<h3 id="andere-elementtypen">Andere Elementtypen</h3>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fs_get</code></td>
+<td>Details zu anderen FS-Elementen abrufen. Parameter: <code>elementType</code> (package|db_table|metadatatype|data_contract|global_object|global_event|service_contract|service_host|workflow|report|datasource|access_unit|documentation_owner), <code>name</code>. Elemente, die zu einem Package gehören, melden die <a href="#gelesene-schicht-bei-customizings">gelesene Schicht</a> wie <code>fs_get_devobject</code>.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="suche">Suche</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fs_search_names</code></td>
+<td>Element-Namen und FullNames durchsuchen (alle Elementtypen inkl. Code Files). Parameter: <code>query</code>, <code>caseSensitive</code>, <code>elementType</code> (optional, PascalCase, z.B. <code>Component</code>, <code>CodeFile</code>), <code>packageScope</code>, <code>maxResults</code> (Default 50).</td>
+</tr>
+<tr>
+<td><code>fs_search_code</code></td>
+<td>Volltextsuche in Signatur und Rumpf der Methoden von Components, Forms, Services, Modular Components, Global Events, Service Contracts und Service Hosts sowie im Quelltext von Code Files. Alle Überladungen einer Methode werden durchsucht. Parameter: <code>query</code>, <code>regex</code> (optional: false für Literal-Match, true für Regex-Pattern), <code>caseSensitive</code>, <code>packageScope</code>, <code>namespaceName</code>, <code>elementType</code>, <code>maxResults</code> (Default 50).</td>
+</tr>
+<tr>
+<td><code>fs_search_dependencies</code></td>
+<td>Strukturelle Abhängigkeiten eines Elements finden (Properties, Typen, Vererbung). Parameter: <code>fullName</code>, <code>packageScope</code>, <code>maxResults</code> (Default 100).</td>
+</tr>
+<tr>
+<td><code>fs_search_documentation</code></td>
+<td>MLDoc-Felder auf Metadatatypes, Properties, Forms und DocumentationOwnern durchsuchen. Parameter: <code>query</code>, <code>caseSensitive</code>, <code>packageScope</code>, <code>maxResults</code> (Default 50).</td>
+</tr>
+</tbody>
+</table>
+<h3 id="code-suche-eingrenzen">Code-Suche eingrenzen</h3>
+<p><code>fs_search_code</code> lässt sich zusätzlich zu <code>packageScope</code> weiter eingrenzen; alle Filter werden per UND verknüpft:</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Bedeutung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>namespaceName</code></td>
+<td>Namespace <strong>inklusive</strong> aller Sub-Namespaces. Erwartet den vollqualifizierten Namen, Groß-/Kleinschreibung egal: <code>Trade.Sales</code> trifft <code>Trade.Sales</code> und <code>Trade.Sales.Orders</code>, aber nicht <code>Trade.SalesReport</code>. Anders als bei <code>fs_list</code> wird der Kurzname allein nicht akzeptiert. Ein unbekannter Namespace liefert einen Fehler.</td>
+</tr>
+<tr>
+<td><code>elementType</code></td>
+<td>Ein oder mehrere Elementtypen als Liste, z.B. <code>[&quot;component&quot;, &quot;code_file&quot;]</code>: <code>component</code>, <code>form</code>, <code>service</code>, <code>modular_component</code>, <code>global_event</code>, <code>service_contract</code>, <code>service_host</code>, <code>code_file</code>. Ein Einzelwert als Text wird ebenfalls akzeptiert; Unterstriche und Groß-/Kleinschreibung werden toleriert (<code>ModularComponent</code> passt also auch). Andere Typen liefern einen Fehler.</td>
+</tr>
+</tbody>
+</table>
+<p>Ungültige Parameter (auch ein nicht übersetzbarer regulärer Ausdruck) werden sofort gemeldet, bevor der Suchindex aufgebaut wird.
+Reguläre Ausdrücke sind auf 100 ms je Zeile und 10 s je Suche begrenzt; bei Überschreitung hilft ein einfacheres Pattern oder eine engere Eingrenzung.</p>
+<h3 id="ergebnisse-der-code-suche">Ergebnisse der Code-Suche</h3>
+<p>Jeder Treffer enthält <code>elementFullName</code>, <code>elementType</code>, <code>namespace</code>, <code>packageName</code>, <code>methodName</code>, <code>uniqueDeclaration</code>, <code>lineNumber</code> und <code>matchLine</code>.</p>
+<ul>
+<li><code>uniqueDeclaration</code> — die eindeutige Deklaration der Methode bzw. des Members. Sie lässt sich direkt als <code>method</code> an <code>fs_get_devobject</code> übergeben und trifft dann genau diese Methode, auch bei Überladungen. Nur wenn die gespeicherte Deklaration nicht auswertbar ist, ist sie leer; dann hilft <code>methodName</code>.</li>
+<li><code>lineNumber</code> — bei Methoden 1-basiert und relativ zum gespeicherten Methodenrumpf. <strong><code>0</code> bedeutet einen Treffer in der Signatur</strong>; Signaturtreffer stehen vor den Rumpftreffern derselben Methode. <code>fs_get_devobject</code> gibt Methoden neu formatiert und mit Signatur und Klammern aus, die Zeilennummern weichen dort also ab — den Treffer findet man über <code>matchLine</code>. Bei Code Files ist <code>lineNumber</code> relativ zum Member-Quelltext, wie <code>fs_get_devobject</code> ihn ausgibt; eine Zeile 0 gibt es dort nicht.</li>
+<li><code>packageName</code> — stammt ein Treffer aus einem Basis-Package, liefert <code>fs_get_devobject</code> die Methode nur mit <code>package=&lt;packageName&gt;</code>, da ein Customizing nur die Methoden des eigenen Packages ausgibt.</li>
+</ul>
+<p>Treffer in Global Events und Service Contracts ruft man über <code>fs_get</code> ab: Es gibt alle Methoden mit Deklaration und rohem <code>innerCode</code> aus (dort passt <code>lineNumber</code> direkt), allerdings nur die Version im aktiven Package.</p>
+<p>Treffer in Code Files (<code>elementType = &quot;CodeFile&quot;</code>) tragen zusätzlich:</p>
+<ul>
+<li><code>kind</code> — Art des Members, z.B. <code>method</code>, <code>property</code>, <code>event</code></li>
+<li><code>enclosingType</code> — umschließender Typ (<code>Outer.Inner</code>), zur Unterscheidung gleichnamiger Member in verschachtelten Typen</li>
+</ul>
+<p>Methoden-Treffer stehen vor Code-File-Treffern.
+Bei vielen Methoden-Treffern schneidet <code>maxResults</code> die Code-File-Treffer daher ab — mit <code>elementType: [&quot;code_file&quot;]</code> wird gezielt nur in Code Files gesucht.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>fs_search_code</code> durchsucht bei Methoden Signatur (inkl. Parametertypen und -namen) und Rumpf, nicht aber Descriptions.
+Die Signatur wird dabei vereinheitlicht und einzeilig durchsucht (überzählige Leerzeichen entfernt, <code>&quot;, &quot;</code> nach Kommas) — auch wenn sie in der IDE anders eingegeben wurde, z.B. <code>Load( FSstring a )</code>.
+Bei <strong>Code Files</strong> wird jeder Member mit Code-Body durchsucht (Methoden, Konstruktoren, Destruktoren, Operatoren, Indexer, Properties mit get/set, Events mit add/remove), auch in verschachtelten Typen — nicht aber Felder, Event-Felder, Enum-Member, <code>using</code>s und Typdeklarationen.</p>
+<p><code>fs_search_names</code> durchsucht Element-Namen, nicht Property- oder Methodennamen innerhalb eines Elements.
+AccessUnit, Datasource, DocumentationOwner und Code Files <strong>sind</strong> in der Namenssuche enthalten (als <code>elementType</code>-Filter <code>AccessUnit</code>, <code>Datasource</code>, <code>DocumentationOwner</code>, <code>CodeFile</code>).</p>
+<p><code>fs_search_documentation</code> durchsucht MLDoc-Felder auf Metadatatypes, Component-Properties, Forms und DocumentationOwnern.
+Die Suche findet Doku-<strong>Inhalte</strong>; den <strong>Namen</strong> eines DocumentationOwners findet man über <code>fs_search_names</code>.
+Die FrameworkStudio-Hilfe durchsucht sie <strong>nicht</strong> — dafür gibt es <code>fs_search_help</code> (siehe unten).</p>
+</div>
+<h2 id="hilfe-und-api-referenz">Hilfe und API-Referenz</h2>
+<p>Die FrameworkStudio-Hilfe (Konzepte, Anleitungen, Release Notes) ist im MCP-Server enthalten und passt damit immer zur Version der IDE.
+Die API-Referenz wird aus den XML-Dokumentationen gelesen, die mit FrameworkStudio ausgeliefert werden.
+Beide stehen ohne Internetzugang zur Verfügung.</p>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fs_search_help</code></td>
+<td>Volltextsuche in der Hilfe. Parameter: <code>query</code>, <code>regex</code> (optional, Default false), <code>caseSensitive</code> (optional, Default false), <code>maxResults</code> (optional, Default 50 Trefferzeilen). Ohne <code>regex</code> wird die Anfrage an Leerzeichen in Begriffe zerlegt, <code>&quot;…&quot;</code> hält eine Phrase zusammen; eine Seite trifft, wenn <strong>alle</strong> Begriffe auf ihr vorkommen (nicht unbedingt in derselben Zeile). Mit <code>regex</code> wird der Ausdruck zeilenweise geprüft. Seiten mit Treffer im Titel stehen vorn, danach nach Trefferzahl. Die Tool-Beschreibung nennt die Themen der Hilfe (oberste Ebene des Inhaltsverzeichnisses), damit der KI-Client weiß, welche Bereiche abgedeckt sind.</td>
+</tr>
+<tr>
+<td><code>fs_get_help</code></td>
+<td>Hilfe lesen. Parameter: <code>page</code> (optional, z.B. <code>doc/konzepte/dependency-injection</code>), <code>section</code> (optional, z.B. <code>doc/print-server</code>, nicht zusammen mit <code>page</code>), <code>offset</code>, <code>limit</code> (optional). Ohne <code>page</code> und <code>section</code> kommt die Liste aller Seiten, mit <code>section</code> die Gliederung eines Bereichs, mit <code>page</code> der Markdown-Inhalt einer Seite (Details siehe unten).</td>
+</tr>
+<tr>
+<td><code>fs_get_api</code></td>
+<td>Veröffentlichte API-Referenz nachschlagen — dieselben Typen und Member wie in der Online-API-Doku (mit <code>[DocfxBrowsable]</code> markiert, aus FS.Shared, FS.Hosting.*, FS.DataClient, FrameworkStudio.General und FSDeveloperAPI). Parameter: <code>name</code>, <code>maxResults</code> (optional, Default 50). <code>name</code> ist eine UID wie <code>FS.Hosting.Shared.FSServiceProvider.CreateScope</code> oder deren Ende (<code>FSServiceProvider.CreateScope</code>, <code>CreateScope</code>), optional mit Parameterliste oder Präfix <code>T:</code>/<code>M:</code>/<code>P:</code>/<code>F:</code>/<code>E:</code>; Groß-/Kleinschreibung und ein Generik-Suffix wie <code>`2</code> sind optional.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ergebnisse-von-fs_search_help">Ergebnisse von <code>fs_search_help</code></h3>
+<p>Jeder Treffer enthält:</p>
+<ul>
+<li><code>page</code> — Seiten-ID, mit <code>fs_get_help</code> lesbar</li>
+<li><code>title</code> — Titel der Seite</li>
+<li><code>heading</code> — nächste Überschrift oberhalb der Zeile (leer vor der ersten Überschrift)</li>
+<li><code>lineNumber</code> — 1-basiert, passend zur Nummerierung von <code>fs_get_help</code></li>
+<li><code>matchLine</code> — die Trefferzeile; Zeilen mit mehr als 200 Zeichen werden um den Treffer herum gekürzt (<code>…</code> markiert die Kürzung)</li>
+<li><code>url</code> — Link zur Online-Doku (leer bei <code>toc.yml</code>)</li>
+</ul>
+<h3 id="ergebnisse-von-fs_get_help">Ergebnisse von <code>fs_get_help</code></h3>
+<p>Der Weg zu einer Seite führt vom Thema über den Bereich (den Ordner, z.B. Thema „Print-Server“ → <code>doc/print-server</code>) und dessen Gliederung zur Seite:</p>
+<table>
+<thead>
+<tr>
+<th>Aufruf</th>
+<th>Ergebnis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ohne <code>page</code> und <code>section</code></td>
+<td>Liste aller Seiten mit <code>page</code> und <code>title</code>; <code>offset</code> und <code>limit</code> zählen dann Seiten statt Zeilen. Mit <code>offset</code> 1 zusätzlich <code>sections</code>, die Bereiche der Hilfe; <code>limit</code> 1 liefert nur die Bereiche ohne die lange Seitenliste.</td>
+</tr>
+<tr>
+<td>mit <code>section</code></td>
+<td>Gliederung des Bereichs: je Seite <code>page</code>, <code>title</code> und <code>outline</code> (die H2/H3-Überschriften mit ihrer Zeilennummer), dazu <code>subsections</code>. Nur Seiten direkt im Ordner; <code>offset</code> und <code>limit</code> zählen Seiten (Default 50).</td>
+</tr>
+<tr>
+<td>mit <code>page</code></td>
+<td>Markdown-Inhalt der Seite (inkl. Front Matter), jede Zeile mit Zeilennummer (passend zu <code>lineNumber</code> aus <code>fs_search_help</code>). Lange Seiten werden nach <code>limit</code> Zeilen gekürzt (Default 500, <code>truncated</code>) und mit <code>offset</code> = bisheriger Offset + <code>limit</code> fortgesetzt.</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Die Seiten-ID ist tolerant: <code>.md</code>, <code>.html</code>, <code>#anker</code>, führendes <code>docs/</code> und Groß-/Kleinschreibung sind egal.</li>
+<li>Bei einer unbekannten Seite schlägt die Fehlermeldung ähnliche Seiten vor.</li>
+<li>Das Inhaltsverzeichnis ist als Seite <code>doc/toc.yml</code> abrufbar (außerdem <code>toc.yml</code> und <code>articles/toc.yml</code>); es hilft bei der Navigation, wenn eine Suche nichts findet.</li>
+</ul>
+<h3 id="ergebnisse-von-fs_get_api">Ergebnisse von <code>fs_get_api</code></h3>
+<ul>
+<li><strong>Eindeutiger Treffer:</strong> <code>name</code>, <code>kind</code>, <code>assembly</code>, <code>url</code> (Online-API-Seite), <code>helpPages</code> (Hilfeseiten, die auf diese API verweisen — lesbar mit <code>fs_get_help</code>, <code>lineNumber</code> ist die verweisende Zeile) und <code>entries</code> je Überladung mit <code>uid</code>, <code>returnType</code>, <code>obsolete</code> und der XML-Dokumentation. Eine Parameterliste im <code>name</code> wählt die passende Überladung, ein leeres <code>()</code> die parameterlose; passt keine, kommen alle Überladungen mit einem Hinweis (<code>note</code>).</li>
+<li><strong>Typen</strong> liefern zusätzlich <code>baseType</code>, <code>interfaces</code> und die selbst deklarierten <code>members</code>. Geerbte Member stehen beim Basistyp und lassen sich dort mit <code>fs_get_api</code> nachschlagen.</li>
+<li><strong>Mehrere Treffer:</strong> <code>candidates</code> mit <code>uid</code>, <code>kind</code>, Zahl der Überladungen und Kurzbeschreibung — anschließend mit der <code>uid</code> des passenden Kandidaten erneut aufrufen.</li>
+<li><code>&lt;inheritdoc/&gt;</code> wird nicht aufgelöst; die Dokumentation steht dann beim Basistyp bzw. Interface-Member.</li>
+<li><code>docsMissing</code> / <code>loadErrors</code> nennen Assemblies, deren Dokumentation nicht verfügbar ist.</li>
+</ul>
+<div class="NOTE">
+<h5>Note</h5>
+<p><code>fs_get_api</code> kennt nur API mit XML-Dokumentation (<code>///</code>-Kommentar). Ein fehlender Treffer beweist daher nicht, dass es die API nicht gibt.</p>
+</div>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Der MCP-Server gibt KI-Clients beim Verbindungsaufbau einen Hinweis mit (<code>instructions</code>): Bevor das Modell das Verhalten von FrameworkStudio aus Code oder aus fehlenden Suchtreffern ableitet, soll es die Hilfe (<code>fs_search_help</code>, <code>fs_get_help</code>) und die API-Referenz (<code>fs_get_api</code>) befragen.
+Die <code>url</code> aus den Treffern kann an den Benutzer weitergegeben werden, wenn er in der Online-Doku weiterlesen soll.</p>
+</div>
+<h2 id="änderungshistorie-und-vererbung">Änderungshistorie und Vererbung</h2>
+<table>
+<thead>
+<tr>
+<th>Tool</th>
+<th>Beschreibung</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fs_get_element_history</code></td>
+<td>Versionsverlauf eines Elements (Version, Datum, Benutzer, Kommentar, Check-out-Status) — für Namespace-Elemente wie Components, Forms und Services ebenso wie für DB-Tabellen. Parameter: <code>fullName</code>, <code>maxResults</code> (optional, Default 50 — es werden die neuesten Versionen zurückgegeben; <code>totalVersions</code> nennt die Gesamtzahl, <code>truncated</code> zeigt eine Kürzung an).</td>
+</tr>
+<tr>
+<td><code>fs_get_method_history</code></td>
+<td>Code-Änderungen einer Methode über verschiedene Versionen, wie im Method History Browser der IDE. Parameter: <code>fullName</code>, <code>methodName</code>, <code>declaration</code> (bei Überladungen, siehe <a href="#methoden-adressieren">Methoden adressieren</a>), <code>label</code>, <code>sinceLabel</code>, <code>includeOlderLabels</code>, <code>maxResults</code> (optional, Default 50 — gezählt werden Versionen mit tatsächlicher Änderung). Die Historie wird von der neuesten Änderung rückwärts gesammelt und endet nach <code>maxResults</code> Änderungen; kleine Werte sind daher auch bei Elementen mit vielen Versionen schnell. <code>truncated</code> zeigt ältere Änderungen an; <code>versionsWithChanges</code> (Gesamtzahl) ist nur gesetzt, wenn alle Versionen betrachtet wurden.</td>
+</tr>
+<tr>
+<td><code>fs_get_element_changelog</code></td>
+<td>CheckIn-Verlauf eines Elements über mehrere Labels, je Version mit der Liste der geänderten Methoden (Name, Signatur, Status <code>added</code>/<code>modified</code>/<code>deleted</code>) — <strong>ohne</strong> Methoden-Code. Parameter: <code>fullName</code>, <code>label</code>, <code>sinceLabel</code>, <code>includeOlderLabels</code>, <code>methodFilter</code>, <code>includeDeclarations</code>. Die älteste Version des Bereichs ist die Ausgangsbasis (<code>isBaseline</code>) ohne Methodenliste. Nur Labels ab <strong>FrameworkStudio 3.7</strong> werden ausgewertet (siehe unten).</td>
+</tr>
+<tr>
+<td><code>fs_diff_method</code></td>
+<td>Unified-Diff einer einzelnen Methode zwischen zwei Labels bzw. zwei Element-Versionen. Parameter: <code>fullName</code>, <code>methodName</code>, <code>declaration</code> (bei Überladungen), <code>labelA</code>, <code>labelB</code>, <code>versionA</code>/<code>versionB</code> (optional, Default jeweils die neueste Version im Label), <code>context</code> (Default 3 Zeilen). <code>labelA</code> und <code>labelB</code> dürfen gleich sein, um zwei CheckIns innerhalb eines Releases zu vergleichen.</td>
+</tr>
+<tr>
+<td><code>fs_get_checkin_history</code></td>
+<td>Globaler CheckIn-Verlauf (wer hat wann was eingecheckt). Parameter: <code>sinceDate</code> (optional, ISO-Format, Default: letzte 30 Tage), <code>user</code> (optional, Teilstring, ohne Groß-/Kleinschreibung), <code>elementType</code> (optional, z.B. <code>Component</code>), <code>includeCheckedOut</code> (optional, auch aktuell ausgecheckte Elemente, Default false), <code>packageScope</code>, <code>maxResults</code> (optional, Default 100). Jedes Package der Hierarchie liefert die CheckIns seines aktuellen Labels; <code>packageName</code> nennt das Package.</td>
+</tr>
+<tr>
+<td><code>fs_get_inheritance_tree</code></td>
+<td>Vererbungsbaum eines Elements: Vorfahren (Basis-Kette) und/oder Nachfahren (Ableitungen). Parameter: <code>fullName</code>, <code>direction</code> (<code>ancestors</code>|<code>descendants</code>|<code>both</code>, Default <code>both</code>), <code>maxDepth</code> (Default 50). Vererbung gibt es bei Forms, Metadatentypen, Reports und Workflows. Die Customizing-Kette über Packages ist nicht enthalten — eine Element-Version aus einem Basis-Package liefert <code>fs_get_devobject</code> mit <code>package</code>.</td>
+</tr>
+</tbody>
+</table>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Für die Frage „was hat sich zwischen zwei Releases geändert“ ist <code>fs_get_element_changelog</code> der token-sparsame Einstieg (Methodenlisten ohne Code); für die interessanten Treffer anschließend gezielt <code>fs_diff_method</code> aufrufen, statt ganze Historien über <code>fs_get_method_history</code> zu laden.</p>
+</div>
+<h3 id="welche-labels-gelesen-werden">Welche Labels gelesen werden</h3>
+<p>Die History-Tools lesen die Labels des Packages, zu dem das Element gehört — wie der Versionsbrowser der IDE:</p>
+<ul>
+<li>Für ein nicht angepasstes Element aus einem Basis-Package sind das die Labels des Basis-Packages, für eine Customization die Versionen der Customization.</li>
+<li>Ohne Angabe von <code>label</code> wird das Label des Packages in der aktiven Hierarchie verwendet (für Elemente des aktiven Packages also das aktive Label).</li>
+<li>Ist dieses Label nicht verfügbar, wird das letzte Label gelesen und <code>note</code> weist darauf hin.</li>
+</ul>
+<h3 id="historie-importierter-packages">Historie importierter Packages</h3>
+<p>Beim Export eines Packages wird je Label nur die aktuelle Version eines Elements mitgenommen.
+Ein importiertes Package (z.B. ein ausgeliefertes Basis-Package) enthält deshalb je Import und Label nur einen Stand; die einzelnen CheckIns dazwischen fehlen.</p>
+<p>Lesen die History-Tools (<code>fs_get_element_history</code>, <code>fs_get_method_history</code>, <code>fs_get_element_changelog</code>, <code>fs_diff_method</code>, <code>fs_get_checkin_history</code>) ein solches Package, setzen sie <code>historyAvailable: false</code> und nennen das Package in <code>note</code>.
+Die gelieferten Versionen sind dann die importierten Stände, nicht die vollständige Historie.
+Das mit FrameworkStudio ausgelieferte <code>SystemPackage</code> zählt nicht als importiert.</p>
+<h3 id="changelog-erst-ab-labels-mit-fs-37">Changelog erst ab Labels mit FS 3.7</h3>
+<p>Ob eine Methode in einer Element-Version geändert wurde, erkennt <code>fs_get_element_changelog</code> an der Versionszuordnung der Methoden, die es erst seit FrameworkStudio 3.6 gibt.
+In älteren Labels würde sonst jede Methode in jeder Version als geändert gemeldet. Der Changelog liest deshalb nur Labels ab FS 3.7:</p>
+<ul>
+<li>Liegt das angefragte <code>label</code> davor, endet der Aufruf mit einem Fehler, der auf <code>fs_get_method_history</code> verweist.</li>
+<li>Ältere Labels werden übersprungen, auch wenn <code>sinceLabel</code> darunter liegt. <code>coveredFromLabel</code> nennt dann das älteste tatsächlich gelesene Label, <code>note</code> weist auf das Überspringen hin.</li>
+</ul>
+<p>Ältere Stände einer Methode liefern <code>fs_get_method_history</code> und <code>fs_diff_method</code>; beide vergleichen den Code direkt und sind von dieser Grenze nicht betroffen.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Bei Elementen mit langer Historie (viele Versionen, viele Labels) den Changelog nicht auf einmal anfordern, sondern in Abschnitten — z.B. wenige Releases pro Aufruf über <code>sinceLabel</code> und <code>label</code>.
+Ein einzelner Aufruf darf die IDE höchstens 30 Sekunden belegen (siehe <a href="#zeitlimits">Zeitlimits</a>).</p>
+</div>
+<h2 id="zeitlimits">Zeitlimits</h2>
+<p>Die Tools lesen das Repository über die IDE. Damit ein MCP-Aufruf die IDE nicht blockiert, gelten zwei Grenzen:</p>
+<ul>
+<li><strong>Wartezeit:</strong> Ist die IDE beschäftigt und kann ein Aufruf nicht innerhalb von 30 Sekunden starten, wird er verworfen (Meldung „The IDE's UI thread is busy …“ mit der Zahl der wartenden Aufrufe). Abhilfe: später erneut versuchen und Aufrufe nacheinander statt parallel senden.</li>
+<li><strong>Laufzeit:</strong> Ein Aufruf darf die IDE höchstens 30 Sekunden belegen. Die History-Tools (<code>fs_get_method_history</code>, <code>fs_get_element_changelog</code>) brechen danach ab und geben die IDE wieder frei. Abhilfe: den Bereich enger wählen (<code>label</code>/<code>sinceLabel</code>, kleineres <code>maxResults</code>).</li>
+</ul>
+<p>Die aufwendige Auswertung (z.B. das Auswerten der Methodensignaturen für <code>fs_search_code</code>, die Hilfe- und API-Tools) läuft außerhalb der IDE-Oberfläche und zählt nicht gegen diese Grenzen.</p>
+<h2 id="hinweise-zur-nutzung">Hinweise zur Nutzung</h2>
+<ul>
+<li>Für große Components (50+ Properties, 30+ Methoden) ist <code>detail=summary</code> effizienter als <code>detail=full</code>. Summary zeigt die Struktur ohne Code-Bodies.</li>
+<li>Mit dem Parameter <code>method</code> lässt sich gezielt eine einzelne Methode mit vollem Code laden statt die ganze Component.</li>
+<li>Mit dem Parameter <code>property</code> lässt sich gezielt eine einzelne Property auslesen statt die ganze Component.</li>
+<li><strong>Collections</strong> sind Components mit <code>ComponentType=Collection</code> — sie erscheinen in <code>fs_list</code> mit <code>elementType=component</code>, nicht in einer separaten Liste.</li>
+<li><code>fs_search_dependencies</code> zeigt, was ein Element <strong>referenziert</strong> — nicht, welche Elemente das Element referenzieren. Für die Gegenrichtung <code>fs_search_code</code> verwenden.</li>
+<li>Der Such-Cache (<code>fs_search_names</code>, <code>fs_search_code</code>, <code>fs_search_documentation</code>) wird bei einem Label-Wechsel sowie nach Ablauf einer Gültigkeitsdauer von 5 Minuten neu aufgebaut. Ein CheckIn innerhalb desselben Labels wird also erst mit dem nächsten Cache-Aufbau sichtbar — ein Neustart des MCP-Servers ist dafür nicht nötig.</li>
+<li><strong>Ausnahme Code Files:</strong> Änderungen in einem offenen Code-File-Editor sind in <code>fs_search_code</code> bereits ca. 1 Sekunde nach der letzten Eingabe suchbar — auch wenn sie noch nicht eingecheckt sind. Check-out, Check-in und Undo-Checkout eines Elements bauen den Code-File-Index beim nächsten Suchaufruf neu auf. Methoden-Änderungen in Components, Forms usw. werden dagegen erst nach bis zu 5 Minuten sichtbar.</li>
+<li>Alle drei Suchtools geben <code>indexedAt</code> (UTC) und <code>indexedLabel</code> mit aus — den Zeitpunkt des Indexaufbaus und das indizierte Label. Bei <code>fs_search_code</code> ist <code>indexedAt</code> der ältere der beiden Aufbauzeitpunkte (Methoden- und Code-File-Index). Ein Leerergebnis bedeutet damit nachvollziehbar „nicht in diesem Index“ statt „existiert nicht“.</li>
+<li>Fragen zum Verhalten von FrameworkStudio (Konzepte, Konfiguration, APIs) zuerst über <code>fs_search_help</code>/<code>fs_get_help</code> und <code>fs_get_api</code> klären, statt sie aus dem Repository-Code abzuleiten. Die Hilfe ist auf Deutsch: deutsche Suchbegriffe verwenden; Bezeichner wie <code>IFSServiceRegistrar</code> funktionieren unverändert.</li>
+</ul>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

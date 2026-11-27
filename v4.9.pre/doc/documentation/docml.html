@@ -123,17 +123,20 @@
 <p>Eine besondere Untergruppe der Tags bilden die leeren Tags. Dies sind öffnende und schließende Tags in einem. Leere Tags können keinen Text oder andere Tags beinhalten. Leere Tags definieren sich durch eine öffnende eckige Klammer <strong><code>[</code></strong>, den Bezeichner, einen Schrägstrich <strong><code>/</code></strong> und die schließende eckige Klammer <strong><code>]</code></strong>:</p>
 <p><strong><code>[</code></strong> + Bezeichner + <strong><code>/</code></strong> + <strong><code>]</code></strong></p>
 <p><u>Beispiele:</u> <strong><code>[screenshot/]</code></strong>, <strong><code>[img/]</code></strong>, <strong><code>[br/]</code></strong></p>
-<p>Diese leeren Tags dienen z.B. dem Einfügen eines Bildes oder Zeilenumbruch in die Dokumentation.</p>
+<p>Diese leeren Tags dienen z.B. dem Einfügen eines Bildes oder eines Zeilenumbruchs in die Dokumentation.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Zeilenumbrüche im Quelltext der Dokumentation erscheinen nicht in der Ausgabe. Sie dienen nur der Lesbarkeit im Editor. Ein Zeilenumbruch in der Ausgabe muss explizit mit <strong><code>[br/]</code></strong> angegeben werden.</p>
+</div>
 <h3 id="tag-attribute">Tag-Attribute</h3>
 <p>Die meisten Tags können in ihrem Verhalten durch Attribute gesteuert werden. Ein Attribut definiert sich durch einen Bezeichner gefolgt, von einem Gleichheitszeichen <strong><code>=</code></strong> sowie dem Attributwert in Hochkommas. Attribute können in öffnenden und leeren Tags vorkommen:</p>
 <p>In öffnendem Tag:</p>
-<p><code>[f</code> <strong><code>bg=&quot;ff0000&quot;</code></strong> <code>]</code>Text mit roter Hintergrundfarbe<code>[/f]</code></p>
+<p><code>[f</code> <strong><code>bc=&quot;#FF0000&quot;</code></strong> <code>]</code>Text mit roter Hintergrundfarbe<code>[/f]</code></p>
 <p>In leerem Tag:</p>
 <p><code>[screenshot</code> <strong><code>caption=&quot;Auftragserfassung&quot;</code></strong> <code>/]</code></p>
 <p>Im Kapitel <a href="#tag-reference">Tag Reference</a> ist ausführlich beschrieben, welcher Tag mit welchen Attributen gesteuert werden kann.</p>
 <h2 id="tag-reference">Tag Reference</h2>
-<p>Nachfolgend werden alle verfügbaren Tags und die zugehörigen Attribute der <strong>DocML</strong>-Sprache beschrieben. Die Tags unterscheiden sich in zwei Klassen, <a href="#inline-tags">Inline-Tags</a> und <a href="#block-tags">Block-Tags</a>
-. <strong>Inline-Tags</strong> werden meist für Formatierungszwecke genutzt wie z.B. Fettschrift oder Textfarbe, während <strong>Block-Tags</strong> Strukturen wie Tabellen, Listen oder Abschnitte definieren.</p>
+<p>Nachfolgend werden alle verfügbaren Tags und die zugehörigen Attribute der <strong>DocML</strong>-Sprache beschrieben. Die Tags teilen sich in zwei Klassen auf: <a href="#inline-tags">Inline-Tags</a> und <a href="#block-tags">Block-Tags</a>. <strong>Inline-Tags</strong> werden meist für Formatierungszwecke genutzt wie z.B. Fettschrift oder Textfarbe, während <strong>Block-Tags</strong> Strukturen wie Tabellen, Listen oder Abschnitte definieren.</p>
 <div class="WARNING">
 <h5>Warning</h5>
 <p>Grundsätzlich gilt: <strong>Inline-Tags</strong> können keine <strong>Block-Tags</strong> beinhalten</p>
@@ -145,6 +148,10 @@
 <li><strong>Bezeichner:</strong> <strong><code>[f]</code></strong></li>
 <li><strong>Leeres Tag:</strong> nein</li>
 <li><strong>Funktion:</strong> Wendet Schriftart, Schriftgröße, Schriftfarbe und Hintergrundfarbe auf den beinhaltenden Text an</li>
+</ul>
+<p><strong>Besonderheiten:</strong></p>
+<ul>
+<li>Das Tag muss mindestens ein Attribut enthalten. Ein <strong><code>[f]</code></strong> ohne Attribute erzeugt einen Fehler.</li>
 </ul>
 <p><strong>Attributes:</strong></p>
 <table>
@@ -172,19 +179,19 @@
 <tr>
 <td style="text-align: left;">fc</td>
 <td style="text-align: center;">nein</td>
-<td style="text-align: left;">Systemfarben wie <code>red</code>, <code>black</code>, <code>blue</code> oder Farbangaben in HEX wie z.B. <code>#FF00000</code></td>
+<td style="text-align: left;">Systemfarben wie <code>red</code>, <code>black</code>, <code>blue</code> oder Farbangaben in HEX wie z.B. <code>#FF0000</code></td>
 <td style="text-align: left;">Textfarbe</td>
 </tr>
 <tr>
 <td style="text-align: left;">bc</td>
 <td style="text-align: center;">nein</td>
-<td style="text-align: left;">Systemfarben wie <code>red</code>, <code>black</code>, <code>blue</code> oder Farbangaben in HEX wie z.B. <code>#FF00000</code></td>
+<td style="text-align: left;">Systemfarben wie <code>red</code>, <code>black</code>, <code>blue</code> oder Farbangaben in HEX wie z.B. <code>#FF0000</code></td>
 <td style="text-align: left;">Hintergrundfarbe</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Beispiel:</strong></p>
-<pre><code class="lang-fs">[f style=&quot;code&quot; size=&quot;xl&quot; fc=&quot;red&quot; bc=&quot;#00ff00&quot;]Möglichkeiten des Font-Tags[/f]
+<pre><code class="lang-fs">[f style=&quot;code&quot; size=&quot;xl&quot; fc=&quot;red&quot; bc=&quot;#00FF00&quot;]Möglichkeiten des Font-Tags[/f]
 </code></pre>
 <h4 id="bold">Bold</h4>
 <p><strong>Eigenschaften:</strong></p>
@@ -329,14 +336,14 @@
 <tr>
 <td style="text-align: left;">width</td>
 <td style="text-align: center;">nein</td>
-<td style="text-align: left;">z.B. „2.3cm“, „3.3in“, „14,34cm“</td>
-<td style="text-align: left;">Breite des angezeigten Bildes. Kommawerte müssen mit Punkt „.“ angegeben werden (z.B. width=“3.4in“)</td>
+<td style="text-align: left;">z.B. <code>2.3cm</code>, <code>3.3in</code>, <code>14.34cm</code></td>
+<td style="text-align: left;">Breite des angezeigten Bildes. Dezimalstellen müssen mit Punkt angegeben werden (z.B. <code>width=&quot;3.4in&quot;</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left;">height</td>
 <td style="text-align: center;">nein</td>
-<td style="text-align: left;">z.B. „2.3cm“, „3.3in“, „14,34cm“</td>
-<td style="text-align: left;">Höhe des angezeigten Bildes. Kommawerte müssen mit Punkt „.“ angegeben werden (z.B. height=“4.7in“)</td>
+<td style="text-align: left;">z.B. <code>2.3cm</code>, <code>3.3in</code>, <code>14.34cm</code></td>
+<td style="text-align: left;">Höhe des angezeigten Bildes. Dezimalstellen müssen mit Punkt angegeben werden (z.B. <code>height=&quot;4.7in&quot;</code>)</td>
 </tr>
 <tr>
 <td style="text-align: left;">caption</td>
@@ -348,14 +355,14 @@
 <td style="text-align: left;">inline</td>
 <td style="text-align: center;">nein</td>
 <td style="text-align: left;"><code>true</code>, <code>false</code></td>
-<td style="text-align: left;">Wenn <code>true</code> wird das Bild wird ein Textzeichen im Textfluss behandelt, sonst wird eine neue Zeile eingefügt</td>
+<td style="text-align: left;">Bei <code>true</code> wird das Bild wie ein Textzeichen im Textfluss behandelt, sonst steht es in einer eigenen Zeile</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Beispiel:</strong></p>
 <pre><code class="lang-fs">[img src=&quot;6600e9ad6c3d4ce4ab4c51b7d2a36844&quot; height=&quot;1.5cm&quot; inline=&quot;true&quot;/]
-[img src=&quot;6600e9ad6c3d4ce4ab4c51b7d2a36844&quot; caption=“Beispielbild“/]
-[img src=&quot;6600e9ad6c3d4ce4ab4c51b7d2a36844&quot; width=“3cm“ height=&quot;1.5cm&quot; caption=“Test“/]
+[img src=&quot;6600e9ad6c3d4ce4ab4c51b7d2a36844&quot; caption=&quot;Beispielbild&quot;/]
+[img src=&quot;6600e9ad6c3d4ce4ab4c51b7d2a36844&quot; width=&quot;3cm&quot; height=&quot;1.5cm&quot; caption=&quot;Test&quot;/]
 </code></pre>
 <h4 id="screenshot">Screenshot</h4>
 <p><strong>Eigenschaften:</strong></p>
@@ -383,8 +390,14 @@
 <tr>
 <td style="text-align: left;">width</td>
 <td style="text-align: center;">nein</td>
-<td style="text-align: left;">z.B. „2.3cm“, „3.3in“, „14,34cm“</td>
-<td style="text-align: left;">Breite des angezeigten Bildes. Kommawerte müssen mit Punkt „.“ angegeben werden (z.B. width=“3.4in“)</td>
+<td style="text-align: left;">z.B. <code>2.3cm</code>, <code>3.3in</code>, <code>14.34cm</code></td>
+<td style="text-align: left;">Breite des angezeigten Bildes. Dezimalstellen müssen mit Punkt angegeben werden (z.B. <code>width=&quot;3.4in&quot;</code>). Prozentangaben sind nicht erlaubt</td>
+</tr>
+<tr>
+<td style="text-align: left;">height</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">z.B. <code>2.3cm</code>, <code>3.3in</code>, <code>14.34cm</code></td>
+<td style="text-align: left;">Höhe des angezeigten Bildes. Dezimalstellen müssen mit Punkt angegeben werden (z.B. <code>height=&quot;4.7in&quot;</code>). Prozentangaben sind nicht erlaubt</td>
 </tr>
 <tr>
 <td style="text-align: left;">caption</td>
@@ -398,6 +411,7 @@
 <pre><code class="lang-fs">[screenshot/]
 [screenshot width=&quot;17cm&quot;/]
 [screenshot width=&quot;14.3in&quot; caption=&quot;Kostenrechnung&quot;/]
+[screenshot width=&quot;12cm&quot; height=&quot;8cm&quot;/]
 </code></pre>
 <h4 id="link">Link</h4>
 <p><strong>Eigenschaften:</strong></p>
@@ -426,7 +440,7 @@
 <tr>
 <td style="text-align: left;">src</td>
 <td style="text-align: center;">ja*</td>
-<td style="text-align: left;">• ID eines Forms oder Documentation-Elements <br>• Url mit führendem <code>http://</code></td>
+<td style="text-align: left;">• ID eines Forms oder Documentation-Elements <br>• Url mit führendem <code>http://</code> oder <code>https://</code></td>
 <td style="text-align: left;">Querverweis in der fertigen Dokumentation oder Hyperlink auf die angegebene Url</td>
 </tr>
 <tr>
@@ -439,8 +453,8 @@
 </table>
 <p>* Die Attribute <code>src</code> und <code>anchor</code> schließen sich gegenseitig aus!</p>
 <p><strong>Beispiel:</strong></p>
-<pre><code class="lang-fs">[lnk src=&quot;f037492b790d24c5b9f16cb4120465e25&quot; text=&quot;Artikeldetails&quot;/]
-[lnk src=&quot;http://www.google.de/&quot; text=&quot;Suchen mit Google&quot;/]
+<pre><code class="lang-fs">[lnk src=&quot;f037492b790d24c5b9f16cb4120465e2&quot; text=&quot;Artikeldetails&quot;/]
+[lnk src=&quot;https://www.google.de/&quot; text=&quot;Suchen mit Google&quot;/]
 [lnk anchor=&quot;Weitere Informationen&quot; text=&quot;Weitere Informationen&quot;/]
 </code></pre>
 <div class="NOTE">
@@ -484,34 +498,6 @@ Ein Test muss in der exportierten Dokumentation stattfinden.</p>
 <pre><code class="lang-fs">[idx entry=&quot;Haupteintrag&quot;/]
 [idx entry=&quot;Haupteintrag&quot; subentry=&quot;Untereintrag&quot;/]
 </code></pre>
-<h4 id="base">Base</h4>
-<p><strong>Eigenschaften:</strong></p>
-<ul>
-<li><strong>Bezeichner:</strong> <strong><code>[base]</code></strong></li>
-<li><strong>Leeres Tag:</strong> ja</li>
-<li><strong>Funktion:</strong> Bindet die Basis-Dokumentation eines Controls, Component Properties, einer DBColumn oder eines Metadatentyps ein.</li>
-</ul>
-<p><strong>Besonderheiten:</strong></p>
-<ul>
-<li>Wird nur an Control, Component Property, DBColumn und Metadatentyp unterstützt.</li>
-<li>Mehr Information in den Kapiteln <a href="vererbung.html">Vererbung</a> und <a href="customizing.html">Customizing</a>.</li>
-</ul>
-<p><strong>Attributes:</strong> Keine</p>
-<p><strong>Beispiel:</strong></p>
-<pre><code class="lang-fs">[idx entry=&quot;Haupteintrag&quot;/]
-[idx entry=&quot;Haupteintrag&quot; subentry=&quot;Untereintrag&quot;/]
-</code></pre>
-<h4 id="line">Line</h4>
-<p><strong>Eigenschaften:</strong></p>
-<ul>
-<li><strong>Bezeichner:</strong> <strong><code>[line]</code></strong></li>
-<li><strong>Leeres Tag:</strong> ja</li>
-<li><strong>Funktion:</strong> Erstellt eine Line als Absatztrenner über die komplette Seitenbreite.</li>
-</ul>
-<p><strong>Attributes:</strong> Keine</p>
-<p><strong>Beispiel:</strong></p>
-<pre><code class="lang-fs">[line/]
-</code></pre>
 <h4 id="break">Break</h4>
 <p><strong>Eigenschaften:</strong></p>
 <ul>
@@ -528,13 +514,14 @@ Ein Test muss in der exportierten Dokumentation stattfinden.</p>
 <p><strong>Eigenschaften:</strong></p>
 <ul>
 <li><strong>Bezeichner:</strong> <strong><code>[section]</code></strong></li>
-<li><strong>Leeres Tag:</strong> optional</li>
+<li><strong>Leeres Tag:</strong> nein</li>
 <li><strong>Funktion:</strong> Definiert einen Textabschnitt in einer Form-Dokumentation oder einem Documentation-Element, der durch die angegebene ID customizing-fähig ist. Siehe <a href="customizing.html">Customizing</a>.</li>
 </ul>
 <p><strong>Besonderheiten:</strong></p>
 <ul>
-<li>Kann sich nur auf oberster Ebene und somit nicht in anderen Tags befinden.</li>
-<li>Wird nur in Form- und Documentation-Elementen unterstützt.</li>
+<li>Kann sich nur auf oberster Ebene und somit nicht in anderen Tags befinden. Sections dürfen auch nicht ineinander verschachtelt werden.</li>
+<li>Wird nur in Form- und Documentation-Elementen unterstützt. Dort muss jeder Text und jedes andere Tag innerhalb einer Section stehen.</li>
+<li>Das Attribut <code>customize</code> verweist auf eine Section der Basis-Dokumentation und ist daher nur in der Dokumentation eines gecustomizten Elements sinnvoll. Enthält die Basis Sections, meldet die Prüfung jede Section ohne <code>customize</code> als Warnung, ebenso eine Section, deren ID es in der Basis nicht gibt.</li>
 </ul>
 <p><strong>Attributes:</strong></p>
 <table>
@@ -555,15 +542,47 @@ Ein Test muss in der exportierten Dokumentation stattfinden.</p>
 </tr>
 <tr>
 <td style="text-align: left;">customize</td>
-<td style="text-align: center;">Im Custom-Package</td>
+<td style="text-align: center;">nur im Customizing</td>
 <td style="text-align: left;">before, after, override</td>
 <td style="text-align: left;">Überschreibungsart der gecustomizten Section</td>
 </tr>
 </tbody>
 </table>
 <p><strong>Beispiel:</strong></p>
-<pre><code class="lang-fs">[section id=“ f0bcfd1621444f6f9f24bc9305120809“/]
-[section id=“ f0bcfd1621444f6f9f24bc9305120809“ customize=“after“/]
+<pre><code class="lang-fs">[section id=&quot;f0bcfd1621444f6f9f24bc9305120809&quot;]
+Text des Abschnitts
+[/section]
+
+[section id=&quot;f0bcfd1621444f6f9f24bc9305120809&quot; customize=&quot;after&quot;]
+Text, der im Customizing hinter dem Abschnitt der Basis eingefügt wird
+[/section]
+</code></pre>
+<h4 id="base">Base</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[base]</code></strong></li>
+<li><strong>Leeres Tag:</strong> ja</li>
+<li><strong>Funktion:</strong> Bindet die Basis-Dokumentation eines Controls, Component Properties, einer DBColumn oder eines Metadatentyps ein.</li>
+</ul>
+<p><strong>Besonderheiten:</strong></p>
+<ul>
+<li>Wird nur an Control, Component Property, DBColumn und Metadatentyp unterstützt.</li>
+<li>Mehr Information in den Kapiteln <a href="vererbung.html">Vererbung</a> und <a href="customizing.html">Customizing</a>.</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[base/]
+</code></pre>
+<h4 id="line">Line</h4>
+<p><strong>Eigenschaften:</strong></p>
+<ul>
+<li><strong>Bezeichner:</strong> <strong><code>[line]</code></strong></li>
+<li><strong>Leeres Tag:</strong> ja</li>
+<li><strong>Funktion:</strong> Erstellt eine Linie als Absatztrenner über die komplette Seitenbreite.</li>
+</ul>
+<p><strong>Attributes:</strong> Keine</p>
+<p><strong>Beispiel:</strong></p>
+<pre><code class="lang-fs">[line/]
 </code></pre>
 <h4 id="list">List</h4>
 <p><strong>Eigenschaften:</strong></p>
@@ -575,7 +594,7 @@ Ein Test muss in der exportierten Dokumentation stattfinden.</p>
 <p><strong>Besonderheiten:</strong></p>
 <ul>
 <li>Kann nur li-Tags beinhalten.</li>
-<li>Das Symbol kann nur definiert werden, wenn das type-Attribut als „unordered“ definiert ist.</li>
+<li>Das Symbol kann nur definiert werden, wenn das type-Attribut als <code>unordered</code> definiert ist.</li>
 </ul>
 <p><strong>Attributes:</strong></p>
 <table>
@@ -644,8 +663,9 @@ Ein Test muss in der exportierten Dokumentation stattfinden.</p>
 <ul>
 <li>Die Breite der Tabelle kann absolut als auch prozentual angegeben werden.</li>
 <li>Wird keine Breite angegeben, definiert sich die Tabellenbreite über die Summe der Spaltenbreiten.</li>
-<li>Ist die Tabellenbreite in Prozent angegeben, müssen auch die Spaltenbreiten in Prozent angegeben werden.</li>
+<li>Ist eine Tabellenbreite angegeben, müssen die Spaltenbreiten in Prozent angegeben werden.</li>
 <li>Ist keine Tabellenbreite angegeben, müssen die Spaltenbreiten in absoluten Werten angegeben werden.</li>
+<li>Alle Spalten einer Tabelle müssen dieselbe Einheit haben. Spaltenbreiten in Prozent ergeben zusammen genau 100 %.</li>
 <li>Eine Tabelle muss eine Spaltendefinition (coldef-Tag) inkl. Spalten (col-Tags) sowie mindestens eine Zeile (row-Tag) beinhalten.</li>
 </ul>
 <p><strong>Attributes:</strong></p>
@@ -662,20 +682,20 @@ Ein Test muss in der exportierten Dokumentation stattfinden.</p>
 <tr>
 <td style="text-align: left;">width</td>
 <td style="text-align: center;">nein</td>
-<td style="text-align: left;">• Absolute Angaben wie z.B. „2.3cm“, „3.3in“, „14,34cm“ <br> • Prozentuale Angaben wie z.B. „50%“, „75%“</td>
-<td style="text-align: left;">Breite der Tabelle. Kommawerte müssen mit Punkt „.“ angegeben werden (z.B. width=“3.4in“). Die prozentuale Angabe bezieht sich auf die Seitenbreite bzw. die Fensterbreite im HTML</td>
+<td style="text-align: left;">• Absolute Angaben wie z.B. <code>2.3cm</code>, <code>3.3in</code>, <code>14.34cm</code> <br> • Prozentuale Angaben wie z.B. <code>50%</code>, <code>75%</code></td>
+<td style="text-align: left;">Breite der Tabelle. Dezimalstellen müssen mit Punkt angegeben werden (z.B. <code>width=&quot;3.4in&quot;</code>). Die prozentuale Angabe bezieht sich auf die Seitenbreite bzw. die Fensterbreite im HTML</td>
 </tr>
 <tr>
 <td style="text-align: left;">fc</td>
 <td style="text-align: center;">nein</td>
-<td style="text-align: left;">Systemfarben wie „red“, „black“, „blue“ oder Farbangaben in HEX wie z.B. „#FF0000“</td>
+<td style="text-align: left;">Systemfarben wie <code>red</code>, <code>black</code>, <code>blue</code> oder Farbangaben in HEX wie z.B. <code>#FF0000</code></td>
 <td style="text-align: left;">Textfarbe für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
 </tr>
 <tr>
 <td style="text-align: left;">bc</td>
 <td style="text-align: center;">nein</td>
-<td style="text-align: left;">Systemfarben wie „red“, „black“, „blue“ oder Farbangaben in HEX wie z.B. „#FF0000“</td>
-<td style="text-align: left;">Hintergrundfarbe  für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
+<td style="text-align: left;">Systemfarben wie <code>red</code>, <code>black</code>, <code>blue</code> oder Farbangaben in HEX wie z.B. <code>#FF0000</code></td>
+<td style="text-align: left;">Hintergrundfarbe für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
 </tr>
 </tbody>
 </table>
@@ -702,7 +722,7 @@ Ein Test muss in der exportierten Dokumentation stattfinden.</p>
 <p><strong>Beispiel:</strong></p>
 <pre><code class="lang-fs">[coldef]
     [col width=&quot;50%&quot;/]
-    [col width=&quot;50%&quot; fc=&quot;#ddee32&quot; bc=&quot;#dd3331&quot; align=&quot;right&quot;/]
+    [col width=&quot;50%&quot; fc=&quot;#DDEE32&quot; bc=&quot;#DD3331&quot; align=&quot;right&quot;/]
 [/coldef]
 </code></pre>
 <h4 id="column">Column</h4>
@@ -715,9 +735,10 @@ Ein Test muss in der exportierten Dokumentation stattfinden.</p>
 <p><strong>Besonderheiten:</strong></p>
 <ul>
 <li>Kann nur innerhalb eines coldef-Tags vorkommen.</li>
-<li>Die Breite der Spalte kann absolut oder prozentual angegeben werden.</li>
-<li>Ist die Tabellenbreite (im tbl-Tag) prozentual angegeben, muss die Spaltenbreite ebenfalls prozentual angegeben werden.</li>
+<li>Die Breite der Spalte muss angegeben werden, absolut oder prozentual.</li>
+<li>Ist im tbl-Tag eine Tabellenbreite angegeben, muss die Spaltenbreite prozentual angegeben werden.</li>
 <li>Ist keine Tabellenbreite (im tbl-Tag) angegeben, muss die Spaltenbreite absolut angegeben werden.</li>
+<li>Alle Spalten einer Tabelle müssen dieselbe Einheit haben. Prozentuale Spaltenbreiten ergeben zusammen genau 100 %.</li>
 </ul>
 <p><strong>Attributes:</strong></p>
 <table>
@@ -732,21 +753,21 @@ Ein Test muss in der exportierten Dokumentation stattfinden.</p>
 <tbody>
 <tr>
 <td style="text-align: left;">width</td>
-<td style="text-align: center;">nein</td>
-<td style="text-align: left;">• Absolute Angaben wie z.B. „2.3cm“, „3.3in“, „14,34cm“ <br> • Prozentuale Angaben wie z.B. „50%“, „75%“</td>
-<td style="text-align: left;">Breite der Tabelle. Kommawerte müssen mit Punkt „.“ angegeben werden (z.B. width=“3.4in“). Die prozentuale Angabe bezieht sich auf die Seitenbreite bzw. die Fensterbreite im HTML</td>
+<td style="text-align: center;">ja</td>
+<td style="text-align: left;">• Absolute Angaben wie z.B. <code>2.3cm</code>, <code>3.3in</code>, <code>14.34cm</code> <br> • Prozentuale Angaben wie z.B. <code>50%</code>, <code>75%</code></td>
+<td style="text-align: left;">Breite der Spalte. Dezimalstellen müssen mit Punkt angegeben werden (z.B. <code>width=&quot;3.4in&quot;</code>). Die prozentuale Angabe bezieht sich auf die Tabellenbreite</td>
 </tr>
 <tr>
 <td style="text-align: left;">fc</td>
 <td style="text-align: center;">nein</td>
-<td style="text-align: left;">Systemfarben wie „red“, „black“, „blue“ oder Farbangaben in HEX wie z.B. „#FF0000“</td>
-<td style="text-align: left;">Textfarbe für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
+<td style="text-align: left;">Systemfarben wie <code>red</code>, <code>black</code>, <code>blue</code> oder Farbangaben in HEX wie z.B. <code>#FF0000</code></td>
+<td style="text-align: left;">Textfarbe für die Zellen der Spalte. Überschreibt die Angabe der Tabelle und kann durch Zeilen oder Zellen überschrieben werden.</td>
 </tr>
 <tr>
 <td style="text-align: left;">bc</td>
 <td style="text-align: center;">nein</td>
-<td style="text-align: left;">Systemfarben wie „red“, „black“, „blue“ oder Farbangaben in HEX wie z.B. „#FF0000“</td>
-<td style="text-align: left;">Hintergrundfarbe  für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
+<td style="text-align: left;">Systemfarben wie <code>red</code>, <code>black</code>, <code>blue</code> oder Farbangaben in HEX wie z.B. <code>#FF0000</code></td>
+<td style="text-align: left;">Hintergrundfarbe für die Zellen der Spalte. Überschreibt die Angabe der Tabelle und kann durch Zeilen oder Zellen überschrieben werden.</td>
 </tr>
 <tr>
 <td style="text-align: left;">align</td>
@@ -758,7 +779,7 @@ Ein Test muss in der exportierten Dokumentation stattfinden.</p>
 </table>
 <p><strong>Beispiel:</strong></p>
 <pre><code class="lang-fs">[col width=&quot;4.5cm&quot;/]
-[col width=&quot;50%&quot; fc=&quot;#ddee32&quot; bc=&quot;#dd3331&quot; align=&quot;right&quot;/]
+[col width=&quot;50%&quot; fc=&quot;#DDEE32&quot; bc=&quot;#DD3331&quot; align=&quot;right&quot;/]
 </code></pre>
 <h4 id="row">Row</h4>
 <p><strong>Eigenschaften:</strong></p>
@@ -787,14 +808,14 @@ Ein Test muss in der exportierten Dokumentation stattfinden.</p>
 <tr>
 <td style="text-align: left;">fc</td>
 <td style="text-align: center;">nein</td>
-<td style="text-align: left;">Systemfarben wie „red“, „black“, „blue“ oder Farbangaben in HEX wie z.B. „#FF0000“</td>
-<td style="text-align: left;">Textfarbe für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
+<td style="text-align: left;">Systemfarben wie <code>red</code>, <code>black</code>, <code>blue</code> oder Farbangaben in HEX wie z.B. <code>#FF0000</code></td>
+<td style="text-align: left;">Textfarbe für die Zellen der Zeile. Überschreibt die Angaben von Tabelle und Spalte und kann durch Zellen überschrieben werden.</td>
 </tr>
 <tr>
 <td style="text-align: left;">bc</td>
 <td style="text-align: center;">nein</td>
-<td style="text-align: left;">Systemfarben wie „red“, „black“, „blue“ oder Farbangaben in HEX wie z.B. „#FF0000“</td>
-<td style="text-align: left;">Hintergrundfarbe  für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
+<td style="text-align: left;">Systemfarben wie <code>red</code>, <code>black</code>, <code>blue</code> oder Farbangaben in HEX wie z.B. <code>#FF0000</code></td>
+<td style="text-align: left;">Hintergrundfarbe für die Zellen der Zeile. Überschreibt die Angaben von Tabelle und Spalte und kann durch Zellen überschrieben werden.</td>
 </tr>
 <tr>
 <td style="text-align: left;">align</td>
@@ -805,9 +826,9 @@ Ein Test muss in der exportierten Dokumentation stattfinden.</p>
 </tbody>
 </table>
 <p><strong>Beispiel:</strong></p>
-<pre><code class="lang-fs">[row fc=“#ddee43“]
+<pre><code class="lang-fs">[row fc=&quot;#DDEE43&quot;]
     [cell]Zelle links oben[/cell]
-    [cell rowalign=“top“]Zelle rechts oben[/cell]
+    [cell rowalign=&quot;top&quot;]Zelle rechts oben[/cell]
 [/row]
 [row fc=&quot;GreenYellow&quot; bc=&quot;Linen&quot; align=&quot;bottom&quot;]
     [cell]Zelle links unten[/cell]
@@ -824,7 +845,7 @@ Ein Test muss in der exportierten Dokumentation stattfinden.</p>
 <p><strong>Besonderheiten:</strong></p>
 <ul>
 <li>Kann nur innerhalb eines row-Tags vorkommen.</li>
-<li>Muss innerhalb eines row-Tags genauso oft vorkommen wie die Anzahl der Spalten im coldef-Tag der Tabelle.</li>
+<li>Die Summe der Spaltenspannen (columnspan) aller Zellen einer Zeile muss der Anzahl der Spalten im coldef-Tag der Tabelle entsprechen. Ohne columnspan zählt jede Zelle als eine Spalte.</li>
 </ul>
 <p><strong>Attributes:</strong></p>
 <table>
@@ -840,14 +861,14 @@ Ein Test muss in der exportierten Dokumentation stattfinden.</p>
 <tr>
 <td style="text-align: left;">fc</td>
 <td style="text-align: center;">nein</td>
-<td style="text-align: left;">Systemfarben wie „red“, „black“, „blue“ oder Farbangaben in HEX wie z.B. „#FF0000“</td>
-<td style="text-align: left;">Textfarbe für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
+<td style="text-align: left;">Systemfarben wie <code>red</code>, <code>black</code>, <code>blue</code> oder Farbangaben in HEX wie z.B. <code>#FF0000</code></td>
+<td style="text-align: left;">Textfarbe der Zelle. Überschreibt die Angaben von Tabelle, Spalte und Zeile.</td>
 </tr>
 <tr>
 <td style="text-align: left;">bc</td>
 <td style="text-align: center;">nein</td>
-<td style="text-align: left;">Systemfarben wie „red“, „black“, „blue“ oder Farbangaben in HEX wie z.B. „#FF0000“</td>
-<td style="text-align: left;">Hintergrundfarbe  für die gesamte Tabelle. Kann durch Spalten, Zeilen oder Zellen überschrieben werden.</td>
+<td style="text-align: left;">Systemfarben wie <code>red</code>, <code>black</code>, <code>blue</code> oder Farbangaben in HEX wie z.B. <code>#FF0000</code></td>
+<td style="text-align: left;">Hintergrundfarbe der Zelle. Überschreibt die Angaben von Tabelle, Spalte und Zeile.</td>
 </tr>
 <tr>
 <td style="text-align: left;">rowalign</td>
@@ -861,16 +882,25 @@ Ein Test muss in der exportierten Dokumentation stattfinden.</p>
 <td style="text-align: left;">left, center, right</td>
 <td style="text-align: left;">Horizontale Ausrichtung der Zelle.</td>
 </tr>
+<tr>
+<td style="text-align: left;">columnspan</td>
+<td style="text-align: center;">nein</td>
+<td style="text-align: left;">Ganze Zahl größer 0</td>
+<td style="text-align: left;">Anzahl der Spalten, über die sich die Zelle erstreckt. Ohne Angabe belegt die Zelle eine Spalte.</td>
+</tr>
 </tbody>
 </table>
 <p><strong>Beispiel:</strong></p>
-<pre><code class="lang-fs">[row fc=“#ddee43“]
-    [cell fc=“#3434ee“]Zelle links oben[/cell]
-    [cell colalign=“center“]Zelle rechts oben[/cell]
+<pre><code class="lang-fs">[row fc=&quot;#DDEE43&quot;]
+    [cell fc=&quot;#3434EE&quot;]Zelle links oben[/cell]
+    [cell colalign=&quot;center&quot;]Zelle rechts oben[/cell]
 [/row]
 [row fc=&quot;GreenYellow&quot; bc=&quot;Linen&quot; align=&quot;bottom&quot;]
     [cell]Zelle links unten[/cell]
     [cell bc=&quot;black&quot; colalign=&quot;left&quot; rowalign=&quot;middle&quot;]Zelle rechts unten[/cell]
+[/row]
+[row]
+    [cell columnspan=&quot;2&quot;]Zelle über beide Spalten[/cell]
 [/row]
 </code></pre>
 <h4 id="headline">Headline</h4>
@@ -898,6 +928,92 @@ Ein Test muss in der exportierten Dokumentation stattfinden.</p>
 <h5>Tip</h5>
 <p>Mit einem <a href="#link">Link</a> kann ein Querverweis auf eine Headline im aktuellen Dokument erstellt werden.</p>
 </div>
+<h2 id="häufige-fehler">Häufige Fehler</h2>
+<p>Die folgenden Fehler treten beim Schreiben von DocML häufig auf. Die meisten davon meldet die Prüfung der Dokumentation als Fehler.</p>
+<h3 id="zeilenumbruch-ohne-br">Zeilenumbruch ohne <code>[br/]</code></h3>
+<p>Ein Zeilenumbruch im Quelltext erscheint nicht in der Ausgabe. Zwei Zeilen Text ohne <strong><code>[br/]</code></strong> werden hintereinander ausgegeben.</p>
+<p><strong>Falsch, erscheint in einer Zeile:</strong></p>
+<pre><code class="lang-fs">Erste Zeile
+Zweite Zeile
+</code></pre>
+<p><strong>Richtig:</strong></p>
+<pre><code class="lang-fs">Erste Zeile[br/]
+Zweite Zeile
+</code></pre>
+<h3 id="verschachtelte-sections">Verschachtelte Sections</h3>
+<p>Sections stehen nur auf oberster Ebene. Eine Section in einer anderen Section oder in einem anderen Tag erzeugt einen Fehler. In Form- und Documentation-Elementen muss außerdem jeder Text innerhalb einer Section stehen.</p>
+<p><strong>Falsch:</strong></p>
+<pre><code class="lang-fs">[section id=&quot;f0bcfd1621444f6f9f24bc9305120809&quot;]
+    [section id=&quot;a1b2c3d4e5f60718293a4b5c6d7e8f90&quot;]Text[/section]
+[/section]
+</code></pre>
+<p><strong>Richtig:</strong></p>
+<pre><code class="lang-fs">[section id=&quot;f0bcfd1621444f6f9f24bc9305120809&quot;]Text[/section]
+[section id=&quot;a1b2c3d4e5f60718293a4b5c6d7e8f90&quot;]Text[/section]
+</code></pre>
+<h3 id="leeres-section-tag">Leeres Section-Tag</h3>
+<p>Eine Section muss geöffnet und geschlossen werden. Ein leeres Tag <strong><code>[section … /]</code></strong> erzeugt einen Fehler.</p>
+<h3 id="block-tag-in-einem-inline-tag">Block-Tag in einem Inline-Tag</h3>
+<p><a href="#inline-tags">Inline-Tags</a> dürfen keine <a href="#block-tags">Block-Tags</a> enthalten. Das betrifft auch <strong><code>[base/]</code></strong> und <strong><code>[line/]</code></strong>, die Block-Tags sind.</p>
+<p><strong>Falsch:</strong></p>
+<pre><code class="lang-fs">[b][lst type=&quot;unordered&quot;][li]Eintrag[/li][/lst][/b]
+</code></pre>
+<p><strong>Richtig:</strong></p>
+<pre><code class="lang-fs">[lst type=&quot;unordered&quot;][li][b]Eintrag[/b][/li][/lst]
+</code></pre>
+<h3 id="tags-in-falscher-reihenfolge-geschlossen">Tags in falscher Reihenfolge geschlossen</h3>
+<p>Tags werden in der umgekehrten Reihenfolge geschlossen, in der sie geöffnet wurden.</p>
+<p><strong>Falsch:</strong></p>
+<pre><code class="lang-fs">[b][i]Text[/b][/i]
+</code></pre>
+<p><strong>Richtig:</strong></p>
+<pre><code class="lang-fs">[b][i]Text[/i][/b]
+</code></pre>
+<h3 id="attribut-customize-außerhalb-des-customizings">Attribut <code>customize</code> außerhalb des Customizings</h3>
+<p>Das Attribut <code>customize</code> an einer Section bezieht sich auf eine Section der Basis-Dokumentation. Es ist nur in der Dokumentation eines gecustomizten Elements sinnvoll. Siehe <a href="customizing.html">Customizing</a>.</p>
+<h3 id="weitere-fehlerquellen">Weitere Fehlerquellen</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Fehler</th>
+<th style="text-align: left;">Richtig</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Maßangabe mit Komma, z.B. <code>14,34cm</code></td>
+<td style="text-align: left;">Maßangabe mit Punkt, z.B. <code>14.34cm</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>[f]</code> ohne Attribut</td>
+<td style="text-align: left;">Mindestens eines der Attribute <code>style</code>, <code>size</code>, <code>fc</code> oder <code>bc</code> angeben</td>
+</tr>
+<tr>
+<td style="text-align: left;">Hintergrundfarbe mit <code>bg</code></td>
+<td style="text-align: left;">Das Attribut heißt <code>bc</code></td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>[col]</code> ohne <code>width</code></td>
+<td style="text-align: left;">Jede Spalte braucht eine Breite</td>
+</tr>
+<tr>
+<td style="text-align: left;">Spalten mit gemischten Einheiten, z.B. <code>cm</code> und <code>%</code></td>
+<td style="text-align: left;">Alle Spalten einer Tabelle haben dieselbe Einheit</td>
+</tr>
+<tr>
+<td style="text-align: left;">Prozentuale Spaltenbreiten ergeben nicht 100 %</td>
+<td style="text-align: left;">Die Summe der prozentualen Spaltenbreiten ist genau 100 %</td>
+</tr>
+<tr>
+<td style="text-align: left;">Zellenanzahl einer Zeile passt nicht zu den Spalten</td>
+<td style="text-align: left;">Die Summe der <code>columnspan</code>-Werte einer Zeile entspricht der Spaltenanzahl</td>
+</tr>
+<tr>
+<td style="text-align: left;">Typografische Anführungszeichen (<code>“…“</code>) an Attributen</td>
+<td style="text-align: left;">Attributwerte stehen in geraden Anführungszeichen (<code>&quot;…&quot;</code>)</td>
+</tr>
+</tbody>
+</table>
 
 </article>
 

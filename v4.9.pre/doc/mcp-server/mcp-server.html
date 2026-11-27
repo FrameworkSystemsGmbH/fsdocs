@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+      <title>MCP-Server (Beta) </title>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="title" content="MCP-Server (Beta) ">
+      
+      
+      <link rel="icon" href="../../favicon.ico">
+      <link rel="stylesheet" href="../../public/docfx.min.css">
+      <link rel="stylesheet" href="../../public/main.css">
+      <meta name="docfx:navrel" content="../../toc.html">
+      <meta name="docfx:tocrel" content="../toc.html">
+      
+      <meta name="docfx:rel" content="../../">
+      
+      
+      
+      <meta name="loc:inThisArticle" content="In this article">
+      <meta name="loc:searchResultsCount" content="{count} results for &quot;{query}&quot;">
+      <meta name="loc:searchNoResults" content="No results for &quot;{query}&quot;">
+      <meta name="loc:tocFilter" content="Filter by title">
+      <meta name="loc:nextArticle" content="Next">
+      <meta name="loc:prevArticle" content="Previous">
+      <meta name="loc:themeLight" content="Light">
+      <meta name="loc:themeDark" content="Dark">
+      <meta name="loc:themeAuto" content="Auto">
+      <meta name="loc:changeTheme" content="Change theme">
+      <meta name="loc:copy" content="Copy">
+      <meta name="loc:downloadPdf" content="Download PDF">
+
+      <script type="module" src="./../../public/docfx.min.js"></script>
+
+      <script>
+        const theme = localStorage.getItem('theme') || 'auto'
+        document.documentElement.setAttribute('data-bs-theme', theme === 'auto' ? (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light') : theme)
+      </script>
+
+  </head>
+
+  <body class="tex2jax_ignore" data-layout="" data-yaml-mime="">
+    <header class="bg-body border-bottom">
+      <nav id="autocollapse" class="navbar navbar-expand-md" role="navigation">
+        <div class="container-xxl flex-nowrap">
+          <a class="navbar-brand" href="../../index.html">
+            <img id="logo" class="svg" src="../../logo.svg" alt="">
+            
+          </a>
+          <button class="btn btn-lg d-md-none border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navpanel" aria-controls="navpanel" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="bi bi-three-dots"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navpanel">
+            <div id="navbar">
+              <form class="search" role="search" id="search">
+                <i class="bi bi-search"></i>
+                <input class="form-control" id="search-query" type="search" disabled placeholder="Search" autocomplete="off" aria-label="Search">
+              </form>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container-xxl">
+      <div class="toc-offcanvas">
+        <div class="offcanvas-md offcanvas-start" tabindex="-1" id="tocOffcanvas" aria-labelledby="tocOffcanvasLabel">
+          <div class="offcanvas-header">
+            <h5 class="offcanvas-title" id="tocOffcanvasLabel">Table of Contents</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" data-bs-target="#tocOffcanvas" aria-label="Close"></button>
+          </div>
+          <div class="offcanvas-body">
+            <nav class="toc" id="toc"></nav>
+          </div>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="actionbar">
+          <button class="btn btn-lg border-0 d-md-none" type="button" data-bs-toggle="offcanvas" data-bs-target="#tocOffcanvas" aria-controls="tocOffcanvas" aria-expanded="false" aria-label="Show table of contents">
+            <i class="bi bi-list"></i>
+          </button>
+
+          <nav id="breadcrumb"></nav>
+        </div>
+
+        <article data-uid="">
+<h1 id="mcp-server-beta">MCP-Server (Beta)</h1>
+
+<p>Der MCP-Server stellt eine Schnittstelle bereit, über die KI-Assistenten direkt auf das FrameworkStudio-Repository zugreifen können.
+Er implementiert das <a href="https://modelcontextprotocol.io/">Model Context Protocol (MCP)</a> und läuft als AddIn innerhalb der FrameworkStudio IDE.</p>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Der MCP-Server ist ab Version 4.9 als <strong>Beta-Feature</strong> enthalten. Funktionsumfang und Schnittstellen können sich in zukünftigen Versionen ändern.</p>
+</div>
+<h2 id="was-ermöglicht-der-mcp-server">Was ermöglicht der MCP-Server?</h2>
+<p>KI-Assistenten wie Claude Code, GitHub Copilot in Visual Studio Code oder Cursor können über den MCP-Server:</p>
+<ul>
+<li><strong>Elemente auflisten und lesen</strong> — Components, Forms, Services, Code Files, DB-Tabellen und alle weiteren FS-Elementtypen</li>
+<li><strong>Code inspizieren</strong> — den Quellcode einzelner Methoden und Member abrufen</li>
+<li><strong>Suchen</strong> — nach Namen, im Code inkl. Methodensignaturen (eingrenzbar nach Namespace und Elementtyp), nach Abhängigkeiten und in der Element-Dokumentation</li>
+<li><strong>Hilfe und API-Referenz nachschlagen</strong> — die FrameworkStudio-Hilfe passend zur IDE-Version durchsuchen und lesen sowie die veröffentlichte FS-API nachschlagen</li>
+<li><strong>Änderungshistorie abfragen</strong> — Versionsverlauf von Elementen und Methoden, Unterschiede zwischen Labels und den CheckIn-Verlauf</li>
+</ul>
+<p>Eine Übersicht aller Tools mit ihren Parametern enthält das Kapitel <a href="tools.html">Tools</a>.</p>
+<h2 id="architektur">Architektur</h2>
+<p><img src="media/architektur.svg" alt="Architektur MCP-Server"></p>
+<p>Der MCP-Server wird über das Menü <strong>Tools</strong> in der IDE gestartet und läuft als HTTP-Server auf <code>localhost</code>.
+KI-Clients kommunizieren mit ihm über das standardisierte MCP-Protokoll (JSON-RPC über Streamable HTTP).</p>
+<p>Die Tool-Registry stellt alle verfügbaren Operationen bereit.
+Jedes Tool greift über die FS-API auf das Repository zu — im Kontext des angemeldeten Benutzers.</p>
+<p>Die FrameworkStudio-Hilfe ist im MCP-Server enthalten, die API-Referenz wird aus den mit FrameworkStudio ausgelieferten XML-Dokumentationen gelesen.
+Beide passen damit immer zur installierten Version und sind ohne Internetzugang verfügbar.
+Beim Verbindungsaufbau gibt der Server dem KI-Client zusätzlich Hinweise mit (<code>instructions</code>), wann er Hilfe und API-Referenz befragen soll, statt das Verhalten von FrameworkStudio aus dem Code abzuleiten.</p>
+<h2 id="mcp-server-starten-und-stoppen">MCP-Server starten und stoppen</h2>
+<p>Der MCP-Server wird im Menü <strong>Tools</strong> über <strong>MCP-Server starten (Beta)</strong> gestartet und über <strong>MCP-Server stoppen</strong> wieder beendet.
+Es ist jeweils nur der Menüpunkt aktiv, der zum aktuellen Zustand passt.</p>
+<p>Der Server läuft, bis er über das Menü gestoppt oder die IDE beendet wird. Pro IDE-Instanz läuft höchstens ein MCP-Server.</p>
+<p>Meldungen des Servers erscheinen mit dem Präfix <code>[MCP INFO]</code>, <code>[MCP WARN]</code> bzw. <code>[MCP ERROR]</code> im <strong>Output-Fenster</strong> der IDE, beim Start z.B.:</p>
+<pre><code class="lang-text">[MCP INFO] 09:41:12 MCP server listening on http://localhost:31234/
+[MCP INFO] 09:41:12 MCP server started on port 31234 (user: mmustermann)
+</code></pre>
+<h2 id="port-ermittlung">Port-Ermittlung</h2>
+<p>Der Port wird <strong>automatisch</strong> aus dem Windows-Benutzernamen abgeleitet:</p>
+<ol>
+<li>Aus dem Benutzernamen (lowercase) wird ein Hashwert berechnet</li>
+<li>Der Hashwert bestimmt den Port im Bereich <strong>30100–35099</strong></li>
+<li>Falls der ermittelte Port belegt ist, wird der nächste freie Port verwendet (bis zu 10 Versuche)</li>
+</ol>
+<p>Dadurch erhält jeder Benutzer auf einer Maschine einen eigenen Port, ohne manuelle Konfiguration.
+Solange der Port nicht belegt ist, bleibt er für einen Benutzer immer gleich; die Client-Konfiguration muss daher nur einmal angelegt werden.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Der tatsächlich verwendete Port wird beim Start im <strong>Output-Fenster</strong> der IDE angezeigt.
+Musste auf einen anderen Port ausgewichen werden, steht dort zusätzlich eine Warnung.</p>
+</div>
+<div class="IMPORTANT">
+<h5>Important</h5>
+<p>Selbst wenn mehrere FS-Instanzen geöffnet sind, ist die Verbindung zwischen dem KI-Assistenten und dem MCP nur über eine der Instanzen möglich.
+Welcher MCP genutzt wird, ist durch die Konfiguration bei der <a href="#einrichtung-eines-ki-clients">Einrichtung</a> definiert.</p>
+</div>
+<h2 id="protokollversionen">Protokollversionen</h2>
+<p>Der Server unterstützt die MCP-Protokollversionen <strong>2025-11-25</strong>, <strong>2025-06-18</strong>, <strong>2025-03-26</strong> und <strong>2024-11-05</strong>.
+Die Version wird beim Verbindungsaufbau automatisch zwischen Client und Server ausgehandelt; fordert ein Client eine unbekannte Version an, antwortet der Server mit 2025-11-25.</p>
+<table>
+<thead>
+<tr>
+<th>Transport</th>
+<th>Endpoint</th>
+<th>Für</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Streamable HTTP</td>
+<td><code>http://localhost:PORT/mcp</code></td>
+<td>aktuelle Clients (ab Protokoll 2025-03-26) — empfohlen</td>
+</tr>
+<tr>
+<td>HTTP+SSE</td>
+<td><code>http://localhost:PORT/sse</code></td>
+<td>ältere Clients mit Protokoll 2024-11-05</td>
+</tr>
+</tbody>
+</table>
+<p>In der Client-Konfiguration daher den Typ <code>http</code> mit dem <code>/mcp</code>-Endpoint verwenden (siehe <a href="#einrichtung-eines-ki-clients">Einrichtung eines KI-Clients</a>).</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Eine Verbindung (Session) verfällt nach <strong>30 Minuten</strong> Inaktivität.
+Der Server antwortet dann mit <code>404</code>, und der Client baut selbstständig eine neue Session auf — ein Neustart des MCP-Servers ist nicht nötig.</p>
+</div>
+<h2 id="einrichtung-eines-ki-clients">Einrichtung eines KI-Clients</h2>
+<ol>
+<li><strong>FrameworkStudio starten</strong> und am Repository anmelden</li>
+<li><strong>MCP-Server starten</strong> — Menü <strong>Tools → MCP-Server starten (Beta)</strong></li>
+<li><strong>Port ermitteln</strong> — den Port aus dem Output-Fenster übernehmen (siehe <a href="#port-ermittlung">Port-Ermittlung</a>)</li>
+<li><strong>KI-Client konfigurieren</strong> — als Endpoint <code>http://localhost:PORT/mcp</code> mit dem Transport-Typ <code>http</code> eintragen (Beispiele siehe unten)</li>
+<li><strong>Verbindung prüfen</strong> — der Client sollte die Tools des Servers (<code>fs_list</code>, <code>fs_get_devobject</code>, …) anzeigen</li>
+</ol>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Da der Port vom Windows-Benutzernamen abhängt, gehört die Konfiguration in die benutzerspezifischen Einstellungen des Clients.
+Eine im Projekt eingecheckte Konfiguration mit festem Port passt nur für einen Benutzer.</p>
+</div>
+<h3 id="claude-code">Claude Code</h3>
+<p>Den Server per Kommandozeile hinzufügen (<code>&lt;PORT&gt;</code> durch den Port aus dem Output-Fenster ersetzen):</p>
+<pre><code class="lang-text">claude mcp add --transport http frameworkstudio http://localhost:&lt;PORT&gt;/mcp
+</code></pre>
+<p>Ohne Angabe eines Scopes gilt der Eintrag nur für den aktuellen Benutzer im aktuellen Projektverzeichnis; mit <code>--scope user</code> steht er in allen Projekten zur Verfügung.</p>
+<p>Alternativ kann der Server in der Datei <code>.mcp.json</code> im Projektverzeichnis eingetragen werden:</p>
+<pre><code class="lang-json">{
+  &quot;mcpServers&quot;: {
+    &quot;frameworkstudio&quot;: {
+      &quot;type&quot;: &quot;http&quot;,
+      &quot;url&quot;: &quot;http://localhost:&lt;PORT&gt;/mcp&quot;
+    }
+  }
+}
+</code></pre>
+<p>In Claude Code zeigt der Befehl <code>/mcp</code> den Verbindungsstatus und die verfügbaren Tools.</p>
+<h3 id="visual-studio-code-github-copilot">Visual Studio Code (GitHub Copilot)</h3>
+<p>Den Server in der MCP-Konfiguration eintragen — für alle Projekte in der Benutzer-Konfiguration (Befehl <strong>MCP: Open User Configuration</strong> in der Befehlspalette) oder für einen Workspace in der Datei <code>.vscode/mcp.json</code>:</p>
+<pre><code class="lang-json">{
+  &quot;servers&quot;: {
+    &quot;frameworkstudio&quot;: {
+      &quot;type&quot;: &quot;http&quot;,
+      &quot;url&quot;: &quot;http://localhost:&lt;PORT&gt;/mcp&quot;
+    }
+  }
+}
+</code></pre>
+<p>Alternativ führt der Befehl <strong>MCP: Add Server</strong> (Typ <strong>HTTP</strong>) durch die Einrichtung.
+Die Tools stehen im Copilot-Chat im <strong>Agent</strong>-Modus zur Verfügung.</p>
+<div class="TIP">
+<h5>Tip</h5>
+<p>Konfigurationen mit <code>&quot;type&quot;: &quot;sse&quot;</code> nutzen den Alt-Transport für Protokoll 2024-11-05 und sollten auf <code>&quot;type&quot;: &quot;http&quot;</code> mit dem <code>/mcp</code>-Endpoint umgestellt werden.</p>
+</div>
+<h2 id="voraussetzungen">Voraussetzungen</h2>
+<ul>
+<li>FrameworkStudio 4.9 oder höher</li>
+<li>Laufende IDE mit angemeldetem Benutzer</li>
+<li>Ein MCP-fähiger KI-Client (z.B. Claude Code, GitHub Copilot)</li>
+</ul>
+<h2 id="einschränkungen">Einschränkungen</h2>
+<ul>
+<li>Der Server ist nur lokal erreichbar (<code>localhost</code>) — kein Zugriff von außen</li>
+<li>Pro IDE-Instanz und Nutzer läuft maximal ein MCP-Server</li>
+<li>Der Server arbeitet im Kontext des angemeldeten FS-Benutzers — Berechtigungen gelten wie in der IDE</li>
+<li>Die Verbindung zwischen MCP und KI-Assistent ist immer 1:1, das heißt, dass man nur mit einer FS-Instanz gleichzeitig über den MCP arbeiten kann.</li>
+<li>In der Beta-Version stehen ausschließlich <strong>lesende</strong> Operationen zur Verfügung</li>
+</ul>
+<h2 id="bekannte-limitierungen-beta">Bekannte Limitierungen (Beta)</h2>
+<h3 id="lücken-bei-elementtypen">Lücken bei Elementtypen</h3>
+<p><strong>DocumentationOwner</strong> kann über <code>fs_search_names</code> (Name) und <code>fs_search_documentation</code> (Inhalt) gefunden und über <code>fs_get</code> mit <code>elementType=documentation_owner</code> abgerufen werden.
+Einzige Lücke: DocumentationOwner lässt sich <strong>nicht</strong> über <code>fs_list</code> auflisten.</p>
+<p><strong>Code Files</strong> werden von <code>fs_list</code>, <code>fs_get_devobject</code>, <code>fs_search_names</code> und <code>fs_search_code</code> unterstützt.
+In der Code-Suche werden nur Member mit Code-Body durchsucht (Methoden, Konstruktoren, Destruktoren, Operatoren, Indexer, Properties mit get/set, Events mit add/remove) — nicht Felder, Event-Felder, Enum-Member und Typdeklarationen.</p>
+<h3 id="lücken-bei-bestehenden-tools">Lücken bei bestehenden Tools</h3>
+<table>
+<thead>
+<tr>
+<th>Bereich</th>
+<th>Limitation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Code-Suche</strong></td>
+<td><code>fs_search_code</code> durchsucht Signatur und Rumpf der Component-, Form-, Service-, ModularComponent-, GlobalEvent-, ServiceContract- und ServiceHost-Methoden sowie die Member mit Code-Body von Code Files. Methoden ohne Rumpf und Text außerhalb von Membern (Typdeklarationen, Attribute auf Typebene) werden nicht durchsucht.</td>
+</tr>
+<tr>
+<td><strong>Hilfesuche</strong></td>
+<td><code>fs_search_help</code> verknüpft die Suchbegriffe mit UND und vergleicht sie als Teilstring — ohne Wortstammbildung, ohne Gleichsetzung von <code>ae</code>/<code>ä</code> bzw. <code>ss</code>/<code>ß</code> und ohne Relevanzbewertung außer Titeltreffer und Trefferzahl. Die Hilfe ist auf Deutsch; englische Begriffe treffen nur bei Bezeichnern.</td>
+</tr>
+<tr>
+<td><strong>API-Referenz</strong></td>
+<td><code>fs_get_api</code> kennt nur veröffentlichte API (<code>[DocfxBrowsable]</code>) <strong>mit</strong> XML-Dokumentation. Ein fehlender Treffer beweist nicht, dass es die API nicht gibt. <code>&lt;inheritdoc/&gt;</code> wird nicht aufgelöst.</td>
+</tr>
+<tr>
+<td><strong>Links zur Online-Doku</strong></td>
+<td>Die <code>url</code> in den Ergebnissen der Hilfe- und API-Tools zeigt auf die Online-Doku der jeweiligen Version. Solange die Doku einer neuen Version noch nicht veröffentlicht ist, laufen die Links ins Leere; die Inhalte selbst sind im Server enthalten und davon nicht betroffen.</td>
+</tr>
+<tr>
+<td><strong>Element-Changelog</strong></td>
+<td><code>fs_get_element_changelog</code> wertet nur Labels ab FrameworkStudio 3.7 aus; ältere Labels werden übersprungen. Für ältere Stände einer Methode <code>fs_get_method_history</code> bzw. <code>fs_diff_method</code> verwenden.</td>
+</tr>
+<tr>
+<td><strong>Historie importierter Packages</strong></td>
+<td>Ein importiertes Package enthält je Label nur den exportierten Stand, nicht die einzelnen CheckIns. Die History-Tools melden das mit <code>historyAvailable: false</code> und einem Hinweis (<code>note</code>), siehe <a href="tools.html#historie-importierter-packages">Historie importierter Packages</a>.</td>
+</tr>
+<tr>
+<td><strong>Zeitlimits</strong></td>
+<td>Ein Aufruf, der nicht innerhalb von 30 Sekunden in der IDE starten kann, wird verworfen; ein laufender Aufruf darf die IDE höchstens 30 Sekunden belegen. Aufrufe daher nacheinander senden und lange Historien in Abschnitten abfragen.</td>
+</tr>
+<tr>
+<td><strong>Dokumentationssuche</strong></td>
+<td><code>fs_search_documentation</code> durchsucht Property-MLDoc, Form-Doku und DocumentationOwner-Doku — aber nicht die MLDoc direkt auf Component-Ebene.</td>
+</tr>
+<tr>
+<td><strong>Such-Cache</strong></td>
+<td>Der interne Cache für die Suchtools wird bei einem Label-Wechsel sowie nach 5 Minuten Gültigkeitsdauer neu aufgebaut. Ein CheckIn innerhalb desselben Labels ist daher erst mit dem nächsten Cache-Aufbau sichtbar. <strong>Ausnahme Code Files:</strong> Änderungen im offenen Code-File-Editor sind in <code>fs_search_code</code> bereits nach ca. 1 Sekunde suchbar.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="sicherheitshinweis">Sicherheitshinweis</h2>
+<p>Der MCP-Server verfügt über <strong>keine Authentifizierung</strong>.
+Jeder Prozess auf der lokalen Maschine mit Zugriff auf den jeweiligen <code>localhost</code>-Port erhält uneingeschränkten Lesezugriff auf alle Repository-Daten — einschließlich Methoden-Quellcode und Datenbankschema.</p>
+<p>Das ist für ein lokales Entwickler-Tool bewusst so gestaltet. Daraus folgt:</p>
+<ul>
+<li>Den Server <strong>nicht</strong> auf einer anderen Adresse als <code>localhost</code> betreiben</li>
+<li>Den Server <strong>beenden</strong>, wenn die IDE-Session abgeschlossen ist</li>
+<li>Auf gemeinsam genutzten Entwicklermaschinen (z.B. Terminalservern) beachten, dass andere lokal angemeldete Benutzer ebenfalls Zugriff haben</li>
+</ul>
+<p>Browser-Requests unterliegen zusätzlich einer Origin-Prüfung als Schutz gegen DNS-Rebinding: Erlaubt sind die Origins von Claude (<code>https://claude.ai</code>, <code>https://app.claude.ai</code>) und Loopback-Adressen (z.B. lokal laufende MCP-Clients).
+Ein Request mit einem anderen, gesetzten <code>Origin</code> wird mit <strong>403</strong> abgelehnt und nicht verarbeitet.
+Requests ohne <code>Origin</code> — also Nicht-Browser-Clients wie Claude Code — sind davon nicht betroffen.</p>
+<div class="WARNING">
+<h5>Warning</h5>
+<p>Die Antworten des MCP-Servers enthalten Quellcode und Strukturinformationen aus dem Repository.
+Der KI-Client übermittelt diese Inhalte an den Anbieter des verwendeten Sprachmodells.
+Vor dem Einsatz klären, ob das mit den Vorgaben des eigenen Unternehmens zum Umgang mit Quellcode vereinbar ist.</p>
+</div>
+
+</article>
+
+
+        <div class="next-article d-print-none border-top" id="nextArticle"></div>
+
+      </div>
+
+      <div class="affix">
+        <nav id="affix"></nav>
+      </div>
+    </main>
+
+    <div class="container-xxl search-results" id="search-results"></div>
+
+    <footer class="border-top text-secondary">
+      <div class="container-xxl">
+        <div class="flex-fill">
+          <span><a href="https://www.enventa-group.com/" target="_blank" rel="noopener noreferrer nofollow"><img class="dark" src="../../media/enventa-group-logo-dark.svg" alt="enventa-group" style="height: 1.5rem"><img class="light" src="../../media/enventa-group-logo.svg" alt="enventa-group" style="height: 1.5rem"></a></span> <span style="float:right">Made with <a href="https://dotnet.github.io/docfx" target="_blank" rel="noopener noreferrer nofollow" class="external">docfx</a></span>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>

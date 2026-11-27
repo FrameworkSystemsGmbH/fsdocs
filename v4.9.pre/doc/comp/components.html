@@ -101,6 +101,19 @@
 <p><strong>Query:</strong> Sie stellt die Verbindung zu einer Datenquelle (in der Regel) einer Datenbanktabelle dar. Dazu werden eine oder mehrere Tabellen eingebunden und angegeben, welche Spalten in der Query enthalten sein sollen. Die Component stellt genau einen Datensatz aus dieser Query dar. Allerdings kann eine Query auch ein Join sein.</p>
 <p><strong>Properties:</strong> Sie bieten die Spalten der Query nach außen an. Dabei wird jede Spalte in der Query zu einem Property. Properties können aber auch völlig frei ohne Verbindung zur Query definiert werden. Die verschiedenen Arten der Properties werden im Abschnitt Properties behandelt.</p>
 <p><strong>Methoden:</strong> Sie können verschiedene Zwecke erfüllen. Zum einen können Methoden frei wie in einer normalen Klasse definiert werden. Diese können dann irgendwelche Operationen ausführen. Zum anderen gibt es Entrypoints (virtuelle Methoden), die in der Component überschrieben werden können, um z.B. die Daten vor dem Abspeichern in der Datenbank zu validieren.</p>
+<h2 id="vom-datenbankfeld-zum-property">Vom Datenbankfeld zum Property</h2>
+<p>Ein Wert aus der Datenbank gelangt über drei Ebenen in ein Property:</p>
+<pre><code class="lang-text">DB-Tabelle          Spalte (Column) mit Metadatentyp
+  → Query           Virtual Column, verweist auf die Spalte, Name = Alias
+    → Property      Mapping auf die Virtual Column
+</code></pre>
+<ul>
+<li>Für ein Feld, das in der Datenbank gespeichert wird, brauchen Sie alle drei Ebenen: die Spalte in der <a href="../database/dbtable.html">DB-Tabelle</a>, die Virtual Column in der <a href="tab_query.html">Query</a> und das <a href="tab_properties.html">Property</a> mit Mapping. Legen Sie die Ebenen in dieser Reihenfolge an. <strong>Autogenerate Virtual Columns</strong> und <strong>Autogenerate Properties</strong> auf der Registerkarte Query übernehmen die letzten beiden Schritte.</li>
+<li>Ein Feld, das nicht gespeichert wird, ist nur ein Property ohne Mapping.</li>
+</ul>
+<p>Datentyp und Beschriftungen werden entlang dieser Ebenen vererbt, siehe <a href="../mdt/vererbung.html">Vererbung von Metadatentypen</a> und <a href="tab_properties.html#registerkarte-texts">Registerkarte Texts</a>.</p>
+<p>Welcher Code aus diesen Angaben erzeugt wird, zeigt <a href="../konzepte/code-generierung.html">Codegenerierung</a> an einem Beispiel.</p>
+<h2 id="collections">Collections</h2>
 <p>Collections sind (wie in .NET) eine Sammlung von Objekten einer Component. Sie stellen bereits von sich aus Properties und Methoden bereit, um diese Sammlung zu verwalten. Eine Collection verwaltet immer die Objekte von genau einer Component. Sie können zu einer Collection nur Properties und Methoden hinzufügen.</p>
 <h2 id="anlegen-von-components">Anlegen von Components</h2>
 <p>Eine Component können Sie erzeugen, indem Sie auf der Namespaces-Registerkarte den <strong>Namespace</strong> auswählen, in dem die Component angelegt werden soll. Abschließend drücken Sie den Button (<strong>New</strong>) und wählen den Eintrag <strong>Component</strong> aus. Die neue Component wird gleich im Hauptfenster des <strong>Framework Designers</strong> geöffnet.</p>

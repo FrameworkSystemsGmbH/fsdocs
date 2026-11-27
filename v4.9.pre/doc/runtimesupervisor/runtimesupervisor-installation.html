@@ -90,7 +90,8 @@
 <p>Die Systemvoraussetzung für den Runtime Supervisor befinden sich <a href="../../articles/requirements.html#runtime-supervisor">hier</a>.</p>
 <h2 id="vorbereiten-einer-datenbank">Vorbereiten einer Datenbank</h2>
 <h3 id="microsoft-sql-server">Microsoft SQL Server</h3>
-<p>Wenn Microsoft SQL Server verwendet wird, muss nicht zwingend eine Datenbank vor der eigentlichen Installation durch den Setup Wizard erstellt werden. Der Setup Wizard überprüft selbst, ob die angegebene Datenbank schon existiert und ob der angegebene Benutzer die nötigen Rechte besitzt, die Datenbank und das Datenbankschema zu erstellen.</p>
+<p>Wenn Microsoft SQL Server verwendet wird, muss nicht zwingend eine Datenbank vor der eigentlichen Installation durch den Setup Wizard erstellt werden.
+Der Setup Wizard überprüft selbst, ob die angegebene Datenbank schon existiert und ob der angegebene Benutzer die nötigen Rechte besitzt, die Datenbank und das Datenbankschema zu erstellen.</p>
 <h3 id="oracle">Oracle</h3>
 <p>Wenn Oracle verwendet werden soll, muss auf dem Datenbankserver ein entsprechender User angelegt sein, der dann im Setup Wizard angegeben werden kann.</p>
 <h2 id="setup-wizard">Setup Wizard</h2>
@@ -113,12 +114,13 @@
 <p>Das Installationsverzeichnis kann über den Button „Browse“ oder durch manuelle Eingabe geändert werden.</p>
 <h3 id="auswahl-des-datenbank-providers">Auswahl des Datenbank-Providers</h3>
 <p><img src="media/image5.png" alt="Setup Wizard – Auswahl des Datenbank-Providers"></p>
-<p>In diesem Schritt wird festgelegt, mit welchem Datenbank-Anbieter der Runtime Supervisor arbeiten soll. Es besteht die Auswahl zwischen Microsoft SQL Server und Oracle. Sollte der optionale Oracle ODP.NET Client nicht installiert sein, kann nur “SQL Server” ausgewählt werden.</p>
+<p>In diesem Schritt wird festgelegt, mit welchem Datenbank-Anbieter der Runtime Supervisor arbeiten soll. Es besteht die Auswahl zwischen Microsoft SQL Server und Oracle.
+Sollte der optionale Oracle ODP.NET Client nicht installiert sein, kann Oracle <em>nicht</em> ausgewählt werden.</p>
 <div class="NOTE">
 <h5>Note</h5>
 <p>Die Auswahl des Datenbank-Anbieters ist dauerhaft und kann nicht bei einem Update auf zukünftige Versionen des Runtime Supervisor geändert werden!</p>
 </div>
-<h3 id="sql-server-datenbankverbindung">SQL Server Datenbankverbindung</h3>
+<h4 id="sql-server-datenbankverbindung">SQL Server Datenbankverbindung</h4>
 <p><img src="media/image6.png" alt="Setup Wizard – SQL Server Datenbankverbindung"></p>
 <p>Dieser Schritt wird nur angezeigt, wenn im vorherigen Schritt als Datenbank-Anbieter “SQL Server” ausgewählt wurde. Über diesen Dialog wird die Datenbankverbindung definiert, mit der der Runtime Supervisor arbeiten soll.</p>
 <p><strong>Server:</strong></p>
@@ -126,7 +128,7 @@
 <p><strong>Database:</strong></p>
 <p>Name der SQL-Datenbank, die der Runtime Supervisor verwenden/anlegen soll.</p>
 <p><strong>Username:</strong></p>
-<p>SQL-Benutzer, der verwendet werden soll (Windows Authentifizierung wird derzeit nicht unterstützt). Der User muss ausreichend Rechte besitzen, um das Datenbankschema ändern zu können (Tabellen anlagen etc.) und ggf. Rechte besitzen, um eine Datenbank anlegen zu können, sollte sie noch nicht existieren.</p>
+<p>SQL-Benutzer, der verwendet werden soll (Windows Authentifizierung wird derzeit nicht unterstützt). Der User muss ausreichend Rechte besitzen, um das Datenbankschema ändern zu können (Tabellen anlegen etc.) und ggf. Rechte besitzen, um eine Datenbank anlegen zu können, sollte sie noch nicht existieren.</p>
 <p><strong>Password:</strong></p>
 <p>Das Passwort des angegebenen SQL-Benutzers.</p>
 <p>Über den Button “Test Connection” können die Angaben überprüft werden. Ist die Verbindung zum Server erfolgreich, wird zusätzlich angezeigt, ob die angegebene Datenbank schon existiert oder nicht.</p>
@@ -134,7 +136,7 @@
 <h5>Note</h5>
 <p>Es muss keine existierende Datenbank angegeben werden. Wird eine Datenbank angegeben, die noch nicht existiert, wird diese während der Installation automatisch erstellt.</p>
 </div>
-<h3 id="oracle-datenbankverbindung">Oracle Datenbankverbindung</h3>
+<h4 id="oracle-datenbankverbindung">Oracle Datenbankverbindung</h4>
 <p><img src="media/image7.png" alt="Setup Wizard – Oracle Datenbankverbindung"></p>
 <p>Dieser Schritt wird nur angezeigt, wenn im vorherigen Schritt als Datenbank-Anbieter “Oracle” ausgewählt wurde. Über diesen Dialog wird die Datenbankverbindung definiert, mit der der Runtime Supervisor arbeiten soll.</p>
 <p><strong>Server:</strong></p>

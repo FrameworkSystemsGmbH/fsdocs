@@ -151,6 +151,13 @@ Dabei wird nur das jeweilige Interface und nicht dessen Basis-Interface(s) betra
 <p>Durch das Setzen der Checkbox <strong>Abstract Class</strong> kann eine Klasse als <code>abstract</code> definiert werden.</p>
 <p>Nur wenn die Klasse abstrakt ist, lassen sich abstrakte Methoden und Properties anlegen.</p>
 <p>Im Customizing kann diese Einstellung nicht geändert werden.</p>
+<h4 id="default-config">Default Config</h4>
+<p>Im Feld <strong>Default Config</strong> kann für einen <a href="../restservices/restservices.html">REST Service</a> eine Standard-Konfiguration im JSON-Format hinterlegt werden.
+Das Feld wird nur angezeigt, wenn der <a href="#compile-step">Compile Step</a> <code>RestService</code> ist und unter <a href="#interfaces">Interfaces</a> <code>FS.Hosting.Shared.IFSRestService</code> eingetragen ist.</p>
+<p>Die Default Config wird mit der Modular Component im Repository gespeichert und gilt damit für alle Entwickler.
+Sie wird im <a href="../publish-wizards/run-wizard.html#rest-services---general">Run-Wizard</a> und im <a href="../publish-wizards/publish-wizard.html#rest-services---general">Publish Wizard</a> verwendet, solange dort keine eigene <strong>Configuration</strong> eingetragen ist.
+Änderungen an der Default Config wirken dort automatisch, solange die Default Config verwendet wird.</p>
+<p>Im Customizing und bei abgeleiteten Modular Components wird die Default Config aus der Basis übernommen und kann überschrieben werden.</p>
 <h3 id="funktionale-einschränkungen-der-modular-components">Funktionale Einschränkungen der Modular Components</h3>
 <p>Funktionen, welche aus Components bekannt sind, jedoch nicht für Modular Components umgesetzt wurden:</p>
 <ol>

@@ -141,22 +141,69 @@ Beim Bereinigen des Objekts am Ende des Blocks werden sowohl der ServiceProvider
 <p>Wie diese Mechanismen unabhängig voneinander gesteuert werden können, wird weiter unten im Abschnitt <a href="#asynchrone-operationen">Asynchrone Operationen</a> erläutert.</p>
 </blockquote>
 <h2 id="eigener-scope-mit-global">Eigener Scope mit Global</h2>
-<p><a class="xref" href="../../api/FS.Hosting.Shared.FSServiceProvider.CreateScope.html#FS_Hosting_Shared_FSServiceProvider_CreateScope_FS_Hosting_Shared_GlobalObj_IGlobalObjects_">CreateScope()</a> kann auch mit einem GlobalObject aufgerufen werden.
-Das hat denselben Effekt wie <code>using(GlobalContext.Context(global))</code>.</p>
-<pre><code class="lang-csharp">using (var globalObj = FS.Hosting.Broker.Base.GlobalObjectManager.CreateGlobalObject(guid.NewGuid().Value))
+<p>Ein Scope gehört immer zu genau einem GlobalObject: Er arbeitet mit dessen Benutzer, dessen Rechten und dessen Session.</p>
+<div class="CAUTION">
+<h5>Caution</h5>
+<p>Ein GlobalObject wird immer in einem eigenen Scope erzeugt und verwendet – nie im Scope eines Requests oder einer Service-Methode.</p>
+</div>
+<h3 id="neues-globalobject-erzeugen-und-verwenden">Neues GlobalObject erzeugen und verwenden</h3>
+<p>Ein neues GlobalObject wird mit <code>GlobalObjectManager.CreateGlobalObject()</code> in einem eigenen Scope erzeugt.
+Für die Arbeit mit dem GlobalObject wird danach ein eigener Scope mit <a class="xref" href="../../api/FS.Hosting.Shared.FSServiceProvider.CreateScope.html#FS_Hosting_Shared_FSServiceProvider_CreateScope_FS_Hosting_Shared_GlobalObj_IGlobalObjects_">CreateScope(global)</a> erzeugt:</p>
+<pre><code class="lang-csharp">GlobalObjects globalObj;
+using (FSServiceProvider.CreateScope())
+{
+    globalObj = FS.Hosting.Broker.Base.GlobalObjectManager.CreateGlobalObject(guid.NewGuid().Value);
+}
+
 using (FSServiceProvider.CreateScope(globalObj))
+using (globalObj)
 {
     // FSServiceProvider.Current....
     // GlobalContext.Current...
 }
 </code></pre>
+<p>Die Reihenfolge der <code>using</code>-Anweisungen sorgt dafür, dass das GlobalObject noch innerhalb seines Scopes freigegeben wird.</p>
+<p>Der Scope des Aufrufers bleibt dabei unverändert. Nach dem <code>using</code>-Block arbeitet der Code wieder mit dem ursprünglichen Scope und GlobalObject.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Ein eigener Scope hat eigene Datenbankverbindungen. Änderungen aus einer offenen Transaktion des Aufrufers sind im eigenen Scope nicht sichtbar.</p>
+</div>
+<h3 id="vorhandenes-globalobject-verwenden">Vorhandenes GlobalObject verwenden</h3>
+<p>Wird ein GlobalObject länger aufbewahrt und mehrfach verwendet (z.B. in einem Pool), wird es wie oben in einem eigenen Scope erzeugt und für jede Verwendung ein eigener Scope mit <code>CreateScope(global)</code> erzeugt:</p>
+<pre><code class="lang-csharp">using (FSServiceProvider.CreateScope(globalObj))
+{
+    // FSServiceProvider.Current....
+    // GlobalContext.Current...
+}
+</code></pre>
+<p><a class="xref" href="../../api/FS.Hosting.Shared.FSServiceProvider.CreateOrUseScope.html#FS_Hosting_Shared_FSServiceProvider_CreateOrUseScope"><code>FSServiceProvider.CreateOrUseScope()</code></a> reicht dafür nicht aus: Innerhalb eines Requests oder einer Service-Methode existiert immer bereits ein Scope, sodass kein neuer Scope erzeugt wird.</p>
+<p>Ohne aktiven Scope löst <code>CreateGlobalObject()</code> eine <code>InvalidOperationException</code> aus.</p>
+<h3 id="zweites-globalobject-im-selben-scope">Zweites GlobalObject im selben Scope</h3>
+<p>Wird ein GlobalObject in einem Scope erzeugt oder gesetzt, der bereits zu einem anderen GlobalObject gehört, arbeitet der Scope bis zum Ende des jeweiligen <code>using</code>-Blocks mit dem Benutzer des zweiten GlobalObjects.
+Ein neu erzeugtes GlobalObject hat keinen angemeldeten Benutzer, der Code läuft in dieser Zeit also mit dem Default-User und dessen Rechten.
+Das betrifft auch Tasks und Threads, die parallel im selben Scope laufen. Eine in dieser Zeit geöffnete Datenbankverbindung bleibt dem zweiten GlobalObject zugeordnet.</p>
+<p>Das Framework schreibt in diesem Fall eine Warnung mit Aufrufstelle und Aufrufstack in das Log des Hosts (z.B. „Show Trace Log“ im Tray-Icon des Brokers). Ist ein Runtime Supervisor angebunden, erscheint sie dort als Warnung. Je Aufrufstelle wird nur einmal pro Prozess gewarnt:</p>
+<ul>
+<li><em>&quot;GlobalObjects of session ... created in a service scope bound to session ...&quot;</em></li>
+<li><em>&quot;GlobalObjects of session ... used in a service scope bound to session ...&quot;</em></li>
+</ul>
+<p>Danach stellt das Framework den Benutzer und die Session des ursprünglichen GlobalObjects wieder her, sofern dieses beim Setzen des zweiten GlobalObjects noch in einem aktiven Block stand (z.B. <code>GlobalContext</code> oder <code>FSServiceProvider.CreateScope(global)</code>). Ein GlobalObject aus einem bereits beendeten Block wird ohne Wiederherstellung ersetzt. Die Blöcke müssen in umgekehrter Reihenfolge enden, wie es <code>using</code> sicherstellt. Der Code sollte trotzdem auf einen eigenen Scope umgestellt werden.</p>
+<h3 id="umstellung-von-globalcontext">Umstellung von GlobalContext</h3>
 <p>Das folgende Beispiel zeigt eine Umstellung von <code>GlobalContext</code> auf <code>FSServiceProvider</code>:</p>
-<pre><code class="lang-diff">    using (var globalObj = FS.Hosting.Broker.Base.GlobalObjectManager.CreateGlobalObject(guid.NewGuid().Value))
+<pre><code class="lang-diff">-   using (var globalObj = FS.Hosting.Broker.Base.GlobalObjectManager.CreateGlobalObject(guid.NewGuid().Value))
 -   using (GlobalContext.Context(globalObj))
++   GlobalObjects globalObj;
++   using (FSServiceProvider.CreateScope())
++   {
++       globalObj = FS.Hosting.Broker.Base.GlobalObjectManager.CreateGlobalObject(guid.NewGuid().Value);
++   }
++
 +   using (FSServiceProvider.CreateScope(globalObj))
++   using (globalObj)
  {
     //...
 </code></pre>
+<p>Im Gegensatz zu <code>GlobalContext.Context(global)</code> setzt ein Scope nicht nur <code>GlobalContext.Current</code>, sondern stellt auch Benutzer-Authentifizierung, Session und Datenbankverbindungen für das GlobalObject bereit.</p>
 <h2 id="asynchrone-operationen">Asynchrone Operationen</h2>
 <div class="IMPORTANT">
 <h5>Important</h5>
@@ -165,7 +212,11 @@ Vorher muss intensiv ein Refactoring geprüft werden.</p>
 </div>
 <p>Der Abschnitt baut auf den oben beschriebenen <a href="#eigener-scope">eigenen Scope</a> auf.</p>
 <p>Im folgenden Beispiel wird ein Worst-Case-Szenario aufgezeigt:</p>
-<pre><code class="lang-csharp">var globalObj = FS.Hosting.Broker.Base.GlobalObjectManager.CreateGlobalObject(guid.NewGuid().Value);
+<pre><code class="lang-csharp">GlobalObjects globalObj;
+using (FSServiceProvider.CreateScope())
+{
+    globalObj = FS.Hosting.Broker.Base.GlobalObjectManager.CreateGlobalObject(guid.NewGuid().Value);
+}
 IUserControlledScope ucServiceScope = FSServiceProvider.CreateUserControlledScope();
 bool ucScopeDisposedByThread = false;
 try

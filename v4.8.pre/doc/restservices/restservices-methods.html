@@ -99,6 +99,9 @@
 <h2 id="konfiguration">Konfiguration</h2>
 <p>Über den <a href="../publish-wizards/run-wizard.html#rest-services">RunWizard</a> bzw. den <a href="../publish-wizards/publish-wizard.html#rest-services---general">Publish Wizard</a> muss für den REST Service eine Konfiguration übergeben werden.
 Diese Konfiguration muss im JSON-Format hinterlegt werden.</p>
+<p>Bei einem REST Service als Modular Component kann zusätzlich eine <a href="../modcomp/modcomp.html#default-config">Default Config</a> hinterlegt werden.
+Sie wird im Run- und Publish-Wizard verwendet, solange dort keine eigene Konfiguration eingetragen ist.
+REST Services, die als <a href="../code-file/codefile.html">Code File</a> angelegt sind, unterstützen keine Default Config.</p>
 <div class="IMPORTANT">
 <h5>Important</h5>
 <p>Die REST Services verwenden intern ihren FullName als Identifier.
@@ -227,7 +230,7 @@ Es gelten dieselben Regeln wie beim <a href="../konzepte/di-fsserviceprovider.ht
 Innerhalb des Requests dürfen keine Tasks oder Threads gestartet werden, die über die Lebensdauer des Requests hinaus aktiv sind.</p>
 </div>
 <h2 id="beispielcode-für-einen-controller-mit-eigenem-globalobject">Beispielcode für einen Controller mit eigenem GlobalObject</h2>
-<p>In WCF-Services wurde über das Property <code>GenerateGlobalObject</code> automatisch ein <code>using (FSServiceProvider.CreateScope())</code> um die Servicemethode gelegt. In REST Services muss dies selbst implementiert werden.</p>
+<p>In WCF-Services wird über das Property <code>GenerateGlobalObject</code> automatisch ein eigenes GlobalObject erzeugt und für die Servicemethode gesetzt. In REST Services muss dies selbst implementiert werden, empfohlen mit einem eigenen Scope (siehe <a href="../konzepte/di-fsserviceprovider.html#eigener-scope-mit-global">Eigener Scope mit Global</a>).</p>
 <pre><code class="lang-csharp">[Route(&quot;api/[controller]&quot;)]
 public class TokenController : Controller
 {
@@ -236,10 +239,17 @@ public class TokenController : Controller
     {
         string result = &quot;&quot;;
 
-        var localGlobal = FS.Hosting.Broker.Base.GlobalObjectManager.CreateGlobalObject(
-            FS.Shared.BaseObjects.guid.NewGuid().Value);
+        // Das GlobalObject wird in einem eigenen Scope erzeugt und in einem eigenen Scope verwendet.
+        // Der Scope des Requests bleibt unverändert.
+        GlobalObjects localGlobal;
+        using (FSServiceProvider.CreateScope())
+        {
+          localGlobal = FS.Hosting.Broker.Base.GlobalObjectManager.CreateGlobalObject(
+              FS.Shared.BaseObjects.guid.NewGuid().Value);
+        }
 
         using (FSServiceProvider.CreateScope(localGlobal))
+        using (localGlobal)
         {
           // ...
         }
@@ -255,7 +265,7 @@ public class TokenController : Controller
 </code></pre>
 <div class="IMPORTANT">
 <h5>Important</h5>
-<p>In den WCF-Services wurde über das Property <code>GenerateGlobalObject</code> automatisch ein <code>using (FSServiceProvider.CreateScope())</code> um die Servicemethode gelegt. Dies muss in den REST Services selbst implementiert werden!</p>
+<p>In den WCF-Services wird über das Property <code>GenerateGlobalObject</code> automatisch ein eigenes GlobalObject erzeugt und für die Servicemethode gesetzt. Dies muss in den REST Services selbst implementiert werden!</p>
 </div>
 <h2 id="minimales-beispiel">Minimales Beispiel</h2>
 <p>Der folgende Code zeigt eine minimale <code>IFSRestService</code>-Implementierung mit JSON-Konfiguration über <code>UseFSConfiguration()</code> — ohne weitere FS-Services:</p>
